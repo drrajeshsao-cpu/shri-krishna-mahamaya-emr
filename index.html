@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR V1.9</title>
+<title>Shri Krishna Mahamaya Clinic EMR V2.0</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -65,18 +65,31 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 .timeline-item{border-left:4px solid var(--p);padding:10px 12px;margin:8px 0;background:#fbfdfe;border-radius:0 10px 10px 0}
 @media(max-width:760px){.dashboard-grid{grid-template-columns:repeat(2,1fr)}.quick-grid{grid-template-columns:1fr}}
 
+
+.followup-banner{background:#edf7f2;border:1px solid #9bcdb0;border-radius:10px;padding:10px;margin-bottom:10px}
+.timeline{position:relative;margin:12px 0}
+.timeline:before{content:"";position:absolute;left:17px;top:0;bottom:0;width:3px;background:#c7dfe5}
+.visit-node{position:relative;margin:0 0 12px 44px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px}
+.visit-node:before{content:"";position:absolute;left:-35px;top:16px;width:15px;height:15px;border-radius:50%;background:var(--p);border:3px solid #eef6f8}
+.visit-node.current{border:2px solid var(--p);background:#f4fbfc}
+.progress-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.progress-box{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fbfdfe}
+.delta-good{color:#176b43;font-weight:800}.delta-warn{color:#8a5b00;font-weight:800}.delta-bad{color:#a1261d;font-weight:800}
+@media(max-width:760px){.progress-grid{grid-template-columns:repeat(2,1fr)}}
+
 </style>
 </head>
 <body>
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>V1.9 • Dashboard • Today’s OPD • Recent Patients</p>
+<p>V2.0 • Follow-up Timeline • Progress Comparison</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> V1.8 के working engine में केवल Dashboard, Today’s OPD, Recent Patients और Quick Search जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
+<div class="notice"><b>Stable incremental build:</b> V1.9 के working engine में केवल Follow-up Timeline और Progress Comparison जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
 <div class="tabs actions">
 <button id="tabDashboard" class="primary active">🏠 Dashboard</button>
+<button id="tabTimeline" class="secondary">🔄 Follow-up</button>
 <button id="tabPatient" class="secondary">👤 Patient</button>
 <button id="tabComplaint" class="secondary">🧭 Complaint</button>
 <button id="tabClinical" class="secondary">🩺 Clinical</button>
@@ -88,7 +101,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="tabPreview" class="secondary">📄 Preview/PDF</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V1.9</div>
+<div id="status" class="status">App loaded successfully. Version: V2.0</div>
 </div>
 
 
@@ -129,6 +142,48 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <div class="card">
 <h2>Recent Patients</h2>
 <div id="recentList"></div>
+</div>
+</section>
+
+
+<section id="timelineSection" class="hidden">
+<div class="card">
+<h2>Patient Follow-up Timeline</h2>
+<div id="timelinePatientHeader" class="followup-banner">Open a saved patient to view follow-up timeline.</div>
+
+<div class="progress-grid">
+<div class="progress-box"><label>Previous Pain Score</label><input id="previousPain" readonly></div>
+<div class="progress-box"><label>Current Pain Score</label><input id="currentPainCompare" type="number" min="0" max="10"></div>
+<div class="progress-box"><label>Previous Status</label><input id="previousStatus" readonly></div>
+<div class="progress-box"><label>Current Status</label>
+<select id="currentStatusCompare">
+<option value=""></option>
+<option>Worsened</option><option>No change</option><option>Mild improvement</option>
+<option>Moderate improvement</option><option>Marked improvement</option><option>Resolved</option>
+</select></div>
+</div>
+
+<div class="grid">
+<div><label>Progress Since Last Visit</label><textarea id="progressNotes"></textarea></div>
+<div><label>New Complaints / Adverse Effects</label><textarea id="newFollowupComplaints"></textarea></div>
+</div>
+
+<div class="grid3">
+<div><label>Compliance</label><select id="compliance"><option value=""></option><option>Good</option><option>Partial</option><option>Poor</option><option>Not assessed</option></select></div>
+<div><label>Next Follow-up Date</label><input id="nextFollowupDate" type="date"></div>
+<div><label>Visit Outcome</label><select id="visitOutcome"><option value=""></option><option>Continue treatment</option><option>Medicine modified</option><option>Investigations advised</option><option>Referred</option><option>Discharged</option></select></div>
+</div>
+
+<div class="actions">
+<button id="saveProgressBtn" class="primary">💾 Save Progress</button>
+<button id="createFollowupBtn" class="success">＋ Create New Follow-up Visit</button>
+<button id="openCurrentVisitBtn" class="secondary">Open Current Visit</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Visit Timeline</h2>
+<div id="visitTimeline" class="timeline"></div>
 </div>
 </section>
 
@@ -362,8 +417,8 @@ const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
 function key(id){return PREFIX+id}
-function blank(){return{id:makeId(),uhid:makeUHID(),visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},updatedAt:new Date().toISOString()}}
-function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;return r}
+function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},updatedAt:new Date().toISOString()}}
+function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;return r}
 function save(r){r.updatedAt=new Date().toISOString();localStorage.setItem(key(r.id),JSON.stringify(r))}
 function all(){const a=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX)){try{a.push(JSON.parse(localStorage.getItem(k)))}catch(e){}}}return a.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))}
 function remove(id){localStorage.removeItem(key(id))}
@@ -413,7 +468,7 @@ const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
 set('followupDate',p.followupDate);set('followupNote',p.followupNote);set('emergencyContact',p.emergencyContact);set('prescriptionNotes',p.notes);
-updateComplaintWorkflow();renderInvestigations();renderMedicines();showPatient()}
+updateComplaintWorkflow();renderInvestigations();renderMedicines();populateFollowup();showPatient()}
 
 
 function prescriptionSummaryText(){
@@ -515,6 +570,93 @@ try{await navigator.clipboard.writeText(text);status('Prescription copied to cli
 }
 
 
+
+function visitGroupId(r){return r.patientGroupId||r.uhid||r.id}
+function samePatientVisits(r){
+const gid=visitGroupId(r);
+return all().filter(x=>visitGroupId(x)===gid).sort((a,b)=>(a.visitDate||'').localeCompare(b.visitDate||'')||(a.updatedAt||'').localeCompare(b.updatedAt||''));
+}
+function previousVisitOf(r){
+const visits=samePatientVisits(r);
+const i=visits.findIndex(x=>x.id===r.id);
+return i>0?visits[i-1]:null;
+}
+function latestVisitForGroup(gid){
+return all().filter(x=>visitGroupId(x)===gid).sort((a,b)=>(b.visitDate||'').localeCompare(a.visitDate||'')||(b.updatedAt||'').localeCompare(a.updatedAt||''))[0]||null;
+}
+function copyForFollowup(source){
+const next=JSON.parse(JSON.stringify(source));
+next.id=makeId();
+next.parentVisitId=source.id;
+next.patientGroupId=visitGroupId(source);
+next.visitType='Follow-up';
+next.visitDate=today();
+next.createdAt=new Date().toISOString();
+next.updatedAt=new Date().toISOString();
+next.followup={
+progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',
+nextFollowupDate:'',previousPain:source.clinical?.pain||''
+};
+next.complaint.severity=source.complaint?.severity||'';
+next.clinical.pain=source.clinical?.pain||'';
+return next;
+}
+function readFollowup(){
+current.followup={
+progressNotes:val('progressNotes'),
+newComplaints:val('newFollowupComplaints'),
+compliance:val('compliance'),
+status:val('currentStatusCompare'),
+outcome:val('visitOutcome'),
+nextFollowupDate:val('nextFollowupDate'),
+previousPain:val('previousPain')
+};
+if(val('currentPainCompare'))current.clinical.pain=val('currentPainCompare');
+}
+function populateFollowup(){
+const prev=previousVisitOf(current);
+const f=current.followup||{};
+$('timelinePatientHeader').innerHTML=`<b>${esc(current.patient?.name||'Unnamed')}</b> — ${esc(current.uhid||'')}<br><span class="small">Current visit: ${esc(current.visitDate||'')} • ${esc(current.visitType||'')}</span>`;
+set('previousPain',f.previousPain||prev?.clinical?.pain||'');
+set('currentPainCompare',current.clinical?.pain||'');
+set('previousStatus',prev?.followup?.status||prev?.prescription?.followupNote||'Not recorded');
+set('currentStatusCompare',f.status);
+set('progressNotes',f.progressNotes);
+set('newFollowupComplaints',f.newComplaints);
+set('compliance',f.compliance);
+set('nextFollowupDate',f.nextFollowupDate);
+set('visitOutcome',f.outcome);
+renderVisitTimeline();
+}
+function painDeltaText(prev,curr){
+const p=Number(prev),c=Number(curr);
+if(!Number.isFinite(p)||!Number.isFinite(c))return '';
+const d=p-c;
+if(d>0)return `<span class="delta-good">Pain improved by ${d}</span>`;
+if(d<0)return `<span class="delta-bad">Pain worsened by ${Math.abs(d)}</span>`;
+return `<span class="delta-warn">Pain unchanged</span>`;
+}
+function renderVisitTimeline(){
+const visits=samePatientVisits(current);
+$('visitTimeline').innerHTML=visits.map((v,i)=>{
+const prev=i?visits[i-1]:null;
+return `<div class="visit-node ${v.id===current.id?'current':''}">
+<b>Visit ${i+1}: ${esc(v.visitDate||'')}</b> — ${esc(v.visitType||'')}
+<div class="small">${esc(v.complaint?.primary||v.clinical?.chiefComplaints||'No complaint')} • Pain ${esc(v.clinical?.pain||'—')}/10</div>
+<div class="small">${esc(v.prescription?.finalDiagnosis||v.prescription?.provisionalDiagnosis||'No diagnosis')}</div>
+<div class="small">${painDeltaText(prev?.clinical?.pain,v.clinical?.pain)} ${v.followup?.status?' • '+esc(v.followup.status):''}</div>
+${v.followup?.progressNotes?`<div class="small"><b>Progress:</b> ${esc(v.followup.progressNotes)}</div>`:''}
+<div class="actions"><button class="secondary" data-timelineopen="${esc(v.id)}">Open Visit</button><button class="success" data-timelinerx="${esc(v.id)}">Prescription</button></div>
+</div>`;
+}).join('')||'<div class="notice">No visits found.</div>';
+}
+function showTimeline(){
+hideAll();
+$('timelineSection').classList.remove('hidden');
+setActive('tabTimeline');
+populateFollowup();
+}
+
 function diagnosisText(r){
 return [
 r.prescription?.finalDiagnosis,
@@ -530,6 +672,7 @@ return `<div class="${compact?'timeline-item':'item'}">
 <div class="small">${esc(diagnosisText(r)||'No diagnosis/complaint entered')}</div>
 <div class="actions">
 <button class="primary" data-dashopen="${esc(r.id)}">Open/Edit</button>
+<button class="secondary" data-dashtimeline="${esc(r.id)}">Timeline</button>
 <button class="success" data-dashrx="${esc(r.id)}">Prescription</button>
 </div>
 </div>`;
@@ -566,8 +709,8 @@ else showPatient();
 status('Saved patient reopened successfully.');
 }
 
-function setActive(tab){['tabDashboard','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabAyurveda','tabPrescription','tabPreview','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['dashboardSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','ayurvedaSection','prescriptionSection','previewSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabAyurveda','tabPrescription','tabPreview','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','ayurvedaSection','prescriptionSection','previewSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
 function showDashboard(){hideAll();$('dashboardSection').classList.remove('hidden');setActive('tabDashboard');renderDashboard()}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
@@ -579,7 +722,7 @@ function showAyurveda(){hideAll();$('ayurvedaSection').classList.remove('hidden'
 function showPrescription(){hideAll();$('prescriptionSection').classList.remove('hidden');setActive('tabPrescription');renderMedicines()}
 function showPreview(){hideAll();$('previewSection').classList.remove('hidden');setActive('tabPreview');renderPreview()}
 function showRecords(){hideAll();$('recordsSection').classList.remove('hidden');setActive('tabRecords');renderRecords()}
-function renderRecords(){const term=val('search').toLowerCase();const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile,r.complaint?.primary,JSON.stringify(r.investigations||{}),JSON.stringify(r.ayurveda||{})].join(' ').toLowerCase().includes(term));$('recordsList').innerHTML=rows.map(r=>`<div class="item"><b>${esc(r.patient?.name||'Unnamed')}</b><div class="small">UHID: ${esc(r.uhid)} • ${esc(r.visitDate)}</div><div class="small">Complaint: ${esc(r.complaint?.primary||'Not entered')} • Dosha: ${esc((r.ayurveda?.dosha||[]).join(', ')||'Not assessed')} • Medicines: ${(r.prescription?.medicines||[]).length}</div><div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div></div>`).join('')||'<div class="notice">No saved records found.</div>';status(rows.length+' record(s) shown.')}
+function renderRecords(){const term=val('search').toLowerCase();const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile,r.complaint?.primary,JSON.stringify(r.investigations||{}),JSON.stringify(r.ayurveda||{})].join(' ').toLowerCase().includes(term));$('recordsList').innerHTML=rows.map(r=>`<div class="item"><b>${esc(r.patient?.name||'Unnamed')}</b><div class="small">UHID: ${esc(r.uhid)} • ${esc(r.visitDate)}</div><div class="small">Complaint: ${esc(r.complaint?.primary||'Not entered')} • Dosha: ${esc((r.ayurveda?.dosha||[]).join(', ')||'Not assessed')} • Medicines: ${(r.prescription?.medicines||[]).length}</div><div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="secondary" data-timeline="${esc(r.id)}">Timeline</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div></div>`).join('')||'<div class="notice">No saved records found.</div>';status(rows.length+' record(s) shown.')}
 
 $('savePatientBtn').onclick=()=>{if(!val('name')||!val('age')||!val('sex')||!val('mobile'))return status('Please fill Name, Age, Sex and Mobile.',true);readPatient();save(current);status('Patient saved successfully.')};
 $('saveComplaintBtn').onclick=()=>{readPatient();readComplaint();save(current);status('Complaint saved successfully.')};
@@ -630,6 +773,30 @@ $('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
 
 
 $('tabDashboard').onclick=showDashboard;
+
+$('tabTimeline').onclick=showTimeline;
+$('saveProgressBtn').onclick=()=>{
+try{
+readFollowup();save(current);populateFollowup();status('Follow-up progress saved successfully.');
+}catch(e){status('Progress save failed: '+e.message,true)}
+};
+$('createFollowupBtn').onclick=()=>{
+try{
+readFollowup();save(current);
+const next=copyForFollowup(current);
+save(next);
+populate(next);
+showTimeline();
+status('New follow-up visit created. Previous data copied; update current findings and prescription.');
+}catch(e){status('Follow-up creation failed: '+e.message,true)}
+};
+$('openCurrentVisitBtn').onclick=showPatient;
+$('timelineSection').onclick=e=>{
+const open=e.target.dataset.timelineopen,rx=e.target.dataset.timelinerx;
+if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));showTimeline();status('Selected visit opened.')}}
+if(rx){const raw=localStorage.getItem(key(rx));if(raw){populate(JSON.parse(raw));showPreview();status('Prescription preview opened.')}}
+};
+
 $('dashNewPatient').onclick=()=>{populate(blank());showPatient();status('New blank patient ready.')};
 $('dashRecords').onclick=showRecords;
 $('dashSearch').onclick=()=>{$('dashboardSearch').focus();window.scrollTo({top:$('dashboardSearch').offsetTop-80,behavior:'smooth'})};
@@ -638,16 +805,17 @@ $('dashAyurveda').onclick=showAyurveda;
 $('dashPrescription').onclick=showPrescription;
 $('dashboardSearch').oninput=renderDashboardSearch;
 $('dashboardSection').onclick=e=>{
-const open=e.target.dataset.dashopen,rx=e.target.dataset.dashrx;
+const open=e.target.dataset.dashopen,rx=e.target.dataset.dashrx,tl=e.target.dataset.dashtimeline;
 if(open)openDashboardRecord(open,false);
 if(rx)openDashboardRecord(rx,true);
+if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}
 };
 
 $('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
-$('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
+$('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();status('App loaded successfully. V1.9 ready.');
+renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();status('App loaded successfully. V2.0 ready.');
 })();
 </script>
 </body>
