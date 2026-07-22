@@ -2,35 +2,128 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="style.css">
-<title>Shri Krishna Mahamaya Clinic EMR</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#126b82">
+<title>Shri Krishna Mahamaya Clinic EMR Recovery V1</title>
+<style>
+:root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);padding-bottom:25px}
+header{background:linear-gradient(135deg,var(--p),var(--s));color:#fff;padding:20px 16px}
+header h1{margin:0;font-size:24px} header p{margin:6px 0 0}
+main{max-width:900px;margin:auto;padding:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;margin:12px 0;box-shadow:0 3px 12px #17333d10}
+h2{margin:0 0 12px;color:var(--p)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+label{display:block;font-size:12px;font-weight:700;margin:8px 0 4px}
+input,select,textarea{width:100%;padding:11px;border:1px solid #b9cfd7;border-radius:9px;background:#fff;font:inherit}
+textarea{min-height:80px}
+button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;justify-content:center;align-items:center}
+.primary{background:var(--p);color:#fff}.secondary{background:#e3eff3;color:var(--p)}.success{background:#e4f5e9;color:var(--ok)}.danger{background:#fde9e7;color:var(--danger)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.status{margin-top:10px;padding:10px;border:1px solid #9bcdb0;background:#f3faf6;border-radius:9px;font-size:13px}
+.notice{padding:10px;border:1px solid #e1c26d;background:#fff7df;border-radius:10px;font-size:13px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}.tabs button.active{background:var(--p);color:#fff}
+.hidden{display:none!important}
+.item{border:1px solid var(--line);border-radius:10px;padding:11px;margin:8px 0;background:#fbfdfe}.item b{color:var(--p)}
+.small{font-size:12px;color:#6a7f88}
+@media(max-width:650px){.grid,.grid3{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <header>
-  <h1>Shri Krishna Mahamaya Clinic EMR</h1>
-  <p>योगः कर्मसु कौशलम् • Final Stable Project</p>
+<h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
+<p>Recovery V1 • Manual Save • Records • Backup</p>
 </header>
 <main>
-  <div class="card">
-    <div class="notice">
-      <strong>V1.0 Foundation:</strong> इस version में केवल Manual Save, Saved Records, Reopen और Delete हैं।
-    </div>
-    <div class="actions">
-      <a class="button primary" href="patient.html">＋ New Patient</a>
-      <a class="button success" href="records.html">📁 Saved Records</a>
-    </div>
-  </div>
-  <div class="card">
-    <h2>Test Rules</h2>
-    <ol>
-      <li>New Patient खोलें।</li>
-      <li>Name, Age, Sex और Mobile भरें।</li>
-      <li><strong>Save Patient</strong> दबाएँ।</li>
-      <li>Saved Records में patient reopen करें।</li>
-      <li>Data सही मिले तभी अगला module जोड़ेंगे।</li>
-    </ol>
-  </div>
+<div class="card">
+<div class="notice"><b>Stable recovery build:</b> यह पूरा app एक ही file में है। कोई external JavaScript, CSS, database या service worker नहीं है।</div>
+<div class="tabs actions">
+<button id="tabPatient" class="primary active">👤 Patient</button>
+<button id="tabRecords" class="secondary">📁 Records</button>
+</div>
+<div id="status" class="status">App loaded successfully. Version: Recovery V1.0</div>
+</div>
+
+<section id="patientSection">
+<div class="card">
+<h2>Patient Registration</h2>
+<div class="grid3">
+<div><label>UHID</label><input id="uhid" readonly></div>
+<div><label>Visit Date</label><input id="visitDate" type="date"></div>
+<div><label>Visit Type</label><select id="visitType"><option>New</option><option>Follow-up</option></select></div>
+</div>
+<div class="grid3">
+<div><label>Name *</label><input id="name"></div>
+<div><label>Age *</label><input id="age" type="number" min="0"></div>
+<div><label>Sex *</label><select id="sex"><option value=""></option><option>Male</option><option>Female</option><option>Other</option></select></div>
+</div>
+<div class="grid3">
+<div><label>Mobile *</label><input id="mobile" inputmode="tel"></div>
+<div><label>Height (cm)</label><input id="height" type="number" step="0.1"></div>
+<div><label>Weight (kg)</label><input id="weight" type="number" step="0.1"></div>
+</div>
+<div class="grid">
+<div><label>BMI</label><input id="bmi" readonly></div>
+<div><label>Address</label><input id="address"></div>
+</div>
+<div class="actions">
+<button id="saveBtn" class="primary">💾 Save Patient</button>
+<button id="newBtn" class="secondary">＋ New Blank Patient</button>
+<button id="exportBtn" class="secondary">⬇ Export All Backup</button>
+<label class="btn secondary">⬆ Import Backup<input id="importInput" type="file" accept=".json,application/json" hidden></label>
+</div>
+</div>
+</section>
+
+<section id="recordsSection" class="hidden">
+<div class="card">
+<h2>Saved Patient Records</h2>
+<label>Search Name, Mobile or UHID</label>
+<input id="search" placeholder="Type to search">
+<div id="recordsList"></div>
+</div>
+</section>
 </main>
+
+<script>
+(function(){
+'use strict';
+const PREFIX='skm-recovery-v1:';
+let current=null;
+
+const $=id=>document.getElementById(id);
+const val=id=>($(id)?.value||'').trim();
+const set=(id,v)=>{if($(id))$(id).value=v??''};
+const today=()=>new Date().toISOString().slice(0,10);
+const makeId=()=> 'VIS-'+Date.now().toString(36).toUpperCase()+'-'+Math.random().toString(36).slice(2,6).toUpperCase();
+const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice(-7);
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
+function key(id){return PREFIX+id}
+function blank(){return{id:makeId(),uhid:makeUHID(),visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},updatedAt:new Date().toISOString()}}
+function save(r){localStorage.setItem(key(r.id),JSON.stringify(r))}
+function all(){const a=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX)){try{a.push(JSON.parse(localStorage.getItem(k)))}catch(e){}}}return a.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))}
+function remove(id){localStorage.removeItem(key(id))}
+function calcBMI(){const h=Number(val('height')),w=Number(val('weight'));set('bmi',h>0&&w>0?(w/((h/100)**2)).toFixed(1):'')}
+function read(){calcBMI();current.visitDate=val('visitDate');current.visitType=val('visitType');current.patient={name:val('name'),age:val('age'),sex:val('sex'),mobile:val('mobile'),height:val('height'),weight:val('weight'),bmi:val('bmi'),address:val('address')};current.updatedAt=new Date().toISOString()}
+function populate(r){current=r;set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));showPatient()}
+function showPatient(){$('patientSection').classList.remove('hidden');$('recordsSection').classList.add('hidden');$('tabPatient').className='primary active';$('tabRecords').className='secondary'}
+function showRecords(){$('patientSection').classList.add('hidden');$('recordsSection').classList.remove('hidden');$('tabPatient').className='secondary';$('tabRecords').className='primary active';renderRecords()}
+function renderRecords(){const term=val('search').toLowerCase();const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile].join(' ').toLowerCase().includes(term));$('recordsList').innerHTML=rows.map(r=>`<div class="item"><b>${esc(r.patient?.name||'Unnamed')}</b><div class="small">UHID: ${esc(r.uhid)} • Mobile: ${esc(r.patient?.mobile||'')} • Date: ${esc(r.visitDate)}</div><div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div></div>`).join('')||'<div class="notice" style="margin-top:10px">No saved records found.</div>';status(rows.length+' record(s) shown.')}
+function downloadJSON(data,name){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000)}
+$('saveBtn').onclick=()=>{try{if(!val('name')||!val('age')||!val('sex')||!val('mobile'))return status('Please fill Name, Age, Sex and Mobile.',true);read();save(current);status('Patient saved successfully. UHID: '+current.uhid)}catch(e){status('Save failed: '+e.message,true)}};
+$('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
+$('tabPatient').onclick=showPatient;
+$('tabRecords').onclick=showRecords;
+$('search').oninput=renderRecords;
+$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
+$('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
+$('exportBtn').onclick=()=>downloadJSON({version:'1.0',records:all()},'Shri-Krishna-Mahamaya-EMR-Backup.json');
+$('importInput').onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text());const rows=data.records||[];rows.forEach(save);status(rows.length+' record(s) imported successfully.');renderRecords()}catch(err){status('Import failed: '+err.message,true)}};
+populate(blank());
+status('App loaded successfully. Fill data and press Save Patient.');
+})();
+</script>
 </body>
 </html>
