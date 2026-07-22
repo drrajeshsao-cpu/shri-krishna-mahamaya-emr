@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR V2.4</title>
+<title>Shri Krishna Mahamaya Clinic EMR V2.5</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -124,6 +124,18 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 .settings-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 @media(max-width:650px){.settings-grid{grid-template-columns:1fr}}
 
+
+.appointment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.calendar-day{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fbfdfe;min-height:90px}
+.calendar-day.today{border:2px solid var(--p);background:#f1fbfc}
+.calendar-day .date{font-weight:900;color:var(--p)}
+.appt-item{border-left:4px solid var(--p);background:#fff;border-radius:7px;padding:6px 8px;margin-top:6px;font-size:12px}
+.bill-row{display:grid;grid-template-columns:1.6fr .7fr .7fr .7fr auto;gap:8px;align-items:end;border:1px solid var(--line);padding:9px;border-radius:10px;margin:8px 0;background:#fbfdfe}
+.bill-total{font-size:24px;font-weight:900;color:var(--p);text-align:right}
+.receipt-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+@media(max-width:900px){.appointment-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.bill-row{grid-template-columns:1fr}.appointment-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -148,11 +160,11 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>V2.4 • Local Login • Roles • Audit • Backup</p>
+<p>V2.5 • Appointments • Billing • Receipts</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> V2.3 के working engine में Local Login, Roles, Audit Log और Full Backup/Restore जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
+<div class="notice"><b>Stable incremental build:</b> V2.4 के working engine में Appointment Calendar और Billing/Receipt Phase 1 जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
 <div class="tabs actions">
 <button id="tabDashboard" class="primary active">🏠 Dashboard</button>
 <button id="tabTimeline" class="secondary">🔄 Follow-up</button>
@@ -168,10 +180,12 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="tabPrescription" class="secondary">💊 Prescription</button>
 <button id="tabSafety" class="secondary">🛡 Safety</button>
 <button id="tabPreview" class="secondary">📄 Preview/PDF</button>
+<button id="tabAppointments" class="secondary">📅 Appointments</button>
+<button id="tabBilling" class="secondary">💰 Billing</button>
 <button id="tabSettings" class="secondary">⚙ Settings</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V2.4</div>
+<div id="status" class="status">App loaded successfully. Version: V2.5</div>
 <div class="actions no-print">
   <span id="activeRoleBadge" class="role-badge">Locked</span>
   <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -204,6 +218,8 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="dashAyurveda" class="secondary quick-btn">🌿<span>Ayurveda</span></button>
 <button id="dashPrescription" class="secondary quick-btn">💊<span>Prescription</span></button>
 <button id="dashSafety" class="warning quick-btn">🛡<span>Medicine Safety</span></button>
+<button id="dashAppointments" class="secondary quick-btn">📅<span>Appointments</span></button>
+<button id="dashBilling" class="secondary quick-btn">💰<span>Billing</span></button>
 </div>
 </div>
 
@@ -671,6 +687,97 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 </div>
 </section>
 
+
+
+<section id="appointmentsSection" class="hidden">
+<div class="card">
+<h2>Appointment Calendar — Phase 1</h2>
+<div class="grid3">
+<div><label>Patient Name</label><input id="apptPatientName"></div>
+<div><label>Mobile</label><input id="apptMobile" inputmode="tel"></div>
+<div><label>Appointment Type</label><select id="apptType"><option>New Consultation</option><option>Follow-up</option><option>Walk-in</option><option>Emergency</option><option>Panchakarma</option><option>Procedure</option></select></div>
+</div>
+<div class="grid3">
+<div><label>Date</label><input id="apptDate" type="date"></div>
+<div><label>Time</label><input id="apptTime" type="time"></div>
+<div><label>Status</label><select id="apptStatus"><option>Scheduled</option><option>Confirmed</option><option>Arrived</option><option>Completed</option><option>Cancelled</option><option>No-show</option></select></div>
+</div>
+<label>Reason / Notes</label><textarea id="apptNotes"></textarea>
+<div class="actions">
+<button id="addAppointmentBtn" class="primary">＋ Add Appointment</button>
+<button id="loadCurrentPatientApptBtn" class="secondary">Use Current Patient</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Upcoming Appointments</h2>
+<div class="grid">
+<div><label>From Date</label><input id="apptFilterFrom" type="date"></div>
+<div><label>Search Name / Mobile</label><input id="apptSearch"></div>
+</div>
+<div id="appointmentList"></div>
+</div>
+
+<div class="card">
+<h2>7-Day Calendar</h2>
+<div id="appointmentCalendar" class="appointment-grid"></div>
+</div>
+</section>
+
+<section id="billingSection" class="hidden">
+<div class="card">
+<h2>Billing & Receipt — Phase 1</h2>
+<div class="grid3">
+<div><label>Receipt No.</label><input id="receiptNo" readonly></div>
+<div><label>Billing Date</label><input id="billingDate" type="date"></div>
+<div><label>Payment Mode</label><select id="paymentMode"><option>Cash</option><option>UPI</option><option>Card</option><option>Bank Transfer</option><option>Credit / Pending</option></select></div>
+</div>
+
+<div class="grid3">
+<div><label>Patient Name</label><input id="billingPatientName"></div>
+<div><label>Mobile</label><input id="billingMobile"></div>
+<div><label>UHID</label><input id="billingUhid"></div>
+</div>
+
+<h3>Add Billing Item</h3>
+<div class="grid3">
+<div><label>Service / Item</label><select id="billItemName">
+<option>Consultation Fee</option><option>Follow-up Consultation</option><option>Panchakarma Procedure</option><option>Kati Basti</option><option>Janu Basti</option><option>Greeva Basti</option><option>Shirodhara</option><option>Nasya</option><option>Basti Procedure</option><option>Raktamokshana</option><option>Agnikarma / Viddhakarma</option><option>Medicine / Pharmacy</option><option>Investigation Charge</option><option>Other</option>
+</select></div>
+<div><label>Quantity</label><input id="billQty" type="number" step="1" min="1" value="1"></div>
+<div><label>Rate ₹</label><input id="billRate" type="number" step="0.01" min="0"></div>
+</div>
+<div class="grid">
+<div><label>Description / Custom Item</label><input id="billDescription"></div>
+<div><label>Tax % (optional)</label><input id="billTax" type="number" step="0.01" value="0"></div>
+</div>
+<div class="actions"><button id="addBillItemBtn" class="secondary">＋ Add Item</button></div>
+
+<div id="billItemsList"></div>
+
+<div class="grid3">
+<div><label>Discount ₹</label><input id="billDiscount" type="number" step="0.01" value="0"></div>
+<div><label>Amount Paid ₹</label><input id="billPaid" type="number" step="0.01" value="0"></div>
+<div><label>Payment Status</label><select id="billStatus"><option>Paid</option><option>Partially Paid</option><option>Pending</option></select></div>
+</div>
+<div class="bill-total">Grand Total: ₹<span id="billGrandTotal">0.00</span></div>
+<div class="actions">
+<button id="saveBillBtn" class="primary">💾 Save Bill</button>
+<button id="printReceiptBtn" class="secondary">🖨 Print Receipt</button>
+<button id="newBillBtn" class="secondary">＋ New Bill</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Receipt Preview</h2>
+<div id="receiptPreview" class="receipt-box"></div>
+</div>
+
+<div class="card">
+<h2>Recent Bills</h2>
+<div id="recentBillsList"></div>
+</div>
+</section>
 
 <section id="settingsSection" class="hidden">
 <div class="card">
@@ -1329,6 +1436,170 @@ populateFollowup();
 }
 
 
+
+const APPOINTMENT_KEY='skm-appointments-v25';
+const BILLING_KEY='skm-billing-v25';
+let currentBill=null;
+
+function appointmentRows(){
+  try{return JSON.parse(localStorage.getItem(APPOINTMENT_KEY))||[]}
+  catch{return []}
+}
+function saveAppointmentRows(rows){localStorage.setItem(APPOINTMENT_KEY,JSON.stringify(rows))}
+function addAppointment(){
+  if(!val('apptPatientName')||!val('apptDate'))return status('Patient name and appointment date are required.',true);
+  const rows=appointmentRows();
+  const appt={
+    id:'APT-'+Date.now(),
+    patientName:val('apptPatientName'),mobile:val('apptMobile'),type:val('apptType'),
+    date:val('apptDate'),time:val('apptTime'),status:val('apptStatus'),notes:val('apptNotes'),
+    createdAt:new Date().toISOString()
+  };
+  rows.push(appt);saveAppointmentRows(rows);
+  audit('Appointment added',appt.patientName+' '+appt.date+' '+appt.time);
+  renderAppointments();status('Appointment added successfully.');
+}
+function renderAppointments(){
+  const term=val('apptSearch').toLowerCase();
+  const from=val('apptFilterFrom')||today();
+  const rows=appointmentRows().filter(x=>x.date>=from&&[x.patientName,x.mobile,x.type,x.status].join(' ').toLowerCase().includes(term)).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+  $('appointmentList').innerHTML=rows.map(x=>`<div class="item">
+    <b>${esc(x.patientName)}</b> — ${esc(x.type)}
+    <div class="small">${esc(x.date)} ${esc(x.time||'')} • ${esc(x.mobile||'')} • ${esc(x.status)}</div>
+    <div class="small">${esc(x.notes||'')}</div>
+    <div class="actions">
+      <button class="secondary" data-apptstatus="${esc(x.id)}">Mark Completed</button>
+      <button class="danger" data-apptdelete="${esc(x.id)}">Delete</button>
+    </div>
+  </div>`).join('')||'<div class="notice">No matching appointments.</div>';
+  renderAppointmentCalendar();
+}
+function renderAppointmentCalendar(){
+  const rows=appointmentRows();
+  const base=new Date();
+  const days=[];
+  for(let i=0;i<7;i++){
+    const d=new Date(base);d.setDate(base.getDate()+i);
+    const ds=d.toISOString().slice(0,10);
+    const items=rows.filter(x=>x.date===ds).sort((a,b)=>(a.time||'').localeCompare(b.time||''));
+    days.push(`<div class="calendar-day ${i===0?'today':''}">
+      <div class="date">${esc(ds)}</div>
+      ${items.map(x=>`<div class="appt-item">${esc(x.time||'')} ${esc(x.patientName)}<br>${esc(x.type)} • ${esc(x.status)}</div>`).join('')||'<div class="small">No appointments</div>'}
+    </div>`);
+  }
+  $('appointmentCalendar').innerHTML=days.join('');
+}
+function showAppointments(){
+  hideAll();$('appointmentsSection').classList.remove('hidden');setActive('tabAppointments');
+  if(!val('apptDate'))set('apptDate',today());
+  if(!val('apptFilterFrom'))set('apptFilterFrom',today());
+  renderAppointments();
+}
+function useCurrentPatientForAppointment(){
+  set('apptPatientName',current.patient?.name||'');
+  set('apptMobile',current.patient?.mobile||'');
+  set('apptType',current.visitType==='Follow-up'?'Follow-up':'New Consultation');
+  set('apptDate',current.prescription?.followupDate||today());
+  set('apptNotes',current.prescription?.followupNote||'');
+}
+
+function billingRows(){
+  try{return JSON.parse(localStorage.getItem(BILLING_KEY))||[]}
+  catch{return []}
+}
+function saveBillingRows(rows){localStorage.setItem(BILLING_KEY,JSON.stringify(rows))}
+function newReceiptNo(){return 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice(-8)}
+function blankBill(){
+  return{receiptNo:newReceiptNo(),date:today(),patientName:'',mobile:'',uhid:'',paymentMode:'Cash',
+    items:[],discount:0,paid:0,status:'Paid',createdAt:new Date().toISOString()};
+}
+function calculateBill(){
+  const subtotal=currentBill.items.reduce((s,x)=>s+(Number(x.qty)*Number(x.rate))*(1+Number(x.tax||0)/100),0);
+  const discount=Number(val('billDiscount')||currentBill.discount||0);
+  const total=Math.max(0,subtotal-discount);
+  currentBill.discount=discount;
+  currentBill.paid=Number(val('billPaid')||0);
+  currentBill.status=val('billStatus');
+  currentBill.total=Number(total.toFixed(2));
+  $('billGrandTotal').textContent=total.toFixed(2);
+  renderBillItems();renderReceiptPreview();
+}
+function renderBillItems(){
+  $('billItemsList').innerHTML=currentBill.items.map((x,i)=>`<div class="bill-row">
+    <div><b>${esc(x.name)}</b><div class="small">${esc(x.description||'')}</div></div>
+    <div>Qty: ${esc(x.qty)}</div><div>₹${Number(x.rate).toFixed(2)}</div><div>Tax ${esc(x.tax||0)}%</div>
+    <button class="danger" data-billremove="${i}">Remove</button>
+  </div>`).join('')||'<div class="notice">No billing items added.</div>';
+}
+function renderReceiptPreview(){
+  const b=currentBill;
+  $('receiptPreview').innerHTML=`
+  <div style="text-align:center"><h2 style="margin-bottom:4px">श्री कृष्ण महमाया क्लिनिक</h2>
+  <div>Receipt No: <b>${esc(b.receiptNo)}</b> • Date: ${esc(b.date)}</div></div><hr>
+  <div><b>Patient:</b> ${esc(b.patientName||'')} • <b>Mobile:</b> ${esc(b.mobile||'')} • <b>UHID:</b> ${esc(b.uhid||'')}</div>
+  <table class="rx-table" style="margin-top:10px"><thead><tr><th>#</th><th>Item</th><th>Qty</th><th>Rate</th><th>Tax</th><th>Amount</th></tr></thead>
+  <tbody>${b.items.map((x,i)=>`<tr><td>${i+1}</td><td>${esc(x.name)} ${x.description?'<br>'+esc(x.description):''}</td><td>${esc(x.qty)}</td><td>₹${Number(x.rate).toFixed(2)}</td><td>${esc(x.tax||0)}%</td><td>₹${((Number(x.qty)*Number(x.rate))*(1+Number(x.tax||0)/100)).toFixed(2)}</td></tr>`).join('')||'<tr><td colspan="6">No items</td></tr>'}</tbody></table>
+  <div style="text-align:right;margin-top:10px"><b>Discount:</b> ₹${Number(b.discount||0).toFixed(2)}<br>
+  <b>Grand Total:</b> ₹${Number(b.total||0).toFixed(2)}<br><b>Paid:</b> ₹${Number(b.paid||0).toFixed(2)}<br>
+  <b>Status:</b> ${esc(b.status||'')} • <b>Mode:</b> ${esc(b.paymentMode||'')}</div>`;
+}
+function populateBill(){
+  if(!currentBill)currentBill=blankBill();
+  set('receiptNo',currentBill.receiptNo);set('billingDate',currentBill.date);set('paymentMode',currentBill.paymentMode);
+  set('billingPatientName',currentBill.patientName);set('billingMobile',currentBill.mobile);set('billingUhid',currentBill.uhid);
+  set('billDiscount',currentBill.discount);set('billPaid',currentBill.paid);set('billStatus',currentBill.status);
+  calculateBill();renderRecentBills();
+}
+function useCurrentPatientForBilling(){
+  currentBill.patientName=current.patient?.name||'';
+  currentBill.mobile=current.patient?.mobile||'';
+  currentBill.uhid=current.uhid||'';
+}
+function addBillItem(){
+  const name=val('billItemName'),desc=val('billDescription'),qty=Number(val('billQty')||1),rate=Number(val('billRate')||0),tax=Number(val('billTax')||0);
+  if(!name||rate<0)return status('Enter a valid billing item and rate.',true);
+  currentBill.items.push({name,description:desc,qty,tax,rate});
+  set('billDescription','');set('billRate','');set('billQty','1');set('billTax','0');
+  calculateBill();
+}
+function readBillForm(){
+  currentBill.date=val('billingDate');currentBill.paymentMode=val('paymentMode');
+  currentBill.patientName=val('billingPatientName');currentBill.mobile=val('billingMobile');currentBill.uhid=val('billingUhid');
+  currentBill.discount=Number(val('billDiscount')||0);currentBill.paid=Number(val('billPaid')||0);currentBill.status=val('billStatus');
+  calculateBill();
+}
+function saveBill(){
+  readBillForm();
+  if(!currentBill.patientName)return status('Patient name is required for billing.',true);
+  const rows=billingRows();
+  const i=rows.findIndex(x=>x.receiptNo===currentBill.receiptNo);
+  if(i>=0)rows[i]=currentBill;else rows.unshift(currentBill);
+  saveBillingRows(rows);
+  audit('Bill saved',currentBill.receiptNo+' ₹'+currentBill.total);
+  renderRecentBills();status('Bill saved successfully.');
+}
+function renderRecentBills(){
+  const rows=billingRows().slice(0,20);
+  $('recentBillsList').innerHTML=rows.map(x=>`<div class="item">
+  <b>${esc(x.receiptNo)}</b> — ${esc(x.patientName)}
+  <div class="small">${esc(x.date)} • ₹${Number(x.total||0).toFixed(2)} • ${esc(x.status||'')}</div>
+  <div class="actions"><button class="secondary" data-billopen="${esc(x.receiptNo)}">Open</button></div>
+  </div>`).join('')||'<div class="notice">No saved bills.</div>';
+}
+function showBilling(){
+  hideAll();$('billingSection').classList.remove('hidden');setActive('tabBilling');
+  if(!currentBill)currentBill=blankBill();
+  useCurrentPatientForBilling();populateBill();
+}
+function printReceiptOnly(){
+  const original=$('printSheet').innerHTML;
+  $('printSheet').innerHTML=$('receiptPreview').innerHTML;
+  showPreview();
+  window.print();
+  $('printSheet').innerHTML=original;
+  showBilling();
+}
+
 const SECURITY_KEY='skm-security-v24';
 const AUDIT_KEY='skm-audit-v24';
 let activeRole='Locked';
@@ -1502,8 +1773,8 @@ else showPatient();
 status('Saved patient reopened successfully.');
 }
 
-function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabAppointments','tabBilling','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','appointmentsSection','billingSection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
 function showDashboard(){hideAll();$('dashboardSection').classList.remove('hidden');setActive('tabDashboard');renderDashboard()}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
@@ -1585,6 +1856,34 @@ $('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
 
 $('tabDashboard').onclick=showDashboard;
 
+$('tabAppointments').onclick=showAppointments;
+$('tabBilling').onclick=showBilling;
+$('dashAppointments').onclick=showAppointments;
+$('dashBilling').onclick=showBilling;
+
+$('addAppointmentBtn').onclick=addAppointment;
+$('loadCurrentPatientApptBtn').onclick=useCurrentPatientForAppointment;
+$('apptFilterFrom').onchange=renderAppointments;
+$('apptSearch').oninput=renderAppointments;
+$('appointmentList').onclick=e=>{
+  const done=e.target.dataset.apptstatus,del=e.target.dataset.apptdelete;
+  const rows=appointmentRows();
+  if(done){const i=rows.findIndex(x=>x.id===done);if(i>=0){rows[i].status='Completed';saveAppointmentRows(rows);audit('Appointment completed',rows[i].patientName);renderAppointments();}}
+  if(del&&confirm('Delete this appointment?')){saveAppointmentRows(rows.filter(x=>x.id!==del));audit('Appointment deleted',del);renderAppointments();}
+};
+
+$('addBillItemBtn').onclick=addBillItem;
+$('billDiscount').oninput=calculateBill;
+$('billPaid').oninput=calculateBill;
+$('billStatus').onchange=calculateBill;
+$('paymentMode').onchange=()=>{currentBill.paymentMode=val('paymentMode');renderReceiptPreview()};
+$('saveBillBtn').onclick=saveBill;
+$('newBillBtn').onclick=()=>{currentBill=blankBill();useCurrentPatientForBilling();populateBill();status('New blank bill ready.')};
+$('printReceiptBtn').onclick=printReceiptOnly;
+$('billItemsList').onclick=e=>{if(e.target.dataset.billremove!==undefined){currentBill.items.splice(Number(e.target.dataset.billremove),1);calculateBill()}};
+$('recentBillsList').onclick=e=>{const no=e.target.dataset.billopen;if(no){const b=billingRows().find(x=>x.receiptNo===no);if(b){currentBill=b;populateBill();status('Saved bill opened.')}}};
+
+
 $('loginBtn').onclick=unlockApp;
 $('loginPin').addEventListener('keydown',e=>{if(e.key==='Enter')unlockApp()});
 $('lockNowBtn').onclick=lockApp;
@@ -1645,7 +1944,7 @@ $('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('t
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.4 ready.');
+renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.5 ready.');
 })();
 </script>
 </body>
