@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<title>Saved Records V1</title>
+</head>
+<body>
+<header>
+  <h1>Saved Patient Records V1</h1>
+  <p>Search • Reopen • Delete</p>
+</header>
+<main>
+  <div class="card">
+    <label>Search by Name, Mobile or UHID</label>
+    <input id="search" placeholder="Type to search">
+    <div class="actions">
+      <a class="button primary" href="patient.html">＋ New Patient</a>
+      <a class="button secondary" href="index.html">Dashboard</a>
+    </div>
+    <div id="list"></div>
+    <div id="status" class="status">Loading records…</div>
+  </div>
+</main>
+
+<script src="app.js"></script>
+<script>
+let records=[];
+
+function render(){
+  try{
+    const term=value("search").toLowerCase();
+    const filtered=records.filter(r=>{
+      const text=[r.uhid,r.patient?.name,r.patient?.mobile].join(" ").toLowerCase();
+      return text.includes(term);
+    });
+
+    el("list").innerHTML=filtered.map(r=>`
+      <div class="item">
+        <div class="item-title">${escapeHtml(r.patient?.name || "Unnamed Patient")}</div>
+        <div class="small">UHID: ${escapeHtml(r.uhid)} • Mobile: ${escapeHtml(r.patient?.mobile || "")}</div>
+        <div class="small">Date: ${escapeHtml(r.visitDate)} • ${escapeHtml(r.visitType)}</div>
+        <div class="actions">
+          <a class="button primary" href="patient.html?id=${encodeURIComponent(r.id)}">Open / Edit</a>
+          <button class="danger" onclick="removeRecord('${r.id}')">Delete</button>
+        </div>
+      </div>
+    `).join("") || '<div class="notice" style="margin-top:12px">No saved records found.</div>';
+
+    showStatus(filtered.length+" record(s) shown.");
+  }catch(error){
+    showStatus("Records error: "+error.message,true);
+  }
+}
+
+function removeRecord(id){
+  if(confirm("Delete this patient record?")){
+    deletePatient(id);
+    records=loadAllPatients();
+    render();
+  }
+}
+
+el("search").addEventListener("input",render);
+
+try{
+  records=loadAllPatients();
+  render();
+}catch(error){
+  showStatus("Could not load records: "+error.message,true);
+}
+</script>
+</body>
+</html>

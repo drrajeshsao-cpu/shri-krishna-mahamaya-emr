@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<title>Patient Registration V1</title>
+</head>
+<body>
+<header>
+  <h1>Patient Registration V1</h1>
+  <p>Manual Save • Reopen • Delete</p>
+</header>
+<main>
+  <div class="card">
+    <h2>Visit Details</h2>
+    <div class="grid3">
+      <div><label>UHID</label><input id="uhid" readonly></div>
+      <div><label>Visit Date</label><input id="visitDate" type="date"></div>
+      <div><label>Visit Type</label>
+        <select id="visitType"><option>New</option><option>Follow-up</option></select>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Patient Details</h2>
+    <div class="grid3">
+      <div><label>Name *</label><input id="name"></div>
+      <div><label>Age *</label><input id="age" type="number" min="0"></div>
+      <div><label>Sex *</label>
+        <select id="sex"><option value=""></option><option>Male</option><option>Female</option><option>Other</option></select>
+      </div>
+    </div>
+    <div class="grid3">
+      <div><label>Mobile *</label><input id="mobile" inputmode="tel"></div>
+      <div><label>Height (cm)</label><input id="height" type="number" step="0.1"></div>
+      <div><label>Weight (kg)</label><input id="weight" type="number" step="0.1"></div>
+    </div>
+    <div class="grid">
+      <div><label>BMI</label><input id="bmi" readonly></div>
+      <div><label>Address</label><input id="address"></div>
+    </div>
+
+    <div class="actions">
+      <button class="primary" id="saveBtn">Save Patient</button>
+      <a class="button secondary" href="records.html">Open Saved Records</a>
+      <a class="button secondary" href="index.html">Dashboard</a>
+    </div>
+    <div id="status" class="status">Ready. Fill details and press Save Patient.</div>
+  </div>
+</main>
+
+<script src="app.js"></script>
+<script>
+let record;
+
+function calculateBMI(){
+  const h=Number(value("height"));
+  const w=Number(value("weight"));
+  setValue("bmi", h>0 && w>0 ? (w/((h/100)**2)).toFixed(1) : "");
+}
+
+function readForm(){
+  record.visitDate=value("visitDate");
+  record.visitType=value("visitType");
+  record.patient={
+    name:value("name"),
+    age:value("age"),
+    sex:value("sex"),
+    mobile:value("mobile"),
+    height:value("height"),
+    weight:value("weight"),
+    bmi:value("bmi"),
+    address:value("address")
+  };
+  record.updatedAt=new Date().toISOString();
+}
+
+function populate(){
+  setValue("uhid",record.uhid);
+  setValue("visitDate",record.visitDate);
+  setValue("visitType",record.visitType);
+  Object.entries(record.patient).forEach(([k,v])=>setValue(k,v));
+}
+
+function initialize(){
+  try{
+    const id=queryParam("id");
+    record=id ? loadPatient(id) : null;
+    if(!record){
+      record={
+        id:makeId(),
+        uhid:makeUHID(),
+        visitDate:today(),
+        visitType:"New",
+        patient:{name:"",age:"",sex:"",mobile:"",height:"",weight:"",bmi:"",address:""},
+        createdAt:new Date().toISOString(),
+        updatedAt:new Date().toISOString()
+      };
+    }
+    populate();
+    showStatus("Ready. Press Save Patient after filling details.");
+  }catch(error){
+    showStatus("Initialization error: "+error.message,true);
+  }
+}
+
+el("height").addEventListener("input",calculateBMI);
+el("weight").addEventListener("input",calculateBMI);
+
+el("saveBtn").addEventListener("click",()=>{
+  try{
+    calculateBMI();
+    if(!value("name") || !value("age") || !value("sex") || !value("mobile")){
+      showStatus("Please fill Name, Age, Sex and Mobile.",true);
+      return;
+    }
+    readForm();
+    savePatient(record);
+    showStatus("Patient saved successfully. UHID: "+record.uhid);
+  }catch(error){
+    showStatus("Save failed: "+error.message,true);
+  }
+});
+
+initialize();
+</script>
+</body>
+</html>
