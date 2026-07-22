@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR V1.8</title>
+<title>Shri Krishna Mahamaya Clinic EMR V1.9</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -55,18 +55,29 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   .print-sheet{border:0;border-radius:0;padding:8mm;min-height:auto}
 }
 
+
+.dashboard-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stat-card{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfdfe;text-align:center}
+.stat-card .num{font-size:27px;font-weight:900;color:var(--p)}
+.stat-card .lbl{font-size:12px;color:#6a7f88;margin-top:4px}
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.quick-btn{min-height:76px;flex-direction:column;gap:4px}
+.timeline-item{border-left:4px solid var(--p);padding:10px 12px;margin:8px 0;background:#fbfdfe;border-radius:0 10px 10px 0}
+@media(max-width:760px){.dashboard-grid{grid-template-columns:repeat(2,1fr)}.quick-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>V1.8 • Prescription Preview • Print • PDF • Share</p>
+<p>V1.9 • Dashboard • Today’s OPD • Recent Patients</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> V1.7 के working engine में केवल Prescription Preview, Print, Save as PDF और Share जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
+<div class="notice"><b>Stable incremental build:</b> V1.8 के working engine में केवल Dashboard, Today’s OPD, Recent Patients और Quick Search जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
 <div class="tabs actions">
-<button id="tabPatient" class="primary active">👤 Patient</button>
+<button id="tabDashboard" class="primary active">🏠 Dashboard</button>
+<button id="tabPatient" class="secondary">👤 Patient</button>
 <button id="tabComplaint" class="secondary">🧭 Complaint</button>
 <button id="tabClinical" class="secondary">🩺 Clinical</button>
 <button id="tabExam" class="secondary">🔍 General</button>
@@ -77,10 +88,51 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="tabPreview" class="secondary">📄 Preview/PDF</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V1.8</div>
+<div id="status" class="status">App loaded successfully. Version: V1.9</div>
 </div>
 
-<section id="patientSection">
+
+<section id="dashboardSection">
+<div class="card">
+<h2>Clinic Dashboard</h2>
+<div class="dashboard-grid">
+<div class="stat-card"><div class="num" id="totalPatients">0</div><div class="lbl">Total Records</div></div>
+<div class="stat-card"><div class="num" id="todayPatients">0</div><div class="lbl">Today’s OPD</div></div>
+<div class="stat-card"><div class="num" id="followupCount">0</div><div class="lbl">Follow-up Visits</div></div>
+<div class="stat-card"><div class="num" id="rxCount">0</div><div class="lbl">Saved Prescriptions</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Quick Actions</h2>
+<div class="quick-grid">
+<button id="dashNewPatient" class="primary quick-btn">👤<span>New Patient</span></button>
+<button id="dashRecords" class="secondary quick-btn">📁<span>Open Records</span></button>
+<button id="dashSearch" class="secondary quick-btn">🔍<span>Search Patient</span></button>
+<button id="dashInvestigations" class="secondary quick-btn">🧪<span>Investigations</span></button>
+<button id="dashAyurveda" class="secondary quick-btn">🌿<span>Ayurveda</span></button>
+<button id="dashPrescription" class="secondary quick-btn">💊<span>Prescription</span></button>
+</div>
+</div>
+
+<div class="card">
+<h2>Quick Patient Search</h2>
+<input id="dashboardSearch" placeholder="Search by name, mobile, UHID, complaint or diagnosis">
+<div id="dashboardSearchResults"></div>
+</div>
+
+<div class="card">
+<h2>Today’s OPD</h2>
+<div id="todayList"></div>
+</div>
+
+<div class="card">
+<h2>Recent Patients</h2>
+<div id="recentList"></div>
+</div>
+</section>
+
+<section id="patientSection" class="hidden">
 <div class="card"><h2>Patient Registration</h2>
 <div class="grid3"><div><label>UHID</label><input id="uhid" readonly></div><div><label>Visit Date</label><input id="visitDate" type="date"></div><div><label>Visit Type</label><select id="visitType"><option>New</option><option>Follow-up</option></select></div></div>
 <div class="grid3"><div><label>Name *</label><input id="name"></div><div><label>Age *</label><input id="age" type="number" min="0"></div><div><label>Sex *</label><select id="sex"><option value=""></option><option>Male</option><option>Female</option><option>Other</option></select></div></div>
@@ -462,8 +514,61 @@ try{await navigator.share({title:'Shri Krishna Mahamaya Clinic Prescription',tex
 try{await navigator.clipboard.writeText(text);status('Prescription copied to clipboard. Paste it in WhatsApp.')}catch(e){status('Sharing unavailable. Use Print / Save as PDF.',true)}
 }
 
-function setActive(tab){['tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabAyurveda','tabPrescription','tabPreview','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','ayurvedaSection','prescriptionSection','previewSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+
+function diagnosisText(r){
+return [
+r.prescription?.finalDiagnosis,
+r.prescription?.provisionalDiagnosis,
+r.complaint?.primary,
+r.clinical?.chiefComplaints
+].filter(Boolean).join(' | ');
+}
+function recordCard(r,compact=false){
+return `<div class="${compact?'timeline-item':'item'}">
+<b>${esc(r.patient?.name||'Unnamed')}</b>
+<div class="small">UHID: ${esc(r.uhid||'')} • Mobile: ${esc(r.patient?.mobile||'')} • ${esc(r.visitDate||'')}</div>
+<div class="small">${esc(diagnosisText(r)||'No diagnosis/complaint entered')}</div>
+<div class="actions">
+<button class="primary" data-dashopen="${esc(r.id)}">Open/Edit</button>
+<button class="success" data-dashrx="${esc(r.id)}">Prescription</button>
+</div>
+</div>`;
+}
+function renderDashboard(){
+const rows=all();
+const todayDate=today();
+const todays=rows.filter(r=>r.visitDate===todayDate);
+const followups=rows.filter(r=>r.visitType==='Follow-up');
+const rx=rows.filter(r=>(r.prescription?.medicines||[]).length||r.prescription?.finalDiagnosis||r.prescription?.provisionalDiagnosis);
+$('totalPatients').textContent=rows.length;
+$('todayPatients').textContent=todays.length;
+$('followupCount').textContent=followups.length;
+$('rxCount').textContent=rx.length;
+$('todayList').innerHTML=todays.slice(0,20).map(r=>recordCard(r,true)).join('')||'<div class="notice">Today no patient record is saved yet.</div>';
+$('recentList').innerHTML=rows.slice(0,8).map(r=>recordCard(r,true)).join('')||'<div class="notice">No recent patient records.</div>';
+renderDashboardSearch();
+}
+function renderDashboardSearch(){
+const term=val('dashboardSearch').toLowerCase();
+if(!term){$('dashboardSearchResults').innerHTML='';return}
+const rows=all().filter(r=>[
+r.uhid,r.patient?.name,r.patient?.mobile,r.complaint?.primary,
+r.prescription?.provisionalDiagnosis,r.prescription?.finalDiagnosis
+].join(' ').toLowerCase().includes(term)).slice(0,10);
+$('dashboardSearchResults').innerHTML=rows.map(r=>recordCard(r,false)).join('')||'<div class="notice" style="margin-top:10px">No matching patient found.</div>';
+}
+function openDashboardRecord(id,toPrescription=false){
+const raw=localStorage.getItem(key(id));
+if(!raw)return status('Patient record not found.',true);
+populate(JSON.parse(raw));
+if(toPrescription)showPreview();
+else showPatient();
+status('Saved patient reopened successfully.');
+}
+
+function setActive(tab){['tabDashboard','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabAyurveda','tabPrescription','tabPreview','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['dashboardSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','ayurvedaSection','prescriptionSection','previewSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function showDashboard(){hideAll();$('dashboardSection').classList.remove('hidden');setActive('tabDashboard');renderDashboard()}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
 function showClinical(){hideAll();$('clinicalSection').classList.remove('hidden');setActive('tabClinical')}
@@ -523,11 +628,26 @@ $('shareBtn').onclick=sharePrescription;
 $('goRecordsBtn').onclick=showRecords;
 $('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
 
+
+$('tabDashboard').onclick=showDashboard;
+$('dashNewPatient').onclick=()=>{populate(blank());showPatient();status('New blank patient ready.')};
+$('dashRecords').onclick=showRecords;
+$('dashSearch').onclick=()=>{$('dashboardSearch').focus();window.scrollTo({top:$('dashboardSearch').offsetTop-80,behavior:'smooth'})};
+$('dashInvestigations').onclick=showInvestigations;
+$('dashAyurveda').onclick=showAyurveda;
+$('dashPrescription').onclick=showPrescription;
+$('dashboardSearch').oninput=renderDashboardSearch;
+$('dashboardSection').onclick=e=>{
+const open=e.target.dataset.dashopen,rx=e.target.dataset.dashrx;
+if(open)openDashboardRecord(open,false);
+if(rx)openDashboardRecord(rx,true);
+};
+
 $('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());status('App loaded successfully. V1.8 ready.');
+renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();status('App loaded successfully. V1.9 ready.');
 })();
 </script>
 </body>
