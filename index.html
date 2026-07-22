@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR V2.8</title>
+<title>Shri Krishna Mahamaya Clinic EMR V2.9</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -174,6 +174,20 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 @media(max-width:850px){.imaging-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:550px){.imaging-grid{grid-template-columns:1fr}}
 
+
+.kb-layout{display:grid;grid-template-columns:300px 1fr;gap:12px}
+.kb-menu{border:1px solid var(--line);border-radius:12px;padding:10px;background:#fbfdfe}
+.kb-content{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}
+.kb-nav-btn{width:100%;text-align:left;justify-content:flex-start;margin:4px 0}
+.kb-section{border-top:1px solid var(--line);padding-top:12px;margin-top:14px}
+.kb-section h3{margin-top:0}
+.kb-tag{display:inline-block;padding:5px 8px;border-radius:14px;background:#e7f2f8;color:#174f69;margin:3px;font-size:12px;font-weight:700}
+.kb-red{border-left:5px solid #b83229;background:#fde7e4;border-radius:10px;padding:11px}
+.kb-yellow{border-left:5px solid #d9a928;background:#fff5d8;border-radius:10px;padding:11px}
+.kb-green{border-left:5px solid #2f8b59;background:#e7f5eb;border-radius:10px;padding:11px}
+.kb-evidence{font-size:12px;color:#5e737c;background:#f5f8f9;padding:9px;border-radius:9px}
+@media(max-width:800px){.kb-layout{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -198,11 +212,11 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>V2.8 • Imaging Archive • Structured Findings • Timeline</p>
+<p>V2.9 • Disease Knowledge Base • Sciatica / Gridhrasi</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> V2.7 के working engine में Imaging Management Phase 1 जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
+<div class="notice"><b>Stable incremental build:</b> V2.8 के working engine में Disease Knowledge Base Phase 1 जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
 <div class="tabs actions">
 <button id="tabDashboard" class="primary active">🏠 Dashboard</button>
 <button id="tabTimeline" class="secondary">🔄 Follow-up</button>
@@ -223,10 +237,11 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="tabPharmacy" class="secondary">💊 Pharmacy</button>
 <button id="tabLabMgmt" class="secondary">🔬 Laboratory</button>
 <button id="tabImaging" class="secondary">🩻 Imaging</button>
+<button id="tabKnowledge" class="secondary">📚 Knowledge</button>
 <button id="tabSettings" class="secondary">⚙ Settings</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V2.8</div>
+<div id="status" class="status">App loaded successfully. Version: V2.9</div>
 <div class="actions no-print">
   <span id="activeRoleBadge" class="role-badge">Locked</span>
   <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -264,6 +279,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="dashPharmacy" class="secondary quick-btn">💊<span>Pharmacy</span></button>
 <button id="dashLabMgmt" class="secondary quick-btn">🔬<span>Laboratory</span></button>
 <button id="dashImaging" class="secondary quick-btn">🩻<span>Imaging</span></button>
+<button id="dashKnowledge" class="secondary quick-btn">📚<span>Disease Knowledge</span></button>
 </div>
 </div>
 
@@ -1060,6 +1076,29 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 </div>
 </section>
 
+
+<section id="knowledgeSection" class="hidden">
+<div class="card">
+<h2>SKMCIS Disease Knowledge Base</h2>
+<div class="notice"><b>Phase 1:</b> पहला structured disease master record जोड़ा गया है। यह clinical decision support और documentation template है; अंतिम diagnosis और management clinician का निर्णय रहेगा।</div>
+<div class="grid">
+<div><label>Search Disease / Symptom / Ayurveda Term</label><input id="kbSearch" placeholder="e.g. sciatica, Gridhrasi, radiculopathy"></div>
+<div><label>Knowledge Category</label><select id="kbCategory"><option>All</option><option>Spine & Orthopedic</option><option>Neurology</option><option>Ayurveda</option></select></div>
+</div>
+</div>
+
+<div class="kb-layout">
+<div class="kb-menu card">
+<h3>Disease Records</h3>
+<div id="kbDiseaseList"></div>
+</div>
+
+<div class="kb-content card">
+<div id="kbDiseaseContent"></div>
+</div>
+</div>
+</section>
+
 <section id="settingsSection" class="hidden">
 <div class="card">
 <h2>Local Security & Roles</h2>
@@ -1720,6 +1759,180 @@ populateFollowup();
 
 
 
+
+
+const DISEASE_KB=[
+{
+id:'DIS-0001',
+name:'Sciatica',
+ayurveda:'Gridhrasi',
+category:'Spine & Orthopedic',
+synonyms:['Lumbosacral radicular pain','Lumbar radiculopathy','Sciatic nerve-root pain','Gridhrasi'],
+definition:'Pain radiating into one or both legs due to lumbosacral nerve-root pathology or irritation. Symptoms may include electric or shooting pain, tingling, numbness or weakness.',
+coreSymptoms:[
+'Low-back or buttock pain radiating below the knee',
+'Shooting, electric or burning leg pain',
+'Numbness or tingling in a dermatomal distribution',
+'Possible focal motor weakness',
+'Symptoms aggravated by cough, sneeze, strain or selected movements'
+],
+redFlags:[
+'New bladder retention or incontinence',
+'New bowel dysfunction',
+'Saddle or perineal sensory loss',
+'Progressive or severe motor weakness / foot drop',
+'Bilateral severe radicular symptoms',
+'Fever, immunosuppression or suspected spinal infection',
+'Major trauma or suspected fracture',
+'Known cancer, unexplained weight loss or destructive lesion'
+],
+focusedHistory:[
+'Exact pain path: back, buttock, thigh, leg and foot',
+'Onset, duration, progression and recurrence',
+'Pain severity and functional limitation',
+'Numbness, tingling, weakness and gait change',
+'Bladder, bowel and saddle symptoms',
+'Trauma, fever, cancer, steroid use and immunosuppression',
+'Workload, lifting, posture, sleep and psychosocial factors'
+],
+exam:[
+'Gait and posture',
+'Lumbar range of motion',
+'Straight-leg raise and crossed SLR',
+'Motor power: hip, knee, ankle and great toe',
+'Dermatomal sensory examination',
+'Knee and ankle reflexes',
+'Heel/toe walking where safe',
+'Peripheral pulses and hip/SI screening when indicated'
+],
+differentials:[
+'Lumbar disc herniation with radiculopathy',
+'Lumbar canal or foraminal stenosis',
+'Piriformis/deep gluteal syndrome',
+'Sacroiliac joint disorder',
+'Hip pathology',
+'Peripheral neuropathy',
+'Vascular claudication',
+'Spinal infection, fracture or malignancy'
+],
+imagingRules:[
+'Do not routinely request imaging in uncomplicated acute low-back pain/sciatica in a non-specialist setting.',
+'Consider imaging when serious pathology is suspected or when results are likely to change management.',
+'Correlate MRI findings with the symptomatic side, neurological level and examination because degenerative findings may be incidental.'
+],
+managementPrinciples:[
+'Explain the condition and encourage continuation of tolerable normal activity.',
+'Use an individualized exercise and rehabilitation plan.',
+'Address sleep, work, fear-avoidance and psychosocial barriers.',
+'Review medicine risks, comorbidities and duration before pharmacological treatment.',
+'Consider specialist referral for progressive deficit, red flags or persistent disabling symptoms.',
+'Consider decompression opinion when non-surgical treatment fails and imaging matches symptoms.'
+],
+ayurvedaFramework:{
+vyadhi:'Gridhrasi',
+dosha:'Commonly assessed as Vata-predominant or Vata-Kapha presentation; patient-specific assessment is required.',
+features:'Ruk, Toda, Stambha, Spandana and radiating lower-limb symptoms may be documented according to the classical clinical picture.',
+assessment:['Nidana','Dosha/Doshabheda','Ama/Nirama','Agni','Koshtha','Dushya','Srotas','Srotodushti','Rogamarga','Bala','Avastha'],
+principle:'Chikitsa Siddhanta and Panchakarma selection must be individualized by bala, avastha, ama, comorbidity and contraindications.'
+},
+outcomes:[
+'VAS/NRS pain score',
+'Oswestry Disability Index',
+'Walking and sitting tolerance',
+'SLR angle',
+'Motor power',
+'Sensory change',
+'Reflex status',
+'Work/activity participation',
+'Patient global improvement'
+],
+patientAdvice:[
+'Remain active within tolerance and avoid prolonged bed rest.',
+'Seek urgent care for bladder/bowel change, saddle numbness or rapidly progressive weakness.',
+'Use safe lifting and graded return to activity.',
+'Review persistent or worsening symptoms rather than relying only on imaging findings.'
+],
+founderResearchNote:'Founder thesis observation (n=60): Vataja cases were interpreted as relatively degeneration-dominant, while Vata-Kaphaja cases showed a more obstructive/mass-effect pattern. This is a local observational finding and should not be treated as a universal diagnostic rule.',
+evidenceNote:'Modern-care reminders are aligned with WHO low-back-pain information, NICE NG59 and ACR imaging appropriateness principles. The Ayurveda section is an editable integrative documentation framework and requires classical/clinical review.'
+}
+];
+
+let activeDiseaseId='DIS-0001';
+
+function diseaseMatches(d,term,category){
+  const text=[d.id,d.name,d.ayurveda,d.category,(d.synonyms||[]).join(' '),JSON.stringify(d)].join(' ').toLowerCase();
+  return (!term||text.includes(term))&&(category==='All'||d.category===category||category==='Ayurveda'&&d.ayurveda);
+}
+function renderDiseaseList(){
+  const term=val('kbSearch').toLowerCase(),category=val('kbCategory')||'All';
+  const rows=DISEASE_KB.filter(d=>diseaseMatches(d,term,category));
+  $('kbDiseaseList').innerHTML=rows.map(d=>`<button class="${d.id===activeDiseaseId?'primary':'secondary'} kb-nav-btn" data-kbdisease="${esc(d.id)}">
+  ${esc(d.id)} — ${esc(d.name)} / ${esc(d.ayurveda)}
+  </button>`).join('')||'<div class="notice">No matching disease record.</div>';
+}
+function tagList(items=[]){return items.map(x=>`<span class="kb-tag">${esc(x)}</span>`).join('')}
+function bulletList(items=[]){return `<ul>${items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`}
+function renderDiseaseContent(){
+  const d=DISEASE_KB.find(x=>x.id===activeDiseaseId);
+  if(!d){$('kbDiseaseContent').innerHTML='<div class="notice">Select a disease record.</div>';return}
+  $('kbDiseaseContent').innerHTML=`
+  <div><span class="role-badge">${esc(d.id)}</span> <span class="role-badge">${esc(d.category)}</span></div>
+  <h2>${esc(d.name)} <span class="small">/ ${esc(d.ayurveda)}</span></h2>
+  <div>${tagList(d.synonyms)}</div>
+  <div class="kb-section"><h3>Definition</h3><p>${esc(d.definition)}</p></div>
+  <div class="kb-section"><h3>Core Clinical Features</h3>${bulletList(d.coreSymptoms)}</div>
+  <div class="kb-section kb-red"><h3>Red Flags — urgent assessment/referral</h3>${bulletList(d.redFlags)}</div>
+  <div class="kb-section"><h3>Focused History</h3>${bulletList(d.focusedHistory)}</div>
+  <div class="kb-section"><h3>Focused Examination</h3>${bulletList(d.exam)}</div>
+  <div class="kb-section"><h3>Differential Diagnosis</h3>${bulletList(d.differentials)}</div>
+  <div class="kb-section kb-yellow"><h3>Imaging Rules</h3>${bulletList(d.imagingRules)}</div>
+  <div class="kb-section"><h3>Management Principles</h3>${bulletList(d.managementPrinciples)}</div>
+  <div class="kb-section">
+    <h3>Ayurveda Integration</h3>
+    <p><b>Vyadhi:</b> ${esc(d.ayurvedaFramework.vyadhi)}</p>
+    <p><b>Dosha framework:</b> ${esc(d.ayurvedaFramework.dosha)}</p>
+    <p><b>Clinical documentation:</b> ${esc(d.ayurvedaFramework.features)}</p>
+    <p><b>Assessment:</b> ${tagList(d.ayurvedaFramework.assessment)}</p>
+    <p><b>Principle:</b> ${esc(d.ayurvedaFramework.principle)}</p>
+  </div>
+  <div class="kb-section"><h3>Outcome Measures</h3>${bulletList(d.outcomes)}</div>
+  <div class="kb-section kb-green"><h3>Patient Advice</h3>${bulletList(d.patientAdvice)}</div>
+  <div class="kb-section"><h3>Founder Research Note</h3><p>${esc(d.founderResearchNote)}</p></div>
+  <div class="kb-section kb-evidence"><b>Evidence / validation note:</b> ${esc(d.evidenceNote)}</div>
+  <div class="actions">
+    <button id="applyDiseaseBtn" class="primary">Apply to Current Patient</button>
+    <button id="addDiseasePlanBtn" class="secondary">Add Suggested Examination & Tests</button>
+    <button id="openDiseaseImagingBtn" class="secondary">Open Imaging</button>
+  </div>`;
+  $('applyDiseaseBtn').onclick=applyDiseaseToPatient;
+  $('addDiseasePlanBtn').onclick=addDiseasePlan;
+  $('openDiseaseImagingBtn').onclick=showImaging;
+}
+function applyDiseaseToPatient(){
+  const d=DISEASE_KB.find(x=>x.id===activeDiseaseId);if(!d)return;
+  set('primaryComplaint','Sciatica');
+  current.complaint.primary='Sciatica';
+  current.prescription.provisionalDiagnosis=current.prescription.provisionalDiagnosis||'Sciatica / Lumbar radicular pain';
+  current.ayurveda.vikriti=current.ayurveda.vikriti||'Vata-Kapha';
+  if(!current.ayurveda.dosha?.length)current.ayurveda.dosha=['Vata'];
+  save(current);populate(current);
+  status('Sciatica / Gridhrasi knowledge template applied to current patient.');
+}
+function addDiseasePlan(){
+  const d=DISEASE_KB.find(x=>x.id===activeDiseaseId);if(!d)return;
+  const examText=d.exam.join('; ');
+  current.clinical.clinicalNotes=[current.clinical.clinicalNotes,'Focused sciatica exam: '+examText].filter(Boolean).join('\n');
+  const planned=[
+    {category:'Clinical',test:'Focused neurological and radicular examination',priority:'Routine',note:'Motor, sensory, reflexes, SLR/crossed SLR and gait'},
+    {category:'Imaging',test:'MRI Lumbar Spine — only if clinically indicated',priority:'Follow-up',note:'Use when serious pathology is suspected or result will change management'}
+  ];
+  planned.forEach(x=>{if(!current.investigations.advised.some(y=>y.test===x.test))current.investigations.advised.push(x)});
+  save(current);renderInvestigations();status('Suggested examination and investigation reminders added.');
+}
+function showKnowledge(){
+  hideAll();$('knowledgeSection').classList.remove('hidden');setActive('tabKnowledge');
+  renderDiseaseList();renderDiseaseContent();
+}
 
 const IMAGING_KEY='skm-imaging-v28';
 let activeImagingId='';
@@ -2465,8 +2678,8 @@ else showPatient();
 status('Saved patient reopened successfully.');
 }
 
-function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabAppointments','tabBilling','tabPharmacy','tabLabMgmt','tabImaging','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','appointmentsSection','billingSection','pharmacySection','labMgmtSection','imagingSection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabAppointments','tabBilling','tabPharmacy','tabLabMgmt','tabImaging','tabKnowledge','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','appointmentsSection','billingSection','pharmacySection','labMgmtSection','imagingSection','knowledgeSection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
 function showDashboard(){hideAll();$('dashboardSection').classList.remove('hidden');setActive('tabDashboard');renderDashboard()}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
@@ -2547,6 +2760,16 @@ $('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
 
 
 $('tabDashboard').onclick=showDashboard;
+
+$('tabKnowledge').onclick=showKnowledge;
+$('dashKnowledge').onclick=showKnowledge;
+$('kbSearch').oninput=()=>{renderDiseaseList()};
+$('kbCategory').onchange=()=>{renderDiseaseList()};
+$('kbDiseaseList').onclick=e=>{
+  const id=e.target.dataset.kbdisease;
+  if(id){activeDiseaseId=id;renderDiseaseList();renderDiseaseContent();}
+};
+
 
 $('tabImaging').onclick=showImaging;
 $('dashImaging').onclick=showImaging;
@@ -2706,7 +2929,7 @@ $('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('t
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.8 ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.9 ready.');
 })();
 </script>
 </body>
