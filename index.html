@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR V2.5</title>
+<title>Shri Krishna Mahamaya Clinic EMR V2.6</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -136,6 +136,19 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 @media(max-width:900px){.appointment-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.bill-row{grid-template-columns:1fr}.appointment-grid{grid-template-columns:1fr}}
 
+
+.inventory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.inventory-stat{border:1px solid var(--line);border-radius:12px;padding:13px;text-align:center;background:#fbfdfe}
+.inventory-stat .n{font-size:24px;font-weight:900;color:var(--p)}
+.stock-low{background:#fff4d8;border-left:5px solid #d9a928}
+.stock-critical{background:#fde7e4;border-left:5px solid #b83229}
+.stock-ok{background:#e7f5eb;border-left:5px solid #2f8b59}
+.expired{background:#fde7e4!important}
+.inventory-row{border:1px solid var(--line);border-radius:11px;padding:11px;margin:8px 0;background:#fbfdfe}
+.dispense-row{display:grid;grid-template-columns:1.6fr .7fr .7fr auto;gap:8px;align-items:end}
+@media(max-width:850px){.inventory-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.dispense-row,.inventory-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -160,11 +173,11 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>V2.5 • Appointments • Billing • Receipts</p>
+<p>V2.6 • Pharmacy • Inventory • Stock Alerts</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> V2.4 के working engine में Appointment Calendar और Billing/Receipt Phase 1 जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
+<div class="notice"><b>Stable incremental build:</b> V2.5 के working engine में Pharmacy & Inventory Phase 1 जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
 <div class="tabs actions">
 <button id="tabDashboard" class="primary active">🏠 Dashboard</button>
 <button id="tabTimeline" class="secondary">🔄 Follow-up</button>
@@ -182,10 +195,11 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="tabPreview" class="secondary">📄 Preview/PDF</button>
 <button id="tabAppointments" class="secondary">📅 Appointments</button>
 <button id="tabBilling" class="secondary">💰 Billing</button>
+<button id="tabPharmacy" class="secondary">💊 Pharmacy</button>
 <button id="tabSettings" class="secondary">⚙ Settings</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V2.5</div>
+<div id="status" class="status">App loaded successfully. Version: V2.6</div>
 <div class="actions no-print">
   <span id="activeRoleBadge" class="role-badge">Locked</span>
   <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -220,6 +234,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="dashSafety" class="warning quick-btn">🛡<span>Medicine Safety</span></button>
 <button id="dashAppointments" class="secondary quick-btn">📅<span>Appointments</span></button>
 <button id="dashBilling" class="secondary quick-btn">💰<span>Billing</span></button>
+<button id="dashPharmacy" class="secondary quick-btn">💊<span>Pharmacy</span></button>
 </div>
 </div>
 
@@ -776,6 +791,86 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <div class="card">
 <h2>Recent Bills</h2>
 <div id="recentBillsList"></div>
+</div>
+</section>
+
+
+<section id="pharmacySection" class="hidden">
+<div class="card">
+<h2>Pharmacy & Inventory Dashboard</h2>
+<div class="inventory-grid">
+<div class="inventory-stat"><div class="n" id="inventoryTotalItems">0</div><div>Total items</div></div>
+<div class="inventory-stat"><div class="n" id="inventoryLowStock">0</div><div>Low stock</div></div>
+<div class="inventory-stat"><div class="n" id="inventoryExpiring">0</div><div>Expiring ≤90 days</div></div>
+<div class="inventory-stat"><div class="n" id="inventoryExpired">0</div><div>Expired</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Add / Update Inventory Item</h2>
+<div class="grid3">
+<div><label>Generic / Main Name *</label><input id="invGeneric"></div>
+<div><label>Brand / Product Name</label><input id="invBrand"></div>
+<div><label>Category</label><select id="invCategory">
+<option>Tablet</option><option>Capsule</option><option>Syrup</option><option>Injection</option><option>IV Fluid</option><option>Churna</option><option>Vati</option><option>Guggulu</option><option>Bhasma</option><option>Rasoushadhi</option><option>Kwatha</option><option>Asava-Arishta</option><option>Ghrita</option><option>Taila / Panchakarma Oil</option><option>Cream / Ointment</option><option>Surgical Consumable</option><option>Other</option>
+</select></div>
+</div>
+
+<div class="grid3">
+<div><label>Strength / Composition</label><input id="invStrength"></div>
+<div><label>Company / Manufacturer</label><input id="invCompany"></div>
+<div><label>Dosage Form / Pack</label><input id="invPack" placeholder="e.g. strip of 10 / 100 ml bottle"></div>
+</div>
+
+<div class="grid3">
+<div><label>Batch Number</label><input id="invBatch"></div>
+<div><label>Manufacturing Date</label><input id="invMfg" type="date"></div>
+<div><label>Expiry Date *</label><input id="invExpiry" type="date"></div>
+</div>
+
+<div class="grid3">
+<div><label>Purchase Price ₹</label><input id="invPurchase" type="number" step="0.01" min="0"></div>
+<div><label>Selling Price ₹</label><input id="invSelling" type="number" step="0.01" min="0"></div>
+<div><label>HSN / Tax %</label><input id="invTaxInfo" placeholder="Optional"></div>
+</div>
+
+<div class="grid3">
+<div><label>Current Stock *</label><input id="invStock" type="number" step="1" min="0"></div>
+<div><label>Minimum Stock</label><input id="invMinStock" type="number" step="1" min="0" value="5"></div>
+<div><label>Storage Location</label><input id="invLocation" placeholder="Rack / shelf / room"></div>
+</div>
+
+<label>Notes</label><textarea id="invNotes"></textarea>
+<input id="invEditId" type="hidden">
+<div class="actions">
+<button id="saveInventoryItemBtn" class="primary">💾 Save Inventory Item</button>
+<button id="clearInventoryFormBtn" class="secondary">Clear Form</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Inventory List</h2>
+<div class="grid">
+<div><label>Search medicine / batch / company</label><input id="inventorySearch"></div>
+<div><label>Filter</label><select id="inventoryFilter"><option>All</option><option>Low Stock</option><option>Expiring ≤90 days</option><option>Expired</option><option>In Stock</option></select></div>
+</div>
+<div id="inventoryList"></div>
+</div>
+
+<div class="card">
+<h2>Dispense Medicine</h2>
+<div class="dispense-row">
+<div><label>Select Inventory Item</label><select id="dispenseItem"></select></div>
+<div><label>Quantity</label><input id="dispenseQty" type="number" min="1" step="1" value="1"></div>
+<div><label>Patient / UHID</label><input id="dispensePatient"></div>
+<div><button id="dispenseBtn" class="primary">Dispense</button></div>
+</div>
+<div class="notice">Expired items cannot be dispensed. Low-stock and expiry warnings will be shown before dispensing.</div>
+</div>
+
+<div class="card">
+<h2>Recent Dispensing Log</h2>
+<div id="dispenseLog"></div>
 </div>
 </section>
 
@@ -1437,6 +1532,133 @@ populateFollowup();
 
 
 
+
+const INVENTORY_KEY='skm-inventory-v26';
+const DISPENSE_KEY='skm-dispense-v26';
+
+function inventoryRows(){
+  try{return JSON.parse(localStorage.getItem(INVENTORY_KEY))||[]}
+  catch{return []}
+}
+function saveInventoryRows(rows){localStorage.setItem(INVENTORY_KEY,JSON.stringify(rows))}
+function dispenseRows(){
+  try{return JSON.parse(localStorage.getItem(DISPENSE_KEY))||[]}
+  catch{return []}
+}
+function saveDispenseRows(rows){localStorage.setItem(DISPENSE_KEY,JSON.stringify(rows))}
+function daysToExpiry(dateStr){
+  if(!dateStr)return null;
+  const now=new Date(today()+'T00:00:00');
+  const d=new Date(dateStr+'T00:00:00');
+  return Math.ceil((d-now)/86400000);
+}
+function clearInventoryForm(){
+  ['invGeneric','invBrand','invStrength','invCompany','invPack','invBatch','invMfg','invExpiry','invPurchase','invSelling','invTaxInfo','invStock','invLocation','invNotes','invEditId'].forEach(id=>set(id,''));
+  set('invMinStock','5');set('invCategory','Tablet');
+}
+function saveInventoryItem(){
+  if(!val('invGeneric')||!val('invExpiry')||val('invStock')==='')return status('Generic name, expiry date and current stock are required.',true);
+  const rows=inventoryRows();
+  const id=val('invEditId')||('INV-'+Date.now());
+  const item={
+    id,generic:val('invGeneric'),brand:val('invBrand'),category:val('invCategory'),
+    strength:val('invStrength'),company:val('invCompany'),pack:val('invPack'),
+    batch:val('invBatch'),mfg:val('invMfg'),expiry:val('invExpiry'),
+    purchase:Number(val('invPurchase')||0),selling:Number(val('invSelling')||0),
+    taxInfo:val('invTaxInfo'),stock:Number(val('invStock')||0),minStock:Number(val('invMinStock')||0),
+    location:val('invLocation'),notes:val('invNotes'),updatedAt:new Date().toISOString()
+  };
+  const i=rows.findIndex(x=>x.id===id);
+  if(i>=0)rows[i]=item;else rows.unshift(item);
+  saveInventoryRows(rows);
+  audit(i>=0?'Inventory item updated':'Inventory item added',item.generic+' batch '+item.batch);
+  clearInventoryForm();renderInventory();status('Inventory item saved successfully.');
+}
+function inventoryStatus(item){
+  const days=daysToExpiry(item.expiry);
+  if(days!==null&&days<0)return {type:'expired',label:'Expired'};
+  if(days!==null&&days<=30)return {type:'critical',label:'Expires in '+days+' day(s)'};
+  if(days!==null&&days<=90)return {type:'low',label:'Expires in '+days+' day(s)'};
+  if(Number(item.stock)<=Number(item.minStock))return {type:'low',label:'Low stock'};
+  return {type:'ok',label:'In stock'};
+}
+function renderInventory(){
+  const rows=inventoryRows();
+  const term=val('inventorySearch').toLowerCase();
+  const filter=val('inventoryFilter')||'All';
+
+  const filtered=rows.filter(x=>{
+    const s=inventoryStatus(x);
+    const searchable=[x.generic,x.brand,x.batch,x.company,x.strength,x.category].join(' ').toLowerCase().includes(term);
+    if(!searchable)return false;
+    if(filter==='Low Stock')return Number(x.stock)<=Number(x.minStock);
+    if(filter==='Expiring ≤90 days'){const d=daysToExpiry(x.expiry);return d!==null&&d>=0&&d<=90}
+    if(filter==='Expired'){const d=daysToExpiry(x.expiry);return d!==null&&d<0}
+    if(filter==='In Stock')return x.stock>0&&s.type!=='expired';
+    return true;
+  });
+
+  $('inventoryList').innerHTML=filtered.map(x=>{
+    const s=inventoryStatus(x);
+    const cls=s.type==='expired'?'expired':s.type==='critical'?'stock-critical':s.type==='low'?'stock-low':'stock-ok';
+    return `<div class="inventory-row ${cls}">
+      <b>${esc(x.generic)}</b> ${x.brand?'— '+esc(x.brand):''} ${x.strength?'('+esc(x.strength)+')':''}
+      <div class="small">${esc(x.category)} • Batch ${esc(x.batch||'—')} • Exp ${esc(x.expiry||'—')} • ${esc(x.company||'')}</div>
+      <div><b>Stock:</b> ${esc(x.stock)} | <b>Min:</b> ${esc(x.minStock)} | <b>Sell:</b> ₹${Number(x.selling||0).toFixed(2)} | <b>Status:</b> ${esc(s.label)}</div>
+      <div class="actions">
+        <button class="secondary" data-invedit="${esc(x.id)}">Edit</button>
+        <button class="danger" data-invdelete="${esc(x.id)}">Delete</button>
+      </div>
+    </div>`;
+  }).join('')||'<div class="notice">No matching inventory items.</div>';
+
+  $('inventoryTotalItems').textContent=rows.length;
+  $('inventoryLowStock').textContent=rows.filter(x=>Number(x.stock)<=Number(x.minStock)).length;
+  $('inventoryExpiring').textContent=rows.filter(x=>{const d=daysToExpiry(x.expiry);return d!==null&&d>=0&&d<=90}).length;
+  $('inventoryExpired').textContent=rows.filter(x=>{const d=daysToExpiry(x.expiry);return d!==null&&d<0}).length;
+
+  $('dispenseItem').innerHTML='<option value=""></option>'+rows.map(x=>`<option value="${esc(x.id)}">${esc(x.generic)} ${esc(x.brand||'')} — Stock ${esc(x.stock)} — Exp ${esc(x.expiry)}</option>`).join('');
+  renderDispenseLog();
+}
+function editInventoryItem(id){
+  const x=inventoryRows().find(r=>r.id===id);if(!x)return;
+  set('invEditId',x.id);set('invGeneric',x.generic);set('invBrand',x.brand);set('invCategory',x.category);
+  set('invStrength',x.strength);set('invCompany',x.company);set('invPack',x.pack);set('invBatch',x.batch);
+  set('invMfg',x.mfg);set('invExpiry',x.expiry);set('invPurchase',x.purchase);set('invSelling',x.selling);
+  set('invTaxInfo',x.taxInfo);set('invStock',x.stock);set('invMinStock',x.minStock);set('invLocation',x.location);set('invNotes',x.notes);
+  window.scrollTo({top:$('pharmacySection').offsetTop,behavior:'smooth'});
+}
+function dispenseInventory(){
+  const id=val('dispenseItem'),qty=Number(val('dispenseQty')||0);
+  if(!id||qty<=0)return status('Select item and valid quantity.',true);
+  const rows=inventoryRows(),i=rows.findIndex(x=>x.id===id);
+  if(i<0)return status('Inventory item not found.',true);
+  const item=rows[i],d=daysToExpiry(item.expiry);
+  if(d!==null&&d<0)return status('Expired item cannot be dispensed.',true);
+  if(qty>Number(item.stock))return status('Insufficient stock.',true);
+  if(d!==null&&d<=30&&!confirm('This item expires within 30 days. Continue dispensing?'))return;
+  item.stock=Number(item.stock)-qty;item.updatedAt=new Date().toISOString();
+  rows[i]=item;saveInventoryRows(rows);
+
+  const logs=dispenseRows();
+  logs.unshift({id:'DSP-'+Date.now(),at:new Date().toISOString(),inventoryId:id,item:item.generic,brand:item.brand,qty,patient:val('dispensePatient'),batch:item.batch,expiry:item.expiry});
+  saveDispenseRows(logs.slice(0,500));
+  audit('Medicine dispensed',item.generic+' qty '+qty+' patient '+val('dispensePatient'));
+  set('dispenseQty','1');renderInventory();status('Medicine dispensed and stock updated.');
+}
+function renderDispenseLog(){
+  const rows=dispenseRows().slice(0,30);
+  $('dispenseLog').innerHTML=rows.map(x=>`<div class="item">
+  <b>${esc(x.item)}</b> ${x.brand?'— '+esc(x.brand):''}
+  <div class="small">${esc(new Date(x.at).toLocaleString())} • Qty ${esc(x.qty)} • Patient ${esc(x.patient||'—')} • Batch ${esc(x.batch||'—')}</div>
+  </div>`).join('')||'<div class="notice">No dispensing entries.</div>';
+}
+function showPharmacy(){
+  hideAll();$('pharmacySection').classList.remove('hidden');setActive('tabPharmacy');
+  set('dispensePatient',[current.patient?.name,current.uhid].filter(Boolean).join(' / '));
+  renderInventory();
+}
+
 const APPOINTMENT_KEY='skm-appointments-v25';
 const BILLING_KEY='skm-billing-v25';
 let currentBill=null;
@@ -1773,8 +1995,8 @@ else showPatient();
 status('Saved patient reopened successfully.');
 }
 
-function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabAppointments','tabBilling','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','appointmentsSection','billingSection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabAppointments','tabBilling','tabPharmacy','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','appointmentsSection','billingSection','pharmacySection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
 function showDashboard(){hideAll();$('dashboardSection').classList.remove('hidden');setActive('tabDashboard');renderDashboard()}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
@@ -1815,7 +2037,7 @@ dose:val('medDose'),frequency:val('medFrequency'),route:val('medRoute'),meal:val
 duration:val('medDuration'),instruction:val('medInstruction')
 });
 set('medName','');set('medStrength','');set('medDose','');set('medDuration','');set('medInstruction','');
-save(current);renderMedicines();status('Medicine added successfully.');
+save(current);renderMedicines();const invMatch=inventoryRows().find(x=>[x.generic,x.brand].join(' ').toLowerCase().includes(val('medName').toLowerCase()));if(invMatch){status('Medicine added. Inventory stock: '+invMatch.stock+'; expiry: '+invMatch.expiry)}else{status('Medicine added successfully. No matching inventory item found.');}
 };
 $('medicineList').onclick=e=>{
 if(e.target.dataset.medidx!==undefined){
@@ -1855,6 +2077,25 @@ $('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
 
 
 $('tabDashboard').onclick=showDashboard;
+
+$('tabPharmacy').onclick=showPharmacy;
+$('dashPharmacy').onclick=showPharmacy;
+$('saveInventoryItemBtn').onclick=saveInventoryItem;
+$('clearInventoryFormBtn').onclick=clearInventoryForm;
+$('inventorySearch').oninput=renderInventory;
+$('inventoryFilter').onchange=renderInventory;
+$('dispenseBtn').onclick=dispenseInventory;
+$('inventoryList').onclick=e=>{
+  const edit=e.target.dataset.invedit,del=e.target.dataset.invdelete;
+  if(edit)editInventoryItem(edit);
+  if(del&&confirm('Delete this inventory item?')){
+    const item=inventoryRows().find(x=>x.id===del);
+    saveInventoryRows(inventoryRows().filter(x=>x.id!==del));
+    audit('Inventory item deleted',item?.generic||del);
+    renderInventory();
+  }
+};
+
 
 $('tabAppointments').onclick=showAppointments;
 $('tabBilling').onclick=showBilling;
@@ -1944,7 +2185,7 @@ $('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('t
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.5 ready.');
+renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.6 ready.');
 })();
 </script>
 </body>
