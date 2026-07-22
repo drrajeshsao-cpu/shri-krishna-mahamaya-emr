@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR V2.2</title>
+<title>Shri Krishna Mahamaya Clinic EMR V2.3</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -105,16 +105,25 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 @media(max-width:850px){.lab-value-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.lab-value-grid{grid-template-columns:1fr}}
 
+
+.profile-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.profile-panel{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fbfdfe}
+.profile-result{border-left:5px solid var(--p);background:#f7fbfc;border-radius:10px;padding:11px;margin:8px 0}
+.profile-result.red{border-color:#b83229;background:#fde7e4;color:#7d2019}
+.profile-result.yellow{border-color:#d9a928;background:#fff5d8;color:#6d4b00}
+.profile-result.green{border-color:#2f8b59;background:#e7f5eb;color:#1f603e}
+.profile-result.blue{border-color:#357b9d;background:#e7f2f8;color:#174f69}
+
 </style>
 </head>
 <body>
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>V2.2 • CBC Smart Interpreter • Medicine Safety</p>
+<p>V2.3 • Diabetes • Thyroid • Kidney • Liver Interpreter</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> V2.1 के working engine में केवल CBC Smart Interpreter Phase 1 जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
+<div class="notice"><b>Stable incremental build:</b> V2.2 के working engine में Basic Lab Interpreter जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
 <div class="tabs actions">
 <button id="tabDashboard" class="primary active">🏠 Dashboard</button>
 <button id="tabTimeline" class="secondary">🔄 Follow-up</button>
@@ -125,13 +134,14 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="tabSystemic" class="secondary">🫀 Systemic</button>
 <button id="tabInvestigations" class="secondary">🧪 Investigations</button>
 <button id="tabCBC" class="secondary">🩸 CBC Interpreter</button>
+<button id="tabLabProfiles" class="secondary">🧪 Lab Profiles</button>
 <button id="tabAyurveda" class="secondary">🌿 Ayurveda</button>
 <button id="tabPrescription" class="secondary">💊 Prescription</button>
 <button id="tabSafety" class="secondary">🛡 Safety</button>
 <button id="tabPreview" class="secondary">📄 Preview/PDF</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V2.2</div>
+<div id="status" class="status">App loaded successfully. Version: V2.3</div>
 </div>
 
 
@@ -154,6 +164,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="dashSearch" class="secondary quick-btn">🔍<span>Search Patient</span></button>
 <button id="dashInvestigations" class="secondary quick-btn">🧪<span>Investigations</span></button>
 <button id="dashCBC" class="secondary quick-btn">🩸<span>CBC Interpreter</span></button>
+<button id="dashLabProfiles" class="secondary quick-btn">🧪<span>Lab Profiles</span></button>
 <button id="dashAyurveda" class="secondary quick-btn">🌿<span>Ayurveda</span></button>
 <button id="dashPrescription" class="secondary quick-btn">💊<span>Prescription</span></button>
 <button id="dashSafety" class="warning quick-btn">🛡<span>Medicine Safety</span></button>
@@ -336,7 +347,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="interpretCBCBtn" class="primary">🩸 Interpret CBC</button>
 <button id="saveCBCBtn" class="secondary">💾 Save CBC Values</button>
 <button id="addCBCToPreviousBtn" class="secondary">＋ Add Summary to Previous Investigations</button>
-<button id="goAyurvedaFromCBCBtn" class="secondary">Next: Ayurveda →</button>
+<button id="goLabProfilesBtn" class="secondary">Next: Lab Profiles →</button><button id="goAyurvedaFromCBCBtn" class="secondary">Skip to Ayurveda →</button>
 </div>
 </div>
 
@@ -348,6 +359,93 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <div class="card">
 <h2>Suggested Next Steps</h2>
 <div id="cbcNextSteps"><div class="notice">Suggestions will appear after interpretation.</div></div>
+</div>
+</section>
+
+
+<section id="labProfilesSection" class="hidden">
+<div class="card">
+<h2>Basic Lab Interpreter — Phase 1</h2>
+<div class="notice"><b>Decision support only:</b> laboratory-specific reference ranges, symptoms, pregnancy status, medicines and repeat confirmation remain essential.</div>
+
+<div class="profile-tabs">
+<button class="primary labModeBtn" data-mode="diabetes">🍬 Diabetes</button>
+<button class="secondary labModeBtn" data-mode="thyroid">🦋 Thyroid</button>
+<button class="secondary labModeBtn" data-mode="kidney">🫘 Kidney</button>
+<button class="secondary labModeBtn" data-mode="liver">🫀 Liver</button>
+</div>
+
+<div id="diabetesPanel" class="profile-panel">
+<h3>Diabetes Profile</h3>
+<div class="grid3">
+<div><label>Fasting Plasma Glucose mg/dL</label><input id="labFpg" type="number" step="0.1"></div>
+<div><label>2-hour PP / OGTT mg/dL</label><input id="labPpg" type="number" step="0.1"></div>
+<div><label>HbA1c %</label><input id="labA1c" type="number" step="0.1"></div>
+</div>
+<div class="grid">
+<div><label>Random Glucose mg/dL</label><input id="labRbg" type="number" step="0.1"></div>
+<div><label>Classic Hyperglycaemic Symptoms</label><select id="labDiabetesSymptoms"><option>No / Unknown</option><option>Present</option></select></div>
+</div>
+</div>
+
+<div id="thyroidPanel" class="profile-panel hidden">
+<h3>Thyroid Profile</h3>
+<div class="grid3">
+<div><label>TSH</label><input id="labTsh" type="number" step="0.01"></div>
+<div><label>Free T4</label><input id="labFt4" type="number" step="0.01"></div>
+<div><label>Free T3 (optional)</label><input id="labFt3" type="number" step="0.01"></div>
+</div>
+<div class="grid3">
+<div><label>TSH Lower Limit</label><input id="labTshLow" type="number" step="0.01" value="0.4"></div>
+<div><label>TSH Upper Limit</label><input id="labTshHigh" type="number" step="0.01" value="4.5"></div>
+<div><label>Free T4 Range</label><input id="labFt4Range" placeholder="e.g. 0.8–1.8"></div>
+</div>
+</div>
+
+<div id="kidneyPanel" class="profile-panel hidden">
+<h3>Kidney Profile</h3>
+<div class="grid3">
+<div><label>Serum Creatinine mg/dL</label><input id="labCreatinine" type="number" step="0.01"></div>
+<div><label>eGFR mL/min/1.73m²</label><input id="labEgfr" type="number" step="1"></div>
+<div><label>Urea mg/dL</label><input id="labUrea" type="number" step="0.1"></div>
+</div>
+<div class="grid3">
+<div><label>Sodium mmol/L</label><input id="labSodium" type="number" step="0.1"></div>
+<div><label>Potassium mmol/L</label><input id="labPotassium" type="number" step="0.1"></div>
+<div><label>Chronicity ≥3 months?</label><select id="labChronicity"><option>Unknown / No</option><option>Yes</option></select></div>
+</div>
+</div>
+
+<div id="liverPanel" class="profile-panel hidden">
+<h3>Liver Profile</h3>
+<div class="grid3">
+<div><label>Total Bilirubin mg/dL</label><input id="labBilirubin" type="number" step="0.01"></div>
+<div><label>AST U/L</label><input id="labAst" type="number" step="0.1"></div>
+<div><label>ALT U/L</label><input id="labAlt" type="number" step="0.1"></div>
+</div>
+<div class="grid3">
+<div><label>ALP U/L</label><input id="labAlp" type="number" step="0.1"></div>
+<div><label>Albumin g/dL</label><input id="labAlbumin" type="number" step="0.1"></div>
+<div><label>INR (optional)</label><input id="labInr" type="number" step="0.01"></div>
+</div>
+<div class="grid3">
+<div><label>ALT ULN</label><input id="labAltUln" type="number" step="0.1" placeholder="Lab upper limit"></div>
+<div><label>ALP ULN</label><input id="labAlpUln" type="number" step="0.1" placeholder="Lab upper limit"></div>
+<div><label>Clinical Context</label><input id="labLiverContext" placeholder="Alcohol, medicines, jaundice, etc."></div>
+</div>
+</div>
+
+<div class="actions">
+<button id="interpretLabProfilesBtn" class="primary">🧪 Interpret Current Profile</button>
+<button id="saveLabProfilesBtn" class="secondary">💾 Save Lab Values</button>
+<button id="addLabSummaryBtn" class="secondary">＋ Add Summary to Investigations</button>
+<button id="goAyurvedaFromLabBtn" class="secondary">Next: Ayurveda →</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Interpretation Summary</h2>
+<div id="labProfileResults"><div class="notice">Select a profile, enter values and press Interpret.</div></div>
 </div>
 </section>
 
@@ -566,8 +664,8 @@ const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
 function key(id){return PREFIX+id}
-function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},updatedAt:new Date().toISOString()}}
-function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;return r}
+function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},labProfiles:{mode:'diabetes',values:{},results:[],summary:''},updatedAt:new Date().toISOString()}}
+function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;if(!r.labProfiles)r.labProfiles=b.labProfiles;return r}
 function save(r){r.updatedAt=new Date().toISOString();localStorage.setItem(key(r.id),JSON.stringify(r))}
 function all(){const a=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX)){try{a.push(JSON.parse(localStorage.getItem(k)))}catch(e){}}}return a.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))}
 function remove(id){localStorage.removeItem(key(id))}
@@ -617,7 +715,7 @@ const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
 set('followupDate',p.followupDate);set('followupNote',p.followupNote);set('emergencyContact',p.emergencyContact);set('prescriptionNotes',p.notes);
-updateComplaintWorkflow();renderInvestigations();renderMedicines();populateFollowup();populateSafetyProfile();populateCBC();showPatient()}
+updateComplaintWorkflow();renderInvestigations();renderMedicines();populateFollowup();populateSafetyProfile();populateCBC();populateLabProfiles();showPatient()}
 
 
 
@@ -742,6 +840,114 @@ if(exists){
  current.investigations.previous[i]=item;
 }else current.investigations.previous.push(item);
 save(current);renderInvestigations();status('CBC interpretation added to Previous Investigations.');
+}
+
+
+let currentLabMode='diabetes';
+function labNumber(id){const x=Number(val(id));return Number.isFinite(x)?x:null}
+function setLabMode(mode){
+currentLabMode=mode;
+['diabetes','thyroid','kidney','liver'].forEach(m=>{
+$(m+'Panel').classList.toggle('hidden',m!==mode);
+});
+document.querySelectorAll('.labModeBtn').forEach(b=>b.className=b.dataset.mode===mode?'primary labModeBtn':'secondary labModeBtn');
+}
+function readLabProfiles(){
+current.labProfiles.mode=currentLabMode;
+current.labProfiles.values={
+fpg:val('labFpg'),ppg:val('labPpg'),a1c:val('labA1c'),rbg:val('labRbg'),diabetesSymptoms:val('labDiabetesSymptoms'),
+tsh:val('labTsh'),ft4:val('labFt4'),ft3:val('labFt3'),tshLow:val('labTshLow'),tshHigh:val('labTshHigh'),ft4Range:val('labFt4Range'),
+creatinine:val('labCreatinine'),egfr:val('labEgfr'),urea:val('labUrea'),sodium:val('labSodium'),potassium:val('labPotassium'),chronicity:val('labChronicity'),
+bilirubin:val('labBilirubin'),ast:val('labAst'),alt:val('labAlt'),alp:val('labAlp'),albumin:val('labAlbumin'),inr:val('labInr'),altUln:val('labAltUln'),alpUln:val('labAlpUln'),liverContext:val('labLiverContext')
+};
+}
+function populateLabProfiles(){
+const lp=current.labProfiles||{mode:'diabetes',values:{},results:[]};
+currentLabMode=lp.mode||'diabetes';
+const v=lp.values||{};
+const map={labFpg:'fpg',labPpg:'ppg',labA1c:'a1c',labRbg:'rbg',labDiabetesSymptoms:'diabetesSymptoms',
+labTsh:'tsh',labFt4:'ft4',labFt3:'ft3',labTshLow:'tshLow',labTshHigh:'tshHigh',labFt4Range:'ft4Range',
+labCreatinine:'creatinine',labEgfr:'egfr',labUrea:'urea',labSodium:'sodium',labPotassium:'potassium',labChronicity:'chronicity',
+labBilirubin:'bilirubin',labAst:'ast',labAlt:'alt',labAlp:'alp',labAlbumin:'albumin',labInr:'inr',labAltUln:'altUln',labAlpUln:'alpUln',labLiverContext:'liverContext'};
+Object.entries(map).forEach(([id,k])=>set(id,v[k]));
+setLabMode(currentLabMode);
+renderLabProfileResults(lp.results||[]);
+}
+function labResult(arr,level,title,message){arr.push({level,title,message})}
+function interpretLabProfiles(){
+readLabProfiles();
+const v=current.labProfiles.values,r=[];
+if(currentLabMode==='diabetes'){
+const f=Number(v.fpg),p=Number(v.ppg),a=Number(v.a1c),rb=Number(v.rbg);
+if(Number.isFinite(a)){
+if(a>=6.5)labResult(r,'red','A1C in diabetes diagnostic range',`HbA1c ${a}%. In the absence of unequivocal hyperglycaemia, repeat/confirm with an appropriate test.`);
+else if(a>=5.7)labResult(r,'yellow','A1C in prediabetes range',`HbA1c ${a}%. Lifestyle and cardiovascular-risk assessment are indicated.`);
+else labResult(r,'green','A1C below prediabetes threshold',`HbA1c ${a}%. Consider conditions that can distort A1C interpretation.`);
+}
+if(Number.isFinite(f)){
+if(f>=126)labResult(r,'red','Fasting glucose in diabetes diagnostic range',`FPG ${f} mg/dL. Confirm on another day unless diagnostic symptoms/unequivocal hyperglycaemia are present.`);
+else if(f>=100)labResult(r,'yellow','Impaired fasting glucose range',`FPG ${f} mg/dL.`);
+else labResult(r,'green','Fasting glucose below prediabetes threshold',`FPG ${f} mg/dL.`);
+}
+if(Number.isFinite(p)){
+if(p>=200)labResult(r,'red','2-hour glucose in diabetes range',`2-hour value ${p} mg/dL.`);
+else if(p>=140)labResult(r,'yellow','2-hour glucose in prediabetes range',`2-hour value ${p} mg/dL.`);
+else labResult(r,'green','2-hour glucose below prediabetes threshold',`2-hour value ${p} mg/dL.`);
+}
+if(Number.isFinite(rb)&&rb>=200&&v.diabetesSymptoms==='Present')labResult(r,'red','Random glucose with classic symptoms','Random plasma glucose ≥200 mg/dL with classic symptoms may establish diabetes; verify clinical context.');
+}
+if(currentLabMode==='thyroid'){
+const tsh=Number(v.tsh),ft4=Number(v.ft4),lo=Number(v.tshLow),hi=Number(v.tshHigh);
+if(!Number.isFinite(tsh))labResult(r,'blue','TSH not entered','Enter TSH and use the laboratory reference interval.');
+else if(tsh>hi){
+if(Number.isFinite(ft4))labResult(r,'yellow','Raised TSH',`TSH ${tsh}; if FT4 is below the laboratory range, this supports overt primary hypothyroidism; if FT4 is normal, subclinical hypothyroidism is possible.`);
+else labResult(r,'yellow','Raised TSH',`TSH ${tsh}; FT4 is needed to distinguish overt from subclinical hypothyroidism.`);
+}else if(tsh<lo){
+if(Number.isFinite(ft4))labResult(r,'yellow','Low TSH',`TSH ${tsh}; high FT4 supports overt hyperthyroidism, while normal FT4 suggests subclinical hyperthyroidism.`);
+else labResult(r,'yellow','Low TSH',`TSH ${tsh}; FT4/FT3 and medication/pituitary context are needed.`);
+}else labResult(r,'green','TSH within entered laboratory interval',`TSH ${tsh}. This does not exclude central thyroid disease when FT4 is low.`);
+}
+if(currentLabMode==='kidney'){
+const eg=Number(v.egfr),k=Number(v.potassium),na=Number(v.sodium),cr=Number(v.creatinine);
+if(Number.isFinite(eg)){
+let stage=eg>=90?'G1':eg>=60?'G2':eg>=45?'G3a':eg>=30?'G3b':eg>=15?'G4':'G5';
+let level=eg<30?'red':eg<60?'yellow':'green';
+labResult(r,level,`eGFR category ${stage}`,`eGFR ${eg} mL/min/1.73m². CKD requires chronicity or other evidence of kidney damage; a single result is insufficient.`);
+}
+if(Number.isFinite(k)){
+if(k>=6.5)labResult(r,'red','Critical hyperkalaemia range',`Potassium ${k} mmol/L. Urgent confirmation and clinical/ECG assessment are required.`);
+else if(k>5.5)labResult(r,'yellow','Hyperkalaemia',`Potassium ${k} mmol/L.`);
+else if(k<3.0)labResult(r,'red','Marked hypokalaemia',`Potassium ${k} mmol/L.`);
+else if(k<3.5)labResult(r,'yellow','Hypokalaemia',`Potassium ${k} mmol/L.`);
+}
+if(Number.isFinite(na)&&(na<130||na>150))labResult(r,na<125||na>155?'red':'yellow','Sodium abnormality',`Sodium ${na} mmol/L. Assess acuity, symptoms and volume status.`);
+if(Number.isFinite(cr))labResult(r,'blue','Creatinine requires baseline comparison',`Creatinine ${cr} mg/dL. AKI assessment depends on change over time and urine output.`);
+}
+if(currentLabMode==='liver'){
+const alt=Number(v.alt),alp=Number(v.alp),altU=Number(v.altUln),alpU=Number(v.alpUln),alb=Number(v.albumin),inr=Number(v.inr),bil=Number(v.bilirubin);
+if(Number.isFinite(alt)&&Number.isFinite(alp)&&Number.isFinite(altU)&&altU>0&&Number.isFinite(alpU)&&alpU>0){
+const R=(alt/altU)/(alp/alpU);
+const pattern=R>=5?'Hepatocellular pattern':R<=2?'Cholestatic pattern':'Mixed pattern';
+labResult(r,'yellow',pattern,`Calculated R ratio ≈ ${R.toFixed(2)}. Correlate with symptoms, medicines, imaging and repeat testing.`);
+}else labResult(r,'blue','Pattern classification needs ALT and ALP upper limits','Enter ALT ULN and ALP ULN from the same laboratory.');
+if(Number.isFinite(bil)&&bil>3)labResult(r,'yellow','Raised bilirubin',`Total bilirubin ${bil} mg/dL. Fractionation and clinical context are needed.`);
+if(Number.isFinite(alb)&&alb<3.5)labResult(r,'yellow','Low albumin',`Albumin ${alb} g/dL. Consider chronic liver disease, nutrition, renal loss and inflammation.`);
+if(Number.isFinite(inr)&&inr>1.5)labResult(r,'red','Raised INR',`INR ${inr}. If not explained by anticoagulants, assess hepatic synthetic dysfunction and bleeding risk.`);
+}
+if(!r.length)labResult(r,'blue','Insufficient values','Enter relevant values for the selected profile.');
+current.labProfiles.results=r;
+current.labProfiles.summary=r.filter(x=>x.level!=='green').map(x=>x.title).join('; ')||'No configured abnormal rule triggered';
+save(current);renderLabProfileResults(r);status('Lab profile interpreted. Verify against the original laboratory report.');
+}
+function renderLabProfileResults(results=[]){
+$('labProfileResults').innerHTML=results.map(x=>`<div class="profile-result ${x.level}"><b>${x.level==='red'?'🔴':x.level==='yellow'?'🟡':x.level==='green'?'🟢':'🔵'} ${esc(x.title)}</b><div>${esc(x.message)}</div></div>`).join('')||'<div class="notice">Select a profile, enter values and press Interpret.</div>';
+}
+function addLabSummaryToInvestigations(){
+readLabProfiles();
+if(!current.labProfiles.summary)return status('Interpret the selected profile first.',true);
+const label={diabetes:'Diabetes Profile Interpretation',thyroid:'Thyroid Profile Interpretation',kidney:'Kidney Profile Interpretation',liver:'Liver Profile Interpretation'}[currentLabMode];
+current.investigations.previous.push({category:'Blood',test:label,date:today(),result:current.labProfiles.summary,remark:'Decision-support summary; verify original report and lab ranges.'});
+save(current);renderInvestigations();status(label+' added to Previous Investigations.');
 }
 
 const SAFETY_ALIASES={
@@ -1093,8 +1299,8 @@ else showPatient();
 status('Saved patient reopened successfully.');
 }
 
-function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabCBC','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','cbcSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
 function showDashboard(){hideAll();$('dashboardSection').classList.remove('hidden');setActive('tabDashboard');renderDashboard()}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
@@ -1103,6 +1309,7 @@ function showExam(){hideAll();$('examSection').classList.remove('hidden');setAct
 function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden');setActive('tabSystemic')}
 function showInvestigations(){hideAll();$('investigationsSection').classList.remove('hidden');setActive('tabInvestigations');renderInvestigations()}
 function showCBC(){hideAll();$('cbcSection').classList.remove('hidden');setActive('tabCBC');populateCBC()}
+function showLabProfiles(){hideAll();$('labProfilesSection').classList.remove('hidden');setActive('tabLabProfiles');populateLabProfiles()}
 function showAyurveda(){hideAll();$('ayurvedaSection').classList.remove('hidden');setActive('tabAyurveda')}
 function showPrescription(){hideAll();$('prescriptionSection').classList.remove('hidden');setActive('tabPrescription');renderMedicines()}
 function showSafety(){hideAll();$('safetySection').classList.remove('hidden');setActive('tabSafety');populateSafetyProfile()}
@@ -1119,6 +1326,10 @@ $('saveInvestigationsBtn').onclick=()=>{save(current);status('Investigations sav
 $('interpretCBCBtn').onclick=interpretCBC;
 $('saveCBCBtn').onclick=()=>{readCBC();save(current);status('CBC values saved successfully.')};
 $('addCBCToPreviousBtn').onclick=addCBCSummaryToInvestigations;
+$('interpretLabProfilesBtn').onclick=interpretLabProfiles;
+$('saveLabProfilesBtn').onclick=()=>{readLabProfiles();save(current);status('Lab profile values saved successfully.')};
+$('addLabSummaryBtn').onclick=addLabSummaryToInvestigations;
+document.querySelectorAll('.labModeBtn').forEach(b=>b.onclick=()=>setLabMode(b.dataset.mode));
 $('saveAyurvedaBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();readAyurveda();save(current);status('Ayurveda assessment saved successfully.')};
 $('savePrescriptionBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();readAyurveda();readPrescription();save(current);status('Prescription saved successfully.')};
 
@@ -1152,7 +1363,9 @@ $('goSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();rea
 $('goInvestigationsBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);showInvestigations()};
 $('goCBCBtn').onclick=()=>{save(current);showCBC()};
 $('goAyurvedaBtn').onclick=()=>{save(current);showAyurveda()};
+$('goLabProfilesBtn').onclick=()=>{readCBC();save(current);showLabProfiles()};
 $('goAyurvedaFromCBCBtn').onclick=()=>{readCBC();save(current);showAyurveda()};
+$('goAyurvedaFromLabBtn').onclick=()=>{readLabProfiles();save(current);showAyurveda()};
 $('goPrescriptionBtn').onclick=()=>{readAyurveda();save(current);showPrescription()};
 $('runSafetyBtn').onclick=()=>{readPrescription();save(current);showSafety();runMedicineSafety()};
 $('goPreviewBtn').onclick=()=>{readPrescription();save(current);showPreview()};
@@ -1197,6 +1410,7 @@ $('dashRecords').onclick=showRecords;
 $('dashSearch').onclick=()=>{$('dashboardSearch').focus();window.scrollTo({top:$('dashboardSearch').offsetTop-80,behavior:'smooth'})};
 $('dashInvestigations').onclick=showInvestigations;
 $('dashCBC').onclick=showCBC;
+$('dashLabProfiles').onclick=showLabProfiles;
 $('dashAyurveda').onclick=showAyurveda;
 $('dashPrescription').onclick=showPrescription;
 $('dashSafety').onclick=showSafety;
@@ -1208,11 +1422,11 @@ if(rx)openDashboardRecord(rx,true);
 if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}
 };
 
-$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabCBC').onclick=showCBC;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabSafety').onclick=showSafety;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
+$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabCBC').onclick=showCBC;$('tabLabProfiles').onclick=showLabProfiles;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabSafety').onclick=showSafety;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();status('App loaded successfully. V2.2 ready.');
+renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();status('App loaded successfully. V2.3 ready.');
 })();
 </script>
 </body>
