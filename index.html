@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR V2.1</title>
+<title>Shri Krishna Mahamaya Clinic EMR V2.2</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -93,16 +93,28 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 .badge-red{background:#f5c7c2;color:#8c2017}.badge-yellow{background:#f6e4a8;color:#715000}.badge-green{background:#ccebd7;color:#176b43}
 @media(max-width:760px){.safety-summary{grid-template-columns:1fr}}
 
+
+.lab-value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.lab-field{border:1px solid var(--line);border-radius:10px;padding:9px;background:#fbfdfe}
+.interpret-card{border-radius:10px;padding:11px;margin:8px 0;border-left:5px solid}
+.interpret-card.red{background:#fde7e4;border-color:#b83229;color:#7d2019}
+.interpret-card.yellow{background:#fff5d8;border-color:#d9a928;color:#6d4b00}
+.interpret-card.green{background:#e7f5eb;border-color:#2f8b59;color:#1f603e}
+.interpret-card.blue{background:#e7f2f8;border-color:#357b9d;color:#174f69}
+.result-heading{font-weight:900;margin-bottom:4px}
+@media(max-width:850px){.lab-value-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.lab-value-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>V2.1 • Medicine Safety Screening • Follow-up</p>
+<p>V2.2 • CBC Smart Interpreter • Medicine Safety</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> V2.0 के working engine में केवल Medicine Safety Screening Phase 1 जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
+<div class="notice"><b>Stable incremental build:</b> V2.1 के working engine में केवल CBC Smart Interpreter Phase 1 जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
 <div class="tabs actions">
 <button id="tabDashboard" class="primary active">🏠 Dashboard</button>
 <button id="tabTimeline" class="secondary">🔄 Follow-up</button>
@@ -112,13 +124,14 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="tabExam" class="secondary">🔍 General</button>
 <button id="tabSystemic" class="secondary">🫀 Systemic</button>
 <button id="tabInvestigations" class="secondary">🧪 Investigations</button>
+<button id="tabCBC" class="secondary">🩸 CBC Interpreter</button>
 <button id="tabAyurveda" class="secondary">🌿 Ayurveda</button>
 <button id="tabPrescription" class="secondary">💊 Prescription</button>
 <button id="tabSafety" class="secondary">🛡 Safety</button>
 <button id="tabPreview" class="secondary">📄 Preview/PDF</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V2.1</div>
+<div id="status" class="status">App loaded successfully. Version: V2.2</div>
 </div>
 
 
@@ -140,6 +153,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="dashRecords" class="secondary quick-btn">📁<span>Open Records</span></button>
 <button id="dashSearch" class="secondary quick-btn">🔍<span>Search Patient</span></button>
 <button id="dashInvestigations" class="secondary quick-btn">🧪<span>Investigations</span></button>
+<button id="dashCBC" class="secondary quick-btn">🩸<span>CBC Interpreter</span></button>
 <button id="dashAyurveda" class="secondary quick-btn">🌿<span>Ayurveda</span></button>
 <button id="dashPrescription" class="secondary quick-btn">💊<span>Prescription</span></button>
 <button id="dashSafety" class="warning quick-btn">🛡<span>Medicine Safety</span></button>
@@ -265,7 +279,75 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <div class="grid3"><div><label>Category</label><select id="advCategory"><option>Blood</option><option>Urine</option><option>X-ray</option><option>USG</option><option>CT</option><option>MRI</option><option>ECG</option><option>Echo/Doppler</option><option>Other</option></select></div><div><label>Advised Test / Study</label><input id="advTest"></div><div><label>Priority</label><select id="advPriority"><option>Routine</option><option>Urgent</option><option>Emergency</option><option>Follow-up</option></select></div></div>
 <label>Clinical Indication / Preparation</label><textarea id="advNote"></textarea>
 <div class="actions"><button id="addAdvBtn" class="secondary">＋ Add Advised Test</button></div><div id="advisedList"></div>
-<div class="actions"><button id="saveInvestigationsBtn" class="primary">💾 Save Investigations</button><button id="goAyurvedaBtn" class="secondary">Next: Ayurveda →</button></div>
+<div class="actions"><button id="saveInvestigationsBtn" class="primary">💾 Save Investigations</button><button id="goCBCBtn" class="secondary">Next: CBC Interpreter →</button><button id="goAyurvedaBtn" class="secondary">Skip to Ayurveda →</button></div>
+</div>
+</section>
+
+
+<section id="cbcSection" class="hidden">
+<div class="card">
+<h2>CBC Smart Interpreter — Phase 1</h2>
+<div class="notice">
+<b>Important:</b> Adult screening support only. Always compare with the reporting laboratory’s reference range, altitude, pregnancy status, symptoms, smear findings and clinical context. This tool does not diagnose leukemia, sepsis or a specific anaemia cause.
+</div>
+
+<div class="grid3">
+<div><label>Sample Date</label><input id="cbcDate" type="date"></div>
+<div><label>Clinical Group</label><select id="cbcGroup"><option>Adult Male</option><option>Adult Non-pregnant Female</option><option>Pregnant Adult</option><option>Pediatric — interpretation limited</option></select></div>
+<div><label>Units</label><select id="cbcUnits"><option>Standard: Hb g/dL, TLC /µL, Platelet ×10³/µL</option></select></div>
+</div>
+
+<h3>Red Cell Parameters</h3>
+<div class="lab-value-grid">
+<div class="lab-field"><label>Hemoglobin g/dL</label><input id="cbcHb" type="number" step="0.1"></div>
+<div class="lab-field"><label>RBC million/µL</label><input id="cbcRbc" type="number" step="0.01"></div>
+<div class="lab-field"><label>PCV / Hct %</label><input id="cbcPcv" type="number" step="0.1"></div>
+<div class="lab-field"><label>MCV fL</label><input id="cbcMcv" type="number" step="0.1"></div>
+<div class="lab-field"><label>MCH pg</label><input id="cbcMch" type="number" step="0.1"></div>
+<div class="lab-field"><label>MCHC g/dL</label><input id="cbcMchc" type="number" step="0.1"></div>
+<div class="lab-field"><label>RDW %</label><input id="cbcRdw" type="number" step="0.1"></div>
+<div class="lab-field"><label>Reticulocyte % (optional)</label><input id="cbcRetic" type="number" step="0.1"></div>
+</div>
+
+<h3>White Cell Parameters</h3>
+<div class="lab-value-grid">
+<div class="lab-field"><label>TLC /µL</label><input id="cbcTlc" type="number" step="1"></div>
+<div class="lab-field"><label>Neutrophils %</label><input id="cbcNeut" type="number" step="0.1"></div>
+<div class="lab-field"><label>Lymphocytes %</label><input id="cbcLymph" type="number" step="0.1"></div>
+<div class="lab-field"><label>Monocytes %</label><input id="cbcMono" type="number" step="0.1"></div>
+<div class="lab-field"><label>Eosinophils %</label><input id="cbcEos" type="number" step="0.1"></div>
+<div class="lab-field"><label>Basophils %</label><input id="cbcBaso" type="number" step="0.1"></div>
+<div class="lab-field"><label>Absolute Neutrophil Count /µL</label><input id="cbcAnc" type="number" step="1"></div>
+<div class="lab-field"><label>Absolute Eosinophil Count /µL</label><input id="cbcAec" type="number" step="1"></div>
+</div>
+
+<h3>Platelet & Inflammation</h3>
+<div class="lab-value-grid">
+<div class="lab-field"><label>Platelet ×10³/µL</label><input id="cbcPlatelet" type="number" step="1"></div>
+<div class="lab-field"><label>ESR mm/hr</label><input id="cbcEsr" type="number" step="1"></div>
+<div class="lab-field"><label>Peripheral Smear</label><select id="cbcSmear"><option value=""></option><option>Not done</option><option>Normal morphology reported</option><option>Microcytic hypochromic</option><option>Macrocytic</option><option>Normocytic normochromic</option><option>Abnormal cells / blasts reported</option><option>Other abnormality</option></select></div>
+<div class="lab-field"><label>Lab Critical Flag</label><select id="cbcLabFlag"><option>No critical flag reported</option><option>Critical result reported by laboratory</option></select></div>
+</div>
+
+<label>Laboratory Reference Range / Additional Notes</label>
+<textarea id="cbcLabNotes" placeholder="Paste the laboratory-specific ranges, symptoms, transfusion status or important context"></textarea>
+
+<div class="actions">
+<button id="interpretCBCBtn" class="primary">🩸 Interpret CBC</button>
+<button id="saveCBCBtn" class="secondary">💾 Save CBC Values</button>
+<button id="addCBCToPreviousBtn" class="secondary">＋ Add Summary to Previous Investigations</button>
+<button id="goAyurvedaFromCBCBtn" class="secondary">Next: Ayurveda →</button>
+</div>
+</div>
+
+<div class="card">
+<h2>CBC Interpretation Summary</h2>
+<div id="cbcResults"><div class="notice">Enter values and press Interpret CBC.</div></div>
+</div>
+
+<div class="card">
+<h2>Suggested Next Steps</h2>
+<div id="cbcNextSteps"><div class="notice">Suggestions will appear after interpretation.</div></div>
 </div>
 </section>
 
@@ -484,8 +566,8 @@ const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
 function key(id){return PREFIX+id}
-function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},updatedAt:new Date().toISOString()}}
-function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;return r}
+function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},updatedAt:new Date().toISOString()}}
+function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;return r}
 function save(r){r.updatedAt=new Date().toISOString();localStorage.setItem(key(r.id),JSON.stringify(r))}
 function all(){const a=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX)){try{a.push(JSON.parse(localStorage.getItem(k)))}catch(e){}}}return a.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))}
 function remove(id){localStorage.removeItem(key(id))}
@@ -535,9 +617,132 @@ const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
 set('followupDate',p.followupDate);set('followupNote',p.followupNote);set('emergencyContact',p.emergencyContact);set('prescriptionNotes',p.notes);
-updateComplaintWorkflow();renderInvestigations();renderMedicines();populateFollowup();populateSafetyProfile();showPatient()}
+updateComplaintWorkflow();renderInvestigations();renderMedicines();populateFollowup();populateSafetyProfile();populateCBC();showPatient()}
 
 
+
+
+function nval(id){
+const x=Number(val(id));
+return Number.isFinite(x)?x:null;
+}
+function readCBC(){
+current.cbc={
+date:val('cbcDate'),group:val('cbcGroup'),
+hb:val('cbcHb'),rbc:val('cbcRbc'),pcv:val('cbcPcv'),mcv:val('cbcMcv'),mch:val('cbcMch'),
+mchc:val('cbcMchc'),rdw:val('cbcRdw'),retic:val('cbcRetic'),tlc:val('cbcTlc'),
+neut:val('cbcNeut'),lymph:val('cbcLymph'),mono:val('cbcMono'),eos:val('cbcEos'),
+baso:val('cbcBaso'),anc:val('cbcAnc'),aec:val('cbcAec'),platelet:val('cbcPlatelet'),
+esr:val('cbcEsr'),smear:val('cbcSmear'),labFlag:val('cbcLabFlag'),labNotes:val('cbcLabNotes'),
+interpretation:current.cbc?.interpretation||[],nextSteps:current.cbc?.nextSteps||[],summary:current.cbc?.summary||''
+};
+}
+function populateCBC(){
+const c=current.cbc||{};
+const map={cbcDate:'date',cbcGroup:'group',cbcHb:'hb',cbcRbc:'rbc',cbcPcv:'pcv',cbcMcv:'mcv',
+cbcMch:'mch',cbcMchc:'mchc',cbcRdw:'rdw',cbcRetic:'retic',cbcTlc:'tlc',
+cbcNeut:'neut',cbcLymph:'lymph',cbcMono:'mono',cbcEos:'eos',cbcBaso:'baso',
+cbcAnc:'anc',cbcAec:'aec',cbcPlatelet:'platelet',cbcEsr:'esr',cbcSmear:'smear',
+cbcLabFlag:'labFlag',cbcLabNotes:'labNotes'};
+Object.entries(map).forEach(([id,k])=>set(id,c[k]));
+renderCBC(c.interpretation||[],c.nextSteps||[]);
+}
+function addCBCResult(arr,level,title,message){
+arr.push({level,title,message});
+}
+function interpretCBC(){
+readCBC();
+const c=current.cbc, results=[], next=new Set();
+const hb=Number(c.hb),mcv=Number(c.mcv),mchc=Number(c.mchc),rdw=Number(c.rdw);
+const tlc=Number(c.tlc),neut=Number(c.neut),lymph=Number(c.lymph),eos=Number(c.eos);
+const anc=Number(c.anc),aec=Number(c.aec),plt=Number(c.platelet),esr=Number(c.esr);
+const valid=x=>Number.isFinite(x)&&x>=0;
+
+if(c.group.includes('Pediatric')){
+ addCBCResult(results,'yellow','Pediatric interpretation limited','Age-specific pediatric reference intervals are required. Use the laboratory’s pediatric ranges and clinical assessment.');
+}else if(valid(hb)){
+ let cutoff=13;
+ if(c.group.includes('Female'))cutoff=12;
+ if(c.group.includes('Pregnant'))cutoff=11;
+ if(hb>=cutoff)addCBCResult(results,'green','Hemoglobin not below configured screening cutoff',`Hb ${hb} g/dL; verify the laboratory and population-specific reference range.`);
+ else{
+   let severity='Anaemia';
+   if(hb<8)severity='Severe anaemia';
+   else if(hb<11)severity='Moderate anaemia';
+   else severity='Mild anaemia';
+   addCBCResult(results,hb<8?'red':'yellow',severity,`Hb ${hb} g/dL is below the configured ${c.group} screening cutoff.`);
+   next.add('Peripheral smear');next.add('Ferritin and iron profile');
+   if(valid(mcv)&&mcv>=100){next.add('Vitamin B12 and folate');}
+   if(valid(mcv)&&mcv>=80&&mcv<100){next.add('Reticulocyte count, renal function and inflammation assessment as indicated');}
+ }
+}else addCBCResult(results,'blue','Hemoglobin not entered','Enter Hb for anaemia screening.');
+
+if(valid(mcv)){
+ if(mcv<80){addCBCResult(results,'yellow','Microcytic red-cell pattern',`MCV ${mcv} fL. Consider iron deficiency, thalassaemia trait or chronic disease according to history and smear.`);next.add('Ferritin and iron profile');next.add('Peripheral smear');}
+ else if(mcv>=100){addCBCResult(results,'yellow','Macrocytic red-cell pattern',`MCV ${mcv} fL. Consider B12/folate deficiency, liver/thyroid disease, alcohol or medicines.`);next.add('Vitamin B12 and folate');next.add('LFT and thyroid profile as indicated');}
+ else addCBCResult(results,'green','Normocytic MCV pattern',`MCV ${mcv} fL. A normal MCV does not exclude anaemia or mixed deficiency.`);
+}
+if(valid(mchc)&&mchc<32)addCBCResult(results,'yellow','Low MCHC / hypochromic tendency',`MCHC ${mchc} g/dL; correlate with MCV, smear and iron profile.`);
+if(valid(rdw)&&rdw>15){addCBCResult(results,'yellow','Raised RDW',`RDW ${rdw}%. Anisocytosis or evolving/mixed deficiency may be present; use the laboratory range.`);next.add('Peripheral smear');}
+
+if(valid(tlc)){
+ if(tlc<4500){addCBCResult(results,tlc<2000?'red':'yellow','Leukopenia',`TLC ${tlc}/µL. Review medicines, viral illness, marrow suppression and clinical severity.`);next.add('Repeat CBC with smear / differential as clinically indicated');}
+ else if(tlc>11000){addCBCResult(results,tlc>30000?'red':'yellow','Leukocytosis',`TLC ${tlc}/µL. Infection, inflammation, stress, medicines and hematologic causes require correlation.`);next.add('Clinical infection assessment and peripheral smear if persistent/marked');}
+ else addCBCResult(results,'green','TLC within common adult interval',`TLC ${tlc}/µL; use the laboratory reference range.`);
+}
+if(valid(anc)){
+ if(anc<500)addCBCResult(results,'red','Severe neutropenia',`ANC ${anc}/µL. Fever or infection symptoms require urgent assessment.`);
+ else if(anc<1500)addCBCResult(results,'yellow','Neutropenia',`ANC ${anc}/µL. Review clinical context, medicines and repeat/confirm.`);
+}else if(valid(tlc)&&valid(neut)){
+ const calc=Math.round(tlc*neut/100);
+ if(calc<1500)addCBCResult(results,calc<500?'red':'yellow','Calculated low ANC',`Estimated ANC ≈ ${calc}/µL from TLC × neutrophil %. Confirm with laboratory absolute count.`);
+}
+if(valid(neut)&&neut>75)addCBCResult(results,'yellow','Relative neutrophilia',`Neutrophils ${neut}%. This is not specific for bacterial infection; interpret with absolute count and clinical findings.`);
+if(valid(lymph)&&lymph>45)addCBCResult(results,'yellow','Relative lymphocytosis',`Lymphocytes ${lymph}%. Viral illness and other causes are possible; age and absolute count matter.`);
+if(valid(eos)&&eos>6){addCBCResult(results,'yellow','Relative eosinophilia',`Eosinophils ${eos}%. Consider allergy, parasitic disease, medicines and other causes.`);next.add('Absolute eosinophil count and focused history');}
+if(valid(aec)&&aec>500)addCBCResult(results,aec>=1500?'red':'yellow','Absolute eosinophilia',`AEC ${aec}/µL. Persistent AEC ≥1500/µL warrants focused evaluation.`);
+
+if(valid(plt)){
+ if(plt<20)addCBCResult(results,'red','Critical severe thrombocytopenia',`Platelets ${plt} ×10³/µL. Urgent clinical assessment and laboratory confirmation are required.`);
+ else if(plt<50)addCBCResult(results,'red','Severe thrombocytopenia',`Platelets ${plt} ×10³/µL. Bleeding risk and procedural safety require urgent review.`);
+ else if(plt<150)addCBCResult(results,'yellow','Thrombocytopenia',`Platelets ${plt} ×10³/µL. Confirm smear/sample quality and evaluate cause.`);
+ else if(plt>450)addCBCResult(results,'yellow','Thrombocytosis',`Platelets ${plt} ×10³/µL. Reactive and clonal causes require context and persistence assessment.`);
+ else addCBCResult(results,'green','Platelets within common adult interval',`Platelets ${plt} ×10³/µL; use the laboratory range.`);
+}
+if(valid(esr)&&esr>20)addCBCResult(results,'blue','ESR raised by simple screening threshold',`ESR ${esr} mm/hr is nonspecific and varies with age, sex, anaemia, pregnancy and laboratory method.`);
+
+if(c.smear==='Abnormal cells / blasts reported'){
+ addCBCResult(results,'red','Abnormal cells / blasts reported','Urgent hematology/pathology review is required. Do not rely on automated interpretation.');
+ next.add('Urgent peripheral smear/pathologist and hematology assessment');
+}
+if(c.labFlag==='Critical result reported by laboratory'){
+ addCBCResult(results,'red','Laboratory critical flag','Act according to the laboratory critical-value communication and emergency protocol.');
+}
+if(!results.length)addCBCResult(results,'blue','Insufficient values','Enter CBC values for interpretation.');
+
+current.cbc.interpretation=results;
+current.cbc.nextSteps=[...next];
+current.cbc.summary=results.filter(x=>x.level!=='green').map(x=>x.title).join('; ')||'No configured abnormal rule triggered';
+save(current);renderCBC(results,[...next]);
+status('CBC interpretation completed. Verify against the original laboratory report.');
+}
+function renderCBC(results=[],next=[]){
+$('cbcResults').innerHTML=results.map(r=>`<div class="interpret-card ${r.level}">
+<div class="result-heading">${r.level==='red'?'🔴':r.level==='yellow'?'🟡':r.level==='green'?'🟢':'🔵'} ${esc(r.title)}</div>
+<div>${esc(r.message)}</div></div>`).join('')||'<div class="notice">Enter values and press Interpret CBC.</div>';
+$('cbcNextSteps').innerHTML=next.length?next.map(x=>`<span class="pill">${esc(x)}</span>`).join(''):'<div class="notice">No additional step generated. Clinical judgment remains necessary.</div>';
+}
+function addCBCSummaryToInvestigations(){
+readCBC();
+if(!current.cbc.summary)return status('Interpret CBC first.',true);
+const exists=current.investigations.previous.some(x=>x.test==='CBC Smart Interpretation'&&x.date===current.cbc.date);
+const item={category:'Blood',test:'CBC Smart Interpretation',date:current.cbc.date||today(),result:current.cbc.summary,remark:'Decision-support summary; verify original CBC and laboratory ranges.'};
+if(exists){
+ const i=current.investigations.previous.findIndex(x=>x.test==='CBC Smart Interpretation'&&x.date===current.cbc.date);
+ current.investigations.previous[i]=item;
+}else current.investigations.previous.push(item);
+save(current);renderInvestigations();status('CBC interpretation added to Previous Investigations.');
+}
 
 const SAFETY_ALIASES={
 'paracetamol':['paracetamol','acetaminophen','dolo','crocin','calpol','pcm'],
@@ -888,8 +1093,8 @@ else showPatient();
 status('Saved patient reopened successfully.');
 }
 
-function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabCBC','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','cbcSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
 function showDashboard(){hideAll();$('dashboardSection').classList.remove('hidden');setActive('tabDashboard');renderDashboard()}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
@@ -897,6 +1102,7 @@ function showClinical(){hideAll();$('clinicalSection').classList.remove('hidden'
 function showExam(){hideAll();$('examSection').classList.remove('hidden');setActive('tabExam')}
 function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden');setActive('tabSystemic')}
 function showInvestigations(){hideAll();$('investigationsSection').classList.remove('hidden');setActive('tabInvestigations');renderInvestigations()}
+function showCBC(){hideAll();$('cbcSection').classList.remove('hidden');setActive('tabCBC');populateCBC()}
 function showAyurveda(){hideAll();$('ayurvedaSection').classList.remove('hidden');setActive('tabAyurveda')}
 function showPrescription(){hideAll();$('prescriptionSection').classList.remove('hidden');setActive('tabPrescription');renderMedicines()}
 function showSafety(){hideAll();$('safetySection').classList.remove('hidden');setActive('tabSafety');populateSafetyProfile()}
@@ -910,6 +1116,9 @@ $('saveClinicalBtn').onclick=()=>{readPatient();readComplaint();readClinical();s
 $('saveExamBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();save(current);status('General examination saved successfully.')};
 $('saveSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);status('Systemic examination saved successfully.')};
 $('saveInvestigationsBtn').onclick=()=>{save(current);status('Investigations saved successfully.')};
+$('interpretCBCBtn').onclick=interpretCBC;
+$('saveCBCBtn').onclick=()=>{readCBC();save(current);status('CBC values saved successfully.')};
+$('addCBCToPreviousBtn').onclick=addCBCSummaryToInvestigations;
 $('saveAyurvedaBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();readAyurveda();save(current);status('Ayurveda assessment saved successfully.')};
 $('savePrescriptionBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();readAyurveda();readPrescription();save(current);status('Prescription saved successfully.')};
 
@@ -941,7 +1150,9 @@ $('goClinicalBtn2').onclick=()=>{readPatient();readComplaint();save(current);sho
 $('goExamBtn').onclick=()=>{readPatient();readComplaint();readClinical();save(current);showExam()};
 $('goSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();save(current);showSystemic()};
 $('goInvestigationsBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);showInvestigations()};
+$('goCBCBtn').onclick=()=>{save(current);showCBC()};
 $('goAyurvedaBtn').onclick=()=>{save(current);showAyurveda()};
+$('goAyurvedaFromCBCBtn').onclick=()=>{readCBC();save(current);showAyurveda()};
 $('goPrescriptionBtn').onclick=()=>{readAyurveda();save(current);showPrescription()};
 $('runSafetyBtn').onclick=()=>{readPrescription();save(current);showSafety();runMedicineSafety()};
 $('goPreviewBtn').onclick=()=>{readPrescription();save(current);showPreview()};
@@ -985,6 +1196,7 @@ $('dashNewPatient').onclick=()=>{populate(blank());showPatient();status('New bla
 $('dashRecords').onclick=showRecords;
 $('dashSearch').onclick=()=>{$('dashboardSearch').focus();window.scrollTo({top:$('dashboardSearch').offsetTop-80,behavior:'smooth'})};
 $('dashInvestigations').onclick=showInvestigations;
+$('dashCBC').onclick=showCBC;
 $('dashAyurveda').onclick=showAyurveda;
 $('dashPrescription').onclick=showPrescription;
 $('dashSafety').onclick=showSafety;
@@ -996,11 +1208,11 @@ if(rx)openDashboardRecord(rx,true);
 if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}
 };
 
-$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabSafety').onclick=showSafety;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
+$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabCBC').onclick=showCBC;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabSafety').onclick=showSafety;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();status('App loaded successfully. V2.1 ready.');
+renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();status('App loaded successfully. V2.2 ready.');
 })();
 </script>
 </body>
