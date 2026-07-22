@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR V1.7</title>
+<title>Shri Krishna Mahamaya Clinic EMR V1.8</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -37,16 +37,34 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 .ayur-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .ayur-box{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fbfdfe}
 @media(max-width:760px){.grid,.grid3,.finding-row,.checkgrid,.ayur-grid{grid-template-columns:1fr}.finding-name{padding-bottom:0}}
+
+.print-sheet{background:#fff;border:1px solid #cbdde3;border-radius:12px;padding:22px;min-height:950px}
+.letterhead{border-bottom:3px solid var(--p);padding-bottom:10px;margin-bottom:12px}
+.letterhead h1{margin:0;color:var(--p);font-size:25px}
+.rx-section-title{margin-top:13px;padding-bottom:4px;border-bottom:1px solid #cbdde3;color:var(--p);font-weight:800}
+.rx-table{width:100%;border-collapse:collapse;font-size:12px}
+.rx-table th,.rx-table td{border:1px solid #d6e1e5;padding:7px;vertical-align:top;text-align:left}
+.preview-actions{position:sticky;bottom:0;background:var(--bg);padding:8px 0;z-index:5}
+@media print{
+  body{background:#fff;padding:0}
+  header,.tabs,.notice,.no-print,#status{display:none!important}
+  main{max-width:none;padding:0;margin:0}
+  .card{border:0;box-shadow:none;margin:0;padding:0}
+  section{display:none!important}
+  #previewSection{display:block!important}
+  .print-sheet{border:0;border-radius:0;padding:8mm;min-height:auto}
+}
+
 </style>
 </head>
 <body>
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>V1.7 • Ayurveda • Prescription • Records</p>
+<p>V1.8 • Prescription Preview • Print • PDF • Share</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> V1.6 के working engine में केवल Prescription Module जोड़ा गया है। पुराने patient records इसी storage में उपलब्ध रहेंगे।</div>
+<div class="notice"><b>Stable incremental build:</b> V1.7 के working engine में केवल Prescription Preview, Print, Save as PDF और Share जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
 <div class="tabs actions">
 <button id="tabPatient" class="primary active">👤 Patient</button>
 <button id="tabComplaint" class="secondary">🧭 Complaint</button>
@@ -56,9 +74,10 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="tabInvestigations" class="secondary">🧪 Investigations</button>
 <button id="tabAyurveda" class="secondary">🌿 Ayurveda</button>
 <button id="tabPrescription" class="secondary">💊 Prescription</button>
+<button id="tabPreview" class="secondary">📄 Preview/PDF</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V1.7</div>
+<div id="status" class="status">App loaded successfully. Version: V1.8</div>
 </div>
 
 <section id="patientSection">
@@ -239,8 +258,26 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <label>Additional Prescription Notes</label><textarea id="prescriptionNotes"></textarea>
 <div class="actions">
 <button id="savePrescriptionBtn" class="primary">💾 Save Prescription</button>
+<button id="goPreviewBtn" class="secondary">Next: Preview / PDF →</button>
 <button id="goRecordsBtn" class="secondary">Open Records</button>
 </div>
+</div>
+</section>
+
+
+<section id="previewSection" class="hidden">
+<div class="card no-print">
+<h2>Prescription Preview & Export</h2>
+<div class="actions preview-actions">
+<button id="printBtn" class="primary">🖨 Print / Save as PDF</button>
+<button id="downloadTxtBtn" class="secondary">⬇ Download Text Summary</button>
+<button id="shareBtn" class="success">📤 Share Prescription</button>
+<button id="backPrescriptionBtn" class="secondary">← Edit Prescription</button>
+</div>
+<div class="notice">Android Chrome में <b>Print / Save as PDF</b> दबाकर printer selection में <b>Save as PDF</b> चुनें। यही Hindi/Devanagari के लिए सबसे विश्वसनीय तरीका है।</div>
+</div>
+<div class="card">
+<div id="printSheet" class="print-sheet"></div>
 </div>
 </section>
 
@@ -326,8 +363,107 @@ set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyl
 set('followupDate',p.followupDate);set('followupNote',p.followupNote);set('emergencyContact',p.emergencyContact);set('prescriptionNotes',p.notes);
 updateComplaintWorkflow();renderInvestigations();renderMedicines();showPatient()}
 
-function setActive(tab){['tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabAyurveda','tabPrescription','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','ayurvedaSection','prescriptionSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+
+function prescriptionSummaryText(){
+const p=current.patient,c=current.clinical,rx=current.prescription,a=current.ayurveda,inv=current.investigations;
+const lines=[
+'श्री कृष्ण महमाया क्लिनिक EMR',
+'Dr Rajesh Sao — B.A.M.S., M.D. (Ayurveda)',
+'Contact: '+(rx.emergencyContact||'8770143788, 7489818673'),
+'',
+`Patient: ${p.name||''} | Age/Sex: ${p.age||''}/${p.sex||''} | Mobile: ${p.mobile||''}`,
+`UHID: ${current.uhid||''} | Date: ${current.visitDate||''} | Visit: ${current.visitType||''}`,
+'',
+'Chief Complaint: '+(current.complaint?.primary||c.chiefComplaints||''),
+'Clinical Notes: '+(c.clinicalNotes||''),
+'Provisional Diagnosis: '+(rx.provisionalDiagnosis||''),
+'Differential Diagnosis: '+(rx.differentialDiagnosis||''),
+'Final Diagnosis: '+(rx.finalDiagnosis||''),
+'',
+'Medicines:'
+];
+(rx.medicines||[]).forEach((m,i)=>lines.push(`${i+1}. ${m.name}${m.strength?' — '+m.strength:''}; ${m.dose||''} ${m.frequency||''}; ${m.route||''}; ${m.meal||''}; ${m.duration||''}; ${m.instruction||''}`));
+if(inv?.advised?.length){lines.push('','Investigations Advised:');inv.advised.forEach(x=>lines.push(`- ${x.category}: ${x.test} (${x.priority||''}) ${x.note||''}`))}
+if(a?.dosha?.length||a?.samprapti){lines.push('','Ayurveda Assessment: '+[(a.dosha||[]).join('/'),a.agni,a.koshtha,(a.srotas||[]).join(', '),a.samprapti].filter(Boolean).join(' | '))}
+lines.push('','Pathya: '+(rx.pathya||''),'Apathya: '+(rx.apathya||''),'Lifestyle/Yoga/Physiotherapy: '+(rx.lifestyleAdvice||''),'Precautions: '+(rx.precautionAdvice||''),'Follow-up: '+[rx.followupDate,rx.followupNote].filter(Boolean).join(' — '));
+return lines.join('\n');
+}
+function renderPreview(){
+const p=current.patient,c=current.clinical,rx=current.prescription,a=current.ayurveda,inv=current.investigations;
+const meds=(rx.medicines||[]).map((m,i)=>`<tr>
+<td>${i+1}</td>
+<td><b>${esc(m.name)}</b>${m.strength?'<br><span class="small">'+esc(m.strength)+'</span>':''}<br><span class="small">${esc(m.system||'')} • ${esc(m.form||'')}</span></td>
+<td>${esc(m.dose||'')}</td>
+<td>${esc(m.frequency||'')}</td>
+<td>${esc(m.route||'')}<br>${esc(m.meal||'')}</td>
+<td>${esc(m.duration||'')}</td>
+<td>${esc(m.instruction||'')}</td>
+</tr>`).join('');
+
+const prevInv=(inv?.previous||[]).map(x=>`<div>• <b>${esc(x.category)} — ${esc(x.test)}</b>: ${esc(x.result||'')} ${x.remark?'— '+esc(x.remark):''}</div>`).join('');
+const advInv=(inv?.advised||[]).map(x=>`<div>• <b>${esc(x.category)} — ${esc(x.test)}</b> (${esc(x.priority||'')}): ${esc(x.note||'')}</div>`).join('');
+const ayurSummary=[(a?.dosha||[]).join('/'),(a?.subtypes||[]).join(', '),(a?.gunas||[]).join(', '),a?.agni,a?.koshtha,(a?.srotas||[]).join(', '),a?.samprapti].filter(Boolean).join(' | ');
+
+$('printSheet').innerHTML=`
+<div class="letterhead">
+<h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
+<div><b>Dr Rajesh Sao</b> — B.A.M.S., M.D. (Ayurveda)<br>
+Ancient Wisdom • Modern Diagnosis • Holistic Healing<br>
+Emergency / Clinic Contact: ${esc(rx.emergencyContact||'8770143788, 7489818673')}</div>
+</div>
+
+<div><b>Patient:</b> ${esc(p.name||'')} &nbsp; <b>Age/Sex:</b> ${esc(p.age||'')}/${esc(p.sex||'')} &nbsp; <b>Mobile:</b> ${esc(p.mobile||'')}<br>
+<b>UHID:</b> ${esc(current.uhid||'')} &nbsp; <b>Date:</b> ${esc(current.visitDate||'')} &nbsp; <b>Visit:</b> ${esc(current.visitType||'')}</div>
+
+<div class="rx-section-title">Clinical Summary</div>
+<div><b>Primary Complaint:</b> ${esc(current.complaint?.primary||c.chiefComplaints||'')} ${current.complaint?.duration?'('+esc(current.complaint.duration)+')':''}<br>
+<b>Vitals:</b> BP ${esc(c.bp||'')}, Pulse ${esc(c.pulse||'')}, SpO₂ ${esc(c.spo2||'')}, Temp ${esc(c.temp||'')}, RR ${esc(c.rr||'')}, Pain ${esc(c.pain||'')}/10<br>
+<b>Allergy:</b> ${esc(c.allergy||'')}</div>
+
+<div class="rx-section-title">Diagnosis</div>
+<div><b>Provisional:</b> ${esc(rx.provisionalDiagnosis||'')}<br>
+<b>Differential:</b> ${esc(rx.differentialDiagnosis||'')}<br>
+<b>Final:</b> ${esc(rx.finalDiagnosis||'')}</div>
+
+${prevInv?`<div class="rx-section-title">Previous Investigations</div>${prevInv}`:''}
+${advInv?`<div class="rx-section-title">Investigations Advised</div>${advInv}`:''}
+
+<div class="rx-section-title">Prescription</div>
+<table class="rx-table">
+<thead><tr><th>#</th><th>Medicine</th><th>Dose</th><th>Frequency</th><th>Route / Timing</th><th>Duration</th><th>Instructions</th></tr></thead>
+<tbody>${meds||'<tr><td colspan="7">No medicines added.</td></tr>'}</tbody>
+</table>
+
+${ayurSummary?`<div class="rx-section-title">Ayurveda Assessment</div><div>${esc(ayurSummary)}</div>`:''}
+
+<div class="rx-section-title">Advice</div>
+<div><b>Pathya:</b> ${esc(rx.pathya||'')}<br>
+<b>Apathya:</b> ${esc(rx.apathya||'')}<br>
+<b>Lifestyle / Yoga / Physiotherapy:</b> ${esc(rx.lifestyleAdvice||'')}<br>
+<b>Precautions / Red Flags:</b> ${esc(rx.precautionAdvice||'')}<br>
+<b>Follow-up:</b> ${esc(rx.followupDate||'')} ${rx.followupNote?'— '+esc(rx.followupNote):''}</div>
+
+<div style="text-align:right;margin-top:38px"><b>Dr Rajesh Sao</b><br>B.A.M.S., M.D. (Ayurveda)</div>
+`;
+}
+function downloadText(){
+const blob=new Blob([prescriptionSummaryText()],{type:'text/plain;charset=utf-8'});
+const a=document.createElement('a');
+a.href=URL.createObjectURL(blob);
+a.download=`SKM-Prescription-${current.uhid||'patient'}.txt`;
+document.body.appendChild(a);a.click();
+setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000);
+}
+async function sharePrescription(){
+const text=prescriptionSummaryText();
+if(navigator.share){
+try{await navigator.share({title:'Shri Krishna Mahamaya Clinic Prescription',text});status('Share menu opened. Choose WhatsApp or another app.');return}catch(e){if(e.name==='AbortError')return}
+}
+try{await navigator.clipboard.writeText(text);status('Prescription copied to clipboard. Paste it in WhatsApp.')}catch(e){status('Sharing unavailable. Use Print / Save as PDF.',true)}
+}
+
+function setActive(tab){['tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabAyurveda','tabPrescription','tabPreview','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','ayurvedaSection','prescriptionSection','previewSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
 function showClinical(){hideAll();$('clinicalSection').classList.remove('hidden');setActive('tabClinical')}
@@ -336,6 +472,7 @@ function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden'
 function showInvestigations(){hideAll();$('investigationsSection').classList.remove('hidden');setActive('tabInvestigations');renderInvestigations()}
 function showAyurveda(){hideAll();$('ayurvedaSection').classList.remove('hidden');setActive('tabAyurveda')}
 function showPrescription(){hideAll();$('prescriptionSection').classList.remove('hidden');setActive('tabPrescription');renderMedicines()}
+function showPreview(){hideAll();$('previewSection').classList.remove('hidden');setActive('tabPreview');renderPreview()}
 function showRecords(){hideAll();$('recordsSection').classList.remove('hidden');setActive('tabRecords');renderRecords()}
 function renderRecords(){const term=val('search').toLowerCase();const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile,r.complaint?.primary,JSON.stringify(r.investigations||{}),JSON.stringify(r.ayurveda||{})].join(' ').toLowerCase().includes(term));$('recordsList').innerHTML=rows.map(r=>`<div class="item"><b>${esc(r.patient?.name||'Unnamed')}</b><div class="small">UHID: ${esc(r.uhid)} • ${esc(r.visitDate)}</div><div class="small">Complaint: ${esc(r.complaint?.primary||'Not entered')} • Dosha: ${esc((r.ayurveda?.dosha||[]).join(', ')||'Not assessed')} • Medicines: ${(r.prescription?.medicines||[]).length}</div><div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div></div>`).join('')||'<div class="notice">No saved records found.</div>';status(rows.length+' record(s) shown.')}
 
@@ -378,14 +515,19 @@ $('goSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();rea
 $('goInvestigationsBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);showInvestigations()};
 $('goAyurvedaBtn').onclick=()=>{save(current);showAyurveda()};
 $('goPrescriptionBtn').onclick=()=>{readAyurveda();save(current);showPrescription()};
+$('goPreviewBtn').onclick=()=>{readPrescription();save(current);showPreview()};
+$('backPrescriptionBtn').onclick=showPrescription;
+$('printBtn').onclick=()=>window.print();
+$('downloadTxtBtn').onclick=downloadText;
+$('shareBtn').onclick=sharePrescription;
 $('goRecordsBtn').onclick=showRecords;
 $('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
 
-$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabRecords').onclick=showRecords;
+$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());status('App loaded successfully. V1.7 ready.');
+renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());status('App loaded successfully. V1.8 ready.');
 })();
 </script>
 </body>
