@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR V1.5</title>
+<title>Shri Krishna Mahamaya Clinic EMR V1.6</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);padding-bottom:25px}
 header{background:linear-gradient(135deg,var(--p),var(--s));color:#fff;padding:20px 16px}
 header h1{margin:0;font-size:24px} header p{margin:6px 0 0}
-main{max-width:1120px;margin:auto;padding:12px}
+main{max-width:1160px;margin:auto;padding:12px}
 .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;margin:12px 0;box-shadow:0 3px 12px #17333d10}
 h2{margin:0 0 12px;color:var(--p)} h3{margin:14px 0 8px;color:var(--p)}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
@@ -34,27 +34,30 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 .check{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:9px;padding:9px;background:#fbfdfe}
 .check input{width:auto;margin-top:3px}
 .pill{display:inline-block;padding:5px 8px;border-radius:14px;background:#e6f1f4;color:var(--p);margin:3px;font-size:12px;font-weight:700}
-@media(max-width:760px){.grid,.grid3,.finding-row,.checkgrid{grid-template-columns:1fr}.finding-name{padding-bottom:0}}
+.ayur-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ayur-box{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fbfdfe}
+@media(max-width:760px){.grid,.grid3,.finding-row,.checkgrid,.ayur-grid{grid-template-columns:1fr}.finding-name{padding-bottom:0}}
 </style>
 </head>
 <body>
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>V1.5 • Patient • Clinical • Examination • Investigations • Records</p>
+<p>V1.6 • Ayurveda Assessment • Investigations • Records</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> V1.4 के working engine में केवल Investigation Module जोड़ा गया है।</div>
+<div class="notice"><b>Stable incremental build:</b> V1.5 के working engine में केवल Ayurveda Assessment Module जोड़ा गया है। पुराने patient records इसी storage में उपलब्ध रहेंगे।</div>
 <div class="tabs actions">
 <button id="tabPatient" class="primary active">👤 Patient</button>
 <button id="tabComplaint" class="secondary">🧭 Complaint</button>
 <button id="tabClinical" class="secondary">🩺 Clinical</button>
-<button id="tabExam" class="secondary">🔍 General Exam</button>
+<button id="tabExam" class="secondary">🔍 General</button>
 <button id="tabSystemic" class="secondary">🫀 Systemic</button>
 <button id="tabInvestigations" class="secondary">🧪 Investigations</button>
+<button id="tabAyurveda" class="secondary">🌿 Ayurveda</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V1.5</div>
+<div id="status" class="status">App loaded successfully. Version: V1.6</div>
 </div>
 
 <section id="patientSection">
@@ -75,7 +78,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <h3>Red Flag Checklist</h3><div id="redFlags" class="checkgrid"></div><div id="redFlagAlert" class="alert alert-green">No red flag selected.</div>
 <h3>Suggested Examination</h3><div id="suggestedExam"></div><h3>Suggested Investigations</h3><div id="suggestedInv"></div><h3>Rule-based Differential Considerations</h3><div id="suggestedDx"></div>
 <label>Additional Complaint Notes</label><textarea id="complaintNotes"></textarea>
-<div class="actions"><button id="saveComplaintBtn" class="primary">💾 Save Complaint Workflow</button><button id="goClinicalBtn2" class="secondary">Next: Clinical →</button></div>
+<div class="actions"><button id="saveComplaintBtn" class="primary">💾 Save Complaint</button><button id="goClinicalBtn2" class="secondary">Next: Clinical →</button></div>
 </div>
 </section>
 
@@ -89,7 +92,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <div class="grid3"><div><label>Blood Pressure</label><input id="bp"></div><div><label>Pulse / min</label><input id="pulse" type="number"></div><div><label>SpO₂ %</label><input id="spo2" type="number"></div></div>
 <div class="grid3"><div><label>Temperature °F</label><input id="temp"></div><div><label>Respiratory Rate / min</label><input id="rr" type="number"></div><div><label>Pain Score 0–10</label><input id="pain" type="number" min="0" max="10"></div></div>
 <label>General Clinical Notes</label><textarea id="clinicalNotes"></textarea>
-<div class="actions"><button id="saveClinicalBtn" class="primary">💾 Save Clinical Data</button><button id="goExamBtn" class="secondary">Next: General Exam →</button></div>
+<div class="actions"><button id="saveClinicalBtn" class="primary">💾 Save Clinical</button><button id="goExamBtn" class="secondary">Next: General Exam →</button></div>
 </div>
 </section>
 
@@ -104,46 +107,84 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <section id="systemicSection" class="hidden">
 <div class="card"><h2>Systemic Examination</h2>
 <label>CVS Notes</label><textarea id="cvsNotes"></textarea><label>Respiratory Notes</label><textarea id="rsNotes"></textarea><label>Abdomen Notes</label><textarea id="abdNotes"></textarea><label>CNS Notes</label><textarea id="cnsNotes"></textarea><label>Additional Systemic Notes</label><textarea id="systemicNotes"></textarea>
-<div class="actions"><button id="saveSystemicBtn" class="primary">💾 Save Systemic Examination</button><button id="goInvestigationsBtn" class="secondary">Next: Investigations →</button></div>
+<div class="actions"><button id="saveSystemicBtn" class="primary">💾 Save Systemic</button><button id="goInvestigationsBtn" class="secondary">Next: Investigations →</button></div>
 </div>
 </section>
 
 <section id="investigationsSection" class="hidden">
-<div class="card">
-<h2>Previous / Available Investigations</h2>
-<div class="grid3"><div><label>Category</label><select id="prevCategory"><option>Blood</option><option>Urine</option><option>Stool</option><option>X-ray</option><option>USG</option><option>CT</option><option>MRI</option><option>ECG</option><option>Echo/Doppler</option><option>Other</option></select></div><div><label>Test / Study</label><input id="prevTest" list="testList"></div><div><label>Report Date</label><input id="prevDate" type="date"></div></div>
-<div class="grid"><div><label>Value / Result Summary</label><textarea id="prevResult"></textarea></div><div><label>Interpretation / Red Flag / Remark</label><textarea id="prevRemark"></textarea></div></div>
-<div class="actions"><button id="addPrevBtn" class="secondary">＋ Add Previous Report</button></div>
-<div id="previousList"></div>
+<div class="card"><h2>Investigations</h2>
+<div class="grid3"><div><label>Category</label><select id="prevCategory"><option>Blood</option><option>Urine</option><option>Stool</option><option>X-ray</option><option>USG</option><option>CT</option><option>MRI</option><option>ECG</option><option>Echo/Doppler</option><option>Other</option></select></div><div><label>Previous Test / Study</label><input id="prevTest"></div><div><label>Report Date</label><input id="prevDate" type="date"></div></div>
+<div class="grid"><div><label>Result Summary</label><textarea id="prevResult"></textarea></div><div><label>Interpretation / Remark</label><textarea id="prevRemark"></textarea></div></div>
+<div class="actions"><button id="addPrevBtn" class="secondary">＋ Add Previous Report</button></div><div id="previousList"></div>
+<hr>
+<div class="grid3"><div><label>Category</label><select id="advCategory"><option>Blood</option><option>Urine</option><option>X-ray</option><option>USG</option><option>CT</option><option>MRI</option><option>ECG</option><option>Echo/Doppler</option><option>Other</option></select></div><div><label>Advised Test / Study</label><input id="advTest"></div><div><label>Priority</label><select id="advPriority"><option>Routine</option><option>Urgent</option><option>Emergency</option><option>Follow-up</option></select></div></div>
+<label>Clinical Indication / Preparation</label><textarea id="advNote"></textarea>
+<div class="actions"><button id="addAdvBtn" class="secondary">＋ Add Advised Test</button></div><div id="advisedList"></div>
+<div class="actions"><button id="saveInvestigationsBtn" class="primary">💾 Save Investigations</button><button id="goAyurvedaBtn" class="secondary">Next: Ayurveda →</button></div>
 </div>
+</section>
 
+<section id="ayurvedaSection" class="hidden">
 <div class="card">
-<h2>New Investigations Advised</h2>
-<div class="grid3"><div><label>Category</label><select id="advCategory"><option>Blood</option><option>Urine</option><option>Stool</option><option>X-ray</option><option>USG</option><option>CT</option><option>MRI</option><option>ECG</option><option>Echo/Doppler</option><option>Other</option></select></div><div><label>Test / Study</label><input id="advTest" list="testList"></div><div><label>Priority</label><select id="advPriority"><option>Routine</option><option>Urgent</option><option>Emergency</option><option>Follow-up</option></select></div></div>
-<label>Clinical Indication / Preparation / Protocol</label><textarea id="advNote"></textarea>
-<div class="actions"><button id="addAdvBtn" class="secondary">＋ Add Advised Test</button></div>
-<div id="advisedList"></div>
-</div>
+<h2>Ayurveda Assessment</h2>
+<div class="grid3"><div><label>Prakriti</label><select id="prakriti"><option value=""></option><option>Vata</option><option>Pitta</option><option>Kapha</option><option>Vata-Pitta</option><option>Pitta-Kapha</option><option>Vata-Kapha</option><option>Sama Prakriti</option></select></div><div><label>Vikriti</label><select id="vikriti"><option value=""></option><option>Vata</option><option>Pitta</option><option>Kapha</option><option>Vata-Pitta</option><option>Pitta-Kapha</option><option>Vata-Kapha</option><option>Tridoshaja</option></select></div><div><label>Ama Status</label><select id="ama"><option value=""></option><option>Nirama</option><option>Sama</option><option>Mixed</option></select></div></div>
 
-<div class="card">
-<h2>Quick Investigation Profiles</h2>
+<h3>Affected Dosha</h3><div id="doshaChecks" class="checkgrid"></div>
+<h3>Dosha Subtypes</h3><div id="subtypeChecks" class="checkgrid"></div>
+<h3>Involved Guna</h3><div id="gunaChecks" class="checkgrid"></div>
+
 <div class="grid3">
-<button class="secondary profileBtn" data-profile="Diabetes">Diabetes Profile</button>
-<button class="secondary profileBtn" data-profile="Hypertension">Hypertension Profile</button>
-<button class="secondary profileBtn" data-profile="Thyroid">Thyroid Profile</button>
-<button class="secondary profileBtn" data-profile="Anemia">Anemia Profile</button>
-<button class="secondary profileBtn" data-profile="Arthritis">Arthritis Profile</button>
-<button class="secondary profileBtn" data-profile="Fever">Fever Profile</button>
+<div><label>Agni</label><select id="agni"><option value=""></option><option>Sama Agni</option><option>Vishama Agni</option><option>Tikshna Agni</option><option>Manda Agni</option></select></div>
+<div><label>Koshtha</label><select id="koshtha"><option value=""></option><option>Mridu</option><option>Madhyama</option><option>Krura</option></select></div>
+<div><label>Rogamarga</label><select id="rogamarga"><option value=""></option><option>Koshtha</option><option>Shakha</option><option>Marmasthi-Sandhi</option><option>Mixed</option></select></div>
 </div>
-<div class="actions"><button id="saveInvestigationsBtn" class="primary">💾 Save Investigations</button><button id="goRecordsBtn" class="secondary">Open Records</button></div>
+
+<h3>Ashtavidha Pariksha</h3>
+<div class="ayur-grid">
+<div class="ayur-box"><label>Nadi</label><select id="nadi"><option value=""></option><option>Vata</option><option>Pitta</option><option>Kapha</option><option>Vata-Pitta</option><option>Pitta-Kapha</option><option>Vata-Kapha</option><option>Tridoshaja</option></select></div>
+<div class="ayur-box"><label>Mutra</label><input id="mutra" placeholder="Colour, quantity, frequency, symptoms"></div>
+<div class="ayur-box"><label>Mala</label><input id="mala" placeholder="Consistency, frequency, sama/nirama"></div>
+<div class="ayur-box"><label>Jihva</label><input id="jihva" placeholder="Coating, colour, moisture"></div>
+<div class="ayur-box"><label>Shabda</label><input id="shabda" placeholder="Voice/speech/cough"></div>
+<div class="ayur-box"><label>Sparsha</label><input id="sparsha" placeholder="Temperature, texture, tenderness"></div>
+<div class="ayur-box"><label>Drik</label><input id="drik" placeholder="Eyes/vision/appearance"></div>
+<div class="ayur-box"><label>Akriti</label><input id="akriti" placeholder="Build, posture, gait"></div>
 </div>
-<datalist id="testList">
-<option>CBC</option><option>ESR</option><option>CRP</option><option>FBS</option><option>PPBS</option><option>RBS</option><option>HbA1c</option><option>LFT</option><option>RFT/KFT</option><option>Lipid Profile</option><option>Thyroid Profile</option><option>Iron Profile</option><option>Vitamin B12</option><option>Vitamin D</option><option>Urine R/M</option><option>Urine Culture</option><option>X-ray Chest</option><option>X-ray Lumbosacral Spine</option><option>MRI Lumbar Spine</option><option>USG Abdomen</option><option>ECG</option><option>2D Echo</option>
-</datalist>
+
+<h3>Dashavidha Pariksha Summary</h3>
+<div class="grid3">
+<div><label>Sara</label><select id="sara"><option value=""></option><option>Avara</option><option>Madhyama</option><option>Pravara</option></select></div>
+<div><label>Samhanana</label><select id="samhanana"><option value=""></option><option>Avara</option><option>Madhyama</option><option>Pravara</option></select></div>
+<div><label>Pramana</label><input id="pramana" placeholder="Proportion/anthropometry notes"></div>
+<div><label>Satmya</label><select id="satmya"><option value=""></option><option>Avara</option><option>Madhyama</option><option>Pravara</option></select></div>
+<div><label>Satva</label><select id="satva"><option value=""></option><option>Avara</option><option>Madhyama</option><option>Pravara</option></select></div>
+<div><label>Ahara Shakti</label><select id="aharaShakti"><option value=""></option><option>Avara</option><option>Madhyama</option><option>Pravara</option></select></div>
+<div><label>Vyayama Shakti</label><select id="vyayamaShakti"><option value=""></option><option>Avara</option><option>Madhyama</option><option>Pravara</option></select></div>
+<div><label>Vaya</label><select id="vaya"><option value=""></option><option>Bala</option><option>Madhyama</option><option>Vriddha</option></select></div>
+<div><label>Roga Bala</label><select id="rogaBala"><option value=""></option><option>Mridu</option><option>Madhyama</option><option>Daruna</option></select></div>
+</div>
+
+<h3>Srotas and Srotodushti</h3>
+<div id="srotasChecks" class="checkgrid"></div>
+<div class="grid3">
+<div><label>Srotodushti Type</label><select id="srotodushti"><option value=""></option><option>Atipravritti</option><option>Sanga</option><option>Siragranthi</option><option>Vimargagamana</option><option>Mixed</option></select></div>
+<div><label>Sadhya-Asadhyata</label><select id="sadhya"><option value=""></option><option>Sukhasadhya</option><option>Krichhrasadhya</option><option>Yapya</option><option>Asadhya</option></select></div>
+<div><label>Shatkriyakala</label><select id="shatkriya"><option value=""></option><option>Sanchaya</option><option>Prakopa</option><option>Prasara</option><option>Sthanasamshraya</option><option>Vyakti</option><option>Bheda</option></select></div>
+</div>
+
+<h3>Samprapti Ghataka</h3>
+<div class="grid">
+<div><label>Dushya</label><textarea id="dushya" placeholder="Rasa, Rakta, Mamsa, Meda, Asthi, Majja, Shukra/Artava..."></textarea></div>
+<div><label>Udbhava / Adhisthana / Vyaktasthana</label><textarea id="sthana"></textarea></div>
+</div>
+<label>Samprapti Narrative</label><textarea id="samprapti"></textarea>
+<label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
+<div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goRecordsBtn" class="secondary">Open Records</button></div>
+</div>
 </section>
 
 <section id="recordsSection" class="hidden">
-<div class="card"><h2>Saved Patient Records</h2><label>Search Name, Mobile, UHID, Complaint or Investigation</label><input id="search" placeholder="Type to search"><div id="recordsList"></div></div>
+<div class="card"><h2>Saved Patient Records</h2><label>Search Name, Mobile, UHID, Complaint, Investigation or Dosha</label><input id="search" placeholder="Type to search"><div id="recordsList"></div></div>
 </section>
 </main>
 
@@ -153,21 +194,14 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 const PREFIX='skm-emr-v12:';
 let current=null;
 
-const complaintRules={
-'Low Back Pain':{red:['Bladder dysfunction','Bowel dysfunction','Saddle anaesthesia','Progressive weakness','Fever','Recent significant trauma','Unexplained weight loss','History of cancer'],exam:['SLR','Cross SLR','Motor power','Sensory examination','Knee/ankle reflex','FABER','Spine ROM'],inv:['X-ray lumbosacral spine','MRI lumbar spine if neurological deficit/red flag','CBC/ESR/CRP if infection suspected'],dx:['Mechanical low back pain','Lumbar radiculopathy / sciatica','Disc prolapse','SI joint dysfunction','Piriformis syndrome']},
-'Chest Pain':{red:['Severe ongoing pain','Radiation to arm/jaw','Sweating','Syncope','Breathlessness','Hypotension'],exam:['Vitals','CVS examination','Respiratory examination','Peripheral pulses'],inv:['12-lead ECG','Troponin','Chest X-ray','Blood glucose','Lipid profile as indicated'],dx:['Acute coronary syndrome—must exclude','Musculoskeletal chest pain','GERD','Pleuritic pain','Anxiety-related pain']},
-'Fever':{red:['Altered sensorium','Hypotension','Respiratory distress','Neck stiffness','Seizure','Persistent vomiting'],exam:['Vitals','Hydration','Rash','Lymph nodes','Respiratory exam','Abdominal exam','CNS screening'],inv:['CBC','Urine routine','CRP/ESR','Malaria/dengue/typhoid tests as clinically indicated','Chest X-ray if respiratory symptoms'],dx:['Viral febrile illness','Bacterial infection','UTI','Respiratory infection','Vector-borne illness']}
-};
 const complaintList=['','Low Back Pain','Neck Pain','Knee Pain','Chest Pain','Breathlessness','Fever','Headache','Abdominal Pain','Dysuria','Leucorrhoea','Cough','Vertigo','Vomiting','Shoulder Pain','Sciatica','Plantar Heel Pain','Other'];
+const complaintRules={'Low Back Pain':{red:['Bladder dysfunction','Bowel dysfunction','Saddle anaesthesia','Progressive weakness','Fever','Recent significant trauma','Unexplained weight loss','History of cancer'],exam:['SLR','Cross SLR','Motor power','Sensory examination','Knee/ankle reflex','FABER','Spine ROM'],inv:['X-ray lumbosacral spine','MRI lumbar spine if neurological deficit/red flag','CBC/ESR/CRP if infection suspected'],dx:['Mechanical low back pain','Lumbar radiculopathy / sciatica','Disc prolapse','SI joint dysfunction','Piriformis syndrome']},'Chest Pain':{red:['Severe ongoing pain','Radiation to arm/jaw','Sweating','Syncope','Breathlessness','Hypotension'],exam:['Vitals','CVS examination','Respiratory examination','Peripheral pulses'],inv:['12-lead ECG','Troponin','Chest X-ray','Blood glucose'],dx:['Acute coronary syndrome—must exclude','Musculoskeletal chest pain','GERD','Pleuritic pain']},'Fever':{red:['Altered sensorium','Hypotension','Respiratory distress','Neck stiffness','Seizure','Persistent vomiting'],exam:['Vitals','Hydration','Rash','Lymph nodes','Respiratory exam','Abdominal exam'],inv:['CBC','Urine routine','CRP/ESR','Malaria/dengue/typhoid tests as indicated'],dx:['Viral febrile illness','Bacterial infection','UTI','Respiratory infection']}};
+
 const generalFindingNames=['Pallor','Icterus','Cyanosis','Clubbing','Lymphadenopathy','Pedal Oedema','Generalized Oedema','Dehydration','Respiratory Distress','Abnormal Gait'];
-const profiles={
-Diabetes:['FBS','PPBS','HbA1c','Urine R/M','RFT/KFT','Lipid Profile','LFT'],
-Hypertension:['CBC','RFT/KFT','Electrolytes','Lipid Profile','FBS','Urine R/M','ECG'],
-Thyroid:['TSH','Free T4','Anti-TPO if indicated','Lipid Profile'],
-Anemia:['CBC','Peripheral Smear','Ferritin','Iron Profile','Vitamin B12','Reticulocyte Count'],
-Arthritis:['CBC','ESR','CRP','Rheumatoid Factor','Anti-CCP','Serum Uric Acid'],
-Fever:['CBC','ESR','CRP','Urine R/M','Malaria Test','Dengue Test','Typhoid Test as indicated']
-};
+const doshas=['Vata','Pitta','Kapha'];
+const subtypes=['Prana Vata','Udana Vata','Vyana Vata','Samana Vata','Apana Vata','Pachaka Pitta','Ranjaka Pitta','Sadhaka Pitta','Alochaka Pitta','Bhrajaka Pitta','Kledaka Kapha','Avalambaka Kapha','Bodhaka Kapha','Tarpaka Kapha','Shleshaka Kapha'];
+const gunas=['Ruksha','Laghu','Sheeta','Khara','Sukshma','Chala','Sasneha','Tikshna','Ushna','Visra','Sara','Drava','Guru','Mridu','Snigdha','Madhura','Sthira','Picchila'];
+const srotas=['Pranavaha','Udakavaha','Annavaha','Rasavaha','Raktavaha','Mamsavaha','Medovaha','Asthivaha','Majjavaha','Shukravaha/Artavavaha','Mutravaha','Purishavaha','Swedavaha','Manovaha'];
 
 const $=id=>document.getElementById(id);
 const val=id=>($(id)?.value||'').trim();
@@ -178,85 +212,68 @@ const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
 function key(id){return PREFIX+id}
-function blank(){return{id:makeId(),uhid:makeUHID(),visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},updatedAt:new Date().toISOString()}}
-function ensureSchema(r){if(!r.complaint)r.complaint=blank().complaint;if(!r.exam)r.exam=blank().exam;if(!r.systemic)r.systemic=blank().systemic;if(!r.investigations)r.investigations={previous:[],advised:[]};return r}
-function save(r){localStorage.setItem(key(r.id),JSON.stringify(r))}
+function blank(){return{id:makeId(),uhid:makeUHID(),visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},updatedAt:new Date().toISOString()}}
+function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;return r}
+function save(r){r.updatedAt=new Date().toISOString();localStorage.setItem(key(r.id),JSON.stringify(r))}
 function all(){const a=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX)){try{a.push(JSON.parse(localStorage.getItem(k)))}catch(e){}}}return a.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))}
 function remove(id){localStorage.removeItem(key(id))}
+function selected(name){return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(x=>x.value)}
+function restore(name,arr=[]){document.querySelectorAll(`input[name="${name}"]`).forEach(x=>x.checked=arr.includes(x.value))}
 function calcBMI(){const h=Number(val('height')),w=Number(val('weight'));set('bmi',h>0&&w>0?(w/((h/100)**2)).toFixed(1):'')}
-function readPatient(){calcBMI();current.visitDate=val('visitDate');current.visitType=val('visitType');current.patient={name:val('name'),age:val('age'),sex:val('sex'),mobile:val('mobile'),height:val('height'),weight:val('weight'),bmi:val('bmi'),address:val('address')};current.updatedAt=new Date().toISOString()}
-function readComplaint(){current.complaint={primary:val('primaryComplaint'),duration:val('complaintDuration'),severity:val('complaintSeverity'),onset:val('complaintOnset'),progression:val('complaintProgression'),character:val('complaintCharacter'),aggravating:val('aggravating'),relieving:val('relieving'),redFlags:[...document.querySelectorAll('input[name="redFlag"]:checked')].map(x=>x.value),notes:val('complaintNotes')}}
+function readPatient(){calcBMI();current.visitDate=val('visitDate');current.visitType=val('visitType');current.patient={name:val('name'),age:val('age'),sex:val('sex'),mobile:val('mobile'),height:val('height'),weight:val('weight'),bmi:val('bmi'),address:val('address')}}
+function readComplaint(){current.complaint={primary:val('primaryComplaint'),duration:val('complaintDuration'),severity:val('complaintSeverity'),onset:val('complaintOnset'),progression:val('complaintProgression'),character:val('complaintCharacter'),aggravating:val('aggravating'),relieving:val('relieving'),redFlags:selected('redFlag'),notes:val('complaintNotes')}}
 function readClinical(){current.clinical={chiefComplaints:val('chiefComplaints'),duration:val('duration'),onset:val('onset'),hpi:val('hpi'),pastHistory:val('pastHistory'),currentMedicines:val('currentMedicines'),allergy:val('allergy'),familyHistory:val('familyHistory'),bp:val('bp'),pulse:val('pulse'),spo2:val('spo2'),temp:val('temp'),rr:val('rr'),pain:val('pain'),clinicalNotes:val('clinicalNotes')}}
 function readExam(){const findings={};generalFindingNames.forEach((name,i)=>findings[name]={status:val('fs'+i),grade:val('fg'+i),remarks:val('fr'+i)});current.exam={findings,build:val('build'),nutrition:val('nutrition'),gait:val('gait'),examNotes:val('examNotes')}}
 function readSystemic(){current.systemic={cvsNotes:val('cvsNotes'),rsNotes:val('rsNotes'),abdNotes:val('abdNotes'),cnsNotes:val('cnsNotes'),systemicNotes:val('systemicNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
+function renderChecks(container,name,items){$(container).innerHTML=items.map(x=>`<label class="check"><input type="checkbox" name="${name}" value="${esc(x)}">${esc(x)}</label>`).join('')}
 function renderComplaintOptions(){$('primaryComplaint').innerHTML=complaintList.map(x=>`<option>${esc(x)}</option>`).join('')}
-function updateComplaintWorkflow(){
-const name=val('primaryComplaint'),d=complaintRules[name];
-if(!d){$('redFlags').innerHTML='<div class="notice">No predefined red-flag set.</div>';$('suggestedExam').innerHTML='<span class="pill">Focused examination</span>';$('suggestedInv').innerHTML='<span class="pill">Tests as clinically indicated</span>';$('suggestedDx').innerHTML='<span class="pill">Doctor-defined differentials</span>';return}
-const sel=new Set(current?.complaint?.redFlags||[]);
-$('redFlags').innerHTML=d.red.map(x=>`<label class="check"><input type="checkbox" name="redFlag" value="${esc(x)}" ${sel.has(x)?'checked':''}>${esc(x)}</label>`).join('');
-$('suggestedExam').innerHTML=d.exam.map(x=>`<span class="pill">${esc(x)}</span>`).join('');
-$('suggestedInv').innerHTML=d.inv.map(x=>`<span class="pill">${esc(x)}</span>`).join('');
-$('suggestedDx').innerHTML=d.dx.map((x,i)=>`<span class="pill">${i+1}. ${esc(x)}</span>`).join('');
-updateRedFlagAlert()
-}
-function updateRedFlagAlert(){const n=document.querySelectorAll('input[name="redFlag"]:checked').length;$('redFlagAlert').className='alert '+(n?'alert-red':'alert-green');$('redFlagAlert').textContent=n?`🚨 ${n} red flag(s) selected.`:'No red flag selected.'}
+function updateComplaintWorkflow(){const d=complaintRules[val('primaryComplaint')];if(!d){$('redFlags').innerHTML='<div class="notice">No predefined red flags.</div>';$('suggestedExam').innerHTML='<span class="pill">Focused examination</span>';$('suggestedInv').innerHTML='<span class="pill">Tests as clinically indicated</span>';$('suggestedDx').innerHTML='<span class="pill">Doctor-defined differentials</span>';return}const sel=new Set(current?.complaint?.redFlags||[]);$('redFlags').innerHTML=d.red.map(x=>`<label class="check"><input type="checkbox" name="redFlag" value="${esc(x)}" ${sel.has(x)?'checked':''}>${esc(x)}</label>`).join('');$('suggestedExam').innerHTML=d.exam.map(x=>`<span class="pill">${esc(x)}</span>`).join('');$('suggestedInv').innerHTML=d.inv.map(x=>`<span class="pill">${esc(x)}</span>`).join('');$('suggestedDx').innerHTML=d.dx.map((x,i)=>`<span class="pill">${i+1}. ${esc(x)}</span>`).join('');updateRedFlagAlert()}
+function updateRedFlagAlert(){const n=selected('redFlag').length;$('redFlagAlert').className='alert '+(n?'alert-red':'alert-green');$('redFlagAlert').textContent=n?`🚨 ${n} red flag(s) selected.`:'No red flag selected.'}
 function renderGeneralRows(){$('findings').innerHTML=generalFindingNames.map((n,i)=>`<div class="finding-row"><div class="finding-name">${esc(n)}</div><div><label>Status</label><select id="fs${i}"><option value=""></option><option>Absent</option><option>Present</option><option>Not assessed</option></select></div><div><label>Grade</label><select id="fg${i}"><option value=""></option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>Mild</option><option>Moderate</option><option>Severe</option></select></div><div><label>Site / Remarks</label><input id="fr${i}"></div></div>`).join('')}
-function renderInvestigations(){
-$('previousList').innerHTML=current.investigations.previous.map((x,i)=>`<div class="item"><b>${esc(x.category)} — ${esc(x.test)}</b><div class="small">${esc(x.date||'')} • ${esc(x.result||'')}</div><div class="small">${esc(x.remark||'')}</div><div class="actions"><button class="danger" data-previdx="${i}">Remove</button></div></div>`).join('')||'<div class="notice">No previous reports added.</div>';
-$('advisedList').innerHTML=current.investigations.advised.map((x,i)=>`<div class="item"><b>${esc(x.category)} — ${esc(x.test)}</b><div class="small">${esc(x.priority)} • ${esc(x.note||'')}</div><div class="actions"><button class="danger" data-advidx="${i}">Remove</button></div></div>`).join('')||'<div class="notice">No advised tests added.</div>'
-}
-function populate(r){
-current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);
-Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));
-set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);
-Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});
-Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));updateComplaintWorkflow();renderInvestigations();showPatient()
-}
+function renderInvestigations(){$('previousList').innerHTML=current.investigations.previous.map((x,i)=>`<div class="item"><b>${esc(x.category)} — ${esc(x.test)}</b><div class="small">${esc(x.date||'')} • ${esc(x.result||'')}</div><button class="danger" data-previdx="${i}">Remove</button></div>`).join('')||'<div class="notice">No previous reports.</div>';$('advisedList').innerHTML=current.investigations.advised.map((x,i)=>`<div class="item"><b>${esc(x.category)} — ${esc(x.test)}</b><div class="small">${esc(x.priority||'')} • ${esc(x.note||'')}</div><button class="danger" data-advidx="${i}">Remove</button></div>`).join('')||'<div class="notice">No advised tests.</div>'}
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);updateComplaintWorkflow();renderInvestigations();showPatient()}
 
-function setActive(tab){['tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function setActive(tab){['tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabAyurveda','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','ayurvedaSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
 function showClinical(){hideAll();$('clinicalSection').classList.remove('hidden');setActive('tabClinical')}
 function showExam(){hideAll();$('examSection').classList.remove('hidden');setActive('tabExam')}
 function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden');setActive('tabSystemic')}
 function showInvestigations(){hideAll();$('investigationsSection').classList.remove('hidden');setActive('tabInvestigations');renderInvestigations()}
+function showAyurveda(){hideAll();$('ayurvedaSection').classList.remove('hidden');setActive('tabAyurveda')}
 function showRecords(){hideAll();$('recordsSection').classList.remove('hidden');setActive('tabRecords');renderRecords()}
-function renderRecords(){
-const term=val('search').toLowerCase();
-const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile,r.complaint?.primary,JSON.stringify(r.investigations||{})].join(' ').toLowerCase().includes(term));
-$('recordsList').innerHTML=rows.map(r=>`<div class="item"><b>${esc(r.patient?.name||'Unnamed')}</b><div class="small">UHID: ${esc(r.uhid)} • Mobile: ${esc(r.patient?.mobile||'')} • Date: ${esc(r.visitDate)}</div><div class="small">Complaint: ${esc(r.complaint?.primary||r.clinical?.chiefComplaints||'Not entered')}</div><div class="small">Investigations: ${(r.investigations?.previous?.length||0)} previous, ${(r.investigations?.advised?.length||0)} advised</div><div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div></div>`).join('')||'<div class="notice">No saved records found.</div>';
-status(rows.length+' record(s) shown.')
-}
+function renderRecords(){const term=val('search').toLowerCase();const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile,r.complaint?.primary,JSON.stringify(r.investigations||{}),JSON.stringify(r.ayurveda||{})].join(' ').toLowerCase().includes(term));$('recordsList').innerHTML=rows.map(r=>`<div class="item"><b>${esc(r.patient?.name||'Unnamed')}</b><div class="small">UHID: ${esc(r.uhid)} • ${esc(r.visitDate)}</div><div class="small">Complaint: ${esc(r.complaint?.primary||'Not entered')} • Dosha: ${esc((r.ayurveda?.dosha||[]).join(', ')||'Not assessed')}</div><div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div></div>`).join('')||'<div class="notice">No saved records found.</div>';status(rows.length+' record(s) shown.')}
 
-$('savePatientBtn').onclick=()=>{if(!val('name')||!val('age')||!val('sex')||!val('mobile'))return status('Please fill Name, Age, Sex and Mobile.',true);readPatient();save(current);status('Patient details saved successfully.')};
-$('saveComplaintBtn').onclick=()=>{readPatient();readComplaint();save(current);status('Complaint workflow saved successfully.')};
-$('saveClinicalBtn').onclick=()=>{readPatient();readComplaint();readClinical();save(current);status('Clinical history saved successfully.')};
+$('savePatientBtn').onclick=()=>{if(!val('name')||!val('age')||!val('sex')||!val('mobile'))return status('Please fill Name, Age, Sex and Mobile.',true);readPatient();save(current);status('Patient saved successfully.')};
+$('saveComplaintBtn').onclick=()=>{readPatient();readComplaint();save(current);status('Complaint saved successfully.')};
+$('saveClinicalBtn').onclick=()=>{readPatient();readComplaint();readClinical();save(current);status('Clinical data saved successfully.')};
 $('saveExamBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();save(current);status('General examination saved successfully.')};
 $('saveSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);status('Systemic examination saved successfully.')};
-$('saveInvestigationsBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);status('Investigations saved successfully.')};
+$('saveInvestigationsBtn').onclick=()=>{save(current);status('Investigations saved successfully.')};
+$('saveAyurvedaBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();readAyurveda();save(current);status('Ayurveda assessment saved successfully.')};
 
-$('addPrevBtn').onclick=()=>{if(!val('prevTest'))return status('Enter previous test/study name.',true);current.investigations.previous.push({category:val('prevCategory'),test:val('prevTest'),date:val('prevDate'),result:val('prevResult'),remark:val('prevRemark')});set('prevTest','');set('prevResult','');set('prevRemark','');save(current);renderInvestigations();status('Previous investigation added.')};
-$('addAdvBtn').onclick=()=>{if(!val('advTest'))return status('Enter advised test name.',true);current.investigations.advised.push({category:val('advCategory'),test:val('advTest'),priority:val('advPriority'),note:val('advNote')});set('advTest','');set('advNote','');save(current);renderInvestigations();status('Advised investigation added.')};
+$('addPrevBtn').onclick=()=>{if(!val('prevTest'))return status('Enter previous test name.',true);current.investigations.previous.push({category:val('prevCategory'),test:val('prevTest'),date:val('prevDate'),result:val('prevResult'),remark:val('prevRemark')});set('prevTest','');set('prevResult','');set('prevRemark','');save(current);renderInvestigations()};
+$('addAdvBtn').onclick=()=>{if(!val('advTest'))return status('Enter advised test name.',true);current.investigations.advised.push({category:val('advCategory'),test:val('advTest'),priority:val('advPriority'),note:val('advNote')});set('advTest','');set('advNote','');save(current);renderInvestigations()};
 $('previousList').onclick=e=>{if(e.target.dataset.previdx!==undefined){current.investigations.previous.splice(Number(e.target.dataset.previdx),1);save(current);renderInvestigations()}};
 $('advisedList').onclick=e=>{if(e.target.dataset.advidx!==undefined){current.investigations.advised.splice(Number(e.target.dataset.advidx),1);save(current);renderInvestigations()}};
-document.querySelectorAll('.profileBtn').forEach(b=>b.onclick=()=>{const list=profiles[b.dataset.profile]||[];list.forEach(test=>{if(!current.investigations.advised.some(x=>x.test===test))current.investigations.advised.push({category:'Profile',test,priority:'Routine',note:b.dataset.profile+' profile'})});save(current);renderInvestigations();status(b.dataset.profile+' profile added.')});
 
 $('goComplaintBtn').onclick=()=>{readPatient();save(current);showComplaint()};
 $('goClinicalBtn2').onclick=()=>{readPatient();readComplaint();save(current);showClinical()};
 $('goExamBtn').onclick=()=>{readPatient();readComplaint();readClinical();save(current);showExam()};
 $('goSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();save(current);showSystemic()};
 $('goInvestigationsBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);showInvestigations()};
+$('goAyurvedaBtn').onclick=()=>{save(current);showAyurveda()};
 $('goRecordsBtn').onclick=showRecords;
 $('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
 
-$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabRecords').onclick=showRecords;
+$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabAyurveda').onclick=showAyurveda;$('tabRecords').onclick=showRecords;
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();populate(blank());status('App loaded successfully. V1.5 ready.');
+renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());status('App loaded successfully. V1.6 ready.');
 })();
 </script>
 </body>
