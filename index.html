@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR V2.7</title>
+<title>Shri Krishna Mahamaya Clinic EMR V2.8</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -161,6 +161,19 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 @media(max-width:850px){.labmgmt-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:550px){.labmgmt-grid{grid-template-columns:1fr}}
 
+
+.imaging-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.imaging-stat{border:1px solid var(--line);border-radius:12px;padding:13px;text-align:center;background:#fbfdfe}
+.imaging-stat .n{font-size:24px;font-weight:900;color:var(--p)}
+.imaging-card{border:1px solid var(--line);border-radius:11px;padding:11px;margin:8px 0;background:#fbfdfe}
+.imaging-card.red{border-left:5px solid #b83229;background:#fde7e4}
+.imaging-card.yellow{border-left:5px solid #d9a928;background:#fff5d8}
+.imaging-card.green{border-left:5px solid #2f8b59;background:#e7f5eb}
+.imaging-report{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+.finding-chip{display:inline-block;padding:5px 8px;border-radius:14px;background:#e7f2f8;color:#174f69;margin:3px;font-size:12px;font-weight:700}
+@media(max-width:850px){.imaging-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:550px){.imaging-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -185,11 +198,11 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>V2.7 • Laboratory Orders • Reports • Critical Flags</p>
+<p>V2.8 • Imaging Archive • Structured Findings • Timeline</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> V2.6 के working engine में Laboratory Management Phase 1 जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
+<div class="notice"><b>Stable incremental build:</b> V2.7 के working engine में Imaging Management Phase 1 जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
 <div class="tabs actions">
 <button id="tabDashboard" class="primary active">🏠 Dashboard</button>
 <button id="tabTimeline" class="secondary">🔄 Follow-up</button>
@@ -209,10 +222,11 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="tabBilling" class="secondary">💰 Billing</button>
 <button id="tabPharmacy" class="secondary">💊 Pharmacy</button>
 <button id="tabLabMgmt" class="secondary">🔬 Laboratory</button>
+<button id="tabImaging" class="secondary">🩻 Imaging</button>
 <button id="tabSettings" class="secondary">⚙ Settings</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V2.7</div>
+<div id="status" class="status">App loaded successfully. Version: V2.8</div>
 <div class="actions no-print">
   <span id="activeRoleBadge" class="role-badge">Locked</span>
   <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -249,6 +263,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="dashBilling" class="secondary quick-btn">💰<span>Billing</span></button>
 <button id="dashPharmacy" class="secondary quick-btn">💊<span>Pharmacy</span></button>
 <button id="dashLabMgmt" class="secondary quick-btn">🔬<span>Laboratory</span></button>
+<button id="dashImaging" class="secondary quick-btn">🩻<span>Imaging</span></button>
 </div>
 </div>
 
@@ -965,6 +980,86 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 </div>
 </section>
 
+
+<section id="imagingSection" class="hidden">
+<div class="card">
+<h2>Imaging Dashboard</h2>
+<div class="imaging-grid">
+<div class="imaging-stat"><div class="n" id="imgTotal">0</div><div>Total Studies</div></div>
+<div class="imaging-stat"><div class="n" id="imgMRI">0</div><div>MRI</div></div>
+<div class="imaging-stat"><div class="n" id="imgXray">0</div><div>X-ray</div></div>
+<div class="imaging-stat"><div class="n" id="imgCritical">0</div><div>Critical / Red Flag</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Add Imaging Study</h2>
+<div class="grid3">
+<div><label>Patient Name *</label><input id="imgPatient"></div>
+<div><label>UHID</label><input id="imgUhid"></div>
+<div><label>Mobile</label><input id="imgMobile"></div>
+</div>
+
+<div class="grid3">
+<div><label>Study Type</label><select id="imgType"><option>MRI</option><option>X-ray</option><option>CT Scan</option><option>Ultrasound</option><option>ECG</option><option>Clinical Photo</option><option>Other</option></select></div>
+<div><label>Body Part</label><select id="imgBodyPart"><option>Lumbar Spine</option><option>Cervical Spine</option><option>Thoracic Spine</option><option>Sacroiliac Joint</option><option>Hip</option><option>Knee</option><option>Shoulder</option><option>Elbow</option><option>Wrist</option><option>Ankle</option><option>Foot</option><option>Brain</option><option>Chest</option><option>Abdomen</option><option>Pelvis</option><option>Other</option></select></div>
+<div><label>Side</label><select id="imgSide"><option>Not applicable</option><option>Right</option><option>Left</option><option>Bilateral</option></select></div>
+</div>
+
+<div class="grid3">
+<div><label>Study Date</label><input id="imgDate" type="date"></div>
+<div><label>Hospital / Imaging Centre</label><input id="imgCentre"></div>
+<div><label>Reporting Doctor</label><input id="imgDoctor"></div>
+</div>
+
+<h3>Structured Spine Findings</h3>
+<div class="checkgrid" id="imgFindingChecks"></div>
+
+<div class="grid3">
+<div><label>Level</label><select id="imgLevel"><option value=""></option><option>C2-C3</option><option>C3-C4</option><option>C4-C5</option><option>C5-C6</option><option>C6-C7</option><option>T12-L1</option><option>L1-L2</option><option>L2-L3</option><option>L3-L4</option><option>L4-L5</option><option>L5-S1</option><option>Multiple Levels</option></select></div>
+<div><label>Severity</label><select id="imgSeverity"><option value=""></option><option>Mild</option><option>Moderate</option><option>Severe</option></select></div>
+<div><label>Nerve Root / Cord</label><input id="imgRoot" placeholder="e.g. Left L5 root compression"></div>
+</div>
+
+<label>Detailed Findings</label><textarea id="imgFindings" placeholder="Enter concise structured findings from the radiology report"></textarea>
+<label>Impression</label><textarea id="imgImpression"></textarea>
+<label>Clinical Correlation</label><textarea id="imgClinicalCorrelation" placeholder="e.g. correlate with SLR, motor power, sensory deficit"></textarea>
+
+<div class="grid3">
+<div><label>Red Flag</label><select id="imgRedFlag"><option>No red flag</option><option>Urgent neurological review</option><option>Possible cord compression</option><option>Possible cauda equina / severe canal compromise</option><option>Fracture / destructive lesion</option><option>Other urgent finding</option></select></div>
+<div><label>Comparison</label><select id="imgComparison"><option>Baseline / First study</option><option>Improved</option><option>Stable</option><option>Worsened</option><option>Not compared</option></select></div>
+<div><label>Status</label><select id="imgStatus"><option>Report available</option><option>Images available</option><option>Report + Images available</option><option>Pending review</option></select></div>
+</div>
+
+<label>File Reference / Link / Filename</label><input id="imgFileRef" placeholder="Optional filename or cloud link reference">
+
+<div class="actions">
+<button id="saveImagingBtn" class="primary">💾 Save Imaging Study</button>
+<button id="useCurrentPatientImgBtn" class="secondary">Use Current Patient</button>
+<button id="clearImagingBtn" class="secondary">Clear Form</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Imaging Archive</h2>
+<div class="grid3">
+<div><label>Search Patient / Body Part / Finding</label><input id="imgSearch"></div>
+<div><label>Study Filter</label><select id="imgFilter"><option>All</option><option>MRI</option><option>X-ray</option><option>CT Scan</option><option>Ultrasound</option><option>ECG</option><option>Critical / Red Flag</option></select></div>
+<div><label>From Date</label><input id="imgFromDate" type="date"></div>
+</div>
+<div id="imagingList"></div>
+</div>
+
+<div class="card">
+<h2>Imaging Report Preview</h2>
+<div id="imagingPreview" class="imaging-report"><div class="notice">Select or save an imaging study to preview.</div></div>
+<div class="actions">
+<button id="printImagingBtn" class="secondary">🖨 Print Imaging Summary</button>
+<button id="sendToPatientInvestigationsBtn" class="secondary">＋ Add to Patient Investigations</button>
+</div>
+</div>
+</section>
+
 <section id="settingsSection" class="hidden">
 <div class="card">
 <h2>Local Security & Roles</h2>
@@ -1625,6 +1720,152 @@ populateFollowup();
 
 
 
+
+const IMAGING_KEY='skm-imaging-v28';
+let activeImagingId='';
+
+const IMAGING_FINDINGS=[
+  'Disc desiccation','Disc bulge','Protrusion','Extrusion','Sequestration',
+  'Canal stenosis','Foraminal narrowing','Lateral recess narrowing',
+  'Facet arthropathy','Ligamentum flavum hypertrophy','Spondylolisthesis',
+  'Loss of lordosis','Cord compression','Myelopathy signal','Nerve root compression',
+  'Osteophytes','Joint space narrowing','Sclerosis','Fracture / destructive lesion'
+];
+
+function imagingRows(){
+  try{return JSON.parse(localStorage.getItem(IMAGING_KEY))||[]}
+  catch{return []}
+}
+function saveImagingRows(rows){localStorage.setItem(IMAGING_KEY,JSON.stringify(rows))}
+function renderImagingChecks(){
+  $('imgFindingChecks').innerHTML=IMAGING_FINDINGS.map(x=>`<label class="check"><input type="checkbox" name="imgFinding" value="${esc(x)}">${esc(x)}</label>`).join('');
+}
+function selectedImagingFindings(){
+  return [...document.querySelectorAll('input[name="imgFinding"]:checked')].map(x=>x.value);
+}
+function restoreImagingFindings(arr=[]){
+  document.querySelectorAll('input[name="imgFinding"]').forEach(x=>x.checked=arr.includes(x.value));
+}
+function clearImagingForm(){
+  ['imgPatient','imgUhid','imgMobile','imgCentre','imgDoctor','imgRoot','imgFindings','imgImpression','imgClinicalCorrelation','imgFileRef'].forEach(id=>set(id,''));
+  set('imgDate',today());set('imgType','MRI');set('imgBodyPart','Lumbar Spine');set('imgSide','Not applicable');
+  set('imgLevel','');set('imgSeverity','');set('imgRedFlag','No red flag');set('imgComparison','Baseline / First study');set('imgStatus','Report available');
+  restoreImagingFindings([]);activeImagingId='';
+}
+function useCurrentPatientForImaging(){
+  set('imgPatient',current.patient?.name||'');
+  set('imgUhid',current.uhid||'');
+  set('imgMobile',current.patient?.mobile||'');
+  set('imgDate',today());
+}
+function saveImagingStudy(){
+  if(!val('imgPatient')||!val('imgType')||!val('imgDate'))return status('Patient name, study type and date are required.',true);
+  const rows=imagingRows();
+  const id=activeImagingId||('IMG-'+Date.now());
+  const study={
+    id,patientName:val('imgPatient'),uhid:val('imgUhid'),mobile:val('imgMobile'),
+    type:val('imgType'),bodyPart:val('imgBodyPart'),side:val('imgSide'),date:val('imgDate'),
+    centre:val('imgCentre'),doctor:val('imgDoctor'),structured:selectedImagingFindings(),
+    level:val('imgLevel'),severity:val('imgSeverity'),root:val('imgRoot'),
+    findings:val('imgFindings'),impression:val('imgImpression'),
+    clinicalCorrelation:val('imgClinicalCorrelation'),redFlag:val('imgRedFlag'),
+    comparison:val('imgComparison'),status:val('imgStatus'),fileRef:val('imgFileRef'),
+    updatedAt:new Date().toISOString()
+  };
+  const i=rows.findIndex(x=>x.id===id);
+  if(i>=0)rows[i]=study;else rows.unshift(study);
+  saveImagingRows(rows);activeImagingId=id;
+  audit(i>=0?'Imaging study updated':'Imaging study saved',study.patientName+' '+study.type+' '+study.bodyPart);
+  renderImaging();renderImagingPreview(study);status('Imaging study saved successfully.');
+}
+function imagingClass(x){
+  if(x.redFlag!=='No red flag')return 'red';
+  if(x.severity==='Severe'||x.comparison==='Worsened')return 'yellow';
+  return 'green';
+}
+function renderImaging(){
+  const rows=imagingRows();
+  const term=val('imgSearch').toLowerCase(),filter=val('imgFilter')||'All',from=val('imgFromDate')||'';
+  const filtered=rows.filter(x=>{
+    if(from&&x.date<from)return false;
+    if(filter==='Critical / Red Flag'&&x.redFlag==='No red flag')return false;
+    if(filter!=='All'&&filter!=='Critical / Red Flag'&&x.type!==filter)return false;
+    return [x.patientName,x.uhid,x.mobile,x.type,x.bodyPart,x.side,x.level,x.root,x.findings,x.impression,(x.structured||[]).join(' ')].join(' ').toLowerCase().includes(term);
+  }).sort((a,b)=>(b.date||'').localeCompare(a.date||'')||(b.updatedAt||'').localeCompare(a.updatedAt||''));
+
+  $('imagingList').innerHTML=filtered.map(x=>`<div class="imaging-card ${imagingClass(x)}">
+    <b>${esc(x.patientName)}</b> — ${esc(x.type)} ${esc(x.bodyPart)}
+    <div class="small">${esc(x.date)} • ${esc(x.side)} • ${esc(x.level||'')} • ${esc(x.severity||'')}</div>
+    <div>${(x.structured||[]).map(f=>`<span class="finding-chip">${esc(f)}</span>`).join('')}</div>
+    <div class="small"><b>Impression:</b> ${esc(x.impression||'')}</div>
+    <div class="small"><b>Red flag:</b> ${esc(x.redFlag||'')}</div>
+    <div class="actions">
+      <button class="primary" data-imgopen="${esc(x.id)}">Open</button>
+      <button class="secondary" data-imgedit="${esc(x.id)}">Edit</button>
+      <button class="danger" data-imgdelete="${esc(x.id)}">Delete</button>
+    </div>
+  </div>`).join('')||'<div class="notice">No matching imaging studies.</div>';
+
+  $('imgTotal').textContent=rows.length;
+  $('imgMRI').textContent=rows.filter(x=>x.type==='MRI').length;
+  $('imgXray').textContent=rows.filter(x=>x.type==='X-ray').length;
+  $('imgCritical').textContent=rows.filter(x=>x.redFlag!=='No red flag').length;
+}
+function openImagingStudy(id,edit=false){
+  const x=imagingRows().find(r=>r.id===id);if(!x)return;
+  activeImagingId=x.id;renderImagingPreview(x);
+  if(edit){
+    set('imgPatient',x.patientName);set('imgUhid',x.uhid);set('imgMobile',x.mobile);set('imgType',x.type);
+    set('imgBodyPart',x.bodyPart);set('imgSide',x.side);set('imgDate',x.date);set('imgCentre',x.centre);
+    set('imgDoctor',x.doctor);set('imgLevel',x.level);set('imgSeverity',x.severity);set('imgRoot',x.root);
+    set('imgFindings',x.findings);set('imgImpression',x.impression);set('imgClinicalCorrelation',x.clinicalCorrelation);
+    set('imgRedFlag',x.redFlag);set('imgComparison',x.comparison);set('imgStatus',x.status);set('imgFileRef',x.fileRef);
+    restoreImagingFindings(x.structured||[]);
+    window.scrollTo({top:$('imagingSection').offsetTop,behavior:'smooth'});
+  }else{
+    window.scrollTo({top:$('imagingPreview').offsetTop-110,behavior:'smooth'});
+  }
+}
+function renderImagingPreview(x){
+  if(!x){$('imagingPreview').innerHTML='<div class="notice">Select or save an imaging study to preview.</div>';return}
+  $('imagingPreview').innerHTML=`
+  <div style="text-align:center"><h2 style="margin-bottom:4px">श्री कृष्ण महमाया क्लिनिक</h2><div>Structured Imaging Summary</div></div><hr>
+  <div><b>Patient:</b> ${esc(x.patientName)} • <b>UHID:</b> ${esc(x.uhid||'')} • <b>Date:</b> ${esc(x.date)}</div>
+  <div><b>Study:</b> ${esc(x.type)} ${esc(x.bodyPart)} • <b>Side:</b> ${esc(x.side)} • <b>Centre:</b> ${esc(x.centre||'')}</div>
+  <div class="rx-section-title">Structured Findings</div>
+  <div>${(x.structured||[]).map(f=>`<span class="finding-chip">${esc(f)}</span>`).join('')||'No structured finding selected.'}</div>
+  <div><b>Level:</b> ${esc(x.level||'')} • <b>Severity:</b> ${esc(x.severity||'')} • <b>Nerve root/cord:</b> ${esc(x.root||'')}</div>
+  <div class="rx-section-title">Detailed Findings</div><div>${esc(x.findings||'')}</div>
+  <div class="rx-section-title">Impression</div><div>${esc(x.impression||'')}</div>
+  <div class="rx-section-title">Clinical Correlation</div><div>${esc(x.clinicalCorrelation||'')}</div>
+  <div class="rx-section-title">Safety / Comparison</div>
+  <div><b>Red Flag:</b> ${esc(x.redFlag)} • <b>Comparison:</b> ${esc(x.comparison)} • <b>Status:</b> ${esc(x.status)}</div>
+  <div class="small" style="margin-top:12px">This structured summary does not replace the signed radiologist report.</div>`;
+}
+function addImagingToPatientInvestigations(){
+  const x=imagingRows().find(r=>r.id===activeImagingId);
+  if(!x)return status('Select an imaging study first.',true);
+  if(!current||!current.id)return status('Open the linked patient record first.',true);
+  current.investigations.previous.push({
+    category:x.type,test:x.type+' '+x.bodyPart,date:x.date,
+    result:x.impression||x.findings,
+    remark:[(x.structured||[]).join(', '),x.level,x.root,x.redFlag].filter(Boolean).join(' | ')
+  });
+  save(current);renderInvestigations();audit('Imaging added to patient record',x.patientName+' '+x.type);status('Imaging summary added to patient investigations.');
+}
+function printImagingSummary(){
+  const x=imagingRows().find(r=>r.id===activeImagingId);if(!x)return status('Select an imaging study first.',true);
+  const original=$('printSheet').innerHTML;
+  $('printSheet').innerHTML=$('imagingPreview').innerHTML;
+  showPreview();window.print();$('printSheet').innerHTML=original;showImaging();
+}
+function showImaging(){
+  hideAll();$('imagingSection').classList.remove('hidden');setActive('tabImaging');
+  useCurrentPatientForImaging();
+  if(!val('imgFromDate'))set('imgFromDate','');
+  renderImaging();
+}
+
 const LAB_ORDER_KEY='skm-lab-orders-v27';
 
 function labOrderRows(){
@@ -2224,8 +2465,8 @@ else showPatient();
 status('Saved patient reopened successfully.');
 }
 
-function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabAppointments','tabBilling','tabPharmacy','tabLabMgmt','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','appointmentsSection','billingSection','pharmacySection','labMgmtSection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabAppointments','tabBilling','tabPharmacy','tabLabMgmt','tabImaging','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','appointmentsSection','billingSection','pharmacySection','labMgmtSection','imagingSection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
 function showDashboard(){hideAll();$('dashboardSection').classList.remove('hidden');setActive('tabDashboard');renderDashboard()}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
@@ -2306,6 +2547,30 @@ $('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
 
 
 $('tabDashboard').onclick=showDashboard;
+
+$('tabImaging').onclick=showImaging;
+$('dashImaging').onclick=showImaging;
+$('saveImagingBtn').onclick=saveImagingStudy;
+$('useCurrentPatientImgBtn').onclick=useCurrentPatientForImaging;
+$('clearImagingBtn').onclick=clearImagingForm;
+$('imgSearch').oninput=renderImaging;
+$('imgFilter').onchange=renderImaging;
+$('imgFromDate').onchange=renderImaging;
+$('printImagingBtn').onclick=printImagingSummary;
+$('sendToPatientInvestigationsBtn').onclick=addImagingToPatientInvestigations;
+$('imagingList').onclick=e=>{
+  const open=e.target.dataset.imgopen,edit=e.target.dataset.imgedit,del=e.target.dataset.imgdelete;
+  if(open)openImagingStudy(open,false);
+  if(edit)openImagingStudy(edit,true);
+  if(del&&confirm('Delete this imaging study?')){
+    const x=imagingRows().find(r=>r.id===del);
+    saveImagingRows(imagingRows().filter(r=>r.id!==del));
+    audit('Imaging study deleted',x?.patientName+' '+x?.type);
+    if(activeImagingId===del){activeImagingId='';renderImagingPreview(null)}
+    renderImaging();
+  }
+};
+
 
 $('tabLabMgmt').onclick=showLabMgmt;
 $('dashLabMgmt').onclick=showLabMgmt;
@@ -2441,7 +2706,7 @@ $('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('t
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.7 ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.8 ready.');
 })();
 </script>
 </body>
