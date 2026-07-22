@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR V1.6</title>
+<title>Shri Krishna Mahamaya Clinic EMR V1.7</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -42,11 +42,11 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <body>
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>V1.6 • Ayurveda Assessment • Investigations • Records</p>
+<p>V1.7 • Ayurveda • Prescription • Records</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> V1.5 के working engine में केवल Ayurveda Assessment Module जोड़ा गया है। पुराने patient records इसी storage में उपलब्ध रहेंगे।</div>
+<div class="notice"><b>Stable incremental build:</b> V1.6 के working engine में केवल Prescription Module जोड़ा गया है। पुराने patient records इसी storage में उपलब्ध रहेंगे।</div>
 <div class="tabs actions">
 <button id="tabPatient" class="primary active">👤 Patient</button>
 <button id="tabComplaint" class="secondary">🧭 Complaint</button>
@@ -55,9 +55,10 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="tabSystemic" class="secondary">🫀 Systemic</button>
 <button id="tabInvestigations" class="secondary">🧪 Investigations</button>
 <button id="tabAyurveda" class="secondary">🌿 Ayurveda</button>
+<button id="tabPrescription" class="secondary">💊 Prescription</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V1.6</div>
+<div id="status" class="status">App loaded successfully. Version: V1.7</div>
 </div>
 
 <section id="patientSection">
@@ -179,7 +180,67 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 </div>
 <label>Samprapti Narrative</label><textarea id="samprapti"></textarea>
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
-<div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goRecordsBtn" class="secondary">Open Records</button></div>
+<div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
+</div>
+</section>
+
+
+<section id="prescriptionSection" class="hidden">
+<div class="card">
+<h2>Diagnosis</h2>
+<div class="grid">
+<div><label>Provisional Diagnosis</label><textarea id="provisionalDiagnosis"></textarea></div>
+<div><label>Differential Diagnosis</label><textarea id="differentialDiagnosis"></textarea></div>
+</div>
+<label>Final / Confirmed Diagnosis</label><textarea id="finalDiagnosis"></textarea>
+</div>
+
+<div class="card">
+<h2>Add Medicine</h2>
+<div class="grid3">
+<div><label>System / Source</label><select id="medSystem"><option>Allopathic Generic</option><option>Allopathic Brand / Ethical</option><option>Ayurvedic Classical</option><option>Ayurvedic Patent</option><option>Clinic Self-made</option><option>Other</option></select></div>
+<div><label>Medicine / Formulation Name</label><input id="medName"></div>
+<div><label>Composition / Strength</label><input id="medStrength" placeholder="e.g. 500 mg / 250 mg + 50 mg"></div>
+</div>
+
+<div class="grid3">
+<div><label>Dosage Form</label><select id="medForm"><option>Tablet</option><option>Capsule</option><option>Syrup</option><option>Suspension</option><option>Injection</option><option>Powder / Churna</option><option>Kwatha / Decoction</option><option>Asava-Arishta</option><option>Ghrita</option><option>Taila / Oil</option><option>Cream / Ointment / Gel</option><option>Drops</option><option>Inhalation / Nebulization</option><option>Other</option></select></div>
+<div><label>Dose</label><input id="medDose" placeholder="e.g. 1 tablet / 5 ml / 500 mg"></div>
+<div><label>Frequency</label><select id="medFrequency"><option>OD</option><option>BD</option><option>TDS</option><option>QID</option><option>HS</option><option>SOS</option><option>STAT</option><option>Weekly</option><option>As directed</option></select></div>
+</div>
+
+<div class="grid3">
+<div><label>Route</label><select id="medRoute"><option>Oral</option><option>IV</option><option>IM</option><option>SC</option><option>Local application</option><option>Inhalation</option><option>Nebulization</option><option>Nasal instillation</option><option>Eye instillation</option><option>Ear instillation</option><option>Rectal</option><option>Other</option></select></div>
+<div><label>Meal Timing</label><select id="medMeal"><option>After meal</option><option>Before meal</option><option>With meal</option><option>Empty stomach</option><option>At bedtime</option><option>As directed</option></select></div>
+<div><label>Duration</label><input id="medDuration" placeholder="e.g. 5 days / 1 month"></div>
+</div>
+
+<label>Anupana / Special Instructions</label>
+<textarea id="medInstruction" placeholder="e.g. with lukewarm water / local application twice daily"></textarea>
+<div class="actions"><button id="addMedicineBtn" class="secondary">＋ Add Medicine</button></div>
+<div id="medicineList"></div>
+</div>
+
+<div class="card">
+<h2>Advice</h2>
+<div class="grid">
+<div><label>Pathya</label><textarea id="pathya"></textarea></div>
+<div><label>Apathya</label><textarea id="apathya"></textarea></div>
+</div>
+<div class="grid">
+<div><label>Lifestyle / Yoga / Physiotherapy</label><textarea id="lifestyleAdvice"></textarea></div>
+<div><label>Precautions / Red Flag Advice</label><textarea id="precautionAdvice"></textarea></div>
+</div>
+<div class="grid3">
+<div><label>Follow-up Date</label><input id="followupDate" type="date"></div>
+<div><label>Follow-up Interval / Note</label><input id="followupNote" placeholder="e.g. after 7 days"></div>
+<div><label>Emergency Contact</label><input id="emergencyContact" value="8770143788, 7489818673"></div>
+</div>
+<label>Additional Prescription Notes</label><textarea id="prescriptionNotes"></textarea>
+<div class="actions">
+<button id="savePrescriptionBtn" class="primary">💾 Save Prescription</button>
+<button id="goRecordsBtn" class="secondary">Open Records</button>
+</div>
 </div>
 </section>
 
@@ -212,8 +273,8 @@ const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
 function key(id){return PREFIX+id}
-function blank(){return{id:makeId(),uhid:makeUHID(),visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},updatedAt:new Date().toISOString()}}
-function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;return r}
+function blank(){return{id:makeId(),uhid:makeUHID(),visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},updatedAt:new Date().toISOString()}}
+function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;return r}
 function save(r){r.updatedAt=new Date().toISOString();localStorage.setItem(key(r.id),JSON.stringify(r))}
 function all(){const a=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX)){try{a.push(JSON.parse(localStorage.getItem(k)))}catch(e){}}}return a.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))}
 function remove(id){localStorage.removeItem(key(id))}
@@ -227,16 +288,46 @@ function readExam(){const findings={};generalFindingNames.forEach((name,i)=>find
 function readSystemic(){current.systemic={cvsNotes:val('cvsNotes'),rsNotes:val('rsNotes'),abdNotes:val('abdNotes'),cnsNotes:val('cnsNotes'),systemicNotes:val('systemicNotes')}}
 function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
+function readPrescription(){
+current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
+current.prescription.differentialDiagnosis=val('differentialDiagnosis');
+current.prescription.finalDiagnosis=val('finalDiagnosis');
+current.prescription.pathya=val('pathya');
+current.prescription.apathya=val('apathya');
+current.prescription.lifestyleAdvice=val('lifestyleAdvice');
+current.prescription.precautionAdvice=val('precautionAdvice');
+current.prescription.followupDate=val('followupDate');
+current.prescription.followupNote=val('followupNote');
+current.prescription.emergencyContact=val('emergencyContact');
+current.prescription.notes=val('prescriptionNotes');
+}
+
+
 function renderChecks(container,name,items){$(container).innerHTML=items.map(x=>`<label class="check"><input type="checkbox" name="${name}" value="${esc(x)}">${esc(x)}</label>`).join('')}
 function renderComplaintOptions(){$('primaryComplaint').innerHTML=complaintList.map(x=>`<option>${esc(x)}</option>`).join('')}
 function updateComplaintWorkflow(){const d=complaintRules[val('primaryComplaint')];if(!d){$('redFlags').innerHTML='<div class="notice">No predefined red flags.</div>';$('suggestedExam').innerHTML='<span class="pill">Focused examination</span>';$('suggestedInv').innerHTML='<span class="pill">Tests as clinically indicated</span>';$('suggestedDx').innerHTML='<span class="pill">Doctor-defined differentials</span>';return}const sel=new Set(current?.complaint?.redFlags||[]);$('redFlags').innerHTML=d.red.map(x=>`<label class="check"><input type="checkbox" name="redFlag" value="${esc(x)}" ${sel.has(x)?'checked':''}>${esc(x)}</label>`).join('');$('suggestedExam').innerHTML=d.exam.map(x=>`<span class="pill">${esc(x)}</span>`).join('');$('suggestedInv').innerHTML=d.inv.map(x=>`<span class="pill">${esc(x)}</span>`).join('');$('suggestedDx').innerHTML=d.dx.map((x,i)=>`<span class="pill">${i+1}. ${esc(x)}</span>`).join('');updateRedFlagAlert()}
 function updateRedFlagAlert(){const n=selected('redFlag').length;$('redFlagAlert').className='alert '+(n?'alert-red':'alert-green');$('redFlagAlert').textContent=n?`🚨 ${n} red flag(s) selected.`:'No red flag selected.'}
 function renderGeneralRows(){$('findings').innerHTML=generalFindingNames.map((n,i)=>`<div class="finding-row"><div class="finding-name">${esc(n)}</div><div><label>Status</label><select id="fs${i}"><option value=""></option><option>Absent</option><option>Present</option><option>Not assessed</option></select></div><div><label>Grade</label><select id="fg${i}"><option value=""></option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>Mild</option><option>Moderate</option><option>Severe</option></select></div><div><label>Site / Remarks</label><input id="fr${i}"></div></div>`).join('')}
 function renderInvestigations(){$('previousList').innerHTML=current.investigations.previous.map((x,i)=>`<div class="item"><b>${esc(x.category)} — ${esc(x.test)}</b><div class="small">${esc(x.date||'')} • ${esc(x.result||'')}</div><button class="danger" data-previdx="${i}">Remove</button></div>`).join('')||'<div class="notice">No previous reports.</div>';$('advisedList').innerHTML=current.investigations.advised.map((x,i)=>`<div class="item"><b>${esc(x.category)} — ${esc(x.test)}</b><div class="small">${esc(x.priority||'')} • ${esc(x.note||'')}</div><button class="danger" data-advidx="${i}">Remove</button></div>`).join('')||'<div class="notice">No advised tests.</div>'}
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);updateComplaintWorkflow();renderInvestigations();showPatient()}
 
-function setActive(tab){['tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabAyurveda','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','ayurvedaSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function renderMedicines(){
+$('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div class="item">
+<b>${esc(m.name)}</b> ${m.strength?`— ${esc(m.strength)}`:''}
+<div class="small">${esc(m.system)} • ${esc(m.form)} • ${esc(m.dose)} ${esc(m.frequency)} • ${esc(m.route)} • ${esc(m.meal)} • ${esc(m.duration)}</div>
+<div class="small">${esc(m.instruction||'')}</div>
+<div class="actions"><button class="danger" data-medidx="${i}">Remove</button></div>
+</div>`).join('')||'<div class="notice">No medicines added.</div>';
+}
+
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);
+const p=r.prescription;
+set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
+set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
+set('followupDate',p.followupDate);set('followupNote',p.followupNote);set('emergencyContact',p.emergencyContact);set('prescriptionNotes',p.notes);
+updateComplaintWorkflow();renderInvestigations();renderMedicines();showPatient()}
+
+function setActive(tab){['tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabAyurveda','tabPrescription','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','ayurvedaSection','prescriptionSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
 function showClinical(){hideAll();$('clinicalSection').classList.remove('hidden');setActive('tabClinical')}
@@ -244,8 +335,9 @@ function showExam(){hideAll();$('examSection').classList.remove('hidden');setAct
 function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden');setActive('tabSystemic')}
 function showInvestigations(){hideAll();$('investigationsSection').classList.remove('hidden');setActive('tabInvestigations');renderInvestigations()}
 function showAyurveda(){hideAll();$('ayurvedaSection').classList.remove('hidden');setActive('tabAyurveda')}
+function showPrescription(){hideAll();$('prescriptionSection').classList.remove('hidden');setActive('tabPrescription');renderMedicines()}
 function showRecords(){hideAll();$('recordsSection').classList.remove('hidden');setActive('tabRecords');renderRecords()}
-function renderRecords(){const term=val('search').toLowerCase();const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile,r.complaint?.primary,JSON.stringify(r.investigations||{}),JSON.stringify(r.ayurveda||{})].join(' ').toLowerCase().includes(term));$('recordsList').innerHTML=rows.map(r=>`<div class="item"><b>${esc(r.patient?.name||'Unnamed')}</b><div class="small">UHID: ${esc(r.uhid)} • ${esc(r.visitDate)}</div><div class="small">Complaint: ${esc(r.complaint?.primary||'Not entered')} • Dosha: ${esc((r.ayurveda?.dosha||[]).join(', ')||'Not assessed')}</div><div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div></div>`).join('')||'<div class="notice">No saved records found.</div>';status(rows.length+' record(s) shown.')}
+function renderRecords(){const term=val('search').toLowerCase();const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile,r.complaint?.primary,JSON.stringify(r.investigations||{}),JSON.stringify(r.ayurveda||{})].join(' ').toLowerCase().includes(term));$('recordsList').innerHTML=rows.map(r=>`<div class="item"><b>${esc(r.patient?.name||'Unnamed')}</b><div class="small">UHID: ${esc(r.uhid)} • ${esc(r.visitDate)}</div><div class="small">Complaint: ${esc(r.complaint?.primary||'Not entered')} • Dosha: ${esc((r.ayurveda?.dosha||[]).join(', ')||'Not assessed')} • Medicines: ${(r.prescription?.medicines||[]).length}</div><div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div></div>`).join('')||'<div class="notice">No saved records found.</div>';status(rows.length+' record(s) shown.')}
 
 $('savePatientBtn').onclick=()=>{if(!val('name')||!val('age')||!val('sex')||!val('mobile'))return status('Please fill Name, Age, Sex and Mobile.',true);readPatient();save(current);status('Patient saved successfully.')};
 $('saveComplaintBtn').onclick=()=>{readPatient();readComplaint();save(current);status('Complaint saved successfully.')};
@@ -254,6 +346,25 @@ $('saveExamBtn').onclick=()=>{readPatient();readComplaint();readClinical();readE
 $('saveSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);status('Systemic examination saved successfully.')};
 $('saveInvestigationsBtn').onclick=()=>{save(current);status('Investigations saved successfully.')};
 $('saveAyurvedaBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();readAyurveda();save(current);status('Ayurveda assessment saved successfully.')};
+$('savePrescriptionBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();readAyurveda();readPrescription();save(current);status('Prescription saved successfully.')};
+
+$('addMedicineBtn').onclick=()=>{
+if(!val('medName'))return status('Enter medicine name.',true);
+current.prescription.medicines.push({
+system:val('medSystem'),name:val('medName'),strength:val('medStrength'),form:val('medForm'),
+dose:val('medDose'),frequency:val('medFrequency'),route:val('medRoute'),meal:val('medMeal'),
+duration:val('medDuration'),instruction:val('medInstruction')
+});
+set('medName','');set('medStrength','');set('medDose','');set('medDuration','');set('medInstruction','');
+save(current);renderMedicines();status('Medicine added successfully.');
+};
+$('medicineList').onclick=e=>{
+if(e.target.dataset.medidx!==undefined){
+current.prescription.medicines.splice(Number(e.target.dataset.medidx),1);
+save(current);renderMedicines();status('Medicine removed.');
+}
+};
+
 
 $('addPrevBtn').onclick=()=>{if(!val('prevTest'))return status('Enter previous test name.',true);current.investigations.previous.push({category:val('prevCategory'),test:val('prevTest'),date:val('prevDate'),result:val('prevResult'),remark:val('prevRemark')});set('prevTest','');set('prevResult','');set('prevRemark','');save(current);renderInvestigations()};
 $('addAdvBtn').onclick=()=>{if(!val('advTest'))return status('Enter advised test name.',true);current.investigations.advised.push({category:val('advCategory'),test:val('advTest'),priority:val('advPriority'),note:val('advNote')});set('advTest','');set('advNote','');save(current);renderInvestigations()};
@@ -266,14 +377,15 @@ $('goExamBtn').onclick=()=>{readPatient();readComplaint();readClinical();save(cu
 $('goSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();save(current);showSystemic()};
 $('goInvestigationsBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);showInvestigations()};
 $('goAyurvedaBtn').onclick=()=>{save(current);showAyurveda()};
+$('goPrescriptionBtn').onclick=()=>{readAyurveda();save(current);showPrescription()};
 $('goRecordsBtn').onclick=showRecords;
 $('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
 
-$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabAyurveda').onclick=showAyurveda;$('tabRecords').onclick=showRecords;
+$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabRecords').onclick=showRecords;
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());status('App loaded successfully. V1.6 ready.');
+renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());status('App loaded successfully. V1.7 ready.');
 })();
 </script>
 </body>
