@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR V2.0</title>
+<title>Shri Krishna Mahamaya Clinic EMR V2.1</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -77,16 +77,32 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 .delta-good{color:#176b43;font-weight:800}.delta-warn{color:#8a5b00;font-weight:800}.delta-bad{color:#a1261d;font-weight:800}
 @media(max-width:760px){.progress-grid{grid-template-columns:repeat(2,1fr)}}
 
+
+.safety-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.safety-count{border-radius:12px;padding:13px;text-align:center;border:1px solid var(--line)}
+.safety-count .n{font-size:25px;font-weight:900}.safety-count .t{font-size:12px}
+.safe-green{background:#e7f5eb;color:#176b43;border-color:#9bcdb0}
+.safe-yellow{background:#fff5d8;color:#805800;border-color:#e0c46f}
+.safe-red{background:#fde7e4;color:#98271e;border-color:#d48b84}
+.alert-card{border-radius:10px;padding:11px;margin:8px 0;border-left:5px solid}
+.alert-card.red{background:#fde7e4;border-color:#b83229;color:#7d2019}
+.alert-card.yellow{background:#fff5d8;border-color:#d9a928;color:#6d4b00}
+.alert-card.green{background:#e7f5eb;border-color:#2f8b59;color:#1f603e}
+.alert-card .alert-title{font-weight:900;margin-bottom:4px}
+.safety-badge{display:inline-block;padding:4px 8px;border-radius:12px;font-size:11px;font-weight:800;margin-left:5px}
+.badge-red{background:#f5c7c2;color:#8c2017}.badge-yellow{background:#f6e4a8;color:#715000}.badge-green{background:#ccebd7;color:#176b43}
+@media(max-width:760px){.safety-summary{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>V2.0 • Follow-up Timeline • Progress Comparison</p>
+<p>V2.1 • Medicine Safety Screening • Follow-up</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> V1.9 के working engine में केवल Follow-up Timeline और Progress Comparison जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
+<div class="notice"><b>Stable incremental build:</b> V2.0 के working engine में केवल Medicine Safety Screening Phase 1 जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
 <div class="tabs actions">
 <button id="tabDashboard" class="primary active">🏠 Dashboard</button>
 <button id="tabTimeline" class="secondary">🔄 Follow-up</button>
@@ -98,10 +114,11 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="tabInvestigations" class="secondary">🧪 Investigations</button>
 <button id="tabAyurveda" class="secondary">🌿 Ayurveda</button>
 <button id="tabPrescription" class="secondary">💊 Prescription</button>
+<button id="tabSafety" class="secondary">🛡 Safety</button>
 <button id="tabPreview" class="secondary">📄 Preview/PDF</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V2.0</div>
+<div id="status" class="status">App loaded successfully. Version: V2.1</div>
 </div>
 
 
@@ -125,6 +142,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="dashInvestigations" class="secondary quick-btn">🧪<span>Investigations</span></button>
 <button id="dashAyurveda" class="secondary quick-btn">🌿<span>Ayurveda</span></button>
 <button id="dashPrescription" class="secondary quick-btn">💊<span>Prescription</span></button>
+<button id="dashSafety" class="warning quick-btn">🛡<span>Medicine Safety</span></button>
 </div>
 </div>
 
@@ -365,12 +383,61 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <label>Additional Prescription Notes</label><textarea id="prescriptionNotes"></textarea>
 <div class="actions">
 <button id="savePrescriptionBtn" class="primary">💾 Save Prescription</button>
+<button id="runSafetyBtn" class="warning">🛡 Run Safety Screening</button>
 <button id="goPreviewBtn" class="secondary">Next: Preview / PDF →</button>
 <button id="goRecordsBtn" class="secondary">Open Records</button>
 </div>
 </div>
 </section>
 
+
+
+<section id="safetySection" class="hidden">
+<div class="card">
+<h2>Patient Safety Profile</h2>
+<div class="notice"><b>Clinical decision support only:</b> यह rule set सीमित और educational है। Dose, contraindication और interaction को current product label, renal/hepatic parameters तथा patient context से verify करें।</div>
+
+<div class="grid3">
+<div><label>Pregnancy Status</label><select id="safetyPregnancy"><option>Not applicable / No</option><option>Pregnant — trimester unknown</option><option>First trimester</option><option>Second trimester</option><option>Third trimester</option><option>Planning pregnancy</option></select></div>
+<div><label>Lactation</label><select id="safetyLactation"><option>No / Not applicable</option><option>Breastfeeding</option></select></div>
+<div><label>eGFR (mL/min/1.73m²)</label><input id="safetyEgfr" type="number" min="0" placeholder="Optional"></div>
+</div>
+
+<div class="grid3">
+<div><label>Renal Status</label><select id="safetyRenal"><option>Normal / Unknown</option><option>CKD / Renal impairment</option><option>AKI suspected</option><option>Dialysis</option></select></div>
+<div><label>Hepatic Status</label><select id="safetyHepatic"><option>Normal / Unknown</option><option>Liver disease / elevated enzymes</option><option>Severe hepatic impairment</option></select></div>
+<div><label>Bleeding Risk</label><select id="safetyBleeding"><option>No known high risk</option><option>Peptic ulcer / GI bleed history</option><option>Anticoagulant therapy</option><option>Bleeding disorder / thrombocytopenia</option></select></div>
+</div>
+
+<div class="grid3">
+<div><label>Respiratory Disease</label><select id="safetyRespiratory"><option>None / Unknown</option><option>Asthma</option><option>Severe / uncontrolled asthma</option><option>COPD</option></select></div>
+<div><label>UTI / Genital Infection</label><select id="safetyUti"><option>No active/recurrent infection</option><option>Active UTI</option><option>Recurrent UTI</option><option>Recurrent genital fungal infection</option></select></div>
+<div><label>Dehydration / Volume Depletion</label><select id="safetyDehydration"><option>No / Unknown</option><option>Present / high risk</option></select></div>
+</div>
+
+<label>Known Drug Allergies</label>
+<input id="safetyAllergies" placeholder="e.g. penicillin, sulfonamide, NSAID — clinical allergy field is also checked">
+
+<label>Other Important Comorbidities</label>
+<textarea id="safetyComorbidities" placeholder="e.g. heart failure, glaucoma, BPH, arrhythmia, seizure disorder"></textarea>
+
+<div class="actions">
+<button id="saveSafetyProfileBtn" class="secondary">💾 Save Safety Profile</button>
+<button id="screenNowBtn" class="primary">🛡 Screen Current Medicines</button>
+<button id="backPrescriptionSafetyBtn" class="secondary">← Prescription</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Safety Screening Results</h2>
+<div class="safety-summary">
+<div class="safety-count safe-red"><div class="n" id="redCount">0</div><div class="t">High-priority alerts</div></div>
+<div class="safety-count safe-yellow"><div class="n" id="yellowCount">0</div><div class="t">Cautions / monitoring</div></div>
+<div class="safety-count safe-green"><div class="n" id="greenCount">0</div><div class="t">No rule triggered</div></div>
+</div>
+<div id="safetyResults"></div>
+</div>
+</section>
 
 <section id="previewSection" class="hidden">
 <div class="card no-print">
@@ -417,8 +484,8 @@ const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
 function key(id){return PREFIX+id}
-function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},updatedAt:new Date().toISOString()}}
-function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;return r}
+function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},updatedAt:new Date().toISOString()}}
+function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;return r}
 function save(r){r.updatedAt=new Date().toISOString();localStorage.setItem(key(r.id),JSON.stringify(r))}
 function all(){const a=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX)){try{a.push(JSON.parse(localStorage.getItem(k)))}catch(e){}}}return a.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))}
 function remove(id){localStorage.removeItem(key(id))}
@@ -468,8 +535,120 @@ const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
 set('followupDate',p.followupDate);set('followupNote',p.followupNote);set('emergencyContact',p.emergencyContact);set('prescriptionNotes',p.notes);
-updateComplaintWorkflow();renderInvestigations();renderMedicines();populateFollowup();showPatient()}
+updateComplaintWorkflow();renderInvestigations();renderMedicines();populateFollowup();populateSafetyProfile();showPatient()}
 
+
+
+const SAFETY_ALIASES={
+'paracetamol':['paracetamol','acetaminophen','dolo','crocin','calpol','pcm'],
+'nsaid':['ibuprofen','diclofenac','aceclofenac','naproxen','ketorolac','indomethacin','etoricoxib','celecoxib','aspirin'],
+'penicillin':['amoxicillin','ampicillin','penicillin','amoxiclav','co-amoxiclav'],
+'metformin':['metformin'],
+'sglt2':['dapagliflozin','empagliflozin','canagliflozin'],
+'nonselective_beta':['propranolol','nadolol','timolol'],
+'ace_arb':['ramipril','enalapril','lisinopril','losartan','telmisartan','olmesartan','valsartan'],
+'anticoagulant':['warfarin','apixaban','rivaroxaban','dabigatran','edoxaban'],
+'potassium':['potassium chloride','spironolactone','eplerenone'],
+'rasa_bhasma':['bhasma','rasa','rasa sindura','makardhwaj','parad','hingula']
+};
+function medText(m){return [m.name,m.strength,m.system,m.form].join(' ').toLowerCase()}
+function hasAlias(m,group){return (SAFETY_ALIASES[group]||[]).some(x=>medText(m).includes(x))}
+function safetyProfileFromForm(){
+return{
+pregnancy:val('safetyPregnancy'),lactation:val('safetyLactation'),egfr:val('safetyEgfr'),
+renal:val('safetyRenal'),hepatic:val('safetyHepatic'),bleeding:val('safetyBleeding'),
+respiratory:val('safetyRespiratory'),uti:val('safetyUti'),dehydration:val('safetyDehydration'),
+allergies:val('safetyAllergies'),comorbidities:val('safetyComorbidities'),
+lastScreenedAt:current.safety?.lastScreenedAt||'',alerts:current.safety?.alerts||[]
+};
+}
+function readSafetyProfile(){current.safety=safetyProfileFromForm()}
+function populateSafetyProfile(){
+const s=current.safety||{};
+set('safetyPregnancy',s.pregnancy);set('safetyLactation',s.lactation);set('safetyEgfr',s.egfr);
+set('safetyRenal',s.renal);set('safetyHepatic',s.hepatic);set('safetyBleeding',s.bleeding);
+set('safetyRespiratory',s.respiratory);set('safetyUti',s.uti);set('safetyDehydration',s.dehydration);
+set('safetyAllergies',s.allergies);set('safetyComorbidities',s.comorbidities);
+renderSafetyResults(s.alerts||[]);
+}
+function addAlert(arr,level,title,message,medicine=''){
+arr.push({level,title,message,medicine});
+}
+function runMedicineSafety(){
+readPrescription();readSafetyProfile();
+const meds=current.prescription.medicines||[],s=current.safety;
+const alerts=[];
+const allergyText=((s.allergies||'')+' '+(current.clinical?.allergy||'')).toLowerCase();
+const eGFR=Number(s.egfr);
+
+const para=meds.filter(m=>hasAlias(m,'paracetamol'));
+if(para.length>1)addAlert(alerts,'red','Duplicate paracetamol/acetaminophen detected','Multiple products may contain the same generic. Verify total daily dose and remove unintended duplication.',para.map(x=>x.name).join(' + '));
+
+const nsaids=meds.filter(m=>hasAlias(m,'nsaid'));
+if(nsaids.length>1)addAlert(alerts,'red','Multiple NSAIDs detected','Concurrent NSAIDs increase GI, renal and cardiovascular risk without usual additional benefit.',nsaids.map(x=>x.name).join(' + '));
+if(nsaids.length && /ulcer|bleed|anticoagulant|thrombocytopenia/.test((s.bleeding||'').toLowerCase()))
+ addAlert(alerts,'red','NSAID with bleeding/GI risk','Avoid or reassess; verify gastroprotection and bleeding risk. NSAID plus anticoagulant can substantially increase bleeding risk.',nsaids.map(x=>x.name).join(', '));
+if(nsaids.length && /ckd|aki|dialysis|renal/.test((s.renal||'').toLowerCase()))
+ addAlert(alerts,'red','NSAID with renal impairment','NSAIDs may worsen kidney function and fluid status. Consider alternatives and monitor renal function.',nsaids.map(x=>x.name).join(', '));
+if(nsaids.length && /third trimester/.test((s.pregnancy||'').toLowerCase()))
+ addAlert(alerts,'red','NSAID in third trimester','Avoid unless a specialist determines otherwise; verify current obstetric guidance and product label.',nsaids.map(x=>x.name).join(', '));
+
+const met=meds.filter(m=>hasAlias(m,'metformin'));
+if(met.length && Number.isFinite(eGFR) && eGFR<30)
+ addAlert(alerts,'red','Metformin with eGFR below 30','Metformin is contraindicated at this renal function threshold in FDA labeling. Reassess immediately.',met.map(x=>x.name).join(', '));
+else if(met.length && ((Number.isFinite(eGFR)&&eGFR<45)||/ckd|aki|dialysis/.test((s.renal||'').toLowerCase())))
+ addAlert(alerts,'yellow','Metformin renal caution','Review eGFR trend, dose, acute illness and contrast exposure; verify current label/guideline.',met.map(x=>x.name).join(', '));
+
+const beta=meds.filter(m=>hasAlias(m,'nonselective_beta'));
+if(beta.length && /severe|asthma/.test((s.respiratory||'').toLowerCase()))
+ addAlert(alerts,'red','Non-selective beta-blocker with asthma','May provoke bronchospasm. Reassess indication and consider safer alternatives where appropriate.',beta.map(x=>x.name).join(', '));
+
+const sglt2=meds.filter(m=>hasAlias(m,'sglt2'));
+if(sglt2.length && /active uti|recurrent uti|fungal/.test((s.uti||'').toLowerCase()))
+ addAlert(alerts,'yellow','SGLT2 inhibitor with active/recurrent urinary or genital infection','Not an automatic absolute contraindication, but infection risk, hydration and current illness require review.',sglt2.map(x=>x.name).join(', '));
+if(sglt2.length && /present|high risk/.test((s.dehydration||'').toLowerCase()))
+ addAlert(alerts,'red','SGLT2 inhibitor with volume depletion risk','Correct dehydration and reassess; monitor BP, renal function and acute illness risk.',sglt2.map(x=>x.name).join(', '));
+
+const acearb=meds.filter(m=>hasAlias(m,'ace_arb'));
+if(acearb.length && /pregnant|trimester|planning/.test((s.pregnancy||'').toLowerCase()) && !/not applicable|no/.test((s.pregnancy||'').toLowerCase()))
+ addAlert(alerts,'red','ACE inhibitor / ARB with pregnancy','Avoid in pregnancy; confirm immediately and use pregnancy-appropriate antihypertensive management.',acearb.map(x=>x.name).join(', '));
+
+const anticoag=meds.filter(m=>hasAlias(m,'anticoagulant'));
+if(anticoag.length && nsaids.length)
+ addAlert(alerts,'red','Anticoagulant + NSAID','High bleeding-risk combination. Reassess need, alternatives, gastroprotection and monitoring.',anticoag.map(x=>x.name).join(', ')+' + '+nsaids.map(x=>x.name).join(', '));
+
+const pen=meds.filter(m=>hasAlias(m,'penicillin'));
+if(pen.length && /penicillin|amoxicillin|ampicillin/.test(allergyText))
+ addAlert(alerts,'red','Possible penicillin-class allergy conflict','Document reaction type and avoid/reassess beta-lactam exposure according to allergy severity and local protocol.',pen.map(x=>x.name).join(', '));
+if(nsaids.length && /nsaid|aspirin|ibuprofen|diclofenac/.test(allergyText))
+ addAlert(alerts,'red','Possible NSAID allergy conflict','Verify previous reaction, cross-reactivity and asthma history before prescribing.',nsaids.map(x=>x.name).join(', '));
+
+const rasa=meds.filter(m=>hasAlias(m,'rasa_bhasma'));
+if(rasa.length && (/pregnant|trimester|planning/.test((s.pregnancy||'').toLowerCase()) || /ckd|aki|dialysis/.test((s.renal||'').toLowerCase()) || /liver|hepatic/.test((s.hepatic||'').toLowerCase())))
+ addAlert(alerts,'yellow','Rasa/Bhasma formulation in higher-risk patient','Verify authenticated product, classical indication, purification/quality documentation, dose, duration and renal/hepatic monitoring. Avoid unsupported safety assumptions.',rasa.map(x=>x.name).join(', '));
+
+meds.forEach(m=>{
+ if(!alerts.some(a=>a.medicine.includes(m.name))){
+   addAlert(alerts,'green','No configured rule triggered','This does not prove safety. Verify indication, dose, interactions, contraindications and current product information.',m.name);
+ }
+});
+if(!meds.length)addAlert(alerts,'yellow','No medicine entered','Add medicines in the Prescription tab before screening.');
+
+current.safety.lastScreenedAt=new Date().toISOString();
+current.safety.alerts=alerts;
+save(current);renderSafetyResults(alerts);
+status('Medicine safety screening completed. Review every alert before finalizing prescription.');
+}
+function renderSafetyResults(alerts=[]){
+const red=alerts.filter(a=>a.level==='red').length,yellow=alerts.filter(a=>a.level==='yellow').length,green=alerts.filter(a=>a.level==='green').length;
+$('redCount').textContent=red;$('yellowCount').textContent=yellow;$('greenCount').textContent=green;
+$('safetyResults').innerHTML=alerts.map(a=>`<div class="alert-card ${a.level}">
+<div class="alert-title">${a.level==='red'?'🔴':a.level==='yellow'?'🟡':'🟢'} ${esc(a.title)}
+<span class="safety-badge badge-${a.level}">${esc(a.level.toUpperCase())}</span></div>
+${a.medicine?`<div class="small"><b>Medicine:</b> ${esc(a.medicine)}</div>`:''}
+<div>${esc(a.message)}</div>
+</div>`).join('')||'<div class="notice">Safety screening not yet run.</div>';
+}
 
 function prescriptionSummaryText(){
 const p=current.patient,c=current.clinical,rx=current.prescription,a=current.ayurveda,inv=current.investigations;
@@ -709,8 +888,8 @@ else showPatient();
 status('Saved patient reopened successfully.');
 }
 
-function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabAyurveda','tabPrescription','tabPreview','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','ayurvedaSection','prescriptionSection','previewSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
 function showDashboard(){hideAll();$('dashboardSection').classList.remove('hidden');setActive('tabDashboard');renderDashboard()}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
@@ -720,6 +899,7 @@ function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden'
 function showInvestigations(){hideAll();$('investigationsSection').classList.remove('hidden');setActive('tabInvestigations');renderInvestigations()}
 function showAyurveda(){hideAll();$('ayurvedaSection').classList.remove('hidden');setActive('tabAyurveda')}
 function showPrescription(){hideAll();$('prescriptionSection').classList.remove('hidden');setActive('tabPrescription');renderMedicines()}
+function showSafety(){hideAll();$('safetySection').classList.remove('hidden');setActive('tabSafety');populateSafetyProfile()}
 function showPreview(){hideAll();$('previewSection').classList.remove('hidden');setActive('tabPreview');renderPreview()}
 function showRecords(){hideAll();$('recordsSection').classList.remove('hidden');setActive('tabRecords');renderRecords()}
 function renderRecords(){const term=val('search').toLowerCase();const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile,r.complaint?.primary,JSON.stringify(r.investigations||{}),JSON.stringify(r.ayurveda||{})].join(' ').toLowerCase().includes(term));$('recordsList').innerHTML=rows.map(r=>`<div class="item"><b>${esc(r.patient?.name||'Unnamed')}</b><div class="small">UHID: ${esc(r.uhid)} • ${esc(r.visitDate)}</div><div class="small">Complaint: ${esc(r.complaint?.primary||'Not entered')} • Dosha: ${esc((r.ayurveda?.dosha||[]).join(', ')||'Not assessed')} • Medicines: ${(r.prescription?.medicines||[]).length}</div><div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="secondary" data-timeline="${esc(r.id)}">Timeline</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div></div>`).join('')||'<div class="notice">No saved records found.</div>';status(rows.length+' record(s) shown.')}
@@ -763,7 +943,11 @@ $('goSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();rea
 $('goInvestigationsBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);showInvestigations()};
 $('goAyurvedaBtn').onclick=()=>{save(current);showAyurveda()};
 $('goPrescriptionBtn').onclick=()=>{readAyurveda();save(current);showPrescription()};
+$('runSafetyBtn').onclick=()=>{readPrescription();save(current);showSafety();runMedicineSafety()};
 $('goPreviewBtn').onclick=()=>{readPrescription();save(current);showPreview()};
+$('saveSafetyProfileBtn').onclick=()=>{readSafetyProfile();save(current);status('Safety profile saved successfully.')};
+$('screenNowBtn').onclick=runMedicineSafety;
+$('backPrescriptionSafetyBtn').onclick=showPrescription;
 $('backPrescriptionBtn').onclick=showPrescription;
 $('printBtn').onclick=()=>window.print();
 $('downloadTxtBtn').onclick=downloadText;
@@ -803,6 +987,7 @@ $('dashSearch').onclick=()=>{$('dashboardSearch').focus();window.scrollTo({top:$
 $('dashInvestigations').onclick=showInvestigations;
 $('dashAyurveda').onclick=showAyurveda;
 $('dashPrescription').onclick=showPrescription;
+$('dashSafety').onclick=showSafety;
 $('dashboardSearch').oninput=renderDashboardSearch;
 $('dashboardSection').onclick=e=>{
 const open=e.target.dataset.dashopen,rx=e.target.dataset.dashrx,tl=e.target.dataset.dashtimeline;
@@ -811,11 +996,11 @@ if(rx)openDashboardRecord(rx,true);
 if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}
 };
 
-$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
+$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabSafety').onclick=showSafety;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();status('App loaded successfully. V2.0 ready.');
+renderComplaintOptions();renderGeneralRows();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();status('App loaded successfully. V2.1 ready.');
 })();
 </script>
 </body>
