@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR Recovery V1</title>
+<title>Shri Krishna Mahamaya Clinic EMR V1.1</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d}
 *{box-sizing:border-box}
@@ -27,22 +27,24 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 .hidden{display:none!important}
 .item{border:1px solid var(--line);border-radius:10px;padding:11px;margin:8px 0;background:#fbfdfe}.item b{color:var(--p)}
 .small{font-size:12px;color:#6a7f88}
+.section-note{font-size:12px;color:#6a7f88;margin-top:-4px}
 @media(max-width:650px){.grid,.grid3{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>Recovery V1 • Manual Save • Records • Backup</p>
+<p>V1.1 • Patient • Clinical History • Vitals • Records</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable recovery build:</b> यह पूरा app एक ही file में है। कोई external JavaScript, CSS, database या service worker नहीं है।</div>
+<div class="notice"><b>Stable incremental build:</b> Patient Save और Records के working engine में केवल Clinical History व Vitals जोड़े गए हैं।</div>
 <div class="tabs actions">
 <button id="tabPatient" class="primary active">👤 Patient</button>
+<button id="tabClinical" class="secondary">🩺 Clinical</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: Recovery V1.0</div>
+<div id="status" class="status">App loaded successfully. Version: V1.1</div>
 </div>
 
 <section id="patientSection">
@@ -68,10 +70,52 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <div><label>Address</label><input id="address"></div>
 </div>
 <div class="actions">
-<button id="saveBtn" class="primary">💾 Save Patient</button>
+<button id="savePatientBtn" class="primary">💾 Save Patient</button>
+<button id="goClinicalBtn" class="secondary">Next: Clinical →</button>
 <button id="newBtn" class="secondary">＋ New Blank Patient</button>
-<button id="exportBtn" class="secondary">⬇ Export All Backup</button>
-<label class="btn secondary">⬆ Import Backup<input id="importInput" type="file" accept=".json,application/json" hidden></label>
+</div>
+</div>
+</section>
+
+<section id="clinicalSection" class="hidden">
+<div class="card">
+<h2>Clinical History</h2>
+<label>Chief Complaints</label>
+<textarea id="chiefComplaints" placeholder="Main complaints in patient's own words"></textarea>
+<div class="grid">
+<div><label>Duration</label><input id="duration" placeholder="e.g. 7 days / 3 months"></div>
+<div><label>Onset</label><select id="onset"><option value=""></option><option>Sudden</option><option>Gradual</option><option>Recurrent</option></select></div>
+</div>
+<label>History of Present Illness</label>
+<textarea id="hpi" placeholder="Chronology, progression, aggravating/relieving factors"></textarea>
+<div class="grid">
+<div><label>Past Medical History</label><textarea id="pastHistory"></textarea></div>
+<div><label>Current Medicines / Treatment</label><textarea id="currentMedicines"></textarea></div>
+</div>
+<div class="grid">
+<div><label>Drug / Food Allergy</label><input id="allergy"></div>
+<div><label>Family History</label><input id="familyHistory"></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Vitals</h2>
+<div class="grid3">
+<div><label>Blood Pressure</label><input id="bp" placeholder="e.g. 130/80"></div>
+<div><label>Pulse / min</label><input id="pulse" type="number"></div>
+<div><label>SpO₂ %</label><input id="spo2" type="number"></div>
+</div>
+<div class="grid3">
+<div><label>Temperature °F</label><input id="temp"></div>
+<div><label>Respiratory Rate / min</label><input id="rr" type="number"></div>
+<div><label>Pain Score 0–10</label><input id="pain" type="number" min="0" max="10"></div>
+</div>
+<label>General Clinical Notes</label>
+<textarea id="clinicalNotes"></textarea>
+<div class="actions">
+<button id="saveClinicalBtn" class="primary">💾 Save Clinical Data</button>
+<button id="backPatientBtn" class="secondary">← Patient</button>
+<button id="goRecordsBtn" class="secondary">Open Records</button>
 </div>
 </div>
 </section>
@@ -79,7 +123,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <section id="recordsSection" class="hidden">
 <div class="card">
 <h2>Saved Patient Records</h2>
-<label>Search Name, Mobile or UHID</label>
+<label>Search Name, Mobile, UHID or Complaint</label>
 <input id="search" placeholder="Type to search">
 <div id="recordsList"></div>
 </div>
@@ -89,7 +133,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <script>
 (function(){
 'use strict';
-const PREFIX='skm-recovery-v1:';
+const PREFIX='skm-emr-v11:';
 let current=null;
 
 const $=id=>document.getElementById(id);
@@ -101,28 +145,87 @@ const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
 function key(id){return PREFIX+id}
-function blank(){return{id:makeId(),uhid:makeUHID(),visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},updatedAt:new Date().toISOString()}}
+function blank(){return{
+  id:makeId(),uhid:makeUHID(),visitDate:today(),visitType:'New',
+  patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},
+  clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},
+  updatedAt:new Date().toISOString()
+}}
 function save(r){localStorage.setItem(key(r.id),JSON.stringify(r))}
 function all(){const a=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX)){try{a.push(JSON.parse(localStorage.getItem(k)))}catch(e){}}}return a.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))}
 function remove(id){localStorage.removeItem(key(id))}
 function calcBMI(){const h=Number(val('height')),w=Number(val('weight'));set('bmi',h>0&&w>0?(w/((h/100)**2)).toFixed(1):'')}
-function read(){calcBMI();current.visitDate=val('visitDate');current.visitType=val('visitType');current.patient={name:val('name'),age:val('age'),sex:val('sex'),mobile:val('mobile'),height:val('height'),weight:val('weight'),bmi:val('bmi'),address:val('address')};current.updatedAt=new Date().toISOString()}
-function populate(r){current=r;set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));showPatient()}
-function showPatient(){$('patientSection').classList.remove('hidden');$('recordsSection').classList.add('hidden');$('tabPatient').className='primary active';$('tabRecords').className='secondary'}
-function showRecords(){$('patientSection').classList.add('hidden');$('recordsSection').classList.remove('hidden');$('tabPatient').className='secondary';$('tabRecords').className='primary active';renderRecords()}
-function renderRecords(){const term=val('search').toLowerCase();const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile].join(' ').toLowerCase().includes(term));$('recordsList').innerHTML=rows.map(r=>`<div class="item"><b>${esc(r.patient?.name||'Unnamed')}</b><div class="small">UHID: ${esc(r.uhid)} • Mobile: ${esc(r.patient?.mobile||'')} • Date: ${esc(r.visitDate)}</div><div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div></div>`).join('')||'<div class="notice" style="margin-top:10px">No saved records found.</div>';status(rows.length+' record(s) shown.')}
-function downloadJSON(data,name){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000)}
-$('saveBtn').onclick=()=>{try{if(!val('name')||!val('age')||!val('sex')||!val('mobile'))return status('Please fill Name, Age, Sex and Mobile.',true);read();save(current);status('Patient saved successfully. UHID: '+current.uhid)}catch(e){status('Save failed: '+e.message,true)}};
+function readPatient(){
+  calcBMI();
+  current.visitDate=val('visitDate');current.visitType=val('visitType');
+  current.patient={name:val('name'),age:val('age'),sex:val('sex'),mobile:val('mobile'),height:val('height'),weight:val('weight'),bmi:val('bmi'),address:val('address')};
+  current.updatedAt=new Date().toISOString()
+}
+function readClinical(){
+  current.clinical={
+    chiefComplaints:val('chiefComplaints'),duration:val('duration'),onset:val('onset'),hpi:val('hpi'),
+    pastHistory:val('pastHistory'),currentMedicines:val('currentMedicines'),allergy:val('allergy'),
+    familyHistory:val('familyHistory'),bp:val('bp'),pulse:val('pulse'),spo2:val('spo2'),
+    temp:val('temp'),rr:val('rr'),pain:val('pain'),clinicalNotes:val('clinicalNotes')
+  };
+  current.updatedAt=new Date().toISOString()
+}
+function populate(r){
+  current=r;
+  set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);
+  Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));
+  Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));
+  showPatient()
+}
+function setActive(tab){
+  ['tabPatient','tabClinical','tabRecords'].forEach(id=>$(id).className='secondary');
+  $(tab).className='primary active';
+}
+function showPatient(){$('patientSection').classList.remove('hidden');$('clinicalSection').classList.add('hidden');$('recordsSection').classList.add('hidden');setActive('tabPatient')}
+function showClinical(){$('patientSection').classList.add('hidden');$('clinicalSection').classList.remove('hidden');$('recordsSection').classList.add('hidden');setActive('tabClinical')}
+function showRecords(){$('patientSection').classList.add('hidden');$('clinicalSection').classList.add('hidden');$('recordsSection').classList.remove('hidden');setActive('tabRecords');renderRecords()}
+function renderRecords(){
+  const term=val('search').toLowerCase();
+  const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile,r.clinical?.chiefComplaints].join(' ').toLowerCase().includes(term));
+  $('recordsList').innerHTML=rows.map(r=>`<div class="item">
+    <b>${esc(r.patient?.name||'Unnamed')}</b>
+    <div class="small">UHID: ${esc(r.uhid)} • Mobile: ${esc(r.patient?.mobile||'')} • Date: ${esc(r.visitDate)}</div>
+    <div class="small">Complaint: ${esc(r.clinical?.chiefComplaints||'Not entered')}</div>
+    <div class="actions">
+      <button class="primary" data-open="${esc(r.id)}">Open/Edit</button>
+      <button class="danger" data-delete="${esc(r.id)}">Delete</button>
+    </div>
+  </div>`).join('')||'<div class="notice" style="margin-top:10px">No saved records found.</div>';
+  status(rows.length+' record(s) shown.')
+}
+$('savePatientBtn').onclick=()=>{
+  try{
+    if(!val('name')||!val('age')||!val('sex')||!val('mobile'))return status('Please fill Name, Age, Sex and Mobile.',true);
+    readPatient();save(current);status('Patient details saved successfully. UHID: '+current.uhid)
+  }catch(e){status('Patient save failed: '+e.message,true)}
+};
+$('saveClinicalBtn').onclick=()=>{
+  try{
+    readPatient();readClinical();save(current);status('Clinical history and vitals saved successfully.')
+  }catch(e){status('Clinical save failed: '+e.message,true)}
+};
+$('goClinicalBtn').onclick=()=>{readPatient();save(current);showClinical();status('Patient saved. Continue clinical history.')};
+$('backPatientBtn').onclick=showPatient;
+$('goRecordsBtn').onclick=showRecords;
 $('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
-$('tabPatient').onclick=showPatient;
-$('tabRecords').onclick=showRecords;
+$('tabPatient').onclick=showPatient;$('tabClinical').onclick=showClinical;$('tabRecords').onclick=showRecords;
 $('search').oninput=renderRecords;
 $('height').oninput=calcBMI;$('weight').oninput=calcBMI;
-$('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
-$('exportBtn').onclick=()=>downloadJSON({version:'1.0',records:all()},'Shri-Krishna-Mahamaya-EMR-Backup.json');
-$('importInput').onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text());const rows=data.records||[];rows.forEach(save);status(rows.length+' record(s) imported successfully.');renderRecords()}catch(err){status('Import failed: '+err.message,true)}};
+$('recordsList').onclick=e=>{
+  const open=e.target.dataset.open,del=e.target.dataset.delete;
+  if(open){
+    const raw=localStorage.getItem(key(open));
+    if(raw){populate(JSON.parse(raw));status('Saved patient and clinical data reopened successfully.')}
+  }
+  if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}
+};
 populate(blank());
-status('App loaded successfully. Fill data and press Save Patient.');
+status('App loaded successfully. V1.1 ready.');
 })();
 </script>
 </body>
