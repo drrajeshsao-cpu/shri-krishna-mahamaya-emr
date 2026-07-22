@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR V1.1</title>
+<title>Shri Krishna Mahamaya Clinic EMR V1.2</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d}
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);padding-bottom:25px}
 header{background:linear-gradient(135deg,var(--p),var(--s));color:#fff;padding:20px 16px}
 header h1{margin:0;font-size:24px} header p{margin:6px 0 0}
-main{max-width:900px;margin:auto;padding:12px}
+main{max-width:980px;margin:auto;padding:12px}
 .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;margin:12px 0;box-shadow:0 3px 12px #17333d10}
 h2{margin:0 0 12px;color:var(--p)}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
@@ -27,24 +27,26 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 .hidden{display:none!important}
 .item{border:1px solid var(--line);border-radius:10px;padding:11px;margin:8px 0;background:#fbfdfe}.item b{color:var(--p)}
 .small{font-size:12px;color:#6a7f88}
-.section-note{font-size:12px;color:#6a7f88;margin-top:-4px}
-@media(max-width:650px){.grid,.grid3{grid-template-columns:1fr}}
+.finding-row{display:grid;grid-template-columns:1.4fr .8fr .8fr 1.6fr;gap:8px;align-items:end;border:1px solid var(--line);border-radius:10px;padding:10px;margin:8px 0;background:#fbfdfe}
+.finding-name{font-weight:800;color:var(--p);padding-bottom:11px}
+@media(max-width:760px){.grid,.grid3,.finding-row{grid-template-columns:1fr}.finding-name{padding-bottom:0}}
 </style>
 </head>
 <body>
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>V1.1 • Patient • Clinical History • Vitals • Records</p>
+<p>V1.2 • Patient • Clinical • General Examination • Records</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> Patient Save और Records के working engine में केवल Clinical History व Vitals जोड़े गए हैं।</div>
+<div class="notice"><b>Stable incremental build:</b> V1.1 के working save engine में केवल General Physical Examination जोड़ा गया है।</div>
 <div class="tabs actions">
 <button id="tabPatient" class="primary active">👤 Patient</button>
 <button id="tabClinical" class="secondary">🩺 Clinical</button>
+<button id="tabExam" class="secondary">🔍 General Exam</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V1.1</div>
+<div id="status" class="status">App loaded successfully. Version: V1.2</div>
 </div>
 
 <section id="patientSection">
@@ -80,14 +82,12 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <section id="clinicalSection" class="hidden">
 <div class="card">
 <h2>Clinical History</h2>
-<label>Chief Complaints</label>
-<textarea id="chiefComplaints" placeholder="Main complaints in patient's own words"></textarea>
+<label>Chief Complaints</label><textarea id="chiefComplaints"></textarea>
 <div class="grid">
-<div><label>Duration</label><input id="duration" placeholder="e.g. 7 days / 3 months"></div>
+<div><label>Duration</label><input id="duration"></div>
 <div><label>Onset</label><select id="onset"><option value=""></option><option>Sudden</option><option>Gradual</option><option>Recurrent</option></select></div>
 </div>
-<label>History of Present Illness</label>
-<textarea id="hpi" placeholder="Chronology, progression, aggravating/relieving factors"></textarea>
+<label>History of Present Illness</label><textarea id="hpi"></textarea>
 <div class="grid">
 <div><label>Past Medical History</label><textarea id="pastHistory"></textarea></div>
 <div><label>Current Medicines / Treatment</label><textarea id="currentMedicines"></textarea></div>
@@ -101,7 +101,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <div class="card">
 <h2>Vitals</h2>
 <div class="grid3">
-<div><label>Blood Pressure</label><input id="bp" placeholder="e.g. 130/80"></div>
+<div><label>Blood Pressure</label><input id="bp"></div>
 <div><label>Pulse / min</label><input id="pulse" type="number"></div>
 <div><label>SpO₂ %</label><input id="spo2" type="number"></div>
 </div>
@@ -110,11 +110,34 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <div><label>Respiratory Rate / min</label><input id="rr" type="number"></div>
 <div><label>Pain Score 0–10</label><input id="pain" type="number" min="0" max="10"></div>
 </div>
-<label>General Clinical Notes</label>
-<textarea id="clinicalNotes"></textarea>
+<label>General Clinical Notes</label><textarea id="clinicalNotes"></textarea>
 <div class="actions">
 <button id="saveClinicalBtn" class="primary">💾 Save Clinical Data</button>
+<button id="goExamBtn" class="secondary">Next: General Exam →</button>
 <button id="backPatientBtn" class="secondary">← Patient</button>
+</div>
+</div>
+</section>
+
+<section id="examSection" class="hidden">
+<div class="card">
+<h2>General Physical Examination</h2>
+<div class="notice">हर finding के लिए Present/Absent चुनें। Present होने पर grade और remarks भरें। जहाँ 1+–4+ मान्य न हो, remarks में clinical description लिखें।</div>
+<div id="findings"></div>
+
+<div class="grid3">
+<div><label>Build</label><select id="build"><option value=""></option><option>Lean</option><option>Average</option><option>Muscular</option><option>Obese</option><option>Cachectic</option></select></div>
+<div><label>Nutrition</label><select id="nutrition"><option value=""></option><option>Good</option><option>Average</option><option>Poor</option><option>Malnourished</option></select></div>
+<div><label>Gait</label><select id="gait"><option value=""></option><option>Normal</option><option>Antalgic</option><option>Ataxic</option><option>Spastic</option><option>High-stepping</option><option>Other</option></select></div>
+</div>
+<div class="grid">
+<div><label>Consciousness</label><select id="consciousness"><option value=""></option><option>Conscious and alert</option><option>Drowsy</option><option>Confused</option><option>Stuporous</option><option>Unconscious</option></select></div>
+<div><label>Orientation</label><select id="orientation"><option value=""></option><option>Oriented ×3</option><option>Partially oriented</option><option>Disoriented</option></select></div>
+</div>
+<label>Additional General Examination Notes</label><textarea id="examNotes"></textarea>
+<div class="actions">
+<button id="saveExamBtn" class="primary">💾 Save Examination</button>
+<button id="backClinicalBtn" class="secondary">← Clinical</button>
 <button id="goRecordsBtn" class="secondary">Open Records</button>
 </div>
 </div>
@@ -133,9 +156,9 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <script>
 (function(){
 'use strict';
-const PREFIX='skm-emr-v11:';
+const PREFIX='skm-emr-v12:';
 let current=null;
-
+const findingNames=['Pallor','Icterus','Cyanosis','Clubbing','Lymphadenopathy','Pedal Oedema','Generalized Oedema','Dehydration','Respiratory Distress','Abnormal Gait'];
 const $=id=>document.getElementById(id);
 const val=id=>($(id)?.value||'').trim();
 const set=(id,v)=>{if($(id))$(id).value=v??''};
@@ -149,83 +172,61 @@ function blank(){return{
   id:makeId(),uhid:makeUHID(),visitDate:today(),visitType:'New',
   patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},
   clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},
+  exam:{findings:{},build:'',nutrition:'',gait:'',consciousness:'',orientation:'',examNotes:''},
   updatedAt:new Date().toISOString()
 }}
 function save(r){localStorage.setItem(key(r.id),JSON.stringify(r))}
 function all(){const a=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX)){try{a.push(JSON.parse(localStorage.getItem(k)))}catch(e){}}}return a.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))}
 function remove(id){localStorage.removeItem(key(id))}
 function calcBMI(){const h=Number(val('height')),w=Number(val('weight'));set('bmi',h>0&&w>0?(w/((h/100)**2)).toFixed(1):'')}
-function readPatient(){
-  calcBMI();
-  current.visitDate=val('visitDate');current.visitType=val('visitType');
-  current.patient={name:val('name'),age:val('age'),sex:val('sex'),mobile:val('mobile'),height:val('height'),weight:val('weight'),bmi:val('bmi'),address:val('address')};
+function readPatient(){calcBMI();current.visitDate=val('visitDate');current.visitType=val('visitType');current.patient={name:val('name'),age:val('age'),sex:val('sex'),mobile:val('mobile'),height:val('height'),weight:val('weight'),bmi:val('bmi'),address:val('address')};current.updatedAt=new Date().toISOString()}
+function readClinical(){current.clinical={chiefComplaints:val('chiefComplaints'),duration:val('duration'),onset:val('onset'),hpi:val('hpi'),pastHistory:val('pastHistory'),currentMedicines:val('currentMedicines'),allergy:val('allergy'),familyHistory:val('familyHistory'),bp:val('bp'),pulse:val('pulse'),spo2:val('spo2'),temp:val('temp'),rr:val('rr'),pain:val('pain'),clinicalNotes:val('clinicalNotes')};current.updatedAt=new Date().toISOString()}
+function readExam(){
+  const findings={};
+  findingNames.forEach((name,i)=>findings[name]={status:val('fs'+i),grade:val('fg'+i),remarks:val('fr'+i)});
+  current.exam={findings,build:val('build'),nutrition:val('nutrition'),gait:val('gait'),consciousness:val('consciousness'),orientation:val('orientation'),examNotes:val('examNotes')};
   current.updatedAt=new Date().toISOString()
 }
-function readClinical(){
-  current.clinical={
-    chiefComplaints:val('chiefComplaints'),duration:val('duration'),onset:val('onset'),hpi:val('hpi'),
-    pastHistory:val('pastHistory'),currentMedicines:val('currentMedicines'),allergy:val('allergy'),
-    familyHistory:val('familyHistory'),bp:val('bp'),pulse:val('pulse'),spo2:val('spo2'),
-    temp:val('temp'),rr:val('rr'),pain:val('pain'),clinicalNotes:val('clinicalNotes')
-  };
-  current.updatedAt=new Date().toISOString()
+function renderFindingRows(){
+  $('findings').innerHTML=findingNames.map((n,i)=>`<div class="finding-row">
+    <div class="finding-name">${esc(n)}</div>
+    <div><label>Status</label><select id="fs${i}"><option value=""></option><option>Absent</option><option>Present</option><option>Not assessed</option></select></div>
+    <div><label>Grade</label><select id="fg${i}"><option value=""></option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>Mild</option><option>Moderate</option><option>Severe</option></select></div>
+    <div><label>Site / Remarks</label><input id="fr${i}"></div>
+  </div>`).join('')
 }
 function populate(r){
   current=r;
+  if(!current.exam)current.exam={findings:{},build:'',nutrition:'',gait:'',consciousness:'',orientation:'',examNotes:''};
   set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);
   Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));
   Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));
+  Object.entries(current.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});
+  findingNames.forEach((n,i)=>{const f=current.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});
   showPatient()
 }
-function setActive(tab){
-  ['tabPatient','tabClinical','tabRecords'].forEach(id=>$(id).className='secondary');
-  $(tab).className='primary active';
-}
-function showPatient(){$('patientSection').classList.remove('hidden');$('clinicalSection').classList.add('hidden');$('recordsSection').classList.add('hidden');setActive('tabPatient')}
-function showClinical(){$('patientSection').classList.add('hidden');$('clinicalSection').classList.remove('hidden');$('recordsSection').classList.add('hidden');setActive('tabClinical')}
-function showRecords(){$('patientSection').classList.add('hidden');$('clinicalSection').classList.add('hidden');$('recordsSection').classList.remove('hidden');setActive('tabRecords');renderRecords()}
+function setActive(tab){['tabPatient','tabClinical','tabExam','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function showPatient(){$('patientSection').classList.remove('hidden');$('clinicalSection').classList.add('hidden');$('examSection').classList.add('hidden');$('recordsSection').classList.add('hidden');setActive('tabPatient')}
+function showClinical(){$('patientSection').classList.add('hidden');$('clinicalSection').classList.remove('hidden');$('examSection').classList.add('hidden');$('recordsSection').classList.add('hidden');setActive('tabClinical')}
+function showExam(){$('patientSection').classList.add('hidden');$('clinicalSection').classList.add('hidden');$('examSection').classList.remove('hidden');$('recordsSection').classList.add('hidden');setActive('tabExam')}
+function showRecords(){$('patientSection').classList.add('hidden');$('clinicalSection').classList.add('hidden');$('examSection').classList.add('hidden');$('recordsSection').classList.remove('hidden');setActive('tabRecords');renderRecords()}
 function renderRecords(){
   const term=val('search').toLowerCase();
   const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile,r.clinical?.chiefComplaints].join(' ').toLowerCase().includes(term));
-  $('recordsList').innerHTML=rows.map(r=>`<div class="item">
-    <b>${esc(r.patient?.name||'Unnamed')}</b>
-    <div class="small">UHID: ${esc(r.uhid)} • Mobile: ${esc(r.patient?.mobile||'')} • Date: ${esc(r.visitDate)}</div>
-    <div class="small">Complaint: ${esc(r.clinical?.chiefComplaints||'Not entered')}</div>
-    <div class="actions">
-      <button class="primary" data-open="${esc(r.id)}">Open/Edit</button>
-      <button class="danger" data-delete="${esc(r.id)}">Delete</button>
-    </div>
-  </div>`).join('')||'<div class="notice" style="margin-top:10px">No saved records found.</div>';
+  $('recordsList').innerHTML=rows.map(r=>`<div class="item"><b>${esc(r.patient?.name||'Unnamed')}</b><div class="small">UHID: ${esc(r.uhid)} • Mobile: ${esc(r.patient?.mobile||'')} • Date: ${esc(r.visitDate)}</div><div class="small">Complaint: ${esc(r.clinical?.chiefComplaints||'Not entered')}</div><div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div></div>`).join('')||'<div class="notice" style="margin-top:10px">No saved records found.</div>';
   status(rows.length+' record(s) shown.')
 }
-$('savePatientBtn').onclick=()=>{
-  try{
-    if(!val('name')||!val('age')||!val('sex')||!val('mobile'))return status('Please fill Name, Age, Sex and Mobile.',true);
-    readPatient();save(current);status('Patient details saved successfully. UHID: '+current.uhid)
-  }catch(e){status('Patient save failed: '+e.message,true)}
-};
-$('saveClinicalBtn').onclick=()=>{
-  try{
-    readPatient();readClinical();save(current);status('Clinical history and vitals saved successfully.')
-  }catch(e){status('Clinical save failed: '+e.message,true)}
-};
+$('savePatientBtn').onclick=()=>{try{if(!val('name')||!val('age')||!val('sex')||!val('mobile'))return status('Please fill Name, Age, Sex and Mobile.',true);readPatient();save(current);status('Patient details saved successfully.')}catch(e){status('Patient save failed: '+e.message,true)}};
+$('saveClinicalBtn').onclick=()=>{try{readPatient();readClinical();save(current);status('Clinical history and vitals saved successfully.')}catch(e){status('Clinical save failed: '+e.message,true)}};
+$('saveExamBtn').onclick=()=>{try{readPatient();readClinical();readExam();save(current);status('General physical examination saved successfully.')}catch(e){status('Examination save failed: '+e.message,true)}};
 $('goClinicalBtn').onclick=()=>{readPatient();save(current);showClinical();status('Patient saved. Continue clinical history.')};
-$('backPatientBtn').onclick=showPatient;
-$('goRecordsBtn').onclick=showRecords;
+$('goExamBtn').onclick=()=>{readPatient();readClinical();save(current);showExam();status('Clinical data saved. Continue general examination.')};
+$('backPatientBtn').onclick=showPatient;$('backClinicalBtn').onclick=showClinical;$('goRecordsBtn').onclick=showRecords;
 $('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
-$('tabPatient').onclick=showPatient;$('tabClinical').onclick=showClinical;$('tabRecords').onclick=showRecords;
-$('search').oninput=renderRecords;
-$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
-$('recordsList').onclick=e=>{
-  const open=e.target.dataset.open,del=e.target.dataset.delete;
-  if(open){
-    const raw=localStorage.getItem(key(open));
-    if(raw){populate(JSON.parse(raw));status('Saved patient and clinical data reopened successfully.')}
-  }
-  if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}
-};
-populate(blank());
-status('App loaded successfully. V1.1 ready.');
+$('tabPatient').onclick=showPatient;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabRecords').onclick=showRecords;
+$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
+$('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient, clinical and examination data reopened successfully.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
+renderFindingRows();populate(blank());status('App loaded successfully. V1.2 ready.');
 })();
 </script>
 </body>
