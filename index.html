@@ -4,16 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#126b82">
-<title>Shri Krishna Mahamaya Clinic EMR V1.2</title>
+<title>Shri Krishna Mahamaya Clinic EMR V1.3</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d}
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);padding-bottom:25px}
 header{background:linear-gradient(135deg,var(--p),var(--s));color:#fff;padding:20px 16px}
 header h1{margin:0;font-size:24px} header p{margin:6px 0 0}
-main{max-width:980px;margin:auto;padding:12px}
+main{max-width:1040px;margin:auto;padding:12px}
 .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;margin:12px 0;box-shadow:0 3px 12px #17333d10}
 h2{margin:0 0 12px;color:var(--p)}
+h3{margin:14px 0 8px;color:var(--p)}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 label{display:block;font-size:12px;font-weight:700;margin:8px 0 4px}
 input,select,textarea{width:100%;padding:11px;border:1px solid #b9cfd7;border-radius:9px;background:#fff;font:inherit}
@@ -29,24 +30,28 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 .small{font-size:12px;color:#6a7f88}
 .finding-row{display:grid;grid-template-columns:1.4fr .8fr .8fr 1.6fr;gap:8px;align-items:end;border:1px solid var(--line);border-radius:10px;padding:10px;margin:8px 0;background:#fbfdfe}
 .finding-name{font-weight:800;color:var(--p);padding-bottom:11px}
-@media(max-width:760px){.grid,.grid3,.finding-row{grid-template-columns:1fr}.finding-name{padding-bottom:0}}
+.system-card{border:1px solid var(--line);border-radius:12px;padding:12px;margin:10px 0;background:#fbfdfe}
+.system-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.system-findings{margin-top:10px}
+@media(max-width:760px){.grid,.grid3,.finding-row{grid-template-columns:1fr}.finding-name{padding-bottom:0}.system-head{align-items:stretch;flex-direction:column}}
 </style>
 </head>
 <body>
 <header>
 <h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
-<p>V1.2 • Patient • Clinical • General Examination • Records</p>
+<p>V1.3 • Patient • Clinical • General Exam • Systemic Exam • Records</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> V1.1 के working save engine में केवल General Physical Examination जोड़ा गया है।</div>
+<div class="notice"><b>Stable incremental build:</b> V1.2 के working engine में केवल Systemic Examination जोड़ा गया है। पुराने V1.2 records भी इसी storage में उपलब्ध रहेंगे।</div>
 <div class="tabs actions">
 <button id="tabPatient" class="primary active">👤 Patient</button>
 <button id="tabClinical" class="secondary">🩺 Clinical</button>
 <button id="tabExam" class="secondary">🔍 General Exam</button>
+<button id="tabSystemic" class="secondary">🫀 Systemic Exam</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V1.2</div>
+<div id="status" class="status">App loaded successfully. Version: V1.3</div>
 </div>
 
 <section id="patientSection">
@@ -122,7 +127,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <section id="examSection" class="hidden">
 <div class="card">
 <h2>General Physical Examination</h2>
-<div class="notice">हर finding के लिए Present/Absent चुनें। Present होने पर grade और remarks भरें। जहाँ 1+–4+ मान्य न हो, remarks में clinical description लिखें।</div>
+<div class="notice">हर finding के लिए Present/Absent चुनें। Present होने पर grade और remarks भरें।</div>
 <div id="findings"></div>
 
 <div class="grid3">
@@ -137,7 +142,21 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <label>Additional General Examination Notes</label><textarea id="examNotes"></textarea>
 <div class="actions">
 <button id="saveExamBtn" class="primary">💾 Save Examination</button>
+<button id="goSystemicBtn" class="secondary">Next: Systemic Exam →</button>
 <button id="backClinicalBtn" class="secondary">← Clinical</button>
+</div>
+</div>
+</section>
+
+<section id="systemicSection" class="hidden">
+<div class="card">
+<h2>Systemic Examination</h2>
+<div class="notice">System normal होने पर “Normal” चुनकर section concise रखें। Abnormal चुनने पर structured findings भरें।</div>
+<div id="systemicContainer"></div>
+<label>Additional Systemic Examination Notes</label><textarea id="systemicNotes"></textarea>
+<div class="actions">
+<button id="saveSystemicBtn" class="primary">💾 Save Systemic Examination</button>
+<button id="backExamBtn" class="secondary">← General Exam</button>
 <button id="goRecordsBtn" class="secondary">Open Records</button>
 </div>
 </div>
@@ -156,9 +175,32 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <script>
 (function(){
 'use strict';
+
+/* Keep same storage prefix as V1.2 so older records remain visible. */
 const PREFIX='skm-emr-v12:';
 let current=null;
-const findingNames=['Pallor','Icterus','Cyanosis','Clubbing','Lymphadenopathy','Pedal Oedema','Generalized Oedema','Dehydration','Respiratory Distress','Abnormal Gait'];
+
+const generalFindingNames=['Pallor','Icterus','Cyanosis','Clubbing','Lymphadenopathy','Pedal Oedema','Generalized Oedema','Dehydration','Respiratory Distress','Abnormal Gait'];
+
+const systems={
+  cvs:{
+    label:'Cardiovascular System (CVS)',
+    findings:['Tachycardia','Bradycardia','Irregular Rhythm','Raised JVP','Displaced Apex Beat','Heave','Thrill','Murmur','S3/S4 / Gallop','Pericardial Rub','Peripheral Pulse Deficit']
+  },
+  rs:{
+    label:'Respiratory System (RS)',
+    findings:['Reduced Air Entry','Wheeze / Rhonchi','Fine Crepitations','Coarse Crepitations','Bronchial Breathing','Pleural Rub','Stridor','Dull Percussion Note','Hyperresonance','Accessory Muscle Use']
+  },
+  abdomen:{
+    label:'Per Abdomen (P/A)',
+    findings:['Distension','Tenderness','Guarding','Rigidity','Hepatomegaly','Splenomegaly','Ascites','Palpable Mass','Abnormal Bowel Sounds','Renal Angle Tenderness','Hernia']
+  },
+  cns:{
+    label:'Central Nervous System (CNS)',
+    findings:['Altered Higher Mental Function','Cranial Nerve Deficit','Motor Weakness','Abnormal Tone','Abnormal Reflexes','Sensory Deficit','Cerebellar Signs','Meningeal Signs','Abnormal Gait','Speech / Language Deficit']
+  }
+};
+
 const $=id=>document.getElementById(id);
 const val=id=>($(id)?.value||'').trim();
 const set=(id,v)=>{if($(id))$(id).value=v??''};
@@ -166,67 +208,174 @@ const today=()=>new Date().toISOString().slice(0,10);
 const makeId=()=> 'VIS-'+Date.now().toString(36).toUpperCase()+'-'+Math.random().toString(36).slice(2,6).toUpperCase();
 const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice(-7);
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
+
+function status(msg,error=false){
+  $('status').textContent=msg;
+  $('status').style.background=error?'#fff0ef':'#f3faf6';
+  $('status').style.borderColor=error?'#d88':'#9bcdb0';
+}
 function key(id){return PREFIX+id}
-function blank(){return{
-  id:makeId(),uhid:makeUHID(),visitDate:today(),visitType:'New',
-  patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},
-  clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},
-  exam:{findings:{},build:'',nutrition:'',gait:'',consciousness:'',orientation:'',examNotes:''},
-  updatedAt:new Date().toISOString()
-}}
+function blank(){
+  return{
+    id:makeId(),uhid:makeUHID(),visitDate:today(),visitType:'New',
+    patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},
+    clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},
+    exam:{findings:{},build:'',nutrition:'',gait:'',consciousness:'',orientation:'',examNotes:''},
+    systemic:{systems:{},systemicNotes:''},
+    updatedAt:new Date().toISOString()
+  }
+}
 function save(r){localStorage.setItem(key(r.id),JSON.stringify(r))}
-function all(){const a=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX)){try{a.push(JSON.parse(localStorage.getItem(k)))}catch(e){}}}return a.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))}
+function all(){
+  const a=[];
+  for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    if(k&&k.startsWith(PREFIX)){
+      try{a.push(JSON.parse(localStorage.getItem(k)))}catch(e){}
+    }
+  }
+  return a.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))
+}
 function remove(id){localStorage.removeItem(key(id))}
 function calcBMI(){const h=Number(val('height')),w=Number(val('weight'));set('bmi',h>0&&w>0?(w/((h/100)**2)).toFixed(1):'')}
-function readPatient(){calcBMI();current.visitDate=val('visitDate');current.visitType=val('visitType');current.patient={name:val('name'),age:val('age'),sex:val('sex'),mobile:val('mobile'),height:val('height'),weight:val('weight'),bmi:val('bmi'),address:val('address')};current.updatedAt=new Date().toISOString()}
-function readClinical(){current.clinical={chiefComplaints:val('chiefComplaints'),duration:val('duration'),onset:val('onset'),hpi:val('hpi'),pastHistory:val('pastHistory'),currentMedicines:val('currentMedicines'),allergy:val('allergy'),familyHistory:val('familyHistory'),bp:val('bp'),pulse:val('pulse'),spo2:val('spo2'),temp:val('temp'),rr:val('rr'),pain:val('pain'),clinicalNotes:val('clinicalNotes')};current.updatedAt=new Date().toISOString()}
+function ensureSchema(r){
+  if(!r.exam)r.exam={findings:{},build:'',nutrition:'',gait:'',consciousness:'',orientation:'',examNotes:''};
+  if(!r.systemic)r.systemic={systems:{},systemicNotes:''};
+  Object.keys(systems).forEach(k=>{
+    if(!r.systemic.systems[k])r.systemic.systems[k]={overall:'',findings:{},notes:''};
+  });
+  return r
+}
+function readPatient(){
+  calcBMI();
+  current.visitDate=val('visitDate');current.visitType=val('visitType');
+  current.patient={name:val('name'),age:val('age'),sex:val('sex'),mobile:val('mobile'),height:val('height'),weight:val('weight'),bmi:val('bmi'),address:val('address')};
+  current.updatedAt=new Date().toISOString()
+}
+function readClinical(){
+  current.clinical={chiefComplaints:val('chiefComplaints'),duration:val('duration'),onset:val('onset'),hpi:val('hpi'),pastHistory:val('pastHistory'),currentMedicines:val('currentMedicines'),allergy:val('allergy'),familyHistory:val('familyHistory'),bp:val('bp'),pulse:val('pulse'),spo2:val('spo2'),temp:val('temp'),rr:val('rr'),pain:val('pain'),clinicalNotes:val('clinicalNotes')};
+  current.updatedAt=new Date().toISOString()
+}
 function readExam(){
   const findings={};
-  findingNames.forEach((name,i)=>findings[name]={status:val('fs'+i),grade:val('fg'+i),remarks:val('fr'+i)});
+  generalFindingNames.forEach((name,i)=>findings[name]={status:val('fs'+i),grade:val('fg'+i),remarks:val('fr'+i)});
   current.exam={findings,build:val('build'),nutrition:val('nutrition'),gait:val('gait'),consciousness:val('consciousness'),orientation:val('orientation'),examNotes:val('examNotes')};
   current.updatedAt=new Date().toISOString()
 }
-function renderFindingRows(){
-  $('findings').innerHTML=findingNames.map((n,i)=>`<div class="finding-row">
+function readSystemic(){
+  const result={};
+  Object.entries(systems).forEach(([sys,data])=>{
+    const findings={};
+    data.findings.forEach((name,i)=>findings[name]={status:val(sys+'s'+i),grade:val(sys+'g'+i),remarks:val(sys+'r'+i)});
+    result[sys]={overall:val(sys+'Overall'),findings,notes:val(sys+'Notes')}
+  });
+  current.systemic={systems:result,systemicNotes:val('systemicNotes')};
+  current.updatedAt=new Date().toISOString()
+}
+function renderGeneralRows(){
+  $('findings').innerHTML=generalFindingNames.map((n,i)=>`<div class="finding-row">
     <div class="finding-name">${esc(n)}</div>
     <div><label>Status</label><select id="fs${i}"><option value=""></option><option>Absent</option><option>Present</option><option>Not assessed</option></select></div>
     <div><label>Grade</label><select id="fg${i}"><option value=""></option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>Mild</option><option>Moderate</option><option>Severe</option></select></div>
     <div><label>Site / Remarks</label><input id="fr${i}"></div>
   </div>`).join('')
 }
+function renderSystemicRows(){
+  $('systemicContainer').innerHTML=Object.entries(systems).map(([sys,data])=>`
+    <div class="system-card">
+      <div class="system-head">
+        <h3>${esc(data.label)}</h3>
+        <div>
+          <label>Overall</label>
+          <select id="${sys}Overall">
+            <option value=""></option><option>Normal</option><option>Abnormal</option><option>Not assessed</option>
+          </select>
+        </div>
+      </div>
+      <div class="system-findings">
+        ${data.findings.map((n,i)=>`<div class="finding-row">
+          <div class="finding-name">${esc(n)}</div>
+          <div><label>Status</label><select id="${sys}s${i}"><option value=""></option><option>Absent</option><option>Present</option><option>Not assessed</option></select></div>
+          <div><label>Grade</label><select id="${sys}g${i}"><option value=""></option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>Mild</option><option>Moderate</option><option>Severe</option></select></div>
+          <div><label>Site / Character / Remarks</label><input id="${sys}r${i}"></div>
+        </div>`).join('')}
+      </div>
+      <label>${esc(data.label)} Notes</label><textarea id="${sys}Notes"></textarea>
+    </div>
+  `).join('')
+}
 function populate(r){
-  current=r;
-  if(!current.exam)current.exam={findings:{},build:'',nutrition:'',gait:'',consciousness:'',orientation:'',examNotes:''};
+  current=ensureSchema(r);
   set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);
   Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));
   Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));
   Object.entries(current.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});
-  findingNames.forEach((n,i)=>{const f=current.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});
+  generalFindingNames.forEach((n,i)=>{const f=current.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});
+  set('systemicNotes',current.systemic.systemicNotes);
+  Object.entries(systems).forEach(([sys,data])=>{
+    const saved=current.systemic.systems?.[sys]||{};
+    set(sys+'Overall',saved.overall);set(sys+'Notes',saved.notes);
+    data.findings.forEach((n,i)=>{const f=saved.findings?.[n]||{};set(sys+'s'+i,f.status);set(sys+'g'+i,f.grade);set(sys+'r'+i,f.remarks)})
+  });
   showPatient()
 }
-function setActive(tab){['tabPatient','tabClinical','tabExam','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function showPatient(){$('patientSection').classList.remove('hidden');$('clinicalSection').classList.add('hidden');$('examSection').classList.add('hidden');$('recordsSection').classList.add('hidden');setActive('tabPatient')}
-function showClinical(){$('patientSection').classList.add('hidden');$('clinicalSection').classList.remove('hidden');$('examSection').classList.add('hidden');$('recordsSection').classList.add('hidden');setActive('tabClinical')}
-function showExam(){$('patientSection').classList.add('hidden');$('clinicalSection').classList.add('hidden');$('examSection').classList.remove('hidden');$('recordsSection').classList.add('hidden');setActive('tabExam')}
-function showRecords(){$('patientSection').classList.add('hidden');$('clinicalSection').classList.add('hidden');$('examSection').classList.add('hidden');$('recordsSection').classList.remove('hidden');setActive('tabRecords');renderRecords()}
+function setActive(tab){['tabPatient','tabClinical','tabExam','tabSystemic','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['patientSection','clinicalSection','examSection','systemicSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
+function showClinical(){hideAll();$('clinicalSection').classList.remove('hidden');setActive('tabClinical')}
+function showExam(){hideAll();$('examSection').classList.remove('hidden');setActive('tabExam')}
+function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden');setActive('tabSystemic')}
+function showRecords(){hideAll();$('recordsSection').classList.remove('hidden');setActive('tabRecords');renderRecords()}
 function renderRecords(){
   const term=val('search').toLowerCase();
   const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile,r.clinical?.chiefComplaints].join(' ').toLowerCase().includes(term));
-  $('recordsList').innerHTML=rows.map(r=>`<div class="item"><b>${esc(r.patient?.name||'Unnamed')}</b><div class="small">UHID: ${esc(r.uhid)} • Mobile: ${esc(r.patient?.mobile||'')} • Date: ${esc(r.visitDate)}</div><div class="small">Complaint: ${esc(r.clinical?.chiefComplaints||'Not entered')}</div><div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div></div>`).join('')||'<div class="notice" style="margin-top:10px">No saved records found.</div>';
+  $('recordsList').innerHTML=rows.map(r=>`<div class="item">
+    <b>${esc(r.patient?.name||'Unnamed')}</b>
+    <div class="small">UHID: ${esc(r.uhid)} • Mobile: ${esc(r.patient?.mobile||'')} • Date: ${esc(r.visitDate)}</div>
+    <div class="small">Complaint: ${esc(r.clinical?.chiefComplaints||'Not entered')}</div>
+    <div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div>
+  </div>`).join('')||'<div class="notice" style="margin-top:10px">No saved records found.</div>';
   status(rows.length+' record(s) shown.')
 }
+
 $('savePatientBtn').onclick=()=>{try{if(!val('name')||!val('age')||!val('sex')||!val('mobile'))return status('Please fill Name, Age, Sex and Mobile.',true);readPatient();save(current);status('Patient details saved successfully.')}catch(e){status('Patient save failed: '+e.message,true)}};
 $('saveClinicalBtn').onclick=()=>{try{readPatient();readClinical();save(current);status('Clinical history and vitals saved successfully.')}catch(e){status('Clinical save failed: '+e.message,true)}};
 $('saveExamBtn').onclick=()=>{try{readPatient();readClinical();readExam();save(current);status('General physical examination saved successfully.')}catch(e){status('Examination save failed: '+e.message,true)}};
+$('saveSystemicBtn').onclick=()=>{try{readPatient();readClinical();readExam();readSystemic();save(current);status('Systemic examination saved successfully.')}catch(e){status('Systemic save failed: '+e.message,true)}};
+
 $('goClinicalBtn').onclick=()=>{readPatient();save(current);showClinical();status('Patient saved. Continue clinical history.')};
 $('goExamBtn').onclick=()=>{readPatient();readClinical();save(current);showExam();status('Clinical data saved. Continue general examination.')};
-$('backPatientBtn').onclick=showPatient;$('backClinicalBtn').onclick=showClinical;$('goRecordsBtn').onclick=showRecords;
+$('goSystemicBtn').onclick=()=>{readPatient();readClinical();readExam();save(current);showSystemic();status('General examination saved. Continue systemic examination.')};
+
+$('backPatientBtn').onclick=showPatient;
+$('backClinicalBtn').onclick=showClinical;
+$('backExamBtn').onclick=showExam;
+$('goRecordsBtn').onclick=showRecords;
 $('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
-$('tabPatient').onclick=showPatient;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabRecords').onclick=showRecords;
-$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
-$('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient, clinical and examination data reopened successfully.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
-renderFindingRows();populate(blank());status('App loaded successfully. V1.2 ready.');
+
+$('tabPatient').onclick=showPatient;
+$('tabClinical').onclick=showClinical;
+$('tabExam').onclick=showExam;
+$('tabSystemic').onclick=showSystemic;
+$('tabRecords').onclick=showRecords;
+
+$('search').oninput=renderRecords;
+$('height').oninput=calcBMI;
+$('weight').oninput=calcBMI;
+
+$('recordsList').onclick=e=>{
+  const open=e.target.dataset.open,del=e.target.dataset.delete;
+  if(open){
+    const raw=localStorage.getItem(key(open));
+    if(raw){populate(JSON.parse(raw));status('Saved patient and all examination data reopened successfully.')}
+  }
+  if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}
+};
+
+renderGeneralRows();
+renderSystemicRows();
+populate(blank());
+status('App loaded successfully. V1.3 ready.');
 })();
 </script>
 </body>
