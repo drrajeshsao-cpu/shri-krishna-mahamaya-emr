@@ -1,26 +1,31 @@
-# Shri Krishna Mahamaya Clinic EMR — V1.0
+# SKMCIS App Version 1 — PWA Starter
 
-## Upload these files to the root of the NEW repository
-- index.html
-- patient.html
-- records.html
-- style.css
-- app.js
+## What is ready
+- Mobile-friendly Progressive Web App
+- Offline cache through service worker
+- Search and status filter
+- 22 disease-ID slots
+- Clinical safety disclaimer
+- JSON-based content import structure
+- Installable from a supported mobile browser after HTTPS hosting
 
-## Important
-Do not upload any old file.
-Do not add service worker.
-Do not add db.js.
-Do not add manifest yet.
+## Important content status
+Only disease names visible in the available project context were inserted. Ten IDs (DIS-0006 to DIS-0015) remain marked for title/content verification. Full A–T module text for all 22 diseases must be imported from the master manuscript before production release.
 
-## Test
-1. Open live website.
-2. New Patient.
-3. Fill Name, Age, Sex, Mobile.
-4. Save Patient.
-5. Open Saved Records.
-6. Reopen patient.
-7. Confirm data remains.
-8. Delete test patient.
+## Test locally
+Run a local web server inside this folder, for example:
 
-Only after this passes, PDF module will be added.
+    npx serve .
+
+Open the shown URL in a browser.
+
+## Upload
+Upload the complete folder to any HTTPS static host such as Firebase Hosting, Netlify, Vercel, GitHub Pages, or your own server.
+
+## Android Play Store
+This PWA can later be wrapped as an Android Trusted Web Activity or Capacitor app. A signed AAB needs:
+- Final app/package name
+- 512×512 icon and feature graphic
+- Privacy policy URL
+- Play Console developer account
+- Signing key
