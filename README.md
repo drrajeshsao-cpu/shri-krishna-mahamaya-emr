@@ -1,1 +1,0 @@
-MAHAMAYA CLINIC advanced ayurveda 
