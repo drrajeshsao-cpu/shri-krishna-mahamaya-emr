@@ -1,0 +1,2949 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#126b82">
+<title>Shri Krishna Mahamaya Clinic EMR V2.9</title>
+<style>
+:root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);padding-bottom:25px}
+header{background:linear-gradient(135deg,var(--p),var(--s));color:#fff;padding:20px 16px}
+header h1{margin:0;font-size:24px} header p{margin:6px 0 0}
+main{max-width:1160px;margin:auto;padding:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;margin:12px 0;box-shadow:0 3px 12px #17333d10}
+h2{margin:0 0 12px;color:var(--p)} h3{margin:14px 0 8px;color:var(--p)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+label{display:block;font-size:12px;font-weight:700;margin:8px 0 4px}
+input,select,textarea{width:100%;padding:11px;border:1px solid #b9cfd7;border-radius:9px;background:#fff;font:inherit}
+textarea{min-height:80px}
+button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;justify-content:center;align-items:center}
+.primary{background:var(--p);color:#fff}.secondary{background:#e3eff3;color:var(--p)}.success{background:#e4f5e9;color:var(--ok)}.danger{background:#fde9e7;color:var(--danger)}.warning{background:#fff2cf;color:var(--warn)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.status{margin-top:10px;padding:10px;border:1px solid #9bcdb0;background:#f3faf6;border-radius:9px;font-size:13px}
+.notice{padding:10px;border:1px solid #e1c26d;background:#fff7df;border-radius:10px;font-size:13px}
+.alert{padding:11px;border-radius:10px;margin:10px 0;font-size:13px}.alert-red{background:#fde7e4;border:1px solid #d48b84;color:#8a2018}.alert-green{background:#e7f5eb;border:1px solid #9bcdb0;color:#245e3d}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}.tabs button.active{background:var(--p);color:#fff}
+.hidden{display:none!important}
+.item{border:1px solid var(--line);border-radius:10px;padding:11px;margin:8px 0;background:#fbfdfe}.item b{color:var(--p)}
+.small{font-size:12px;color:#6a7f88}
+.finding-row{display:grid;grid-template-columns:1.4fr .8fr .8fr 1.6fr;gap:8px;align-items:end;border:1px solid var(--line);border-radius:10px;padding:10px;margin:8px 0;background:#fbfdfe}
+.finding-name{font-weight:800;color:var(--p);padding-bottom:11px}
+.checkgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.check{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:9px;padding:9px;background:#fbfdfe}
+.check input{width:auto;margin-top:3px}
+.pill{display:inline-block;padding:5px 8px;border-radius:14px;background:#e6f1f4;color:var(--p);margin:3px;font-size:12px;font-weight:700}
+.ayur-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ayur-box{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fbfdfe}
+@media(max-width:760px){.grid,.grid3,.finding-row,.checkgrid,.ayur-grid{grid-template-columns:1fr}.finding-name{padding-bottom:0}}
+
+.print-sheet{background:#fff;border:1px solid #cbdde3;border-radius:12px;padding:22px;min-height:950px}
+.letterhead{border-bottom:3px solid var(--p);padding-bottom:10px;margin-bottom:12px}
+.letterhead h1{margin:0;color:var(--p);font-size:25px}
+.rx-section-title{margin-top:13px;padding-bottom:4px;border-bottom:1px solid #cbdde3;color:var(--p);font-weight:800}
+.rx-table{width:100%;border-collapse:collapse;font-size:12px}
+.rx-table th,.rx-table td{border:1px solid #d6e1e5;padding:7px;vertical-align:top;text-align:left}
+.preview-actions{position:sticky;bottom:0;background:var(--bg);padding:8px 0;z-index:5}
+@media print{
+  body{background:#fff;padding:0}
+  header,.tabs,.notice,.no-print,#status{display:none!important}
+  main{max-width:none;padding:0;margin:0}
+  .card{border:0;box-shadow:none;margin:0;padding:0}
+  section{display:none!important}
+  #previewSection{display:block!important}
+  .print-sheet{border:0;border-radius:0;padding:8mm;min-height:auto}
+}
+
+
+.dashboard-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stat-card{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfdfe;text-align:center}
+.stat-card .num{font-size:27px;font-weight:900;color:var(--p)}
+.stat-card .lbl{font-size:12px;color:#6a7f88;margin-top:4px}
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.quick-btn{min-height:76px;flex-direction:column;gap:4px}
+.timeline-item{border-left:4px solid var(--p);padding:10px 12px;margin:8px 0;background:#fbfdfe;border-radius:0 10px 10px 0}
+@media(max-width:760px){.dashboard-grid{grid-template-columns:repeat(2,1fr)}.quick-grid{grid-template-columns:1fr}}
+
+
+.followup-banner{background:#edf7f2;border:1px solid #9bcdb0;border-radius:10px;padding:10px;margin-bottom:10px}
+.timeline{position:relative;margin:12px 0}
+.timeline:before{content:"";position:absolute;left:17px;top:0;bottom:0;width:3px;background:#c7dfe5}
+.visit-node{position:relative;margin:0 0 12px 44px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px}
+.visit-node:before{content:"";position:absolute;left:-35px;top:16px;width:15px;height:15px;border-radius:50%;background:var(--p);border:3px solid #eef6f8}
+.visit-node.current{border:2px solid var(--p);background:#f4fbfc}
+.progress-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.progress-box{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fbfdfe}
+.delta-good{color:#176b43;font-weight:800}.delta-warn{color:#8a5b00;font-weight:800}.delta-bad{color:#a1261d;font-weight:800}
+@media(max-width:760px){.progress-grid{grid-template-columns:repeat(2,1fr)}}
+
+
+.safety-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.safety-count{border-radius:12px;padding:13px;text-align:center;border:1px solid var(--line)}
+.safety-count .n{font-size:25px;font-weight:900}.safety-count .t{font-size:12px}
+.safe-green{background:#e7f5eb;color:#176b43;border-color:#9bcdb0}
+.safe-yellow{background:#fff5d8;color:#805800;border-color:#e0c46f}
+.safe-red{background:#fde7e4;color:#98271e;border-color:#d48b84}
+.alert-card{border-radius:10px;padding:11px;margin:8px 0;border-left:5px solid}
+.alert-card.red{background:#fde7e4;border-color:#b83229;color:#7d2019}
+.alert-card.yellow{background:#fff5d8;border-color:#d9a928;color:#6d4b00}
+.alert-card.green{background:#e7f5eb;border-color:#2f8b59;color:#1f603e}
+.alert-card .alert-title{font-weight:900;margin-bottom:4px}
+.safety-badge{display:inline-block;padding:4px 8px;border-radius:12px;font-size:11px;font-weight:800;margin-left:5px}
+.badge-red{background:#f5c7c2;color:#8c2017}.badge-yellow{background:#f6e4a8;color:#715000}.badge-green{background:#ccebd7;color:#176b43}
+@media(max-width:760px){.safety-summary{grid-template-columns:1fr}}
+
+
+.lab-value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.lab-field{border:1px solid var(--line);border-radius:10px;padding:9px;background:#fbfdfe}
+.interpret-card{border-radius:10px;padding:11px;margin:8px 0;border-left:5px solid}
+.interpret-card.red{background:#fde7e4;border-color:#b83229;color:#7d2019}
+.interpret-card.yellow{background:#fff5d8;border-color:#d9a928;color:#6d4b00}
+.interpret-card.green{background:#e7f5eb;border-color:#2f8b59;color:#1f603e}
+.interpret-card.blue{background:#e7f2f8;border-color:#357b9d;color:#174f69}
+.result-heading{font-weight:900;margin-bottom:4px}
+@media(max-width:850px){.lab-value-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.lab-value-grid{grid-template-columns:1fr}}
+
+
+.profile-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.profile-panel{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fbfdfe}
+.profile-result{border-left:5px solid var(--p);background:#f7fbfc;border-radius:10px;padding:11px;margin:8px 0}
+.profile-result.red{border-color:#b83229;background:#fde7e4;color:#7d2019}
+.profile-result.yellow{border-color:#d9a928;background:#fff5d8;color:#6d4b00}
+.profile-result.green{border-color:#2f8b59;background:#e7f5eb;color:#1f603e}
+.profile-result.blue{border-color:#357b9d;background:#e7f2f8;color:#174f69}
+
+
+.lock-overlay{position:fixed;inset:0;background:linear-gradient(135deg,#0d5365,#218f87);display:flex;align-items:center;justify-content:center;padding:18px;z-index:9999}
+.lock-card{width:min(460px,100%);background:#fff;border-radius:18px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.28)}
+.lock-card h2{margin-top:0}
+.role-badge{display:inline-block;padding:5px 9px;border-radius:14px;font-size:12px;font-weight:800;background:#e6f1f4;color:var(--p)}
+.audit-row{border:1px solid var(--line);border-radius:9px;padding:9px;margin:7px 0;background:#fbfdfe}
+.backup-status{font-size:12px;color:#687f89;margin-top:6px}
+.settings-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:650px){.settings-grid{grid-template-columns:1fr}}
+
+
+.appointment-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.calendar-day{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fbfdfe;min-height:90px}
+.calendar-day.today{border:2px solid var(--p);background:#f1fbfc}
+.calendar-day .date{font-weight:900;color:var(--p)}
+.appt-item{border-left:4px solid var(--p);background:#fff;border-radius:7px;padding:6px 8px;margin-top:6px;font-size:12px}
+.bill-row{display:grid;grid-template-columns:1.6fr .7fr .7fr .7fr auto;gap:8px;align-items:end;border:1px solid var(--line);padding:9px;border-radius:10px;margin:8px 0;background:#fbfdfe}
+.bill-total{font-size:24px;font-weight:900;color:var(--p);text-align:right}
+.receipt-box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+@media(max-width:900px){.appointment-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.bill-row{grid-template-columns:1fr}.appointment-grid{grid-template-columns:1fr}}
+
+
+.inventory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.inventory-stat{border:1px solid var(--line);border-radius:12px;padding:13px;text-align:center;background:#fbfdfe}
+.inventory-stat .n{font-size:24px;font-weight:900;color:var(--p)}
+.stock-low{background:#fff4d8;border-left:5px solid #d9a928}
+.stock-critical{background:#fde7e4;border-left:5px solid #b83229}
+.stock-ok{background:#e7f5eb;border-left:5px solid #2f8b59}
+.expired{background:#fde7e4!important}
+.inventory-row{border:1px solid var(--line);border-radius:11px;padding:11px;margin:8px 0;background:#fbfdfe}
+.dispense-row{display:grid;grid-template-columns:1.6fr .7fr .7fr auto;gap:8px;align-items:end}
+@media(max-width:850px){.inventory-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.dispense-row,.inventory-grid{grid-template-columns:1fr}}
+
+
+.labmgmt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.labstat{border:1px solid var(--line);border-radius:12px;padding:13px;text-align:center;background:#fbfdfe}
+.labstat .n{font-size:24px;font-weight:900;color:var(--p)}
+.lab-order{border:1px solid var(--line);border-radius:11px;padding:11px;margin:8px 0;background:#fbfdfe}
+.lab-order.critical{border-left:5px solid #b83229;background:#fde7e4}
+.lab-order.pending{border-left:5px solid #d9a928;background:#fff5d8}
+.lab-order.completed{border-left:5px solid #2f8b59;background:#e7f5eb}
+.lab-report{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+@media(max-width:850px){.labmgmt-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:550px){.labmgmt-grid{grid-template-columns:1fr}}
+
+
+.imaging-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.imaging-stat{border:1px solid var(--line);border-radius:12px;padding:13px;text-align:center;background:#fbfdfe}
+.imaging-stat .n{font-size:24px;font-weight:900;color:var(--p)}
+.imaging-card{border:1px solid var(--line);border-radius:11px;padding:11px;margin:8px 0;background:#fbfdfe}
+.imaging-card.red{border-left:5px solid #b83229;background:#fde7e4}
+.imaging-card.yellow{border-left:5px solid #d9a928;background:#fff5d8}
+.imaging-card.green{border-left:5px solid #2f8b59;background:#e7f5eb}
+.imaging-report{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+.finding-chip{display:inline-block;padding:5px 8px;border-radius:14px;background:#e7f2f8;color:#174f69;margin:3px;font-size:12px;font-weight:700}
+@media(max-width:850px){.imaging-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:550px){.imaging-grid{grid-template-columns:1fr}}
+
+
+.kb-layout{display:grid;grid-template-columns:300px 1fr;gap:12px}
+.kb-menu{border:1px solid var(--line);border-radius:12px;padding:10px;background:#fbfdfe}
+.kb-content{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}
+.kb-nav-btn{width:100%;text-align:left;justify-content:flex-start;margin:4px 0}
+.kb-section{border-top:1px solid var(--line);padding-top:12px;margin-top:14px}
+.kb-section h3{margin-top:0}
+.kb-tag{display:inline-block;padding:5px 8px;border-radius:14px;background:#e7f2f8;color:#174f69;margin:3px;font-size:12px;font-weight:700}
+.kb-red{border-left:5px solid #b83229;background:#fde7e4;border-radius:10px;padding:11px}
+.kb-yellow{border-left:5px solid #d9a928;background:#fff5d8;border-radius:10px;padding:11px}
+.kb-green{border-left:5px solid #2f8b59;background:#e7f5eb;border-radius:10px;padding:11px}
+.kb-evidence{font-size:12px;color:#5e737c;background:#f5f8f9;padding:9px;border-radius:9px}
+@media(max-width:800px){.kb-layout{grid-template-columns:1fr}}
+
+</style>
+
+<!-- PWA support: added without changing existing EMR code -->
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Mahamaya EMR">
+
+</head>
+<body>
+
+<div id="lockOverlay" class="lock-overlay">
+  <div class="lock-card">
+    <h2>🔐 Shri Krishna Mahamaya EMR</h2>
+    <div class="notice">यह local device app lock है। Default Doctor PIN: <b>1080</b>, Reception PIN: <b>2026</b>. Login के बाद Settings में PIN बदलें।</div>
+    <label>Select Role</label>
+    <select id="loginRole">
+      <option>Doctor</option>
+      <option>Reception</option>
+    </select>
+    <label>PIN</label>
+    <input id="loginPin" type="password" inputmode="numeric" maxlength="12" placeholder="Enter PIN">
+    <div class="actions">
+      <button id="loginBtn" class="primary">Unlock App</button>
+    </div>
+    <div id="loginMessage" class="status">App locked.</div>
+  </div>
+</div>
+
+<header>
+<h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
+<p>V2.9 • Disease Knowledge Base • Sciatica / Gridhrasi</p>
+</header>
+<main>
+<div class="card">
+<div class="notice"><b>Stable incremental build:</b> V2.8 के working engine में Disease Knowledge Base Phase 1 जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
+<div class="tabs actions">
+<button id="tabDashboard" class="primary active">🏠 Dashboard</button>
+<button id="tabTimeline" class="secondary">🔄 Follow-up</button>
+<button id="tabPatient" class="secondary">👤 Patient</button>
+<button id="tabComplaint" class="secondary">🧭 Complaint</button>
+<button id="tabClinical" class="secondary">🩺 Clinical</button>
+<button id="tabExam" class="secondary">🔍 General</button>
+<button id="tabSystemic" class="secondary">🫀 Systemic</button>
+<button id="tabInvestigations" class="secondary">🧪 Investigations</button>
+<button id="tabCBC" class="secondary">🩸 CBC Interpreter</button>
+<button id="tabLabProfiles" class="secondary">🧪 Lab Profiles</button>
+<button id="tabAyurveda" class="secondary">🌿 Ayurveda</button>
+<button id="tabPrescription" class="secondary">💊 Prescription</button>
+<button id="tabSafety" class="secondary">🛡 Safety</button>
+<button id="tabPreview" class="secondary">📄 Preview/PDF</button>
+<button id="tabAppointments" class="secondary">📅 Appointments</button>
+<button id="tabBilling" class="secondary">💰 Billing</button>
+<button id="tabPharmacy" class="secondary">💊 Pharmacy</button>
+<button id="tabLabMgmt" class="secondary">🔬 Laboratory</button>
+<button id="tabImaging" class="secondary">🩻 Imaging</button>
+<button id="tabKnowledge" class="secondary">📚 Knowledge</button>
+<button id="tabSettings" class="secondary">⚙ Settings</button>
+<button id="tabRecords" class="secondary">📁 Records</button>
+</div>
+<div id="status" class="status">App loaded successfully. Version: V2.9</div>
+<div class="actions no-print">
+  <span id="activeRoleBadge" class="role-badge">Locked</span>
+  <button id="lockNowBtn" class="secondary">🔒 Lock</button>
+  <button id="tabSettingsQuick" class="secondary">⚙ Settings & Backup</button>
+</div>
+
+</div>
+
+
+<section id="dashboardSection">
+<div class="card">
+<h2>Clinic Dashboard</h2>
+<div class="dashboard-grid">
+<div class="stat-card"><div class="num" id="totalPatients">0</div><div class="lbl">Total Records</div></div>
+<div class="stat-card"><div class="num" id="todayPatients">0</div><div class="lbl">Today’s OPD</div></div>
+<div class="stat-card"><div class="num" id="followupCount">0</div><div class="lbl">Follow-up Visits</div></div>
+<div class="stat-card"><div class="num" id="rxCount">0</div><div class="lbl">Saved Prescriptions</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Quick Actions</h2>
+<div class="quick-grid">
+<button id="dashNewPatient" class="primary quick-btn">👤<span>New Patient</span></button>
+<button id="dashRecords" class="secondary quick-btn">📁<span>Open Records</span></button>
+<button id="dashSearch" class="secondary quick-btn">🔍<span>Search Patient</span></button>
+<button id="dashInvestigations" class="secondary quick-btn">🧪<span>Investigations</span></button>
+<button id="dashCBC" class="secondary quick-btn">🩸<span>CBC Interpreter</span></button>
+<button id="dashLabProfiles" class="secondary quick-btn">🧪<span>Lab Profiles</span></button>
+<button id="dashAyurveda" class="secondary quick-btn">🌿<span>Ayurveda</span></button>
+<button id="dashPrescription" class="secondary quick-btn">💊<span>Prescription</span></button>
+<button id="dashSafety" class="warning quick-btn">🛡<span>Medicine Safety</span></button>
+<button id="dashAppointments" class="secondary quick-btn">📅<span>Appointments</span></button>
+<button id="dashBilling" class="secondary quick-btn">💰<span>Billing</span></button>
+<button id="dashPharmacy" class="secondary quick-btn">💊<span>Pharmacy</span></button>
+<button id="dashLabMgmt" class="secondary quick-btn">🔬<span>Laboratory</span></button>
+<button id="dashImaging" class="secondary quick-btn">🩻<span>Imaging</span></button>
+<button id="dashKnowledge" class="secondary quick-btn">📚<span>Disease Knowledge</span></button>
+</div>
+</div>
+
+<div class="card">
+<h2>Quick Patient Search</h2>
+<input id="dashboardSearch" placeholder="Search by name, mobile, UHID, complaint or diagnosis">
+<div id="dashboardSearchResults"></div>
+</div>
+
+<div class="card">
+<h2>Today’s OPD</h2>
+<div id="todayList"></div>
+</div>
+
+<div class="card">
+<h2>Recent Patients</h2>
+<div id="recentList"></div>
+</div>
+</section>
+
+
+<section id="timelineSection" class="hidden">
+<div class="card">
+<h2>Patient Follow-up Timeline</h2>
+<div id="timelinePatientHeader" class="followup-banner">Open a saved patient to view follow-up timeline.</div>
+
+<div class="progress-grid">
+<div class="progress-box"><label>Previous Pain Score</label><input id="previousPain" readonly></div>
+<div class="progress-box"><label>Current Pain Score</label><input id="currentPainCompare" type="number" min="0" max="10"></div>
+<div class="progress-box"><label>Previous Status</label><input id="previousStatus" readonly></div>
+<div class="progress-box"><label>Current Status</label>
+<select id="currentStatusCompare">
+<option value=""></option>
+<option>Worsened</option><option>No change</option><option>Mild improvement</option>
+<option>Moderate improvement</option><option>Marked improvement</option><option>Resolved</option>
+</select></div>
+</div>
+
+<div class="grid">
+<div><label>Progress Since Last Visit</label><textarea id="progressNotes"></textarea></div>
+<div><label>New Complaints / Adverse Effects</label><textarea id="newFollowupComplaints"></textarea></div>
+</div>
+
+<div class="grid3">
+<div><label>Compliance</label><select id="compliance"><option value=""></option><option>Good</option><option>Partial</option><option>Poor</option><option>Not assessed</option></select></div>
+<div><label>Next Follow-up Date</label><input id="nextFollowupDate" type="date"></div>
+<div><label>Visit Outcome</label><select id="visitOutcome"><option value=""></option><option>Continue treatment</option><option>Medicine modified</option><option>Investigations advised</option><option>Referred</option><option>Discharged</option></select></div>
+</div>
+
+<div class="actions">
+<button id="saveProgressBtn" class="primary">💾 Save Progress</button>
+<button id="createFollowupBtn" class="success">＋ Create New Follow-up Visit</button>
+<button id="openCurrentVisitBtn" class="secondary">Open Current Visit</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Visit Timeline</h2>
+<div id="visitTimeline" class="timeline"></div>
+</div>
+</section>
+
+<section id="patientSection" class="hidden">
+<div class="card"><h2>Patient Registration</h2>
+<div class="grid3"><div><label>UHID</label><input id="uhid" readonly></div><div><label>Visit Date</label><input id="visitDate" type="date"></div><div><label>Visit Type</label><select id="visitType"><option>New</option><option>Follow-up</option></select></div></div>
+<div class="grid3"><div><label>Name *</label><input id="name"></div><div><label>Age *</label><input id="age" type="number" min="0"></div><div><label>Sex *</label><select id="sex"><option value=""></option><option>Male</option><option>Female</option><option>Other</option></select></div></div>
+<div class="grid3"><div><label>Mobile *</label><input id="mobile" inputmode="tel"></div><div><label>Height (cm)</label><input id="height" type="number" step="0.1"></div><div><label>Weight (kg)</label><input id="weight" type="number" step="0.1"></div></div>
+<div class="grid"><div><label>BMI</label><input id="bmi" readonly></div><div><label>Address</label><input id="address"></div></div>
+<div class="actions"><button id="savePatientBtn" class="primary">💾 Save Patient</button><button id="goComplaintBtn" class="secondary">Next: Complaint →</button><button id="newBtn" class="secondary">＋ New Blank Patient</button></div>
+</div>
+</section>
+
+<section id="complaintSection" class="hidden">
+<div class="card"><h2>Complaint Workflow</h2>
+<div class="grid3"><div><label>Primary Complaint</label><select id="primaryComplaint"></select></div><div><label>Duration</label><input id="complaintDuration"></div><div><label>Severity 0–10</label><input id="complaintSeverity" type="number" min="0" max="10"></div></div>
+<div class="grid3"><div><label>Onset</label><select id="complaintOnset"><option value=""></option><option>Sudden</option><option>Gradual</option><option>Recurrent</option></select></div><div><label>Progression</label><select id="complaintProgression"><option value=""></option><option>Improving</option><option>Static</option><option>Progressive</option><option>Intermittent</option></select></div><div><label>Character / Radiation</label><input id="complaintCharacter"></div></div>
+<div class="grid"><div><label>Aggravating Factors</label><textarea id="aggravating"></textarea></div><div><label>Relieving Factors</label><textarea id="relieving"></textarea></div></div>
+<h3>Red Flag Checklist</h3><div id="redFlags" class="checkgrid"></div><div id="redFlagAlert" class="alert alert-green">No red flag selected.</div>
+<h3>Suggested Examination</h3><div id="suggestedExam"></div><h3>Suggested Investigations</h3><div id="suggestedInv"></div><h3>Rule-based Differential Considerations</h3><div id="suggestedDx"></div>
+<label>Additional Complaint Notes</label><textarea id="complaintNotes"></textarea>
+<div class="actions"><button id="saveComplaintBtn" class="primary">💾 Save Complaint</button><button id="goClinicalBtn2" class="secondary">Next: Clinical →</button></div>
+</div>
+</section>
+
+<section id="clinicalSection" class="hidden">
+<div class="card"><h2>Clinical History & Vitals</h2>
+<label>Chief Complaints</label><textarea id="chiefComplaints"></textarea>
+<div class="grid"><div><label>Duration</label><input id="duration"></div><div><label>Onset</label><select id="onset"><option value=""></option><option>Sudden</option><option>Gradual</option><option>Recurrent</option></select></div></div>
+<label>History of Present Illness</label><textarea id="hpi"></textarea>
+<div class="grid"><div><label>Past Medical History</label><textarea id="pastHistory"></textarea></div><div><label>Current Medicines / Treatment</label><textarea id="currentMedicines"></textarea></div></div>
+<div class="grid"><div><label>Drug / Food Allergy</label><input id="allergy"></div><div><label>Family History</label><input id="familyHistory"></div></div>
+<div class="grid3"><div><label>Blood Pressure</label><input id="bp"></div><div><label>Pulse / min</label><input id="pulse" type="number"></div><div><label>SpO₂ %</label><input id="spo2" type="number"></div></div>
+<div class="grid3"><div><label>Temperature °F</label><input id="temp"></div><div><label>Respiratory Rate / min</label><input id="rr" type="number"></div><div><label>Pain Score 0–10</label><input id="pain" type="number" min="0" max="10"></div></div>
+<label>General Clinical Notes</label><textarea id="clinicalNotes"></textarea>
+<div class="actions"><button id="saveClinicalBtn" class="primary">💾 Save Clinical</button><button id="goExamBtn" class="secondary">Next: General Exam →</button></div>
+</div>
+</section>
+
+<section id="examSection" class="hidden">
+<div class="card"><h2>General Physical Examination</h2><div id="findings"></div>
+<div class="grid3"><div><label>Build</label><select id="build"><option value=""></option><option>Lean</option><option>Average</option><option>Muscular</option><option>Obese</option><option>Cachectic</option></select></div><div><label>Nutrition</label><select id="nutrition"><option value=""></option><option>Good</option><option>Average</option><option>Poor</option><option>Malnourished</option></select></div><div><label>Gait</label><select id="gait"><option value=""></option><option>Normal</option><option>Antalgic</option><option>Ataxic</option><option>Spastic</option><option>High-stepping</option><option>Other</option></select></div></div>
+<label>Additional General Examination Notes</label><textarea id="examNotes"></textarea>
+<div class="actions"><button id="saveExamBtn" class="primary">💾 Save Examination</button><button id="goSystemicBtn" class="secondary">Next: Systemic →</button></div>
+</div>
+</section>
+
+<section id="systemicSection" class="hidden">
+<div class="card"><h2>Systemic Examination</h2>
+<label>CVS Notes</label><textarea id="cvsNotes"></textarea><label>Respiratory Notes</label><textarea id="rsNotes"></textarea><label>Abdomen Notes</label><textarea id="abdNotes"></textarea><label>CNS Notes</label><textarea id="cnsNotes"></textarea><label>Additional Systemic Notes</label><textarea id="systemicNotes"></textarea>
+<div class="actions"><button id="saveSystemicBtn" class="primary">💾 Save Systemic</button><button id="goInvestigationsBtn" class="secondary">Next: Investigations →</button></div>
+</div>
+</section>
+
+<section id="investigationsSection" class="hidden">
+<div class="card"><h2>Investigations</h2>
+<div class="grid3"><div><label>Category</label><select id="prevCategory"><option>Blood</option><option>Urine</option><option>Stool</option><option>X-ray</option><option>USG</option><option>CT</option><option>MRI</option><option>ECG</option><option>Echo/Doppler</option><option>Other</option></select></div><div><label>Previous Test / Study</label><input id="prevTest"></div><div><label>Report Date</label><input id="prevDate" type="date"></div></div>
+<div class="grid"><div><label>Result Summary</label><textarea id="prevResult"></textarea></div><div><label>Interpretation / Remark</label><textarea id="prevRemark"></textarea></div></div>
+<div class="actions"><button id="addPrevBtn" class="secondary">＋ Add Previous Report</button></div><div id="previousList"></div>
+<hr>
+<div class="grid3"><div><label>Category</label><select id="advCategory"><option>Blood</option><option>Urine</option><option>X-ray</option><option>USG</option><option>CT</option><option>MRI</option><option>ECG</option><option>Echo/Doppler</option><option>Other</option></select></div><div><label>Advised Test / Study</label><input id="advTest"></div><div><label>Priority</label><select id="advPriority"><option>Routine</option><option>Urgent</option><option>Emergency</option><option>Follow-up</option></select></div></div>
+<label>Clinical Indication / Preparation</label><textarea id="advNote"></textarea>
+<div class="actions"><button id="addAdvBtn" class="secondary">＋ Add Advised Test</button></div><div id="advisedList"></div>
+<div class="actions"><button id="saveInvestigationsBtn" class="primary">💾 Save Investigations</button><button id="goCBCBtn" class="secondary">Next: CBC Interpreter →</button><button id="goAyurvedaBtn" class="secondary">Skip to Ayurveda →</button></div>
+</div>
+</section>
+
+
+<section id="cbcSection" class="hidden">
+<div class="card">
+<h2>CBC Smart Interpreter — Phase 1</h2>
+<div class="notice">
+<b>Important:</b> Adult screening support only. Always compare with the reporting laboratory’s reference range, altitude, pregnancy status, symptoms, smear findings and clinical context. This tool does not diagnose leukemia, sepsis or a specific anaemia cause.
+</div>
+
+<div class="grid3">
+<div><label>Sample Date</label><input id="cbcDate" type="date"></div>
+<div><label>Clinical Group</label><select id="cbcGroup"><option>Adult Male</option><option>Adult Non-pregnant Female</option><option>Pregnant Adult</option><option>Pediatric — interpretation limited</option></select></div>
+<div><label>Units</label><select id="cbcUnits"><option>Standard: Hb g/dL, TLC /µL, Platelet ×10³/µL</option></select></div>
+</div>
+
+<h3>Red Cell Parameters</h3>
+<div class="lab-value-grid">
+<div class="lab-field"><label>Hemoglobin g/dL</label><input id="cbcHb" type="number" step="0.1"></div>
+<div class="lab-field"><label>RBC million/µL</label><input id="cbcRbc" type="number" step="0.01"></div>
+<div class="lab-field"><label>PCV / Hct %</label><input id="cbcPcv" type="number" step="0.1"></div>
+<div class="lab-field"><label>MCV fL</label><input id="cbcMcv" type="number" step="0.1"></div>
+<div class="lab-field"><label>MCH pg</label><input id="cbcMch" type="number" step="0.1"></div>
+<div class="lab-field"><label>MCHC g/dL</label><input id="cbcMchc" type="number" step="0.1"></div>
+<div class="lab-field"><label>RDW %</label><input id="cbcRdw" type="number" step="0.1"></div>
+<div class="lab-field"><label>Reticulocyte % (optional)</label><input id="cbcRetic" type="number" step="0.1"></div>
+</div>
+
+<h3>White Cell Parameters</h3>
+<div class="lab-value-grid">
+<div class="lab-field"><label>TLC /µL</label><input id="cbcTlc" type="number" step="1"></div>
+<div class="lab-field"><label>Neutrophils %</label><input id="cbcNeut" type="number" step="0.1"></div>
+<div class="lab-field"><label>Lymphocytes %</label><input id="cbcLymph" type="number" step="0.1"></div>
+<div class="lab-field"><label>Monocytes %</label><input id="cbcMono" type="number" step="0.1"></div>
+<div class="lab-field"><label>Eosinophils %</label><input id="cbcEos" type="number" step="0.1"></div>
+<div class="lab-field"><label>Basophils %</label><input id="cbcBaso" type="number" step="0.1"></div>
+<div class="lab-field"><label>Absolute Neutrophil Count /µL</label><input id="cbcAnc" type="number" step="1"></div>
+<div class="lab-field"><label>Absolute Eosinophil Count /µL</label><input id="cbcAec" type="number" step="1"></div>
+</div>
+
+<h3>Platelet & Inflammation</h3>
+<div class="lab-value-grid">
+<div class="lab-field"><label>Platelet ×10³/µL</label><input id="cbcPlatelet" type="number" step="1"></div>
+<div class="lab-field"><label>ESR mm/hr</label><input id="cbcEsr" type="number" step="1"></div>
+<div class="lab-field"><label>Peripheral Smear</label><select id="cbcSmear"><option value=""></option><option>Not done</option><option>Normal morphology reported</option><option>Microcytic hypochromic</option><option>Macrocytic</option><option>Normocytic normochromic</option><option>Abnormal cells / blasts reported</option><option>Other abnormality</option></select></div>
+<div class="lab-field"><label>Lab Critical Flag</label><select id="cbcLabFlag"><option>No critical flag reported</option><option>Critical result reported by laboratory</option></select></div>
+</div>
+
+<label>Laboratory Reference Range / Additional Notes</label>
+<textarea id="cbcLabNotes" placeholder="Paste the laboratory-specific ranges, symptoms, transfusion status or important context"></textarea>
+
+<div class="actions">
+<button id="interpretCBCBtn" class="primary">🩸 Interpret CBC</button>
+<button id="saveCBCBtn" class="secondary">💾 Save CBC Values</button>
+<button id="addCBCToPreviousBtn" class="secondary">＋ Add Summary to Previous Investigations</button>
+<button id="goLabProfilesBtn" class="secondary">Next: Lab Profiles →</button><button id="goAyurvedaFromCBCBtn" class="secondary">Skip to Ayurveda →</button>
+</div>
+</div>
+
+<div class="card">
+<h2>CBC Interpretation Summary</h2>
+<div id="cbcResults"><div class="notice">Enter values and press Interpret CBC.</div></div>
+</div>
+
+<div class="card">
+<h2>Suggested Next Steps</h2>
+<div id="cbcNextSteps"><div class="notice">Suggestions will appear after interpretation.</div></div>
+</div>
+</section>
+
+
+<section id="labProfilesSection" class="hidden">
+<div class="card">
+<h2>Basic Lab Interpreter — Phase 1</h2>
+<div class="notice"><b>Decision support only:</b> laboratory-specific reference ranges, symptoms, pregnancy status, medicines and repeat confirmation remain essential.</div>
+
+<div class="profile-tabs">
+<button class="primary labModeBtn" data-mode="diabetes">🍬 Diabetes</button>
+<button class="secondary labModeBtn" data-mode="thyroid">🦋 Thyroid</button>
+<button class="secondary labModeBtn" data-mode="kidney">🫘 Kidney</button>
+<button class="secondary labModeBtn" data-mode="liver">🫀 Liver</button>
+</div>
+
+<div id="diabetesPanel" class="profile-panel">
+<h3>Diabetes Profile</h3>
+<div class="grid3">
+<div><label>Fasting Plasma Glucose mg/dL</label><input id="labFpg" type="number" step="0.1"></div>
+<div><label>2-hour PP / OGTT mg/dL</label><input id="labPpg" type="number" step="0.1"></div>
+<div><label>HbA1c %</label><input id="labA1c" type="number" step="0.1"></div>
+</div>
+<div class="grid">
+<div><label>Random Glucose mg/dL</label><input id="labRbg" type="number" step="0.1"></div>
+<div><label>Classic Hyperglycaemic Symptoms</label><select id="labDiabetesSymptoms"><option>No / Unknown</option><option>Present</option></select></div>
+</div>
+</div>
+
+<div id="thyroidPanel" class="profile-panel hidden">
+<h3>Thyroid Profile</h3>
+<div class="grid3">
+<div><label>TSH</label><input id="labTsh" type="number" step="0.01"></div>
+<div><label>Free T4</label><input id="labFt4" type="number" step="0.01"></div>
+<div><label>Free T3 (optional)</label><input id="labFt3" type="number" step="0.01"></div>
+</div>
+<div class="grid3">
+<div><label>TSH Lower Limit</label><input id="labTshLow" type="number" step="0.01" value="0.4"></div>
+<div><label>TSH Upper Limit</label><input id="labTshHigh" type="number" step="0.01" value="4.5"></div>
+<div><label>Free T4 Range</label><input id="labFt4Range" placeholder="e.g. 0.8–1.8"></div>
+</div>
+</div>
+
+<div id="kidneyPanel" class="profile-panel hidden">
+<h3>Kidney Profile</h3>
+<div class="grid3">
+<div><label>Serum Creatinine mg/dL</label><input id="labCreatinine" type="number" step="0.01"></div>
+<div><label>eGFR mL/min/1.73m²</label><input id="labEgfr" type="number" step="1"></div>
+<div><label>Urea mg/dL</label><input id="labUrea" type="number" step="0.1"></div>
+</div>
+<div class="grid3">
+<div><label>Sodium mmol/L</label><input id="labSodium" type="number" step="0.1"></div>
+<div><label>Potassium mmol/L</label><input id="labPotassium" type="number" step="0.1"></div>
+<div><label>Chronicity ≥3 months?</label><select id="labChronicity"><option>Unknown / No</option><option>Yes</option></select></div>
+</div>
+</div>
+
+<div id="liverPanel" class="profile-panel hidden">
+<h3>Liver Profile</h3>
+<div class="grid3">
+<div><label>Total Bilirubin mg/dL</label><input id="labBilirubin" type="number" step="0.01"></div>
+<div><label>AST U/L</label><input id="labAst" type="number" step="0.1"></div>
+<div><label>ALT U/L</label><input id="labAlt" type="number" step="0.1"></div>
+</div>
+<div class="grid3">
+<div><label>ALP U/L</label><input id="labAlp" type="number" step="0.1"></div>
+<div><label>Albumin g/dL</label><input id="labAlbumin" type="number" step="0.1"></div>
+<div><label>INR (optional)</label><input id="labInr" type="number" step="0.01"></div>
+</div>
+<div class="grid3">
+<div><label>ALT ULN</label><input id="labAltUln" type="number" step="0.1" placeholder="Lab upper limit"></div>
+<div><label>ALP ULN</label><input id="labAlpUln" type="number" step="0.1" placeholder="Lab upper limit"></div>
+<div><label>Clinical Context</label><input id="labLiverContext" placeholder="Alcohol, medicines, jaundice, etc."></div>
+</div>
+</div>
+
+<div class="actions">
+<button id="interpretLabProfilesBtn" class="primary">🧪 Interpret Current Profile</button>
+<button id="saveLabProfilesBtn" class="secondary">💾 Save Lab Values</button>
+<button id="addLabSummaryBtn" class="secondary">＋ Add Summary to Investigations</button>
+<button id="goAyurvedaFromLabBtn" class="secondary">Next: Ayurveda →</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Interpretation Summary</h2>
+<div id="labProfileResults"><div class="notice">Select a profile, enter values and press Interpret.</div></div>
+</div>
+</section>
+
+<section id="ayurvedaSection" class="hidden">
+<div class="card">
+<h2>Ayurveda Assessment</h2>
+<div class="grid3"><div><label>Prakriti</label><select id="prakriti"><option value=""></option><option>Vata</option><option>Pitta</option><option>Kapha</option><option>Vata-Pitta</option><option>Pitta-Kapha</option><option>Vata-Kapha</option><option>Sama Prakriti</option></select></div><div><label>Vikriti</label><select id="vikriti"><option value=""></option><option>Vata</option><option>Pitta</option><option>Kapha</option><option>Vata-Pitta</option><option>Pitta-Kapha</option><option>Vata-Kapha</option><option>Tridoshaja</option></select></div><div><label>Ama Status</label><select id="ama"><option value=""></option><option>Nirama</option><option>Sama</option><option>Mixed</option></select></div></div>
+
+<h3>Affected Dosha</h3><div id="doshaChecks" class="checkgrid"></div>
+<h3>Dosha Subtypes</h3><div id="subtypeChecks" class="checkgrid"></div>
+<h3>Involved Guna</h3><div id="gunaChecks" class="checkgrid"></div>
+
+<div class="grid3">
+<div><label>Agni</label><select id="agni"><option value=""></option><option>Sama Agni</option><option>Vishama Agni</option><option>Tikshna Agni</option><option>Manda Agni</option></select></div>
+<div><label>Koshtha</label><select id="koshtha"><option value=""></option><option>Mridu</option><option>Madhyama</option><option>Krura</option></select></div>
+<div><label>Rogamarga</label><select id="rogamarga"><option value=""></option><option>Koshtha</option><option>Shakha</option><option>Marmasthi-Sandhi</option><option>Mixed</option></select></div>
+</div>
+
+<h3>Ashtavidha Pariksha</h3>
+<div class="ayur-grid">
+<div class="ayur-box"><label>Nadi</label><select id="nadi"><option value=""></option><option>Vata</option><option>Pitta</option><option>Kapha</option><option>Vata-Pitta</option><option>Pitta-Kapha</option><option>Vata-Kapha</option><option>Tridoshaja</option></select></div>
+<div class="ayur-box"><label>Mutra</label><input id="mutra" placeholder="Colour, quantity, frequency, symptoms"></div>
+<div class="ayur-box"><label>Mala</label><input id="mala" placeholder="Consistency, frequency, sama/nirama"></div>
+<div class="ayur-box"><label>Jihva</label><input id="jihva" placeholder="Coating, colour, moisture"></div>
+<div class="ayur-box"><label>Shabda</label><input id="shabda" placeholder="Voice/speech/cough"></div>
+<div class="ayur-box"><label>Sparsha</label><input id="sparsha" placeholder="Temperature, texture, tenderness"></div>
+<div class="ayur-box"><label>Drik</label><input id="drik" placeholder="Eyes/vision/appearance"></div>
+<div class="ayur-box"><label>Akriti</label><input id="akriti" placeholder="Build, posture, gait"></div>
+</div>
+
+<h3>Dashavidha Pariksha Summary</h3>
+<div class="grid3">
+<div><label>Sara</label><select id="sara"><option value=""></option><option>Avara</option><option>Madhyama</option><option>Pravara</option></select></div>
+<div><label>Samhanana</label><select id="samhanana"><option value=""></option><option>Avara</option><option>Madhyama</option><option>Pravara</option></select></div>
+<div><label>Pramana</label><input id="pramana" placeholder="Proportion/anthropometry notes"></div>
+<div><label>Satmya</label><select id="satmya"><option value=""></option><option>Avara</option><option>Madhyama</option><option>Pravara</option></select></div>
+<div><label>Satva</label><select id="satva"><option value=""></option><option>Avara</option><option>Madhyama</option><option>Pravara</option></select></div>
+<div><label>Ahara Shakti</label><select id="aharaShakti"><option value=""></option><option>Avara</option><option>Madhyama</option><option>Pravara</option></select></div>
+<div><label>Vyayama Shakti</label><select id="vyayamaShakti"><option value=""></option><option>Avara</option><option>Madhyama</option><option>Pravara</option></select></div>
+<div><label>Vaya</label><select id="vaya"><option value=""></option><option>Bala</option><option>Madhyama</option><option>Vriddha</option></select></div>
+<div><label>Roga Bala</label><select id="rogaBala"><option value=""></option><option>Mridu</option><option>Madhyama</option><option>Daruna</option></select></div>
+</div>
+
+<h3>Srotas and Srotodushti</h3>
+<div id="srotasChecks" class="checkgrid"></div>
+<div class="grid3">
+<div><label>Srotodushti Type</label><select id="srotodushti"><option value=""></option><option>Atipravritti</option><option>Sanga</option><option>Siragranthi</option><option>Vimargagamana</option><option>Mixed</option></select></div>
+<div><label>Sadhya-Asadhyata</label><select id="sadhya"><option value=""></option><option>Sukhasadhya</option><option>Krichhrasadhya</option><option>Yapya</option><option>Asadhya</option></select></div>
+<div><label>Shatkriyakala</label><select id="shatkriya"><option value=""></option><option>Sanchaya</option><option>Prakopa</option><option>Prasara</option><option>Sthanasamshraya</option><option>Vyakti</option><option>Bheda</option></select></div>
+</div>
+
+<h3>Samprapti Ghataka</h3>
+<div class="grid">
+<div><label>Dushya</label><textarea id="dushya" placeholder="Rasa, Rakta, Mamsa, Meda, Asthi, Majja, Shukra/Artava..."></textarea></div>
+<div><label>Udbhava / Adhisthana / Vyaktasthana</label><textarea id="sthana"></textarea></div>
+</div>
+<label>Samprapti Narrative</label><textarea id="samprapti"></textarea>
+<label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
+<div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
+</div>
+</section>
+
+
+<section id="prescriptionSection" class="hidden">
+<div class="card">
+<h2>Diagnosis</h2>
+<div class="grid">
+<div><label>Provisional Diagnosis</label><textarea id="provisionalDiagnosis"></textarea></div>
+<div><label>Differential Diagnosis</label><textarea id="differentialDiagnosis"></textarea></div>
+</div>
+<label>Final / Confirmed Diagnosis</label><textarea id="finalDiagnosis"></textarea>
+</div>
+
+<div class="card">
+<h2>Add Medicine</h2>
+<div class="grid3">
+<div><label>System / Source</label><select id="medSystem"><option>Allopathic Generic</option><option>Allopathic Brand / Ethical</option><option>Ayurvedic Classical</option><option>Ayurvedic Patent</option><option>Clinic Self-made</option><option>Other</option></select></div>
+<div><label>Medicine / Formulation Name</label><input id="medName"></div>
+<div><label>Composition / Strength</label><input id="medStrength" placeholder="e.g. 500 mg / 250 mg + 50 mg"></div>
+</div>
+
+<div class="grid3">
+<div><label>Dosage Form</label><select id="medForm"><option>Tablet</option><option>Capsule</option><option>Syrup</option><option>Suspension</option><option>Injection</option><option>Powder / Churna</option><option>Kwatha / Decoction</option><option>Asava-Arishta</option><option>Ghrita</option><option>Taila / Oil</option><option>Cream / Ointment / Gel</option><option>Drops</option><option>Inhalation / Nebulization</option><option>Other</option></select></div>
+<div><label>Dose</label><input id="medDose" placeholder="e.g. 1 tablet / 5 ml / 500 mg"></div>
+<div><label>Frequency</label><select id="medFrequency"><option>OD</option><option>BD</option><option>TDS</option><option>QID</option><option>HS</option><option>SOS</option><option>STAT</option><option>Weekly</option><option>As directed</option></select></div>
+</div>
+
+<div class="grid3">
+<div><label>Route</label><select id="medRoute"><option>Oral</option><option>IV</option><option>IM</option><option>SC</option><option>Local application</option><option>Inhalation</option><option>Nebulization</option><option>Nasal instillation</option><option>Eye instillation</option><option>Ear instillation</option><option>Rectal</option><option>Other</option></select></div>
+<div><label>Meal Timing</label><select id="medMeal"><option>After meal</option><option>Before meal</option><option>With meal</option><option>Empty stomach</option><option>At bedtime</option><option>As directed</option></select></div>
+<div><label>Duration</label><input id="medDuration" placeholder="e.g. 5 days / 1 month"></div>
+</div>
+
+<label>Anupana / Special Instructions</label>
+<textarea id="medInstruction" placeholder="e.g. with lukewarm water / local application twice daily"></textarea>
+<div class="actions"><button id="addMedicineBtn" class="secondary">＋ Add Medicine</button></div>
+<div id="medicineList"></div>
+</div>
+
+<div class="card">
+<h2>Advice</h2>
+<div class="grid">
+<div><label>Pathya</label><textarea id="pathya"></textarea></div>
+<div><label>Apathya</label><textarea id="apathya"></textarea></div>
+</div>
+<div class="grid">
+<div><label>Lifestyle / Yoga / Physiotherapy</label><textarea id="lifestyleAdvice"></textarea></div>
+<div><label>Precautions / Red Flag Advice</label><textarea id="precautionAdvice"></textarea></div>
+</div>
+<div class="grid3">
+<div><label>Follow-up Date</label><input id="followupDate" type="date"></div>
+<div><label>Follow-up Interval / Note</label><input id="followupNote" placeholder="e.g. after 7 days"></div>
+<div><label>Emergency Contact</label><input id="emergencyContact" value="8770143788, 7489818673"></div>
+</div>
+<label>Additional Prescription Notes</label><textarea id="prescriptionNotes"></textarea>
+<div class="actions">
+<button id="savePrescriptionBtn" class="primary">💾 Save Prescription</button>
+<button id="runSafetyBtn" class="warning">🛡 Run Safety Screening</button>
+<button id="goPreviewBtn" class="secondary">Next: Preview / PDF →</button>
+<button id="goRecordsBtn" class="secondary">Open Records</button>
+</div>
+</div>
+</section>
+
+
+
+<section id="safetySection" class="hidden">
+<div class="card">
+<h2>Patient Safety Profile</h2>
+<div class="notice"><b>Clinical decision support only:</b> यह rule set सीमित और educational है। Dose, contraindication और interaction को current product label, renal/hepatic parameters तथा patient context से verify करें।</div>
+
+<div class="grid3">
+<div><label>Pregnancy Status</label><select id="safetyPregnancy"><option>Not applicable / No</option><option>Pregnant — trimester unknown</option><option>First trimester</option><option>Second trimester</option><option>Third trimester</option><option>Planning pregnancy</option></select></div>
+<div><label>Lactation</label><select id="safetyLactation"><option>No / Not applicable</option><option>Breastfeeding</option></select></div>
+<div><label>eGFR (mL/min/1.73m²)</label><input id="safetyEgfr" type="number" min="0" placeholder="Optional"></div>
+</div>
+
+<div class="grid3">
+<div><label>Renal Status</label><select id="safetyRenal"><option>Normal / Unknown</option><option>CKD / Renal impairment</option><option>AKI suspected</option><option>Dialysis</option></select></div>
+<div><label>Hepatic Status</label><select id="safetyHepatic"><option>Normal / Unknown</option><option>Liver disease / elevated enzymes</option><option>Severe hepatic impairment</option></select></div>
+<div><label>Bleeding Risk</label><select id="safetyBleeding"><option>No known high risk</option><option>Peptic ulcer / GI bleed history</option><option>Anticoagulant therapy</option><option>Bleeding disorder / thrombocytopenia</option></select></div>
+</div>
+
+<div class="grid3">
+<div><label>Respiratory Disease</label><select id="safetyRespiratory"><option>None / Unknown</option><option>Asthma</option><option>Severe / uncontrolled asthma</option><option>COPD</option></select></div>
+<div><label>UTI / Genital Infection</label><select id="safetyUti"><option>No active/recurrent infection</option><option>Active UTI</option><option>Recurrent UTI</option><option>Recurrent genital fungal infection</option></select></div>
+<div><label>Dehydration / Volume Depletion</label><select id="safetyDehydration"><option>No / Unknown</option><option>Present / high risk</option></select></div>
+</div>
+
+<label>Known Drug Allergies</label>
+<input id="safetyAllergies" placeholder="e.g. penicillin, sulfonamide, NSAID — clinical allergy field is also checked">
+
+<label>Other Important Comorbidities</label>
+<textarea id="safetyComorbidities" placeholder="e.g. heart failure, glaucoma, BPH, arrhythmia, seizure disorder"></textarea>
+
+<div class="actions">
+<button id="saveSafetyProfileBtn" class="secondary">💾 Save Safety Profile</button>
+<button id="screenNowBtn" class="primary">🛡 Screen Current Medicines</button>
+<button id="backPrescriptionSafetyBtn" class="secondary">← Prescription</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Safety Screening Results</h2>
+<div class="safety-summary">
+<div class="safety-count safe-red"><div class="n" id="redCount">0</div><div class="t">High-priority alerts</div></div>
+<div class="safety-count safe-yellow"><div class="n" id="yellowCount">0</div><div class="t">Cautions / monitoring</div></div>
+<div class="safety-count safe-green"><div class="n" id="greenCount">0</div><div class="t">No rule triggered</div></div>
+</div>
+<div id="safetyResults"></div>
+</div>
+</section>
+
+<section id="previewSection" class="hidden">
+<div class="card no-print">
+<h2>Prescription Preview & Export</h2>
+<div class="actions preview-actions">
+<button id="printBtn" class="primary">🖨 Print / Save as PDF</button>
+<button id="downloadTxtBtn" class="secondary">⬇ Download Text Summary</button>
+<button id="shareBtn" class="success">📤 Share Prescription</button>
+<button id="backPrescriptionBtn" class="secondary">← Edit Prescription</button>
+</div>
+<div class="notice">Android Chrome में <b>Print / Save as PDF</b> दबाकर printer selection में <b>Save as PDF</b> चुनें। यही Hindi/Devanagari के लिए सबसे विश्वसनीय तरीका है।</div>
+</div>
+<div class="card">
+<div id="printSheet" class="print-sheet"></div>
+</div>
+</section>
+
+
+
+<section id="appointmentsSection" class="hidden">
+<div class="card">
+<h2>Appointment Calendar — Phase 1</h2>
+<div class="grid3">
+<div><label>Patient Name</label><input id="apptPatientName"></div>
+<div><label>Mobile</label><input id="apptMobile" inputmode="tel"></div>
+<div><label>Appointment Type</label><select id="apptType"><option>New Consultation</option><option>Follow-up</option><option>Walk-in</option><option>Emergency</option><option>Panchakarma</option><option>Procedure</option></select></div>
+</div>
+<div class="grid3">
+<div><label>Date</label><input id="apptDate" type="date"></div>
+<div><label>Time</label><input id="apptTime" type="time"></div>
+<div><label>Status</label><select id="apptStatus"><option>Scheduled</option><option>Confirmed</option><option>Arrived</option><option>Completed</option><option>Cancelled</option><option>No-show</option></select></div>
+</div>
+<label>Reason / Notes</label><textarea id="apptNotes"></textarea>
+<div class="actions">
+<button id="addAppointmentBtn" class="primary">＋ Add Appointment</button>
+<button id="loadCurrentPatientApptBtn" class="secondary">Use Current Patient</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Upcoming Appointments</h2>
+<div class="grid">
+<div><label>From Date</label><input id="apptFilterFrom" type="date"></div>
+<div><label>Search Name / Mobile</label><input id="apptSearch"></div>
+</div>
+<div id="appointmentList"></div>
+</div>
+
+<div class="card">
+<h2>7-Day Calendar</h2>
+<div id="appointmentCalendar" class="appointment-grid"></div>
+</div>
+</section>
+
+<section id="billingSection" class="hidden">
+<div class="card">
+<h2>Billing & Receipt — Phase 1</h2>
+<div class="grid3">
+<div><label>Receipt No.</label><input id="receiptNo" readonly></div>
+<div><label>Billing Date</label><input id="billingDate" type="date"></div>
+<div><label>Payment Mode</label><select id="paymentMode"><option>Cash</option><option>UPI</option><option>Card</option><option>Bank Transfer</option><option>Credit / Pending</option></select></div>
+</div>
+
+<div class="grid3">
+<div><label>Patient Name</label><input id="billingPatientName"></div>
+<div><label>Mobile</label><input id="billingMobile"></div>
+<div><label>UHID</label><input id="billingUhid"></div>
+</div>
+
+<h3>Add Billing Item</h3>
+<div class="grid3">
+<div><label>Service / Item</label><select id="billItemName">
+<option>Consultation Fee</option><option>Follow-up Consultation</option><option>Panchakarma Procedure</option><option>Kati Basti</option><option>Janu Basti</option><option>Greeva Basti</option><option>Shirodhara</option><option>Nasya</option><option>Basti Procedure</option><option>Raktamokshana</option><option>Agnikarma / Viddhakarma</option><option>Medicine / Pharmacy</option><option>Investigation Charge</option><option>Other</option>
+</select></div>
+<div><label>Quantity</label><input id="billQty" type="number" step="1" min="1" value="1"></div>
+<div><label>Rate ₹</label><input id="billRate" type="number" step="0.01" min="0"></div>
+</div>
+<div class="grid">
+<div><label>Description / Custom Item</label><input id="billDescription"></div>
+<div><label>Tax % (optional)</label><input id="billTax" type="number" step="0.01" value="0"></div>
+</div>
+<div class="actions"><button id="addBillItemBtn" class="secondary">＋ Add Item</button></div>
+
+<div id="billItemsList"></div>
+
+<div class="grid3">
+<div><label>Discount ₹</label><input id="billDiscount" type="number" step="0.01" value="0"></div>
+<div><label>Amount Paid ₹</label><input id="billPaid" type="number" step="0.01" value="0"></div>
+<div><label>Payment Status</label><select id="billStatus"><option>Paid</option><option>Partially Paid</option><option>Pending</option></select></div>
+</div>
+<div class="bill-total">Grand Total: ₹<span id="billGrandTotal">0.00</span></div>
+<div class="actions">
+<button id="saveBillBtn" class="primary">💾 Save Bill</button>
+<button id="printReceiptBtn" class="secondary">🖨 Print Receipt</button>
+<button id="newBillBtn" class="secondary">＋ New Bill</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Receipt Preview</h2>
+<div id="receiptPreview" class="receipt-box"></div>
+</div>
+
+<div class="card">
+<h2>Recent Bills</h2>
+<div id="recentBillsList"></div>
+</div>
+</section>
+
+
+<section id="pharmacySection" class="hidden">
+<div class="card">
+<h2>Pharmacy & Inventory Dashboard</h2>
+<div class="inventory-grid">
+<div class="inventory-stat"><div class="n" id="inventoryTotalItems">0</div><div>Total items</div></div>
+<div class="inventory-stat"><div class="n" id="inventoryLowStock">0</div><div>Low stock</div></div>
+<div class="inventory-stat"><div class="n" id="inventoryExpiring">0</div><div>Expiring ≤90 days</div></div>
+<div class="inventory-stat"><div class="n" id="inventoryExpired">0</div><div>Expired</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Add / Update Inventory Item</h2>
+<div class="grid3">
+<div><label>Generic / Main Name *</label><input id="invGeneric"></div>
+<div><label>Brand / Product Name</label><input id="invBrand"></div>
+<div><label>Category</label><select id="invCategory">
+<option>Tablet</option><option>Capsule</option><option>Syrup</option><option>Injection</option><option>IV Fluid</option><option>Churna</option><option>Vati</option><option>Guggulu</option><option>Bhasma</option><option>Rasoushadhi</option><option>Kwatha</option><option>Asava-Arishta</option><option>Ghrita</option><option>Taila / Panchakarma Oil</option><option>Cream / Ointment</option><option>Surgical Consumable</option><option>Other</option>
+</select></div>
+</div>
+
+<div class="grid3">
+<div><label>Strength / Composition</label><input id="invStrength"></div>
+<div><label>Company / Manufacturer</label><input id="invCompany"></div>
+<div><label>Dosage Form / Pack</label><input id="invPack" placeholder="e.g. strip of 10 / 100 ml bottle"></div>
+</div>
+
+<div class="grid3">
+<div><label>Batch Number</label><input id="invBatch"></div>
+<div><label>Manufacturing Date</label><input id="invMfg" type="date"></div>
+<div><label>Expiry Date *</label><input id="invExpiry" type="date"></div>
+</div>
+
+<div class="grid3">
+<div><label>Purchase Price ₹</label><input id="invPurchase" type="number" step="0.01" min="0"></div>
+<div><label>Selling Price ₹</label><input id="invSelling" type="number" step="0.01" min="0"></div>
+<div><label>HSN / Tax %</label><input id="invTaxInfo" placeholder="Optional"></div>
+</div>
+
+<div class="grid3">
+<div><label>Current Stock *</label><input id="invStock" type="number" step="1" min="0"></div>
+<div><label>Minimum Stock</label><input id="invMinStock" type="number" step="1" min="0" value="5"></div>
+<div><label>Storage Location</label><input id="invLocation" placeholder="Rack / shelf / room"></div>
+</div>
+
+<label>Notes</label><textarea id="invNotes"></textarea>
+<input id="invEditId" type="hidden">
+<div class="actions">
+<button id="saveInventoryItemBtn" class="primary">💾 Save Inventory Item</button>
+<button id="clearInventoryFormBtn" class="secondary">Clear Form</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Inventory List</h2>
+<div class="grid">
+<div><label>Search medicine / batch / company</label><input id="inventorySearch"></div>
+<div><label>Filter</label><select id="inventoryFilter"><option>All</option><option>Low Stock</option><option>Expiring ≤90 days</option><option>Expired</option><option>In Stock</option></select></div>
+</div>
+<div id="inventoryList"></div>
+</div>
+
+<div class="card">
+<h2>Dispense Medicine</h2>
+<div class="dispense-row">
+<div><label>Select Inventory Item</label><select id="dispenseItem"></select></div>
+<div><label>Quantity</label><input id="dispenseQty" type="number" min="1" step="1" value="1"></div>
+<div><label>Patient / UHID</label><input id="dispensePatient"></div>
+<div><button id="dispenseBtn" class="primary">Dispense</button></div>
+</div>
+<div class="notice">Expired items cannot be dispensed. Low-stock and expiry warnings will be shown before dispensing.</div>
+</div>
+
+<div class="card">
+<h2>Recent Dispensing Log</h2>
+<div id="dispenseLog"></div>
+</div>
+</section>
+
+
+<section id="labMgmtSection" class="hidden">
+<div class="card">
+<h2>Laboratory Dashboard</h2>
+<div class="labmgmt-grid">
+<div class="labstat"><div class="n" id="labTotalOrders">0</div><div>Total Orders</div></div>
+<div class="labstat"><div class="n" id="labPendingOrders">0</div><div>Pending Samples/Reports</div></div>
+<div class="labstat"><div class="n" id="labCompletedOrders">0</div><div>Completed Reports</div></div>
+<div class="labstat"><div class="n" id="labCriticalOrders">0</div><div>Critical Flags</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Create Lab Order</h2>
+<div class="grid3">
+<div><label>Patient Name *</label><input id="labOrderPatient"></div>
+<div><label>UHID</label><input id="labOrderUhid"></div>
+<div><label>Mobile</label><input id="labOrderMobile"></div>
+</div>
+<div class="grid3">
+<div><label>Order Date</label><input id="labOrderDate" type="date"></div>
+<div><label>Priority</label><select id="labOrderPriority"><option>Routine</option><option>Urgent</option><option>Emergency</option><option>Follow-up</option></select></div>
+<div><label>Sample Type</label><select id="labOrderSample"><option>Blood</option><option>Urine</option><option>Stool</option><option>Sputum</option><option>Semen</option><option>Swab</option><option>Other</option></select></div>
+</div>
+<div class="grid">
+<div><label>Test / Profile *</label><input id="labOrderTest" list="labOrderTestList"></div>
+<div><label>Status</label><select id="labOrderStatus"><option>Ordered</option><option>Sample Collected</option><option>In Process</option><option>Report Ready</option><option>Completed</option><option>Cancelled</option></select></div>
+</div>
+<label>Clinical Indication / Notes</label><textarea id="labOrderNotes"></textarea>
+<datalist id="labOrderTestList">
+<option>CBC</option><option>ESR</option><option>CRP</option><option>FBS</option><option>PPBS</option><option>HbA1c</option><option>LFT</option><option>RFT/KFT</option><option>Lipid Profile</option><option>Thyroid Profile</option><option>Iron Profile</option><option>Vitamin B12</option><option>Vitamin D</option><option>Urine R/M</option><option>Urine Culture</option><option>Stool R/M</option><option>Semen Analysis</option><option>Coagulation Profile</option>
+</datalist>
+<div class="actions">
+<button id="createLabOrderBtn" class="primary">＋ Create Lab Order</button>
+<button id="useCurrentPatientLabBtn" class="secondary">Use Current Patient</button>
+<button id="importAdvisedTestsBtn" class="secondary">Import Advised Tests</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Lab Orders</h2>
+<div class="grid3">
+<div><label>Search Patient / Test</label><input id="labOrderSearch"></div>
+<div><label>Status Filter</label><select id="labOrderFilter"><option>All</option><option>Ordered</option><option>Sample Collected</option><option>In Process</option><option>Report Ready</option><option>Completed</option><option>Critical</option></select></div>
+<div><label>From Date</label><input id="labOrderFrom" type="date"></div>
+</div>
+<div id="labOrderList"></div>
+</div>
+
+<div class="card">
+<h2>Result Entry & Report</h2>
+<input id="activeLabOrderId" type="hidden">
+<div class="grid3">
+<div><label>Selected Order</label><input id="selectedLabOrder" readonly></div>
+<div><label>Report Date</label><input id="labReportDate" type="date"></div>
+<div><label>Final Status</label><select id="labReportStatus"><option>Report Ready</option><option>Completed</option><option>Critical</option></select></div>
+</div>
+<label>Result / Values</label><textarea id="labReportResult" placeholder="Enter structured values or paste concise report result"></textarea>
+<label>Interpretation / Impression</label><textarea id="labReportInterpretation"></textarea>
+<div class="grid">
+<div><label>Critical Flag</label><select id="labCriticalFlag"><option>No critical flag</option><option>Critical value — doctor notified</option><option>Urgent review required</option></select></div>
+<div><label>Reported By</label><input id="labReportedBy"></div>
+</div>
+<div class="actions">
+<button id="saveLabReportBtn" class="primary">💾 Save Lab Report</button>
+<button id="sendToCBCBtn" class="secondary">🩸 Open CBC Interpreter</button>
+<button id="sendToLabProfilesBtn" class="secondary">🧪 Open Lab Profiles</button>
+<button id="printLabReportBtn" class="secondary">🖨 Print Report</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Lab Report Preview</h2>
+<div id="labReportPreview" class="lab-report"><div class="notice">Select a lab order to view report preview.</div></div>
+</div>
+</section>
+
+
+<section id="imagingSection" class="hidden">
+<div class="card">
+<h2>Imaging Dashboard</h2>
+<div class="imaging-grid">
+<div class="imaging-stat"><div class="n" id="imgTotal">0</div><div>Total Studies</div></div>
+<div class="imaging-stat"><div class="n" id="imgMRI">0</div><div>MRI</div></div>
+<div class="imaging-stat"><div class="n" id="imgXray">0</div><div>X-ray</div></div>
+<div class="imaging-stat"><div class="n" id="imgCritical">0</div><div>Critical / Red Flag</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Add Imaging Study</h2>
+<div class="grid3">
+<div><label>Patient Name *</label><input id="imgPatient"></div>
+<div><label>UHID</label><input id="imgUhid"></div>
+<div><label>Mobile</label><input id="imgMobile"></div>
+</div>
+
+<div class="grid3">
+<div><label>Study Type</label><select id="imgType"><option>MRI</option><option>X-ray</option><option>CT Scan</option><option>Ultrasound</option><option>ECG</option><option>Clinical Photo</option><option>Other</option></select></div>
+<div><label>Body Part</label><select id="imgBodyPart"><option>Lumbar Spine</option><option>Cervical Spine</option><option>Thoracic Spine</option><option>Sacroiliac Joint</option><option>Hip</option><option>Knee</option><option>Shoulder</option><option>Elbow</option><option>Wrist</option><option>Ankle</option><option>Foot</option><option>Brain</option><option>Chest</option><option>Abdomen</option><option>Pelvis</option><option>Other</option></select></div>
+<div><label>Side</label><select id="imgSide"><option>Not applicable</option><option>Right</option><option>Left</option><option>Bilateral</option></select></div>
+</div>
+
+<div class="grid3">
+<div><label>Study Date</label><input id="imgDate" type="date"></div>
+<div><label>Hospital / Imaging Centre</label><input id="imgCentre"></div>
+<div><label>Reporting Doctor</label><input id="imgDoctor"></div>
+</div>
+
+<h3>Structured Spine Findings</h3>
+<div class="checkgrid" id="imgFindingChecks"></div>
+
+<div class="grid3">
+<div><label>Level</label><select id="imgLevel"><option value=""></option><option>C2-C3</option><option>C3-C4</option><option>C4-C5</option><option>C5-C6</option><option>C6-C7</option><option>T12-L1</option><option>L1-L2</option><option>L2-L3</option><option>L3-L4</option><option>L4-L5</option><option>L5-S1</option><option>Multiple Levels</option></select></div>
+<div><label>Severity</label><select id="imgSeverity"><option value=""></option><option>Mild</option><option>Moderate</option><option>Severe</option></select></div>
+<div><label>Nerve Root / Cord</label><input id="imgRoot" placeholder="e.g. Left L5 root compression"></div>
+</div>
+
+<label>Detailed Findings</label><textarea id="imgFindings" placeholder="Enter concise structured findings from the radiology report"></textarea>
+<label>Impression</label><textarea id="imgImpression"></textarea>
+<label>Clinical Correlation</label><textarea id="imgClinicalCorrelation" placeholder="e.g. correlate with SLR, motor power, sensory deficit"></textarea>
+
+<div class="grid3">
+<div><label>Red Flag</label><select id="imgRedFlag"><option>No red flag</option><option>Urgent neurological review</option><option>Possible cord compression</option><option>Possible cauda equina / severe canal compromise</option><option>Fracture / destructive lesion</option><option>Other urgent finding</option></select></div>
+<div><label>Comparison</label><select id="imgComparison"><option>Baseline / First study</option><option>Improved</option><option>Stable</option><option>Worsened</option><option>Not compared</option></select></div>
+<div><label>Status</label><select id="imgStatus"><option>Report available</option><option>Images available</option><option>Report + Images available</option><option>Pending review</option></select></div>
+</div>
+
+<label>File Reference / Link / Filename</label><input id="imgFileRef" placeholder="Optional filename or cloud link reference">
+
+<div class="actions">
+<button id="saveImagingBtn" class="primary">💾 Save Imaging Study</button>
+<button id="useCurrentPatientImgBtn" class="secondary">Use Current Patient</button>
+<button id="clearImagingBtn" class="secondary">Clear Form</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Imaging Archive</h2>
+<div class="grid3">
+<div><label>Search Patient / Body Part / Finding</label><input id="imgSearch"></div>
+<div><label>Study Filter</label><select id="imgFilter"><option>All</option><option>MRI</option><option>X-ray</option><option>CT Scan</option><option>Ultrasound</option><option>ECG</option><option>Critical / Red Flag</option></select></div>
+<div><label>From Date</label><input id="imgFromDate" type="date"></div>
+</div>
+<div id="imagingList"></div>
+</div>
+
+<div class="card">
+<h2>Imaging Report Preview</h2>
+<div id="imagingPreview" class="imaging-report"><div class="notice">Select or save an imaging study to preview.</div></div>
+<div class="actions">
+<button id="printImagingBtn" class="secondary">🖨 Print Imaging Summary</button>
+<button id="sendToPatientInvestigationsBtn" class="secondary">＋ Add to Patient Investigations</button>
+</div>
+</div>
+</section>
+
+
+<section id="knowledgeSection" class="hidden">
+<div class="card">
+<h2>SKMCIS Disease Knowledge Base</h2>
+<div class="notice"><b>Phase 1:</b> पहला structured disease master record जोड़ा गया है। यह clinical decision support और documentation template है; अंतिम diagnosis और management clinician का निर्णय रहेगा।</div>
+<div class="grid">
+<div><label>Search Disease / Symptom / Ayurveda Term</label><input id="kbSearch" placeholder="e.g. sciatica, Gridhrasi, radiculopathy"></div>
+<div><label>Knowledge Category</label><select id="kbCategory"><option>All</option><option>Spine & Orthopedic</option><option>Neurology</option><option>Ayurveda</option></select></div>
+</div>
+</div>
+
+<div class="kb-layout">
+<div class="kb-menu card">
+<h3>Disease Records</h3>
+<div id="kbDiseaseList"></div>
+</div>
+
+<div class="kb-content card">
+<div id="kbDiseaseContent"></div>
+</div>
+</div>
+</section>
+
+<section id="settingsSection" class="hidden">
+<div class="card">
+<h2>Local Security & Roles</h2>
+<div class="notice">
+यह PIN app को इसी browser/device पर सामान्य unauthorized access से बचाता है। Sensitive clinical deployment के लिए server authentication, encryption-at-rest, user accounts और legal compliance अलग से आवश्यक होंगे।
+</div>
+<div class="settings-grid">
+<div>
+<label>Doctor PIN</label>
+<input id="doctorPinSetting" type="password" inputmode="numeric" maxlength="12">
+</div>
+<div>
+<label>Reception PIN</label>
+<input id="receptionPinSetting" type="password" inputmode="numeric" maxlength="12">
+</div>
+</div>
+<div class="actions">
+<button id="savePinsBtn" class="primary">💾 Save PINs</button>
+<button id="lockFromSettingsBtn" class="secondary">🔒 Lock Now</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Full Backup & Restore</h2>
+<div class="notice">Backup में इस app के सभी SKM patient records, settings और audit entries JSON file में export होंगे। File को सुरक्षित स्थान पर रखें।</div>
+<div class="actions">
+<button id="exportFullBackupBtn" class="primary">⬇ Export Full Backup</button>
+<label class="btn secondary">⬆ Restore Backup
+<input id="restoreBackupInput" type="file" accept=".json,application/json" hidden>
+</label>
+<button id="clearAuditBtn" class="danger">Clear Audit Log</button>
+</div>
+<div id="backupStatus" class="backup-status">No backup action yet.</div>
+</div>
+
+<div class="card">
+<h2>Audit Log</h2>
+<div class="actions">
+<button id="refreshAuditBtn" class="secondary">Refresh</button>
+</div>
+<div id="auditList"></div>
+</div>
+</section>
+
+<section id="recordsSection" class="hidden">
+<div class="card"><h2>Saved Patient Records</h2><label>Search Name, Mobile, UHID, Complaint, Investigation or Dosha</label><input id="search" placeholder="Type to search"><div id="recordsList"></div></div>
+</section>
+</main>
+
+<script>
+(function(){
+'use strict';
+const PREFIX='skm-emr-v12:';
+let current=null;
+
+const complaintList=['','Low Back Pain','Neck Pain','Knee Pain','Chest Pain','Breathlessness','Fever','Headache','Abdominal Pain','Dysuria','Leucorrhoea','Cough','Vertigo','Vomiting','Shoulder Pain','Sciatica','Plantar Heel Pain','Other'];
+const complaintRules={'Low Back Pain':{red:['Bladder dysfunction','Bowel dysfunction','Saddle anaesthesia','Progressive weakness','Fever','Recent significant trauma','Unexplained weight loss','History of cancer'],exam:['SLR','Cross SLR','Motor power','Sensory examination','Knee/ankle reflex','FABER','Spine ROM'],inv:['X-ray lumbosacral spine','MRI lumbar spine if neurological deficit/red flag','CBC/ESR/CRP if infection suspected'],dx:['Mechanical low back pain','Lumbar radiculopathy / sciatica','Disc prolapse','SI joint dysfunction','Piriformis syndrome']},'Chest Pain':{red:['Severe ongoing pain','Radiation to arm/jaw','Sweating','Syncope','Breathlessness','Hypotension'],exam:['Vitals','CVS examination','Respiratory examination','Peripheral pulses'],inv:['12-lead ECG','Troponin','Chest X-ray','Blood glucose'],dx:['Acute coronary syndrome—must exclude','Musculoskeletal chest pain','GERD','Pleuritic pain']},'Fever':{red:['Altered sensorium','Hypotension','Respiratory distress','Neck stiffness','Seizure','Persistent vomiting'],exam:['Vitals','Hydration','Rash','Lymph nodes','Respiratory exam','Abdominal exam'],inv:['CBC','Urine routine','CRP/ESR','Malaria/dengue/typhoid tests as indicated'],dx:['Viral febrile illness','Bacterial infection','UTI','Respiratory infection']}};
+
+const generalFindingNames=['Pallor','Icterus','Cyanosis','Clubbing','Lymphadenopathy','Pedal Oedema','Generalized Oedema','Dehydration','Respiratory Distress','Abnormal Gait'];
+const doshas=['Vata','Pitta','Kapha'];
+const subtypes=['Prana Vata','Udana Vata','Vyana Vata','Samana Vata','Apana Vata','Pachaka Pitta','Ranjaka Pitta','Sadhaka Pitta','Alochaka Pitta','Bhrajaka Pitta','Kledaka Kapha','Avalambaka Kapha','Bodhaka Kapha','Tarpaka Kapha','Shleshaka Kapha'];
+const gunas=['Ruksha','Laghu','Sheeta','Khara','Sukshma','Chala','Sasneha','Tikshna','Ushna','Visra','Sara','Drava','Guru','Mridu','Snigdha','Madhura','Sthira','Picchila'];
+const srotas=['Pranavaha','Udakavaha','Annavaha','Rasavaha','Raktavaha','Mamsavaha','Medovaha','Asthivaha','Majjavaha','Shukravaha/Artavavaha','Mutravaha','Purishavaha','Swedavaha','Manovaha'];
+
+const $=id=>document.getElementById(id);
+const val=id=>($(id)?.value||'').trim();
+const set=(id,v)=>{if($(id))$(id).value=v??''};
+const today=()=>new Date().toISOString().slice(0,10);
+const makeId=()=> 'VIS-'+Date.now().toString(36).toUpperCase()+'-'+Math.random().toString(36).slice(2,6).toUpperCase();
+const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice(-7);
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
+function key(id){return PREFIX+id}
+function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},labProfiles:{mode:'diabetes',values:{},results:[],summary:''},updatedAt:new Date().toISOString()}}
+function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;if(!r.labProfiles)r.labProfiles=b.labProfiles;return r}
+function save(r){r.updatedAt=new Date().toISOString();localStorage.setItem(key(r.id),JSON.stringify(r))}
+function all(){const a=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX)){try{a.push(JSON.parse(localStorage.getItem(k)))}catch(e){}}}return a.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))}
+function remove(id){localStorage.removeItem(key(id))}
+function selected(name){return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(x=>x.value)}
+function restore(name,arr=[]){document.querySelectorAll(`input[name="${name}"]`).forEach(x=>x.checked=arr.includes(x.value))}
+function calcBMI(){const h=Number(val('height')),w=Number(val('weight'));set('bmi',h>0&&w>0?(w/((h/100)**2)).toFixed(1):'')}
+function readPatient(){calcBMI();current.visitDate=val('visitDate');current.visitType=val('visitType');current.patient={name:val('name'),age:val('age'),sex:val('sex'),mobile:val('mobile'),height:val('height'),weight:val('weight'),bmi:val('bmi'),address:val('address')}}
+function readComplaint(){current.complaint={primary:val('primaryComplaint'),duration:val('complaintDuration'),severity:val('complaintSeverity'),onset:val('complaintOnset'),progression:val('complaintProgression'),character:val('complaintCharacter'),aggravating:val('aggravating'),relieving:val('relieving'),redFlags:selected('redFlag'),notes:val('complaintNotes')}}
+function readClinical(){current.clinical={chiefComplaints:val('chiefComplaints'),duration:val('duration'),onset:val('onset'),hpi:val('hpi'),pastHistory:val('pastHistory'),currentMedicines:val('currentMedicines'),allergy:val('allergy'),familyHistory:val('familyHistory'),bp:val('bp'),pulse:val('pulse'),spo2:val('spo2'),temp:val('temp'),rr:val('rr'),pain:val('pain'),clinicalNotes:val('clinicalNotes')}}
+function readExam(){const findings={};generalFindingNames.forEach((name,i)=>findings[name]={status:val('fs'+i),grade:val('fg'+i),remarks:val('fr'+i)});current.exam={findings,build:val('build'),nutrition:val('nutrition'),gait:val('gait'),examNotes:val('examNotes')}}
+function readSystemic(){current.systemic={cvsNotes:val('cvsNotes'),rsNotes:val('rsNotes'),abdNotes:val('abdNotes'),cnsNotes:val('cnsNotes'),systemicNotes:val('systemicNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+
+function readPrescription(){
+current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
+current.prescription.differentialDiagnosis=val('differentialDiagnosis');
+current.prescription.finalDiagnosis=val('finalDiagnosis');
+current.prescription.pathya=val('pathya');
+current.prescription.apathya=val('apathya');
+current.prescription.lifestyleAdvice=val('lifestyleAdvice');
+current.prescription.precautionAdvice=val('precautionAdvice');
+current.prescription.followupDate=val('followupDate');
+current.prescription.followupNote=val('followupNote');
+current.prescription.emergencyContact=val('emergencyContact');
+current.prescription.notes=val('prescriptionNotes');
+}
+
+
+function renderChecks(container,name,items){$(container).innerHTML=items.map(x=>`<label class="check"><input type="checkbox" name="${name}" value="${esc(x)}">${esc(x)}</label>`).join('')}
+function renderComplaintOptions(){$('primaryComplaint').innerHTML=complaintList.map(x=>`<option>${esc(x)}</option>`).join('')}
+function updateComplaintWorkflow(){const d=complaintRules[val('primaryComplaint')];if(!d){$('redFlags').innerHTML='<div class="notice">No predefined red flags.</div>';$('suggestedExam').innerHTML='<span class="pill">Focused examination</span>';$('suggestedInv').innerHTML='<span class="pill">Tests as clinically indicated</span>';$('suggestedDx').innerHTML='<span class="pill">Doctor-defined differentials</span>';return}const sel=new Set(current?.complaint?.redFlags||[]);$('redFlags').innerHTML=d.red.map(x=>`<label class="check"><input type="checkbox" name="redFlag" value="${esc(x)}" ${sel.has(x)?'checked':''}>${esc(x)}</label>`).join('');$('suggestedExam').innerHTML=d.exam.map(x=>`<span class="pill">${esc(x)}</span>`).join('');$('suggestedInv').innerHTML=d.inv.map(x=>`<span class="pill">${esc(x)}</span>`).join('');$('suggestedDx').innerHTML=d.dx.map((x,i)=>`<span class="pill">${i+1}. ${esc(x)}</span>`).join('');updateRedFlagAlert()}
+function updateRedFlagAlert(){const n=selected('redFlag').length;$('redFlagAlert').className='alert '+(n?'alert-red':'alert-green');$('redFlagAlert').textContent=n?`🚨 ${n} red flag(s) selected.`:'No red flag selected.'}
+function renderGeneralRows(){$('findings').innerHTML=generalFindingNames.map((n,i)=>`<div class="finding-row"><div class="finding-name">${esc(n)}</div><div><label>Status</label><select id="fs${i}"><option value=""></option><option>Absent</option><option>Present</option><option>Not assessed</option></select></div><div><label>Grade</label><select id="fg${i}"><option value=""></option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>Mild</option><option>Moderate</option><option>Severe</option></select></div><div><label>Site / Remarks</label><input id="fr${i}"></div></div>`).join('')}
+function renderInvestigations(){$('previousList').innerHTML=current.investigations.previous.map((x,i)=>`<div class="item"><b>${esc(x.category)} — ${esc(x.test)}</b><div class="small">${esc(x.date||'')} • ${esc(x.result||'')}</div><button class="danger" data-previdx="${i}">Remove</button></div>`).join('')||'<div class="notice">No previous reports.</div>';$('advisedList').innerHTML=current.investigations.advised.map((x,i)=>`<div class="item"><b>${esc(x.category)} — ${esc(x.test)}</b><div class="small">${esc(x.priority||'')} • ${esc(x.note||'')}</div><button class="danger" data-advidx="${i}">Remove</button></div>`).join('')||'<div class="notice">No advised tests.</div>'}
+
+function renderMedicines(){
+$('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div class="item">
+<b>${esc(m.name)}</b> ${m.strength?`— ${esc(m.strength)}`:''}
+<div class="small">${esc(m.system)} • ${esc(m.form)} • ${esc(m.dose)} ${esc(m.frequency)} • ${esc(m.route)} • ${esc(m.meal)} • ${esc(m.duration)}</div>
+<div class="small">${esc(m.instruction||'')}</div>
+<div class="actions"><button class="danger" data-medidx="${i}">Remove</button></div>
+</div>`).join('')||'<div class="notice">No medicines added.</div>';
+}
+
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);
+const p=r.prescription;
+set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
+set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
+set('followupDate',p.followupDate);set('followupNote',p.followupNote);set('emergencyContact',p.emergencyContact);set('prescriptionNotes',p.notes);
+updateComplaintWorkflow();renderInvestigations();renderMedicines();populateFollowup();populateSafetyProfile();populateCBC();populateLabProfiles();showPatient()}
+
+
+
+
+function nval(id){
+const x=Number(val(id));
+return Number.isFinite(x)?x:null;
+}
+function readCBC(){
+current.cbc={
+date:val('cbcDate'),group:val('cbcGroup'),
+hb:val('cbcHb'),rbc:val('cbcRbc'),pcv:val('cbcPcv'),mcv:val('cbcMcv'),mch:val('cbcMch'),
+mchc:val('cbcMchc'),rdw:val('cbcRdw'),retic:val('cbcRetic'),tlc:val('cbcTlc'),
+neut:val('cbcNeut'),lymph:val('cbcLymph'),mono:val('cbcMono'),eos:val('cbcEos'),
+baso:val('cbcBaso'),anc:val('cbcAnc'),aec:val('cbcAec'),platelet:val('cbcPlatelet'),
+esr:val('cbcEsr'),smear:val('cbcSmear'),labFlag:val('cbcLabFlag'),labNotes:val('cbcLabNotes'),
+interpretation:current.cbc?.interpretation||[],nextSteps:current.cbc?.nextSteps||[],summary:current.cbc?.summary||''
+};
+}
+function populateCBC(){
+const c=current.cbc||{};
+const map={cbcDate:'date',cbcGroup:'group',cbcHb:'hb',cbcRbc:'rbc',cbcPcv:'pcv',cbcMcv:'mcv',
+cbcMch:'mch',cbcMchc:'mchc',cbcRdw:'rdw',cbcRetic:'retic',cbcTlc:'tlc',
+cbcNeut:'neut',cbcLymph:'lymph',cbcMono:'mono',cbcEos:'eos',cbcBaso:'baso',
+cbcAnc:'anc',cbcAec:'aec',cbcPlatelet:'platelet',cbcEsr:'esr',cbcSmear:'smear',
+cbcLabFlag:'labFlag',cbcLabNotes:'labNotes'};
+Object.entries(map).forEach(([id,k])=>set(id,c[k]));
+renderCBC(c.interpretation||[],c.nextSteps||[]);
+}
+function addCBCResult(arr,level,title,message){
+arr.push({level,title,message});
+}
+function interpretCBC(){
+readCBC();
+const c=current.cbc, results=[], next=new Set();
+const hb=Number(c.hb),mcv=Number(c.mcv),mchc=Number(c.mchc),rdw=Number(c.rdw);
+const tlc=Number(c.tlc),neut=Number(c.neut),lymph=Number(c.lymph),eos=Number(c.eos);
+const anc=Number(c.anc),aec=Number(c.aec),plt=Number(c.platelet),esr=Number(c.esr);
+const valid=x=>Number.isFinite(x)&&x>=0;
+
+if(c.group.includes('Pediatric')){
+ addCBCResult(results,'yellow','Pediatric interpretation limited','Age-specific pediatric reference intervals are required. Use the laboratory’s pediatric ranges and clinical assessment.');
+}else if(valid(hb)){
+ let cutoff=13;
+ if(c.group.includes('Female'))cutoff=12;
+ if(c.group.includes('Pregnant'))cutoff=11;
+ if(hb>=cutoff)addCBCResult(results,'green','Hemoglobin not below configured screening cutoff',`Hb ${hb} g/dL; verify the laboratory and population-specific reference range.`);
+ else{
+   let severity='Anaemia';
+   if(hb<8)severity='Severe anaemia';
+   else if(hb<11)severity='Moderate anaemia';
+   else severity='Mild anaemia';
+   addCBCResult(results,hb<8?'red':'yellow',severity,`Hb ${hb} g/dL is below the configured ${c.group} screening cutoff.`);
+   next.add('Peripheral smear');next.add('Ferritin and iron profile');
+   if(valid(mcv)&&mcv>=100){next.add('Vitamin B12 and folate');}
+   if(valid(mcv)&&mcv>=80&&mcv<100){next.add('Reticulocyte count, renal function and inflammation assessment as indicated');}
+ }
+}else addCBCResult(results,'blue','Hemoglobin not entered','Enter Hb for anaemia screening.');
+
+if(valid(mcv)){
+ if(mcv<80){addCBCResult(results,'yellow','Microcytic red-cell pattern',`MCV ${mcv} fL. Consider iron deficiency, thalassaemia trait or chronic disease according to history and smear.`);next.add('Ferritin and iron profile');next.add('Peripheral smear');}
+ else if(mcv>=100){addCBCResult(results,'yellow','Macrocytic red-cell pattern',`MCV ${mcv} fL. Consider B12/folate deficiency, liver/thyroid disease, alcohol or medicines.`);next.add('Vitamin B12 and folate');next.add('LFT and thyroid profile as indicated');}
+ else addCBCResult(results,'green','Normocytic MCV pattern',`MCV ${mcv} fL. A normal MCV does not exclude anaemia or mixed deficiency.`);
+}
+if(valid(mchc)&&mchc<32)addCBCResult(results,'yellow','Low MCHC / hypochromic tendency',`MCHC ${mchc} g/dL; correlate with MCV, smear and iron profile.`);
+if(valid(rdw)&&rdw>15){addCBCResult(results,'yellow','Raised RDW',`RDW ${rdw}%. Anisocytosis or evolving/mixed deficiency may be present; use the laboratory range.`);next.add('Peripheral smear');}
+
+if(valid(tlc)){
+ if(tlc<4500){addCBCResult(results,tlc<2000?'red':'yellow','Leukopenia',`TLC ${tlc}/µL. Review medicines, viral illness, marrow suppression and clinical severity.`);next.add('Repeat CBC with smear / differential as clinically indicated');}
+ else if(tlc>11000){addCBCResult(results,tlc>30000?'red':'yellow','Leukocytosis',`TLC ${tlc}/µL. Infection, inflammation, stress, medicines and hematologic causes require correlation.`);next.add('Clinical infection assessment and peripheral smear if persistent/marked');}
+ else addCBCResult(results,'green','TLC within common adult interval',`TLC ${tlc}/µL; use the laboratory reference range.`);
+}
+if(valid(anc)){
+ if(anc<500)addCBCResult(results,'red','Severe neutropenia',`ANC ${anc}/µL. Fever or infection symptoms require urgent assessment.`);
+ else if(anc<1500)addCBCResult(results,'yellow','Neutropenia',`ANC ${anc}/µL. Review clinical context, medicines and repeat/confirm.`);
+}else if(valid(tlc)&&valid(neut)){
+ const calc=Math.round(tlc*neut/100);
+ if(calc<1500)addCBCResult(results,calc<500?'red':'yellow','Calculated low ANC',`Estimated ANC ≈ ${calc}/µL from TLC × neutrophil %. Confirm with laboratory absolute count.`);
+}
+if(valid(neut)&&neut>75)addCBCResult(results,'yellow','Relative neutrophilia',`Neutrophils ${neut}%. This is not specific for bacterial infection; interpret with absolute count and clinical findings.`);
+if(valid(lymph)&&lymph>45)addCBCResult(results,'yellow','Relative lymphocytosis',`Lymphocytes ${lymph}%. Viral illness and other causes are possible; age and absolute count matter.`);
+if(valid(eos)&&eos>6){addCBCResult(results,'yellow','Relative eosinophilia',`Eosinophils ${eos}%. Consider allergy, parasitic disease, medicines and other causes.`);next.add('Absolute eosinophil count and focused history');}
+if(valid(aec)&&aec>500)addCBCResult(results,aec>=1500?'red':'yellow','Absolute eosinophilia',`AEC ${aec}/µL. Persistent AEC ≥1500/µL warrants focused evaluation.`);
+
+if(valid(plt)){
+ if(plt<20)addCBCResult(results,'red','Critical severe thrombocytopenia',`Platelets ${plt} ×10³/µL. Urgent clinical assessment and laboratory confirmation are required.`);
+ else if(plt<50)addCBCResult(results,'red','Severe thrombocytopenia',`Platelets ${plt} ×10³/µL. Bleeding risk and procedural safety require urgent review.`);
+ else if(plt<150)addCBCResult(results,'yellow','Thrombocytopenia',`Platelets ${plt} ×10³/µL. Confirm smear/sample quality and evaluate cause.`);
+ else if(plt>450)addCBCResult(results,'yellow','Thrombocytosis',`Platelets ${plt} ×10³/µL. Reactive and clonal causes require context and persistence assessment.`);
+ else addCBCResult(results,'green','Platelets within common adult interval',`Platelets ${plt} ×10³/µL; use the laboratory range.`);
+}
+if(valid(esr)&&esr>20)addCBCResult(results,'blue','ESR raised by simple screening threshold',`ESR ${esr} mm/hr is nonspecific and varies with age, sex, anaemia, pregnancy and laboratory method.`);
+
+if(c.smear==='Abnormal cells / blasts reported'){
+ addCBCResult(results,'red','Abnormal cells / blasts reported','Urgent hematology/pathology review is required. Do not rely on automated interpretation.');
+ next.add('Urgent peripheral smear/pathologist and hematology assessment');
+}
+if(c.labFlag==='Critical result reported by laboratory'){
+ addCBCResult(results,'red','Laboratory critical flag','Act according to the laboratory critical-value communication and emergency protocol.');
+}
+if(!results.length)addCBCResult(results,'blue','Insufficient values','Enter CBC values for interpretation.');
+
+current.cbc.interpretation=results;
+current.cbc.nextSteps=[...next];
+current.cbc.summary=results.filter(x=>x.level!=='green').map(x=>x.title).join('; ')||'No configured abnormal rule triggered';
+save(current);renderCBC(results,[...next]);
+status('CBC interpretation completed. Verify against the original laboratory report.');
+}
+function renderCBC(results=[],next=[]){
+$('cbcResults').innerHTML=results.map(r=>`<div class="interpret-card ${r.level}">
+<div class="result-heading">${r.level==='red'?'🔴':r.level==='yellow'?'🟡':r.level==='green'?'🟢':'🔵'} ${esc(r.title)}</div>
+<div>${esc(r.message)}</div></div>`).join('')||'<div class="notice">Enter values and press Interpret CBC.</div>';
+$('cbcNextSteps').innerHTML=next.length?next.map(x=>`<span class="pill">${esc(x)}</span>`).join(''):'<div class="notice">No additional step generated. Clinical judgment remains necessary.</div>';
+}
+function addCBCSummaryToInvestigations(){
+readCBC();
+if(!current.cbc.summary)return status('Interpret CBC first.',true);
+const exists=current.investigations.previous.some(x=>x.test==='CBC Smart Interpretation'&&x.date===current.cbc.date);
+const item={category:'Blood',test:'CBC Smart Interpretation',date:current.cbc.date||today(),result:current.cbc.summary,remark:'Decision-support summary; verify original CBC and laboratory ranges.'};
+if(exists){
+ const i=current.investigations.previous.findIndex(x=>x.test==='CBC Smart Interpretation'&&x.date===current.cbc.date);
+ current.investigations.previous[i]=item;
+}else current.investigations.previous.push(item);
+save(current);renderInvestigations();status('CBC interpretation added to Previous Investigations.');
+}
+
+
+let currentLabMode='diabetes';
+function labNumber(id){const x=Number(val(id));return Number.isFinite(x)?x:null}
+function setLabMode(mode){
+currentLabMode=mode;
+['diabetes','thyroid','kidney','liver'].forEach(m=>{
+$(m+'Panel').classList.toggle('hidden',m!==mode);
+});
+document.querySelectorAll('.labModeBtn').forEach(b=>b.className=b.dataset.mode===mode?'primary labModeBtn':'secondary labModeBtn');
+}
+function readLabProfiles(){
+current.labProfiles.mode=currentLabMode;
+current.labProfiles.values={
+fpg:val('labFpg'),ppg:val('labPpg'),a1c:val('labA1c'),rbg:val('labRbg'),diabetesSymptoms:val('labDiabetesSymptoms'),
+tsh:val('labTsh'),ft4:val('labFt4'),ft3:val('labFt3'),tshLow:val('labTshLow'),tshHigh:val('labTshHigh'),ft4Range:val('labFt4Range'),
+creatinine:val('labCreatinine'),egfr:val('labEgfr'),urea:val('labUrea'),sodium:val('labSodium'),potassium:val('labPotassium'),chronicity:val('labChronicity'),
+bilirubin:val('labBilirubin'),ast:val('labAst'),alt:val('labAlt'),alp:val('labAlp'),albumin:val('labAlbumin'),inr:val('labInr'),altUln:val('labAltUln'),alpUln:val('labAlpUln'),liverContext:val('labLiverContext')
+};
+}
+function populateLabProfiles(){
+const lp=current.labProfiles||{mode:'diabetes',values:{},results:[]};
+currentLabMode=lp.mode||'diabetes';
+const v=lp.values||{};
+const map={labFpg:'fpg',labPpg:'ppg',labA1c:'a1c',labRbg:'rbg',labDiabetesSymptoms:'diabetesSymptoms',
+labTsh:'tsh',labFt4:'ft4',labFt3:'ft3',labTshLow:'tshLow',labTshHigh:'tshHigh',labFt4Range:'ft4Range',
+labCreatinine:'creatinine',labEgfr:'egfr',labUrea:'urea',labSodium:'sodium',labPotassium:'potassium',labChronicity:'chronicity',
+labBilirubin:'bilirubin',labAst:'ast',labAlt:'alt',labAlp:'alp',labAlbumin:'albumin',labInr:'inr',labAltUln:'altUln',labAlpUln:'alpUln',labLiverContext:'liverContext'};
+Object.entries(map).forEach(([id,k])=>set(id,v[k]));
+setLabMode(currentLabMode);
+renderLabProfileResults(lp.results||[]);
+}
+function labResult(arr,level,title,message){arr.push({level,title,message})}
+function interpretLabProfiles(){
+readLabProfiles();
+const v=current.labProfiles.values,r=[];
+if(currentLabMode==='diabetes'){
+const f=Number(v.fpg),p=Number(v.ppg),a=Number(v.a1c),rb=Number(v.rbg);
+if(Number.isFinite(a)){
+if(a>=6.5)labResult(r,'red','A1C in diabetes diagnostic range',`HbA1c ${a}%. In the absence of unequivocal hyperglycaemia, repeat/confirm with an appropriate test.`);
+else if(a>=5.7)labResult(r,'yellow','A1C in prediabetes range',`HbA1c ${a}%. Lifestyle and cardiovascular-risk assessment are indicated.`);
+else labResult(r,'green','A1C below prediabetes threshold',`HbA1c ${a}%. Consider conditions that can distort A1C interpretation.`);
+}
+if(Number.isFinite(f)){
+if(f>=126)labResult(r,'red','Fasting glucose in diabetes diagnostic range',`FPG ${f} mg/dL. Confirm on another day unless diagnostic symptoms/unequivocal hyperglycaemia are present.`);
+else if(f>=100)labResult(r,'yellow','Impaired fasting glucose range',`FPG ${f} mg/dL.`);
+else labResult(r,'green','Fasting glucose below prediabetes threshold',`FPG ${f} mg/dL.`);
+}
+if(Number.isFinite(p)){
+if(p>=200)labResult(r,'red','2-hour glucose in diabetes range',`2-hour value ${p} mg/dL.`);
+else if(p>=140)labResult(r,'yellow','2-hour glucose in prediabetes range',`2-hour value ${p} mg/dL.`);
+else labResult(r,'green','2-hour glucose below prediabetes threshold',`2-hour value ${p} mg/dL.`);
+}
+if(Number.isFinite(rb)&&rb>=200&&v.diabetesSymptoms==='Present')labResult(r,'red','Random glucose with classic symptoms','Random plasma glucose ≥200 mg/dL with classic symptoms may establish diabetes; verify clinical context.');
+}
+if(currentLabMode==='thyroid'){
+const tsh=Number(v.tsh),ft4=Number(v.ft4),lo=Number(v.tshLow),hi=Number(v.tshHigh);
+if(!Number.isFinite(tsh))labResult(r,'blue','TSH not entered','Enter TSH and use the laboratory reference interval.');
+else if(tsh>hi){
+if(Number.isFinite(ft4))labResult(r,'yellow','Raised TSH',`TSH ${tsh}; if FT4 is below the laboratory range, this supports overt primary hypothyroidism; if FT4 is normal, subclinical hypothyroidism is possible.`);
+else labResult(r,'yellow','Raised TSH',`TSH ${tsh}; FT4 is needed to distinguish overt from subclinical hypothyroidism.`);
+}else if(tsh<lo){
+if(Number.isFinite(ft4))labResult(r,'yellow','Low TSH',`TSH ${tsh}; high FT4 supports overt hyperthyroidism, while normal FT4 suggests subclinical hyperthyroidism.`);
+else labResult(r,'yellow','Low TSH',`TSH ${tsh}; FT4/FT3 and medication/pituitary context are needed.`);
+}else labResult(r,'green','TSH within entered laboratory interval',`TSH ${tsh}. This does not exclude central thyroid disease when FT4 is low.`);
+}
+if(currentLabMode==='kidney'){
+const eg=Number(v.egfr),k=Number(v.potassium),na=Number(v.sodium),cr=Number(v.creatinine);
+if(Number.isFinite(eg)){
+let stage=eg>=90?'G1':eg>=60?'G2':eg>=45?'G3a':eg>=30?'G3b':eg>=15?'G4':'G5';
+let level=eg<30?'red':eg<60?'yellow':'green';
+labResult(r,level,`eGFR category ${stage}`,`eGFR ${eg} mL/min/1.73m². CKD requires chronicity or other evidence of kidney damage; a single result is insufficient.`);
+}
+if(Number.isFinite(k)){
+if(k>=6.5)labResult(r,'red','Critical hyperkalaemia range',`Potassium ${k} mmol/L. Urgent confirmation and clinical/ECG assessment are required.`);
+else if(k>5.5)labResult(r,'yellow','Hyperkalaemia',`Potassium ${k} mmol/L.`);
+else if(k<3.0)labResult(r,'red','Marked hypokalaemia',`Potassium ${k} mmol/L.`);
+else if(k<3.5)labResult(r,'yellow','Hypokalaemia',`Potassium ${k} mmol/L.`);
+}
+if(Number.isFinite(na)&&(na<130||na>150))labResult(r,na<125||na>155?'red':'yellow','Sodium abnormality',`Sodium ${na} mmol/L. Assess acuity, symptoms and volume status.`);
+if(Number.isFinite(cr))labResult(r,'blue','Creatinine requires baseline comparison',`Creatinine ${cr} mg/dL. AKI assessment depends on change over time and urine output.`);
+}
+if(currentLabMode==='liver'){
+const alt=Number(v.alt),alp=Number(v.alp),altU=Number(v.altUln),alpU=Number(v.alpUln),alb=Number(v.albumin),inr=Number(v.inr),bil=Number(v.bilirubin);
+if(Number.isFinite(alt)&&Number.isFinite(alp)&&Number.isFinite(altU)&&altU>0&&Number.isFinite(alpU)&&alpU>0){
+const R=(alt/altU)/(alp/alpU);
+const pattern=R>=5?'Hepatocellular pattern':R<=2?'Cholestatic pattern':'Mixed pattern';
+labResult(r,'yellow',pattern,`Calculated R ratio ≈ ${R.toFixed(2)}. Correlate with symptoms, medicines, imaging and repeat testing.`);
+}else labResult(r,'blue','Pattern classification needs ALT and ALP upper limits','Enter ALT ULN and ALP ULN from the same laboratory.');
+if(Number.isFinite(bil)&&bil>3)labResult(r,'yellow','Raised bilirubin',`Total bilirubin ${bil} mg/dL. Fractionation and clinical context are needed.`);
+if(Number.isFinite(alb)&&alb<3.5)labResult(r,'yellow','Low albumin',`Albumin ${alb} g/dL. Consider chronic liver disease, nutrition, renal loss and inflammation.`);
+if(Number.isFinite(inr)&&inr>1.5)labResult(r,'red','Raised INR',`INR ${inr}. If not explained by anticoagulants, assess hepatic synthetic dysfunction and bleeding risk.`);
+}
+if(!r.length)labResult(r,'blue','Insufficient values','Enter relevant values for the selected profile.');
+current.labProfiles.results=r;
+current.labProfiles.summary=r.filter(x=>x.level!=='green').map(x=>x.title).join('; ')||'No configured abnormal rule triggered';
+save(current);renderLabProfileResults(r);status('Lab profile interpreted. Verify against the original laboratory report.');
+}
+function renderLabProfileResults(results=[]){
+$('labProfileResults').innerHTML=results.map(x=>`<div class="profile-result ${x.level}"><b>${x.level==='red'?'🔴':x.level==='yellow'?'🟡':x.level==='green'?'🟢':'🔵'} ${esc(x.title)}</b><div>${esc(x.message)}</div></div>`).join('')||'<div class="notice">Select a profile, enter values and press Interpret.</div>';
+}
+function addLabSummaryToInvestigations(){
+readLabProfiles();
+if(!current.labProfiles.summary)return status('Interpret the selected profile first.',true);
+const label={diabetes:'Diabetes Profile Interpretation',thyroid:'Thyroid Profile Interpretation',kidney:'Kidney Profile Interpretation',liver:'Liver Profile Interpretation'}[currentLabMode];
+current.investigations.previous.push({category:'Blood',test:label,date:today(),result:current.labProfiles.summary,remark:'Decision-support summary; verify original report and lab ranges.'});
+save(current);renderInvestigations();status(label+' added to Previous Investigations.');
+}
+
+const SAFETY_ALIASES={
+'paracetamol':['paracetamol','acetaminophen','dolo','crocin','calpol','pcm'],
+'nsaid':['ibuprofen','diclofenac','aceclofenac','naproxen','ketorolac','indomethacin','etoricoxib','celecoxib','aspirin'],
+'penicillin':['amoxicillin','ampicillin','penicillin','amoxiclav','co-amoxiclav'],
+'metformin':['metformin'],
+'sglt2':['dapagliflozin','empagliflozin','canagliflozin'],
+'nonselective_beta':['propranolol','nadolol','timolol'],
+'ace_arb':['ramipril','enalapril','lisinopril','losartan','telmisartan','olmesartan','valsartan'],
+'anticoagulant':['warfarin','apixaban','rivaroxaban','dabigatran','edoxaban'],
+'potassium':['potassium chloride','spironolactone','eplerenone'],
+'rasa_bhasma':['bhasma','rasa','rasa sindura','makardhwaj','parad','hingula']
+};
+function medText(m){return [m.name,m.strength,m.system,m.form].join(' ').toLowerCase()}
+function hasAlias(m,group){return (SAFETY_ALIASES[group]||[]).some(x=>medText(m).includes(x))}
+function safetyProfileFromForm(){
+return{
+pregnancy:val('safetyPregnancy'),lactation:val('safetyLactation'),egfr:val('safetyEgfr'),
+renal:val('safetyRenal'),hepatic:val('safetyHepatic'),bleeding:val('safetyBleeding'),
+respiratory:val('safetyRespiratory'),uti:val('safetyUti'),dehydration:val('safetyDehydration'),
+allergies:val('safetyAllergies'),comorbidities:val('safetyComorbidities'),
+lastScreenedAt:current.safety?.lastScreenedAt||'',alerts:current.safety?.alerts||[]
+};
+}
+function readSafetyProfile(){current.safety=safetyProfileFromForm()}
+function populateSafetyProfile(){
+const s=current.safety||{};
+set('safetyPregnancy',s.pregnancy);set('safetyLactation',s.lactation);set('safetyEgfr',s.egfr);
+set('safetyRenal',s.renal);set('safetyHepatic',s.hepatic);set('safetyBleeding',s.bleeding);
+set('safetyRespiratory',s.respiratory);set('safetyUti',s.uti);set('safetyDehydration',s.dehydration);
+set('safetyAllergies',s.allergies);set('safetyComorbidities',s.comorbidities);
+renderSafetyResults(s.alerts||[]);
+}
+function addAlert(arr,level,title,message,medicine=''){
+arr.push({level,title,message,medicine});
+}
+function runMedicineSafety(){
+readPrescription();readSafetyProfile();
+const meds=current.prescription.medicines||[],s=current.safety;
+const alerts=[];
+const allergyText=((s.allergies||'')+' '+(current.clinical?.allergy||'')).toLowerCase();
+const eGFR=Number(s.egfr);
+
+const para=meds.filter(m=>hasAlias(m,'paracetamol'));
+if(para.length>1)addAlert(alerts,'red','Duplicate paracetamol/acetaminophen detected','Multiple products may contain the same generic. Verify total daily dose and remove unintended duplication.',para.map(x=>x.name).join(' + '));
+
+const nsaids=meds.filter(m=>hasAlias(m,'nsaid'));
+if(nsaids.length>1)addAlert(alerts,'red','Multiple NSAIDs detected','Concurrent NSAIDs increase GI, renal and cardiovascular risk without usual additional benefit.',nsaids.map(x=>x.name).join(' + '));
+if(nsaids.length && /ulcer|bleed|anticoagulant|thrombocytopenia/.test((s.bleeding||'').toLowerCase()))
+ addAlert(alerts,'red','NSAID with bleeding/GI risk','Avoid or reassess; verify gastroprotection and bleeding risk. NSAID plus anticoagulant can substantially increase bleeding risk.',nsaids.map(x=>x.name).join(', '));
+if(nsaids.length && /ckd|aki|dialysis|renal/.test((s.renal||'').toLowerCase()))
+ addAlert(alerts,'red','NSAID with renal impairment','NSAIDs may worsen kidney function and fluid status. Consider alternatives and monitor renal function.',nsaids.map(x=>x.name).join(', '));
+if(nsaids.length && /third trimester/.test((s.pregnancy||'').toLowerCase()))
+ addAlert(alerts,'red','NSAID in third trimester','Avoid unless a specialist determines otherwise; verify current obstetric guidance and product label.',nsaids.map(x=>x.name).join(', '));
+
+const met=meds.filter(m=>hasAlias(m,'metformin'));
+if(met.length && Number.isFinite(eGFR) && eGFR<30)
+ addAlert(alerts,'red','Metformin with eGFR below 30','Metformin is contraindicated at this renal function threshold in FDA labeling. Reassess immediately.',met.map(x=>x.name).join(', '));
+else if(met.length && ((Number.isFinite(eGFR)&&eGFR<45)||/ckd|aki|dialysis/.test((s.renal||'').toLowerCase())))
+ addAlert(alerts,'yellow','Metformin renal caution','Review eGFR trend, dose, acute illness and contrast exposure; verify current label/guideline.',met.map(x=>x.name).join(', '));
+
+const beta=meds.filter(m=>hasAlias(m,'nonselective_beta'));
+if(beta.length && /severe|asthma/.test((s.respiratory||'').toLowerCase()))
+ addAlert(alerts,'red','Non-selective beta-blocker with asthma','May provoke bronchospasm. Reassess indication and consider safer alternatives where appropriate.',beta.map(x=>x.name).join(', '));
+
+const sglt2=meds.filter(m=>hasAlias(m,'sglt2'));
+if(sglt2.length && /active uti|recurrent uti|fungal/.test((s.uti||'').toLowerCase()))
+ addAlert(alerts,'yellow','SGLT2 inhibitor with active/recurrent urinary or genital infection','Not an automatic absolute contraindication, but infection risk, hydration and current illness require review.',sglt2.map(x=>x.name).join(', '));
+if(sglt2.length && /present|high risk/.test((s.dehydration||'').toLowerCase()))
+ addAlert(alerts,'red','SGLT2 inhibitor with volume depletion risk','Correct dehydration and reassess; monitor BP, renal function and acute illness risk.',sglt2.map(x=>x.name).join(', '));
+
+const acearb=meds.filter(m=>hasAlias(m,'ace_arb'));
+if(acearb.length && /pregnant|trimester|planning/.test((s.pregnancy||'').toLowerCase()) && !/not applicable|no/.test((s.pregnancy||'').toLowerCase()))
+ addAlert(alerts,'red','ACE inhibitor / ARB with pregnancy','Avoid in pregnancy; confirm immediately and use pregnancy-appropriate antihypertensive management.',acearb.map(x=>x.name).join(', '));
+
+const anticoag=meds.filter(m=>hasAlias(m,'anticoagulant'));
+if(anticoag.length && nsaids.length)
+ addAlert(alerts,'red','Anticoagulant + NSAID','High bleeding-risk combination. Reassess need, alternatives, gastroprotection and monitoring.',anticoag.map(x=>x.name).join(', ')+' + '+nsaids.map(x=>x.name).join(', '));
+
+const pen=meds.filter(m=>hasAlias(m,'penicillin'));
+if(pen.length && /penicillin|amoxicillin|ampicillin/.test(allergyText))
+ addAlert(alerts,'red','Possible penicillin-class allergy conflict','Document reaction type and avoid/reassess beta-lactam exposure according to allergy severity and local protocol.',pen.map(x=>x.name).join(', '));
+if(nsaids.length && /nsaid|aspirin|ibuprofen|diclofenac/.test(allergyText))
+ addAlert(alerts,'red','Possible NSAID allergy conflict','Verify previous reaction, cross-reactivity and asthma history before prescribing.',nsaids.map(x=>x.name).join(', '));
+
+const rasa=meds.filter(m=>hasAlias(m,'rasa_bhasma'));
+if(rasa.length && (/pregnant|trimester|planning/.test((s.pregnancy||'').toLowerCase()) || /ckd|aki|dialysis/.test((s.renal||'').toLowerCase()) || /liver|hepatic/.test((s.hepatic||'').toLowerCase())))
+ addAlert(alerts,'yellow','Rasa/Bhasma formulation in higher-risk patient','Verify authenticated product, classical indication, purification/quality documentation, dose, duration and renal/hepatic monitoring. Avoid unsupported safety assumptions.',rasa.map(x=>x.name).join(', '));
+
+meds.forEach(m=>{
+ if(!alerts.some(a=>a.medicine.includes(m.name))){
+   addAlert(alerts,'green','No configured rule triggered','This does not prove safety. Verify indication, dose, interactions, contraindications and current product information.',m.name);
+ }
+});
+if(!meds.length)addAlert(alerts,'yellow','No medicine entered','Add medicines in the Prescription tab before screening.');
+
+current.safety.lastScreenedAt=new Date().toISOString();
+current.safety.alerts=alerts;
+save(current);renderSafetyResults(alerts);
+status('Medicine safety screening completed. Review every alert before finalizing prescription.');
+}
+function renderSafetyResults(alerts=[]){
+const red=alerts.filter(a=>a.level==='red').length,yellow=alerts.filter(a=>a.level==='yellow').length,green=alerts.filter(a=>a.level==='green').length;
+$('redCount').textContent=red;$('yellowCount').textContent=yellow;$('greenCount').textContent=green;
+$('safetyResults').innerHTML=alerts.map(a=>`<div class="alert-card ${a.level}">
+<div class="alert-title">${a.level==='red'?'🔴':a.level==='yellow'?'🟡':'🟢'} ${esc(a.title)}
+<span class="safety-badge badge-${a.level}">${esc(a.level.toUpperCase())}</span></div>
+${a.medicine?`<div class="small"><b>Medicine:</b> ${esc(a.medicine)}</div>`:''}
+<div>${esc(a.message)}</div>
+</div>`).join('')||'<div class="notice">Safety screening not yet run.</div>';
+}
+
+function prescriptionSummaryText(){
+const p=current.patient,c=current.clinical,rx=current.prescription,a=current.ayurveda,inv=current.investigations;
+const lines=[
+'श्री कृष्ण महमाया क्लिनिक EMR',
+'Dr Rajesh Sao — B.A.M.S., M.D. (Ayurveda)',
+'Contact: '+(rx.emergencyContact||'8770143788, 7489818673'),
+'',
+`Patient: ${p.name||''} | Age/Sex: ${p.age||''}/${p.sex||''} | Mobile: ${p.mobile||''}`,
+`UHID: ${current.uhid||''} | Date: ${current.visitDate||''} | Visit: ${current.visitType||''}`,
+'',
+'Chief Complaint: '+(current.complaint?.primary||c.chiefComplaints||''),
+'Clinical Notes: '+(c.clinicalNotes||''),
+'Provisional Diagnosis: '+(rx.provisionalDiagnosis||''),
+'Differential Diagnosis: '+(rx.differentialDiagnosis||''),
+'Final Diagnosis: '+(rx.finalDiagnosis||''),
+'',
+'Medicines:'
+];
+(rx.medicines||[]).forEach((m,i)=>lines.push(`${i+1}. ${m.name}${m.strength?' — '+m.strength:''}; ${m.dose||''} ${m.frequency||''}; ${m.route||''}; ${m.meal||''}; ${m.duration||''}; ${m.instruction||''}`));
+if(inv?.advised?.length){lines.push('','Investigations Advised:');inv.advised.forEach(x=>lines.push(`- ${x.category}: ${x.test} (${x.priority||''}) ${x.note||''}`))}
+if(a?.dosha?.length||a?.samprapti){lines.push('','Ayurveda Assessment: '+[(a.dosha||[]).join('/'),a.agni,a.koshtha,(a.srotas||[]).join(', '),a.samprapti].filter(Boolean).join(' | '))}
+lines.push('','Pathya: '+(rx.pathya||''),'Apathya: '+(rx.apathya||''),'Lifestyle/Yoga/Physiotherapy: '+(rx.lifestyleAdvice||''),'Precautions: '+(rx.precautionAdvice||''),'Follow-up: '+[rx.followupDate,rx.followupNote].filter(Boolean).join(' — '));
+return lines.join('\n');
+}
+function renderPreview(){
+const p=current.patient,c=current.clinical,rx=current.prescription,a=current.ayurveda,inv=current.investigations;
+const meds=(rx.medicines||[]).map((m,i)=>`<tr>
+<td>${i+1}</td>
+<td><b>${esc(m.name)}</b>${m.strength?'<br><span class="small">'+esc(m.strength)+'</span>':''}<br><span class="small">${esc(m.system||'')} • ${esc(m.form||'')}</span></td>
+<td>${esc(m.dose||'')}</td>
+<td>${esc(m.frequency||'')}</td>
+<td>${esc(m.route||'')}<br>${esc(m.meal||'')}</td>
+<td>${esc(m.duration||'')}</td>
+<td>${esc(m.instruction||'')}</td>
+</tr>`).join('');
+
+const prevInv=(inv?.previous||[]).map(x=>`<div>• <b>${esc(x.category)} — ${esc(x.test)}</b>: ${esc(x.result||'')} ${x.remark?'— '+esc(x.remark):''}</div>`).join('');
+const advInv=(inv?.advised||[]).map(x=>`<div>• <b>${esc(x.category)} — ${esc(x.test)}</b> (${esc(x.priority||'')}): ${esc(x.note||'')}</div>`).join('');
+const ayurSummary=[(a?.dosha||[]).join('/'),(a?.subtypes||[]).join(', '),(a?.gunas||[]).join(', '),a?.agni,a?.koshtha,(a?.srotas||[]).join(', '),a?.samprapti].filter(Boolean).join(' | ');
+
+$('printSheet').innerHTML=`
+<div class="letterhead">
+<h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
+<div><b>Dr Rajesh Sao</b> — B.A.M.S., M.D. (Ayurveda)<br>
+Ancient Wisdom • Modern Diagnosis • Holistic Healing<br>
+Emergency / Clinic Contact: ${esc(rx.emergencyContact||'8770143788, 7489818673')}</div>
+</div>
+
+<div><b>Patient:</b> ${esc(p.name||'')} &nbsp; <b>Age/Sex:</b> ${esc(p.age||'')}/${esc(p.sex||'')} &nbsp; <b>Mobile:</b> ${esc(p.mobile||'')}<br>
+<b>UHID:</b> ${esc(current.uhid||'')} &nbsp; <b>Date:</b> ${esc(current.visitDate||'')} &nbsp; <b>Visit:</b> ${esc(current.visitType||'')}</div>
+
+<div class="rx-section-title">Clinical Summary</div>
+<div><b>Primary Complaint:</b> ${esc(current.complaint?.primary||c.chiefComplaints||'')} ${current.complaint?.duration?'('+esc(current.complaint.duration)+')':''}<br>
+<b>Vitals:</b> BP ${esc(c.bp||'')}, Pulse ${esc(c.pulse||'')}, SpO₂ ${esc(c.spo2||'')}, Temp ${esc(c.temp||'')}, RR ${esc(c.rr||'')}, Pain ${esc(c.pain||'')}/10<br>
+<b>Allergy:</b> ${esc(c.allergy||'')}</div>
+
+<div class="rx-section-title">Diagnosis</div>
+<div><b>Provisional:</b> ${esc(rx.provisionalDiagnosis||'')}<br>
+<b>Differential:</b> ${esc(rx.differentialDiagnosis||'')}<br>
+<b>Final:</b> ${esc(rx.finalDiagnosis||'')}</div>
+
+${prevInv?`<div class="rx-section-title">Previous Investigations</div>${prevInv}`:''}
+${advInv?`<div class="rx-section-title">Investigations Advised</div>${advInv}`:''}
+
+<div class="rx-section-title">Prescription</div>
+<table class="rx-table">
+<thead><tr><th>#</th><th>Medicine</th><th>Dose</th><th>Frequency</th><th>Route / Timing</th><th>Duration</th><th>Instructions</th></tr></thead>
+<tbody>${meds||'<tr><td colspan="7">No medicines added.</td></tr>'}</tbody>
+</table>
+
+${ayurSummary?`<div class="rx-section-title">Ayurveda Assessment</div><div>${esc(ayurSummary)}</div>`:''}
+
+<div class="rx-section-title">Advice</div>
+<div><b>Pathya:</b> ${esc(rx.pathya||'')}<br>
+<b>Apathya:</b> ${esc(rx.apathya||'')}<br>
+<b>Lifestyle / Yoga / Physiotherapy:</b> ${esc(rx.lifestyleAdvice||'')}<br>
+<b>Precautions / Red Flags:</b> ${esc(rx.precautionAdvice||'')}<br>
+<b>Follow-up:</b> ${esc(rx.followupDate||'')} ${rx.followupNote?'— '+esc(rx.followupNote):''}</div>
+
+<div style="text-align:right;margin-top:38px"><b>Dr Rajesh Sao</b><br>B.A.M.S., M.D. (Ayurveda)</div>
+`;
+}
+function downloadText(){
+const blob=new Blob([prescriptionSummaryText()],{type:'text/plain;charset=utf-8'});
+const a=document.createElement('a');
+a.href=URL.createObjectURL(blob);
+a.download=`SKM-Prescription-${current.uhid||'patient'}.txt`;
+document.body.appendChild(a);a.click();
+setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000);
+}
+async function sharePrescription(){
+const text=prescriptionSummaryText();
+if(navigator.share){
+try{await navigator.share({title:'Shri Krishna Mahamaya Clinic Prescription',text});status('Share menu opened. Choose WhatsApp or another app.');return}catch(e){if(e.name==='AbortError')return}
+}
+try{await navigator.clipboard.writeText(text);status('Prescription copied to clipboard. Paste it in WhatsApp.')}catch(e){status('Sharing unavailable. Use Print / Save as PDF.',true)}
+}
+
+
+
+function visitGroupId(r){return r.patientGroupId||r.uhid||r.id}
+function samePatientVisits(r){
+const gid=visitGroupId(r);
+return all().filter(x=>visitGroupId(x)===gid).sort((a,b)=>(a.visitDate||'').localeCompare(b.visitDate||'')||(a.updatedAt||'').localeCompare(b.updatedAt||''));
+}
+function previousVisitOf(r){
+const visits=samePatientVisits(r);
+const i=visits.findIndex(x=>x.id===r.id);
+return i>0?visits[i-1]:null;
+}
+function latestVisitForGroup(gid){
+return all().filter(x=>visitGroupId(x)===gid).sort((a,b)=>(b.visitDate||'').localeCompare(a.visitDate||'')||(b.updatedAt||'').localeCompare(a.updatedAt||''))[0]||null;
+}
+function copyForFollowup(source){
+const next=JSON.parse(JSON.stringify(source));
+next.id=makeId();
+next.parentVisitId=source.id;
+next.patientGroupId=visitGroupId(source);
+next.visitType='Follow-up';
+next.visitDate=today();
+next.createdAt=new Date().toISOString();
+next.updatedAt=new Date().toISOString();
+next.followup={
+progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',
+nextFollowupDate:'',previousPain:source.clinical?.pain||''
+};
+next.complaint.severity=source.complaint?.severity||'';
+next.clinical.pain=source.clinical?.pain||'';
+return next;
+}
+function readFollowup(){
+current.followup={
+progressNotes:val('progressNotes'),
+newComplaints:val('newFollowupComplaints'),
+compliance:val('compliance'),
+status:val('currentStatusCompare'),
+outcome:val('visitOutcome'),
+nextFollowupDate:val('nextFollowupDate'),
+previousPain:val('previousPain')
+};
+if(val('currentPainCompare'))current.clinical.pain=val('currentPainCompare');
+}
+function populateFollowup(){
+const prev=previousVisitOf(current);
+const f=current.followup||{};
+$('timelinePatientHeader').innerHTML=`<b>${esc(current.patient?.name||'Unnamed')}</b> — ${esc(current.uhid||'')}<br><span class="small">Current visit: ${esc(current.visitDate||'')} • ${esc(current.visitType||'')}</span>`;
+set('previousPain',f.previousPain||prev?.clinical?.pain||'');
+set('currentPainCompare',current.clinical?.pain||'');
+set('previousStatus',prev?.followup?.status||prev?.prescription?.followupNote||'Not recorded');
+set('currentStatusCompare',f.status);
+set('progressNotes',f.progressNotes);
+set('newFollowupComplaints',f.newComplaints);
+set('compliance',f.compliance);
+set('nextFollowupDate',f.nextFollowupDate);
+set('visitOutcome',f.outcome);
+renderVisitTimeline();
+}
+function painDeltaText(prev,curr){
+const p=Number(prev),c=Number(curr);
+if(!Number.isFinite(p)||!Number.isFinite(c))return '';
+const d=p-c;
+if(d>0)return `<span class="delta-good">Pain improved by ${d}</span>`;
+if(d<0)return `<span class="delta-bad">Pain worsened by ${Math.abs(d)}</span>`;
+return `<span class="delta-warn">Pain unchanged</span>`;
+}
+function renderVisitTimeline(){
+const visits=samePatientVisits(current);
+$('visitTimeline').innerHTML=visits.map((v,i)=>{
+const prev=i?visits[i-1]:null;
+return `<div class="visit-node ${v.id===current.id?'current':''}">
+<b>Visit ${i+1}: ${esc(v.visitDate||'')}</b> — ${esc(v.visitType||'')}
+<div class="small">${esc(v.complaint?.primary||v.clinical?.chiefComplaints||'No complaint')} • Pain ${esc(v.clinical?.pain||'—')}/10</div>
+<div class="small">${esc(v.prescription?.finalDiagnosis||v.prescription?.provisionalDiagnosis||'No diagnosis')}</div>
+<div class="small">${painDeltaText(prev?.clinical?.pain,v.clinical?.pain)} ${v.followup?.status?' • '+esc(v.followup.status):''}</div>
+${v.followup?.progressNotes?`<div class="small"><b>Progress:</b> ${esc(v.followup.progressNotes)}</div>`:''}
+<div class="actions"><button class="secondary" data-timelineopen="${esc(v.id)}">Open Visit</button><button class="success" data-timelinerx="${esc(v.id)}">Prescription</button></div>
+</div>`;
+}).join('')||'<div class="notice">No visits found.</div>';
+}
+function showTimeline(){
+hideAll();
+$('timelineSection').classList.remove('hidden');
+setActive('tabTimeline');
+populateFollowup();
+}
+
+
+
+
+
+
+
+const DISEASE_KB=[
+{
+id:'DIS-0001',
+name:'Sciatica',
+ayurveda:'Gridhrasi',
+category:'Spine & Orthopedic',
+synonyms:['Lumbosacral radicular pain','Lumbar radiculopathy','Sciatic nerve-root pain','Gridhrasi'],
+definition:'Pain radiating into one or both legs due to lumbosacral nerve-root pathology or irritation. Symptoms may include electric or shooting pain, tingling, numbness or weakness.',
+coreSymptoms:[
+'Low-back or buttock pain radiating below the knee',
+'Shooting, electric or burning leg pain',
+'Numbness or tingling in a dermatomal distribution',
+'Possible focal motor weakness',
+'Symptoms aggravated by cough, sneeze, strain or selected movements'
+],
+redFlags:[
+'New bladder retention or incontinence',
+'New bowel dysfunction',
+'Saddle or perineal sensory loss',
+'Progressive or severe motor weakness / foot drop',
+'Bilateral severe radicular symptoms',
+'Fever, immunosuppression or suspected spinal infection',
+'Major trauma or suspected fracture',
+'Known cancer, unexplained weight loss or destructive lesion'
+],
+focusedHistory:[
+'Exact pain path: back, buttock, thigh, leg and foot',
+'Onset, duration, progression and recurrence',
+'Pain severity and functional limitation',
+'Numbness, tingling, weakness and gait change',
+'Bladder, bowel and saddle symptoms',
+'Trauma, fever, cancer, steroid use and immunosuppression',
+'Workload, lifting, posture, sleep and psychosocial factors'
+],
+exam:[
+'Gait and posture',
+'Lumbar range of motion',
+'Straight-leg raise and crossed SLR',
+'Motor power: hip, knee, ankle and great toe',
+'Dermatomal sensory examination',
+'Knee and ankle reflexes',
+'Heel/toe walking where safe',
+'Peripheral pulses and hip/SI screening when indicated'
+],
+differentials:[
+'Lumbar disc herniation with radiculopathy',
+'Lumbar canal or foraminal stenosis',
+'Piriformis/deep gluteal syndrome',
+'Sacroiliac joint disorder',
+'Hip pathology',
+'Peripheral neuropathy',
+'Vascular claudication',
+'Spinal infection, fracture or malignancy'
+],
+imagingRules:[
+'Do not routinely request imaging in uncomplicated acute low-back pain/sciatica in a non-specialist setting.',
+'Consider imaging when serious pathology is suspected or when results are likely to change management.',
+'Correlate MRI findings with the symptomatic side, neurological level and examination because degenerative findings may be incidental.'
+],
+managementPrinciples:[
+'Explain the condition and encourage continuation of tolerable normal activity.',
+'Use an individualized exercise and rehabilitation plan.',
+'Address sleep, work, fear-avoidance and psychosocial barriers.',
+'Review medicine risks, comorbidities and duration before pharmacological treatment.',
+'Consider specialist referral for progressive deficit, red flags or persistent disabling symptoms.',
+'Consider decompression opinion when non-surgical treatment fails and imaging matches symptoms.'
+],
+ayurvedaFramework:{
+vyadhi:'Gridhrasi',
+dosha:'Commonly assessed as Vata-predominant or Vata-Kapha presentation; patient-specific assessment is required.',
+features:'Ruk, Toda, Stambha, Spandana and radiating lower-limb symptoms may be documented according to the classical clinical picture.',
+assessment:['Nidana','Dosha/Doshabheda','Ama/Nirama','Agni','Koshtha','Dushya','Srotas','Srotodushti','Rogamarga','Bala','Avastha'],
+principle:'Chikitsa Siddhanta and Panchakarma selection must be individualized by bala, avastha, ama, comorbidity and contraindications.'
+},
+outcomes:[
+'VAS/NRS pain score',
+'Oswestry Disability Index',
+'Walking and sitting tolerance',
+'SLR angle',
+'Motor power',
+'Sensory change',
+'Reflex status',
+'Work/activity participation',
+'Patient global improvement'
+],
+patientAdvice:[
+'Remain active within tolerance and avoid prolonged bed rest.',
+'Seek urgent care for bladder/bowel change, saddle numbness or rapidly progressive weakness.',
+'Use safe lifting and graded return to activity.',
+'Review persistent or worsening symptoms rather than relying only on imaging findings.'
+],
+founderResearchNote:'Founder thesis observation (n=60): Vataja cases were interpreted as relatively degeneration-dominant, while Vata-Kaphaja cases showed a more obstructive/mass-effect pattern. This is a local observational finding and should not be treated as a universal diagnostic rule.',
+evidenceNote:'Modern-care reminders are aligned with WHO low-back-pain information, NICE NG59 and ACR imaging appropriateness principles. The Ayurveda section is an editable integrative documentation framework and requires classical/clinical review.'
+}
+];
+
+let activeDiseaseId='DIS-0001';
+
+function diseaseMatches(d,term,category){
+  const text=[d.id,d.name,d.ayurveda,d.category,(d.synonyms||[]).join(' '),JSON.stringify(d)].join(' ').toLowerCase();
+  return (!term||text.includes(term))&&(category==='All'||d.category===category||category==='Ayurveda'&&d.ayurveda);
+}
+function renderDiseaseList(){
+  const term=val('kbSearch').toLowerCase(),category=val('kbCategory')||'All';
+  const rows=DISEASE_KB.filter(d=>diseaseMatches(d,term,category));
+  $('kbDiseaseList').innerHTML=rows.map(d=>`<button class="${d.id===activeDiseaseId?'primary':'secondary'} kb-nav-btn" data-kbdisease="${esc(d.id)}">
+  ${esc(d.id)} — ${esc(d.name)} / ${esc(d.ayurveda)}
+  </button>`).join('')||'<div class="notice">No matching disease record.</div>';
+}
+function tagList(items=[]){return items.map(x=>`<span class="kb-tag">${esc(x)}</span>`).join('')}
+function bulletList(items=[]){return `<ul>${items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`}
+function renderDiseaseContent(){
+  const d=DISEASE_KB.find(x=>x.id===activeDiseaseId);
+  if(!d){$('kbDiseaseContent').innerHTML='<div class="notice">Select a disease record.</div>';return}
+  $('kbDiseaseContent').innerHTML=`
+  <div><span class="role-badge">${esc(d.id)}</span> <span class="role-badge">${esc(d.category)}</span></div>
+  <h2>${esc(d.name)} <span class="small">/ ${esc(d.ayurveda)}</span></h2>
+  <div>${tagList(d.synonyms)}</div>
+  <div class="kb-section"><h3>Definition</h3><p>${esc(d.definition)}</p></div>
+  <div class="kb-section"><h3>Core Clinical Features</h3>${bulletList(d.coreSymptoms)}</div>
+  <div class="kb-section kb-red"><h3>Red Flags — urgent assessment/referral</h3>${bulletList(d.redFlags)}</div>
+  <div class="kb-section"><h3>Focused History</h3>${bulletList(d.focusedHistory)}</div>
+  <div class="kb-section"><h3>Focused Examination</h3>${bulletList(d.exam)}</div>
+  <div class="kb-section"><h3>Differential Diagnosis</h3>${bulletList(d.differentials)}</div>
+  <div class="kb-section kb-yellow"><h3>Imaging Rules</h3>${bulletList(d.imagingRules)}</div>
+  <div class="kb-section"><h3>Management Principles</h3>${bulletList(d.managementPrinciples)}</div>
+  <div class="kb-section">
+    <h3>Ayurveda Integration</h3>
+    <p><b>Vyadhi:</b> ${esc(d.ayurvedaFramework.vyadhi)}</p>
+    <p><b>Dosha framework:</b> ${esc(d.ayurvedaFramework.dosha)}</p>
+    <p><b>Clinical documentation:</b> ${esc(d.ayurvedaFramework.features)}</p>
+    <p><b>Assessment:</b> ${tagList(d.ayurvedaFramework.assessment)}</p>
+    <p><b>Principle:</b> ${esc(d.ayurvedaFramework.principle)}</p>
+  </div>
+  <div class="kb-section"><h3>Outcome Measures</h3>${bulletList(d.outcomes)}</div>
+  <div class="kb-section kb-green"><h3>Patient Advice</h3>${bulletList(d.patientAdvice)}</div>
+  <div class="kb-section"><h3>Founder Research Note</h3><p>${esc(d.founderResearchNote)}</p></div>
+  <div class="kb-section kb-evidence"><b>Evidence / validation note:</b> ${esc(d.evidenceNote)}</div>
+  <div class="actions">
+    <button id="applyDiseaseBtn" class="primary">Apply to Current Patient</button>
+    <button id="addDiseasePlanBtn" class="secondary">Add Suggested Examination & Tests</button>
+    <button id="openDiseaseImagingBtn" class="secondary">Open Imaging</button>
+  </div>`;
+  $('applyDiseaseBtn').onclick=applyDiseaseToPatient;
+  $('addDiseasePlanBtn').onclick=addDiseasePlan;
+  $('openDiseaseImagingBtn').onclick=showImaging;
+}
+function applyDiseaseToPatient(){
+  const d=DISEASE_KB.find(x=>x.id===activeDiseaseId);if(!d)return;
+  set('primaryComplaint','Sciatica');
+  current.complaint.primary='Sciatica';
+  current.prescription.provisionalDiagnosis=current.prescription.provisionalDiagnosis||'Sciatica / Lumbar radicular pain';
+  current.ayurveda.vikriti=current.ayurveda.vikriti||'Vata-Kapha';
+  if(!current.ayurveda.dosha?.length)current.ayurveda.dosha=['Vata'];
+  save(current);populate(current);
+  status('Sciatica / Gridhrasi knowledge template applied to current patient.');
+}
+function addDiseasePlan(){
+  const d=DISEASE_KB.find(x=>x.id===activeDiseaseId);if(!d)return;
+  const examText=d.exam.join('; ');
+  current.clinical.clinicalNotes=[current.clinical.clinicalNotes,'Focused sciatica exam: '+examText].filter(Boolean).join('\n');
+  const planned=[
+    {category:'Clinical',test:'Focused neurological and radicular examination',priority:'Routine',note:'Motor, sensory, reflexes, SLR/crossed SLR and gait'},
+    {category:'Imaging',test:'MRI Lumbar Spine — only if clinically indicated',priority:'Follow-up',note:'Use when serious pathology is suspected or result will change management'}
+  ];
+  planned.forEach(x=>{if(!current.investigations.advised.some(y=>y.test===x.test))current.investigations.advised.push(x)});
+  save(current);renderInvestigations();status('Suggested examination and investigation reminders added.');
+}
+function showKnowledge(){
+  hideAll();$('knowledgeSection').classList.remove('hidden');setActive('tabKnowledge');
+  renderDiseaseList();renderDiseaseContent();
+}
+
+const IMAGING_KEY='skm-imaging-v28';
+let activeImagingId='';
+
+const IMAGING_FINDINGS=[
+  'Disc desiccation','Disc bulge','Protrusion','Extrusion','Sequestration',
+  'Canal stenosis','Foraminal narrowing','Lateral recess narrowing',
+  'Facet arthropathy','Ligamentum flavum hypertrophy','Spondylolisthesis',
+  'Loss of lordosis','Cord compression','Myelopathy signal','Nerve root compression',
+  'Osteophytes','Joint space narrowing','Sclerosis','Fracture / destructive lesion'
+];
+
+function imagingRows(){
+  try{return JSON.parse(localStorage.getItem(IMAGING_KEY))||[]}
+  catch{return []}
+}
+function saveImagingRows(rows){localStorage.setItem(IMAGING_KEY,JSON.stringify(rows))}
+function renderImagingChecks(){
+  $('imgFindingChecks').innerHTML=IMAGING_FINDINGS.map(x=>`<label class="check"><input type="checkbox" name="imgFinding" value="${esc(x)}">${esc(x)}</label>`).join('');
+}
+function selectedImagingFindings(){
+  return [...document.querySelectorAll('input[name="imgFinding"]:checked')].map(x=>x.value);
+}
+function restoreImagingFindings(arr=[]){
+  document.querySelectorAll('input[name="imgFinding"]').forEach(x=>x.checked=arr.includes(x.value));
+}
+function clearImagingForm(){
+  ['imgPatient','imgUhid','imgMobile','imgCentre','imgDoctor','imgRoot','imgFindings','imgImpression','imgClinicalCorrelation','imgFileRef'].forEach(id=>set(id,''));
+  set('imgDate',today());set('imgType','MRI');set('imgBodyPart','Lumbar Spine');set('imgSide','Not applicable');
+  set('imgLevel','');set('imgSeverity','');set('imgRedFlag','No red flag');set('imgComparison','Baseline / First study');set('imgStatus','Report available');
+  restoreImagingFindings([]);activeImagingId='';
+}
+function useCurrentPatientForImaging(){
+  set('imgPatient',current.patient?.name||'');
+  set('imgUhid',current.uhid||'');
+  set('imgMobile',current.patient?.mobile||'');
+  set('imgDate',today());
+}
+function saveImagingStudy(){
+  if(!val('imgPatient')||!val('imgType')||!val('imgDate'))return status('Patient name, study type and date are required.',true);
+  const rows=imagingRows();
+  const id=activeImagingId||('IMG-'+Date.now());
+  const study={
+    id,patientName:val('imgPatient'),uhid:val('imgUhid'),mobile:val('imgMobile'),
+    type:val('imgType'),bodyPart:val('imgBodyPart'),side:val('imgSide'),date:val('imgDate'),
+    centre:val('imgCentre'),doctor:val('imgDoctor'),structured:selectedImagingFindings(),
+    level:val('imgLevel'),severity:val('imgSeverity'),root:val('imgRoot'),
+    findings:val('imgFindings'),impression:val('imgImpression'),
+    clinicalCorrelation:val('imgClinicalCorrelation'),redFlag:val('imgRedFlag'),
+    comparison:val('imgComparison'),status:val('imgStatus'),fileRef:val('imgFileRef'),
+    updatedAt:new Date().toISOString()
+  };
+  const i=rows.findIndex(x=>x.id===id);
+  if(i>=0)rows[i]=study;else rows.unshift(study);
+  saveImagingRows(rows);activeImagingId=id;
+  audit(i>=0?'Imaging study updated':'Imaging study saved',study.patientName+' '+study.type+' '+study.bodyPart);
+  renderImaging();renderImagingPreview(study);status('Imaging study saved successfully.');
+}
+function imagingClass(x){
+  if(x.redFlag!=='No red flag')return 'red';
+  if(x.severity==='Severe'||x.comparison==='Worsened')return 'yellow';
+  return 'green';
+}
+function renderImaging(){
+  const rows=imagingRows();
+  const term=val('imgSearch').toLowerCase(),filter=val('imgFilter')||'All',from=val('imgFromDate')||'';
+  const filtered=rows.filter(x=>{
+    if(from&&x.date<from)return false;
+    if(filter==='Critical / Red Flag'&&x.redFlag==='No red flag')return false;
+    if(filter!=='All'&&filter!=='Critical / Red Flag'&&x.type!==filter)return false;
+    return [x.patientName,x.uhid,x.mobile,x.type,x.bodyPart,x.side,x.level,x.root,x.findings,x.impression,(x.structured||[]).join(' ')].join(' ').toLowerCase().includes(term);
+  }).sort((a,b)=>(b.date||'').localeCompare(a.date||'')||(b.updatedAt||'').localeCompare(a.updatedAt||''));
+
+  $('imagingList').innerHTML=filtered.map(x=>`<div class="imaging-card ${imagingClass(x)}">
+    <b>${esc(x.patientName)}</b> — ${esc(x.type)} ${esc(x.bodyPart)}
+    <div class="small">${esc(x.date)} • ${esc(x.side)} • ${esc(x.level||'')} • ${esc(x.severity||'')}</div>
+    <div>${(x.structured||[]).map(f=>`<span class="finding-chip">${esc(f)}</span>`).join('')}</div>
+    <div class="small"><b>Impression:</b> ${esc(x.impression||'')}</div>
+    <div class="small"><b>Red flag:</b> ${esc(x.redFlag||'')}</div>
+    <div class="actions">
+      <button class="primary" data-imgopen="${esc(x.id)}">Open</button>
+      <button class="secondary" data-imgedit="${esc(x.id)}">Edit</button>
+      <button class="danger" data-imgdelete="${esc(x.id)}">Delete</button>
+    </div>
+  </div>`).join('')||'<div class="notice">No matching imaging studies.</div>';
+
+  $('imgTotal').textContent=rows.length;
+  $('imgMRI').textContent=rows.filter(x=>x.type==='MRI').length;
+  $('imgXray').textContent=rows.filter(x=>x.type==='X-ray').length;
+  $('imgCritical').textContent=rows.filter(x=>x.redFlag!=='No red flag').length;
+}
+function openImagingStudy(id,edit=false){
+  const x=imagingRows().find(r=>r.id===id);if(!x)return;
+  activeImagingId=x.id;renderImagingPreview(x);
+  if(edit){
+    set('imgPatient',x.patientName);set('imgUhid',x.uhid);set('imgMobile',x.mobile);set('imgType',x.type);
+    set('imgBodyPart',x.bodyPart);set('imgSide',x.side);set('imgDate',x.date);set('imgCentre',x.centre);
+    set('imgDoctor',x.doctor);set('imgLevel',x.level);set('imgSeverity',x.severity);set('imgRoot',x.root);
+    set('imgFindings',x.findings);set('imgImpression',x.impression);set('imgClinicalCorrelation',x.clinicalCorrelation);
+    set('imgRedFlag',x.redFlag);set('imgComparison',x.comparison);set('imgStatus',x.status);set('imgFileRef',x.fileRef);
+    restoreImagingFindings(x.structured||[]);
+    window.scrollTo({top:$('imagingSection').offsetTop,behavior:'smooth'});
+  }else{
+    window.scrollTo({top:$('imagingPreview').offsetTop-110,behavior:'smooth'});
+  }
+}
+function renderImagingPreview(x){
+  if(!x){$('imagingPreview').innerHTML='<div class="notice">Select or save an imaging study to preview.</div>';return}
+  $('imagingPreview').innerHTML=`
+  <div style="text-align:center"><h2 style="margin-bottom:4px">श्री कृष्ण महमाया क्लिनिक</h2><div>Structured Imaging Summary</div></div><hr>
+  <div><b>Patient:</b> ${esc(x.patientName)} • <b>UHID:</b> ${esc(x.uhid||'')} • <b>Date:</b> ${esc(x.date)}</div>
+  <div><b>Study:</b> ${esc(x.type)} ${esc(x.bodyPart)} • <b>Side:</b> ${esc(x.side)} • <b>Centre:</b> ${esc(x.centre||'')}</div>
+  <div class="rx-section-title">Structured Findings</div>
+  <div>${(x.structured||[]).map(f=>`<span class="finding-chip">${esc(f)}</span>`).join('')||'No structured finding selected.'}</div>
+  <div><b>Level:</b> ${esc(x.level||'')} • <b>Severity:</b> ${esc(x.severity||'')} • <b>Nerve root/cord:</b> ${esc(x.root||'')}</div>
+  <div class="rx-section-title">Detailed Findings</div><div>${esc(x.findings||'')}</div>
+  <div class="rx-section-title">Impression</div><div>${esc(x.impression||'')}</div>
+  <div class="rx-section-title">Clinical Correlation</div><div>${esc(x.clinicalCorrelation||'')}</div>
+  <div class="rx-section-title">Safety / Comparison</div>
+  <div><b>Red Flag:</b> ${esc(x.redFlag)} • <b>Comparison:</b> ${esc(x.comparison)} • <b>Status:</b> ${esc(x.status)}</div>
+  <div class="small" style="margin-top:12px">This structured summary does not replace the signed radiologist report.</div>`;
+}
+function addImagingToPatientInvestigations(){
+  const x=imagingRows().find(r=>r.id===activeImagingId);
+  if(!x)return status('Select an imaging study first.',true);
+  if(!current||!current.id)return status('Open the linked patient record first.',true);
+  current.investigations.previous.push({
+    category:x.type,test:x.type+' '+x.bodyPart,date:x.date,
+    result:x.impression||x.findings,
+    remark:[(x.structured||[]).join(', '),x.level,x.root,x.redFlag].filter(Boolean).join(' | ')
+  });
+  save(current);renderInvestigations();audit('Imaging added to patient record',x.patientName+' '+x.type);status('Imaging summary added to patient investigations.');
+}
+function printImagingSummary(){
+  const x=imagingRows().find(r=>r.id===activeImagingId);if(!x)return status('Select an imaging study first.',true);
+  const original=$('printSheet').innerHTML;
+  $('printSheet').innerHTML=$('imagingPreview').innerHTML;
+  showPreview();window.print();$('printSheet').innerHTML=original;showImaging();
+}
+function showImaging(){
+  hideAll();$('imagingSection').classList.remove('hidden');setActive('tabImaging');
+  useCurrentPatientForImaging();
+  if(!val('imgFromDate'))set('imgFromDate','');
+  renderImaging();
+}
+
+const LAB_ORDER_KEY='skm-lab-orders-v27';
+
+function labOrderRows(){
+  try{return JSON.parse(localStorage.getItem(LAB_ORDER_KEY))||[]}
+  catch{return []}
+}
+function saveLabOrderRows(rows){localStorage.setItem(LAB_ORDER_KEY,JSON.stringify(rows))}
+function blankLabOrder(){
+  return{
+    id:'LAB-'+Date.now(),patientName:'',uhid:'',mobile:'',orderDate:today(),priority:'Routine',
+    sample:'Blood',test:'',status:'Ordered',notes:'',reportDate:'',result:'',interpretation:'',
+    criticalFlag:'No critical flag',reportedBy:'',createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()
+  };
+}
+function useCurrentPatientForLab(){
+  set('labOrderPatient',current.patient?.name||'');
+  set('labOrderUhid',current.uhid||'');
+  set('labOrderMobile',current.patient?.mobile||'');
+  set('labOrderDate',today());
+}
+function createLabOrder(){
+  if(!val('labOrderPatient')||!val('labOrderTest'))return status('Patient name and test/profile are required.',true);
+  const order=blankLabOrder();
+  order.patientName=val('labOrderPatient');order.uhid=val('labOrderUhid');order.mobile=val('labOrderMobile');
+  order.orderDate=val('labOrderDate')||today();order.priority=val('labOrderPriority');order.sample=val('labOrderSample');
+  order.test=val('labOrderTest');order.status=val('labOrderStatus');order.notes=val('labOrderNotes');
+  const rows=labOrderRows();rows.unshift(order);saveLabOrderRows(rows);
+  audit('Lab order created',order.patientName+' '+order.test+' '+order.priority);
+  set('labOrderTest','');set('labOrderNotes','');
+  renderLabOrders();status('Lab order created successfully.');
+}
+function importAdvisedTests(){
+  const advised=current.investigations?.advised||[];
+  if(!advised.length)return status('No advised investigations found for current patient.',true);
+  const rows=labOrderRows();
+  advised.forEach(x=>{
+    rows.unshift({
+      ...blankLabOrder(),id:'LAB-'+Date.now()+'-'+Math.random().toString(36).slice(2,6),
+      patientName:current.patient?.name||'',uhid:current.uhid||'',mobile:current.patient?.mobile||'',
+      priority:x.priority||'Routine',sample:x.category==='Urine'?'Urine':x.category==='Stool'?'Stool':'Blood',
+      test:x.test,status:'Ordered',notes:x.note||''
+    });
+  });
+  saveLabOrderRows(rows);audit('Advised tests imported',advised.length+' lab orders');
+  renderLabOrders();status(advised.length+' advised tests imported into Laboratory.');
+}
+function labOrderClass(x){
+  if(x.status==='Critical'||x.criticalFlag!=='No critical flag')return 'critical';
+  if(x.status==='Completed'||x.status==='Report Ready')return 'completed';
+  return 'pending';
+}
+function renderLabOrders(){
+  const term=val('labOrderSearch').toLowerCase();
+  const filter=val('labOrderFilter')||'All';
+  const from=val('labOrderFrom')||'';
+  const rows=labOrderRows().filter(x=>{
+    if(from&&x.orderDate<from)return false;
+    if(![x.patientName,x.uhid,x.mobile,x.test,x.status].join(' ').toLowerCase().includes(term))return false;
+    if(filter==='Critical')return x.status==='Critical'||x.criticalFlag!=='No critical flag';
+    if(filter!=='All'&&x.status!==filter)return false;
+    return true;
+  }).sort((a,b)=>(b.orderDate||'').localeCompare(a.orderDate||'')||(b.createdAt||'').localeCompare(a.createdAt||''));
+
+  $('labOrderList').innerHTML=rows.map(x=>`<div class="lab-order ${labOrderClass(x)}">
+    <b>${esc(x.patientName)}</b> — ${esc(x.test)}
+    <div class="small">Order ${esc(x.orderDate)} • ${esc(x.sample)} • ${esc(x.priority)} • ${esc(x.status)}</div>
+    <div class="small">UHID ${esc(x.uhid||'—')} • ${esc(x.mobile||'')}</div>
+    <div class="small">${esc(x.notes||'')}</div>
+    <div class="actions">
+      <button class="primary" data-labopen="${esc(x.id)}">Open / Result</button>
+      <button class="secondary" data-labcollect="${esc(x.id)}">Sample Collected</button>
+      <button class="danger" data-labdelete="${esc(x.id)}">Delete</button>
+    </div>
+  </div>`).join('')||'<div class="notice">No matching lab orders.</div>';
+
+  const allRows=labOrderRows();
+  $('labTotalOrders').textContent=allRows.length;
+  $('labPendingOrders').textContent=allRows.filter(x=>!['Completed','Report Ready','Cancelled','Critical'].includes(x.status)).length;
+  $('labCompletedOrders').textContent=allRows.filter(x=>['Completed','Report Ready'].includes(x.status)).length;
+  $('labCriticalOrders').textContent=allRows.filter(x=>x.status==='Critical'||x.criticalFlag!=='No critical flag').length;
+}
+function openLabOrder(id){
+  const x=labOrderRows().find(r=>r.id===id);if(!x)return;
+  set('activeLabOrderId',x.id);set('selectedLabOrder',x.patientName+' — '+x.test);
+  set('labReportDate',x.reportDate||today());set('labReportStatus',x.status==='Critical'?'Critical':x.status==='Completed'?'Completed':'Report Ready');
+  set('labReportResult',x.result);set('labReportInterpretation',x.interpretation);set('labCriticalFlag',x.criticalFlag);
+  set('labReportedBy',x.reportedBy);
+  renderLabReportPreview(x);
+  window.scrollTo({top:$('labReportPreview').offsetTop-120,behavior:'smooth'});
+}
+function renderLabReportPreview(x){
+  if(!x){$('labReportPreview').innerHTML='<div class="notice">Select a lab order to view report preview.</div>';return}
+  $('labReportPreview').innerHTML=`
+  <div style="text-align:center"><h2 style="margin-bottom:4px">श्री कृष्ण महमाया क्लिनिक</h2>
+  <div>Laboratory Report</div></div><hr>
+  <div><b>Patient:</b> ${esc(x.patientName)} • <b>UHID:</b> ${esc(x.uhid||'')} • <b>Mobile:</b> ${esc(x.mobile||'')}</div>
+  <div><b>Test:</b> ${esc(x.test)} • <b>Sample:</b> ${esc(x.sample)} • <b>Priority:</b> ${esc(x.priority)}</div>
+  <div><b>Order Date:</b> ${esc(x.orderDate)} • <b>Report Date:</b> ${esc(x.reportDate||'')}</div>
+  <div class="rx-section-title">Result</div><div>${esc(x.result||'')}</div>
+  <div class="rx-section-title">Interpretation / Impression</div><div>${esc(x.interpretation||'')}</div>
+  <div class="rx-section-title">Status</div><div>${esc(x.status)} • ${esc(x.criticalFlag||'')}</div>
+  <div style="text-align:right;margin-top:35px"><b>Reported By:</b> ${esc(x.reportedBy||'')}</div>`;
+}
+function saveLabReport(){
+  const id=val('activeLabOrderId');if(!id)return status('Select a lab order first.',true);
+  const rows=labOrderRows(),i=rows.findIndex(x=>x.id===id);if(i<0)return status('Lab order not found.',true);
+  const x=rows[i];
+  x.reportDate=val('labReportDate')||today();x.status=val('labReportStatus');
+  x.result=val('labReportResult');x.interpretation=val('labReportInterpretation');
+  x.criticalFlag=val('labCriticalFlag');x.reportedBy=val('labReportedBy');x.updatedAt=new Date().toISOString();
+  if(x.criticalFlag!=='No critical flag'&&x.status!=='Critical')x.status='Critical';
+  rows[i]=x;saveLabOrderRows(rows);
+  audit('Lab report saved',x.patientName+' '+x.test+' '+x.status);
+
+  if(x.uhid&&current.uhid===x.uhid){
+    current.investigations.previous.push({
+      category:'Laboratory',test:x.test,date:x.reportDate,result:x.result,
+      remark:x.interpretation+(x.criticalFlag!=='No critical flag'?' | '+x.criticalFlag:'')
+    });
+    save(current);renderInvestigations();
+  }
+  renderLabOrders();renderLabReportPreview(x);status('Lab report saved successfully.');
+}
+function printLabReport(){
+  const id=val('activeLabOrderId');if(!id)return status('Select a lab order first.',true);
+  const x=labOrderRows().find(r=>r.id===id);if(!x)return;
+  const original=$('printSheet').innerHTML;
+  $('printSheet').innerHTML=$('labReportPreview').innerHTML;
+  showPreview();window.print();$('printSheet').innerHTML=original;showLabMgmt();
+}
+function showLabMgmt(){
+  hideAll();$('labMgmtSection').classList.remove('hidden');setActive('tabLabMgmt');
+  useCurrentPatientForLab();
+  if(!val('labOrderFrom'))set('labOrderFrom',today());
+  renderLabOrders();
+}
+
+const INVENTORY_KEY='skm-inventory-v26';
+const DISPENSE_KEY='skm-dispense-v26';
+
+function inventoryRows(){
+  try{return JSON.parse(localStorage.getItem(INVENTORY_KEY))||[]}
+  catch{return []}
+}
+function saveInventoryRows(rows){localStorage.setItem(INVENTORY_KEY,JSON.stringify(rows))}
+function dispenseRows(){
+  try{return JSON.parse(localStorage.getItem(DISPENSE_KEY))||[]}
+  catch{return []}
+}
+function saveDispenseRows(rows){localStorage.setItem(DISPENSE_KEY,JSON.stringify(rows))}
+function daysToExpiry(dateStr){
+  if(!dateStr)return null;
+  const now=new Date(today()+'T00:00:00');
+  const d=new Date(dateStr+'T00:00:00');
+  return Math.ceil((d-now)/86400000);
+}
+function clearInventoryForm(){
+  ['invGeneric','invBrand','invStrength','invCompany','invPack','invBatch','invMfg','invExpiry','invPurchase','invSelling','invTaxInfo','invStock','invLocation','invNotes','invEditId'].forEach(id=>set(id,''));
+  set('invMinStock','5');set('invCategory','Tablet');
+}
+function saveInventoryItem(){
+  if(!val('invGeneric')||!val('invExpiry')||val('invStock')==='')return status('Generic name, expiry date and current stock are required.',true);
+  const rows=inventoryRows();
+  const id=val('invEditId')||('INV-'+Date.now());
+  const item={
+    id,generic:val('invGeneric'),brand:val('invBrand'),category:val('invCategory'),
+    strength:val('invStrength'),company:val('invCompany'),pack:val('invPack'),
+    batch:val('invBatch'),mfg:val('invMfg'),expiry:val('invExpiry'),
+    purchase:Number(val('invPurchase')||0),selling:Number(val('invSelling')||0),
+    taxInfo:val('invTaxInfo'),stock:Number(val('invStock')||0),minStock:Number(val('invMinStock')||0),
+    location:val('invLocation'),notes:val('invNotes'),updatedAt:new Date().toISOString()
+  };
+  const i=rows.findIndex(x=>x.id===id);
+  if(i>=0)rows[i]=item;else rows.unshift(item);
+  saveInventoryRows(rows);
+  audit(i>=0?'Inventory item updated':'Inventory item added',item.generic+' batch '+item.batch);
+  clearInventoryForm();renderInventory();status('Inventory item saved successfully.');
+}
+function inventoryStatus(item){
+  const days=daysToExpiry(item.expiry);
+  if(days!==null&&days<0)return {type:'expired',label:'Expired'};
+  if(days!==null&&days<=30)return {type:'critical',label:'Expires in '+days+' day(s)'};
+  if(days!==null&&days<=90)return {type:'low',label:'Expires in '+days+' day(s)'};
+  if(Number(item.stock)<=Number(item.minStock))return {type:'low',label:'Low stock'};
+  return {type:'ok',label:'In stock'};
+}
+function renderInventory(){
+  const rows=inventoryRows();
+  const term=val('inventorySearch').toLowerCase();
+  const filter=val('inventoryFilter')||'All';
+
+  const filtered=rows.filter(x=>{
+    const s=inventoryStatus(x);
+    const searchable=[x.generic,x.brand,x.batch,x.company,x.strength,x.category].join(' ').toLowerCase().includes(term);
+    if(!searchable)return false;
+    if(filter==='Low Stock')return Number(x.stock)<=Number(x.minStock);
+    if(filter==='Expiring ≤90 days'){const d=daysToExpiry(x.expiry);return d!==null&&d>=0&&d<=90}
+    if(filter==='Expired'){const d=daysToExpiry(x.expiry);return d!==null&&d<0}
+    if(filter==='In Stock')return x.stock>0&&s.type!=='expired';
+    return true;
+  });
+
+  $('inventoryList').innerHTML=filtered.map(x=>{
+    const s=inventoryStatus(x);
+    const cls=s.type==='expired'?'expired':s.type==='critical'?'stock-critical':s.type==='low'?'stock-low':'stock-ok';
+    return `<div class="inventory-row ${cls}">
+      <b>${esc(x.generic)}</b> ${x.brand?'— '+esc(x.brand):''} ${x.strength?'('+esc(x.strength)+')':''}
+      <div class="small">${esc(x.category)} • Batch ${esc(x.batch||'—')} • Exp ${esc(x.expiry||'—')} • ${esc(x.company||'')}</div>
+      <div><b>Stock:</b> ${esc(x.stock)} | <b>Min:</b> ${esc(x.minStock)} | <b>Sell:</b> ₹${Number(x.selling||0).toFixed(2)} | <b>Status:</b> ${esc(s.label)}</div>
+      <div class="actions">
+        <button class="secondary" data-invedit="${esc(x.id)}">Edit</button>
+        <button class="danger" data-invdelete="${esc(x.id)}">Delete</button>
+      </div>
+    </div>`;
+  }).join('')||'<div class="notice">No matching inventory items.</div>';
+
+  $('inventoryTotalItems').textContent=rows.length;
+  $('inventoryLowStock').textContent=rows.filter(x=>Number(x.stock)<=Number(x.minStock)).length;
+  $('inventoryExpiring').textContent=rows.filter(x=>{const d=daysToExpiry(x.expiry);return d!==null&&d>=0&&d<=90}).length;
+  $('inventoryExpired').textContent=rows.filter(x=>{const d=daysToExpiry(x.expiry);return d!==null&&d<0}).length;
+
+  $('dispenseItem').innerHTML='<option value=""></option>'+rows.map(x=>`<option value="${esc(x.id)}">${esc(x.generic)} ${esc(x.brand||'')} — Stock ${esc(x.stock)} — Exp ${esc(x.expiry)}</option>`).join('');
+  renderDispenseLog();
+}
+function editInventoryItem(id){
+  const x=inventoryRows().find(r=>r.id===id);if(!x)return;
+  set('invEditId',x.id);set('invGeneric',x.generic);set('invBrand',x.brand);set('invCategory',x.category);
+  set('invStrength',x.strength);set('invCompany',x.company);set('invPack',x.pack);set('invBatch',x.batch);
+  set('invMfg',x.mfg);set('invExpiry',x.expiry);set('invPurchase',x.purchase);set('invSelling',x.selling);
+  set('invTaxInfo',x.taxInfo);set('invStock',x.stock);set('invMinStock',x.minStock);set('invLocation',x.location);set('invNotes',x.notes);
+  window.scrollTo({top:$('pharmacySection').offsetTop,behavior:'smooth'});
+}
+function dispenseInventory(){
+  const id=val('dispenseItem'),qty=Number(val('dispenseQty')||0);
+  if(!id||qty<=0)return status('Select item and valid quantity.',true);
+  const rows=inventoryRows(),i=rows.findIndex(x=>x.id===id);
+  if(i<0)return status('Inventory item not found.',true);
+  const item=rows[i],d=daysToExpiry(item.expiry);
+  if(d!==null&&d<0)return status('Expired item cannot be dispensed.',true);
+  if(qty>Number(item.stock))return status('Insufficient stock.',true);
+  if(d!==null&&d<=30&&!confirm('This item expires within 30 days. Continue dispensing?'))return;
+  item.stock=Number(item.stock)-qty;item.updatedAt=new Date().toISOString();
+  rows[i]=item;saveInventoryRows(rows);
+
+  const logs=dispenseRows();
+  logs.unshift({id:'DSP-'+Date.now(),at:new Date().toISOString(),inventoryId:id,item:item.generic,brand:item.brand,qty,patient:val('dispensePatient'),batch:item.batch,expiry:item.expiry});
+  saveDispenseRows(logs.slice(0,500));
+  audit('Medicine dispensed',item.generic+' qty '+qty+' patient '+val('dispensePatient'));
+  set('dispenseQty','1');renderInventory();status('Medicine dispensed and stock updated.');
+}
+function renderDispenseLog(){
+  const rows=dispenseRows().slice(0,30);
+  $('dispenseLog').innerHTML=rows.map(x=>`<div class="item">
+  <b>${esc(x.item)}</b> ${x.brand?'— '+esc(x.brand):''}
+  <div class="small">${esc(new Date(x.at).toLocaleString())} • Qty ${esc(x.qty)} • Patient ${esc(x.patient||'—')} • Batch ${esc(x.batch||'—')}</div>
+  </div>`).join('')||'<div class="notice">No dispensing entries.</div>';
+}
+function showPharmacy(){
+  hideAll();$('pharmacySection').classList.remove('hidden');setActive('tabPharmacy');
+  set('dispensePatient',[current.patient?.name,current.uhid].filter(Boolean).join(' / '));
+  renderInventory();
+}
+
+const APPOINTMENT_KEY='skm-appointments-v25';
+const BILLING_KEY='skm-billing-v25';
+let currentBill=null;
+
+function appointmentRows(){
+  try{return JSON.parse(localStorage.getItem(APPOINTMENT_KEY))||[]}
+  catch{return []}
+}
+function saveAppointmentRows(rows){localStorage.setItem(APPOINTMENT_KEY,JSON.stringify(rows))}
+function addAppointment(){
+  if(!val('apptPatientName')||!val('apptDate'))return status('Patient name and appointment date are required.',true);
+  const rows=appointmentRows();
+  const appt={
+    id:'APT-'+Date.now(),
+    patientName:val('apptPatientName'),mobile:val('apptMobile'),type:val('apptType'),
+    date:val('apptDate'),time:val('apptTime'),status:val('apptStatus'),notes:val('apptNotes'),
+    createdAt:new Date().toISOString()
+  };
+  rows.push(appt);saveAppointmentRows(rows);
+  audit('Appointment added',appt.patientName+' '+appt.date+' '+appt.time);
+  renderAppointments();status('Appointment added successfully.');
+}
+function renderAppointments(){
+  const term=val('apptSearch').toLowerCase();
+  const from=val('apptFilterFrom')||today();
+  const rows=appointmentRows().filter(x=>x.date>=from&&[x.patientName,x.mobile,x.type,x.status].join(' ').toLowerCase().includes(term)).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+  $('appointmentList').innerHTML=rows.map(x=>`<div class="item">
+    <b>${esc(x.patientName)}</b> — ${esc(x.type)}
+    <div class="small">${esc(x.date)} ${esc(x.time||'')} • ${esc(x.mobile||'')} • ${esc(x.status)}</div>
+    <div class="small">${esc(x.notes||'')}</div>
+    <div class="actions">
+      <button class="secondary" data-apptstatus="${esc(x.id)}">Mark Completed</button>
+      <button class="danger" data-apptdelete="${esc(x.id)}">Delete</button>
+    </div>
+  </div>`).join('')||'<div class="notice">No matching appointments.</div>';
+  renderAppointmentCalendar();
+}
+function renderAppointmentCalendar(){
+  const rows=appointmentRows();
+  const base=new Date();
+  const days=[];
+  for(let i=0;i<7;i++){
+    const d=new Date(base);d.setDate(base.getDate()+i);
+    const ds=d.toISOString().slice(0,10);
+    const items=rows.filter(x=>x.date===ds).sort((a,b)=>(a.time||'').localeCompare(b.time||''));
+    days.push(`<div class="calendar-day ${i===0?'today':''}">
+      <div class="date">${esc(ds)}</div>
+      ${items.map(x=>`<div class="appt-item">${esc(x.time||'')} ${esc(x.patientName)}<br>${esc(x.type)} • ${esc(x.status)}</div>`).join('')||'<div class="small">No appointments</div>'}
+    </div>`);
+  }
+  $('appointmentCalendar').innerHTML=days.join('');
+}
+function showAppointments(){
+  hideAll();$('appointmentsSection').classList.remove('hidden');setActive('tabAppointments');
+  if(!val('apptDate'))set('apptDate',today());
+  if(!val('apptFilterFrom'))set('apptFilterFrom',today());
+  renderAppointments();
+}
+function useCurrentPatientForAppointment(){
+  set('apptPatientName',current.patient?.name||'');
+  set('apptMobile',current.patient?.mobile||'');
+  set('apptType',current.visitType==='Follow-up'?'Follow-up':'New Consultation');
+  set('apptDate',current.prescription?.followupDate||today());
+  set('apptNotes',current.prescription?.followupNote||'');
+}
+
+function billingRows(){
+  try{return JSON.parse(localStorage.getItem(BILLING_KEY))||[]}
+  catch{return []}
+}
+function saveBillingRows(rows){localStorage.setItem(BILLING_KEY,JSON.stringify(rows))}
+function newReceiptNo(){return 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice(-8)}
+function blankBill(){
+  return{receiptNo:newReceiptNo(),date:today(),patientName:'',mobile:'',uhid:'',paymentMode:'Cash',
+    items:[],discount:0,paid:0,status:'Paid',createdAt:new Date().toISOString()};
+}
+function calculateBill(){
+  const subtotal=currentBill.items.reduce((s,x)=>s+(Number(x.qty)*Number(x.rate))*(1+Number(x.tax||0)/100),0);
+  const discount=Number(val('billDiscount')||currentBill.discount||0);
+  const total=Math.max(0,subtotal-discount);
+  currentBill.discount=discount;
+  currentBill.paid=Number(val('billPaid')||0);
+  currentBill.status=val('billStatus');
+  currentBill.total=Number(total.toFixed(2));
+  $('billGrandTotal').textContent=total.toFixed(2);
+  renderBillItems();renderReceiptPreview();
+}
+function renderBillItems(){
+  $('billItemsList').innerHTML=currentBill.items.map((x,i)=>`<div class="bill-row">
+    <div><b>${esc(x.name)}</b><div class="small">${esc(x.description||'')}</div></div>
+    <div>Qty: ${esc(x.qty)}</div><div>₹${Number(x.rate).toFixed(2)}</div><div>Tax ${esc(x.tax||0)}%</div>
+    <button class="danger" data-billremove="${i}">Remove</button>
+  </div>`).join('')||'<div class="notice">No billing items added.</div>';
+}
+function renderReceiptPreview(){
+  const b=currentBill;
+  $('receiptPreview').innerHTML=`
+  <div style="text-align:center"><h2 style="margin-bottom:4px">श्री कृष्ण महमाया क्लिनिक</h2>
+  <div>Receipt No: <b>${esc(b.receiptNo)}</b> • Date: ${esc(b.date)}</div></div><hr>
+  <div><b>Patient:</b> ${esc(b.patientName||'')} • <b>Mobile:</b> ${esc(b.mobile||'')} • <b>UHID:</b> ${esc(b.uhid||'')}</div>
+  <table class="rx-table" style="margin-top:10px"><thead><tr><th>#</th><th>Item</th><th>Qty</th><th>Rate</th><th>Tax</th><th>Amount</th></tr></thead>
+  <tbody>${b.items.map((x,i)=>`<tr><td>${i+1}</td><td>${esc(x.name)} ${x.description?'<br>'+esc(x.description):''}</td><td>${esc(x.qty)}</td><td>₹${Number(x.rate).toFixed(2)}</td><td>${esc(x.tax||0)}%</td><td>₹${((Number(x.qty)*Number(x.rate))*(1+Number(x.tax||0)/100)).toFixed(2)}</td></tr>`).join('')||'<tr><td colspan="6">No items</td></tr>'}</tbody></table>
+  <div style="text-align:right;margin-top:10px"><b>Discount:</b> ₹${Number(b.discount||0).toFixed(2)}<br>
+  <b>Grand Total:</b> ₹${Number(b.total||0).toFixed(2)}<br><b>Paid:</b> ₹${Number(b.paid||0).toFixed(2)}<br>
+  <b>Status:</b> ${esc(b.status||'')} • <b>Mode:</b> ${esc(b.paymentMode||'')}</div>`;
+}
+function populateBill(){
+  if(!currentBill)currentBill=blankBill();
+  set('receiptNo',currentBill.receiptNo);set('billingDate',currentBill.date);set('paymentMode',currentBill.paymentMode);
+  set('billingPatientName',currentBill.patientName);set('billingMobile',currentBill.mobile);set('billingUhid',currentBill.uhid);
+  set('billDiscount',currentBill.discount);set('billPaid',currentBill.paid);set('billStatus',currentBill.status);
+  calculateBill();renderRecentBills();
+}
+function useCurrentPatientForBilling(){
+  currentBill.patientName=current.patient?.name||'';
+  currentBill.mobile=current.patient?.mobile||'';
+  currentBill.uhid=current.uhid||'';
+}
+function addBillItem(){
+  const name=val('billItemName'),desc=val('billDescription'),qty=Number(val('billQty')||1),rate=Number(val('billRate')||0),tax=Number(val('billTax')||0);
+  if(!name||rate<0)return status('Enter a valid billing item and rate.',true);
+  currentBill.items.push({name,description:desc,qty,tax,rate});
+  set('billDescription','');set('billRate','');set('billQty','1');set('billTax','0');
+  calculateBill();
+}
+function readBillForm(){
+  currentBill.date=val('billingDate');currentBill.paymentMode=val('paymentMode');
+  currentBill.patientName=val('billingPatientName');currentBill.mobile=val('billingMobile');currentBill.uhid=val('billingUhid');
+  currentBill.discount=Number(val('billDiscount')||0);currentBill.paid=Number(val('billPaid')||0);currentBill.status=val('billStatus');
+  calculateBill();
+}
+function saveBill(){
+  readBillForm();
+  if(!currentBill.patientName)return status('Patient name is required for billing.',true);
+  const rows=billingRows();
+  const i=rows.findIndex(x=>x.receiptNo===currentBill.receiptNo);
+  if(i>=0)rows[i]=currentBill;else rows.unshift(currentBill);
+  saveBillingRows(rows);
+  audit('Bill saved',currentBill.receiptNo+' ₹'+currentBill.total);
+  renderRecentBills();status('Bill saved successfully.');
+}
+function renderRecentBills(){
+  const rows=billingRows().slice(0,20);
+  $('recentBillsList').innerHTML=rows.map(x=>`<div class="item">
+  <b>${esc(x.receiptNo)}</b> — ${esc(x.patientName)}
+  <div class="small">${esc(x.date)} • ₹${Number(x.total||0).toFixed(2)} • ${esc(x.status||'')}</div>
+  <div class="actions"><button class="secondary" data-billopen="${esc(x.receiptNo)}">Open</button></div>
+  </div>`).join('')||'<div class="notice">No saved bills.</div>';
+}
+function showBilling(){
+  hideAll();$('billingSection').classList.remove('hidden');setActive('tabBilling');
+  if(!currentBill)currentBill=blankBill();
+  useCurrentPatientForBilling();populateBill();
+}
+function printReceiptOnly(){
+  const original=$('printSheet').innerHTML;
+  $('printSheet').innerHTML=$('receiptPreview').innerHTML;
+  showPreview();
+  window.print();
+  $('printSheet').innerHTML=original;
+  showBilling();
+}
+
+const SECURITY_KEY='skm-security-v24';
+const AUDIT_KEY='skm-audit-v24';
+let activeRole='Locked';
+
+function securityConfig(){
+  try{return JSON.parse(localStorage.getItem(SECURITY_KEY))||{doctorPin:'1080',receptionPin:'2026'}}
+  catch{return {doctorPin:'1080',receptionPin:'2026'}}
+}
+function saveSecurityConfig(cfg){localStorage.setItem(SECURITY_KEY,JSON.stringify(cfg))}
+function audit(action,detail=''){
+  const rows=auditRows();
+  rows.unshift({at:new Date().toISOString(),role:activeRole,action,detail});
+  localStorage.setItem(AUDIT_KEY,JSON.stringify(rows.slice(0,500)));
+}
+function auditRows(){
+  try{return JSON.parse(localStorage.getItem(AUDIT_KEY))||[]}
+  catch{return []}
+}
+function renderAudit(){
+  const rows=auditRows();
+  $('auditList').innerHTML=rows.map(x=>`<div class="audit-row">
+    <b>${esc(x.action)}</b> <span class="role-badge">${esc(x.role)}</span>
+    <div class="small">${esc(new Date(x.at).toLocaleString())}</div>
+    <div>${esc(x.detail||'')}</div>
+  </div>`).join('')||'<div class="notice">No audit entries.</div>';
+}
+function applyRolePermissions(){
+  const reception=activeRole==='Reception';
+  ['tabAyurveda','tabPrescription','tabSafety','tabPreview','tabCBC','tabLabProfiles','tabSystemic','tabExam'].forEach(id=>{
+    if($(id))$(id).style.display=reception?'none':'inline-flex';
+  });
+  $('activeRoleBadge').textContent=activeRole;
+}
+function unlockApp(){
+  const role=val('loginRole'),pin=val('loginPin'),cfg=securityConfig();
+  const ok=(role==='Doctor'&&pin===cfg.doctorPin)||(role==='Reception'&&pin===cfg.receptionPin);
+  if(!ok){
+    $('loginMessage').textContent='Incorrect PIN.';
+    $('loginMessage').style.background='#fff0ef';
+    return;
+  }
+  activeRole=role;
+  sessionStorage.setItem('skm-active-role',role);
+  $('lockOverlay').classList.add('hidden');
+  set('loginPin','');
+  applyRolePermissions();
+  audit('Login',role+' unlocked the app');
+  renderDashboard();
+  status('App unlocked as '+role+'.');
+}
+function lockApp(){
+  audit('Lock','App locked');
+  activeRole='Locked';
+  sessionStorage.removeItem('skm-active-role');
+  $('lockOverlay').classList.remove('hidden');
+  $('activeRoleBadge').textContent='Locked';
+  $('loginMessage').textContent='App locked.';
+}
+function restoreSession(){
+  const role=sessionStorage.getItem('skm-active-role');
+  if(role==='Doctor'||role==='Reception'){
+    activeRole=role;
+    $('lockOverlay').classList.add('hidden');
+    applyRolePermissions();
+  }
+}
+function savePins(){
+  if(activeRole!=='Doctor')return status('Only Doctor role can change PINs.',true);
+  const d=val('doctorPinSetting'),r=val('receptionPinSetting');
+  if(d.length<4||r.length<4)return status('Each PIN should be at least 4 digits/characters.',true);
+  saveSecurityConfig({doctorPin:d,receptionPin:r});
+  audit('Security settings changed','Doctor and Reception PINs updated');
+  status('PINs saved successfully.');
+}
+function populateSettings(){
+  const cfg=securityConfig();
+  set('doctorPinSetting',cfg.doctorPin);
+  set('receptionPinSetting',cfg.receptionPin);
+  renderAudit();
+}
+function exportFullBackup(){
+  const records=[];
+  for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    if(k&&k.startsWith('skm-'))records.push({key:k,value:localStorage.getItem(k)});
+  }
+  const payload={app:'Shri Krishna Mahamaya EMR',version:'2.4',exportedAt:new Date().toISOString(),items:records};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='SKM-EMR-Full-Backup-'+today()+'.json';
+  document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000);
+  $('backupStatus').textContent='Backup exported at '+new Date().toLocaleString();
+  audit('Backup exported',records.length+' localStorage items');
+}
+async function restoreFullBackup(file){
+  if(activeRole!=='Doctor')return status('Only Doctor role can restore backup.',true);
+  try{
+    const payload=JSON.parse(await file.text());
+    if(!Array.isArray(payload.items))throw new Error('Invalid backup format');
+    if(!confirm(`Restore ${payload.items.length} items? Existing keys with same name will be overwritten.`))return;
+    payload.items.forEach(x=>{
+      if(typeof x.key==='string'&&typeof x.value==='string'&&x.key.startsWith('skm-'))localStorage.setItem(x.key,x.value);
+    });
+    audit('Backup restored',payload.items.length+' items restored');
+    $('backupStatus').textContent='Backup restored successfully at '+new Date().toLocaleString();
+    records=loadAllPatients?loadAllPatients():records;
+    renderDashboard();
+    status('Backup restored successfully. Reload app if needed.');
+  }catch(e){
+    status('Restore failed: '+e.message,true);
+  }
+}
+function showSettings(){
+  hideAll();
+  $('settingsSection').classList.remove('hidden');
+  setActive('tabSettings');
+  populateSettings();
+}
+
+function diagnosisText(r){
+return [
+r.prescription?.finalDiagnosis,
+r.prescription?.provisionalDiagnosis,
+r.complaint?.primary,
+r.clinical?.chiefComplaints
+].filter(Boolean).join(' | ');
+}
+function recordCard(r,compact=false){
+return `<div class="${compact?'timeline-item':'item'}">
+<b>${esc(r.patient?.name||'Unnamed')}</b>
+<div class="small">UHID: ${esc(r.uhid||'')} • Mobile: ${esc(r.patient?.mobile||'')} • ${esc(r.visitDate||'')}</div>
+<div class="small">${esc(diagnosisText(r)||'No diagnosis/complaint entered')}</div>
+<div class="actions">
+<button class="primary" data-dashopen="${esc(r.id)}">Open/Edit</button>
+<button class="secondary" data-dashtimeline="${esc(r.id)}">Timeline</button>
+<button class="success" data-dashrx="${esc(r.id)}">Prescription</button>
+</div>
+</div>`;
+}
+function renderDashboard(){
+const rows=all();
+const todayDate=today();
+const todays=rows.filter(r=>r.visitDate===todayDate);
+const followups=rows.filter(r=>r.visitType==='Follow-up');
+const rx=rows.filter(r=>(r.prescription?.medicines||[]).length||r.prescription?.finalDiagnosis||r.prescription?.provisionalDiagnosis);
+$('totalPatients').textContent=rows.length;
+$('todayPatients').textContent=todays.length;
+$('followupCount').textContent=followups.length;
+$('rxCount').textContent=rx.length;
+$('todayList').innerHTML=todays.slice(0,20).map(r=>recordCard(r,true)).join('')||'<div class="notice">Today no patient record is saved yet.</div>';
+$('recentList').innerHTML=rows.slice(0,8).map(r=>recordCard(r,true)).join('')||'<div class="notice">No recent patient records.</div>';
+renderDashboardSearch();
+}
+function renderDashboardSearch(){
+const term=val('dashboardSearch').toLowerCase();
+if(!term){$('dashboardSearchResults').innerHTML='';return}
+const rows=all().filter(r=>[
+r.uhid,r.patient?.name,r.patient?.mobile,r.complaint?.primary,
+r.prescription?.provisionalDiagnosis,r.prescription?.finalDiagnosis
+].join(' ').toLowerCase().includes(term)).slice(0,10);
+$('dashboardSearchResults').innerHTML=rows.map(r=>recordCard(r,false)).join('')||'<div class="notice" style="margin-top:10px">No matching patient found.</div>';
+}
+function openDashboardRecord(id,toPrescription=false){
+const raw=localStorage.getItem(key(id));
+if(!raw)return status('Patient record not found.',true);
+populate(JSON.parse(raw));
+if(toPrescription)showPreview();
+else showPatient();
+status('Saved patient reopened successfully.');
+}
+
+function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabAppointments','tabBilling','tabPharmacy','tabLabMgmt','tabImaging','tabKnowledge','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','appointmentsSection','billingSection','pharmacySection','labMgmtSection','imagingSection','knowledgeSection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function showDashboard(){hideAll();$('dashboardSection').classList.remove('hidden');setActive('tabDashboard');renderDashboard()}
+function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
+function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
+function showClinical(){hideAll();$('clinicalSection').classList.remove('hidden');setActive('tabClinical')}
+function showExam(){hideAll();$('examSection').classList.remove('hidden');setActive('tabExam')}
+function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden');setActive('tabSystemic')}
+function showInvestigations(){hideAll();$('investigationsSection').classList.remove('hidden');setActive('tabInvestigations');renderInvestigations()}
+function showCBC(){hideAll();$('cbcSection').classList.remove('hidden');setActive('tabCBC');populateCBC()}
+function showLabProfiles(){hideAll();$('labProfilesSection').classList.remove('hidden');setActive('tabLabProfiles');populateLabProfiles()}
+function showAyurveda(){hideAll();$('ayurvedaSection').classList.remove('hidden');setActive('tabAyurveda')}
+function showPrescription(){hideAll();$('prescriptionSection').classList.remove('hidden');setActive('tabPrescription');renderMedicines()}
+function showSafety(){hideAll();$('safetySection').classList.remove('hidden');setActive('tabSafety');populateSafetyProfile()}
+function showPreview(){hideAll();$('previewSection').classList.remove('hidden');setActive('tabPreview');renderPreview()}
+function showRecords(){hideAll();$('recordsSection').classList.remove('hidden');setActive('tabRecords');renderRecords()}
+function renderRecords(){const term=val('search').toLowerCase();const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile,r.complaint?.primary,JSON.stringify(r.investigations||{}),JSON.stringify(r.ayurveda||{})].join(' ').toLowerCase().includes(term));$('recordsList').innerHTML=rows.map(r=>`<div class="item"><b>${esc(r.patient?.name||'Unnamed')}</b><div class="small">UHID: ${esc(r.uhid)} • ${esc(r.visitDate)}</div><div class="small">Complaint: ${esc(r.complaint?.primary||'Not entered')} • Dosha: ${esc((r.ayurveda?.dosha||[]).join(', ')||'Not assessed')} • Medicines: ${(r.prescription?.medicines||[]).length}</div><div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="secondary" data-timeline="${esc(r.id)}">Timeline</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div></div>`).join('')||'<div class="notice">No saved records found.</div>';status(rows.length+' record(s) shown.')}
+
+$('savePatientBtn').onclick=()=>{if(!val('name')||!val('age')||!val('sex')||!val('mobile'))return status('Please fill Name, Age, Sex and Mobile.',true);readPatient();save(current);audit('Patient saved',current.uhid+' '+(current.patient?.name||''));status('Patient saved successfully.')};
+$('saveComplaintBtn').onclick=()=>{readPatient();readComplaint();save(current);audit('Complaint saved',current.uhid);status('Complaint saved successfully.')};
+$('saveClinicalBtn').onclick=()=>{readPatient();readComplaint();readClinical();save(current);audit('Clinical data saved',current.uhid);status('Clinical data saved successfully.')};
+$('saveExamBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();save(current);audit('General examination saved',current.uhid);status('General examination saved successfully.')};
+$('saveSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);audit('Systemic examination saved',current.uhid);status('Systemic examination saved successfully.')};
+$('saveInvestigationsBtn').onclick=()=>{save(current);audit('Investigations saved',current.uhid);status('Investigations saved successfully.')};
+$('interpretCBCBtn').onclick=interpretCBC;
+$('saveCBCBtn').onclick=()=>{readCBC();save(current);status('CBC values saved successfully.')};
+$('addCBCToPreviousBtn').onclick=addCBCSummaryToInvestigations;
+$('interpretLabProfilesBtn').onclick=interpretLabProfiles;
+$('saveLabProfilesBtn').onclick=()=>{readLabProfiles();save(current);status('Lab profile values saved successfully.')};
+$('addLabSummaryBtn').onclick=addLabSummaryToInvestigations;
+document.querySelectorAll('.labModeBtn').forEach(b=>b.onclick=()=>setLabMode(b.dataset.mode));
+$('saveAyurvedaBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();readAyurveda();save(current);status('Ayurveda assessment saved successfully.')};
+$('savePrescriptionBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();readAyurveda();readPrescription();save(current);audit('Prescription saved',current.uhid+' medicines '+(current.prescription?.medicines||[]).length);status('Prescription saved successfully.')};
+
+$('addMedicineBtn').onclick=()=>{
+if(!val('medName'))return status('Enter medicine name.',true);
+current.prescription.medicines.push({
+system:val('medSystem'),name:val('medName'),strength:val('medStrength'),form:val('medForm'),
+dose:val('medDose'),frequency:val('medFrequency'),route:val('medRoute'),meal:val('medMeal'),
+duration:val('medDuration'),instruction:val('medInstruction')
+});
+set('medName','');set('medStrength','');set('medDose','');set('medDuration','');set('medInstruction','');
+save(current);renderMedicines();const invMatch=inventoryRows().find(x=>[x.generic,x.brand].join(' ').toLowerCase().includes(val('medName').toLowerCase()));if(invMatch){status('Medicine added. Inventory stock: '+invMatch.stock+'; expiry: '+invMatch.expiry)}else{status('Medicine added successfully. No matching inventory item found.');}
+};
+$('medicineList').onclick=e=>{
+if(e.target.dataset.medidx!==undefined){
+current.prescription.medicines.splice(Number(e.target.dataset.medidx),1);
+save(current);renderMedicines();status('Medicine removed.');
+}
+};
+
+
+$('addPrevBtn').onclick=()=>{if(!val('prevTest'))return status('Enter previous test name.',true);current.investigations.previous.push({category:val('prevCategory'),test:val('prevTest'),date:val('prevDate'),result:val('prevResult'),remark:val('prevRemark')});set('prevTest','');set('prevResult','');set('prevRemark','');save(current);renderInvestigations()};
+$('addAdvBtn').onclick=()=>{if(!val('advTest'))return status('Enter advised test name.',true);current.investigations.advised.push({category:val('advCategory'),test:val('advTest'),priority:val('advPriority'),note:val('advNote')});set('advTest','');set('advNote','');save(current);renderInvestigations()};
+$('previousList').onclick=e=>{if(e.target.dataset.previdx!==undefined){current.investigations.previous.splice(Number(e.target.dataset.previdx),1);save(current);renderInvestigations()}};
+$('advisedList').onclick=e=>{if(e.target.dataset.advidx!==undefined){current.investigations.advised.splice(Number(e.target.dataset.advidx),1);save(current);renderInvestigations()}};
+
+$('goComplaintBtn').onclick=()=>{readPatient();save(current);showComplaint()};
+$('goClinicalBtn2').onclick=()=>{readPatient();readComplaint();save(current);showClinical()};
+$('goExamBtn').onclick=()=>{readPatient();readComplaint();readClinical();save(current);showExam()};
+$('goSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();save(current);showSystemic()};
+$('goInvestigationsBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);showInvestigations()};
+$('goCBCBtn').onclick=()=>{save(current);showCBC()};
+$('goAyurvedaBtn').onclick=()=>{save(current);showAyurveda()};
+$('goLabProfilesBtn').onclick=()=>{readCBC();save(current);showLabProfiles()};
+$('goAyurvedaFromCBCBtn').onclick=()=>{readCBC();save(current);showAyurveda()};
+$('goAyurvedaFromLabBtn').onclick=()=>{readLabProfiles();save(current);showAyurveda()};
+$('goPrescriptionBtn').onclick=()=>{readAyurveda();save(current);showPrescription()};
+$('runSafetyBtn').onclick=()=>{readPrescription();save(current);showSafety();runMedicineSafety()};
+$('goPreviewBtn').onclick=()=>{readPrescription();save(current);showPreview()};
+$('saveSafetyProfileBtn').onclick=()=>{readSafetyProfile();save(current);status('Safety profile saved successfully.')};
+$('screenNowBtn').onclick=runMedicineSafety;
+$('backPrescriptionSafetyBtn').onclick=showPrescription;
+$('backPrescriptionBtn').onclick=showPrescription;
+$('printBtn').onclick=()=>window.print();
+$('downloadTxtBtn').onclick=downloadText;
+$('shareBtn').onclick=sharePrescription;
+$('goRecordsBtn').onclick=showRecords;
+$('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
+
+
+$('tabDashboard').onclick=showDashboard;
+
+$('tabKnowledge').onclick=showKnowledge;
+$('dashKnowledge').onclick=showKnowledge;
+$('kbSearch').oninput=()=>{renderDiseaseList()};
+$('kbCategory').onchange=()=>{renderDiseaseList()};
+$('kbDiseaseList').onclick=e=>{
+  const id=e.target.dataset.kbdisease;
+  if(id){activeDiseaseId=id;renderDiseaseList();renderDiseaseContent();}
+};
+
+
+$('tabImaging').onclick=showImaging;
+$('dashImaging').onclick=showImaging;
+$('saveImagingBtn').onclick=saveImagingStudy;
+$('useCurrentPatientImgBtn').onclick=useCurrentPatientForImaging;
+$('clearImagingBtn').onclick=clearImagingForm;
+$('imgSearch').oninput=renderImaging;
+$('imgFilter').onchange=renderImaging;
+$('imgFromDate').onchange=renderImaging;
+$('printImagingBtn').onclick=printImagingSummary;
+$('sendToPatientInvestigationsBtn').onclick=addImagingToPatientInvestigations;
+$('imagingList').onclick=e=>{
+  const open=e.target.dataset.imgopen,edit=e.target.dataset.imgedit,del=e.target.dataset.imgdelete;
+  if(open)openImagingStudy(open,false);
+  if(edit)openImagingStudy(edit,true);
+  if(del&&confirm('Delete this imaging study?')){
+    const x=imagingRows().find(r=>r.id===del);
+    saveImagingRows(imagingRows().filter(r=>r.id!==del));
+    audit('Imaging study deleted',x?.patientName+' '+x?.type);
+    if(activeImagingId===del){activeImagingId='';renderImagingPreview(null)}
+    renderImaging();
+  }
+};
+
+
+$('tabLabMgmt').onclick=showLabMgmt;
+$('dashLabMgmt').onclick=showLabMgmt;
+$('createLabOrderBtn').onclick=createLabOrder;
+$('useCurrentPatientLabBtn').onclick=useCurrentPatientForLab;
+$('importAdvisedTestsBtn').onclick=importAdvisedTests;
+$('labOrderSearch').oninput=renderLabOrders;
+$('labOrderFilter').onchange=renderLabOrders;
+$('labOrderFrom').onchange=renderLabOrders;
+$('saveLabReportBtn').onclick=saveLabReport;
+$('printLabReportBtn').onclick=printLabReport;
+$('sendToCBCBtn').onclick=showCBC;
+$('sendToLabProfilesBtn').onclick=showLabProfiles;
+$('labOrderList').onclick=e=>{
+  const open=e.target.dataset.labopen,collect=e.target.dataset.labcollect,del=e.target.dataset.labdelete;
+  const rows=labOrderRows();
+  if(open)openLabOrder(open);
+  if(collect){
+    const i=rows.findIndex(x=>x.id===collect);
+    if(i>=0){rows[i].status='Sample Collected';rows[i].updatedAt=new Date().toISOString();saveLabOrderRows(rows);audit('Lab sample collected',rows[i].patientName+' '+rows[i].test);renderLabOrders();}
+  }
+  if(del&&confirm('Delete this lab order?')){
+    const x=rows.find(r=>r.id===del);
+    saveLabOrderRows(rows.filter(r=>r.id!==del));audit('Lab order deleted',x?.patientName+' '+x?.test);renderLabOrders();renderLabReportPreview(null);
+  }
+};
+
+
+$('tabPharmacy').onclick=showPharmacy;
+$('dashPharmacy').onclick=showPharmacy;
+$('saveInventoryItemBtn').onclick=saveInventoryItem;
+$('clearInventoryFormBtn').onclick=clearInventoryForm;
+$('inventorySearch').oninput=renderInventory;
+$('inventoryFilter').onchange=renderInventory;
+$('dispenseBtn').onclick=dispenseInventory;
+$('inventoryList').onclick=e=>{
+  const edit=e.target.dataset.invedit,del=e.target.dataset.invdelete;
+  if(edit)editInventoryItem(edit);
+  if(del&&confirm('Delete this inventory item?')){
+    const item=inventoryRows().find(x=>x.id===del);
+    saveInventoryRows(inventoryRows().filter(x=>x.id!==del));
+    audit('Inventory item deleted',item?.generic||del);
+    renderInventory();
+  }
+};
+
+
+$('tabAppointments').onclick=showAppointments;
+$('tabBilling').onclick=showBilling;
+$('dashAppointments').onclick=showAppointments;
+$('dashBilling').onclick=showBilling;
+
+$('addAppointmentBtn').onclick=addAppointment;
+$('loadCurrentPatientApptBtn').onclick=useCurrentPatientForAppointment;
+$('apptFilterFrom').onchange=renderAppointments;
+$('apptSearch').oninput=renderAppointments;
+$('appointmentList').onclick=e=>{
+  const done=e.target.dataset.apptstatus,del=e.target.dataset.apptdelete;
+  const rows=appointmentRows();
+  if(done){const i=rows.findIndex(x=>x.id===done);if(i>=0){rows[i].status='Completed';saveAppointmentRows(rows);audit('Appointment completed',rows[i].patientName);renderAppointments();}}
+  if(del&&confirm('Delete this appointment?')){saveAppointmentRows(rows.filter(x=>x.id!==del));audit('Appointment deleted',del);renderAppointments();}
+};
+
+$('addBillItemBtn').onclick=addBillItem;
+$('billDiscount').oninput=calculateBill;
+$('billPaid').oninput=calculateBill;
+$('billStatus').onchange=calculateBill;
+$('paymentMode').onchange=()=>{currentBill.paymentMode=val('paymentMode');renderReceiptPreview()};
+$('saveBillBtn').onclick=saveBill;
+$('newBillBtn').onclick=()=>{currentBill=blankBill();useCurrentPatientForBilling();populateBill();status('New blank bill ready.')};
+$('printReceiptBtn').onclick=printReceiptOnly;
+$('billItemsList').onclick=e=>{if(e.target.dataset.billremove!==undefined){currentBill.items.splice(Number(e.target.dataset.billremove),1);calculateBill()}};
+$('recentBillsList').onclick=e=>{const no=e.target.dataset.billopen;if(no){const b=billingRows().find(x=>x.receiptNo===no);if(b){currentBill=b;populateBill();status('Saved bill opened.')}}};
+
+
+$('loginBtn').onclick=unlockApp;
+$('loginPin').addEventListener('keydown',e=>{if(e.key==='Enter')unlockApp()});
+$('lockNowBtn').onclick=lockApp;
+$('tabSettingsQuick').onclick=showSettings;
+$('tabSettings').onclick=showSettings;
+$('savePinsBtn').onclick=savePins;
+$('lockFromSettingsBtn').onclick=lockApp;
+$('exportFullBackupBtn').onclick=exportFullBackup;
+$('restoreBackupInput').onchange=e=>{if(e.target.files?.[0])restoreFullBackup(e.target.files[0])};
+$('refreshAuditBtn').onclick=renderAudit;
+$('clearAuditBtn').onclick=()=>{
+  if(activeRole!=='Doctor')return status('Only Doctor role can clear audit log.',true);
+  if(confirm('Clear audit log?')){localStorage.removeItem(AUDIT_KEY);audit('Audit cleared','New audit log started');renderAudit();}
+};
+
+
+$('tabTimeline').onclick=showTimeline;
+$('saveProgressBtn').onclick=()=>{
+try{
+readFollowup();save(current);populateFollowup();status('Follow-up progress saved successfully.');
+}catch(e){status('Progress save failed: '+e.message,true)}
+};
+$('createFollowupBtn').onclick=()=>{
+try{
+readFollowup();save(current);
+const next=copyForFollowup(current);
+save(next);
+populate(next);
+showTimeline();
+status('New follow-up visit created. Previous data copied; update current findings and prescription.');
+}catch(e){status('Follow-up creation failed: '+e.message,true)}
+};
+$('openCurrentVisitBtn').onclick=showPatient;
+$('timelineSection').onclick=e=>{
+const open=e.target.dataset.timelineopen,rx=e.target.dataset.timelinerx;
+if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));showTimeline();status('Selected visit opened.')}}
+if(rx){const raw=localStorage.getItem(key(rx));if(raw){populate(JSON.parse(raw));showPreview();status('Prescription preview opened.')}}
+};
+
+$('dashNewPatient').onclick=()=>{populate(blank());showPatient();status('New blank patient ready.')};
+$('dashRecords').onclick=showRecords;
+$('dashSearch').onclick=()=>{$('dashboardSearch').focus();window.scrollTo({top:$('dashboardSearch').offsetTop-80,behavior:'smooth'})};
+$('dashInvestigations').onclick=showInvestigations;
+$('dashCBC').onclick=showCBC;
+$('dashLabProfiles').onclick=showLabProfiles;
+$('dashAyurveda').onclick=showAyurveda;
+$('dashPrescription').onclick=showPrescription;
+$('dashSafety').onclick=showSafety;
+$('dashboardSearch').oninput=renderDashboardSearch;
+$('dashboardSection').onclick=e=>{
+const open=e.target.dataset.dashopen,rx=e.target.dataset.dashrx,tl=e.target.dataset.dashtimeline;
+if(open)openDashboardRecord(open,false);
+if(rx)openDashboardRecord(rx,true);
+if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}
+};
+
+$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabCBC').onclick=showCBC;$('tabLabProfiles').onclick=showLabProfiles;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabSafety').onclick=showSafety;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
+$('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
+$('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
+
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.9 ready.');
+})();
+</script>
+
+<!-- PWA service-worker registration -->
+<script src="./install-pwa.js"></script>
+
+</body>
+</html>
