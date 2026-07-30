@@ -194,7 +194,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 
 <div id="lockOverlay" class="lock-overlay">
   <div class="lock-card">
-    <h2>🔐 Shri Krishna Mahamaya EMR</h2>
+    <h2>🔐Mahamaya Clinic  </h2>
     <div class="notice">यह local device app lock है। Default Doctor PIN: <b>1080</b>, Reception PIN: <b>2026</b>. Login के बाद Settings में PIN बदलें।</div>
     <label>Select Role</label>
     <select id="loginRole">
@@ -211,7 +211,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 </div>
 
 <header>
-<h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
+<h1>Mahamaya Clinic </h1>
 <p>V2.9 • Disease Knowledge Base • Sciatica / Gridhrasi</p>
 </header>
 <main>
@@ -1572,7 +1572,7 @@ ${a.medicine?`<div class="small"><b>Medicine:</b> ${esc(a.medicine)}</div>`:''}
 function prescriptionSummaryText(){
 const p=current.patient,c=current.clinical,rx=current.prescription,a=current.ayurveda,inv=current.investigations;
 const lines=[
-'श्री कृष्ण महमाया क्लिनिक EMR',
+'Mahamaya Clinic ',
 'Dr Rajesh Sao — B.A.M.S., M.D. (Ayurveda)',
 'Contact: '+(rx.emergencyContact||'8770143788, 7489818673'),
 '',
@@ -1611,7 +1611,7 @@ const ayurSummary=[(a?.dosha||[]).join('/'),(a?.subtypes||[]).join(', '),(a?.gun
 
 $('printSheet').innerHTML=`
 <div class="letterhead">
-<h1>श्री कृष्ण महमाया क्लिनिक EMR</h1>
+<h1>Mahamaya Clinic  EMR</h1>
 <div><b>Dr Rajesh Sao</b> — B.A.M.S., M.D. (Ayurveda)<br>
 Ancient Wisdom • Modern Diagnosis • Holistic Healing<br>
 Emergency / Clinic Contact: ${esc(rx.emergencyContact||'8770143788, 7489818673')}</div>
@@ -2042,7 +2042,7 @@ function openImagingStudy(id,edit=false){
 function renderImagingPreview(x){
   if(!x){$('imagingPreview').innerHTML='<div class="notice">Select or save an imaging study to preview.</div>';return}
   $('imagingPreview').innerHTML=`
-  <div style="text-align:center"><h2 style="margin-bottom:4px">श्री कृष्ण महमाया क्लिनिक</h2><div>Structured Imaging Summary</div></div><hr>
+  <div style="text-align:center"><h2 style="margin-bottom:4px">Mahamaya Clinic </h2><div>Structured Imaging Summary</div></div><hr>
   <div><b>Patient:</b> ${esc(x.patientName)} • <b>UHID:</b> ${esc(x.uhid||'')} • <b>Date:</b> ${esc(x.date)}</div>
   <div><b>Study:</b> ${esc(x.type)} ${esc(x.bodyPart)} • <b>Side:</b> ${esc(x.side)} • <b>Centre:</b> ${esc(x.centre||'')}</div>
   <div class="rx-section-title">Structured Findings</div>
@@ -2172,7 +2172,7 @@ function openLabOrder(id){
 function renderLabReportPreview(x){
   if(!x){$('labReportPreview').innerHTML='<div class="notice">Select a lab order to view report preview.</div>';return}
   $('labReportPreview').innerHTML=`
-  <div style="text-align:center"><h2 style="margin-bottom:4px">श्री कृष्ण महमाया क्लिनिक</h2>
+  <div style="text-align:center"><h2 style="margin-bottom:4px">Mahamaya Clinic </h2>
   <div>Laboratory Report</div></div><hr>
   <div><b>Patient:</b> ${esc(x.patientName)} • <b>UHID:</b> ${esc(x.uhid||'')} • <b>Mobile:</b> ${esc(x.mobile||'')}</div>
   <div><b>Test:</b> ${esc(x.test)} • <b>Sample:</b> ${esc(x.sample)} • <b>Priority:</b> ${esc(x.priority)}</div>
@@ -2439,7 +2439,7 @@ function renderBillItems(){
 function renderReceiptPreview(){
   const b=currentBill;
   $('receiptPreview').innerHTML=`
-  <div style="text-align:center"><h2 style="margin-bottom:4px">श्री कृष्ण महमाया क्लिनिक</h2>
+  <div style="text-align:center"><h2 style="margin-bottom:4px">Mahamaya Clinic </h2>
   <div>Receipt No: <b>${esc(b.receiptNo)}</b> • Date: ${esc(b.date)}</div></div><hr>
   <div><b>Patient:</b> ${esc(b.patientName||'')} • <b>Mobile:</b> ${esc(b.mobile||'')} • <b>UHID:</b> ${esc(b.uhid||'')}</div>
   <table class="rx-table" style="margin-top:10px"><thead><tr><th>#</th><th>Item</th><th>Qty</th><th>Rate</th><th>Tax</th><th>Amount</th></tr></thead>
@@ -2591,7 +2591,7 @@ function exportFullBackup(){
     const k=localStorage.key(i);
     if(k&&k.startsWith('skm-'))records.push({key:k,value:localStorage.getItem(k)});
   }
-  const payload={app:'Shri Krishna Mahamaya EMR',version:'2.4',exportedAt:new Date().toISOString(),items:records};
+  const payload={app:'Mahamaya Clinic',version:'2.4',exportedAt:new Date().toISOString(),items:records};
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
