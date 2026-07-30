@@ -1611,7 +1611,8 @@ const ayurSummary=[(a?.dosha||[]).join('/'),(a?.subtypes||[]).join(', '),(a?.gun
 
 $('printSheet').innerHTML=`
 <div class="letterhead">
-<h1>Mahamaya Clinic  EMR</h1>
+<h1>Mahamaya Clinic </h1>
+<div><b>Advanced Ayurveda, Spine & Orthopedic Centre</b></div>
 <div><b>Dr Rajesh Sao</b> — B.A.M.S., M.D. (Ayurveda)<br>
 Ancient Wisdom • Modern Diagnosis • Holistic Healing<br>
 Emergency / Clinic Contact: ${esc(rx.emergencyContact||'8770143788, 7489818673')}</div>
@@ -1662,7 +1663,7 @@ setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000);
 async function sharePrescription(){
 const text=prescriptionSummaryText();
 if(navigator.share){
-try{await navigator.share({title:'Shri Krishna Mahamaya Clinic Prescription',text});status('Share menu opened. Choose WhatsApp or another app.');return}catch(e){if(e.name==='AbortError')return}
+try{await navigator.share({title:'Mahamaya Clinic Prescription',text});status('Share menu opened. Choose WhatsApp or another app.');return}catch(e){if(e.name==='AbortError')return}
 }
 try{await navigator.clipboard.writeText(text);status('Prescription copied to clipboard. Paste it in WhatsApp.')}catch(e){status('Sharing unavailable. Use Print / Save as PDF.',true)}
 }
