@@ -641,6 +641,17 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <div><label>Shatkriyakala</label><select id="shatkriya"><option value=""></option><option>Sanchaya</option><option>Prakopa</option><option>Prasara</option><option>Sthanasamshraya</option><option>Vyakti</option><option>Bheda</option></select></div>
 </div>
 
+
+<div class="card" id="dhatuOjasMalaCard" style="margin-top:12px">
+  <h3>Dhatu–Ojas–Mala Status Assessment</h3>
+  <div class="small">Document Samya / Vriddhi / Kshaya / Dushti with severity and observed features. This is a structured Ayurveda physician-support layer; classical verse-level reference verification remains a separate step.</div>
+  <div id="dhatuOjasMalaResults"></div>
+  <div id="dhatuOjasMalaSummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No Dhatu–Ojas–Mala status documented.</div>
+  <div style="margin-top:10px">
+    <button type="button" id="addDhatuSummaryBtn" class="secondary">Add Dhatu–Ojas–Mala Summary to Dushya / Notes</button>
+  </div>
+</div>
+
 <h3>Samprapti Ghataka</h3>
 <div class="grid">
 <div><label>Dushya</label><textarea id="dushya" placeholder="Rasa, Rakta, Mamsa, Meda, Asthi, Majja, Shukra/Artava..."></textarea></div>
@@ -1185,6 +1196,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Ayurveda Dosha Synthesis V2.12 */
 /* SKMCIS Ayurveda Samprapti Correlation V2.13 */
 /* SKMCIS Integrated Ayurveda Synthesis V2.14 */
+/* SKMCIS Dhatu-Ojas-Mala Assessment V2.15 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -1240,7 +1252,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -1513,6 +1525,8 @@ function buildSampraptiCorrelation(){
   if(agni) lines.push(`Agni: ${humanizeAyuToken(agni)}`);
   if(ama) lines.push(`Ama status: ${humanizeAyuToken(ama)}`);
   if(dushya) lines.push(`Dushya: ${dushya}`);
+  const tissueTxt=$('dhatuOjasMalaSummary')?.textContent||'';
+  if(tissueTxt&&!tissueTxt.startsWith('No Dhatu'))lines.push(tissueTxt);
 
   if(/Marmasthi|Sandhi/i.test(rogamarga)) lines.push('Rogamarga correlation: correlate with deeper Asthi–Sandhi–Majja / neuro-musculoskeletal involvement where clinically appropriate.');
   else if(/Shakha/i.test(rogamarga)) lines.push('Rogamarga correlation: correlate with peripheral Dhatu and tissue manifestations.');
@@ -1539,6 +1553,149 @@ function buildIntegratedAyurvedaSynthesis(){
   lines.push('');
   lines.push(corr||'No Guna–Srotas–Rogamarga correlation available.');
   return lines.join('\n');
+}
+
+const tissueStateLabels={'':'Not assessed',samya:'Samya',vriddhi:'Vriddhi',kshaya:'Kshaya',dushti:'Dushti'};
+const tissueSeverityLabels={'':'Not graded','0':'Normal / Absent','1':'Mild','2':'Moderate','3':'Severe'};
+
+const dhatuOjasMalaMaster=[
+  {id:'rasa',group:'Dhatu',name:'Rasa Dhatu',
+   samya:['Adequate nourishment and hydration pattern','Stable complexion and tissue freshness','Comfortable circulation/nourishment pattern'],
+   vriddhi:['Heaviness or excessive moistness pattern','Nausea or excessive salivary tendency','Sluggishness / Kapha-like nourishment excess'],
+   kshaya:['Dryness','Fatigue or reduced nourishment pattern','Thirst or reduced tissue freshness'],
+   dushti:['Abnormal nourishment pattern','Variable appetite/assimilation context','Generalized tissue-support disturbance']},
+  {id:'rakta',group:'Dhatu',name:'Rakta Dhatu',
+   samya:['Healthy colour/varna','Stable vitality pattern','No abnormal bleeding or heat-related signs'],
+   vriddhi:['Redness / heat tendency','Bleeding tendency context','Inflammatory or Pitta-Rakta pattern'],
+   kshaya:['Pallor pattern','Reduced exercise tolerance / fatigue context','Reduced colour/lustre'],
+   dushti:['Abnormal colour','Bleeding / inflammatory context','Rakta-vaha correlation required']},
+  {id:'mamsa',group:'Dhatu',name:'Mamsa Dhatu',
+   samya:['Adequate muscle bulk','Stable strength','Normal soft-tissue support'],
+   vriddhi:['Excess bulk / heaviness','Localized tissue overgrowth pattern','Stiff/heavy muscular pattern'],
+   kshaya:['Reduced muscle bulk','Weakness','Poor soft-tissue support'],
+   dushti:['Pain / swelling / altered muscle function','Abnormal soft-tissue pattern','Mamsavaha correlation required']},
+  {id:'meda',group:'Dhatu',name:'Meda Dhatu',
+   samya:['Balanced adipose reserve','Appropriate lubrication/energy reserve','Stable body composition'],
+   vriddhi:['Excess adiposity / heaviness','Excess sweating/oiliness tendency','Metabolic Kapha-Meda pattern'],
+   kshaya:['Reduced fat reserve','Dryness / reduced cushioning','Low energy reserve pattern'],
+   dushti:['Abnormal fat distribution','Metabolic dysfunction context','Medovaha correlation required']},
+  {id:'asthi',group:'Dhatu',name:'Asthi Dhatu',
+   samya:['Stable skeletal support','Normal teeth/nail support pattern','Comfortable load-bearing'],
+   vriddhi:['Excess hard/bony growth pattern','Heaviness/stiff structural pattern'],
+   kshaya:['Bone/joint fragility pattern','Dental/nail weakness context','Pain with reduced structural reserve'],
+   dushti:['Structural pain/deformity context','Asthivaha correlation required','Modern imaging/lab correlation when indicated']},
+  {id:'majja',group:'Dhatu',name:'Majja Dhatu',
+   samya:['Stable neurological function pattern','Adequate internal bone/marrow support','Good tissue filling/support'],
+   vriddhi:['Heaviness/fullness pattern','Excess internal tissue-filling pattern'],
+   kshaya:['Neurological weakness / sensory disturbance context','Reduced internal tissue support','Fatigue/weakness pattern'],
+   dushti:['Neurological or marrow-related dysfunction context','Majjavaha correlation required','Modern neurological/hematological correlation when indicated']},
+  {id:'shukra_artava',group:'Dhatu',name:'Shukra / Artava Dhatu',
+   samya:['Stable reproductive function','Appropriate reproductive vitality','Normal reproductive-cycle/function pattern'],
+   vriddhi:['Excess reproductive secretion/activity pattern','Congestive reproductive pattern'],
+   kshaya:['Reduced reproductive vitality','Low libido/fertility-related context','Reduced reproductive secretion/function'],
+   dushti:['Reproductive dysfunction context','Shukra/Artavavaha correlation required','Modern reproductive evaluation when indicated']},
+  {id:'ojas',group:'Ojas',name:'Ojas',
+   samya:['Stable vitality','Good recovery / resilience','Stable mental and physical endurance'],
+   vriddhi:['No routine independent pathological Vriddhi grading intended; document only if clinically reasoned'],
+   kshaya:['Reduced vitality / endurance','Frequent exhaustion or poor recovery','Reduced resilience / Bala pattern'],
+   dushti:['Marked vitality/resilience disturbance','Systemic depletion context','Requires broad clinical correlation']},
+  {id:'purisha',group:'Mala',name:'Purisha',
+   samya:['Regular comfortable bowel movement','Appropriate consistency and frequency'],
+   vriddhi:['Excess quantity / heaviness','Frequent or bulky stool pattern'],
+   kshaya:['Reduced stool quantity','Dryness / constipation tendency'],
+   dushti:['Abnormal colour/consistency/frequency','Pain, mucus, blood or other bowel symptoms require clinical evaluation']},
+  {id:'mutra_mala',group:'Mala',name:'Mutra',
+   samya:['Comfortable urination','Appropriate colour, quantity and frequency'],
+   vriddhi:['Increased quantity/frequency pattern'],
+   kshaya:['Reduced quantity / concentration pattern'],
+   dushti:['Dysuria, abnormal colour, urgency or other urinary symptoms require clinical evaluation']},
+  {id:'sweda',group:'Mala',name:'Sweda',
+   samya:['Appropriate sweating for environment/activity','Normal skin moisture/temperature regulation'],
+   vriddhi:['Excess sweating','Excess moisture / heat-related sweating pattern'],
+   kshaya:['Reduced sweating','Dry skin / poor heat-regulation pattern'],
+   dushti:['Abnormal odour/quantity/distribution','Sweat disturbance requiring contextual evaluation']}
+];
+
+function currentTissueAssessmentMap(){
+  return current?.ayurveda?.tissueAssessments||{};
+}
+function renderDhatuOjasMalaAssessment(){
+  const box=$('dhatuOjasMalaResults'); if(!box)return;
+  const saved=currentTissueAssessmentMap();
+  box.innerHTML=dhatuOjasMalaMaster.map(item=>{
+    const a=saved[item.id]||{};
+    const state=a.state||'';
+    const sev=String(a.severity??'');
+    const observed=new Set(a.observed_features||[]);
+    const feats=state?(item[state]||[]):[];
+    const stateOpts=['','samya','vriddhi','kshaya','dushti'].map(v=>`<option value="${v}" ${v===state?'selected':''}>${tissueStateLabels[v]}</option>`).join('');
+    const sevOpts=['','0','1','2','3'].map(v=>`<option value="${v}" ${v===sev?'selected':''}>${tissueSeverityLabels[v]}</option>`).join('');
+    const checks=feats.map(f=>`<label class="check"><input type="checkbox" class="tissue-feature-check" value="${esc(f)}" ${observed.has(f)?'checked':''}>${esc(f)}</label>`).join('');
+    return `<div class="subtype-card tissue-card" data-tissue-id="${esc(item.id)}" style="margin-top:10px">
+      <h4>${esc(item.name)} <span class="pill">${esc(item.group)}</span></h4>
+      <div class="grid">
+        <div><label>Status</label><select class="tissue-state-select">${stateOpts}</select></div>
+        <div><label>Severity</label><select class="tissue-severity-select">${sevOpts}</select></div>
+      </div>
+      ${state?`<details open><summary>${esc(tissueStateLabels[state])} — select observed features</summary><div class="checkgrid" style="margin-top:8px">${checks}</div></details>`:''}
+    </div>`;
+  }).join('');
+  updateDhatuOjasMalaSummary();
+}
+
+function collectTissueAssessments(){
+  const out={};
+  document.querySelectorAll('.tissue-card').forEach(card=>{
+    const id=card.dataset.tissueId;
+    const state=card.querySelector('.tissue-state-select')?.value||'';
+    const severity=card.querySelector('.tissue-severity-select')?.value||'';
+    const observed=[...card.querySelectorAll('.tissue-feature-check:checked')].map(x=>x.value);
+    if(state||severity||observed.length)out[id]={state,severity,observed_features:observed};
+  });
+  return out;
+}
+
+function updateDhatuOjasMalaSummary(){
+  const box=$('dhatuOjasMalaSummary'); if(!box)return;
+  const map=collectTissueAssessments();
+  const lines=[];
+  dhatuOjasMalaMaster.forEach(item=>{
+    const a=map[item.id]; if(!a||!a.state)return;
+    const sev=tissueSeverityLabels[String(a.severity??'')]||'Not graded';
+    const obs=a.observed_features||[];
+    lines.push(`${item.name}: ${tissueStateLabels[a.state]} | Severity: ${sev}${obs.length?` | Observed: ${obs.join('; ')}`:''}`);
+  });
+  box.textContent=lines.length?`Dhatu–Ojas–Mala Clinical Status:\n${lines.map(x=>'• '+x).join('\n')}`:'No Dhatu–Ojas–Mala status documented.';
+  renderSampraptiCorrelation();
+}
+
+function initDhatuOjasMalaEngine(){
+  const box=$('dhatuOjasMalaResults');
+  if(box&&!box.dataset.bound){
+    box.addEventListener('change',e=>{
+      const card=e.target.closest('.tissue-card'); if(!card)return;
+      if(!current.ayurveda.tissueAssessments)current.ayurveda.tissueAssessments={};
+      current.ayurveda.tissueAssessments=collectTissueAssessments();
+      renderDhatuOjasMalaAssessment();
+    });
+    box.dataset.bound='1';
+  }
+  const btn=$('addDhatuSummaryBtn');
+  if(btn&&!btn.dataset.bound){
+    btn.onclick=()=>{
+      const txt=$('dhatuOjasMalaSummary')?.textContent||'';
+      if(!txt||txt.startsWith('No Dhatu'))return;
+      const selectedDushya=dhatuOjasMalaMaster.filter(x=>current.ayurveda.tissueAssessments?.[x.id]?.state && current.ayurveda.tissueAssessments?.[x.id]?.state!=='samya').map(x=>x.name);
+      if(selectedDushya.length){
+        const oldD=val('dushya');
+        set('dushya',[oldD,selectedDushya.join(', ')].filter(Boolean).join(oldD?', ':''));
+      }
+      const old=val('ayurNotes');
+      set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));
+      status('Dhatu–Ojas–Mala summary added to Dushya / Ayurveda Notes.');
+    };
+    btn.dataset.bound='1';
+  }
 }
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
@@ -1624,7 +1781,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -1652,7 +1809,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSubtypeInterpretations();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
@@ -3367,7 +3524,7 @@ $('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('t
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V2.14 Integrated Ayurveda Synthesis ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V2.15 Dhatu–Ojas–Mala Assessment ready.');
 })();
 </script>
 </body>
