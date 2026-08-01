@@ -1203,6 +1203,29 @@ current.prescription.notes=val('prescriptionNotes');
 
 
 function renderChecks(container,name,items){$(container).innerHTML=items.map(x=>`<label class="check"><input type="checkbox" name="${name}" value="${esc(x)}">${esc(x)}</label>`).join('')}
+async function loadAyurvedaSubtypeData(){
+  try{
+    const response = await fetch('data/ayurveda/ayu-dosha-subtype-master.json');
+    if(!response.ok) throw new Error('Ayurveda subtype JSON not found');
+
+    const data = await response.json();
+
+    const jsonSubtypes = (data.subtypes || []).map(item =>
+      item.name_en || item.name_hi || item.name_sa
+    ).filter(Boolean);
+
+    if(jsonSubtypes.length){
+      renderChecks('subtypeChecks','subtype',jsonSubtypes);
+      console.log('SKMCIS Ayurveda subtype JSON loaded:', jsonSubtypes.length);
+      return;
+    }
+  }catch(error){
+    console.warn('Ayurveda JSON fallback active:', error);
+  }
+
+  renderChecks('subtypeChecks','subtype',subtypes);
+}
+  
 function renderComplaintOptions(){$('primaryComplaint').innerHTML=complaintList.map(x=>`<option>${esc(x)}</option>`).join('')}
 function updateComplaintWorkflow(){const d=complaintRules[val('primaryComplaint')];if(!d){$('redFlags').innerHTML='<div class="notice">No predefined red flags.</div>';$('suggestedExam').innerHTML='<span class="pill">Focused examination</span>';$('suggestedInv').innerHTML='<span class="pill">Tests as clinically indicated</span>';$('suggestedDx').innerHTML='<span class="pill">Doctor-defined differentials</span>';return}const sel=new Set(current?.complaint?.redFlags||[]);$('redFlags').innerHTML=d.red.map(x=>`<label class="check"><input type="checkbox" name="redFlag" value="${esc(x)}" ${sel.has(x)?'checked':''}>${esc(x)}</label>`).join('');$('suggestedExam').innerHTML=d.exam.map(x=>`<span class="pill">${esc(x)}</span>`).join('');$('suggestedInv').innerHTML=d.inv.map(x=>`<span class="pill">${esc(x)}</span>`).join('');$('suggestedDx').innerHTML=d.dx.map((x,i)=>`<span class="pill">${i+1}. ${esc(x)}</span>`).join('');updateRedFlagAlert()}
 function updateRedFlagAlert(){const n=selected('redFlag').length;$('redFlagAlert').className='alert '+(n?'alert-red':'alert-green');$('redFlagAlert').textContent=n?`🚨 ${n} red flag(s) selected.`:'No red flag selected.'}
@@ -2933,7 +2956,7 @@ $('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('t
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);renderChecks('subtypeChecks','subtype',subtypes);renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.9 ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();frenderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.9 ready.');
 })();
 </script>
 </body>
