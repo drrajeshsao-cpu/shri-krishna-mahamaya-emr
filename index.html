@@ -1204,6 +1204,109 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   </div>
 </div>
 
+
+<div class="card" id="panchakarmaEligibilityCard" style="margin-top:12px">
+  <h3>Panchakarma Eligibility & Safety Planning Engine</h3>
+  <div class="small">Documents Panchakarma suitability, preparation, contraindications, safety review and planned procedure. It does not autonomously authorize a procedure.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Eligibility Status</label>
+      <select id="pkEligibilityStatus">
+        <option value="">Not assessed</option>
+        <option value="suitable">Suitable</option>
+        <option value="potentially_suitable">Potentially suitable</option>
+        <option value="needs_preparation">Needs preparation</option>
+        <option value="deferred">Deferred</option>
+        <option value="contraindicated">Contraindicated</option>
+        <option value="specialist_only">Specialist / monitored setting only</option>
+      </select>
+    </div>
+    <div>
+      <label>Planned Procedure</label>
+      <select id="pkProcedure">
+        <option value="">Not selected</option>
+        <option value="vamana">Vamana</option>
+        <option value="virechana">Virechana</option>
+        <option value="niruha_basti">Niruha Basti</option>
+        <option value="anuvasana_basti">Anuvasana Basti</option>
+        <option value="matra_basti">Matra Basti</option>
+        <option value="nasya">Nasya</option>
+        <option value="raktamokshana">Raktamokshana</option>
+        <option value="abhyanga">Abhyanga</option>
+        <option value="swedana">Swedana</option>
+        <option value="shirodhara">Shirodhara</option>
+        <option value="kati_basti">Kati Basti</option>
+        <option value="janu_basti">Janu Basti</option>
+        <option value="greeva_basti">Greeva Basti</option>
+        <option value="pinda_sweda">Pinda Sweda</option>
+        <option value="custom">Custom / other</option>
+      </select>
+    </div>
+    <div>
+      <label>Planned Sessions</label>
+      <input id="pkSessions" type="number" min="0" max="60" placeholder="e.g. 7">
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Purvakarma / Preparation</label>
+    <div id="pkPurvakarmaChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="pkPurvakarma" value="Deepana">Deepana</label>
+      <label class="check"><input type="checkbox" name="pkPurvakarma" value="Pachana">Pachana</label>
+      <label class="check"><input type="checkbox" name="pkPurvakarma" value="Internal Snehana">Internal Snehana</label>
+      <label class="check"><input type="checkbox" name="pkPurvakarma" value="External Snehana">External Snehana</label>
+      <label class="check"><input type="checkbox" name="pkPurvakarma" value="Swedana">Swedana</label>
+      <label class="check"><input type="checkbox" name="pkPurvakarma" value="Hydration / nutrition optimization">Hydration / nutrition optimization</label>
+      <label class="check"><input type="checkbox" name="pkPurvakarma" value="Medical stabilization">Medical stabilization</label>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Safety / Contraindication Review</label>
+    <div id="pkSafetyChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="pkSafety" value="Consent reviewed">Consent reviewed</label>
+      <label class="check"><input type="checkbox" name="pkSafety" value="Vitals reviewed">Vitals reviewed</label>
+      <label class="check"><input type="checkbox" name="pkSafety" value="Pregnancy status reviewed">Pregnancy status reviewed</label>
+      <label class="check"><input type="checkbox" name="pkSafety" value="Bleeding risk reviewed">Bleeding risk reviewed</label>
+      <label class="check"><input type="checkbox" name="pkSafety" value="Current medicines reviewed">Current medicines reviewed</label>
+      <label class="check"><input type="checkbox" name="pkSafety" value="Allergy history reviewed">Allergy history reviewed</label>
+      <label class="check"><input type="checkbox" name="pkSafety" value="Renal / hepatic risk reviewed">Renal / hepatic risk reviewed</label>
+      <label class="check"><input type="checkbox" name="pkSafety" value="Acute infection / fever reviewed">Acute infection / fever reviewed</label>
+      <label class="check"><input type="checkbox" name="pkSafety" value="Emergency readiness confirmed">Emergency readiness confirmed</label>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Indication / Clinical Rationale</label>
+      <textarea id="pkIndicationRationale" placeholder="Why this procedure is being considered..."></textarea>
+    </div>
+    <div>
+      <label>Contraindications / Deferral Reason</label>
+      <textarea id="pkContraindications" placeholder="Any current contraindications, precautions, instability or reason for deferral..."></textarea>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Paschat Karma / After-care Plan</label>
+      <textarea id="pkAftercarePlan" placeholder="Diet, rest, Samsarjana, warning signs, next review..."></textarea>
+    </div>
+    <div>
+      <label>Monitoring Plan</label>
+      <textarea id="pkMonitoringPlan" placeholder="Vitals, symptom monitoring, labs, adverse-event monitoring as appropriate..."></textarea>
+    </div>
+  </div>
+
+  <div id="panchakarmaEligibilitySummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No Panchakarma eligibility plan documented.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="generatePkSummaryBtn" class="secondary">Generate / Refresh Panchakarma Summary</button>
+    <button type="button" id="addPkSummaryBtn" class="secondary">Add Panchakarma Summary to Ayurveda Notes</button>
+  </div>
+</div>
+
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -1751,6 +1854,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Diagnosis-RogaBala-Prognosis Engine V2.21 */
 /* SKMCIS Chikitsa-Samprapti Vighatana Engine V2.22 */
 /* SKMCIS Pathya-Apathya Lifestyle Engine V2.23 */
+/* SKMCIS Panchakarma Eligibility-Safety Engine V2.24 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -1806,7 +1910,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -2395,7 +2499,7 @@ function initSrotasClinicalEngine(){
     parent.addEventListener('change',()=>{
       if(!current.ayurveda.srotasDetails)current.ayurveda.srotasDetails={};
       current.ayurveda.srotasDetails=collectSrotasDetails();
-      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();
+      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();
     });
     parent.dataset.srotasDetailBound='1';
   }
@@ -3033,6 +3137,116 @@ function initPathyaApathyaEngine(){
     add.dataset.paBound='1';
   }
 }
+
+function collectPanchakarmaEligibility(){
+  return {
+    eligibility:val('pkEligibilityStatus'),
+    procedure:val('pkProcedure'),
+    sessions:val('pkSessions'),
+    purvakarma:selected('pkPurvakarma'),
+    safety:selected('pkSafety'),
+    indication:val('pkIndicationRationale'),
+    contraindications:val('pkContraindications'),
+    aftercare:val('pkAftercarePlan'),
+    monitoring:val('pkMonitoringPlan')
+  };
+}
+
+function buildPanchakarmaEligibilitySummary(){
+  const a=collectPanchakarmaEligibility();
+  const dx=collectDiagnosisPrognosis();
+  const agni=collectAgniAmaKoshtha();
+  const chikitsa=collectChikitsaPlanning();
+  const lines=[];
+
+  if(a.eligibility) lines.push(`Eligibility: ${humanizeAyuToken(a.eligibility)}`);
+  if(a.procedure) lines.push(`Planned procedure: ${humanizeAyuToken(a.procedure)}`);
+  if(a.sessions) lines.push(`Planned sessions: ${a.sessions}`);
+  if(a.purvakarma.length) lines.push(`Purvakarma / preparation: ${a.purvakarma.join(', ')}`);
+  if(a.safety.length) lines.push(`Safety checks completed: ${a.safety.join(', ')}`);
+  if(a.indication) lines.push(`Clinical rationale: ${a.indication}`);
+  if(a.contraindications) lines.push(`Contraindications / deferral reason: ${a.contraindications}`);
+  if(a.aftercare) lines.push(`After-care / Paschat Karma: ${a.aftercare}`);
+  if(a.monitoring) lines.push(`Monitoring plan: ${a.monitoring}`);
+
+  const reviews=[];
+  if(dx.rogi_bala==='avara'||dx.rogi_bala==='critical') reviews.push('Low Rogi Bala is documented: strong Shodhana requires additional eligibility review.');
+  if(agni.ama_status && agni.ama_status!=='nirama' && ['vamana','virechana','niruha_basti'].includes(a.procedure))
+    reviews.push('Ama/Sama state documented: preparation and timing require physician review.');
+  if(chikitsa.intensity==='deferred' && a.eligibility==='suitable')
+    reviews.push('Treatment intensity is deferred but Panchakarma eligibility is marked suitable; reconcile the plan.');
+  if(a.eligibility==='suitable' && a.safety.length<5)
+    reviews.push('Eligibility marked suitable with limited documented safety checks.');
+  if(['vamana','virechana','niruha_basti','raktamokshana'].includes(a.procedure) && !a.safety.includes('Emergency readiness confirmed'))
+    reviews.push('Major procedure selected without documented emergency readiness.');
+  if(reviews.length) lines.push(`Safety review: ${reviews.join(' ')}`);
+
+  lines.push('Final procedure, medicine, dose, quantity, timing and setting require direct physician confirmation and procedure-specific contraindication review.');
+  return lines.length?`Panchakarma Eligibility & Safety Summary:\n${lines.map(x=>'• '+x).join('\n')}`:'No Panchakarma eligibility plan documented.';
+}
+
+function renderPanchakarmaEligibilitySummary(){
+  const box=$('panchakarmaEligibilitySummary');
+  if(box) box.textContent=buildPanchakarmaEligibilitySummary();
+}
+
+function restorePanchakarmaEligibility(){
+  const a=current?.ayurveda?.panchakarmaEligibility||{};
+  set('pkEligibilityStatus',a.eligibility||'');
+  set('pkProcedure',a.procedure||'');
+  set('pkSessions',a.sessions||'');
+  document.querySelectorAll('input[name="pkPurvakarma"]').forEach(cb=>cb.checked=(a.purvakarma||[]).includes(cb.value));
+  document.querySelectorAll('input[name="pkSafety"]').forEach(cb=>cb.checked=(a.safety||[]).includes(cb.value));
+  set('pkIndicationRationale',a.indication||'');
+  set('pkContraindications',a.contraindications||'');
+  set('pkAftercarePlan',a.aftercare||'');
+  set('pkMonitoringPlan',a.monitoring||'');
+  renderPanchakarmaEligibilitySummary();
+}
+
+function initPanchakarmaEligibilityEngine(){
+  ['pkEligibilityStatus','pkProcedure','pkSessions','pkIndicationRationale','pkContraindications','pkAftercarePlan','pkMonitoringPlan'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.pkBound){
+      const ev=(el.tagName==='TEXTAREA'||el.tagName==='INPUT')?'input':'change';
+      el.addEventListener(ev,()=>{
+        current.ayurveda.panchakarmaEligibility=collectPanchakarmaEligibility();
+        renderPanchakarmaEligibilitySummary();
+      });
+      el.dataset.pkBound='1';
+    }
+  });
+
+  ['pkPurvakarmaChecks','pkSafetyChecks'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.pkBound){
+      el.addEventListener('change',()=>{
+        current.ayurveda.panchakarmaEligibility=collectPanchakarmaEligibility();
+        renderPanchakarmaEligibilitySummary();
+      });
+      el.dataset.pkBound='1';
+    }
+  });
+
+  const gen=$('generatePkSummaryBtn');
+  if(gen&&!gen.dataset.pkBound){
+    gen.onclick=()=>{renderPanchakarmaEligibilitySummary();status('Panchakarma summary refreshed.');};
+    gen.dataset.pkBound='1';
+  }
+
+  const add=$('addPkSummaryBtn');
+  if(add&&!add.dataset.pkBound){
+    add.onclick=()=>{
+      renderPanchakarmaEligibilitySummary();
+      const txt=$('panchakarmaEligibilitySummary')?.textContent||'';
+      if(!txt||txt.startsWith('No Panchakarma'))return;
+      const old=val('ayurNotes');
+      set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));
+      status('Panchakarma summary added to Ayurveda Notes.');
+    };
+    add.dataset.pkBound='1';
+  }
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -3117,7 +3331,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -3145,7 +3359,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
