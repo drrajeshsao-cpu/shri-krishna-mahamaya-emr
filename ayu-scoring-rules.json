@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "package_name": "SKMCIS Ayurveda Assessment V1",
+    "package_version": "0.1.0-phase4a",
+    "knowledge_version": "AYU-KB-1.0.0-draft",
+    "form_version": "AYU-FORM-1.0.0-draft",
+    "scoring_version": "AYU-SCORE-1.0.0-draft",
+    "status": "coding-ready starter; classical references require verse-level verification"
+  },
+  "scales": {
+    "severity_0_3": {
+      "min": 0,
+      "max": 3
+    },
+    "ama": {
+      "bands": [
+        [
+          0,
+          4,
+          "nirama_or_insufficient"
+        ],
+        [
+          5,
+          9,
+          "mild"
+        ],
+        [
+          10,
+          15,
+          "moderate"
+        ],
+        [
+          16,
+          21,
+          "marked"
+        ]
+      ]
+    },
+    "rogi_bala": {
+      "weights": {
+        "sara": 15,
+        "samhanana": 10,
+        "pramana": 5,
+        "satmya": 10,
+        "sattva": 15,
+        "ahara_shakti": 15,
+        "vyayama_shakti": 15,
+        "vaya_reserve": 5,
+        "ojas": 10
+      }
+    },
+    "roga_bala": {
+      "weights": {
+        "hetu_bala": 10,
+        "dosha_bala": 15,
+        "dushya_depth": 15,
+        "srotas_involvement": 10,
+        "rogamarga_depth": 10,
+        "kriyakala_stage": 10,
+        "lakshana_severity": 10,
+        "chronicity": 5,
+        "upadrava": 10,
+        "functional_impairment": 5
+      }
+    }
+  }
+}

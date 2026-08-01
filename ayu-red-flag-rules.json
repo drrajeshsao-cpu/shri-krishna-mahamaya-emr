@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "package_name": "SKMCIS Ayurveda Assessment V1",
+    "package_version": "0.1.0-phase4a",
+    "knowledge_version": "AYU-KB-1.0.0-draft",
+    "form_version": "AYU-FORM-1.0.0-draft",
+    "scoring_version": "AYU-SCORE-1.0.0-draft",
+    "status": "coding-ready starter; classical references require verse-level verification"
+  },
+  "rules": [
+    {
+      "rule_id": "SAFE-OJAS-001",
+      "if_any": [
+        "murchha",
+        "moha",
+        "pralapa",
+        "collapse",
+        "altered_consciousness"
+      ],
+      "action": [
+        "set_critical_alert",
+        "require_emergency_review"
+      ]
+    },
+    {
+      "rule_id": "SAFE-RESP-001",
+      "if_any": [
+        "severe_dyspnoea",
+        "cyanosis",
+        "stridor"
+      ],
+      "action": [
+        "set_critical_alert",
+        "require_emergency_review"
+      ]
+    },
+    {
+      "rule_id": "SAFE-BLEED-001",
+      "if_any": [
+        "active_major_bleeding",
+        "syncope_with_bleeding"
+      ],
+      "action": [
+        "set_critical_alert",
+        "require_emergency_review"
+      ]
+    }
+  ]
+}

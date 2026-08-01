@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "package_name": "SKMCIS Ayurveda Assessment V1",
+    "package_version": "0.1.0-phase4a",
+    "knowledge_version": "AYU-KB-1.0.0-draft",
+    "form_version": "AYU-FORM-1.0.0-draft",
+    "scoring_version": "AYU-SCORE-1.0.0-draft",
+    "status": "coding-ready starter; classical references require verse-level verification"
+  },
+  "option_sets": [
+    {
+      "option_set_id": "OPT-STATE-CORE-001",
+      "options": [
+        {
+          "value": "samya",
+          "label_hi": "सम्य",
+          "label_en": "Normal / Balanced"
+        },
+        {
+          "value": "vriddhi",
+          "label_hi": "वृद्धि",
+          "label_en": "Increase"
+        },
+        {
+          "value": "kshaya",
+          "label_hi": "क्षय",
+          "label_en": "Depletion"
+        },
+        {
+          "value": "dushti",
+          "label_hi": "दूष्टि",
+          "label_en": "Pathological alteration"
+        },
+        {
+          "value": "mixed",
+          "label_hi": "मिश्रित",
+          "label_en": "Mixed"
+        },
+        {
+          "value": "uncertain",
+          "label_hi": "अनिश्चित",
+          "label_en": "Uncertain"
+        },
+        {
+          "value": "not_assessed",
+          "label_hi": "आकलन नहीं",
+          "label_en": "Not assessed"
+        }
+      ]
+    },
+    {
+      "option_set_id": "OPT-SEVERITY-001",
+      "options": [
+        {
+          "value": 0,
+          "label_hi": "सामान्य / अनुपस्थित"
+        },
+        {
+          "value": 1,
+          "label_hi": "हल्का"
+        },
+        {
+          "value": 2,
+          "label_hi": "मध्यम"
+        },
+        {
+          "value": 3,
+          "label_hi": "गंभीर"
+        }
+      ]
+    },
+    {
+      "option_set_id": "OPT-PRAKRITI-001",
+      "options": [
+        {
+          "value": "vata",
+          "label_sa": "वातज"
+        },
+        {
+          "value": "pitta",
+          "label_sa": "पित्तज"
+        },
+        {
+          "value": "kapha",
+          "label_sa": "कफज"
+        },
+        {
+          "value": "vata_pitta",
+          "label_sa": "वात-पित्तज"
+        },
+        {
+          "value": "pitta_kapha",
+          "label_sa": "पित्त-कफज"
+        },
+        {
+          "value": "vata_kapha",
+          "label_sa": "वात-कफज"
+        },
+        {
+          "value": "sama",
+          "label_sa": "समदोषज"
+        },
+        {
+          "value": "uncertain",
+          "label_hi": "अनिर्णीत"
+        },
+        {
+          "value": "not_assessed",
+          "label_hi": "आकलन नहीं"
+        }
+      ]
+    },
+    {
+      "option_set_id": "OPT-RITU-001",
+      "options": [
+        {
+          "value": "hemanta",
+          "label_sa": "हेमन्त"
+        },
+        {
+          "value": "shishira",
+          "label_sa": "शिशिर"
+        },
+        {
+          "value": "vasanta",
+          "label_sa": "वसन्त"
+        },
+        {
+          "value": "grishma",
+          "label_sa": "ग्रीष्म"
+        },
+        {
+          "value": "varsha",
+          "label_sa": "वर्षा"
+        },
+        {
+          "value": "sharad",
+          "label_sa": "शरद"
+        },
+        {
+          "value": "ritusandhi",
+          "label_sa": "ऋतुसन्धि"
+        }
+      ]
+    }
+  ]
+}
