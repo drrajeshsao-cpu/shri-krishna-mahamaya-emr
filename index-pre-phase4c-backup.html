@@ -188,16 +188,6 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 .kb-evidence{font-size:12px;color:#5e737c;background:#f5f8f9;padding:9px;border-radius:9px}
 @media(max-width:800px){.kb-layout{grid-template-columns:1fr}}
 
-
-/* SKMCIS Ayurveda Phase 4C: Dosha subtype interpretation */
-.subtype-panel{margin:12px 0 18px;padding:14px;border:1px solid var(--line);border-radius:14px;background:#fbfefd}
-.subtype-card{border:1px solid var(--line);border-radius:12px;padding:12px;margin:10px 0;background:#fff}
-.subtype-card h4{margin:0 0 8px;font-size:15px}
-.subtype-meta{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
-.subtype-state-row{display:grid;grid-template-columns:minmax(180px,260px) 1fr;gap:10px;align-items:end;margin:8px 0}
-.subtype-feature-list{margin:6px 0 0 18px;padding:0}
-.subtype-summary{white-space:pre-wrap;border:1px dashed var(--line);border-radius:10px;padding:10px;background:#f8fbfa;margin-top:10px}
-@media(max-width:700px){.subtype-state-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -222,11 +212,11 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 
 <header>
 <h1>Mahamaya Clinic </h1>
-<p>V2.10 • Ayurveda Interpretation Engine • Disease Knowledge Base</p>
+<p>V2.9 • Disease Knowledge Base • Sciatica / Gridhrasi</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Stable incremental build:</b> V2.10 में Ayurveda Dosha Subtype Interpretation Engine जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
+<div class="notice"><b>Stable incremental build:</b> V2.8 के working engine में Disease Knowledge Base Phase 1 जोड़ा गया है। पुराने patient records सुरक्षित रहेंगे।</div>
 <div class="tabs actions">
 <button id="tabDashboard" class="primary active">🏠 Dashboard</button>
 <button id="tabTimeline" class="secondary">🔄 Follow-up</button>
@@ -251,7 +241,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="tabSettings" class="secondary">⚙ Settings</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V2.10</div>
+<div id="status" class="status">App loaded successfully. Version: V2.9</div>
 <div class="actions no-print">
   <span id="activeRoleBadge" class="role-badge">Locked</span>
   <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -578,13 +568,6 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 
 <h3>Affected Dosha</h3><div id="doshaChecks" class="checkgrid"></div>
 <h3>Dosha Subtypes</h3><div id="subtypeChecks" class="checkgrid"></div>
-<div id="subtypeInterpretationPanel" class="subtype-panel">
-  <h3 style="margin-top:0">Dosha Subtype Clinical Interpretation</h3>
-  <div class="notice">Select a subtype above. Then choose its current state: Samya, Vriddhi, Kshaya, Dushti, Abnormal Gati, Avarana or Mixed.</div>
-  <div id="subtypeInterpretationResults"></div>
-  <div id="subtypeAutoSummary" class="subtype-summary">No subtype interpretation selected.</div>
-  <div class="actions"><button id="addSubtypeSummaryBtn" type="button" class="secondary">＋ Add Subtype Summary to Assessment Notes</button></div>
-</div>
 <h3>Involved Guna</h3><div id="gunaChecks" class="checkgrid"></div>
 
 <div class="grid3">
@@ -1189,7 +1172,7 @@ const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
 function key(id){return PREFIX+id}
-function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],subtypeAssessments:{},gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},labProfiles:{mode:'diabetes',values:{},results:[],summary:''},updatedAt:new Date().toISOString()}}
+function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},labProfiles:{mode:'diabetes',values:{},results:[],summary:''},updatedAt:new Date().toISOString()}}
 function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;if(!r.labProfiles)r.labProfiles=b.labProfiles;return r}
 function save(r){r.updatedAt=new Date().toISOString();localStorage.setItem(key(r.id),JSON.stringify(r))}
 function all(){const a=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX)){try{a.push(JSON.parse(localStorage.getItem(k)))}catch(e){}}}return a.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))}
@@ -1202,15 +1185,7 @@ function readComplaint(){current.complaint={primary:val('primaryComplaint'),dura
 function readClinical(){current.clinical={chiefComplaints:val('chiefComplaints'),duration:val('duration'),onset:val('onset'),hpi:val('hpi'),pastHistory:val('pastHistory'),currentMedicines:val('currentMedicines'),allergy:val('allergy'),familyHistory:val('familyHistory'),bp:val('bp'),pulse:val('pulse'),spo2:val('spo2'),temp:val('temp'),rr:val('rr'),pain:val('pain'),clinicalNotes:val('clinicalNotes')}}
 function readExam(){const findings={};generalFindingNames.forEach((name,i)=>findings[name]={status:val('fs'+i),grade:val('fg'+i),remarks:val('fr'+i)});current.exam={findings,build:val('build'),nutrition:val('nutrition'),gait:val('gait'),examNotes:val('examNotes')}}
 function readSystemic(){current.systemic={cvsNotes:val('cvsNotes'),rsNotes:val('rsNotes'),abdNotes:val('abdNotes'),cnsNotes:val('cnsNotes'),systemicNotes:val('systemicNotes')}}
-function collectSubtypeAssessments(){
-  const existing=current?.ayurveda?.subtypeAssessments||{};
-  const selectedNames=new Set(selected('subtype'));
-  const out={};
-  Object.entries(existing).forEach(([id,v])=>{if(selectedNames.has(v?.name))out[id]=v});
-  document.querySelectorAll('.subtype-state-select').forEach(el=>{if(el.value)out[el.dataset.subtypeId]={subtype_id:el.dataset.subtypeId,name:el.dataset.subtypeName,state:el.value}});
-  return out;
-}
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -1228,110 +1203,29 @@ current.prescription.notes=val('prescriptionNotes');
 
 
 function renderChecks(container,name,items){$(container).innerHTML=items.map(x=>`<label class="check"><input type="checkbox" name="${name}" value="${esc(x)}">${esc(x)}</label>`).join('')}
-let ayuSubtypeMaster=[];
-let ayuSubtypeByName=new Map();
-const subtypeStateLabels={
-  '':'Not assessed',samya:'Samya',functional_vriddhi:'Vriddhi',functional_kshaya:'Kshaya',
-  dushti:'Dushti',abnormal_gati:'Abnormal Gati',avarana:'Avarana',mixed:'Mixed',
-  vriddhi:'Vriddhi',kshaya:'Kshaya'
-};
-function humanizeAyuToken(x){return String(x||'').replaceAll('_',' ').replace(/\b\w/g,c=>c.toUpperCase())}
-function subtypeFeatureKey(state){
-  if(state==='samya')return 'samya_features';
-  if(state==='functional_vriddhi'||state==='vriddhi')return 'vriddhi_features';
-  if(state==='functional_kshaya'||state==='kshaya')return 'kshaya_features';
-  if(['dushti','abnormal_gati','avarana','mixed'].includes(state))return 'dushti_features';
-  return '';
-}
-function currentSubtypeAssessmentMap(){return current?.ayurveda?.subtypeAssessments||{}}
-function selectedSubtypeNames(){return selected('subtype')}
-function getSubtypeState(id){return currentSubtypeAssessmentMap()?.[id]?.state||''}
-function renderSubtypeInterpretations(){
-  const box=$('subtypeInterpretationResults'); if(!box)return;
-  const names=selectedSubtypeNames();
-  if(!names.length){box.innerHTML='';$('subtypeAutoSummary').textContent='No subtype interpretation selected.';return}
-  const assessments=currentSubtypeAssessmentMap();
-  box.innerHTML=names.map(name=>{
-    const item=ayuSubtypeByName.get(name)||{subtype_id:name,name_en:name,parent_dosha:'',functions:[],clinical_interpretation:{}};
-    const state=assessments?.[item.subtype_id]?.state||'';
-    const fkey=subtypeFeatureKey(state), feats=fkey?(item[fkey]||[]):[];
-    const allowed=['','samya','functional_vriddhi','functional_kshaya','dushti','abnormal_gati','avarana','mixed'];
-    const opts=allowed.map(v=>`<option value="${esc(v)}" ${v===state?'selected':''}>${esc(subtypeStateLabels[v]||humanizeAyuToken(v))}</option>`).join('');
-    const fun=(item.functions||[]).map(x=>`<li>${esc(humanizeAyuToken(x))}</li>`).join('');
-    const fl=feats.map(x=>`<li>${esc(humanizeAyuToken(x))}</li>`).join('');
-    const reviews=(item.clinical_interpretation?.suggested_reviews||[]).map(x=>`<span class="pill">${esc(humanizeAyuToken(x))}</span>`).join('');
-    const summary=item.clinical_interpretation?.summary_hi||item.clinical_interpretation?.summary_en||'';
-    return `<div class="subtype-card" data-subtype-id="${esc(item.subtype_id)}">
-      <h4>${esc(item.name_en||name)}${item.name_sa?` • ${esc(item.name_sa)}`:''}</h4>
-      <div class="subtype-meta"><span class="pill">${esc(humanizeAyuToken(item.parent_dosha||''))}</span>${(item.locations||[]).map(x=>`<span class="pill">${esc(humanizeAyuToken(x))}</span>`).join('')}</div>
-      <div class="subtype-state-row"><div><label>Current State</label><select class="subtype-state-select" data-subtype-id="${esc(item.subtype_id)}" data-subtype-name="${esc(item.name_en||name)}">${opts}</select></div><div class="small">${esc(summary)}</div></div>
-      ${fun?`<details><summary>Normal functions</summary><ul class="subtype-feature-list">${fun}</ul></details>`:''}
-      ${state?`<details open><summary>${esc(subtypeStateLabels[state]||humanizeAyuToken(state))} features</summary>${fl?`<ul class="subtype-feature-list">${fl}</ul>`:'<div class="small">No specific feature list in current master.</div>'}</details>`:''}
-      ${reviews?`<div style="margin-top:8px"><b>Suggested review:</b> ${reviews}</div>`:''}
-    </div>`
-  }).join('');
-  updateSubtypeAutoSummary();
-}
-function updateSubtypeAutoSummary(){
-  const names=selectedSubtypeNames(), assessments=currentSubtypeAssessmentMap();
-  const lines=names.map(name=>{
-    const item=ayuSubtypeByName.get(name)||{subtype_id:name,name_en:name};
-    const st=assessments?.[item.subtype_id]?.state||'';
-    return `${item.name_en||name}${st?` — ${subtypeStateLabels[st]||humanizeAyuToken(st)}`:''}`;
-  });
-  $('subtypeAutoSummary').textContent=lines.length?`Dosha Subtype Assessment:\n${lines.map(x=>'• '+x).join('\n')}`:'No subtype interpretation selected.';
-}
-function syncSubtypeSelectionsFromCurrent(){
-  const saved=current?.ayurveda?.subtypes||[];
-  document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
-  renderSubtypeInterpretations();
-}
-function initSubtypeInterpretationEngine(){
-  const container=$('subtypeChecks');
-  if(container&&!container.dataset.interpretBound){
-    container.addEventListener('change',e=>{if(e.target?.name==='subtype')renderSubtypeInterpretations()});
-    container.dataset.interpretBound='1';
-  }
-  const results=$('subtypeInterpretationResults');
-  if(results&&!results.dataset.interpretBound){
-    results.addEventListener('change',e=>{
-      if(!e.target.classList.contains('subtype-state-select'))return;
-      if(!current.ayurveda.subtypeAssessments)current.ayurveda.subtypeAssessments={};
-      const id=e.target.dataset.subtypeId, name=e.target.dataset.subtypeName, state=e.target.value;
-      if(state)current.ayurveda.subtypeAssessments[id]={subtype_id:id,name,state}; else delete current.ayurveda.subtypeAssessments[id];
-      renderSubtypeInterpretations();
-    });
-    results.dataset.interpretBound='1';
-  }
-  const add=$('addSubtypeSummaryBtn');
-  if(add&&!add.dataset.interpretBound){
-    add.onclick=()=>{const txt=$('subtypeAutoSummary').textContent;if(!txt||txt.startsWith('No subtype'))return;const old=val('ayurNotes');set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));status('Subtype summary added to Ayurveda Assessment Notes.')};
-    add.dataset.interpretBound='1';
-  }
-}
 async function loadAyurvedaSubtypeData(){
   try{
-    const response=await fetch('data/ayurveda/ayu-dosha-subtype-master.json',{cache:'no-store'});
-    if(!response.ok)throw new Error('Ayurveda subtype JSON not found');
-    const data=await response.json();
-    ayuSubtypeMaster=data.subtypes||[];
-    ayuSubtypeByName=new Map(ayuSubtypeMaster.map(item=>[item.name_en||item.name_hi||item.name_sa,item]));
-    const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
+    const response = await fetch('data/ayurveda/ayu-dosha-subtype-master.json');
+    if(!response.ok) throw new Error('Ayurveda subtype JSON not found');
+
+    const data = await response.json();
+
+    const jsonSubtypes = (data.subtypes || []).map(item =>
+      item.name_en || item.name_hi || item.name_sa
+    ).filter(Boolean);
+
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();
-      syncSubtypeSelectionsFromCurrent();
-      console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
+      console.log('SKMCIS Ayurveda subtype JSON loaded:', jsonSubtypes.length);
       return;
     }
-  }catch(error){console.warn('Ayurveda JSON fallback active:',error)}
-  ayuSubtypeMaster=subtypes.map(name=>({subtype_id:name,name_en:name}));
-  ayuSubtypeByName=new Map(ayuSubtypeMaster.map(item=>[item.name_en,item]));
-  renderChecks('subtypeChecks','subtype',subtypes);
-  initSubtypeInterpretationEngine();
-  syncSubtypeSelectionsFromCurrent();
-}
+  }catch(error){
+    console.warn('Ayurveda JSON fallback active:', error);
+  }
 
+  renderChecks('subtypeChecks','subtype',subtypes);
+}
+  
 function renderComplaintOptions(){$('primaryComplaint').innerHTML=complaintList.map(x=>`<option>${esc(x)}</option>`).join('')}
 function updateComplaintWorkflow(){const d=complaintRules[val('primaryComplaint')];if(!d){$('redFlags').innerHTML='<div class="notice">No predefined red flags.</div>';$('suggestedExam').innerHTML='<span class="pill">Focused examination</span>';$('suggestedInv').innerHTML='<span class="pill">Tests as clinically indicated</span>';$('suggestedDx').innerHTML='<span class="pill">Doctor-defined differentials</span>';return}const sel=new Set(current?.complaint?.redFlags||[]);$('redFlags').innerHTML=d.red.map(x=>`<label class="check"><input type="checkbox" name="redFlag" value="${esc(x)}" ${sel.has(x)?'checked':''}>${esc(x)}</label>`).join('');$('suggestedExam').innerHTML=d.exam.map(x=>`<span class="pill">${esc(x)}</span>`).join('');$('suggestedInv').innerHTML=d.inv.map(x=>`<span class="pill">${esc(x)}</span>`).join('');$('suggestedDx').innerHTML=d.dx.map((x,i)=>`<span class="pill">${i+1}. ${esc(x)}</span>`).join('');updateRedFlagAlert()}
 function updateRedFlagAlert(){const n=selected('redFlag').length;$('redFlagAlert').className='alert '+(n?'alert-red':'alert-green');$('redFlagAlert').textContent=n?`🚨 ${n} red flag(s) selected.`:'No red flag selected.'}
@@ -1347,7 +1241,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSubtypeInterpretations();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
@@ -1736,7 +1630,7 @@ const meds=(rx.medicines||[]).map((m,i)=>`<tr>
 
 const prevInv=(inv?.previous||[]).map(x=>`<div>• <b>${esc(x.category)} — ${esc(x.test)}</b>: ${esc(x.result||'')} ${x.remark?'— '+esc(x.remark):''}</div>`).join('');
 const advInv=(inv?.advised||[]).map(x=>`<div>• <b>${esc(x.category)} — ${esc(x.test)}</b> (${esc(x.priority||'')}): ${esc(x.note||'')}</div>`).join('');
-const subtypePrint=(a?.subtypes||[]).map(name=>{const item=ayuSubtypeByName.get(name);const st=item&&a?.subtypeAssessments?.[item.subtype_id]?.state;return name+(st?' ['+(subtypeStateLabels[st]||humanizeAyuToken(st))+']':'')}).join(', ');const ayurSummary=[(a?.dosha||[]).join('/'),subtypePrint,(a?.gunas||[]).join(', '),a?.agni,a?.koshtha,(a?.srotas||[]).join(', '),a?.samprapti].filter(Boolean).join(' | ');
+const ayurSummary=[(a?.dosha||[]).join('/'),(a?.subtypes||[]).join(', '),(a?.gunas||[]).join(', '),a?.agni,a?.koshtha,(a?.srotas||[]).join(', '),a?.samprapti].filter(Boolean).join(' | ');
 
 $('printSheet').innerHTML=`
 <div class="letterhead">
@@ -3062,7 +2956,7 @@ $('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('t
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.10 ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();frenderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.9 ready.');
 })();
 </script>
 </body>

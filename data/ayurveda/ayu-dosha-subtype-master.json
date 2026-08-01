@@ -1,282 +1,707 @@
 {
   "meta": {
     "package_name": "SKMCIS Ayurveda Assessment V1",
-    "package_version": "0.1.0-phase4a",
+    "package_version": "0.2.0-phase4b",
     "knowledge_version": "AYU-KB-1.0.0-draft",
-    "form_version": "AYU-FORM-1.0.0-draft",
-    "scoring_version": "AYU-SCORE-1.0.0-draft",
-    "status": "coding-ready starter; classical references require verse-level verification"
+    "status": "interpretation-ready subtype master",
+    "reference_status": "verse-level verification pending before source-verified production release"
   },
   "subtypes": [
     {
       "subtype_id": "AYU-DOS-VAT-PRA-001",
       "parent_dosha": "vata",
       "name_sa": "प्राण वायु",
+      "name_hi": "प्राण वायु",
       "name_en": "Prana Vata",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "shiras",
+        "uras",
+        "kantha"
       ],
-      "reference_ids": []
+      "functions": [
+        "respiration_support",
+        "swallowing_support",
+        "sneezing_belching_support",
+        "sensory_motor_coordination_support",
+        "mental_function_support"
+      ],
+      "samya_features": [
+        "comfortable_respiration",
+        "normal_swallowing",
+        "clear_sensory_responsiveness",
+        "stable_attention"
+      ],
+      "vriddhi_features": [
+        "excess_or_irregular_respiratory_activity",
+        "frequent_sighing_or_belching_tendency",
+        "restlessness",
+        "heightened_sensory_reactivity"
+      ],
+      "kshaya_features": [
+        "weak_respiration_or_voice_support",
+        "reduced_alertness_or_initiative",
+        "weak_swallowing_support"
+      ],
+      "dushti_features": [
+        "disordered_respiration",
+        "swallowing_difficulty",
+        "abnormal_hiccup_belching_pattern",
+        "anxiety_restlessness_pattern",
+        "sensory_function_disturbance"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "प्राण वायु की विकृति मुख्यतः श्वसन, निगलने, इन्द्रिय-मानसिक समन्वय तथा ऊर्ध्वजत्रु कार्यों के संदर्भ में आंकी जाए।",
+        "summary_en": "Assess Prana Vata mainly in relation to respiration, swallowing, sensory-mental coordination and upper-body functions.",
+        "suggested_reviews": [
+          "pranavaha_srotas",
+          "udana_vata",
+          "tarpaka_kapha",
+          "manas_assessment",
+          "respiratory_red_flags"
+        ]
+      }
     },
     {
       "subtype_id": "AYU-DOS-VAT-UDA-001",
       "parent_dosha": "vata",
       "name_sa": "उदान वायु",
+      "name_hi": "उदान वायु",
       "name_en": "Udana Vata",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "uras",
+        "kantha",
+        "nasa",
+        "nabhi"
       ],
-      "reference_ids": []
+      "functions": [
+        "speech",
+        "effort",
+        "enthusiasm",
+        "strength_expression",
+        "upward_movement"
+      ],
+      "samya_features": [
+        "clear_voice",
+        "adequate_effort",
+        "good_expressive_strength",
+        "stable_enthusiasm"
+      ],
+      "vriddhi_features": [
+        "excessive_or_forceful_speech",
+        "overactivity",
+        "upward_movement_symptoms"
+      ],
+      "kshaya_features": [
+        "weak_voice",
+        "reduced_effort",
+        "low_expressive_strength",
+        "fatigability"
+      ],
+      "dushti_features": [
+        "hoarseness_or_voice_change",
+        "speech_difficulty",
+        "effort_intolerance",
+        "abnormal_upward_movement"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "उदान वायु का आकलन वाणी, प्रयास, उत्साह, बल की अभिव्यक्ति और ऊर्ध्वगामी कार्यों से किया जाए।",
+        "summary_en": "Assess Udana Vata through speech, effort, enthusiasm, expression of strength and upward functions.",
+        "suggested_reviews": [
+          "prana_vata",
+          "pranavaha_srotas",
+          "shabda_pariksha",
+          "voice_airway_red_flags"
+        ]
+      }
     },
     {
       "subtype_id": "AYU-DOS-VAT-VYA-001",
       "parent_dosha": "vata",
       "name_sa": "व्यान वायु",
+      "name_hi": "व्यान वायु",
       "name_en": "Vyana Vata",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "hridaya",
+        "sarva_sharira"
       ],
-      "reference_ids": []
+      "functions": [
+        "circulation_distribution",
+        "movement_coordination",
+        "limb_activity",
+        "rapid_systemic_distribution"
+      ],
+      "samya_features": [
+        "coordinated_movements",
+        "stable_peripheral_activity",
+        "normal_distribution_pattern"
+      ],
+      "vriddhi_features": [
+        "excess_movement",
+        "tremulousness",
+        "palpitation_tendency",
+        "hyperkinetic_pattern"
+      ],
+      "kshaya_features": [
+        "sluggish_movements",
+        "poor_coordination",
+        "reduced_peripheral_activity",
+        "fatigability"
+      ],
+      "dushti_features": [
+        "irregular_movements",
+        "tremor",
+        "coordination_disturbance",
+        "circulatory_distribution_symptoms"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "व्यान वायु की विकृति पूरे शरीर में गति, समन्वय और वितरणात्मक कार्यों के संदर्भ में देखें।",
+        "summary_en": "Assess Vyana Vata in relation to systemic movement, coordination and distribution functions.",
+        "suggested_reviews": [
+          "hridaya_assessment",
+          "neurological_exam",
+          "motor_function",
+          "circulatory_red_flags"
+        ]
+      }
     },
     {
       "subtype_id": "AYU-DOS-VAT-SAM-001",
       "parent_dosha": "vata",
       "name_sa": "समान वायु",
+      "name_hi": "समान वायु",
       "name_en": "Samana Vata",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "agni_samipa",
+        "amashaya_grahani_region"
       ],
-      "reference_ids": []
+      "functions": [
+        "digestion_support",
+        "food_mixing",
+        "separation_assimilation_support",
+        "agni_regulation"
+      ],
+      "samya_features": [
+        "regular_appetite",
+        "comfortable_digestion",
+        "appropriate_post_meal_response"
+      ],
+      "vriddhi_features": [
+        "excessive_gut_movement",
+        "variable_hunger",
+        "gas_bloating_tendency"
+      ],
+      "kshaya_features": [
+        "poor_appetite",
+        "slow_digestion",
+        "weak_assimilation"
+      ],
+      "dushti_features": [
+        "vishamagni_pattern",
+        "bloating",
+        "abdominal_discomfort",
+        "irregular_bowel_relation"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "समान वायु का आकलन अग्नि, पाचन, ग्रहणी क्षेत्र और भोजन के प्रसंस्करण से जोड़कर करें।",
+        "summary_en": "Assess Samana Vata with Agni, digestion, Grahani-region function and food processing.",
+        "suggested_reviews": [
+          "jatharagni",
+          "ama",
+          "annavaha_srotas",
+          "grahani_assessment",
+          "kostha"
+        ]
+      }
     },
     {
       "subtype_id": "AYU-DOS-VAT-APA-001",
       "parent_dosha": "vata",
       "name_sa": "अपान वायु",
+      "name_hi": "अपान वायु",
       "name_en": "Apana Vata",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "pakvashaya",
+        "basti",
+        "guda",
+        "pelvic_region"
       ],
-      "reference_ids": []
+      "functions": [
+        "defecation",
+        "urination",
+        "reproductive_expulsion",
+        "menstruation_support",
+        "childbirth_support"
+      ],
+      "samya_features": [
+        "regular_defecation",
+        "comfortable_urination",
+        "normal_downward_elimination"
+      ],
+      "vriddhi_features": [
+        "excess_downward_activity",
+        "frequent_elimination_tendency",
+        "pelvic_spasm_or_urgency_pattern"
+      ],
+      "kshaya_features": [
+        "weak_elimination",
+        "retention_tendency",
+        "reduced_downward_force"
+      ],
+      "dushti_features": [
+        "constipation",
+        "urinary_difficulty",
+        "pelvic_dysfunction",
+        "pratiloma_gati_pattern",
+        "reproductive_elimination_disturbance"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "अपान वायु की विकृति मल-मूत्र, श्रोणि तथा अधोगामी निष्कासन कार्यों से विशेष रूप से संबंधित है।",
+        "summary_en": "Assess Apana Vata primarily through bowel, urinary, pelvic and downward elimination functions.",
+        "suggested_reviews": [
+          "purishavaha_srotas",
+          "mutravaha_srotas",
+          "kostha",
+          "artavavaha_context",
+          "urinary_bowel_red_flags"
+        ]
+      }
     },
     {
       "subtype_id": "AYU-DOS-PIT-PAC-001",
       "parent_dosha": "pitta",
       "name_sa": "पाचक पित्त",
+      "name_hi": "पाचक पित्त",
       "name_en": "Pachaka Pitta",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "amashaya_grahani_region"
       ],
-      "reference_ids": []
+      "functions": [
+        "digestion",
+        "transformation",
+        "agni_support"
+      ],
+      "samya_features": [
+        "balanced_digestion",
+        "appropriate_hunger",
+        "comfortable_post_meal_state"
+      ],
+      "vriddhi_features": [
+        "excess_hunger",
+        "burning",
+        "acidic_or_heat_dominant_digestion"
+      ],
+      "kshaya_features": [
+        "weak_digestion",
+        "reduced_hunger",
+        "poor_transformation"
+      ],
+      "dushti_features": [
+        "tikshnagni_or_mandagni_context",
+        "acid_burning_pattern",
+        "digestive_irritability"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "पाचक पित्त को जठराग्नि, पाचन और आहार-परिवर्तन के साथ आंका जाए।",
+        "summary_en": "Assess Pachaka Pitta with Jatharagni, digestion and transformation of food.",
+        "suggested_reviews": [
+          "jatharagni",
+          "samana_vata",
+          "kledaka_kapha",
+          "annavaha_srotas"
+        ]
+      }
     },
     {
       "subtype_id": "AYU-DOS-PIT-RAN-001",
       "parent_dosha": "pitta",
       "name_sa": "रञ्जक पित्त",
+      "name_hi": "रञ्जक पित्त",
       "name_en": "Ranjaka Pitta",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "yakrit",
+        "pliha",
+        "rasa_rakta_axis"
       ],
-      "reference_ids": []
+      "functions": [
+        "rakta_color_support",
+        "rasa_to_rakta_transformation_support"
+      ],
+      "samya_features": [
+        "healthy_varna",
+        "stable_rakta_related_function"
+      ],
+      "vriddhi_features": [
+        "heat_redness_or_yellowish_change_pattern",
+        "pitta_rakta_aggravation_pattern"
+      ],
+      "kshaya_features": [
+        "pallor_or_reduced_varna_support_pattern"
+      ],
+      "dushti_features": [
+        "varna_change",
+        "rakta_pitta_axis_disturbance",
+        "hepato_biliary_context"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "रञ्जक पित्त का आकलन रक्त-रंग, यकृत-प्लीहा और रस-रक्त परिवर्तन के संदर्भ में करें; आधुनिक कारणों की पृथक जाँच आवश्यक है।",
+        "summary_en": "Assess Ranjaka Pitta in the context of blood colour, liver-spleen axis and Rasa-Rakta transformation; evaluate modern causes separately.",
+        "suggested_reviews": [
+          "raktadhatu",
+          "raktavaha_srotas",
+          "liver_profile",
+          "cbc_if_indicated"
+        ]
+      }
     },
     {
       "subtype_id": "AYU-DOS-PIT-SAD-001",
       "parent_dosha": "pitta",
       "name_sa": "साधक पित्त",
+      "name_hi": "साधक पित्त",
       "name_en": "Sadhaka Pitta",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "hridaya",
+        "manas_context"
       ],
-      "reference_ids": []
+      "functions": [
+        "intellect_support",
+        "courage",
+        "goal_directed_activity",
+        "emotional_processing"
+      ],
+      "samya_features": [
+        "clear_decision_making",
+        "balanced_courage",
+        "stable_motivation"
+      ],
+      "vriddhi_features": [
+        "irritability",
+        "overdrive",
+        "intense_goal_focus",
+        "reactivity"
+      ],
+      "kshaya_features": [
+        "reduced_motivation",
+        "indecisiveness",
+        "low_courage_pattern"
+      ],
+      "dushti_features": [
+        "emotional_reactivity",
+        "decision_disturbance",
+        "stress_related_pitta_pattern"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "साधक पित्त को बुद्धि, धैर्य/साहस, प्रेरणा और भावनात्मक प्रतिक्रिया के संदर्भ में देखें।",
+        "summary_en": "Assess Sadhaka Pitta through cognition, courage, motivation and emotional processing.",
+        "suggested_reviews": [
+          "sattva",
+          "manas_assessment",
+          "hridaya_context",
+          "mental_health_red_flags"
+        ]
+      }
     },
     {
       "subtype_id": "AYU-DOS-PIT-ALO-001",
       "parent_dosha": "pitta",
       "name_sa": "आलोचक पित्त",
+      "name_hi": "आलोचक पित्त",
       "name_en": "Alochaka Pitta",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "netra"
       ],
-      "reference_ids": []
+      "functions": [
+        "visual_perception_support"
+      ],
+      "samya_features": [
+        "comfortable_vision",
+        "normal_light_tolerance"
+      ],
+      "vriddhi_features": [
+        "photophobia",
+        "burning_redness_pattern"
+      ],
+      "kshaya_features": [
+        "reduced_visual_efficiency_pattern"
+      ],
+      "dushti_features": [
+        "visual_discomfort",
+        "burning_redness",
+        "light_sensitivity"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "आलोचक पित्त का आकलन नेत्र और दृष्टि संबंधी कार्यों के संदर्भ में करें।",
+        "summary_en": "Assess Alochaka Pitta in relation to ocular and visual functions.",
+        "suggested_reviews": [
+          "drik_pariksha",
+          "ophthalmic_exam",
+          "eye_red_flags"
+        ]
+      }
     },
     {
       "subtype_id": "AYU-DOS-PIT-BHR-001",
       "parent_dosha": "pitta",
       "name_sa": "भ्राजक पित्त",
+      "name_hi": "भ्राजक पित्त",
       "name_en": "Bhrajaka Pitta",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "tvak"
       ],
-      "reference_ids": []
+      "functions": [
+        "skin_colour_lustre",
+        "cutaneous_heat_transformation_support"
+      ],
+      "samya_features": [
+        "healthy_skin_lustre",
+        "balanced_skin_temperature"
+      ],
+      "vriddhi_features": [
+        "redness",
+        "burning",
+        "heat_rash_tendency"
+      ],
+      "kshaya_features": [
+        "dull_skin_lustre",
+        "reduced_skin_heat_response"
+      ],
+      "dushti_features": [
+        "skin_burning",
+        "redness",
+        "pigment_or_lustre_change"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "भ्राजक पित्त को त्वचा के वर्ण, प्रभा, उष्णता और स्थानीय प्रतिक्रियाओं के संदर्भ में देखें।",
+        "summary_en": "Assess Bhrajaka Pitta through skin colour, lustre, temperature and local cutaneous reactions.",
+        "suggested_reviews": [
+          "tvak",
+          "raktadhatu",
+          "dermatology_red_flags"
+        ]
+      }
     },
     {
       "subtype_id": "AYU-DOS-KAP-KLE-001",
       "parent_dosha": "kapha",
       "name_sa": "क्लेदक कफ",
+      "name_hi": "क्लेदक कफ",
       "name_en": "Kledaka Kapha",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "amashaya"
       ],
-      "reference_ids": []
+      "functions": [
+        "moistening_food",
+        "protecting_gastric_environment",
+        "supporting_initial_digestion"
+      ],
+      "samya_features": [
+        "comfortable_food_moistening",
+        "normal_gastric_protection"
+      ],
+      "vriddhi_features": [
+        "heaviness",
+        "excess_mucus_or_nausea_pattern",
+        "slow_digestion"
+      ],
+      "kshaya_features": [
+        "dryness",
+        "gastric_irritability",
+        "poor_food_moistening"
+      ],
+      "dushti_features": [
+        "post_meal_heaviness",
+        "nausea",
+        "mucous_digestive_pattern"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "क्लेदक कफ को आमाशय, आहार के क्लेदन तथा प्रारम्भिक पाचन-सहायता के संदर्भ में देखें।",
+        "summary_en": "Assess Kledaka Kapha in relation to stomach function, moistening of food and early digestive support.",
+        "suggested_reviews": [
+          "pachaka_pitta",
+          "samana_vata",
+          "annavaha_srotas",
+          "ama"
+        ]
+      }
     },
     {
       "subtype_id": "AYU-DOS-KAP-AVA-001",
       "parent_dosha": "kapha",
       "name_sa": "अवलम्बक कफ",
+      "name_hi": "अवलम्बक कफ",
       "name_en": "Avalambaka Kapha",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "uras",
+        "hridaya_region"
       ],
-      "reference_ids": []
+      "functions": [
+        "supporting_chest_structures",
+        "stability",
+        "lubrication_support"
+      ],
+      "samya_features": [
+        "comfortable_chest_support",
+        "stable_respiratory_mechanics"
+      ],
+      "vriddhi_features": [
+        "chest_heaviness",
+        "congestion_pattern",
+        "excess_supportive_heaviness"
+      ],
+      "kshaya_features": [
+        "reduced_chest_support",
+        "dryness_or_instability_pattern"
+      ],
+      "dushti_features": [
+        "chest_heaviness",
+        "congestive_pattern",
+        "respiratory_support_disturbance"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "अवलम्बक कफ का आकलन वक्ष, हृदय क्षेत्र और श्वसन-संरचनात्मक समर्थन के संदर्भ में करें।",
+        "summary_en": "Assess Avalambaka Kapha through chest, cardiac-region and respiratory structural support.",
+        "suggested_reviews": [
+          "pranavaha_srotas",
+          "prana_vata",
+          "udana_vata",
+          "cardiorespiratory_red_flags"
+        ]
+      }
     },
     {
       "subtype_id": "AYU-DOS-KAP-BOD-001",
       "parent_dosha": "kapha",
       "name_sa": "बोधक कफ",
+      "name_hi": "बोधक कफ",
       "name_en": "Bodhaka Kapha",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "jihva",
+        "mukha"
       ],
-      "reference_ids": []
+      "functions": [
+        "taste_perception",
+        "oral_moisture_support"
+      ],
+      "samya_features": [
+        "normal_taste",
+        "comfortable_oral_moisture"
+      ],
+      "vriddhi_features": [
+        "excess_salivation",
+        "coating_or_heavy_taste_pattern"
+      ],
+      "kshaya_features": [
+        "dry_mouth",
+        "reduced_taste_perception"
+      ],
+      "dushti_features": [
+        "taste_disturbance",
+        "salivation_change",
+        "oral_coating_context"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "बोधक कफ को रसना, स्वाद-ग्रहण और मुख की आर्द्रता के साथ आंका जाए।",
+        "summary_en": "Assess Bodhaka Kapha through taste perception and oral moisture.",
+        "suggested_reviews": [
+          "jihva_pariksha",
+          "oral_exam",
+          "agni_ama_context"
+        ]
+      }
     },
     {
       "subtype_id": "AYU-DOS-KAP-TAR-001",
       "parent_dosha": "kapha",
       "name_sa": "तर्पक कफ",
+      "name_hi": "तर्पक कफ",
       "name_en": "Tarpaka Kapha",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "shiras",
+        "indriya_region"
       ],
-      "reference_ids": []
+      "functions": [
+        "sensory_nourishment_support",
+        "mental_calm_support",
+        "head_region_lubrication"
+      ],
+      "samya_features": [
+        "comfortable_sensory_function",
+        "mental_calm",
+        "head_region_comfort"
+      ],
+      "vriddhi_features": [
+        "heaviness_of_head",
+        "drowsiness",
+        "excess_congestion_pattern"
+      ],
+      "kshaya_features": [
+        "sensory_dryness_or_fatigue",
+        "poor_mental_calm",
+        "head_region_dryness_pattern"
+      ],
+      "dushti_features": [
+        "head_heaviness",
+        "sensory_fatigue",
+        "congestion",
+        "sleepiness"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "तर्पक कफ का आकलन शिर, इन्द्रिय-पोषण, मानसिक शान्ति और ऊर्ध्वजत्रु स्निग्धता के संदर्भ में करें।",
+        "summary_en": "Assess Tarpaka Kapha in relation to head-region nourishment, sensory support, calmness and lubrication.",
+        "suggested_reviews": [
+          "prana_vata",
+          "indriya_assessment",
+          "shiras_assessment",
+          "neurological_red_flags"
+        ]
+      }
     },
     {
       "subtype_id": "AYU-DOS-KAP-SHL-001",
       "parent_dosha": "kapha",
       "name_sa": "श्लेषक कफ",
+      "name_hi": "श्लेषक कफ",
       "name_en": "Shleshaka Kapha",
-      "states_allowed": [
-        "samya",
-        "functional_vriddhi",
-        "functional_kshaya",
-        "dushti",
-        "abnormal_gati",
-        "avarana",
-        "mixed",
-        "uncertain",
-        "not_assessed"
+      "locations": [
+        "sandhi"
       ],
-      "reference_ids": []
+      "functions": [
+        "joint_lubrication",
+        "joint_stability_support",
+        "smooth_movement"
+      ],
+      "samya_features": [
+        "smooth_joint_motion",
+        "adequate_joint_lubrication",
+        "stable_joints"
+      ],
+      "vriddhi_features": [
+        "joint_heaviness",
+        "swelling_or_stiffness_pattern",
+        "excess_kapha_joint_pattern"
+      ],
+      "kshaya_features": [
+        "dryness",
+        "crepitus",
+        "reduced_lubrication",
+        "instability_pattern"
+      ],
+      "dushti_features": [
+        "stiffness",
+        "swelling",
+        "crepitus",
+        "restricted_movement"
+      ],
+      "clinical_interpretation": {
+        "summary_hi": "श्लेषक कफ का आकलन संधियों की स्निग्धता, स्थिरता और सहज गति से करें।",
+        "summary_en": "Assess Shleshaka Kapha through joint lubrication, stability and smooth movement.",
+        "suggested_reviews": [
+          "sandhi_exam",
+          "asthi",
+          "snayu",
+          "orthopedic_red_flags"
+        ]
+      }
     }
   ]
 }
