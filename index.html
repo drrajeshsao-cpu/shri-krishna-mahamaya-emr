@@ -1307,6 +1307,125 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   </div>
 </div>
 
+
+<div class="card" id="followupOutcomeCard" style="margin-top:12px">
+  <h3>Follow-up, Outcome & Dhatusamya Engine</h3>
+  <div class="small">Tracks change over time across symptoms, Agni, Ama, Dosha, Dhatu/Ojas/Mala, Srotas, function and overall recovery.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Visit Number</label>
+      <input id="followupVisitNumber" type="number" min="1" max="200" placeholder="e.g. 2">
+    </div>
+    <div>
+      <label>Follow-up Interval</label>
+      <input id="followupIntervalDays" type="number" min="0" max="3650" placeholder="Days since last review">
+    </div>
+    <div>
+      <label>Overall Outcome</label>
+      <select id="overallOutcomeDetailed">
+        <option value="">Not assessed</option>
+        <option value="complete_recovery">Complete recovery</option>
+        <option value="marked_improvement">Marked improvement</option>
+        <option value="moderate_improvement">Moderate improvement</option>
+        <option value="mild_improvement">Mild improvement</option>
+        <option value="stable">Stable / no major change</option>
+        <option value="worsened">Worsened</option>
+        <option value="progression">Disease progression</option>
+        <option value="complication">Complication</option>
+        <option value="referred">Referred</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Symptom Change</label>
+      <select id="symptomTrendDetailed">
+        <option value="">Not assessed</option>
+        <option value="marked_improvement">Marked improvement</option>
+        <option value="improved">Improved</option>
+        <option value="mild_improvement">Mild improvement</option>
+        <option value="stable">Stable</option>
+        <option value="worsened">Worsened</option>
+        <option value="marked_worsening">Marked worsening</option>
+        <option value="mixed">Mixed</option>
+      </select>
+    </div>
+    <div>
+      <label>Functional Change</label>
+      <select id="functionTrendDetailed">
+        <option value="">Not assessed</option>
+        <option value="marked_improvement">Marked improvement</option>
+        <option value="improved">Improved</option>
+        <option value="mild_improvement">Mild improvement</option>
+        <option value="stable">Stable</option>
+        <option value="worsened">Worsened</option>
+        <option value="marked_worsening">Marked worsening</option>
+      </select>
+    </div>
+    <div>
+      <label>Dhatusamya Status</label>
+      <select id="dhatusamyaDetailed">
+        <option value="">Not assessed</option>
+        <option value="achieved">Dhatusamya achieved</option>
+        <option value="partial">Partial Samyata</option>
+        <option value="improving">Improving</option>
+        <option value="stable">Stable</option>
+        <option value="not_achieved">Not achieved</option>
+        <option value="worsening">Worsening</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Domain-wise Trend</label>
+    <div id="followupDomainChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="followupDomain" value="Pain improved">Pain improved</label>
+      <label class="check"><input type="checkbox" name="followupDomain" value="Stiffness improved">Stiffness improved</label>
+      <label class="check"><input type="checkbox" name="followupDomain" value="Sleep improved">Sleep improved</label>
+      <label class="check"><input type="checkbox" name="followupDomain" value="Appetite improved">Appetite improved</label>
+      <label class="check"><input type="checkbox" name="followupDomain" value="Agni improved">Agni improved</label>
+      <label class="check"><input type="checkbox" name="followupDomain" value="Ama reduced">Ama reduced</label>
+      <label class="check"><input type="checkbox" name="followupDomain" value="Koshtha improved">Koshtha improved</label>
+      <label class="check"><input type="checkbox" name="followupDomain" value="Dosha pattern improved">Dosha pattern improved</label>
+      <label class="check"><input type="checkbox" name="followupDomain" value="Dhatu status improved">Dhatu status improved</label>
+      <label class="check"><input type="checkbox" name="followupDomain" value="Ojas/Bala improved">Ojas / Bala improved</label>
+      <label class="check"><input type="checkbox" name="followupDomain" value="Srotas status improved">Srotas status improved</label>
+      <label class="check"><input type="checkbox" name="followupDomain" value="Objective finding improved">Objective finding improved</label>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Treatment Compliance</label>
+      <textarea id="treatmentComplianceDetailed" placeholder="Medicine, diet, lifestyle, yoga, Panchakarma adherence..."></textarea>
+    </div>
+    <div>
+      <label>Adverse Events / New Issues</label>
+      <textarea id="adverseEventsDetailed" placeholder="Any adverse effect, new symptom, complication, intolerance or reason for stopping treatment..."></textarea>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Objective / Investigation Change</label>
+      <textarea id="objectiveChangeDetailed" placeholder="Vitals, examination, lab or imaging trend..."></textarea>
+    </div>
+    <div>
+      <label>Next Plan / Follow-up Decision</label>
+      <textarea id="nextPlanDetailed" placeholder="Continue, modify, escalate, taper, refer, repeat investigation, next visit..."></textarea>
+    </div>
+  </div>
+
+  <div id="followupOutcomeSummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No follow-up outcome documented.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="generateFollowupSummaryBtn" class="secondary">Generate / Refresh Follow-up Summary</button>
+    <button type="button" id="addFollowupSummaryBtn" class="secondary">Add Follow-up Summary to Ayurveda Notes</button>
+  </div>
+</div>
+
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -1855,6 +1974,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Chikitsa-Samprapti Vighatana Engine V2.22 */
 /* SKMCIS Pathya-Apathya Lifestyle Engine V2.23 */
 /* SKMCIS Panchakarma Eligibility-Safety Engine V2.24 */
+/* SKMCIS Followup-Outcome Engine V2.25 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -1910,7 +2030,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -2499,7 +2619,7 @@ function initSrotasClinicalEngine(){
     parent.addEventListener('change',()=>{
       if(!current.ayurveda.srotasDetails)current.ayurveda.srotasDetails={};
       current.ayurveda.srotasDetails=collectSrotasDetails();
-      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();
+      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();
     });
     parent.dataset.srotasDetailBound='1';
   }
@@ -3247,6 +3367,118 @@ function initPanchakarmaEligibilityEngine(){
     add.dataset.pkBound='1';
   }
 }
+
+function collectFollowupOutcome(){
+  return {
+    visit_number:val('followupVisitNumber'),
+    interval_days:val('followupIntervalDays'),
+    overall_outcome:val('overallOutcomeDetailed'),
+    symptom_trend:val('symptomTrendDetailed'),
+    function_trend:val('functionTrendDetailed'),
+    dhatusamya:val('dhatusamyaDetailed'),
+    domains:selected('followupDomain'),
+    compliance:val('treatmentComplianceDetailed'),
+    adverse_events:val('adverseEventsDetailed'),
+    objective_change:val('objectiveChangeDetailed'),
+    next_plan:val('nextPlanDetailed')
+  };
+}
+
+function buildFollowupOutcomeSummary(){
+  const a=collectFollowupOutcome();
+  const lines=[];
+
+  if(a.visit_number) lines.push(`Visit number: ${a.visit_number}`);
+  if(a.interval_days) lines.push(`Follow-up interval: ${a.interval_days} day(s)`);
+  if(a.overall_outcome) lines.push(`Overall outcome: ${humanizeAyuToken(a.overall_outcome)}`);
+  if(a.symptom_trend) lines.push(`Symptom trend: ${humanizeAyuToken(a.symptom_trend)}`);
+  if(a.function_trend) lines.push(`Functional trend: ${humanizeAyuToken(a.function_trend)}`);
+  if(a.dhatusamya) lines.push(`Dhatusamya: ${humanizeAyuToken(a.dhatusamya)}`);
+  if(a.domains.length) lines.push(`Improved domains: ${a.domains.join(', ')}`);
+  if(a.compliance) lines.push(`Treatment compliance: ${a.compliance}`);
+  if(a.adverse_events) lines.push(`Adverse events / new issues: ${a.adverse_events}`);
+  if(a.objective_change) lines.push(`Objective / investigation change: ${a.objective_change}`);
+  if(a.next_plan) lines.push(`Next plan: ${a.next_plan}`);
+
+  const reviews=[];
+  if(a.overall_outcome==='complete_recovery' && a.dhatusamya && a.dhatusamya!=='achieved')
+    reviews.push('Complete recovery is selected but Dhatusamya is not documented as achieved.');
+  if((a.overall_outcome==='worsened'||a.overall_outcome==='progression'||a.overall_outcome==='complication') && !a.next_plan)
+    reviews.push('Worsening/progression requires a documented next action or referral decision.');
+  if(a.adverse_events && !a.next_plan)
+    reviews.push('Adverse event documented without a follow-up action.');
+  if(a.symptom_trend==='marked_improvement' && a.function_trend==='marked_worsening')
+    reviews.push('Marked symptom improvement with marked functional worsening is internally discordant; review the entry.');
+  if(reviews.length) lines.push(`Review before finalizing: ${reviews.join(' ')}`);
+
+  lines.push('Follow-up interpretation should be correlated with examination, objective findings, treatment exposure and any new red flags.');
+  return lines.length?`Follow-up, Outcome & Dhatusamya Summary:\n${lines.map(x=>'• '+x).join('\n')}`:'No follow-up outcome documented.';
+}
+
+function renderFollowupOutcomeSummary(){
+  const box=$('followupOutcomeSummary');
+  if(box) box.textContent=buildFollowupOutcomeSummary();
+}
+
+function restoreFollowupOutcome(){
+  const a=current?.ayurveda?.followupOutcome||{};
+  set('followupVisitNumber',a.visit_number||'');
+  set('followupIntervalDays',a.interval_days||'');
+  set('overallOutcomeDetailed',a.overall_outcome||'');
+  set('symptomTrendDetailed',a.symptom_trend||'');
+  set('functionTrendDetailed',a.function_trend||'');
+  set('dhatusamyaDetailed',a.dhatusamya||'');
+  document.querySelectorAll('input[name="followupDomain"]').forEach(cb=>cb.checked=(a.domains||[]).includes(cb.value));
+  set('treatmentComplianceDetailed',a.compliance||'');
+  set('adverseEventsDetailed',a.adverse_events||'');
+  set('objectiveChangeDetailed',a.objective_change||'');
+  set('nextPlanDetailed',a.next_plan||'');
+  renderFollowupOutcomeSummary();
+}
+
+function initFollowupOutcomeEngine(){
+  ['followupVisitNumber','followupIntervalDays','overallOutcomeDetailed','symptomTrendDetailed',
+   'functionTrendDetailed','dhatusamyaDetailed','treatmentComplianceDetailed','adverseEventsDetailed',
+   'objectiveChangeDetailed','nextPlanDetailed'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.fuBound){
+      const ev=(el.tagName==='TEXTAREA'||el.tagName==='INPUT')?'input':'change';
+      el.addEventListener(ev,()=>{
+        current.ayurveda.followupOutcome=collectFollowupOutcome();
+        renderFollowupOutcomeSummary();
+      });
+      el.dataset.fuBound='1';
+    }
+  });
+
+  const domains=$('followupDomainChecks');
+  if(domains&&!domains.dataset.fuBound){
+    domains.addEventListener('change',()=>{
+      current.ayurveda.followupOutcome=collectFollowupOutcome();
+      renderFollowupOutcomeSummary();
+    });
+    domains.dataset.fuBound='1';
+  }
+
+  const gen=$('generateFollowupSummaryBtn');
+  if(gen&&!gen.dataset.fuBound){
+    gen.onclick=()=>{renderFollowupOutcomeSummary();status('Follow-up summary refreshed.');};
+    gen.dataset.fuBound='1';
+  }
+
+  const add=$('addFollowupSummaryBtn');
+  if(add&&!add.dataset.fuBound){
+    add.onclick=()=>{
+      renderFollowupOutcomeSummary();
+      const txt=$('followupOutcomeSummary')?.textContent||'';
+      if(!txt||txt.startsWith('No follow-up'))return;
+      const old=val('ayurNotes');
+      set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));
+      status('Follow-up outcome summary added to Ayurveda Notes.');
+    };
+    add.dataset.fuBound='1';
+  }
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -3331,7 +3563,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -3359,7 +3591,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
