@@ -922,6 +922,96 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
     <button type="button" id="addSampraptiSynthesisBtn" class="secondary">Add Synthesis to Samprapti Narrative</button>
   </div>
 </div>
+
+<div class="card" id="diagnosisPrognosisCard" style="margin-top:12px">
+  <h3>Diagnosis, Roga Bala & Prognosis Engine</h3>
+  <div class="small">Creates a structured final diagnostic impression from documented Ayurveda findings while keeping physician confirmation mandatory.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Ayurvedic Diagnosis</label>
+      <input id="ayurDiagnosisDetailed" placeholder="Classical disease / condition">
+    </div>
+    <div>
+      <label>Subtype / Bheda</label>
+      <input id="ayurSubtypeDiagnosis" placeholder="e.g. Vataja / Vata-Kaphaja">
+    </div>
+    <div>
+      <label>Diagnostic Certainty</label>
+      <select id="ayurDiagnosisCertainty">
+        <option value="">Not assessed</option>
+        <option value="possible">Possible</option>
+        <option value="probable">Probable</option>
+        <option value="confirmed">Clinically confirmed</option>
+        <option value="differential">Differential only</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Roga Bala</label>
+      <select id="rogaBalaDetailed">
+        <option value="">Not graded</option>
+        <option value="alpa">Alpa / Mild</option>
+        <option value="madhyama">Madhyama</option>
+        <option value="pravara">Pravara / Severe</option>
+        <option value="complex">Very severe / Complex</option>
+      </select>
+    </div>
+    <div>
+      <label>Rogi Bala</label>
+      <select id="rogiBalaDetailed">
+        <option value="">Not graded</option>
+        <option value="avara">Avara</option>
+        <option value="madhyama">Madhyama</option>
+        <option value="pravara">Pravara</option>
+        <option value="critical">Critically reduced reserve</option>
+      </select>
+    </div>
+    <div>
+      <label>Prognosis / Sadhya-Asadhyata</label>
+      <select id="prognosisDetailed">
+        <option value="">Not assessed</option>
+        <option value="sukha_sadhya">Sukha Sadhya</option>
+        <option value="krichhra_sadhya">Krichhra Sadhya</option>
+        <option value="yapya">Yapya</option>
+        <option value="asadhya">Asadhya</option>
+        <option value="uncertain">Needs further evaluation</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Modern Diagnosis / Correlation</label>
+      <textarea id="modernDiagnosisDetailed" placeholder="Modern diagnosis or correlation, if clinically established"></textarea>
+    </div>
+    <div>
+      <label>Differential Diagnosis</label>
+      <textarea id="differentialDiagnosisDetailed" placeholder="Important Ayurvedic and/or modern differentials"></textarea>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Favourable Prognostic Factors</label>
+      <textarea id="favourablePrognosisFactors" placeholder="Recent onset, single Dosha, good Bala, modifiable Nidana, etc."></textarea>
+    </div>
+    <div>
+      <label>Adverse Prognostic Factors / Upadrava</label>
+      <textarea id="adversePrognosisFactors" placeholder="Chronicity, multi-Dhatu, complications, low Bala, structural change, etc."></textarea>
+    </div>
+  </div>
+
+  <div id="diagnosisPrognosisSummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No final diagnosis / prognosis summary documented.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="generateDiagnosisSummaryBtn" class="secondary">Generate / Refresh Diagnostic Summary</button>
+    <button type="button" id="addDiagnosisSummaryBtn" class="secondary">Add Diagnostic Summary to Ayurveda Notes</button>
+  </div>
+</div>
+
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -1466,6 +1556,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Rogamarga-Shatkriyakala Engine V2.18 */
 /* SKMCIS Nidana Panchaka Clinical Engine V2.19 */
 /* SKMCIS Integrated Samprapti Ghataka Synthesis V2.20 */
+/* SKMCIS Diagnosis-RogaBala-Prognosis Engine V2.21 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -1521,7 +1612,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -2110,7 +2201,7 @@ function initSrotasClinicalEngine(){
     parent.addEventListener('change',()=>{
       if(!current.ayurveda.srotasDetails)current.ayurveda.srotasDetails={};
       current.ayurveda.srotasDetails=collectSrotasDetails();
-      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();
+      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();
     });
     parent.dataset.srotasDetailBound='1';
   }
@@ -2438,6 +2529,104 @@ function initSampraptiSynthesisEngine(){
   const gen=$('generateSampraptiSynthesisBtn'); if(gen&&!gen.dataset.ssBound){gen.onclick=()=>{renderSampraptiGhatakaSynthesis();status('Integrated Samprapti synthesis refreshed.');};gen.dataset.ssBound='1';}
   const add=$('addSampraptiSynthesisBtn'); if(add&&!add.dataset.ssBound){add.onclick=()=>{renderSampraptiGhatakaSynthesis();const txt=$('sampraptiSynthesisSummary')?.textContent||'';if(!txt)return;const old=val('samprapti');set('samprapti',[old,txt].filter(Boolean).join(old?'\n\n':''));status('Integrated Samprapti synthesis added to Samprapti Narrative.');};add.dataset.ssBound='1';}
 }
+
+function collectDiagnosisPrognosis(){
+  return {
+    ayur_diagnosis:val('ayurDiagnosisDetailed'),
+    subtype:val('ayurSubtypeDiagnosis'),
+    certainty:val('ayurDiagnosisCertainty'),
+    roga_bala:val('rogaBalaDetailed'),
+    rogi_bala:val('rogiBalaDetailed'),
+    prognosis:val('prognosisDetailed'),
+    modern_diagnosis:val('modernDiagnosisDetailed'),
+    differential:val('differentialDiagnosisDetailed'),
+    favourable:val('favourablePrognosisFactors'),
+    adverse:val('adversePrognosisFactors')
+  };
+}
+
+function buildDiagnosisPrognosisSummary(){
+  const a=collectDiagnosisPrognosis();
+  const samprapti=buildSampraptiGhatakaSynthesis();
+  const lines=[];
+
+  if(a.ayur_diagnosis){
+    lines.push(`Ayurvedic Diagnosis: ${a.ayur_diagnosis}${a.subtype?` — ${a.subtype}`:''}`);
+  }
+  if(a.certainty) lines.push(`Diagnostic certainty: ${humanizeAyuToken(a.certainty)}`);
+  if(a.modern_diagnosis) lines.push(`Modern diagnosis / correlation: ${a.modern_diagnosis}`);
+  if(a.differential) lines.push(`Differential diagnosis: ${a.differential}`);
+  if(a.roga_bala) lines.push(`Roga Bala: ${humanizeAyuToken(a.roga_bala)}`);
+  if(a.rogi_bala) lines.push(`Rogi Bala: ${humanizeAyuToken(a.rogi_bala)}`);
+  if(a.prognosis) lines.push(`Prognosis: ${humanizeAyuToken(a.prognosis)}`);
+  if(a.favourable) lines.push(`Favourable prognostic factors: ${a.favourable}`);
+  if(a.adverse) lines.push(`Adverse prognostic factors / Upadrava: ${a.adverse}`);
+
+  const warnings=[];
+  if(a.certainty==='confirmed' && !a.ayur_diagnosis) warnings.push('Diagnosis marked confirmed without an Ayurvedic diagnosis.');
+  if(a.prognosis==='sukha_sadhya' && a.rogi_bala==='critical') warnings.push('Sukha Sadhya conflicts with critically reduced Rogi Bala; review prognosis.');
+  if(a.prognosis==='sukha_sadhya' && a.roga_bala==='complex') warnings.push('Sukha Sadhya conflicts with complex/high Roga Bala; review prognosis.');
+  if(a.certainty==='confirmed' && !val('samprapti') && !samprapti) warnings.push('Confirmed diagnosis should be supported by documented Samprapti / clinical reasoning.');
+  if(warnings.length) lines.push(`Review before finalizing: ${warnings.join(' ')}`);
+
+  lines.push('Physician confirmation required. Modern and Ayurvedic diagnoses should not be treated as exact equivalents unless explicitly validated.');
+  return lines.length?`Final Diagnostic & Prognostic Summary:\n${lines.map(x=>'• '+x).join('\n')}`:'No final diagnosis / prognosis summary documented.';
+}
+
+function renderDiagnosisPrognosisSummary(){
+  const box=$('diagnosisPrognosisSummary');
+  if(box) box.textContent=buildDiagnosisPrognosisSummary();
+}
+
+function restoreDiagnosisPrognosis(){
+  const a=current?.ayurveda?.diagnosisPrognosis||{};
+  set('ayurDiagnosisDetailed',a.ayur_diagnosis||'');
+  set('ayurSubtypeDiagnosis',a.subtype||'');
+  set('ayurDiagnosisCertainty',a.certainty||'');
+  set('rogaBalaDetailed',a.roga_bala||'');
+  set('rogiBalaDetailed',a.rogi_bala||'');
+  set('prognosisDetailed',a.prognosis||'');
+  set('modernDiagnosisDetailed',a.modern_diagnosis||'');
+  set('differentialDiagnosisDetailed',a.differential||'');
+  set('favourablePrognosisFactors',a.favourable||'');
+  set('adversePrognosisFactors',a.adverse||'');
+  renderDiagnosisPrognosisSummary();
+}
+
+function initDiagnosisPrognosisEngine(){
+  ['ayurDiagnosisDetailed','ayurSubtypeDiagnosis','ayurDiagnosisCertainty','rogaBalaDetailed',
+   'rogiBalaDetailed','prognosisDetailed','modernDiagnosisDetailed','differentialDiagnosisDetailed',
+   'favourablePrognosisFactors','adversePrognosisFactors'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.dpBound){
+      const ev=(el.tagName==='TEXTAREA'||el.tagName==='INPUT')?'input':'change';
+      el.addEventListener(ev,()=>{
+        current.ayurveda.diagnosisPrognosis=collectDiagnosisPrognosis();
+        renderDiagnosisPrognosisSummary();
+      });
+      el.dataset.dpBound='1';
+    }
+  });
+
+  const gen=$('generateDiagnosisSummaryBtn');
+  if(gen&&!gen.dataset.dpBound){
+    gen.onclick=()=>{renderDiagnosisPrognosisSummary();status('Diagnostic summary refreshed.');};
+    gen.dataset.dpBound='1';
+  }
+
+  const add=$('addDiagnosisSummaryBtn');
+  if(add&&!add.dataset.dpBound){
+    add.onclick=()=>{
+      renderDiagnosisPrognosisSummary();
+      const txt=$('diagnosisPrognosisSummary')?.textContent||'';
+      if(!txt||txt.startsWith('No final'))return;
+      const old=val('ayurNotes');
+      set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));
+      status('Diagnostic and prognostic summary added to Ayurveda Notes.');
+    };
+    add.dataset.dpBound='1';
+  }
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -2522,7 +2711,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -2550,7 +2739,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
