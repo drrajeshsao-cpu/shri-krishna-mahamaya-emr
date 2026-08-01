@@ -580,7 +580,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <h3>Dosha Subtypes</h3><div id="subtypeChecks" class="checkgrid"></div>
 <div id="subtypeInterpretationPanel" class="subtype-panel">
   <h3 style="margin-top:0">Dosha Subtype Clinical Interpretation</h3>
-  <div class="notice">Select a subtype above. Then choose its current state: Samya, Vriddhi, Kshaya, Dushti, Abnormal Gati, Avarana or Mixed.</div>
+  <div class="notice">Select a subtype above. Then document State, Severity, Confidence and the actually observed clinical features. The panel will generate a structured clinical decision-support summary.</div>
   <div id="subtypeInterpretationResults"></div>
   <div id="subtypeAutoSummary" class="subtype-summary">No subtype interpretation selected.</div>
   <div class="actions"><button id="addSubtypeSummaryBtn" type="button" class="secondary">＋ Add Subtype Summary to Assessment Notes</button></div>
@@ -1166,6 +1166,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 </main>
 
 <script>
+/* SKMCIS Ayurveda Clinical Decision Support V2.11 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -1206,8 +1207,19 @@ function collectSubtypeAssessments(){
   const existing=current?.ayurveda?.subtypeAssessments||{};
   const selectedNames=new Set(selected('subtype'));
   const out={};
-  Object.entries(existing).forEach(([id,v])=>{if(selectedNames.has(v?.name))out[id]=v});
-  document.querySelectorAll('.subtype-state-select').forEach(el=>{if(el.value)out[el.dataset.subtypeId]={subtype_id:el.dataset.subtypeId,name:el.dataset.subtypeName,state:el.value}});
+  Object.entries(existing).forEach(([id,v])=>{if(selectedNames.has(v?.name))out[id]={...v}});
+  document.querySelectorAll('.subtype-card').forEach(card=>{
+    const id=card.dataset.subtypeId;
+    const name=card.dataset.subtypeName||'';
+    if(!id||!selectedNames.has(name))return;
+    const state=card.querySelector('.subtype-state-select')?.value||'';
+    const severity=card.querySelector('.subtype-severity-select')?.value||'';
+    const confidence=card.querySelector('.subtype-confidence-select')?.value||'';
+    const observed=[...card.querySelectorAll('.subtype-feature-check:checked')].map(x=>x.value);
+    if(state||severity||confidence||observed.length){
+      out[id]={subtype_id:id,name,state,severity,confidence,observed_features:observed};
+    }
+  });
   return out;
 }
 function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
@@ -1246,6 +1258,29 @@ function subtypeFeatureKey(state){
 function currentSubtypeAssessmentMap(){return current?.ayurveda?.subtypeAssessments||{}}
 function selectedSubtypeNames(){return selected('subtype')}
 function getSubtypeState(id){return currentSubtypeAssessmentMap()?.[id]?.state||''}
+const subtypeSeverityLabels={'':'Not graded','0':'Normal / Absent','1':'Mild','2':'Moderate','3':'Severe'};
+const subtypeConfidenceLabels={'':'Not set',low:'Low',moderate:'Moderate',high:'High'};
+
+function subtypeDecisionText(item, assessment, feats){
+  const state=assessment?.state||'';
+  const sev=assessment?.severity||'';
+  const conf=assessment?.confidence||'';
+  const obs=assessment?.observed_features||[];
+  if(!state)return 'Choose the current state to generate clinical decision support.';
+  const stateLabel=subtypeStateLabels[state]||humanizeAyuToken(state);
+  const sevLabel=subtypeSeverityLabels[String(sev)]||'Not graded';
+  const confLabel=subtypeConfidenceLabels[conf]||'Not set';
+  const evidence=`${obs.length}/${feats.length||0} listed features selected`;
+  let action='Correlate with the full Ayurveda assessment and relevant modern clinical examination.';
+  if(state==='samya') action='No subtype-specific pathology is established from this entry; correlate with the rest of the assessment.';
+  else if(state==='functional_vriddhi'||state==='vriddhi') action='Review Vriddhi-compatible Nidana, Guna, related Srotas and associated Dosha before treatment planning.';
+  else if(state==='functional_kshaya'||state==='kshaya') action='Review Kshaya-compatible Nidana, Dhatu/Ojas status, Agni and nutritional/functional reserve before treatment planning.';
+  else if(state==='abnormal_gati') action='Document the direction/type of abnormal Gati and correlate with Srotas, Rogamarga and obstruction/deficiency mechanisms.';
+  else if(state==='avarana') action='Avarana requires identification of Avraka and Avrita components; do not finalize from subtype selection alone.';
+  else if(state==='dushti'||state==='mixed') action='Clarify dominant pathological pattern using selected features, Guna, Agni/Ama, Dushya and Srotas.';
+  return `${stateLabel} | Severity: ${sevLabel} | Confidence: ${confLabel} | Evidence: ${evidence}. ${action}`;
+}
+
 function renderSubtypeInterpretations(){
   const box=$('subtypeInterpretationResults'); if(!box)return;
   const names=selectedSubtypeNames();
@@ -1253,33 +1288,49 @@ function renderSubtypeInterpretations(){
   const assessments=currentSubtypeAssessmentMap();
   box.innerHTML=names.map(name=>{
     const item=ayuSubtypeByName.get(name)||{subtype_id:name,name_en:name,parent_dosha:'',functions:[],clinical_interpretation:{}};
-    const state=assessments?.[item.subtype_id]?.state||'';
+    const a=assessments?.[item.subtype_id]||{};
+    const state=a.state||'';
     const fkey=subtypeFeatureKey(state), feats=fkey?(item[fkey]||[]):[];
+    const observed=new Set(a.observed_features||[]);
     const allowed=['','samya','functional_vriddhi','functional_kshaya','dushti','abnormal_gati','avarana','mixed'];
     const opts=allowed.map(v=>`<option value="${esc(v)}" ${v===state?'selected':''}>${esc(subtypeStateLabels[v]||humanizeAyuToken(v))}</option>`).join('');
+    const severityOpts=['','0','1','2','3'].map(v=>`<option value="${v}" ${String(a.severity??'')===v?'selected':''}>${esc(subtypeSeverityLabels[v])}</option>`).join('');
+    const confidenceOpts=['','low','moderate','high'].map(v=>`<option value="${v}" ${(a.confidence||'')===v?'selected':''}>${esc(subtypeConfidenceLabels[v])}</option>`).join('');
     const fun=(item.functions||[]).map(x=>`<li>${esc(humanizeAyuToken(x))}</li>`).join('');
-    const fl=feats.map(x=>`<li>${esc(humanizeAyuToken(x))}</li>`).join('');
+    const featureChecks=feats.map(x=>`<label class="check"><input class="subtype-feature-check" type="checkbox" value="${esc(x)}" ${observed.has(x)?'checked':''}>${esc(humanizeAyuToken(x))}</label>`).join('');
     const reviews=(item.clinical_interpretation?.suggested_reviews||[]).map(x=>`<span class="pill">${esc(humanizeAyuToken(x))}</span>`).join('');
     const summary=item.clinical_interpretation?.summary_hi||item.clinical_interpretation?.summary_en||'';
-    return `<div class="subtype-card" data-subtype-id="${esc(item.subtype_id)}">
+    const decision=subtypeDecisionText(item,a,feats);
+    return `<div class="subtype-card" data-subtype-id="${esc(item.subtype_id)}" data-subtype-name="${esc(item.name_en||name)}">
       <h4>${esc(item.name_en||name)}${item.name_sa?` • ${esc(item.name_sa)}`:''}</h4>
       <div class="subtype-meta"><span class="pill">${esc(humanizeAyuToken(item.parent_dosha||''))}</span>${(item.locations||[]).map(x=>`<span class="pill">${esc(humanizeAyuToken(x))}</span>`).join('')}</div>
-      <div class="subtype-state-row"><div><label>Current State</label><select class="subtype-state-select" data-subtype-id="${esc(item.subtype_id)}" data-subtype-name="${esc(item.name_en||name)}">${opts}</select></div><div class="small">${esc(summary)}</div></div>
+      <div class="grid3" style="margin-top:10px">
+        <div><label>Current State</label><select class="subtype-state-select">${opts}</select></div>
+        <div><label>Severity</label><select class="subtype-severity-select">${severityOpts}</select></div>
+        <div><label>Clinical Confidence</label><select class="subtype-confidence-select">${confidenceOpts}</select></div>
+      </div>
+      <div class="small" style="margin-top:8px">${esc(summary)}</div>
       ${fun?`<details><summary>Normal functions</summary><ul class="subtype-feature-list">${fun}</ul></details>`:''}
-      ${state?`<details open><summary>${esc(subtypeStateLabels[state]||humanizeAyuToken(state))} features</summary>${fl?`<ul class="subtype-feature-list">${fl}</ul>`:'<div class="small">No specific feature list in current master.</div>'}</details>`:''}
+      ${state?`<details open><summary>${esc(subtypeStateLabels[state]||humanizeAyuToken(state))} — select observed features</summary>${featureChecks?`<div class="checkgrid" style="margin-top:8px">${featureChecks}</div>`:'<div class="small">No specific feature list in current master.</div>'}</details>`:''}
+      <div class="notice" style="margin-top:10px"><b>Clinical Decision Support:</b> ${esc(decision)}</div>
       ${reviews?`<div style="margin-top:8px"><b>Suggested review:</b> ${reviews}</div>`:''}
     </div>`
   }).join('');
   updateSubtypeAutoSummary();
 }
+
 function updateSubtypeAutoSummary(){
   const names=selectedSubtypeNames(), assessments=currentSubtypeAssessmentMap();
   const lines=names.map(name=>{
     const item=ayuSubtypeByName.get(name)||{subtype_id:name,name_en:name};
-    const st=assessments?.[item.subtype_id]?.state||'';
-    return `${item.name_en||name}${st?` — ${subtypeStateLabels[st]||humanizeAyuToken(st)}`:''}`;
+    const a=assessments?.[item.subtype_id]||{};
+    const st=a.state||'';
+    const sev=a.severity!==undefined&&a.severity!==''?subtypeSeverityLabels[String(a.severity)]:'Not graded';
+    const conf=a.confidence?subtypeConfidenceLabels[a.confidence]:'Not set';
+    const obs=(a.observed_features||[]).map(humanizeAyuToken);
+    return `${item.name_en||name}${st?` — ${subtypeStateLabels[st]||humanizeAyuToken(st)}`:''} | Severity: ${sev} | Confidence: ${conf}${obs.length?` | Observed: ${obs.join(', ')}`:''}`;
   });
-  $('subtypeAutoSummary').textContent=lines.length?`Dosha Subtype Assessment:\n${lines.map(x=>'• '+x).join('\n')}`:'No subtype interpretation selected.';
+  $('subtypeAutoSummary').textContent=lines.length?`Dosha Subtype Clinical Assessment:\n${lines.map(x=>'• '+x).join('\n')}`:'No subtype interpretation selected.';
 }
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
@@ -1295,17 +1346,23 @@ function initSubtypeInterpretationEngine(){
   const results=$('subtypeInterpretationResults');
   if(results&&!results.dataset.interpretBound){
     results.addEventListener('change',e=>{
-      if(!e.target.classList.contains('subtype-state-select'))return;
+      const card=e.target.closest('.subtype-card'); if(!card)return;
+      const id=card.dataset.subtypeId, name=card.dataset.subtypeName;
       if(!current.ayurveda.subtypeAssessments)current.ayurveda.subtypeAssessments={};
-      const id=e.target.dataset.subtypeId, name=e.target.dataset.subtypeName, state=e.target.value;
-      if(state)current.ayurveda.subtypeAssessments[id]={subtype_id:id,name,state}; else delete current.ayurveda.subtypeAssessments[id];
+      const state=card.querySelector('.subtype-state-select')?.value||'';
+      const severity=card.querySelector('.subtype-severity-select')?.value||'';
+      const confidence=card.querySelector('.subtype-confidence-select')?.value||'';
+      const observed=[...card.querySelectorAll('.subtype-feature-check:checked')].map(x=>x.value);
+      if(state||severity||confidence||observed.length){
+        current.ayurveda.subtypeAssessments[id]={subtype_id:id,name,state,severity,confidence,observed_features:observed};
+      }else delete current.ayurveda.subtypeAssessments[id];
       renderSubtypeInterpretations();
     });
     results.dataset.interpretBound='1';
   }
   const add=$('addSubtypeSummaryBtn');
   if(add&&!add.dataset.interpretBound){
-    add.onclick=()=>{const txt=$('subtypeAutoSummary').textContent;if(!txt||txt.startsWith('No subtype'))return;const old=val('ayurNotes');set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));status('Subtype summary added to Ayurveda Assessment Notes.')};
+    add.onclick=()=>{const txt=$('subtypeAutoSummary').textContent;if(!txt||txt.startsWith('No subtype'))return;const old=val('ayurNotes');set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));status('Subtype clinical summary added to Ayurveda Assessment Notes.')};
     add.dataset.interpretBound='1';
   }
 }
@@ -1736,7 +1793,7 @@ const meds=(rx.medicines||[]).map((m,i)=>`<tr>
 
 const prevInv=(inv?.previous||[]).map(x=>`<div>• <b>${esc(x.category)} — ${esc(x.test)}</b>: ${esc(x.result||'')} ${x.remark?'— '+esc(x.remark):''}</div>`).join('');
 const advInv=(inv?.advised||[]).map(x=>`<div>• <b>${esc(x.category)} — ${esc(x.test)}</b> (${esc(x.priority||'')}): ${esc(x.note||'')}</div>`).join('');
-const subtypePrint=(a?.subtypes||[]).map(name=>{const item=ayuSubtypeByName.get(name);const st=item&&a?.subtypeAssessments?.[item.subtype_id]?.state;return name+(st?' ['+(subtypeStateLabels[st]||humanizeAyuToken(st))+']':'')}).join(', ');const ayurSummary=[(a?.dosha||[]).join('/'),subtypePrint,(a?.gunas||[]).join(', '),a?.agni,a?.koshtha,(a?.srotas||[]).join(', '),a?.samprapti].filter(Boolean).join(' | ');
+const subtypePrint=(a?.subtypes||[]).map(name=>{const item=ayuSubtypeByName.get(name);const x=item&&a?.subtypeAssessments?.[item.subtype_id];const st=x?.state;const sev=x?.severity!==undefined&&x?.severity!==''?subtypeSeverityLabels[String(x.severity)]:'';const conf=x?.confidence?subtypeConfidenceLabels[x.confidence]:'';return name+(st?' ['+(subtypeStateLabels[st]||humanizeAyuToken(st))+(sev?' | '+sev:'')+(conf?' | '+conf:'')+']':'')}).join(', ');const ayurSummary=[(a?.dosha||[]).join('/'),subtypePrint,(a?.gunas||[]).join(', '),a?.agni,a?.koshtha,(a?.srotas||[]).join(', '),a?.samprapti].filter(Boolean).join(' | ');
 
 $('printSheet').innerHTML=`
 <div class="letterhead">
@@ -3062,7 +3119,7 @@ $('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('t
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.10 ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.11 Clinical Decision Support ready.');
 })();
 </script>
 </body>
