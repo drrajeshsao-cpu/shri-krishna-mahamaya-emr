@@ -1098,6 +1098,112 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   </div>
 </div>
 
+
+<div class="card" id="pathyaApathyaCard" style="margin-top:12px">
+  <h3>Pathya–Apathya, Ahara–Vihara & Lifestyle Planning Engine</h3>
+  <div class="small">Creates a structured, physician-reviewable lifestyle plan from the documented Dosha, Agni, Ama, Koshtha, Dhatu, Srotas and Chikitsa goals.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Dietary Strategy</label>
+      <select id="dietaryStrategy">
+        <option value="">Not assessed</option>
+        <option value="laghu">Laghu / light</option>
+        <option value="brimhana">Brimhana / nourishing</option>
+        <option value="ruksha">Ruksha-oriented</option>
+        <option value="snigdha">Snigdha-oriented</option>
+        <option value="ushna">Ushna-oriented</option>
+        <option value="sheeta">Sheeta-oriented</option>
+        <option value="balanced">Balanced / individualized</option>
+      </select>
+    </div>
+    <div>
+      <label>Meal Pattern</label>
+      <select id="mealPatternAdvice">
+        <option value="">Not assessed</option>
+        <option value="regular">Regular fixed meal timing</option>
+        <option value="small_frequent">Small frequent meals</option>
+        <option value="light_evening">Light evening meal</option>
+        <option value="avoid_snacking">Avoid frequent snacking</option>
+        <option value="individualized">Individualized</option>
+      </select>
+    </div>
+    <div>
+      <label>Hydration Strategy</label>
+      <select id="hydrationAdvice">
+        <option value="">Not assessed</option>
+        <option value="adequate">Adequate hydration</option>
+        <option value="warm_water">Warm water preference</option>
+        <option value="room_temp">Room-temperature fluids</option>
+        <option value="restricted_if_indicated">Restriction only if medically indicated</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Pathya Ahara</label>
+      <textarea id="pathyaAharaDetailed" placeholder="Preferred foods, preparation, timing, quantity, seasonal considerations..."></textarea>
+    </div>
+    <div>
+      <label>Apathya Ahara</label>
+      <textarea id="apathyaAharaDetailed" placeholder="Foods/preparations to avoid or limit, with reason..."></textarea>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Pathya Vihara</label>
+      <textarea id="pathyaViharaDetailed" placeholder="Activity, posture, sleep, work habits, exercise, dinacharya/ritucharya advice..."></textarea>
+    </div>
+    <div>
+      <label>Apathya Vihara</label>
+      <textarea id="apathyaViharaDetailed" placeholder="Activities, habits, exposures or schedules to avoid/limit..."></textarea>
+    </div>
+  </div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Sleep Plan</label>
+      <select id="sleepPlanDetailed">
+        <option value="">Not assessed</option>
+        <option value="regular">Regular sleep-wake timing</option>
+        <option value="avoid_day_sleep">Avoid inappropriate day sleep</option>
+        <option value="sleep_hygiene">Sleep hygiene emphasis</option>
+        <option value="individualized">Individualized</option>
+      </select>
+    </div>
+    <div>
+      <label>Exercise / Vyayama</label>
+      <select id="exercisePlanDetailed">
+        <option value="">Not assessed</option>
+        <option value="mild">Mild</option>
+        <option value="moderate">Moderate</option>
+        <option value="graded">Graded rehabilitation</option>
+        <option value="avoid_strenuous">Avoid strenuous exercise</option>
+        <option value="deferred">Deferred</option>
+      </select>
+    </div>
+    <div>
+      <label>Yoga / Breathwork</label>
+      <select id="yogaPlanDetailed">
+        <option value="">Not assessed</option>
+        <option value="gentle">Gentle / beginner</option>
+        <option value="modified">Modified / condition-specific</option>
+        <option value="supervised">Supervised only</option>
+        <option value="deferred">Deferred</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="pathyaApathyaSummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No Pathya–Apathya plan documented.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="generatePathyaSummaryBtn" class="secondary">Generate / Refresh Lifestyle Summary</button>
+    <button type="button" id="addPathyaSummaryBtn" class="secondary">Add Pathya–Apathya Summary to Ayurveda Notes</button>
+  </div>
+</div>
+
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -1644,6 +1750,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Integrated Samprapti Ghataka Synthesis V2.20 */
 /* SKMCIS Diagnosis-RogaBala-Prognosis Engine V2.21 */
 /* SKMCIS Chikitsa-Samprapti Vighatana Engine V2.22 */
+/* SKMCIS Pathya-Apathya Lifestyle Engine V2.23 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -1699,7 +1806,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -2288,7 +2395,7 @@ function initSrotasClinicalEngine(){
     parent.addEventListener('change',()=>{
       if(!current.ayurveda.srotasDetails)current.ayurveda.srotasDetails={};
       current.ayurveda.srotasDetails=collectSrotasDetails();
-      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();
+      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();
     });
     parent.dataset.srotasDetailBound='1';
   }
@@ -2814,6 +2921,118 @@ function initChikitsaPlanningEngine(){
     add.dataset.cpBound='1';
   }
 }
+
+function collectPathyaApathyaPlan(){
+  return {
+    dietary_strategy:val('dietaryStrategy'),
+    meal_pattern:val('mealPatternAdvice'),
+    hydration:val('hydrationAdvice'),
+    pathya_ahara:val('pathyaAharaDetailed'),
+    apathya_ahara:val('apathyaAharaDetailed'),
+    pathya_vihara:val('pathyaViharaDetailed'),
+    apathya_vihara:val('apathyaViharaDetailed'),
+    sleep_plan:val('sleepPlanDetailed'),
+    exercise_plan:val('exercisePlanDetailed'),
+    yoga_plan:val('yogaPlanDetailed')
+  };
+}
+
+function buildPathyaApathyaSummary(){
+  const a=collectPathyaApathyaPlan();
+  const agni=collectAgniAmaKoshtha();
+  const dx=collectDiagnosisPrognosis();
+  const dosha=buildDoshaSynthesis();
+  const lines=[];
+
+  if(a.dietary_strategy) lines.push(`Dietary strategy: ${humanizeAyuToken(a.dietary_strategy)}`);
+  if(a.meal_pattern) lines.push(`Meal pattern: ${humanizeAyuToken(a.meal_pattern)}`);
+  if(a.hydration) lines.push(`Hydration: ${humanizeAyuToken(a.hydration)}`);
+  if(a.pathya_ahara) lines.push(`Pathya Ahara: ${a.pathya_ahara}`);
+  if(a.apathya_ahara) lines.push(`Apathya Ahara: ${a.apathya_ahara}`);
+  if(a.pathya_vihara) lines.push(`Pathya Vihara: ${a.pathya_vihara}`);
+  if(a.apathya_vihara) lines.push(`Apathya Vihara: ${a.apathya_vihara}`);
+  if(a.sleep_plan) lines.push(`Sleep plan: ${humanizeAyuToken(a.sleep_plan)}`);
+  if(a.exercise_plan) lines.push(`Exercise / Vyayama: ${humanizeAyuToken(a.exercise_plan)}`);
+  if(a.yoga_plan) lines.push(`Yoga / breathwork: ${humanizeAyuToken(a.yoga_plan)}`);
+
+  const suggestions=[];
+  if(agni.agni_pattern==='mandagni') suggestions.push('Mandagni: prefer appropriately light, freshly prepared meals and avoid excessive heavy/greasy intake.');
+  if(agni.agni_pattern==='tikshnagni') suggestions.push('Tikshnagni: avoid excessive fasting and strong heat-provoking food patterns; maintain regular meals.');
+  if(agni.agni_pattern==='vishamagni') suggestions.push('Vishamagni: emphasize regular meal timing, warm freshly prepared food and reduction of irregular eating patterns.');
+  if(agni.ama_status && agni.ama_status!=='nirama') suggestions.push('Ama documented: avoid very heavy, difficult-to-digest or excessive Brimhana-style intake until physician review.');
+  if(dx.rogi_bala==='avara'||dx.rogi_bala==='critical') suggestions.push('Low Rogi Bala: exercise and fasting intensity should remain conservative and individualized.');
+
+  Object.entries(dosha.doshas||{}).forEach(([d,v])=>{
+    if(d==='vata' && /Vriddhi|Kshaya|Dushti|complex/i.test(v.pattern)) suggestions.push('Vata involvement: review regularity, warmth, rest, graded movement and avoidance of excessive travel/strain as clinically appropriate.');
+    if(d==='pitta' && /Vriddhi|Dushti|complex/i.test(v.pattern)) suggestions.push('Pitta involvement: review heat, irritant foods, overexertion and sleep regularity as clinically appropriate.');
+    if(d==='kapha' && /Vriddhi|Dushti|complex/i.test(v.pattern)) suggestions.push('Kapha involvement: review heaviness, inactivity, excess day sleep and overly heavy food patterns as clinically appropriate.');
+  });
+
+  if(suggestions.length) lines.push(`Decision-support review: ${[...new Set(suggestions)].join(' ')}`);
+
+  const warnings=[];
+  if(a.dietary_strategy==='brimhana' && agni.ama_status && agni.ama_status!=='nirama') warnings.push('Brimhana-oriented dietary strategy selected while Ama is documented.');
+  if(a.exercise_plan==='moderate' && dx.rogi_bala==='critical') warnings.push('Moderate exercise selected with critically reduced Rogi Bala.');
+  if(a.exercise_plan==='avoid_strenuous' && a.yoga_plan==='supervised') {/* compatible */}
+  if(warnings.length) lines.push(`Safety review: ${warnings.join(' ')}`);
+
+  lines.push('Final diet, fluid, exercise and yoga advice must account for age, comorbidities, renal/cardiac status, pregnancy, medications and modern red flags.');
+  return lines.length?`Pathya–Apathya & Lifestyle Summary:\n${lines.map(x=>'• '+x).join('\n')}`:'No Pathya–Apathya plan documented.';
+}
+
+function renderPathyaApathyaSummary(){
+  const box=$('pathyaApathyaSummary');
+  if(box) box.textContent=buildPathyaApathyaSummary();
+}
+
+function restorePathyaApathyaPlan(){
+  const a=current?.ayurveda?.pathyaApathyaPlan||{};
+  set('dietaryStrategy',a.dietary_strategy||'');
+  set('mealPatternAdvice',a.meal_pattern||'');
+  set('hydrationAdvice',a.hydration||'');
+  set('pathyaAharaDetailed',a.pathya_ahara||'');
+  set('apathyaAharaDetailed',a.apathya_ahara||'');
+  set('pathyaViharaDetailed',a.pathya_vihara||'');
+  set('apathyaViharaDetailed',a.apathya_vihara||'');
+  set('sleepPlanDetailed',a.sleep_plan||'');
+  set('exercisePlanDetailed',a.exercise_plan||'');
+  set('yogaPlanDetailed',a.yoga_plan||'');
+  renderPathyaApathyaSummary();
+}
+
+function initPathyaApathyaEngine(){
+  ['dietaryStrategy','mealPatternAdvice','hydrationAdvice','pathyaAharaDetailed','apathyaAharaDetailed',
+   'pathyaViharaDetailed','apathyaViharaDetailed','sleepPlanDetailed','exercisePlanDetailed','yogaPlanDetailed'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.paBound){
+      const ev=(el.tagName==='TEXTAREA')?'input':'change';
+      el.addEventListener(ev,()=>{
+        current.ayurveda.pathyaApathyaPlan=collectPathyaApathyaPlan();
+        renderPathyaApathyaSummary();
+      });
+      el.dataset.paBound='1';
+    }
+  });
+
+  const gen=$('generatePathyaSummaryBtn');
+  if(gen&&!gen.dataset.paBound){
+    gen.onclick=()=>{renderPathyaApathyaSummary();status('Pathya–Apathya summary refreshed.');};
+    gen.dataset.paBound='1';
+  }
+
+  const add=$('addPathyaSummaryBtn');
+  if(add&&!add.dataset.paBound){
+    add.onclick=()=>{
+      renderPathyaApathyaSummary();
+      const txt=$('pathyaApathyaSummary')?.textContent||'';
+      if(!txt||txt.startsWith('No Pathya'))return;
+      const old=val('ayurNotes');
+      set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));
+      status('Pathya–Apathya summary added to Ayurveda Notes.');
+    };
+    add.dataset.paBound='1';
+  }
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -2898,7 +3117,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -2926,7 +3145,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
