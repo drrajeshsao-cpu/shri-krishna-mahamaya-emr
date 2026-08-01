@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "package_name": "SKMCIS Ayurveda Assessment V1",
+    "package_version": "0.1.0-phase4a",
+    "knowledge_version": "AYU-KB-1.0.0-draft",
+    "form_version": "AYU-FORM-1.0.0-draft",
+    "scoring_version": "AYU-SCORE-1.0.0-draft",
+    "status": "coding-ready starter; classical references require verse-level verification"
+  },
+  "assessment_flow": [
+    {
+      "step": 1,
+      "id": "context_prakriti"
+    },
+    {
+      "step": 2,
+      "id": "vikriti_dosha"
+    },
+    {
+      "step": 3,
+      "id": "subtype_guna_gati_avarana"
+    },
+    {
+      "step": 4,
+      "id": "dhatu_mala_ojas"
+    },
+    {
+      "step": 5,
+      "id": "agni_ama_kostha"
+    },
+    {
+      "step": 6,
+      "id": "pariksha_bala"
+    },
+    {
+      "step": 7,
+      "id": "srotas"
+    },
+    {
+      "step": 8,
+      "id": "rogamarga_kriyakala"
+    },
+    {
+      "step": 9,
+      "id": "nidana_panchaka"
+    },
+    {
+      "step": 10,
+      "id": "samprapti_diagnosis"
+    },
+    {
+      "step": 11,
+      "id": "chikitsa_summary"
+    }
+  ],
+  "fields": [
+    {
+      "field_id": "AYU-CTX-RIT-001",
+      "module": "patient_context",
+      "label_hi": "वर्तमान ऋतु",
+      "input_type": "single_select",
+      "options_source": "OPT-RITU-001",
+      "print_detailed": true
+    },
+    {
+      "field_id": "AYU-PRA-FIN-001",
+      "module": "prakriti",
+      "label_hi": "देह प्रकृति",
+      "input_type": "single_select",
+      "options_source": "OPT-PRAKRITI-001",
+      "print_compact": true,
+      "print_detailed": true
+    },
+    {
+      "field_id": "AYU-VIK-PAT-001",
+      "module": "vikriti",
+      "label_hi": "वर्तमान दोष-विकृति",
+      "input_type": "single_select",
+      "options_source": "OPT-PRAKRITI-001",
+      "print_compact": true,
+      "print_detailed": true
+    }
+  ]
+}

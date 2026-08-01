@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "package_name": "SKMCIS Ayurveda Assessment V1",
+    "package_version": "0.1.0-phase4a",
+    "knowledge_version": "AYU-KB-1.0.0-draft",
+    "form_version": "AYU-FORM-1.0.0-draft",
+    "scoring_version": "AYU-SCORE-1.0.0-draft",
+    "status": "coding-ready starter; classical references require verse-level verification"
+  },
+  "mappings": [
+    {
+      "old": "prakriti",
+      "new": "prakriti.final_type"
+    },
+    {
+      "old": "vikriti",
+      "new": "vikriti.current_pattern"
+    },
+    {
+      "old": "affectedDosha",
+      "new": "dosha.selected"
+    },
+    {
+      "old": "dhatuInvolvement",
+      "new": "dhatu.imported_legacy_note"
+    },
+    {
+      "old": "malaInvolvement",
+      "new": "mala.imported_legacy_note"
+    },
+    {
+      "old": "ojasStatus",
+      "new": "ojas.imported_state"
+    },
+    {
+      "old": "srotas",
+      "new": "srotas.selected"
+    },
+    {
+      "old": "srotodushtiType",
+      "new": "srotodushti.imported_type"
+    },
+    {
+      "old": "sampraptiNarrative",
+      "new": "samprapti.legacy_narrative"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "package_name": "SKMCIS Ayurveda Assessment V1",
+    "package_version": "0.1.0-phase4a",
+    "knowledge_version": "AYU-KB-1.0.0-draft",
+    "form_version": "AYU-FORM-1.0.0-draft",
+    "scoring_version": "AYU-SCORE-1.0.0-draft",
+    "status": "coding-ready starter; classical references require verse-level verification"
+  },
+  "profiles": [
+    {
+      "print_profile_id": "PRINT-COMPACT-001",
+      "name": "Compact OPD Prescription",
+      "hide_normal_findings": true,
+      "hide_raw_scores": true,
+      "include_references": false
+    },
+    {
+      "print_profile_id": "PRINT-DETAILED-001",
+      "name": "Detailed Ayurveda Assessment",
+      "hide_normal_findings": false,
+      "hide_raw_scores": false,
+      "include_references": true
+    },
+    {
+      "print_profile_id": "PRINT-RESEARCH-001",
+      "name": "Research CRF",
+      "include_raw_values": true,
+      "include_missing_codes": true,
+      "include_versions": true
+    }
+  ]
+}

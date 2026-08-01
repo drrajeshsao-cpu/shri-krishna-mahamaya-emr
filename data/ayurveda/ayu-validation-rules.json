@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "package_name": "SKMCIS Ayurveda Assessment V1",
+    "package_version": "0.1.0-phase4a",
+    "knowledge_version": "AYU-KB-1.0.0-draft",
+    "form_version": "AYU-FORM-1.0.0-draft",
+    "scoring_version": "AYU-SCORE-1.0.0-draft",
+    "status": "coding-ready starter; classical references require verse-level verification"
+  },
+  "rules": [
+    {
+      "rule_id": "VAL-GUNA-001",
+      "severity": "warning",
+      "description_hi": "एक ही स्थान और समय में विपरीत गुणों की गंभीर प्रधानता पर स्पष्टीकरण आवश्यक।"
+    },
+    {
+      "rule_id": "VAL-AVR-001",
+      "severity": "block",
+      "description_hi": "आवरक और आवृत एक ही entity नहीं हो सकते।"
+    },
+    {
+      "rule_id": "VAL-DHATU-001",
+      "severity": "warning",
+      "description_hi": "धातु अवस्था और चुने हुए लक्षणों की संगति जाँचें।"
+    },
+    {
+      "rule_id": "VAL-KRIYA-STS-001",
+      "severity": "block",
+      "description_hi": "स्थानसंश्रय पुष्टि हेतु दोष-दूष्य-खवैगुण्य-स्रोतस-अधिष्ठान आवश्यक।"
+    }
+  ]
+}

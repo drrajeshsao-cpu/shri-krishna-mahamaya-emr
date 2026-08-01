@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "package_name": "SKMCIS Ayurveda Assessment V1",
+    "package_version": "0.1.0-phase4a",
+    "knowledge_version": "AYU-KB-1.0.0-draft",
+    "form_version": "AYU-FORM-1.0.0-draft",
+    "scoring_version": "AYU-SCORE-1.0.0-draft",
+    "status": "coding-ready starter; classical references require verse-level verification"
+  },
+  "rules": [
+    {
+      "rule_id": "DEP-DOSHA-001",
+      "when": {
+        "field": "dosha.vata.role",
+        "operator": "in",
+        "value": [
+          "primary",
+          "secondary",
+          "associated"
+        ]
+      },
+      "then": [
+        {
+          "action": "show_section",
+          "target": "vata_subtypes"
+        }
+      ]
+    },
+    {
+      "rule_id": "DEP-PURISHA-001",
+      "when": {
+        "field": "mala.purisha.state",
+        "operator": "equals",
+        "value": "sanga"
+      },
+      "then": [
+        {
+          "action": "suggest_review",
+          "target": "purishavaha_srotas"
+        },
+        {
+          "action": "suggest_review",
+          "target": "apana_vata"
+        }
+      ]
+    }
+  ]
+}
