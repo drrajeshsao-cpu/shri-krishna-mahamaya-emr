@@ -585,6 +585,21 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   <div id="subtypeAutoSummary" class="subtype-summary">No subtype interpretation selected.</div>
   <div class="actions"><button id="addSubtypeSummaryBtn" type="button" class="secondary">＋ Add Subtype Summary to Assessment Notes</button></div>
 </div>
+
+<div class="card" id="doshaSynthesisCard" style="margin-top:12px">
+  <h3>Dosha Synthesis & Clinical Pattern</h3>
+  <div class="small">Automatically combines selected subtype State, Severity, Confidence and observed features into an overall Dosha-level pattern.</div>
+  <div id="doshaSynthesisResults" class="notice" style="white-space:pre-wrap;margin-top:10px">No Dosha synthesis available yet.</div>
+  <div style="margin-top:10px"><button type="button" id="addDoshaSynthesisBtn" class="secondary">Add Dosha Synthesis to Ayurveda Notes</button></div>
+</div>
+
+<div class="card" id="sampraptiCorrelationCard" style="margin-top:12px">
+  <h3>Guna–Srotas–Rogamarga Correlation</h3>
+  <div class="small">Correlates documented Dosha subtype pattern with selected Guna, Srotas/Srotodushti, Rogamarga, Agni, Ama, Kriyakala and Dushya.</div>
+  <div id="sampraptiCorrelationResults" class="notice" style="white-space:pre-wrap;margin-top:10px">No correlation available yet.</div>
+  <div style="margin-top:10px"><button type="button" id="addSampraptiCorrelationBtn" class="secondary">Add Correlation to Samprapti Narrative</button></div>
+</div>
+
 <h3>Involved Guna</h3><div id="gunaChecks" class="checkgrid"></div>
 
 <div class="grid3">
@@ -1168,6 +1183,8 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <script>
 /* SKMCIS Ayurveda Clinical Decision Support V2.11 */
 /* SKMCIS Ayurveda Dosha Synthesis V2.12 */
+/* SKMCIS Ayurveda Samprapti Correlation V2.13 */
+/* SKMCIS Integrated Ayurveda Synthesis V2.14 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -1319,6 +1336,7 @@ function renderSubtypeInterpretations(){
   }).join('');
   updateSubtypeAutoSummary();
   renderDoshaSynthesis();
+  renderSampraptiCorrelation();
 }
 
 function updateSubtypeAutoSummary(){
@@ -1446,6 +1464,82 @@ function renderDoshaSynthesis(){
   box.textContent=lines.filter(Boolean).join('\n');
 }
 
+
+const doshaGunaSuggestions={
+  vata:['Ruksha','Laghu','Sheeta','Khara','Sukshma','Chala'],
+  pitta:['Ushna','Tikshna','Sara','Drava','Laghu'],
+  kapha:['Guru','Sheeta','Snigdha','Manda','Sthira','Mridu','Picchila']
+};
+
+function buildSampraptiCorrelation(){
+  const syn=buildDoshaSynthesis();
+  const selectedGunas=selected('guna');
+  const selectedSrotas=selected('srotas');
+  const rogamarga=val('rogamarga')||'';
+  const srotodushti=val('srotodushti')||'';
+  const kriyakala=val('shatkriya')||'';
+  const ama=val('ama')||'';
+  const agni=val('agni')||'';
+  const dushya=val('dushya')||'';
+
+  const suggestedGunas=new Set();
+  const suggestedReviews=new Set();
+  Object.entries(syn.doshas||{}).forEach(([dosha,v])=>{
+    (doshaGunaSuggestions[dosha]||[]).forEach(g=>suggestedGunas.add(g));
+    (v.reviews||[]).forEach(r=>suggestedReviews.add(humanizeAyuToken(r)));
+  });
+
+  const norm=s=>String(s||'').trim().toLowerCase();
+  const selectedNorm=selectedGunas.map(norm);
+  const gunaMatched=[...suggestedGunas].filter(g=>selectedNorm.includes(norm(g)));
+  const gunaReview=[...suggestedGunas].filter(g=>!selectedNorm.includes(norm(g)));
+
+  const lines=[syn.overall||'No Dosha synthesis available.'];
+
+  Object.entries(syn.doshas||{}).forEach(([dosha,v])=>{
+    lines.push(`${humanizeAyuToken(dosha)}: ${v.pattern}; ${v.severityBand}; dominant subtype: ${v.dominantSubtype}.`);
+  });
+
+  if(selectedGunas.length) lines.push(`Selected Guna: ${selectedGunas.join(', ')}`);
+  if(gunaMatched.length) lines.push(`Guna alignment: ${gunaMatched.join(', ')} supports the documented Dosha pattern.`);
+  if(gunaReview.length) lines.push(`Review these Guna if clinically present: ${gunaReview.join(', ')}`);
+
+  if(selectedSrotas.length) lines.push(`Selected Srotas: ${selectedSrotas.join(', ')}`);
+  if(suggestedReviews.size) lines.push(`Subtype-linked review: ${[...suggestedReviews].join(', ')}`);
+
+  if(rogamarga) lines.push(`Rogamarga: ${humanizeAyuToken(rogamarga)}`);
+  if(srotodushti) lines.push(`Srotodushti type: ${humanizeAyuToken(srotodushti)}`);
+  if(kriyakala) lines.push(`Shatkriyakala: ${humanizeAyuToken(kriyakala)}`);
+  if(agni) lines.push(`Agni: ${humanizeAyuToken(agni)}`);
+  if(ama) lines.push(`Ama status: ${humanizeAyuToken(ama)}`);
+  if(dushya) lines.push(`Dushya: ${dushya}`);
+
+  if(/Marmasthi|Sandhi/i.test(rogamarga)) lines.push('Rogamarga correlation: correlate with deeper Asthi–Sandhi–Majja / neuro-musculoskeletal involvement where clinically appropriate.');
+  else if(/Shakha/i.test(rogamarga)) lines.push('Rogamarga correlation: correlate with peripheral Dhatu and tissue manifestations.');
+  else if(/Koshtha/i.test(rogamarga)) lines.push('Rogamarga correlation: correlate closely with Agni, Ama, Koshtha and internal Srotas.');
+
+  lines.push('Clinical rule: final Samprapti must be physician-confirmed after integrating Nidana, Dosha-Guna, Dushya, Srotas/Srotodushti, Agni/Ama, Rogamarga, Kriyakala, Bala and modern examination.');
+  return lines.join('\n');
+}
+
+function renderSampraptiCorrelation(){
+  const box=$('sampraptiCorrelationResults');
+  if(box) box.textContent=buildSampraptiCorrelation();
+}
+
+function buildIntegratedAyurvedaSynthesis(){
+  const dosha=buildDoshaSynthesis();
+  const corr=buildSampraptiCorrelation();
+  const lines=[];
+  lines.push('Integrated Ayurveda Assessment');
+  lines.push(dosha.overall||'No dominant Dosha pattern established.');
+  Object.entries(dosha.doshas||{}).forEach(([d,v])=>{
+    lines.push(`${humanizeAyuToken(d)}: ${v.pattern}; ${v.severityBand}; dominant subtype: ${v.dominantSubtype}.`);
+  });
+  lines.push('');
+  lines.push(corr||'No Guna–Srotas–Rogamarga correlation available.');
+  return lines.join('\n');
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -1492,6 +1586,33 @@ function initSubtypeInterpretationEngine(){
     };
     synBtn.dataset.bound='1';
   }
+
+  const corrBtn=$('addSampraptiCorrelationBtn');
+  if(corrBtn&&!corrBtn.dataset.bound){
+    corrBtn.onclick=()=>{
+      renderSampraptiCorrelation();
+      const txt=$('sampraptiCorrelationResults')?.textContent||'';
+      if(!txt)return;
+      const old=val('sampraptiNarrative');
+      set('sampraptiNarrative',[old,txt].filter(Boolean).join(old?'\n\n':''));
+      status('Guna–Srotas–Rogamarga correlation added to Samprapti Narrative.');
+    };
+    corrBtn.dataset.bound='1';
+  }
+  ['rogamarga','srotodushti','shatkriya','ama','agni','dushya'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.corrBound){
+      el.addEventListener('change',renderSampraptiCorrelation);
+      el.dataset.corrBound='1';
+    }
+  });
+  ['gunaChecks','srotasChecks'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.corrBound){
+      el.addEventListener('change',renderSampraptiCorrelation);
+      el.dataset.corrBound='1';
+    }
+  });
 }
 async function loadAyurvedaSubtypeData(){
   try{
@@ -3246,7 +3367,7 @@ $('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('t
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();status('App loaded successfully. V2.12 Dosha Synthesis ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V2.14 Integrated Ayurveda Synthesis ready.');
 })();
 </script>
 </body>
