@@ -1693,6 +1693,134 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   </div>
 </div>
 
+
+<div class="card" id="orthoNeuroExamCard" style="margin-top:12px">
+  <h3>Orthopedic & Neurological Examination Engine</h3>
+  <div class="small">Structured spine, limb, neurological and special-test documentation for orthopedic and neuro-musculoskeletal practice.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div><label>Primary Region</label><select id="onePrimaryRegion">
+      <option value="">Not assessed</option>
+      <option value="cervical_spine">Cervical spine</option>
+      <option value="thoracic_spine">Thoracic spine</option>
+      <option value="lumbar_spine">Lumbar spine</option>
+      <option value="sacroiliac">Sacroiliac region</option>
+      <option value="shoulder">Shoulder</option>
+      <option value="elbow">Elbow</option>
+      <option value="wrist_hand">Wrist / Hand</option>
+      <option value="hip">Hip</option>
+      <option value="knee">Knee</option>
+      <option value="ankle_foot">Ankle / Foot</option>
+      <option value="multiple">Multiple regions</option>
+    </select></div>
+
+    <div><label>Pain Severity (0–10)</label><input id="onePainScore" type="number" min="0" max="10" step="1" placeholder="0-10"></div>
+
+    <div><label>Functional Limitation</label><select id="oneFunctionLimit">
+      <option value="">Not assessed</option>
+      <option value="none">None</option>
+      <option value="mild">Mild</option>
+      <option value="moderate">Moderate</option>
+      <option value="severe">Severe</option>
+      <option value="unable">Unable to perform usual activity</option>
+    </select></div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Inspection / Palpation</label>
+    <div id="oneInspectionChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="oneInspection" value="Tenderness">Tenderness</label>
+      <label class="check"><input type="checkbox" name="oneInspection" value="Swelling">Swelling</label>
+      <label class="check"><input type="checkbox" name="oneInspection" value="Deformity">Deformity</label>
+      <label class="check"><input type="checkbox" name="oneInspection" value="Muscle wasting">Muscle wasting</label>
+      <label class="check"><input type="checkbox" name="oneInspection" value="Spasm">Muscle spasm</label>
+      <label class="check"><input type="checkbox" name="oneInspection" value="Warmth">Warmth</label>
+      <label class="check"><input type="checkbox" name="oneInspection" value="Crepitus">Crepitus</label>
+      <label class="check"><input type="checkbox" name="oneInspection" value="Instability">Instability</label>
+      <label class="check"><input type="checkbox" name="oneInspection" value="Abnormal posture">Abnormal posture</label>
+      <label class="check"><input type="checkbox" name="oneInspection" value="Antalgic gait">Antalgic gait</label>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div><label>Range of Motion / Movement Findings</label><textarea id="oneRomFindings" placeholder="Active/passive ROM, painful arc, restriction, end feel, movement-provoked symptoms..."></textarea></div>
+    <div><label>Gait / Functional Tests</label><textarea id="oneGaitFindings" placeholder="Gait, heel/toe walk, sit-to-stand, squat, single-leg stance, functional limitation..."></textarea></div>
+  </div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div><label>Motor Power</label><select id="oneMotorPower">
+      <option value="">Not assessed</option><option value="5">5/5 Normal</option><option value="4">4/5 Mild weakness</option><option value="3">3/5 Moves against gravity</option><option value="2">2/5 Gravity eliminated</option><option value="1">1/5 Flicker</option><option value="0">0/5 No contraction</option><option value="mixed">Mixed / multiple myotomes</option>
+    </select></div>
+    <div><label>Sensory Examination</label><select id="oneSensation">
+      <option value="">Not assessed</option><option value="normal">Normal</option><option value="reduced">Reduced sensation</option><option value="absent">Absent sensation</option><option value="paresthesia">Paresthesia / dysesthesia</option><option value="dermatomal">Dermatomal deficit</option><option value="peripheral_nerve">Peripheral nerve pattern</option><option value="mixed">Mixed</option>
+    </select></div>
+    <div><label>Reflexes</label><select id="oneReflexes">
+      <option value="">Not assessed</option><option value="normal">Normal / symmetric</option><option value="reduced">Reduced</option><option value="absent">Absent</option><option value="brisk">Brisk</option><option value="asymmetric">Asymmetric</option><option value="pathological">Pathological reflex present</option><option value="mixed">Mixed</option>
+    </select></div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Spine / Nerve Root Special Tests</label>
+    <div id="oneSpineTestChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="oneSpineTest" value="SLR positive">SLR positive</label>
+      <label class="check"><input type="checkbox" name="oneSpineTest" value="Crossed SLR positive">Crossed SLR positive</label>
+      <label class="check"><input type="checkbox" name="oneSpineTest" value="Slump positive">Slump positive</label>
+      <label class="check"><input type="checkbox" name="oneSpineTest" value="Femoral stretch positive">Femoral stretch positive</label>
+      <label class="check"><input type="checkbox" name="oneSpineTest" value="Spurling positive">Spurling positive</label>
+      <label class="check"><input type="checkbox" name="oneSpineTest" value="Cervical distraction relieves">Cervical distraction relieves</label>
+      <label class="check"><input type="checkbox" name="oneSpineTest" value="Upper limb tension positive">Upper limb tension positive</label>
+      <label class="check"><input type="checkbox" name="oneSpineTest" value="SI provocation positive">SI provocation positive</label>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Joint Special Tests</label>
+    <div id="oneJointTestChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="oneJointTest" value="Neer positive">Neer positive</label>
+      <label class="check"><input type="checkbox" name="oneJointTest" value="Hawkins-Kennedy positive">Hawkins-Kennedy positive</label>
+      <label class="check"><input type="checkbox" name="oneJointTest" value="Empty can positive">Empty can positive</label>
+      <label class="check"><input type="checkbox" name="oneJointTest" value="Apprehension positive">Shoulder apprehension positive</label>
+      <label class="check"><input type="checkbox" name="oneJointTest" value="FABER positive">FABER positive</label>
+      <label class="check"><input type="checkbox" name="oneJointTest" value="FADIR positive">FADIR positive</label>
+      <label class="check"><input type="checkbox" name="oneJointTest" value="Lachman positive">Lachman positive</label>
+      <label class="check"><input type="checkbox" name="oneJointTest" value="Anterior drawer knee positive">Anterior drawer knee positive</label>
+      <label class="check"><input type="checkbox" name="oneJointTest" value="Posterior drawer knee positive">Posterior drawer knee positive</label>
+      <label class="check"><input type="checkbox" name="oneJointTest" value="McMurray positive">McMurray positive</label>
+      <label class="check"><input type="checkbox" name="oneJointTest" value="Varus stress positive">Varus stress positive</label>
+      <label class="check"><input type="checkbox" name="oneJointTest" value="Valgus stress positive">Valgus stress positive</label>
+      <label class="check"><input type="checkbox" name="oneJointTest" value="Anterior drawer ankle positive">Anterior drawer ankle positive</label>
+      <label class="check"><input type="checkbox" name="oneJointTest" value="Talar tilt positive">Talar tilt positive</label>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Neurological Red Flags</label>
+    <div id="oneNeuroRedFlagChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="oneNeuroRedFlag" value="Progressive motor weakness">Progressive motor weakness</label>
+      <label class="check"><input type="checkbox" name="oneNeuroRedFlag" value="Saddle anesthesia">Saddle anesthesia</label>
+      <label class="check"><input type="checkbox" name="oneNeuroRedFlag" value="New urinary retention/incontinence">New urinary retention / incontinence</label>
+      <label class="check"><input type="checkbox" name="oneNeuroRedFlag" value="New fecal incontinence">New fecal incontinence</label>
+      <label class="check"><input type="checkbox" name="oneNeuroRedFlag" value="Bilateral severe radicular symptoms">Bilateral severe radicular symptoms</label>
+      <label class="check"><input type="checkbox" name="oneNeuroRedFlag" value="Acute foot drop">Acute foot drop</label>
+      <label class="check"><input type="checkbox" name="oneNeuroRedFlag" value="Myelopathic signs">Myelopathic signs</label>
+      <label class="check"><input type="checkbox" name="oneNeuroRedFlag" value="Recent major trauma">Recent major trauma</label>
+      <label class="check"><input type="checkbox" name="oneNeuroRedFlag" value="Night/rest pain with systemic concern">Night/rest pain with systemic concern</label>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div><label>Detailed Motor / Sensory / Reflex Mapping</label><textarea id="oneNeuroMapping" placeholder="Myotomes, dermatomes, reflex levels, side, nerve root or peripheral nerve pattern..."></textarea></div>
+    <div><label>Clinical Impression / Localization</label><textarea id="oneLocalization" placeholder="e.g. L5 radiculopathy, C6 root involvement, rotator cuff pattern, meniscal injury, etc."></textarea></div>
+  </div>
+
+  <div id="orthoNeuroExamSummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No orthopedic / neurological examination documented.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="generateOneSummaryBtn" class="secondary">Generate / Refresh Ortho-Neuro Summary</button>
+    <button type="button" id="addOneSummaryBtn" class="secondary">Add Ortho-Neuro Summary to Ayurveda Notes</button>
+  </div>
+</div>
+
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -2246,6 +2374,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Dashavidha Pariksha Advanced Engine V2.27 */
 /* SKMCIS Ashtavidha Pariksha Advanced Engine V2.28 */
 /* SKMCIS Modern Clinical Examination Engine V2.29 */
+/* SKMCIS Ortho-Neuro Examination Engine V2.30 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -2301,7 +2430,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -2890,7 +3019,7 @@ function initSrotasClinicalEngine(){
     parent.addEventListener('change',()=>{
       if(!current.ayurveda.srotasDetails)current.ayurveda.srotasDetails={};
       current.ayurveda.srotasDetails=collectSrotasDetails();
-      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();
+      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();
     });
     parent.dataset.srotasDetailBound='1';
   }
@@ -4199,6 +4328,123 @@ function initModernClinicalExamEngine(){
     add.dataset.mceBound='1';
   }
 }
+
+function collectOrthoNeuroExam(){
+  return {
+    primary_region:val('onePrimaryRegion'),
+    pain_score:val('onePainScore'),
+    function_limit:val('oneFunctionLimit'),
+    inspection:selected('oneInspection'),
+    rom_findings:val('oneRomFindings'),
+    gait_findings:val('oneGaitFindings'),
+    motor_power:val('oneMotorPower'),
+    sensation:val('oneSensation'),
+    reflexes:val('oneReflexes'),
+    spine_tests:selected('oneSpineTest'),
+    joint_tests:selected('oneJointTest'),
+    neuro_red_flags:selected('oneNeuroRedFlag'),
+    neuro_mapping:val('oneNeuroMapping'),
+    localization:val('oneLocalization')
+  };
+}
+
+function buildOrthoNeuroExamSummary(){
+  const a=collectOrthoNeuroExam(), lines=[];
+  if(a.primary_region)lines.push(`Primary region: ${humanizeAyuToken(a.primary_region)}`);
+  if(a.pain_score!=='')lines.push(`Pain score: ${a.pain_score}/10`);
+  if(a.function_limit)lines.push(`Functional limitation: ${humanizeAyuToken(a.function_limit)}`);
+  if(a.inspection.length)lines.push(`Inspection/palpation: ${a.inspection.join(', ')}`);
+  if(a.rom_findings)lines.push(`ROM / movement: ${a.rom_findings}`);
+  if(a.gait_findings)lines.push(`Gait / function: ${a.gait_findings}`);
+  if(a.motor_power)lines.push(`Motor power: ${a.motor_power==='mixed'?'Mixed / multiple myotomes':a.motor_power+'/5'}`);
+  if(a.sensation)lines.push(`Sensation: ${humanizeAyuToken(a.sensation)}`);
+  if(a.reflexes)lines.push(`Reflexes: ${humanizeAyuToken(a.reflexes)}`);
+  if(a.spine_tests.length)lines.push(`Spine / nerve root tests: ${a.spine_tests.join(', ')}`);
+  if(a.joint_tests.length)lines.push(`Joint special tests: ${a.joint_tests.join(', ')}`);
+  if(a.neuro_mapping)lines.push(`Neuro mapping: ${a.neuro_mapping}`);
+  if(a.localization)lines.push(`Clinical localization / impression: ${a.localization}`);
+
+  const alerts=[];
+  if(a.neuro_red_flags.length){
+    alerts.push(`Neurological red flags: ${a.neuro_red_flags.join('; ')}`);
+    alerts.push('Urgent same-day/emergency evaluation should be considered according to the specific finding and clinical context.');
+  }
+  if(a.motor_power && ['0','1','2','3'].includes(a.motor_power))alerts.push('Motor weakness of 3/5 or less is documented and requires prompt neurological correlation.');
+  if(a.reflexes==='pathological')alerts.push('Pathological reflex is documented; assess for upper motor neuron/myelopathic pathology.');
+  if(a.function_limit==='unable')alerts.push('Severe functional loss is documented.');
+  if(alerts.length)lines.push(`CLINICAL ALERT: ${alerts.join(' ')}`);
+
+  lines.push('Special tests are supportive, not diagnostic in isolation; correlate with history, full examination and imaging/laboratory evaluation when indicated.');
+  return lines.length?`Orthopedic & Neurological Examination Summary:\n${lines.map(x=>'• '+x).join('\n')}`:'No orthopedic / neurological examination documented.';
+}
+
+function renderOrthoNeuroExamSummary(){
+  const box=$('orthoNeuroExamSummary');
+  if(box)box.textContent=buildOrthoNeuroExamSummary();
+}
+
+function restoreOrthoNeuroExam(){
+  const a=current?.ayurveda?.orthoNeuroExam||{};
+  set('onePrimaryRegion',a.primary_region||'');
+  set('onePainScore',a.pain_score||'');
+  set('oneFunctionLimit',a.function_limit||'');
+  document.querySelectorAll('input[name="oneInspection"]').forEach(cb=>cb.checked=(a.inspection||[]).includes(cb.value));
+  set('oneRomFindings',a.rom_findings||'');
+  set('oneGaitFindings',a.gait_findings||'');
+  set('oneMotorPower',a.motor_power||'');
+  set('oneSensation',a.sensation||'');
+  set('oneReflexes',a.reflexes||'');
+  document.querySelectorAll('input[name="oneSpineTest"]').forEach(cb=>cb.checked=(a.spine_tests||[]).includes(cb.value));
+  document.querySelectorAll('input[name="oneJointTest"]').forEach(cb=>cb.checked=(a.joint_tests||[]).includes(cb.value));
+  document.querySelectorAll('input[name="oneNeuroRedFlag"]').forEach(cb=>cb.checked=(a.neuro_red_flags||[]).includes(cb.value));
+  set('oneNeuroMapping',a.neuro_mapping||'');
+  set('oneLocalization',a.localization||'');
+  renderOrthoNeuroExamSummary();
+}
+
+function initOrthoNeuroExamEngine(){
+  ['onePrimaryRegion','onePainScore','oneFunctionLimit','oneRomFindings','oneGaitFindings','oneMotorPower','oneSensation','oneReflexes','oneNeuroMapping','oneLocalization'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.oneBound){
+      const ev=(el.tagName==='TEXTAREA'||el.tagName==='INPUT')?'input':'change';
+      el.addEventListener(ev,()=>{
+        current.ayurveda.orthoNeuroExam=collectOrthoNeuroExam();
+        renderOrthoNeuroExamSummary();
+      });
+      el.dataset.oneBound='1';
+    }
+  });
+
+  ['oneInspectionChecks','oneSpineTestChecks','oneJointTestChecks','oneNeuroRedFlagChecks'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.oneBound){
+      el.addEventListener('change',()=>{
+        current.ayurveda.orthoNeuroExam=collectOrthoNeuroExam();
+        renderOrthoNeuroExamSummary();
+      });
+      el.dataset.oneBound='1';
+    }
+  });
+
+  const gen=$('generateOneSummaryBtn');
+  if(gen&&!gen.dataset.oneBound){
+    gen.onclick=()=>{renderOrthoNeuroExamSummary();status('Ortho-Neuro examination summary refreshed.');};
+    gen.dataset.oneBound='1';
+  }
+
+  const add=$('addOneSummaryBtn');
+  if(add&&!add.dataset.oneBound){
+    add.onclick=()=>{
+      renderOrthoNeuroExamSummary();
+      const txt=$('orthoNeuroExamSummary')?.textContent||'';
+      if(!txt||txt.startsWith('No orthopedic'))return;
+      const old=val('ayurNotes');
+      set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));
+      status('Ortho-Neuro examination summary added to Ayurveda Notes.');
+    };
+    add.dataset.oneBound='1';
+  }
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -4283,7 +4529,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -4311,7 +4557,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
