@@ -200,7 +200,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 @media(max-width:700px){.subtype-state-row{grid-template-columns:1fr}}
 
 /* SKMCIS V2.49A: Firebase authentication is the primary app gate. */
-/* SKMCIS V2.49B STRUCTURE REPAIR: removed accidental nested Firebase shell from print template; restored main JS execution. */
+/* SKMCIS V2.49C FULL STRUCTURE REPAIR: rebuilt corrupted print function and removed nested auth markup from main JS. */
 #lockOverlay{display:none!important}
 </style>
 </head>
@@ -226,11 +226,11 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 
 <header>
 <h1>Mahamaya Clinic </h1>
-<p>V2.49B • Integrated EMR • Ayurveda • Modern Clinical • Firebase Authentication</p>
+<p>V2.49C • Full Structured Integrated EMR • Firebase Authentication</p>
 </header>
 <main>
 <div class="card">
-<div class="notice"><b>Repaired integrated build:</b> V2.49B में V2.11–V2.49A modules, Settings/Backup, latest clinical engines और working Firebase Email/Password authentication preserved हैं।</div>
+<div class="notice"><b>Full structured build:</b> V2.49C में V2.11–V2.49A clinical modules, structured Ayurveda/modern assessment, prescription, backup और Firebase authentication preserved हैं।</div>
 <div class="tabs actions">
 <button id="tabDashboard" class="primary active">🏠 Dashboard</button>
 <button id="tabTimeline" class="secondary">🔄 Follow-up</button>
@@ -255,7 +255,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="tabSettings" class="secondary">⚙ Settings</button>
 <button id="tabRecords" class="secondary">📁 Records</button>
 </div>
-<div id="status" class="status">App loaded successfully. Version: V2.49B</div>
+<div id="status" class="status">App loaded successfully. Version: V2.49C</div>
 <div class="actions no-print">
   <span id="activeRoleBadge" class="role-badge">Locked</span>
   <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -7060,21 +7060,22 @@ function printPrescriptionDocument(){
 
   const safe=txt.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
+  win.document.open();
   win.document.write(`
     <!doctype html>
     <html>
     <head>
       <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
       <title>Mahamaya Clinic Prescription</title>
       <style>
-        @page { size: A4; margin: 14mm; }
-        body { font-family: Arial, sans-serif; color:#111; line-height:1.35; }
-        .wrap { max-width: 190mm; margin:0 auto; }
+        @page { size:A4; margin:14mm; }
+        body { font-family:Arial,sans-serif; color:#111; line-height:1.35; margin:0; }
+        .wrap { max-width:190mm; margin:0 auto; }
         h1 { font-size:22px; margin:0; text-align:center; }
         h2 { font-size:15px; margin:3px 0 16px; text-align:center; font-weight:normal; }
-        pre { white-space:pre-wrap; font-family:Arial, sans-serif; font-size:13px; }
+        pre { white-space:pre-wrap; font-family:Arial,sans-serif; font-size:13px; }
         .foot { margin-top:24px; border-top:1px solid #999; padding-top:8px; font-size:11px; }
-        @media print { button { display:none; } }
       </style>
     </head>
     <body>
@@ -7084,12 +7085,11 @@ function printPrescriptionDocument(){
         <pre>${safe}</pre>
         <div class="foot">Generated from SKMCIS clinical record. Physician verification required before issue.</div>
       </div>
-      <script>window.onload=()=>setTimeout(()=>window.print(),300);<\/script>
-    
     </body>
     </html>
   `);
   win.document.close();
+  setTimeout(()=>{try{win.focus();win.print();}catch(e){}},350);
 }
 
 function restorePrintPrescriptionSettings(){
