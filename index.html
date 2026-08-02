@@ -198,6 +198,9 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 .subtype-feature-list{margin:6px 0 0 18px;padding:0}
 .subtype-summary{white-space:pre-wrap;border:1px dashed var(--line);border-radius:10px;padding:10px;background:#f8fbfa;margin-top:10px}
 @media(max-width:700px){.subtype-state-row{grid-template-columns:1fr}}
+
+/* SKMCIS V2.49A: Firebase authentication is the primary app gate. */
+#lockOverlay{display:none!important}
 </style>
 </head>
 <body>
@@ -11297,5 +11300,184 @@ $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.datas
 renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V2.15 Dhatu–Ojas–Mala Assessment ready.');
 })();
 </script>
+
+<!-- SKMCIS FIREBASE AUTH FIX V2.49A -->
+<div id="skmcFirebaseGate" style="position:fixed;inset:0;z-index:100000;background:linear-gradient(135deg,#0b3456,#1596c4);display:flex;align-items:center;justify-content:center;padding:18px">
+  <div style="width:min(520px,96vw);background:white;border-radius:18px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,.3)">
+    <h2 style="margin:0 0 6px">🔐 Shri Krishna Mahamaya Clinic EMR</h2>
+    <div style="font-size:13px;color:#49616c;margin-bottom:14px">Secure Firebase Email/Password Login</div>
+
+    <div id="skmcFirebaseGateStatus" class="notice" style="margin-bottom:12px">Preparing secure login…</div>
+
+    <div id="skmcFirebaseConfigPanel" style="display:none">
+      <label>One-time Firebase Web App Config</label>
+      <textarea id="skmcFirebaseConfigText" style="width:100%;min-height:165px" placeholder='Firebase console se firebaseConfig object yahan paste karein.'></textarea>
+      <div class="small" style="margin:6px 0 10px">
+        Ye sirf Firebase Web App client configuration hai. Service-account/private key kabhi paste na karein.
+      </div>
+      <button type="button" id="skmcFirebaseSaveConfig" class="primary">Save & Connect Firebase</button>
+    </div>
+
+    <div id="skmcFirebaseLoginPanel" style="display:none">
+      <label>Email</label>
+      <input id="skmcFirebaseEmail" type="email" autocomplete="username" placeholder="Doctor Firebase email">
+      <label>Password</label>
+      <input id="skmcFirebasePassword" type="password" autocomplete="current-password" placeholder="Firebase password">
+      <div class="actions">
+        <button type="button" id="skmcFirebaseSignIn" class="primary">Sign In</button>
+        <button type="button" id="skmcFirebaseReset" class="secondary">Forgot Password</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="skmcFirebaseUserBar" style="position:fixed;right:12px;bottom:12px;z-index:99999;background:#fff;border:1px solid #cfdde4;border-radius:999px;padding:8px 12px;box-shadow:0 4px 16px rgba(0,0,0,.15);font-size:12px;display:none">
+  <span id="skmcFirebaseUserText"></span>
+  <button type="button" id="skmcFirebaseSignOut" class="secondary" style="margin-left:8px;padding:5px 10px">Sign Out</button>
+</div>
+
+<script type="module">
+const SKMC_FB_CFG_KEY='SKMCIS_FIREBASE_WEB_CONFIG_V2_49A';
+const g=id=>document.getElementById(id);
+const fbStatus=msg=>{const x=g('skmcFirebaseGateStatus');if(x)x.textContent=msg;};
+const showFbGate=v=>{const x=g('skmcFirebaseGate');if(x)x.style.display=v?'flex':'none';};
+const showFbConfig=v=>{const x=g('skmcFirebaseConfigPanel');if(x)x.style.display=v?'block':'none';};
+const showFbLogin=v=>{const x=g('skmcFirebaseLoginPanel');if(x)x.style.display=v?'block':'none';};
+
+let SKMC_APP=null, SKMC_AUTH=null, SKMC_DB=null;
+let fbAppMod=null, fbAuthMod=null, fbFsMod=null;
+
+function parseFirebaseClientConfig(raw){
+  let s=(raw||'').trim();
+  if(!s)throw new Error('Firebase config empty hai.');
+  s=s.replace(/```(?:javascript|js)?/gi,'').replace(/```/g,'').trim();
+  const start=s.indexOf('{'), end=s.lastIndexOf('}');
+  if(start>=0&&end>start)s=s.slice(start,end+1);
+  try{return JSON.parse(s);}catch(e){}
+  try{
+    const normalized=s
+      .replace(/([,{]\s*)([A-Za-z_$][\w$]*)\s*:/g,'$1"$2":')
+      .replace(/'/g,'"');
+    return JSON.parse(normalized);
+  }catch(e){}
+  throw new Error('firebaseConfig read nahi ho paya. Firebase console ka config object hi paste karein.');
+}
+function validateFirebaseClientConfig(c){
+  const required=['apiKey','authDomain','projectId','appId'];
+  const missing=required.filter(k=>!c?.[k]);
+  if(missing.length)throw new Error('Missing: '+missing.join(', '));
+  return c;
+}
+function setFirebaseDoctorSession(user){
+  try{
+    if(typeof activeRole!=='undefined'){
+      activeRole='Doctor';
+      sessionStorage.setItem('skm-active-role','Doctor');
+      if(typeof applyRolePermissions==='function')applyRolePermissions();
+      if(typeof audit==='function')audit('Firebase Login',(user.email||user.uid)+' authenticated');
+      if(typeof renderDashboard==='function')renderDashboard();
+    }
+  }catch(e){console.warn('Role bridge warning',e);}
+}
+function clearFirebaseDoctorSession(){
+  try{
+    if(typeof activeRole!=='undefined')activeRole='Locked';
+    sessionStorage.removeItem('skm-active-role');
+  }catch(e){}
+}
+async function connectSKMCFirebase(config){
+  config=validateFirebaseClientConfig(config);
+  fbStatus('Firebase se connect ho raha hai…');
+
+  fbAppMod=await import('https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js');
+  fbAuthMod=await import('https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js');
+  fbFsMod=await import('https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js');
+
+  SKMC_APP=fbAppMod.getApps().length?fbAppMod.getApp():fbAppMod.initializeApp(config);
+  SKMC_AUTH=fbAuthMod.getAuth(SKMC_APP);
+  SKMC_DB=fbFsMod.getFirestore(SKMC_APP);
+  window.SKMCIS_FIREBASE={app:SKMC_APP,auth:SKMC_AUTH,db:SKMC_DB,authMod:fbAuthMod,fsMod:fbFsMod};
+
+  showFbConfig(false);
+  showFbLogin(true);
+
+  fbAuthMod.onAuthStateChanged(SKMC_AUTH,user=>{
+    const bar=g('skmcFirebaseUserBar'), label=g('skmcFirebaseUserText');
+    if(user){
+      fbStatus('Signed in: '+(user.email||user.uid));
+      if(label)label.textContent='Doctor • '+(user.email||user.uid);
+      if(bar)bar.style.display='block';
+      setFirebaseDoctorSession(user);
+      showFbGate(false);
+      document.documentElement.dataset.skmcisAuthenticated='1';
+    }else{
+      if(bar)bar.style.display='none';
+      clearFirebaseDoctorSession();
+      document.documentElement.dataset.skmcisAuthenticated='0';
+      showFbGate(true);
+      showFbConfig(false);
+      showFbLogin(true);
+      fbStatus('Firebase connected. Doctor email/password se sign in karein.');
+    }
+  });
+
+  fbStatus('Firebase connected. Doctor email/password se sign in karein.');
+}
+async function bootSKMCFirebase(){
+  const saved=localStorage.getItem(SKMC_FB_CFG_KEY) || localStorage.getItem('SKMCIS_FIREBASE_WEB_CONFIG_V1');
+  if(!saved){
+    showFbGate(true);
+    showFbConfig(true);
+    showFbLogin(false);
+    fbStatus('First-time setup: Firebase console ka Web App firebaseConfig yahan ek baar paste karein.');
+    return;
+  }
+  try{
+    await connectSKMCFirebase(JSON.parse(saved));
+  }catch(e){
+    showFbGate(true);
+    showFbConfig(true);
+    showFbLogin(false);
+    fbStatus('Saved config connect nahi hua: '+(e.message||e));
+  }
+}
+g('skmcFirebaseSaveConfig')?.addEventListener('click',async()=>{
+  try{
+    const c=validateFirebaseClientConfig(parseFirebaseClientConfig(g('skmcFirebaseConfigText')?.value||''));
+    localStorage.setItem(SKMC_FB_CFG_KEY,JSON.stringify(c));
+    await connectSKMCFirebase(c);
+  }catch(e){fbStatus(e.message||String(e));}
+});
+g('skmcFirebaseSignIn')?.addEventListener('click',async()=>{
+  if(!SKMC_AUTH||!fbAuthMod){fbStatus('Firebase connected nahi hai.');return;}
+  const email=(g('skmcFirebaseEmail')?.value||'').trim();
+  const password=g('skmcFirebasePassword')?.value||'';
+  if(!email||!password){fbStatus('Email aur password dono daliye.');return;}
+  fbStatus('Signing in…');
+  try{
+    await fbAuthMod.signInWithEmailAndPassword(SKMC_AUTH,email,password);
+  }catch(e){
+    fbStatus('Login failed: '+(e.code||e.message));
+  }
+});
+g('skmcFirebaseReset')?.addEventListener('click',async()=>{
+  if(!SKMC_AUTH||!fbAuthMod){fbStatus('Firebase connected nahi hai.');return;}
+  const email=(g('skmcFirebaseEmail')?.value||'').trim();
+  if(!email){fbStatus('Password reset ke liye pehle email daliye.');return;}
+  try{
+    await fbAuthMod.sendPasswordResetEmail(SKMC_AUTH,email);
+    fbStatus('Password reset email bhej diya gaya hai.');
+  }catch(e){fbStatus('Reset failed: '+(e.code||e.message));}
+});
+g('skmcFirebaseSignOut')?.addEventListener('click',async()=>{
+  if(SKMC_AUTH&&fbAuthMod)await fbAuthMod.signOut(SKMC_AUTH);
+});
+g('skmcFirebasePassword')?.addEventListener('keydown',e=>{
+  if(e.key==='Enter')g('skmcFirebaseSignIn')?.click();
+});
+
+bootSKMCFirebase();
+</script>
+
 </body>
 </html>
