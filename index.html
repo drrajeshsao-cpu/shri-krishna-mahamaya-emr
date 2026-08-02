@@ -1607,6 +1607,92 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   </div>
 </div>
 
+
+<div class="card" id="modernClinicalExamCard" style="margin-top:12px">
+  <h3>Modern Clinical Examination Engine</h3>
+  <div class="small">Structured general and systemic examination for integrated clinical practice. Abnormal findings and red flags remain physician-entered and require clinical correlation.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div><label>General Condition</label><select id="mceGeneralCondition">
+      <option value="">Not assessed</option><option value="stable">Stable</option><option value="mildly_unwell">Mildly unwell</option><option value="moderately_unwell">Moderately unwell</option><option value="severely_unwell">Severely unwell</option><option value="toxic">Toxic appearance</option><option value="distressed">In distress</option>
+    </select></div>
+    <div><label>Consciousness</label><select id="mceConsciousness">
+      <option value="">Not assessed</option><option value="alert">Alert</option><option value="drowsy">Drowsy</option><option value="confused">Confused</option><option value="obtunded">Obtunded</option><option value="unresponsive">Unresponsive</option>
+    </select></div>
+    <div><label>Hydration</label><select id="mceHydration">
+      <option value="">Not assessed</option><option value="normal">Normal</option><option value="mild_dehydration">Mild dehydration</option><option value="moderate_dehydration">Moderate dehydration</option><option value="severe_dehydration">Severe dehydration</option><option value="overloaded">Fluid overload suspected</option>
+    </select></div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>General Examination Findings</label>
+    <div id="mceGeneralFindings" class="checkgrid">
+      <label class="check"><input type="checkbox" name="mceGeneralFinding" value="Pallor">Pallor</label>
+      <label class="check"><input type="checkbox" name="mceGeneralFinding" value="Icterus">Icterus</label>
+      <label class="check"><input type="checkbox" name="mceGeneralFinding" value="Cyanosis">Cyanosis</label>
+      <label class="check"><input type="checkbox" name="mceGeneralFinding" value="Clubbing">Clubbing</label>
+      <label class="check"><input type="checkbox" name="mceGeneralFinding" value="Lymphadenopathy">Lymphadenopathy</label>
+      <label class="check"><input type="checkbox" name="mceGeneralFinding" value="Pedal edema">Pedal edema</label>
+      <label class="check"><input type="checkbox" name="mceGeneralFinding" value="JVP raised">Raised JVP</label>
+      <label class="check"><input type="checkbox" name="mceGeneralFinding" value="Cachexia / wasting">Cachexia / wasting</label>
+      <label class="check"><input type="checkbox" name="mceGeneralFinding" value="Obesity">Obesity</label>
+      <label class="check"><input type="checkbox" name="mceGeneralFinding" value="Fever">Fever</label>
+    </div>
+  </div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div><label>Cardiovascular Exam</label><select id="mceCVS">
+      <option value="">Not assessed</option><option value="normal">No significant abnormality</option><option value="tachycardia">Tachycardia</option><option value="bradycardia">Bradycardia</option><option value="irregular_rhythm">Irregular rhythm</option><option value="murmur">Murmur</option><option value="heart_failure_signs">Heart failure signs</option><option value="other_abnormal">Other abnormality</option>
+    </select></div>
+    <div><label>Respiratory Exam</label><select id="mceResp">
+      <option value="">Not assessed</option><option value="normal">No significant abnormality</option><option value="wheeze">Wheeze</option><option value="crepitations">Crepitations</option><option value="reduced_air_entry">Reduced air entry</option><option value="respiratory_distress">Respiratory distress</option><option value="other_abnormal">Other abnormality</option>
+    </select></div>
+    <div><label>Abdominal Exam</label><select id="mceAbdomen">
+      <option value="">Not assessed</option><option value="normal">Soft / non-tender</option><option value="tender">Tenderness</option><option value="guarding">Guarding</option><option value="distended">Distension</option><option value="organomegaly">Organomegaly</option><option value="ascites">Ascites</option><option value="mass">Palpable mass</option><option value="other_abnormal">Other abnormality</option>
+    </select></div>
+  </div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div><label>Neurological Screen</label><select id="mceNeuro">
+      <option value="">Not assessed</option><option value="normal">No gross focal deficit</option><option value="motor_deficit">Motor deficit</option><option value="sensory_deficit">Sensory deficit</option><option value="reflex_abnormality">Reflex abnormality</option><option value="cranial_nerve_abnormality">Cranial nerve abnormality</option><option value="gait_abnormality">Gait abnormality</option><option value="altered_sensorium">Altered sensorium</option><option value="other_abnormal">Other abnormality</option>
+    </select></div>
+    <div><label>Musculoskeletal Screen</label><select id="mceMSK">
+      <option value="">Not assessed</option><option value="normal">No significant abnormality</option><option value="tenderness">Tenderness</option><option value="swelling">Swelling</option><option value="restricted_rom">Restricted ROM</option><option value="deformity">Deformity</option><option value="instability">Instability</option><option value="weakness">Weakness</option><option value="other_abnormal">Other abnormality</option>
+    </select></div>
+    <div><label>Skin / Peripheral Exam</label><select id="mceSkin">
+      <option value="">Not assessed</option><option value="normal">No significant abnormality</option><option value="rash">Rash</option><option value="ulcer">Ulcer</option><option value="wound">Wound</option><option value="infection">Infection</option><option value="pigmentation">Pigmentation change</option><option value="vascular_change">Peripheral vascular change</option><option value="other_abnormal">Other abnormality</option>
+    </select></div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div><label>Relevant Positive Findings</label><textarea id="mcePositiveFindings" placeholder="Document important positive clinical findings..."></textarea></div>
+    <div><label>Relevant Negative Findings</label><textarea id="mceNegativeFindings" placeholder="Document important negatives relevant to the differential/red flags..."></textarea></div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Clinical Red-Flag Screen</label>
+    <div id="mceRedFlagChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="mceRedFlag" value="Severe chest pain">Severe chest pain</label>
+      <label class="check"><input type="checkbox" name="mceRedFlag" value="Severe breathlessness">Severe breathlessness</label>
+      <label class="check"><input type="checkbox" name="mceRedFlag" value="Syncope / collapse">Syncope / collapse</label>
+      <label class="check"><input type="checkbox" name="mceRedFlag" value="Acute focal neurological deficit">Acute focal neurological deficit</label>
+      <label class="check"><input type="checkbox" name="mceRedFlag" value="Altered consciousness">Altered consciousness</label>
+      <label class="check"><input type="checkbox" name="mceRedFlag" value="Active major bleeding">Active major bleeding</label>
+      <label class="check"><input type="checkbox" name="mceRedFlag" value="Severe dehydration / shock">Severe dehydration / shock</label>
+      <label class="check"><input type="checkbox" name="mceRedFlag" value="Acute abdomen / guarding">Acute abdomen / guarding</label>
+      <label class="check"><input type="checkbox" name="mceRedFlag" value="Sepsis / toxic appearance">Sepsis / toxic appearance</label>
+      <label class="check"><input type="checkbox" name="mceRedFlag" value="Progressive neurological deficit">Progressive neurological deficit</label>
+    </div>
+  </div>
+
+  <div id="modernClinicalExamSummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No modern clinical examination documented.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="generateMceSummaryBtn" class="secondary">Generate / Refresh Examination Summary</button>
+    <button type="button" id="addMceSummaryBtn" class="secondary">Add Examination Summary to Ayurveda Notes</button>
+  </div>
+</div>
+
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -2159,6 +2245,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Ayurveda Final Summary-Print Engine V2.26 */
 /* SKMCIS Dashavidha Pariksha Advanced Engine V2.27 */
 /* SKMCIS Ashtavidha Pariksha Advanced Engine V2.28 */
+/* SKMCIS Modern Clinical Examination Engine V2.29 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -2214,7 +2301,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -2803,7 +2890,7 @@ function initSrotasClinicalEngine(){
     parent.addEventListener('change',()=>{
       if(!current.ayurveda.srotasDetails)current.ayurveda.srotasDetails={};
       current.ayurveda.srotasDetails=collectSrotasDetails();
-      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();
+      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();
     });
     parent.dataset.srotasDetailBound='1';
   }
@@ -3996,6 +4083,122 @@ function initAshtavidhaAdvancedEngine(){
   const gen=$('generateAshtavidhaSummaryBtn');if(gen&&!gen.dataset.aaBound){gen.onclick=()=>{renderAshtavidhaAdvancedSummary();status('Ashtavidha summary refreshed.');};gen.dataset.aaBound='1';}
   const add=$('addAshtavidhaSummaryBtn');if(add&&!add.dataset.aaBound){add.onclick=()=>{renderAshtavidhaAdvancedSummary();const txt=$('ashtavidhaAdvancedSummary')?.textContent||'';const old=val('ayurNotes');set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));status('Ashtavidha summary added to Ayurveda Notes.');};add.dataset.aaBound='1';}
 }
+
+function collectModernClinicalExam(){
+  return {
+    general_condition:val('mceGeneralCondition'),
+    consciousness:val('mceConsciousness'),
+    hydration:val('mceHydration'),
+    general_findings:selected('mceGeneralFinding'),
+    cvs:val('mceCVS'),
+    respiratory:val('mceResp'),
+    abdomen:val('mceAbdomen'),
+    neuro:val('mceNeuro'),
+    msk:val('mceMSK'),
+    skin:val('mceSkin'),
+    positive_findings:val('mcePositiveFindings'),
+    negative_findings:val('mceNegativeFindings'),
+    red_flags:selected('mceRedFlag')
+  };
+}
+
+function buildModernClinicalExamSummary(){
+  const a=collectModernClinicalExam(), lines=[];
+  if(a.general_condition)lines.push(`General condition: ${humanizeAyuToken(a.general_condition)}`);
+  if(a.consciousness)lines.push(`Consciousness: ${humanizeAyuToken(a.consciousness)}`);
+  if(a.hydration)lines.push(`Hydration: ${humanizeAyuToken(a.hydration)}`);
+  if(a.general_findings.length)lines.push(`General findings: ${a.general_findings.join(', ')}`);
+  if(a.cvs)lines.push(`CVS: ${humanizeAyuToken(a.cvs)}`);
+  if(a.respiratory)lines.push(`Respiratory: ${humanizeAyuToken(a.respiratory)}`);
+  if(a.abdomen)lines.push(`Abdomen: ${humanizeAyuToken(a.abdomen)}`);
+  if(a.neuro)lines.push(`Neurological screen: ${humanizeAyuToken(a.neuro)}`);
+  if(a.msk)lines.push(`Musculoskeletal screen: ${humanizeAyuToken(a.msk)}`);
+  if(a.skin)lines.push(`Skin / peripheral: ${humanizeAyuToken(a.skin)}`);
+  if(a.positive_findings)lines.push(`Relevant positives: ${a.positive_findings}`);
+  if(a.negative_findings)lines.push(`Relevant negatives: ${a.negative_findings}`);
+
+  if(a.red_flags.length){
+    lines.push(`URGENT RED-FLAG REVIEW: ${a.red_flags.join('; ')}`);
+    lines.push('Action: assess urgency and arrange emergency evaluation/referral as clinically appropriate.');
+  }
+
+  const warnings=[];
+  if(a.consciousness==='unresponsive'||a.consciousness==='obtunded')warnings.push('Markedly impaired consciousness requires urgent assessment.');
+  if(a.respiratory==='respiratory_distress')warnings.push('Respiratory distress requires urgent evaluation.');
+  if(a.abdomen==='guarding')warnings.push('Guarding may indicate acute abdominal pathology and requires urgent clinical correlation.');
+  if(a.neuro==='altered_sensorium')warnings.push('Altered sensorium requires urgent evaluation.');
+  if(warnings.length)lines.push(`Clinical alert: ${warnings.join(' ')}`);
+
+  lines.push('This structured examination supports integrated documentation and does not replace direct bedside examination or emergency judgment.');
+  return lines.length?`Modern Clinical Examination Summary:\n${lines.map(x=>'• '+x).join('\n')}`:'No modern clinical examination documented.';
+}
+
+function renderModernClinicalExamSummary(){
+  const box=$('modernClinicalExamSummary');
+  if(box)box.textContent=buildModernClinicalExamSummary();
+}
+
+function restoreModernClinicalExam(){
+  const a=current?.ayurveda?.modernClinicalExam||{};
+  set('mceGeneralCondition',a.general_condition||'');
+  set('mceConsciousness',a.consciousness||'');
+  set('mceHydration',a.hydration||'');
+  document.querySelectorAll('input[name="mceGeneralFinding"]').forEach(cb=>cb.checked=(a.general_findings||[]).includes(cb.value));
+  set('mceCVS',a.cvs||'');
+  set('mceResp',a.respiratory||'');
+  set('mceAbdomen',a.abdomen||'');
+  set('mceNeuro',a.neuro||'');
+  set('mceMSK',a.msk||'');
+  set('mceSkin',a.skin||'');
+  set('mcePositiveFindings',a.positive_findings||'');
+  set('mceNegativeFindings',a.negative_findings||'');
+  document.querySelectorAll('input[name="mceRedFlag"]').forEach(cb=>cb.checked=(a.red_flags||[]).includes(cb.value));
+  renderModernClinicalExamSummary();
+}
+
+function initModernClinicalExamEngine(){
+  ['mceGeneralCondition','mceConsciousness','mceHydration','mceCVS','mceResp','mceAbdomen','mceNeuro','mceMSK','mceSkin','mcePositiveFindings','mceNegativeFindings'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.mceBound){
+      const ev=el.tagName==='TEXTAREA'?'input':'change';
+      el.addEventListener(ev,()=>{
+        current.ayurveda.modernClinicalExam=collectModernClinicalExam();
+        renderModernClinicalExamSummary();
+      });
+      el.dataset.mceBound='1';
+    }
+  });
+
+  ['mceGeneralFindings','mceRedFlagChecks'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.mceBound){
+      el.addEventListener('change',()=>{
+        current.ayurveda.modernClinicalExam=collectModernClinicalExam();
+        renderModernClinicalExamSummary();
+      });
+      el.dataset.mceBound='1';
+    }
+  });
+
+  const gen=$('generateMceSummaryBtn');
+  if(gen&&!gen.dataset.mceBound){
+    gen.onclick=()=>{renderModernClinicalExamSummary();status('Modern examination summary refreshed.');};
+    gen.dataset.mceBound='1';
+  }
+
+  const add=$('addMceSummaryBtn');
+  if(add&&!add.dataset.mceBound){
+    add.onclick=()=>{
+      renderModernClinicalExamSummary();
+      const txt=$('modernClinicalExamSummary')?.textContent||'';
+      if(!txt||txt.startsWith('No modern'))return;
+      const old=val('ayurNotes');
+      set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));
+      status('Modern clinical examination summary added to Ayurveda Notes.');
+    };
+    add.dataset.mceBound='1';
+  }
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -4080,7 +4283,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -4108,7 +4311,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
