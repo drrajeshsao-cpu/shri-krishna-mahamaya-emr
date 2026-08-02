@@ -3219,6 +3219,101 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   <div id="backupRestoreSummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No backup / restore action performed.</div>
 </div>
 
+
+<div class="card" id="userRolesAuditCard" style="margin-top:12px">
+  <h3>User Roles & Audit Trail Engine</h3>
+  <div class="small">Adds local workflow roles and an audit log for important record actions. This is NOT secure authentication or production-grade access control.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Active User Name</label>
+      <input id="uraUserName" placeholder="e.g. Dr Rajesh / Staff 1">
+    </div>
+    <div>
+      <label>Active Role</label>
+      <select id="uraRole">
+        <option value="">Not selected</option>
+        <option value="super_admin">Super Admin</option>
+        <option value="doctor">Doctor</option>
+        <option value="clinical_staff">Clinical Staff</option>
+        <option value="reception">Reception</option>
+        <option value="pharmacy">Pharmacy</option>
+        <option value="lab">Lab</option>
+        <option value="readonly">Read-only</option>
+      </select>
+    </div>
+    <div>
+      <label>Audit Mode</label>
+      <select id="uraAuditMode">
+        <option value="important">Important actions only</option>
+        <option value="all_clicks">All tracked actions</option>
+        <option value="manual">Manual entries only</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Workflow Permissions</label>
+    <div id="uraPermissionChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="uraPermission" value="view_record">View record</label>
+      <label class="check"><input type="checkbox" name="uraPermission" value="edit_clinical">Edit clinical data</label>
+      <label class="check"><input type="checkbox" name="uraPermission" value="prescribe">Prescribe</label>
+      <label class="check"><input type="checkbox" name="uraPermission" value="approve_prescription">Approve prescription</label>
+      <label class="check"><input type="checkbox" name="uraPermission" value="manage_registry">Manage registry</label>
+      <label class="check"><input type="checkbox" name="uraPermission" value="export_data">Export data</label>
+      <label class="check"><input type="checkbox" name="uraPermission" value="restore_data">Restore data</label>
+      <label class="check"><input type="checkbox" name="uraPermission" value="manage_users">Manage users</label>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Manual Audit Event</label>
+      <input id="uraManualEvent" placeholder="e.g. Prescription reviewed with patient">
+    </div>
+    <div>
+      <label>Audit Event Details</label>
+      <input id="uraManualDetails" placeholder="Optional details / reason">
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="uraApplyRolePresetBtn" class="secondary">Apply Role Preset</button>
+    <button type="button" id="uraLogManualEventBtn" class="secondary">Log Manual Event</button>
+    <button type="button" id="uraExportAuditJsonBtn" class="secondary">Export Audit JSON</button>
+    <button type="button" id="uraExportAuditCsvBtn" class="secondary">Export Audit CSV</button>
+  </div>
+
+  <div class="grid3" style="margin-top:12px">
+    <div>
+      <label>Filter User</label>
+      <input id="uraFilterUser" placeholder="User name">
+    </div>
+    <div>
+      <label>Filter Action</label>
+      <input id="uraFilterAction" placeholder="e.g. prescription / backup">
+    </div>
+    <div>
+      <label>Show Latest</label>
+      <select id="uraLimit">
+        <option value="20">20 events</option>
+        <option value="50">50 events</option>
+        <option value="100">100 events</option>
+        <option value="500">500 events</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="uraAuditList" style="margin-top:12px"></div>
+
+  <div id="uraAuditSummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No audit events recorded.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="uraRefreshAuditBtn" class="secondary">Refresh Audit Trail</button>
+    <button type="button" id="uraClearAuditBtn" class="secondary">Clear Local Audit Trail</button>
+  </div>
+</div>
+
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -3786,6 +3881,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Disease Templates Clinical Packs Engine V2.41 */
 /* SKMCIS Search Clinical Registry Engine V2.42 */
 /* SKMCIS Backup Export Restore Engine V2.43 */
+/* SKMCIS User Roles Audit Trail Engine V2.44 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -3841,7 +3937,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),redFlagEmergency:collectRedFlagEmergency(),medicationSafety:collectMedicationSafety(),prescriptionData:collectPrescriptionData(),printPrescriptionSettings:collectPrintPrescriptionSettings(),patientEducation:collectPatientEducation(),exerciseRehabYoga:collectExerciseRehabYoga(),followupComparison:currentFollowupComparisonData(),patientTimeline:currentPatientTimeline(),diseaseTemplateSettings:(current.ayurveda.diseaseTemplateSettings||{}),clinicalRegistryLastSearch:(current.ayurveda.clinicalRegistryLastSearch||{}),backupRestoreSettings:collectBackupRestoreSettings(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),redFlagEmergency:collectRedFlagEmergency(),medicationSafety:collectMedicationSafety(),prescriptionData:collectPrescriptionData(),printPrescriptionSettings:collectPrintPrescriptionSettings(),patientEducation:collectPatientEducation(),exerciseRehabYoga:collectExerciseRehabYoga(),followupComparison:currentFollowupComparisonData(),patientTimeline:currentPatientTimeline(),diseaseTemplateSettings:(current.ayurveda.diseaseTemplateSettings||{}),clinicalRegistryLastSearch:(current.ayurveda.clinicalRegistryLastSearch||{}),backupRestoreSettings:collectBackupRestoreSettings(),userRoleAuditSettings:collectUserRoleAuditSettings(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -4430,7 +4526,7 @@ function initSrotasClinicalEngine(){
     parent.addEventListener('change',()=>{
       if(!current.ayurveda.srotasDetails)current.ayurveda.srotasDetails={};
       current.ayurveda.srotasDetails=collectSrotasDetails();
-      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();restoreRedFlagEmergency();restoreMedicationSafety();restorePrescriptionData();restorePrintPrescriptionSettings();restorePatientEducation();restoreExerciseRehabYoga();restoreFollowupComparison();restorePatientTimeline();restoreDiseaseTemplateSettings();restoreClinicalRegistryUI();restoreBackupRestoreSettings();
+      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();restoreRedFlagEmergency();restoreMedicationSafety();restorePrescriptionData();restorePrintPrescriptionSettings();restorePatientEducation();restoreExerciseRehabYoga();restoreFollowupComparison();restorePatientTimeline();restoreDiseaseTemplateSettings();restoreClinicalRegistryUI();restoreBackupRestoreSettings();restoreUserRoleAuditSettings();
     });
     parent.dataset.srotasDetailBound='1';
   }
@@ -8225,6 +8321,293 @@ function initBackupRestoreEngine(){
     apply.dataset.brBound='1';
   }
 }
+
+function uraAuditStorageKey(){return 'SKMCIS_LOCAL_AUDIT_TRAIL_V1';}
+
+function uraLoadAudit(){
+  try{
+    const raw=localStorage.getItem(uraAuditStorageKey());
+    const rows=raw?JSON.parse(raw):[];
+    return Array.isArray(rows)?rows:[];
+  }catch(e){return [];}
+}
+
+function uraSaveAudit(rows){
+  try{
+    localStorage.setItem(uraAuditStorageKey(),JSON.stringify(rows));
+    return true;
+  }catch(e){
+    status('Unable to save local audit trail.');
+    return false;
+  }
+}
+
+function collectUserRoleAuditSettings(){
+  return {
+    user_name:val('uraUserName'),
+    role:val('uraRole'),
+    audit_mode:val('uraAuditMode')||'important',
+    permissions:selected('uraPermission')
+  };
+}
+
+const uraRolePresets={
+  super_admin:['view_record','edit_clinical','prescribe','approve_prescription','manage_registry','export_data','restore_data','manage_users'],
+  doctor:['view_record','edit_clinical','prescribe','approve_prescription','manage_registry','export_data'],
+  clinical_staff:['view_record','edit_clinical'],
+  reception:['view_record'],
+  pharmacy:['view_record'],
+  lab:['view_record'],
+  readonly:['view_record']
+};
+
+function uraApplyRolePreset(){
+  const role=val('uraRole');
+  const perms=uraRolePresets[role]||[];
+  document.querySelectorAll('input[name="uraPermission"]').forEach(cb=>cb.checked=perms.includes(cb.value));
+  current.ayurveda.userRoleAuditSettings=collectUserRoleAuditSettings();
+  uraLogEvent('role_preset_applied',`Role: ${role||'not selected'}; permissions: ${perms.join(', ')}`);
+  uraRenderAudit();
+  status('Role preset applied.');
+}
+
+function uraCurrentIdentity(){
+  const s=collectUserRoleAuditSettings();
+  return {
+    user_name:s.user_name||'Unknown user',
+    role:s.role||'unspecified'
+  };
+}
+
+function uraCurrentRecordId(){
+  return String(
+    current?.id ||
+    current?.patientId ||
+    current?.uhid ||
+    current?.patient?.id ||
+    [val('pName')||val('patientName')||'', val('pPhone')||val('phone')||''].filter(Boolean).join('|') ||
+    'current-record'
+  );
+}
+
+function uraLogEvent(action,details=''){
+  const s=collectUserRoleAuditSettings();
+  if((s.audit_mode||'important')==='manual' && action!=='manual_event')return;
+
+  const id=uraCurrentIdentity();
+  const rows=uraLoadAudit();
+  rows.push({
+    timestamp:new Date().toISOString(),
+    user_name:id.user_name,
+    role:id.role,
+    action:String(action||'unknown_action'),
+    details:String(details||''),
+    record_id:uraCurrentRecordId()
+  });
+
+  const capped=rows.slice(-5000);
+  uraSaveAudit(capped);
+}
+
+function uraIsImportantButton(id){
+  const important=[
+    'save','delete','remove','restore','export','print','prescription','approve','registry',
+    'backup','timeline','addMedicine','rxAddMedicineBtn','rx-remove-med','brApplyImportBtn',
+    'crIndexCurrentBtn','printPrescriptionBtn'
+  ];
+  const x=String(id||'').toLowerCase();
+  return important.some(k=>x.includes(String(k).toLowerCase()));
+}
+
+function uraInstallGlobalAuditCapture(){
+  if(document.body.dataset.uraGlobalAudit==='1')return;
+
+  document.addEventListener('click',e=>{
+    const btn=e.target.closest('button');
+    if(!btn)return;
+
+    const settings=collectUserRoleAuditSettings();
+    if(settings.audit_mode==='manual')return;
+
+    const id=btn.id||btn.className||'button';
+    if(settings.audit_mode==='important' && !uraIsImportantButton(id))return;
+
+    const label=(btn.textContent||'').trim().replace(/\s+/g,' ').slice(0,120);
+    uraLogEvent('button_action',`${label}${id?` [${id}]`:''}`);
+    uraRenderAudit();
+  },true);
+
+  document.body.dataset.uraGlobalAudit='1';
+}
+
+function uraCsv(rows){
+  const headers=['timestamp','user_name','role','action','details','record_id'];
+  const q=v=>`"${String(v??'').replace(/"/g,'""').replace(/\r?\n/g,' ')}"`;
+  return [headers.map(q).join(','),...rows.map(r=>headers.map(h=>q(r[h])).join(','))].join('\n');
+}
+
+function uraDownload(name,content,type){
+  const blob=new Blob([content],{type});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+function uraFilteredAudit(){
+  const fu=(val('uraFilterUser')||'').toLowerCase().trim();
+  const fa=(val('uraFilterAction')||'').toLowerCase().trim();
+  const limit=Number(val('uraLimit')||20);
+
+  let rows=uraLoadAudit();
+  if(fu)rows=rows.filter(r=>(r.user_name||'').toLowerCase().includes(fu));
+  if(fa)rows=rows.filter(r=>`${r.action||''} ${r.details||''}`.toLowerCase().includes(fa));
+  return rows.slice(-limit).reverse();
+}
+
+function uraRenderAudit(){
+  const rows=uraFilteredAudit();
+  const box=$('uraAuditList');
+
+  if(box){
+    if(!rows.length){
+      box.innerHTML='<div class="small">No matching audit events.</div>';
+    }else{
+      box.innerHTML=rows.map((r,i)=>`
+        <div class="subtype-card" style="margin-top:8px">
+          <h4>${i+1}. ${esc(r.action||'Audit event')} <span class="pill">${esc(r.role||'')}</span></h4>
+          <div class="small">
+            Time: ${esc(r.timestamp||'')}<br>
+            User: ${esc(r.user_name||'')}<br>
+            Record: ${esc(r.record_id||'')}<br>
+            ${r.details?`Details: ${esc(r.details)}<br>`:''}
+          </div>
+        </div>
+      `).join('');
+    }
+  }
+
+  const all=uraLoadAudit();
+  const summary=$('uraAuditSummary');
+  if(summary){
+    const byRole={};
+    all.forEach(r=>{const k=r.role||'unspecified';byRole[k]=(byRole[k]||0)+1;});
+    summary.textContent=[
+      'User Roles & Audit Trail Summary',
+      `Total local audit events: ${all.length}`,
+      `Filtered events shown: ${rows.length}`,
+      `Role distribution: ${Object.entries(byRole).map(([k,v])=>`${humanizeAyuToken(k)} ${v}`).join(', ')||'None'}`,
+      'Important: local workflow roles are not secure authentication or server-enforced authorization.'
+    ].join('\n');
+  }
+}
+
+function restoreUserRoleAuditSettings(){
+  const a=current?.ayurveda?.userRoleAuditSettings||{};
+  set('uraUserName',a.user_name||'');
+  set('uraRole',a.role||'');
+  set('uraAuditMode',a.audit_mode||'important');
+  document.querySelectorAll('input[name="uraPermission"]').forEach(cb=>cb.checked=(a.permissions||[]).includes(cb.value));
+  set('uraFilterUser','');
+  set('uraFilterAction','');
+  set('uraLimit','20');
+  uraRenderAudit();
+}
+
+function initUserRoleAuditEngine(){
+  ['uraUserName','uraRole','uraAuditMode'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.uraBound){
+      el.addEventListener('change',()=>{
+        current.ayurveda.userRoleAuditSettings=collectUserRoleAuditSettings();
+        uraLogEvent('user_role_settings_changed',`${id}: ${val(id)}`);
+        uraRenderAudit();
+      });
+      el.dataset.uraBound='1';
+    }
+  });
+
+  const perms=$('uraPermissionChecks');
+  if(perms&&!perms.dataset.uraBound){
+    perms.addEventListener('change',()=>{
+      current.ayurveda.userRoleAuditSettings=collectUserRoleAuditSettings();
+      uraLogEvent('permissions_changed',selected('uraPermission').join(', '));
+      uraRenderAudit();
+    });
+    perms.dataset.uraBound='1';
+  }
+
+  const preset=$('uraApplyRolePresetBtn');
+  if(preset&&!preset.dataset.uraBound){
+    preset.onclick=uraApplyRolePreset;
+    preset.dataset.uraBound='1';
+  }
+
+  const manual=$('uraLogManualEventBtn');
+  if(manual&&!manual.dataset.uraBound){
+    manual.onclick=()=>{
+      const event=val('uraManualEvent');
+      const details=val('uraManualDetails');
+      if(!event){status('Enter a manual audit event first.');return;}
+      uraLogEvent('manual_event',`${event}${details?` — ${details}`:''}`);
+      set('uraManualEvent','');set('uraManualDetails','');
+      uraRenderAudit();
+      status('Manual audit event logged.');
+    };
+    manual.dataset.uraBound='1';
+  }
+
+  const expJ=$('uraExportAuditJsonBtn');
+  if(expJ&&!expJ.dataset.uraBound){
+    expJ.onclick=()=>{
+      const rows=uraLoadAudit();
+      uraDownload(`SKMCIS_audit_${new Date().toISOString().slice(0,10)}.json`,JSON.stringify({exported_at:new Date().toISOString(),events:rows},null,2),'application/json');
+      uraLogEvent('audit_export_json',`Events exported: ${rows.length}`);
+      status('Audit JSON exported.');
+    };
+    expJ.dataset.uraBound='1';
+  }
+
+  const expC=$('uraExportAuditCsvBtn');
+  if(expC&&!expC.dataset.uraBound){
+    expC.onclick=()=>{
+      const rows=uraLoadAudit();
+      uraDownload(`SKMCIS_audit_${new Date().toISOString().slice(0,10)}.csv`,uraCsv(rows),'text/csv');
+      uraLogEvent('audit_export_csv',`Events exported: ${rows.length}`);
+      status('Audit CSV exported.');
+    };
+    expC.dataset.uraBound='1';
+  }
+
+  ['uraFilterUser','uraFilterAction'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.uraBound){
+      el.addEventListener('input',uraRenderAudit);
+      el.dataset.uraBound='1';
+    }
+  });
+  const lim=$('uraLimit');
+  if(lim&&!lim.dataset.uraBound){
+    lim.addEventListener('change',uraRenderAudit);
+    lim.dataset.uraBound='1';
+  }
+
+  const ref=$('uraRefreshAuditBtn');
+  if(ref&&!ref.dataset.uraBound){ref.onclick=uraRenderAudit;ref.dataset.uraBound='1';}
+
+  const clear=$('uraClearAuditBtn');
+  if(clear&&!clear.dataset.uraBound){
+    clear.onclick=()=>{
+      if(!confirm('Clear the local SKMCIS audit trail in this browser? This cannot be undone unless previously exported.'))return;
+      uraSaveAudit([]);
+      uraRenderAudit();
+      status('Local audit trail cleared.');
+    };
+    clear.dataset.uraBound='1';
+  }
+
+  uraInstallGlobalAuditCapture();
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -8309,7 +8692,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();initRedFlagEmergencyEngine();restoreRedFlagEmergency();initMedicationSafetyEngine();restoreMedicationSafety();initPrescriptionEngine();restorePrescriptionData();initPrintPrescriptionEngine();restorePrintPrescriptionSettings();initPatientEducationEngine();restorePatientEducation();initExerciseRehabYogaEngine();restoreExerciseRehabYoga();initFollowupComparisonEngine();restoreFollowupComparison();initPatientTimelineEngine();restorePatientTimeline();initDiseaseTemplateEngine();restoreDiseaseTemplateSettings();initClinicalRegistryEngine();restoreClinicalRegistryUI();initBackupRestoreEngine();restoreBackupRestoreSettings();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();initRedFlagEmergencyEngine();restoreRedFlagEmergency();initMedicationSafetyEngine();restoreMedicationSafety();initPrescriptionEngine();restorePrescriptionData();initPrintPrescriptionEngine();restorePrintPrescriptionSettings();initPatientEducationEngine();restorePatientEducation();initExerciseRehabYogaEngine();restoreExerciseRehabYoga();initFollowupComparisonEngine();restoreFollowupComparison();initPatientTimelineEngine();restorePatientTimeline();initDiseaseTemplateEngine();restoreDiseaseTemplateSettings();initClinicalRegistryEngine();restoreClinicalRegistryUI();initBackupRestoreEngine();restoreBackupRestoreSettings();initUserRoleAuditEngine();restoreUserRoleAuditSettings();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -8337,7 +8720,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};if(!a.printPrescriptionSettings)a.printPrescriptionSettings={};if(!a.patientEducation)a.patientEducation={};if(!a.exerciseRehabYoga)a.exerciseRehabYoga={};if(!a.followupComparison)a.followupComparison={visits:[]};if(!a.patientTimeline)a.patientTimeline={events:[]};if(!a.diseaseTemplateSettings)a.diseaseTemplateSettings={};if(!a.clinicalRegistryLastSearch)a.clinicalRegistryLastSearch={};if(!a.backupRestoreSettings)a.backupRestoreSettings={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};if(!a.printPrescriptionSettings)a.printPrescriptionSettings={};if(!a.patientEducation)a.patientEducation={};if(!a.exerciseRehabYoga)a.exerciseRehabYoga={};if(!a.followupComparison)a.followupComparison={visits:[]};if(!a.patientTimeline)a.patientTimeline={events:[]};if(!a.diseaseTemplateSettings)a.diseaseTemplateSettings={};if(!a.clinicalRegistryLastSearch)a.clinicalRegistryLastSearch={};if(!a.backupRestoreSettings)a.backupRestoreSettings={};if(!a.userRoleAuditSettings)a.userRoleAuditSettings={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
