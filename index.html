@@ -2170,6 +2170,153 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   </div>
 </div>
 
+
+<div class="card" id="medicationSafetyCard" style="margin-top:12px">
+  <h3>Medication Safety & Prescription Review Engine</h3>
+  <div class="small">Structured safety screening before prescribing. It supports physician review of allergies, ADRs, organ function, bleeding risk, pregnancy/lactation, interactions and duplicate therapy. It does not autonomously approve a medicine.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Drug Allergy Status</label>
+      <select id="msAllergyStatus">
+        <option value="">Not assessed</option>
+        <option value="none_known">No known drug allergy</option>
+        <option value="known">Known allergy</option>
+        <option value="uncertain">Uncertain / incomplete history</option>
+      </select>
+    </div>
+    <div>
+      <label>ADR History</label>
+      <select id="msAdrStatus">
+        <option value="">Not assessed</option>
+        <option value="none_known">No known ADR</option>
+        <option value="present">Previous ADR present</option>
+        <option value="uncertain">Uncertain / incomplete</option>
+      </select>
+    </div>
+    <div>
+      <label>Medication Reconciliation</label>
+      <select id="msReconciliation">
+        <option value="">Not assessed</option>
+        <option value="complete">Complete</option>
+        <option value="partial">Partial</option>
+        <option value="pending">Pending</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Known Allergies / Reactions</label>
+      <textarea id="msAllergyDetails" placeholder="Drug/medicine, reaction type, severity, date if known..."></textarea>
+    </div>
+    <div>
+      <label>Previous ADR Details</label>
+      <textarea id="msAdrDetails" placeholder="Medicine, adverse reaction, management, rechallenge if any..."></textarea>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Current High-Risk Context</label>
+    <div id="msRiskChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="msRisk" value="Pregnancy">Pregnancy</label>
+      <label class="check"><input type="checkbox" name="msRisk" value="Lactation">Lactation</label>
+      <label class="check"><input type="checkbox" name="msRisk" value="Pediatric patient">Pediatric patient</label>
+      <label class="check"><input type="checkbox" name="msRisk" value="Older/frail patient">Older / frail patient</label>
+      <label class="check"><input type="checkbox" name="msRisk" value="Renal impairment">Renal impairment</label>
+      <label class="check"><input type="checkbox" name="msRisk" value="Hepatic impairment">Hepatic impairment</label>
+      <label class="check"><input type="checkbox" name="msRisk" value="Bleeding risk / anticoagulant use">Bleeding risk / anticoagulant use</label>
+      <label class="check"><input type="checkbox" name="msRisk" value="History of severe allergy/anaphylaxis">History of severe allergy / anaphylaxis</label>
+      <label class="check"><input type="checkbox" name="msRisk" value="Multiple comorbidities">Multiple comorbidities</label>
+      <label class="check"><input type="checkbox" name="msRisk" value="Polypharmacy">Polypharmacy</label>
+    </div>
+  </div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Renal Safety Review</label>
+      <select id="msRenalReview">
+        <option value="">Not assessed</option>
+        <option value="not_required">Not required / no concern</option>
+        <option value="reviewed_ok">Reviewed - acceptable</option>
+        <option value="dose_adjustment">Dose adjustment may be required</option>
+        <option value="avoid">Avoid / specialist advice</option>
+        <option value="pending">Pending renal data</option>
+      </select>
+    </div>
+    <div>
+      <label>Hepatic Safety Review</label>
+      <select id="msHepaticReview">
+        <option value="">Not assessed</option>
+        <option value="not_required">Not required / no concern</option>
+        <option value="reviewed_ok">Reviewed - acceptable</option>
+        <option value="dose_adjustment">Dose adjustment may be required</option>
+        <option value="avoid">Avoid / specialist advice</option>
+        <option value="pending">Pending liver data</option>
+      </select>
+    </div>
+    <div>
+      <label>Pregnancy/Lactation Review</label>
+      <select id="msPregnancyReview">
+        <option value="">Not assessed</option>
+        <option value="not_applicable">Not applicable</option>
+        <option value="reviewed_ok">Reviewed - acceptable</option>
+        <option value="caution">Use caution / verify evidence</option>
+        <option value="avoid">Avoid / specialist advice</option>
+        <option value="pending">Status/evidence pending</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Prescription Safety Checks</label>
+    <div id="msCheckChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="msCheck" value="Allergy checked">Allergy checked</label>
+      <label class="check"><input type="checkbox" name="msCheck" value="ADR history checked">ADR history checked</label>
+      <label class="check"><input type="checkbox" name="msCheck" value="Current medicines reconciled">Current medicines reconciled</label>
+      <label class="check"><input type="checkbox" name="msCheck" value="Duplicate therapy checked">Duplicate therapy checked</label>
+      <label class="check"><input type="checkbox" name="msCheck" value="Drug-drug interactions reviewed">Drug-drug interactions reviewed</label>
+      <label class="check"><input type="checkbox" name="msCheck" value="Drug-herb interactions reviewed">Drug-herb interactions reviewed</label>
+      <label class="check"><input type="checkbox" name="msCheck" value="Dose/strength verified">Dose / strength verified</label>
+      <label class="check"><input type="checkbox" name="msCheck" value="Route/frequency verified">Route / frequency verified</label>
+      <label class="check"><input type="checkbox" name="msCheck" value="Duration verified">Duration verified</label>
+      <label class="check"><input type="checkbox" name="msCheck" value="Renal/hepatic function considered">Renal / hepatic function considered</label>
+      <label class="check"><input type="checkbox" name="msCheck" value="Pregnancy/lactation considered">Pregnancy / lactation considered</label>
+      <label class="check"><input type="checkbox" name="msCheck" value="Bleeding risk considered">Bleeding risk considered</label>
+      <label class="check"><input type="checkbox" name="msCheck" value="Patient counseling completed">Patient counseling completed</label>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Potential Interaction / Duplicate-Therapy Notes</label>
+      <textarea id="msInteractionNotes" placeholder="Potential drug-drug, drug-herb or duplicate-therapy concern and how it was handled..."></textarea>
+    </div>
+    <div>
+      <label>Monitoring / Follow-up Requirements</label>
+      <textarea id="msMonitoringNotes" placeholder="Labs, vitals, symptom monitoring, adverse-effect monitoring, follow-up interval..."></textarea>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Patient Counseling / Warning Signs</label>
+      <textarea id="msCounselingNotes" placeholder="How to take medicines, missed doses, adverse effects, warning signs, when to stop/seek care..."></textarea>
+    </div>
+    <div>
+      <label>Prescriber Override / Clinical Rationale</label>
+      <textarea id="msOverrideRationale" placeholder="If proceeding despite a caution, document the physician rationale and monitoring plan..."></textarea>
+    </div>
+  </div>
+
+  <div id="medicationSafetySummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No medication safety review documented.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="generateMsSummaryBtn" class="secondary">Generate / Refresh Medication Safety Summary</button>
+    <button type="button" id="addMsSummaryBtn" class="secondary">Add Medication Safety Summary to Ayurveda Notes</button>
+  </div>
+</div>
+
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -2727,6 +2874,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Investigations-Reports Engine V2.31 */
 /* SKMCIS Integrated Diagnosis Engine V2.32 */
 /* SKMCIS Red-Flag Emergency Safety Engine V2.33 */
+/* SKMCIS Medication Safety Engine V2.34 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -2782,7 +2930,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),redFlagEmergency:collectRedFlagEmergency(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),redFlagEmergency:collectRedFlagEmergency(),medicationSafety:collectMedicationSafety(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -3371,7 +3519,7 @@ function initSrotasClinicalEngine(){
     parent.addEventListener('change',()=>{
       if(!current.ayurveda.srotasDetails)current.ayurveda.srotasDetails={};
       current.ayurveda.srotasDetails=collectSrotasDetails();
-      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();restoreRedFlagEmergency();
+      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();restoreRedFlagEmergency();restoreMedicationSafety();
     });
     parent.dataset.srotasDetailBound='1';
   }
@@ -5166,6 +5314,165 @@ function initRedFlagEmergencyEngine(){
     add.dataset.rfBound='1';
   }
 }
+
+function collectMedicationSafety(){
+  return {
+    allergy_status:val('msAllergyStatus'),
+    adr_status:val('msAdrStatus'),
+    reconciliation:val('msReconciliation'),
+    allergy_details:val('msAllergyDetails'),
+    adr_details:val('msAdrDetails'),
+    risks:selected('msRisk'),
+    renal_review:val('msRenalReview'),
+    hepatic_review:val('msHepaticReview'),
+    pregnancy_review:val('msPregnancyReview'),
+    checks:selected('msCheck'),
+    interaction_notes:val('msInteractionNotes'),
+    monitoring_notes:val('msMonitoringNotes'),
+    counseling_notes:val('msCounselingNotes'),
+    override_rationale:val('msOverrideRationale')
+  };
+}
+
+function buildMedicationSafetySummary(){
+  const a=collectMedicationSafety(), lines=[];
+
+  if(a.allergy_status)lines.push(`Drug allergy status: ${humanizeAyuToken(a.allergy_status)}`);
+  if(a.allergy_details)lines.push(`Allergy details: ${a.allergy_details}`);
+  if(a.adr_status)lines.push(`ADR history: ${humanizeAyuToken(a.adr_status)}`);
+  if(a.adr_details)lines.push(`ADR details: ${a.adr_details}`);
+  if(a.reconciliation)lines.push(`Medication reconciliation: ${humanizeAyuToken(a.reconciliation)}`);
+  if(a.risks.length)lines.push(`High-risk context: ${a.risks.join('; ')}`);
+  if(a.renal_review)lines.push(`Renal safety: ${humanizeAyuToken(a.renal_review)}`);
+  if(a.hepatic_review)lines.push(`Hepatic safety: ${humanizeAyuToken(a.hepatic_review)}`);
+  if(a.pregnancy_review)lines.push(`Pregnancy/lactation review: ${humanizeAyuToken(a.pregnancy_review)}`);
+  if(a.checks.length)lines.push(`Safety checks completed: ${a.checks.join(', ')}`);
+  if(a.interaction_notes)lines.push(`Interaction / duplication review: ${a.interaction_notes}`);
+  if(a.monitoring_notes)lines.push(`Monitoring plan: ${a.monitoring_notes}`);
+  if(a.counseling_notes)lines.push(`Patient counseling: ${a.counseling_notes}`);
+  if(a.override_rationale)lines.push(`Prescriber rationale / override: ${a.override_rationale}`);
+
+  const warnings=[];
+
+  if(a.allergy_status==='known' && !a.allergy_details)
+    warnings.push('Known drug allergy selected but the causative medicine/reaction is not documented.');
+
+  if(a.adr_status==='present' && !a.adr_details)
+    warnings.push('Previous ADR selected but reaction details are missing.');
+
+  if(a.reconciliation!=='complete' && a.risks.includes('Polypharmacy'))
+    warnings.push('Polypharmacy is documented without complete medication reconciliation.');
+
+  if(a.risks.includes('Renal impairment') && ['','pending'].includes(a.renal_review))
+    warnings.push('Renal impairment is documented but renal safety review is incomplete.');
+
+  if(a.risks.includes('Hepatic impairment') && ['','pending'].includes(a.hepatic_review))
+    warnings.push('Hepatic impairment is documented but hepatic safety review is incomplete.');
+
+  if((a.risks.includes('Pregnancy') || a.risks.includes('Lactation')) && ['', 'pending'].includes(a.pregnancy_review))
+    warnings.push('Pregnancy/lactation is documented but medication safety review is incomplete.');
+
+  if(a.risks.includes('Bleeding risk / anticoagulant use') && !a.checks.includes('Bleeding risk considered'))
+    warnings.push('Bleeding risk / anticoagulant use is documented but bleeding-risk review is not checked.');
+
+  if(a.checks.length && !a.checks.includes('Allergy checked'))
+    warnings.push('Safety review started without documenting allergy check.');
+
+  if(a.checks.includes('Drug-herb interactions reviewed')===false && a.checks.includes('Drug-drug interactions reviewed'))
+    warnings.push('Drug-drug interaction review is documented, but drug-herb interaction review remains unchecked in an integrative prescription context.');
+
+  if((a.renal_review==='avoid' || a.hepatic_review==='avoid' || a.pregnancy_review==='avoid') && !a.override_rationale)
+    warnings.push('An “avoid/specialist advice” safety status is documented without a prescriber override rationale.');
+
+  if(warnings.length)lines.push(`MEDICATION SAFETY ALERT: ${warnings.join(' ')}`);
+
+  lines.push('Final prescribing requires medicine-specific evidence, dose verification, current interaction resources and clinical judgment. This module does not replace a validated drug-interaction database.');
+
+  return lines.length
+    ? `Medication Safety & Prescription Review Summary:\n${lines.map(x=>'• '+x).join('\n')}`
+    : 'No medication safety review documented.';
+}
+
+function renderMedicationSafetySummary(){
+  const box=$('medicationSafetySummary');
+  if(box)box.textContent=buildMedicationSafetySummary();
+}
+
+function restoreMedicationSafety(){
+  const a=current?.ayurveda?.medicationSafety||{};
+
+  set('msAllergyStatus',a.allergy_status||'');
+  set('msAdrStatus',a.adr_status||'');
+  set('msReconciliation',a.reconciliation||'');
+  set('msAllergyDetails',a.allergy_details||'');
+  set('msAdrDetails',a.adr_details||'');
+
+  document.querySelectorAll('input[name="msRisk"]').forEach(cb=>cb.checked=(a.risks||[]).includes(cb.value));
+
+  set('msRenalReview',a.renal_review||'');
+  set('msHepaticReview',a.hepatic_review||'');
+  set('msPregnancyReview',a.pregnancy_review||'');
+
+  document.querySelectorAll('input[name="msCheck"]').forEach(cb=>cb.checked=(a.checks||[]).includes(cb.value));
+
+  set('msInteractionNotes',a.interaction_notes||'');
+  set('msMonitoringNotes',a.monitoring_notes||'');
+  set('msCounselingNotes',a.counseling_notes||'');
+  set('msOverrideRationale',a.override_rationale||'');
+
+  renderMedicationSafetySummary();
+}
+
+function initMedicationSafetyEngine(){
+  [
+    'msAllergyStatus','msAdrStatus','msReconciliation','msAllergyDetails','msAdrDetails',
+    'msRenalReview','msHepaticReview','msPregnancyReview',
+    'msInteractionNotes','msMonitoringNotes','msCounselingNotes','msOverrideRationale'
+  ].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.msBound){
+      const ev=(el.tagName==='TEXTAREA'||el.tagName==='INPUT')?'input':'change';
+      el.addEventListener(ev,()=>{
+        current.ayurveda.medicationSafety=collectMedicationSafety();
+        renderMedicationSafetySummary();
+      });
+      el.dataset.msBound='1';
+    }
+  });
+
+  ['msRiskChecks','msCheckChecks'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.msBound){
+      el.addEventListener('change',()=>{
+        current.ayurveda.medicationSafety=collectMedicationSafety();
+        renderMedicationSafetySummary();
+      });
+      el.dataset.msBound='1';
+    }
+  });
+
+  const gen=$('generateMsSummaryBtn');
+  if(gen&&!gen.dataset.msBound){
+    gen.onclick=()=>{
+      renderMedicationSafetySummary();
+      status('Medication safety summary refreshed.');
+    };
+    gen.dataset.msBound='1';
+  }
+
+  const add=$('addMsSummaryBtn');
+  if(add&&!add.dataset.msBound){
+    add.onclick=()=>{
+      renderMedicationSafetySummary();
+      const txt=$('medicationSafetySummary')?.textContent||'';
+      if(!txt||txt.startsWith('No medication'))return;
+      const old=val('ayurNotes');
+      set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));
+      status('Medication safety summary added to Ayurveda Notes.');
+    };
+    add.dataset.msBound='1';
+  }
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -5250,7 +5557,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();initRedFlagEmergencyEngine();restoreRedFlagEmergency();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();initRedFlagEmergencyEngine();restoreRedFlagEmergency();initMedicationSafetyEngine();restoreMedicationSafety();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -5278,7 +5585,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
