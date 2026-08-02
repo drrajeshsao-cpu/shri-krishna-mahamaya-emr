@@ -3078,6 +3078,147 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   </div>
 </div>
 
+
+<div class="card" id="clinicalRegistryCard" style="margin-top:12px">
+  <h3>Search & Clinical Registry Engine</h3>
+  <div class="small">Creates a local searchable clinical registry from saved patient records for diagnosis, age, date, Ayurveda subtype, procedure, medicine and outcome review.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Search Text</label>
+      <input id="crSearchText" placeholder="Patient, diagnosis, medicine, procedure, note...">
+    </div>
+    <div>
+      <label>Diagnosis Filter</label>
+      <input id="crDiagnosisFilter" placeholder="e.g. Sciatica / Gridhrasi">
+    </div>
+    <div>
+      <label>Outcome Filter</label>
+      <select id="crOutcomeFilter">
+        <option value="">All outcomes</option>
+        <option value="complete_recovery">Complete recovery</option>
+        <option value="marked_improvement">Marked improvement</option>
+        <option value="moderate_improvement">Moderate improvement</option>
+        <option value="mild_improvement">Mild improvement</option>
+        <option value="stable">Stable</option>
+        <option value="worsened">Worsened</option>
+        <option value="progression">Progression</option>
+        <option value="complication">Complication</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Ayurveda Subtype / Dosha Filter</label>
+      <input id="crAyuFilter" placeholder="Vata / Vata-Kapha / subtype">
+    </div>
+    <div>
+      <label>Procedure Filter</label>
+      <input id="crProcedureFilter" placeholder="Basti / Nasya / Panchakarma / etc.">
+    </div>
+    <div>
+      <label>Medicine Filter</label>
+      <input id="crMedicineFilter" placeholder="Medicine name">
+    </div>
+  </div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Minimum Age</label>
+      <input id="crAgeMin" type="number" min="0" max="120">
+    </div>
+    <div>
+      <label>Maximum Age</label>
+      <input id="crAgeMax" type="number" min="0" max="120">
+    </div>
+    <div>
+      <label>Registry Scope</label>
+      <select id="crScope">
+        <option value="current">Current record only</option>
+        <option value="local_registry">Local saved registry</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="crIndexCurrentBtn" class="secondary">Add / Update Current Record in Registry</button>
+    <button type="button" id="crSearchBtn" class="secondary">Search Registry</button>
+    <button type="button" id="crClearFiltersBtn" class="secondary">Clear Filters</button>
+  </div>
+
+  <div id="clinicalRegistryResults" style="margin-top:12px"></div>
+
+  <div id="clinicalRegistrySummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No registry search performed.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="copyRegistrySummaryBtn" class="secondary">Copy Registry Summary</button>
+    <button type="button" id="exportRegistryJsonBtn" class="secondary">Export Registry JSON</button>
+  </div>
+</div>
+
+
+<div class="card" id="backupRestoreCard" style="margin-top:12px">
+  <h3>Backup / Export / Restore Engine</h3>
+  <div class="small">Creates local backups of the current patient record and clinical registry, and supports restoring previously exported SKMCIS backup files.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Backup Scope</label>
+      <select id="brScope">
+        <option value="current_record">Current patient record</option>
+        <option value="clinical_registry">Clinical registry only</option>
+        <option value="full_local">Full local backup</option>
+      </select>
+    </div>
+    <div>
+      <label>Backup Format</label>
+      <select id="brFormat">
+        <option value="json">JSON</option>
+        <option value="csv_registry">CSV registry export</option>
+      </select>
+    </div>
+    <div>
+      <label>Restore Behavior</label>
+      <select id="brRestoreBehavior">
+        <option value="review_only">Review only</option>
+        <option value="merge_registry">Merge registry</option>
+        <option value="replace_registry">Replace registry</option>
+        <option value="replace_current">Replace current record</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="brExportBtn" class="secondary">Export Backup</button>
+    <button type="button" id="brExportRegistryCsvBtn" class="secondary">Export Registry CSV</button>
+  </div>
+
+  <div style="margin-top:12px">
+    <label>Restore from Backup File</label>
+    <input id="brImportFile" type="file" accept=".json,.csv,application/json,text/csv">
+  </div>
+
+  <div id="brImportPreview" class="notice" style="white-space:pre-wrap;margin-top:10px">No backup file selected.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="brReviewImportBtn" class="secondary">Review Backup File</button>
+    <button type="button" id="brApplyImportBtn" class="secondary">Apply Restore</button>
+  </div>
+
+  <div style="margin-top:12px">
+    <label>Backup Safety Checklist</label>
+    <div id="brSafetyChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="brSafety" value="Backup file verified">Backup file verified</label>
+      <label class="check"><input type="checkbox" name="brSafety" value="Current data backed up before restore">Current data backed up before restore</label>
+      <label class="check"><input type="checkbox" name="brSafety" value="Patient identity reviewed">Patient identity reviewed</label>
+      <label class="check"><input type="checkbox" name="brSafety" value="Restore behavior reviewed">Restore behavior reviewed</label>
+    </div>
+  </div>
+
+  <div id="backupRestoreSummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No backup / restore action performed.</div>
+</div>
+
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -3643,6 +3784,8 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Followup Comparison Dashboard V2.39 */
 /* SKMCIS Patient Timeline Longitudinal EMR V2.40 */
 /* SKMCIS Disease Templates Clinical Packs Engine V2.41 */
+/* SKMCIS Search Clinical Registry Engine V2.42 */
+/* SKMCIS Backup Export Restore Engine V2.43 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -3698,7 +3841,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),redFlagEmergency:collectRedFlagEmergency(),medicationSafety:collectMedicationSafety(),prescriptionData:collectPrescriptionData(),printPrescriptionSettings:collectPrintPrescriptionSettings(),patientEducation:collectPatientEducation(),exerciseRehabYoga:collectExerciseRehabYoga(),followupComparison:currentFollowupComparisonData(),patientTimeline:currentPatientTimeline(),diseaseTemplateSettings:(current.ayurveda.diseaseTemplateSettings||{}),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),redFlagEmergency:collectRedFlagEmergency(),medicationSafety:collectMedicationSafety(),prescriptionData:collectPrescriptionData(),printPrescriptionSettings:collectPrintPrescriptionSettings(),patientEducation:collectPatientEducation(),exerciseRehabYoga:collectExerciseRehabYoga(),followupComparison:currentFollowupComparisonData(),patientTimeline:currentPatientTimeline(),diseaseTemplateSettings:(current.ayurveda.diseaseTemplateSettings||{}),clinicalRegistryLastSearch:(current.ayurveda.clinicalRegistryLastSearch||{}),backupRestoreSettings:collectBackupRestoreSettings(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -4287,7 +4430,7 @@ function initSrotasClinicalEngine(){
     parent.addEventListener('change',()=>{
       if(!current.ayurveda.srotasDetails)current.ayurveda.srotasDetails={};
       current.ayurveda.srotasDetails=collectSrotasDetails();
-      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();restoreRedFlagEmergency();restoreMedicationSafety();restorePrescriptionData();restorePrintPrescriptionSettings();restorePatientEducation();restoreExerciseRehabYoga();restoreFollowupComparison();restorePatientTimeline();restoreDiseaseTemplateSettings();
+      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();restoreRedFlagEmergency();restoreMedicationSafety();restorePrescriptionData();restorePrintPrescriptionSettings();restorePatientEducation();restoreExerciseRehabYoga();restoreFollowupComparison();restorePatientTimeline();restoreDiseaseTemplateSettings();restoreClinicalRegistryUI();restoreBackupRestoreSettings();
     });
     parent.dataset.srotasDetailBound='1';
   }
@@ -7574,6 +7717,514 @@ function initDiseaseTemplateEngine(){
     apply.dataset.dtBound='1';
   }
 }
+
+function clinicalRegistryKey(){return 'SKMCIS_LOCAL_CLINICAL_REGISTRY_V1';}
+
+function loadClinicalRegistry(){
+  try{
+    const raw=localStorage.getItem(clinicalRegistryKey());
+    const data=raw?JSON.parse(raw):[];
+    return Array.isArray(data)?data:[];
+  }catch(e){return [];}
+}
+
+function saveClinicalRegistry(rows){
+  try{
+    localStorage.setItem(clinicalRegistryKey(),JSON.stringify(rows));
+    return true;
+  }catch(e){
+    status('Unable to save registry in this browser.');
+    return false;
+  }
+}
+
+function currentRegistryRecord(){
+  const dx=collectIntegratedDiagnosis();
+  const rx=collectPrescriptionData();
+  const pk=collectPanchakarmaEligibility();
+  const fu=collectFollowupOutcome();
+  const dosha=buildDoshaSynthesis();
+
+  const patientName=val('pName')||val('patientName')||current?.patient?.name||current?.name||'';
+  const age=val('pAge')||val('age')||current?.patient?.age||current?.age||'';
+  const sex=val('pSex')||val('sex')||current?.patient?.sex||current?.sex||'';
+  const phone=val('pPhone')||val('phone')||current?.patient?.phone||current?.phone||'';
+
+  const medicines=(rx.medicines||[]).map(m=>m.name).filter(Boolean);
+  const procedureText=[rx.procedures, pk.procedure?humanizeAyuToken(pk.procedure):''].filter(Boolean).join(' | ');
+
+  const ayuDx=dx.ayur_diagnosis||val('ayurDiagnosisDetailed')||'';
+  const modernDx=dx.modern_diagnosis||val('modernDiagnosisDetailed')||'';
+  const ayuSubtype=dx.ayur_subtype||val('ayurSubtypeDiagnosis')||'';
+
+  let date='';
+  try{
+    date=current?.date||current?.visitDate||new Date().toISOString().slice(0,10);
+  }catch(e){date='';}
+
+  const id=current?.id||current?.patientId||current?.uhid||[patientName,phone].filter(Boolean).join('|')||('local-'+Date.now());
+
+  return {
+    id:String(id),
+    indexed_at:new Date().toISOString(),
+    patient_name:patientName,
+    age:String(age||''),
+    sex:String(sex||''),
+    phone:String(phone||''),
+    date,
+    ayur_diagnosis:ayuDx,
+    modern_diagnosis:modernDx,
+    ayur_subtype:ayuSubtype,
+    dosha_summary:dosha.overall||'',
+    medicines,
+    procedures:procedureText,
+    outcome:fu.overall_outcome||'',
+    dhatusamya:fu.dhatusamya||'',
+    notes:val('ayurNotes')||''
+  };
+}
+
+function upsertCurrentRegistryRecord(){
+  const row=currentRegistryRecord();
+  const rows=loadClinicalRegistry();
+  const idx=rows.findIndex(r=>r.id===row.id);
+  if(idx>=0)rows[idx]=row; else rows.push(row);
+  if(saveClinicalRegistry(rows)){
+    status(idx>=0?'Current record updated in local registry.':'Current record added to local registry.');
+    searchClinicalRegistry();
+  }
+}
+
+function collectRegistryFilters(){
+  return {
+    text:(val('crSearchText')||'').toLowerCase().trim(),
+    diagnosis:(val('crDiagnosisFilter')||'').toLowerCase().trim(),
+    outcome:val('crOutcomeFilter'),
+    ayu:(val('crAyuFilter')||'').toLowerCase().trim(),
+    procedure:(val('crProcedureFilter')||'').toLowerCase().trim(),
+    medicine:(val('crMedicineFilter')||'').toLowerCase().trim(),
+    age_min:val('crAgeMin'),
+    age_max:val('crAgeMax'),
+    scope:val('crScope')||'current'
+  };
+}
+
+function registryHaystack(r){
+  return [
+    r.patient_name,r.age,r.sex,r.phone,r.ayur_diagnosis,r.modern_diagnosis,
+    r.ayur_subtype,r.dosha_summary,(r.medicines||[]).join(' '),r.procedures,
+    r.outcome,r.dhatusamya,r.notes
+  ].join(' ').toLowerCase();
+}
+
+function registryMatches(r,f){
+  const h=registryHaystack(r);
+  if(f.text && !h.includes(f.text))return false;
+
+  const dx=`${r.ayur_diagnosis||''} ${r.modern_diagnosis||''}`.toLowerCase();
+  if(f.diagnosis && !dx.includes(f.diagnosis))return false;
+
+  if(f.outcome && r.outcome!==f.outcome)return false;
+
+  const ayu=`${r.ayur_subtype||''} ${r.dosha_summary||''}`.toLowerCase();
+  if(f.ayu && !ayu.includes(f.ayu))return false;
+
+  if(f.procedure && !(r.procedures||'').toLowerCase().includes(f.procedure))return false;
+
+  if(f.medicine){
+    const meds=(r.medicines||[]).join(' ').toLowerCase();
+    if(!meds.includes(f.medicine))return false;
+  }
+
+  const ageNum=Number(r.age);
+  if(f.age_min!=='' && Number.isFinite(ageNum) && ageNum<Number(f.age_min))return false;
+  if(f.age_max!=='' && Number.isFinite(ageNum) && ageNum>Number(f.age_max))return false;
+
+  return true;
+}
+
+function searchClinicalRegistry(){
+  const f=collectRegistryFilters();
+  let rows=f.scope==='current'?[currentRegistryRecord()]:loadClinicalRegistry();
+  const matched=rows.filter(r=>registryMatches(r,f));
+
+  const box=$('clinicalRegistryResults');
+  if(box){
+    if(!matched.length){
+      box.innerHTML='<div class="small">No matching registry records.</div>';
+    }else{
+      box.innerHTML=matched.map((r,i)=>`
+        <div class="subtype-card" style="margin-top:8px">
+          <h4>${i+1}. ${esc(r.patient_name||'Unnamed patient')} ${r.date?`<span class="pill">${esc(r.date)}</span>`:''}</h4>
+          <div class="small">
+            ${r.age?`Age: ${esc(r.age)}<br>`:''}
+            ${r.sex?`Sex: ${esc(r.sex)}<br>`:''}
+            ${r.ayur_diagnosis?`Ayurvedic diagnosis: ${esc(r.ayur_diagnosis)}<br>`:''}
+            ${r.modern_diagnosis?`Modern diagnosis: ${esc(r.modern_diagnosis)}<br>`:''}
+            ${r.ayur_subtype?`Subtype: ${esc(r.ayur_subtype)}<br>`:''}
+            ${r.dosha_summary?`Dosha: ${esc(r.dosha_summary)}<br>`:''}
+            ${r.medicines?.length?`Medicines: ${esc(r.medicines.join(', '))}<br>`:''}
+            ${r.procedures?`Procedures: ${esc(r.procedures)}<br>`:''}
+            ${r.outcome?`Outcome: ${esc(humanizeAyuToken(r.outcome))}<br>`:''}
+            ${r.dhatusamya?`Dhatusamya: ${esc(humanizeAyuToken(r.dhatusamya))}<br>`:''}
+          </div>
+        </div>
+      `).join('');
+    }
+  }
+
+  const summary=$('clinicalRegistrySummary');
+  if(summary){
+    const dxCounts={}, outcomeCounts={};
+    matched.forEach(r=>{
+      const d=(r.modern_diagnosis||r.ayur_diagnosis||'Unspecified').trim()||'Unspecified';
+      dxCounts[d]=(dxCounts[d]||0)+1;
+      const o=r.outcome||'not_recorded';
+      outcomeCounts[o]=(outcomeCounts[o]||0)+1;
+    });
+
+    const dxText=Object.entries(dxCounts).map(([k,v])=>`${k}: ${v}`).join('; ');
+    const outText=Object.entries(outcomeCounts).map(([k,v])=>`${humanizeAyuToken(k)}: ${v}`).join('; ');
+
+    summary.textContent=[
+      `Clinical Registry Search Summary`,
+      `Scope: ${humanizeAyuToken(f.scope)}`,
+      `Matched records: ${matched.length}`,
+      dxText?`Diagnosis distribution: ${dxText}`:'',
+      outText?`Outcome distribution: ${outText}`:'',
+      `Registry data is local to this browser unless separately exported/backed up.`
+    ].filter(Boolean).join('\n');
+  }
+
+  current.ayurveda.clinicalRegistryLastSearch={filters:f,matched_count:matched.length};
+  return matched;
+}
+
+function clearRegistryFilters(){
+  ['crSearchText','crDiagnosisFilter','crAyuFilter','crProcedureFilter','crMedicineFilter','crAgeMin','crAgeMax'].forEach(id=>set(id,''));
+  set('crOutcomeFilter','');
+  set('crScope','current');
+  searchClinicalRegistry();
+}
+
+function exportClinicalRegistryJson(){
+  const rows=loadClinicalRegistry();
+  const payload=JSON.stringify({
+    exported_at:new Date().toISOString(),
+    app:'SKMCIS',
+    registry_version:'1',
+    records:rows
+  },null,2);
+
+  const blob=new Blob([payload],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=`SKMCIS_clinical_registry_${new Date().toISOString().slice(0,10)}.json`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  status('Clinical registry JSON exported.');
+}
+
+function restoreClinicalRegistryUI(){
+  const a=current?.ayurveda?.clinicalRegistryLastSearch||{};
+  const f=a.filters||{};
+  set('crSearchText',f.text||'');
+  set('crDiagnosisFilter',f.diagnosis||'');
+  set('crOutcomeFilter',f.outcome||'');
+  set('crAyuFilter',f.ayu||'');
+  set('crProcedureFilter',f.procedure||'');
+  set('crMedicineFilter',f.medicine||'');
+  set('crAgeMin',f.age_min||'');
+  set('crAgeMax',f.age_max||'');
+  set('crScope',f.scope||'current');
+  searchClinicalRegistry();
+}
+
+function initClinicalRegistryEngine(){
+  const idx=$('crIndexCurrentBtn');
+  if(idx&&!idx.dataset.crBound){
+    idx.onclick=upsertCurrentRegistryRecord;
+    idx.dataset.crBound='1';
+  }
+
+  const search=$('crSearchBtn');
+  if(search&&!search.dataset.crBound){
+    search.onclick=searchClinicalRegistry;
+    search.dataset.crBound='1';
+  }
+
+  const clear=$('crClearFiltersBtn');
+  if(clear&&!clear.dataset.crBound){
+    clear.onclick=clearRegistryFilters;
+    clear.dataset.crBound='1';
+  }
+
+  const copy=$('copyRegistrySummaryBtn');
+  if(copy&&!copy.dataset.crBound){
+    copy.onclick=async()=>{
+      const txt=$('clinicalRegistrySummary')?.textContent||'';
+      try{await navigator.clipboard.writeText(txt);status('Registry summary copied.');}
+      catch(e){status('Copy unavailable in this browser.');}
+    };
+    copy.dataset.crBound='1';
+  }
+
+  const exp=$('exportRegistryJsonBtn');
+  if(exp&&!exp.dataset.crBound){
+    exp.onclick=exportClinicalRegistryJson;
+    exp.dataset.crBound='1';
+  }
+}
+
+let brParsedImport=null;
+
+function collectBackupRestoreSettings(){
+  return {
+    scope:val('brScope')||'current_record',
+    format:val('brFormat')||'json',
+    restore_behavior:val('brRestoreBehavior')||'review_only',
+    safety_checks:selected('brSafety')
+  };
+}
+
+function sanitizeCsvCell(v){
+  const s=String(v??'').replace(/\r?\n/g,' ');
+  return `"${s.replace(/"/g,'""')}"`;
+}
+
+function registryToCsv(rows){
+  const headers=['id','indexed_at','patient_name','age','sex','phone','date','ayur_diagnosis','modern_diagnosis','ayur_subtype','dosha_summary','medicines','procedures','outcome','dhatusamya','notes'];
+  const lines=[headers.map(sanitizeCsvCell).join(',')];
+  rows.forEach(r=>{
+    const obj={...r,medicines:(r.medicines||[]).join(' | ')};
+    lines.push(headers.map(h=>sanitizeCsvCell(obj[h]??'')).join(','));
+  });
+  return lines.join('\n');
+}
+
+function downloadTextFile(filename,content,type){
+  const blob=new Blob([content],{type:type||'text/plain'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+function buildFullLocalBackup(){
+  return {
+    backup_version:'SKMCIS_BACKUP_V1',
+    exported_at:new Date().toISOString(),
+    app:'SKMCIS',
+    current_record:current,
+    clinical_registry:loadClinicalRegistry(),
+    metadata:{
+      scope:'full_local',
+      browser_storage_key:clinicalRegistryKey()
+    }
+  };
+}
+
+function exportBackup(){
+  const s=collectBackupRestoreSettings();
+  const stamp=new Date().toISOString().replace(/[:.]/g,'-').slice(0,19);
+
+  if(s.format==='csv_registry'){
+    const csv=registryToCsv(loadClinicalRegistry());
+    downloadTextFile(`SKMCIS_registry_${stamp}.csv`,csv,'text/csv');
+    $('backupRestoreSummary').textContent='Registry CSV exported successfully.';
+    status('Registry CSV exported.');
+    return;
+  }
+
+  let payload={backup_version:'SKMCIS_BACKUP_V1',exported_at:new Date().toISOString(),app:'SKMCIS'};
+  if(s.scope==='current_record')payload.current_record=current;
+  if(s.scope==='clinical_registry')payload.clinical_registry=loadClinicalRegistry();
+  if(s.scope==='full_local')payload=buildFullLocalBackup();
+
+  downloadTextFile(`SKMCIS_backup_${s.scope}_${stamp}.json`,JSON.stringify(payload,null,2),'application/json');
+  $('backupRestoreSummary').textContent=`Backup exported successfully.\nScope: ${humanizeAyuToken(s.scope)}\nFormat: JSON`;
+  status('SKMCIS backup exported.');
+}
+
+function exportRegistryCsv(){
+  const csv=registryToCsv(loadClinicalRegistry());
+  const stamp=new Date().toISOString().slice(0,10);
+  downloadTextFile(`SKMCIS_clinical_registry_${stamp}.csv`,csv,'text/csv');
+  $('backupRestoreSummary').textContent='Clinical registry CSV exported successfully.';
+  status('Clinical registry CSV exported.');
+}
+
+function parseCsvBasic(text){
+  const rows=[];
+  let row=[],cell='',q=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(q){
+      if(c==='"' && text[i+1]==='"'){cell+='"';i++;}
+      else if(c==='"')q=false;
+      else cell+=c;
+    }else{
+      if(c==='"')q=true;
+      else if(c===','){row.push(cell);cell='';}
+      else if(c==='\n'){row.push(cell);rows.push(row);row=[];cell='';}
+      else if(c!=='\r')cell+=c;
+    }
+  }
+  row.push(cell); if(row.some(x=>x!==''))rows.push(row);
+  if(rows.length<2)return [];
+  const h=rows[0];
+  return rows.slice(1).map(r=>{
+    const o={}; h.forEach((k,i)=>o[k]=r[i]??'');
+    if(o.medicines)o.medicines=o.medicines.split('|').map(x=>x.trim()).filter(Boolean);
+    return o;
+  });
+}
+
+async function reviewBackupFile(){
+  const file=$('brImportFile')?.files?.[0];
+  if(!file){status('Select a backup file first.');return;}
+
+  try{
+    const txt=await file.text();
+    let parsed;
+    if(file.name.toLowerCase().endsWith('.csv')){
+      parsed={backup_version:'CSV_REGISTRY',clinical_registry:parseCsvBasic(txt)};
+    }else{
+      parsed=JSON.parse(txt);
+    }
+    brParsedImport=parsed;
+
+    const info=[];
+    info.push(`File: ${file.name}`);
+    info.push(`Backup version: ${parsed.backup_version||'Unknown'}`);
+    if(parsed.current_record)info.push('Current patient record: Present');
+    if(Array.isArray(parsed.clinical_registry))info.push(`Clinical registry records: ${parsed.clinical_registry.length}`);
+    if(parsed.exported_at)info.push(`Exported at: ${parsed.exported_at}`);
+    info.push('Review the restore behavior and safety checklist before applying.');
+
+    $('brImportPreview').textContent=info.join('\n');
+    status('Backup file reviewed.');
+  }catch(e){
+    brParsedImport=null;
+    $('brImportPreview').textContent=`Unable to parse selected backup file.\n${e.message}`;
+    status('Backup file could not be parsed.');
+  }
+}
+
+function mergeRegistry(existing,incoming){
+  const map=new Map();
+  [...existing,...incoming].forEach(r=>{
+    const key=String(r.id||[r.patient_name,r.phone,r.date].filter(Boolean).join('|')||Math.random());
+    map.set(key,r);
+  });
+  return [...map.values()];
+}
+
+function applyBackupRestore(){
+  const s=collectBackupRestoreSettings();
+  if(!brParsedImport){status('Review a backup file first.');return;}
+  if(s.restore_behavior==='review_only'){
+    status('Restore behavior is Review only. No data changed.');
+    return;
+  }
+
+  const checks=s.safety_checks||[];
+  if(checks.length<2){
+    status('Complete at least the key backup safety checks before restoring.');
+    return;
+  }
+
+  try{
+    if(s.restore_behavior==='merge_registry'){
+      const incoming=Array.isArray(brParsedImport.clinical_registry)?brParsedImport.clinical_registry:[];
+      if(!incoming.length){status('No clinical registry data found in this backup.');return;}
+      const merged=mergeRegistry(loadClinicalRegistry(),incoming);
+      saveClinicalRegistry(merged);
+      $('backupRestoreSummary').textContent=`Registry merge completed.\nImported: ${incoming.length}\nRegistry total: ${merged.length}`;
+      if(typeof searchClinicalRegistry==='function')searchClinicalRegistry();
+    }
+
+    if(s.restore_behavior==='replace_registry'){
+      const incoming=Array.isArray(brParsedImport.clinical_registry)?brParsedImport.clinical_registry:[];
+      if(!incoming.length){status('No clinical registry data found in this backup.');return;}
+      saveClinicalRegistry(incoming);
+      $('backupRestoreSummary').textContent=`Registry replaced.\nRegistry total: ${incoming.length}`;
+      if(typeof searchClinicalRegistry==='function')searchClinicalRegistry();
+    }
+
+    if(s.restore_behavior==='replace_current'){
+      if(!brParsedImport.current_record){status('No current patient record found in this backup.');return;}
+      current=brParsedImport.current_record;
+      $('backupRestoreSummary').textContent='Current patient record restored from backup. Reload/populate the patient form if any field does not refresh immediately.';
+      try{
+        if(typeof populate==='function')populate();
+        else if(typeof render==='function')render();
+      }catch(e){}
+    }
+
+    status('Restore action completed.');
+  }catch(e){
+    $('backupRestoreSummary').textContent=`Restore failed: ${e.message}`;
+    status('Restore failed.');
+  }
+}
+
+function restoreBackupRestoreSettings(){
+  const a=current?.ayurveda?.backupRestoreSettings||{};
+  set('brScope',a.scope||'current_record');
+  set('brFormat',a.format||'json');
+  set('brRestoreBehavior',a.restore_behavior||'review_only');
+  document.querySelectorAll('input[name="brSafety"]').forEach(cb=>cb.checked=(a.safety_checks||[]).includes(cb.value));
+}
+
+function initBackupRestoreEngine(){
+  ['brScope','brFormat','brRestoreBehavior'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.brBound){
+      el.addEventListener('change',()=>{
+        current.ayurveda.backupRestoreSettings=collectBackupRestoreSettings();
+      });
+      el.dataset.brBound='1';
+    }
+  });
+
+  const checks=$('brSafetyChecks');
+  if(checks&&!checks.dataset.brBound){
+    checks.addEventListener('change',()=>current.ayurveda.backupRestoreSettings=collectBackupRestoreSettings());
+    checks.dataset.brBound='1';
+  }
+
+  const exp=$('brExportBtn');
+  if(exp&&!exp.dataset.brBound){
+    exp.onclick=exportBackup;
+    exp.dataset.brBound='1';
+  }
+
+  const csv=$('brExportRegistryCsvBtn');
+  if(csv&&!csv.dataset.brBound){
+    csv.onclick=exportRegistryCsv;
+    csv.dataset.brBound='1';
+  }
+
+  const review=$('brReviewImportBtn');
+  if(review&&!review.dataset.brBound){
+    review.onclick=reviewBackupFile;
+    review.dataset.brBound='1';
+  }
+
+  const apply=$('brApplyImportBtn');
+  if(apply&&!apply.dataset.brBound){
+    apply.onclick=applyBackupRestore;
+    apply.dataset.brBound='1';
+  }
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -7658,7 +8309,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();initRedFlagEmergencyEngine();restoreRedFlagEmergency();initMedicationSafetyEngine();restoreMedicationSafety();initPrescriptionEngine();restorePrescriptionData();initPrintPrescriptionEngine();restorePrintPrescriptionSettings();initPatientEducationEngine();restorePatientEducation();initExerciseRehabYogaEngine();restoreExerciseRehabYoga();initFollowupComparisonEngine();restoreFollowupComparison();initPatientTimelineEngine();restorePatientTimeline();initDiseaseTemplateEngine();restoreDiseaseTemplateSettings();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();initRedFlagEmergencyEngine();restoreRedFlagEmergency();initMedicationSafetyEngine();restoreMedicationSafety();initPrescriptionEngine();restorePrescriptionData();initPrintPrescriptionEngine();restorePrintPrescriptionSettings();initPatientEducationEngine();restorePatientEducation();initExerciseRehabYogaEngine();restoreExerciseRehabYoga();initFollowupComparisonEngine();restoreFollowupComparison();initPatientTimelineEngine();restorePatientTimeline();initDiseaseTemplateEngine();restoreDiseaseTemplateSettings();initClinicalRegistryEngine();restoreClinicalRegistryUI();initBackupRestoreEngine();restoreBackupRestoreSettings();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -7686,7 +8337,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};if(!a.printPrescriptionSettings)a.printPrescriptionSettings={};if(!a.patientEducation)a.patientEducation={};if(!a.exerciseRehabYoga)a.exerciseRehabYoga={};if(!a.followupComparison)a.followupComparison={visits:[]};if(!a.patientTimeline)a.patientTimeline={events:[]};if(!a.diseaseTemplateSettings)a.diseaseTemplateSettings={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};if(!a.printPrescriptionSettings)a.printPrescriptionSettings={};if(!a.patientEducation)a.patientEducation={};if(!a.exerciseRehabYoga)a.exerciseRehabYoga={};if(!a.followupComparison)a.followupComparison={visits:[]};if(!a.patientTimeline)a.patientTimeline={events:[]};if(!a.diseaseTemplateSettings)a.diseaseTemplateSettings={};if(!a.clinicalRegistryLastSearch)a.clinicalRegistryLastSearch={};if(!a.backupRestoreSettings)a.backupRestoreSettings={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
