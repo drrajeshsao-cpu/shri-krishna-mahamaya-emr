@@ -3470,6 +3470,76 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   </div>
 </div>
 
+
+<div class="card" id="firebaseBackendCard" style="margin-top:12px">
+  <h3>Firebase Secure Authentication & Backend Scaffold</h3>
+  <div class="small">This module prepares the app for real Firebase Authentication and Firestore. It remains in setup mode until a real Firebase project is connected and security rules are deployed.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Backend Connection Status</label>
+      <select id="fbConnectionStatus">
+        <option value="not_connected">Not connected</option>
+        <option value="config_added">Firebase config added</option>
+        <option value="auth_connected">Authentication connected</option>
+        <option value="firestore_connected">Firestore connected</option>
+        <option value="rules_deployed">Security rules deployed</option>
+        <option value="pilot_ready">Pilot ready with test data</option>
+      </select>
+    </div>
+    <div>
+      <label>Primary Sign-in Method</label>
+      <select id="fbSigninMethod">
+        <option value="email_password">Email + Password</option>
+        <option value="email_link">Email Link / Magic Link</option>
+        <option value="phone_otp">Phone OTP</option>
+      </select>
+    </div>
+    <div>
+      <label>Environment</label>
+      <select id="fbEnvironment">
+        <option value="development">Development</option>
+        <option value="testing">Testing</option>
+        <option value="pilot">Pilot</option>
+        <option value="production">Production</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Firebase Setup Checklist</label>
+    <div id="fbSetupChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="fbSetup" value="Firebase project created">Firebase project created</label>
+      <label class="check"><input type="checkbox" name="fbSetup" value="Web app registered">Web app registered</label>
+      <label class="check"><input type="checkbox" name="fbSetup" value="Authentication enabled">Authentication enabled</label>
+      <label class="check"><input type="checkbox" name="fbSetup" value="Firestore database created">Firestore database created</label>
+      <label class="check"><input type="checkbox" name="fbSetup" value="Security rules deployed">Security rules deployed</label>
+      <label class="check"><input type="checkbox" name="fbSetup" value="Admin user created">Admin user created</label>
+      <label class="check"><input type="checkbox" name="fbSetup" value="Test user login verified">Test user login verified</label>
+      <label class="check"><input type="checkbox" name="fbSetup" value="Test patient save verified">Test patient save verified</label>
+      <label class="check"><input type="checkbox" name="fbSetup" value="Backup/export verified">Backup / export verified</label>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Firebase Project Notes</label>
+      <textarea id="fbProjectNotes" placeholder="Project name, region, hosting notes. Do NOT paste service-account keys or private secrets here."></textarea>
+    </div>
+    <div>
+      <label>Setup / Testing Notes</label>
+      <textarea id="fbTestingNotes" placeholder="Login test, patient save test, role test, security-rule test..."></textarea>
+    </div>
+  </div>
+
+  <div id="firebaseBackendSummary" class="notice" style="white-space:pre-wrap;margin-top:10px">Firebase backend not connected.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="fbEvaluateBtn" class="secondary">Evaluate Firebase Readiness</button>
+    <button type="button" id="fbCopyChecklistBtn" class="secondary">Copy Setup Checklist</button>
+  </div>
+</div>
+
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -4040,6 +4110,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS User Roles Audit Trail Engine V2.44 */
 /* SKMCIS Production Security Privacy Readiness Gate V2.45 */
 /* SKMCIS Backend Migration Preparation Pack V2.46 */
+/* SKMCIS Firebase Secure Auth Backend Scaffold V2.47 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -4095,7 +4166,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),redFlagEmergency:collectRedFlagEmergency(),medicationSafety:collectMedicationSafety(),prescriptionData:collectPrescriptionData(),printPrescriptionSettings:collectPrintPrescriptionSettings(),patientEducation:collectPatientEducation(),exerciseRehabYoga:collectExerciseRehabYoga(),followupComparison:currentFollowupComparisonData(),patientTimeline:currentPatientTimeline(),diseaseTemplateSettings:(current.ayurveda.diseaseTemplateSettings||{}),clinicalRegistryLastSearch:(current.ayurveda.clinicalRegistryLastSearch||{}),backupRestoreSettings:collectBackupRestoreSettings(),userRoleAuditSettings:collectUserRoleAuditSettings(),securityReadiness:collectSecurityReadiness(),backendMigrationSettings:collectBackendMigrationSettings(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),redFlagEmergency:collectRedFlagEmergency(),medicationSafety:collectMedicationSafety(),prescriptionData:collectPrescriptionData(),printPrescriptionSettings:collectPrintPrescriptionSettings(),patientEducation:collectPatientEducation(),exerciseRehabYoga:collectExerciseRehabYoga(),followupComparison:currentFollowupComparisonData(),patientTimeline:currentPatientTimeline(),diseaseTemplateSettings:(current.ayurveda.diseaseTemplateSettings||{}),clinicalRegistryLastSearch:(current.ayurveda.clinicalRegistryLastSearch||{}),backupRestoreSettings:collectBackupRestoreSettings(),userRoleAuditSettings:collectUserRoleAuditSettings(),securityReadiness:collectSecurityReadiness(),backendMigrationSettings:collectBackendMigrationSettings(),firebaseBackendSettings:collectFirebaseBackendSettings(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -4684,7 +4755,7 @@ function initSrotasClinicalEngine(){
     parent.addEventListener('change',()=>{
       if(!current.ayurveda.srotasDetails)current.ayurveda.srotasDetails={};
       current.ayurveda.srotasDetails=collectSrotasDetails();
-      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();restoreRedFlagEmergency();restoreMedicationSafety();restorePrescriptionData();restorePrintPrescriptionSettings();restorePatientEducation();restoreExerciseRehabYoga();restoreFollowupComparison();restorePatientTimeline();restoreDiseaseTemplateSettings();restoreClinicalRegistryUI();restoreBackupRestoreSettings();restoreUserRoleAuditSettings();restoreSecurityReadiness();restoreBackendMigrationSettings();
+      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();restoreRedFlagEmergency();restoreMedicationSafety();restorePrescriptionData();restorePrintPrescriptionSettings();restorePatientEducation();restoreExerciseRehabYoga();restoreFollowupComparison();restorePatientTimeline();restoreDiseaseTemplateSettings();restoreClinicalRegistryUI();restoreBackupRestoreSettings();restoreUserRoleAuditSettings();restoreSecurityReadiness();restoreBackendMigrationSettings();restoreFirebaseBackendSettings();
     });
     parent.dataset.srotasDetailBound='1';
   }
@@ -9105,6 +9176,115 @@ function initBackendMigrationEngine(){
     migBtn.dataset.bmpBound='1';
   }
 }
+
+function collectFirebaseBackendSettings(){
+  return {
+    connection_status:val('fbConnectionStatus')||'not_connected',
+    signin_method:val('fbSigninMethod')||'email_password',
+    environment:val('fbEnvironment')||'development',
+    setup_checks:selected('fbSetup'),
+    project_notes:val('fbProjectNotes'),
+    testing_notes:val('fbTestingNotes')
+  };
+}
+
+function buildFirebaseBackendSummary(){
+  const a=collectFirebaseBackendSettings();
+  const required=[
+    'Firebase project created',
+    'Web app registered',
+    'Authentication enabled',
+    'Firestore database created',
+    'Security rules deployed',
+    'Admin user created',
+    'Test user login verified',
+    'Test patient save verified'
+  ];
+  const done=new Set(a.setup_checks||[]);
+  const missing=required.filter(x=>!done.has(x));
+  const pct=Math.round((done.size/required.length)*100);
+
+  const lines=[
+    'Firebase Secure Backend Readiness',
+    `Connection status: ${humanizeAyuToken(a.connection_status)}`,
+    `Sign-in method: ${humanizeAyuToken(a.signin_method)}`,
+    `Environment: ${humanizeAyuToken(a.environment)}`,
+    `Core setup completion: ${done.size}/${required.length} (${pct}%)`
+  ];
+
+  if(missing.length)lines.push(`Still required: ${missing.join('; ')}`);
+  if(a.project_notes)lines.push(`Project notes: ${a.project_notes}`);
+  if(a.testing_notes)lines.push(`Testing notes: ${a.testing_notes}`);
+
+  const blockers=[];
+  if(a.environment==='production' && missing.length)
+    blockers.push('Production environment selected while Firebase setup is incomplete.');
+  if(['auth_connected','firestore_connected','rules_deployed','pilot_ready'].includes(a.connection_status) && !done.has('Firebase project created'))
+    blockers.push('Connection status is ahead of the documented setup checklist.');
+  if(a.connection_status==='pilot_ready' && !done.has('Security rules deployed'))
+    blockers.push('Pilot-ready selected without deployed Firestore security rules.');
+
+  blockers.push('Firebase web config is not a private service-account secret, but service-account keys and admin credentials must never be placed in index.html.');
+  if(blockers.length)lines.push(`SECURITY NOTE: ${blockers.join(' ')}`);
+
+  lines.push('This V2.47 package is a scaffold only. Real Firebase connection still requires project-specific configuration and deployment of the included Firestore rules.');
+  return lines.join('\n');
+}
+
+function renderFirebaseBackendSummary(){
+  const box=$('firebaseBackendSummary');
+  if(box)box.textContent=buildFirebaseBackendSummary();
+}
+
+function restoreFirebaseBackendSettings(){
+  const a=current?.ayurveda?.firebaseBackendSettings||{};
+  set('fbConnectionStatus',a.connection_status||'not_connected');
+  set('fbSigninMethod',a.signin_method||'email_password');
+  set('fbEnvironment',a.environment||'development');
+  document.querySelectorAll('input[name="fbSetup"]').forEach(cb=>cb.checked=(a.setup_checks||[]).includes(cb.value));
+  set('fbProjectNotes',a.project_notes||'');
+  set('fbTestingNotes',a.testing_notes||'');
+  renderFirebaseBackendSummary();
+}
+
+function initFirebaseBackendEngine(){
+  ['fbConnectionStatus','fbSigninMethod','fbEnvironment','fbProjectNotes','fbTestingNotes'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.fbBound){
+      const ev=el.tagName==='TEXTAREA'?'input':'change';
+      el.addEventListener(ev,()=>{
+        current.ayurveda.firebaseBackendSettings=collectFirebaseBackendSettings();
+        renderFirebaseBackendSummary();
+      });
+      el.dataset.fbBound='1';
+    }
+  });
+
+  const checks=$('fbSetupChecks');
+  if(checks&&!checks.dataset.fbBound){
+    checks.addEventListener('change',()=>{
+      current.ayurveda.firebaseBackendSettings=collectFirebaseBackendSettings();
+      renderFirebaseBackendSummary();
+    });
+    checks.dataset.fbBound='1';
+  }
+
+  const evalBtn=$('fbEvaluateBtn');
+  if(evalBtn&&!evalBtn.dataset.fbBound){
+    evalBtn.onclick=()=>{renderFirebaseBackendSummary();status('Firebase readiness evaluated.');};
+    evalBtn.dataset.fbBound='1';
+  }
+
+  const copyBtn=$('fbCopyChecklistBtn');
+  if(copyBtn&&!copyBtn.dataset.fbBound){
+    copyBtn.onclick=async()=>{
+      const txt=buildFirebaseBackendSummary();
+      try{await navigator.clipboard.writeText(txt);status('Firebase setup checklist copied.');}
+      catch(e){status('Copy unavailable in this browser.');}
+    };
+    copyBtn.dataset.fbBound='1';
+  }
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -9189,7 +9369,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();initRedFlagEmergencyEngine();restoreRedFlagEmergency();initMedicationSafetyEngine();restoreMedicationSafety();initPrescriptionEngine();restorePrescriptionData();initPrintPrescriptionEngine();restorePrintPrescriptionSettings();initPatientEducationEngine();restorePatientEducation();initExerciseRehabYogaEngine();restoreExerciseRehabYoga();initFollowupComparisonEngine();restoreFollowupComparison();initPatientTimelineEngine();restorePatientTimeline();initDiseaseTemplateEngine();restoreDiseaseTemplateSettings();initClinicalRegistryEngine();restoreClinicalRegistryUI();initBackupRestoreEngine();restoreBackupRestoreSettings();initUserRoleAuditEngine();restoreUserRoleAuditSettings();initSecurityReadinessEngine();restoreSecurityReadiness();initBackendMigrationEngine();restoreBackendMigrationSettings();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();initRedFlagEmergencyEngine();restoreRedFlagEmergency();initMedicationSafetyEngine();restoreMedicationSafety();initPrescriptionEngine();restorePrescriptionData();initPrintPrescriptionEngine();restorePrintPrescriptionSettings();initPatientEducationEngine();restorePatientEducation();initExerciseRehabYogaEngine();restoreExerciseRehabYoga();initFollowupComparisonEngine();restoreFollowupComparison();initPatientTimelineEngine();restorePatientTimeline();initDiseaseTemplateEngine();restoreDiseaseTemplateSettings();initClinicalRegistryEngine();restoreClinicalRegistryUI();initBackupRestoreEngine();restoreBackupRestoreSettings();initUserRoleAuditEngine();restoreUserRoleAuditSettings();initSecurityReadinessEngine();restoreSecurityReadiness();initBackendMigrationEngine();restoreBackendMigrationSettings();initFirebaseBackendEngine();restoreFirebaseBackendSettings();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -9217,7 +9397,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};if(!a.printPrescriptionSettings)a.printPrescriptionSettings={};if(!a.patientEducation)a.patientEducation={};if(!a.exerciseRehabYoga)a.exerciseRehabYoga={};if(!a.followupComparison)a.followupComparison={visits:[]};if(!a.patientTimeline)a.patientTimeline={events:[]};if(!a.diseaseTemplateSettings)a.diseaseTemplateSettings={};if(!a.clinicalRegistryLastSearch)a.clinicalRegistryLastSearch={};if(!a.backupRestoreSettings)a.backupRestoreSettings={};if(!a.userRoleAuditSettings)a.userRoleAuditSettings={};if(!a.securityReadiness)a.securityReadiness={};if(!a.backendMigrationSettings)a.backendMigrationSettings={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};if(!a.printPrescriptionSettings)a.printPrescriptionSettings={};if(!a.patientEducation)a.patientEducation={};if(!a.exerciseRehabYoga)a.exerciseRehabYoga={};if(!a.followupComparison)a.followupComparison={visits:[]};if(!a.patientTimeline)a.patientTimeline={events:[]};if(!a.diseaseTemplateSettings)a.diseaseTemplateSettings={};if(!a.clinicalRegistryLastSearch)a.clinicalRegistryLastSearch={};if(!a.backupRestoreSettings)a.backupRestoreSettings={};if(!a.userRoleAuditSettings)a.userRoleAuditSettings={};if(!a.securityReadiness)a.securityReadiness={};if(!a.backendMigrationSettings)a.backendMigrationSettings={};if(!a.firebaseBackendSettings)a.firebaseBackendSettings={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
