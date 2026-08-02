@@ -4111,6 +4111,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Production Security Privacy Readiness Gate V2.45 */
 /* SKMCIS Backend Migration Preparation Pack V2.46 */
 /* SKMCIS Firebase Secure Auth Backend Scaffold V2.47 */
+/* SKMCIS Real Firebase Authentication Shell V2.48 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -7080,7 +7081,188 @@ function printPrescriptionDocument(){
         <div class="foot">Generated from SKMCIS clinical record. Physician verification required before issue.</div>
       </div>
       <script>window.onload=()=>setTimeout(()=>window.print(),300);<\/script>
-    </body>
+    
+<div id="skmcisAuthOverlay" style="position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:99999;display:none;align-items:center;justify-content:center;padding:18px">
+  <div style="width:min(520px,96vw);background:#fff;border-radius:16px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+    <h2 style="margin-top:0">SKMCIS Secure Login</h2>
+    <div id="skmcisAuthStatus" style="font-size:13px;margin-bottom:12px">Firebase not connected.</div>
+
+    <div id="skmcisFirebaseSetupBox">
+      <label>Firebase Web App Config</label>
+      <textarea id="skmcisFirebaseConfigInput" style="width:100%;min-height:160px" placeholder='Paste the Firebase Web App config object/JSON here. Example:
+{
+  "apiKey":"...",
+  "authDomain":"...",
+  "projectId":"...",
+  "storageBucket":"...",
+  "messagingSenderId":"...",
+  "appId":"..."
+}'></textarea>
+      <div style="font-size:12px;margin:6px 0 10px">Paste only Firebase Web App config. Do NOT paste service-account private keys.</div>
+      <button type="button" id="skmcisSaveFirebaseConfigBtn">Save & Connect Firebase</button>
+      <button type="button" id="skmcisClearFirebaseConfigBtn">Clear Saved Config</button>
+    </div>
+
+    <div id="skmcisLoginBox" style="display:none;margin-top:14px">
+      <label>Email</label>
+      <input id="skmcisLoginEmail" type="email" style="width:100%;margin-bottom:8px" autocomplete="username">
+      <label>Password</label>
+      <input id="skmcisLoginPassword" type="password" style="width:100%;margin-bottom:10px" autocomplete="current-password">
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button type="button" id="skmcisLoginBtn">Sign In</button>
+        <button type="button" id="skmcisForgotPasswordBtn">Forgot Password</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="skmcisAuthBar" style="position:fixed;right:12px;bottom:12px;z-index:99998;background:#fff;border:1px solid #ccc;border-radius:999px;padding:8px 12px;box-shadow:0 4px 16px rgba(0,0,0,.15);font-size:12px;display:none">
+  <span id="skmcisAuthUserLabel"></span>
+  <button type="button" id="skmcisLogoutBtn" style="margin-left:8px">Sign Out</button>
+</div>
+
+<script type="module">
+const CFG_KEY='SKMCIS_FIREBASE_WEB_CONFIG_V1';
+
+function el(id){return document.getElementById(id);}
+function showAuthStatus(msg){const x=el('skmcisAuthStatus');if(x)x.textContent=msg;}
+function showOverlay(v){const o=el('skmcisAuthOverlay');if(o)o.style.display=v?'flex':'none';}
+function showLogin(v){const x=el('skmcisLoginBox');if(x)x.style.display=v?'block':'none';}
+function showSetup(v){const x=el('skmcisFirebaseSetupBox');if(x)x.style.display=v?'block':'none';}
+function setAuthBar(user){
+  const bar=el('skmcisAuthBar'), label=el('skmcisAuthUserLabel');
+  if(!bar||!label)return;
+  if(user){label.textContent=user.email||user.uid;bar.style.display='block';}
+  else{bar.style.display='none';}
+}
+function parseConfig(raw){
+  let s=(raw||'').trim();
+  if(!s)throw new Error('Firebase config is empty.');
+  s=s.replace(/^const\s+firebaseConfig\s*=\s*/,'').replace(/^var\s+firebaseConfig\s*=\s*/,'').replace(/^let\s+firebaseConfig\s*=\s*/,'').replace(/;$/,'').trim();
+  if(s.startsWith('{')&&s.includes(':')){
+    try{return JSON.parse(s);}catch(e){}
+    try{
+      const normalized=s
+        .replace(/([,{]\s*)([A-Za-z_$][\w$]*)\s*:/g,'$1"$2":')
+        .replace(/'/g,'"');
+      return JSON.parse(normalized);
+    }catch(e){}
+  }
+  throw new Error('Could not parse Firebase config. Paste only the Web App config object.');
+}
+function validateConfig(c){
+  const req=['apiKey','authDomain','projectId','appId'];
+  const miss=req.filter(k=>!c?.[k]);
+  if(miss.length)throw new Error('Missing config fields: '+miss.join(', '));
+  return c;
+}
+
+let firebaseApp=null, firebaseAuth=null, firebaseDb=null;
+let authMod=null, appMod=null, fsMod=null;
+
+async function connectFirebase(config){
+  config=validateConfig(config);
+  showAuthStatus('Connecting to Firebase...');
+  appMod=await import('https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js');
+  authMod=await import('https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js');
+  fsMod=await import('https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js');
+
+  firebaseApp=appMod.getApps().length?appMod.getApp():appMod.initializeApp(config);
+  firebaseAuth=authMod.getAuth(firebaseApp);
+  firebaseDb=fsMod.getFirestore(firebaseApp);
+
+  window.SKMCIS_FIREBASE={app:firebaseApp,auth:firebaseAuth,db:firebaseDb,authMod,fsMod};
+  showSetup(false);
+  showLogin(true);
+
+  authMod.onAuthStateChanged(firebaseAuth,async user=>{
+    if(user){
+      showAuthStatus('Signed in as '+(user.email||user.uid));
+      setAuthBar(user);
+      showOverlay(false);
+      document.documentElement.dataset.skmcisAuthenticated='1';
+
+      // Optional role lookup from /users/{uid}; failure does not silently grant extra role.
+      try{
+        const snap=await fsMod.getDoc(fsMod.doc(firebaseDb,'users',user.uid));
+        const role=snap.exists()?(snap.data().role||'unspecified'):'unspecified';
+        window.SKMCIS_AUTH_USER={uid:user.uid,email:user.email||'',role};
+        if(typeof status==='function')status('Signed in: '+(user.email||user.uid)+' | Role: '+role);
+      }catch(e){
+        window.SKMCIS_AUTH_USER={uid:user.uid,email:user.email||'',role:'unverified'};
+      }
+    }else{
+      setAuthBar(null);
+      document.documentElement.dataset.skmcisAuthenticated='0';
+      showOverlay(true);
+      showLogin(true);
+    }
+  });
+
+  showAuthStatus('Firebase connected. Sign in with your authorized account.');
+}
+
+async function boot(){
+  const saved=localStorage.getItem(CFG_KEY);
+  if(!saved){
+    showOverlay(true);showSetup(true);showLogin(false);
+    showAuthStatus('Firebase Web App config required once. No code editing needed.');
+    return;
+  }
+  try{
+    const c=JSON.parse(saved);
+    await connectFirebase(c);
+  }catch(e){
+    showOverlay(true);showSetup(true);showLogin(false);
+    showAuthStatus('Saved Firebase config could not connect: '+e.message);
+  }
+}
+
+el('skmcisSaveFirebaseConfigBtn')?.addEventListener('click',async()=>{
+  try{
+    const c=validateConfig(parseConfig(el('skmcisFirebaseConfigInput')?.value||''));
+    localStorage.setItem(CFG_KEY,JSON.stringify(c));
+    await connectFirebase(c);
+  }catch(e){showAuthStatus(e.message);}
+});
+
+el('skmcisClearFirebaseConfigBtn')?.addEventListener('click',()=>{
+  localStorage.removeItem(CFG_KEY);
+  showAuthStatus('Saved Firebase config cleared.');
+  showSetup(true);showLogin(false);
+});
+
+el('skmcisLoginBtn')?.addEventListener('click',async()=>{
+  if(!firebaseAuth||!authMod){showAuthStatus('Firebase is not connected.');return;}
+  const email=(el('skmcisLoginEmail')?.value||'').trim();
+  const password=el('skmcisLoginPassword')?.value||'';
+  if(!email||!password){showAuthStatus('Enter email and password.');return;}
+  showAuthStatus('Signing in...');
+  try{
+    await authMod.signInWithEmailAndPassword(firebaseAuth,email,password);
+  }catch(e){
+    showAuthStatus('Login failed: '+(e.code||e.message));
+  }
+});
+
+el('skmcisForgotPasswordBtn')?.addEventListener('click',async()=>{
+  if(!firebaseAuth||!authMod){showAuthStatus('Firebase is not connected.');return;}
+  const email=(el('skmcisLoginEmail')?.value||'').trim();
+  if(!email){showAuthStatus('Enter your email first.');return;}
+  try{
+    await authMod.sendPasswordResetEmail(firebaseAuth,email);
+    showAuthStatus('Password reset email sent.');
+  }catch(e){showAuthStatus('Password reset failed: '+(e.code||e.message));}
+});
+
+el('skmcisLogoutBtn')?.addEventListener('click',async()=>{
+  if(firebaseAuth&&authMod)await authMod.signOut(firebaseAuth);
+});
+
+boot();
+</script>
+
+</body>
     </html>
   `);
   win.document.close();
