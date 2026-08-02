@@ -1931,6 +1931,117 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   </div>
 </div>
 
+
+<div class="card" id="integratedDiagnosisCard" style="margin-top:12px">
+  <h3>Integrated Diagnosis & Clinical Correlation Engine</h3>
+  <div class="small">Keeps Ayurvedic diagnosis, modern diagnosis and integrative clinical correlation as separate layers. It does not automatically treat them as exact equivalents.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Ayurvedic Diagnosis</label>
+      <input id="idAyurDiagnosis" placeholder="Classical diagnosis / condition">
+    </div>
+    <div>
+      <label>Ayurvedic Bheda / Subtype</label>
+      <input id="idAyurSubtype" placeholder="Subtype / Dosha predominance">
+    </div>
+    <div>
+      <label>Ayurvedic Diagnostic Certainty</label>
+      <select id="idAyurCertainty">
+        <option value="">Not assessed</option>
+        <option value="possible">Possible</option>
+        <option value="probable">Probable</option>
+        <option value="clinically_supported">Clinically supported</option>
+        <option value="confirmed">Physician-confirmed</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Modern Diagnosis</label>
+      <input id="idModernDiagnosis" placeholder="Modern diagnosis">
+    </div>
+    <div>
+      <label>ICD / Coding Notes</label>
+      <input id="idCodingNotes" placeholder="Optional code / coding note">
+    </div>
+    <div>
+      <label>Modern Diagnostic Certainty</label>
+      <select id="idModernCertainty">
+        <option value="">Not assessed</option>
+        <option value="suspected">Suspected</option>
+        <option value="probable">Probable</option>
+        <option value="clinical">Clinical diagnosis</option>
+        <option value="investigation_supported">Investigation-supported</option>
+        <option value="specialist_confirmed">Specialist-confirmed</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Correlation Type</label>
+      <select id="idCorrelationType">
+        <option value="">Not assessed</option>
+        <option value="partial_overlap">Partial clinical overlap</option>
+        <option value="functional_correlation">Functional correlation</option>
+        <option value="phenotypic_similarity">Phenotypic similarity</option>
+        <option value="coexisting">Co-existing diagnoses</option>
+        <option value="no_direct_equivalence">No direct equivalence</option>
+        <option value="uncertain">Uncertain / under evaluation</option>
+      </select>
+    </div>
+    <div>
+      <label>Primary Working Diagnosis</label>
+      <select id="idPrimaryLayer">
+        <option value="">Not selected</option>
+        <option value="ayurveda">Ayurvedic diagnosis primary</option>
+        <option value="modern">Modern diagnosis primary</option>
+        <option value="integrated">Integrated working diagnosis</option>
+      </select>
+    </div>
+    <div>
+      <label>Overall Diagnostic Confidence</label>
+      <select id="idOverallConfidence">
+        <option value="">Not set</option>
+        <option value="low">Low</option>
+        <option value="moderate">Moderate</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Integrative Clinical Correlation</label>
+      <textarea id="idCorrelationNotes" placeholder="Explain the clinical relationship between Ayurvedic and modern findings without assuming exact equivalence..."></textarea>
+    </div>
+    <div>
+      <label>Differential Diagnosis / Alternatives</label>
+      <textarea id="idDifferentials" placeholder="Important Ayurvedic and modern differentials, exclusions, pending clarification..."></textarea>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Evidence Supporting Diagnosis</label>
+      <textarea id="idSupportingEvidence" placeholder="History, exam, investigation, Dosha/Dhatu/Srotas, imaging, labs, response to treatment..."></textarea>
+    </div>
+    <div>
+      <label>Unresolved / Conflicting Findings</label>
+      <textarea id="idConflicts" placeholder="Discordant findings, missing evidence, pending tests, alternative explanations..."></textarea>
+    </div>
+  </div>
+
+  <div id="integratedDiagnosisSummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No integrated diagnostic summary documented.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="generateIntegratedDxBtn" class="secondary">Generate / Refresh Integrated Diagnosis</button>
+    <button type="button" id="addIntegratedDxBtn" class="secondary">Add Integrated Diagnosis to Ayurveda Notes</button>
+  </div>
+</div>
+
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -2486,6 +2597,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Modern Clinical Examination Engine V2.29 */
 /* SKMCIS Ortho-Neuro Examination Engine V2.30 */
 /* SKMCIS Investigations-Reports Engine V2.31 */
+/* SKMCIS Integrated Diagnosis Engine V2.32 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -2541,7 +2653,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -3130,7 +3242,7 @@ function initSrotasClinicalEngine(){
     parent.addEventListener('change',()=>{
       if(!current.ayurveda.srotasDetails)current.ayurveda.srotasDetails={};
       current.ayurveda.srotasDetails=collectSrotasDetails();
-      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();
+      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();
     });
     parent.dataset.srotasDetailBound='1';
   }
@@ -4663,6 +4775,146 @@ function initInvestigationReportsEngine(){
     add.dataset.irBound='1';
   }
 }
+
+function collectIntegratedDiagnosis(){
+  return {
+    ayur_diagnosis:val('idAyurDiagnosis'),
+    ayur_subtype:val('idAyurSubtype'),
+    ayur_certainty:val('idAyurCertainty'),
+    modern_diagnosis:val('idModernDiagnosis'),
+    coding_notes:val('idCodingNotes'),
+    modern_certainty:val('idModernCertainty'),
+    correlation_type:val('idCorrelationType'),
+    primary_layer:val('idPrimaryLayer'),
+    overall_confidence:val('idOverallConfidence'),
+    correlation_notes:val('idCorrelationNotes'),
+    differentials:val('idDifferentials'),
+    supporting_evidence:val('idSupportingEvidence'),
+    conflicts:val('idConflicts')
+  };
+}
+
+function buildIntegratedDiagnosisSummary(){
+  const a=collectIntegratedDiagnosis();
+  const inv=collectInvestigationReports();
+  const exam=collectModernClinicalExam();
+  const ortho=collectOrthoNeuroExam();
+  const samprapti=buildSampraptiGhatakaSynthesis();
+  const lines=[];
+
+  if(a.ayur_diagnosis)
+    lines.push(`Ayurvedic diagnosis: ${a.ayur_diagnosis}${a.ayur_subtype?` — ${a.ayur_subtype}`:''}`);
+  if(a.ayur_certainty)
+    lines.push(`Ayurvedic certainty: ${humanizeAyuToken(a.ayur_certainty)}`);
+
+  if(a.modern_diagnosis)
+    lines.push(`Modern diagnosis: ${a.modern_diagnosis}`);
+  if(a.modern_certainty)
+    lines.push(`Modern certainty: ${humanizeAyuToken(a.modern_certainty)}`);
+  if(a.coding_notes)
+    lines.push(`Coding note: ${a.coding_notes}`);
+
+  if(a.correlation_type)
+    lines.push(`Correlation type: ${humanizeAyuToken(a.correlation_type)}`);
+  if(a.primary_layer)
+    lines.push(`Primary working layer: ${humanizeAyuToken(a.primary_layer)}`);
+  if(a.overall_confidence)
+    lines.push(`Overall diagnostic confidence: ${humanizeAyuToken(a.overall_confidence)}`);
+
+  if(a.correlation_notes)
+    lines.push(`Integrative correlation: ${a.correlation_notes}`);
+  if(a.differentials)
+    lines.push(`Differentials: ${a.differentials}`);
+  if(a.supporting_evidence)
+    lines.push(`Supporting evidence: ${a.supporting_evidence}`);
+  if(a.conflicts)
+    lines.push(`Unresolved/conflicting findings: ${a.conflicts}`);
+
+  const warnings=[];
+  if(a.overall_confidence==='high' && !a.supporting_evidence)
+    warnings.push('High diagnostic confidence selected without explicit supporting evidence.');
+  if(a.correlation_type==='partial_overlap' && !a.correlation_notes)
+    warnings.push('Partial overlap selected but correlation rationale is not documented.');
+  if(a.correlation_type==='no_direct_equivalence' && a.primary_layer==='integrated')
+    warnings.push('Integrated working diagnosis selected despite no direct equivalence; document how the two diagnostic frameworks are being used together.');
+  if(a.modern_certainty==='investigation_supported' && !inv.key_results && !inv.impression)
+    warnings.push('Modern diagnosis marked investigation-supported but no key investigation result is documented here.');
+  if(a.ayur_certainty==='confirmed' && (!a.ayur_diagnosis || !samprapti))
+    warnings.push('Physician-confirmed Ayurvedic diagnosis should be supported by a documented diagnosis and Samprapti reasoning.');
+
+  const redflags=[
+    ...(exam.red_flags||[]),
+    ...(ortho.neuro_red_flags||[])
+  ];
+  if(redflags.length)
+    warnings.push('Active red flags are documented and should remain higher priority than diagnostic-label refinement.');
+
+  if(warnings.length)
+    lines.push(`Review before finalizing: ${warnings.join(' ')}`);
+
+  lines.push('Ayurvedic and modern diagnoses are documented as distinct clinical frameworks. Exact one-to-one equivalence should not be assumed unless specifically established.');
+  return lines.length
+    ? `Integrated Diagnosis & Clinical Correlation Summary:\n${lines.map(x=>'• '+x).join('\n')}`
+    : 'No integrated diagnostic summary documented.';
+}
+
+function renderIntegratedDiagnosisSummary(){
+  const box=$('integratedDiagnosisSummary');
+  if(box)box.textContent=buildIntegratedDiagnosisSummary();
+}
+
+function restoreIntegratedDiagnosis(){
+  const a=current?.ayurveda?.integratedDiagnosis||{};
+  set('idAyurDiagnosis',a.ayur_diagnosis||'');
+  set('idAyurSubtype',a.ayur_subtype||'');
+  set('idAyurCertainty',a.ayur_certainty||'');
+  set('idModernDiagnosis',a.modern_diagnosis||'');
+  set('idCodingNotes',a.coding_notes||'');
+  set('idModernCertainty',a.modern_certainty||'');
+  set('idCorrelationType',a.correlation_type||'');
+  set('idPrimaryLayer',a.primary_layer||'');
+  set('idOverallConfidence',a.overall_confidence||'');
+  set('idCorrelationNotes',a.correlation_notes||'');
+  set('idDifferentials',a.differentials||'');
+  set('idSupportingEvidence',a.supporting_evidence||'');
+  set('idConflicts',a.conflicts||'');
+  renderIntegratedDiagnosisSummary();
+}
+
+function initIntegratedDiagnosisEngine(){
+  ['idAyurDiagnosis','idAyurSubtype','idAyurCertainty','idModernDiagnosis','idCodingNotes',
+   'idModernCertainty','idCorrelationType','idPrimaryLayer','idOverallConfidence',
+   'idCorrelationNotes','idDifferentials','idSupportingEvidence','idConflicts'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.idxBound){
+      const ev=(el.tagName==='TEXTAREA'||el.tagName==='INPUT')?'input':'change';
+      el.addEventListener(ev,()=>{
+        current.ayurveda.integratedDiagnosis=collectIntegratedDiagnosis();
+        renderIntegratedDiagnosisSummary();
+      });
+      el.dataset.idxBound='1';
+    }
+  });
+
+  const gen=$('generateIntegratedDxBtn');
+  if(gen&&!gen.dataset.idxBound){
+    gen.onclick=()=>{renderIntegratedDiagnosisSummary();status('Integrated diagnosis summary refreshed.');};
+    gen.dataset.idxBound='1';
+  }
+
+  const add=$('addIntegratedDxBtn');
+  if(add&&!add.dataset.idxBound){
+    add.onclick=()=>{
+      renderIntegratedDiagnosisSummary();
+      const txt=$('integratedDiagnosisSummary')?.textContent||'';
+      if(!txt||txt.startsWith('No integrated'))return;
+      const old=val('ayurNotes');
+      set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));
+      status('Integrated diagnosis summary added to Ayurveda Notes.');
+    };
+    add.dataset.idxBound='1';
+  }
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -4747,7 +4999,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -4775,7 +5027,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
