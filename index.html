@@ -2042,6 +2042,134 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   </div>
 </div>
 
+
+<div class="card" id="redFlagEmergencyCard" style="margin-top:12px">
+  <h3>Red-Flag & Emergency Safety Engine</h3>
+  <div class="small">Structured urgent-risk screening for integrated OPD. This engine supports escalation decisions and does not replace emergency clinical judgment.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Overall Urgency</label>
+      <select id="rfUrgency">
+        <option value="">Not assessed</option>
+        <option value="routine">Routine</option>
+        <option value="priority">Priority review</option>
+        <option value="same_day">Same-day urgent review</option>
+        <option value="emergency">Emergency evaluation</option>
+      </select>
+    </div>
+    <div>
+      <label>Hemodynamic Stability</label>
+      <select id="rfHemodynamic">
+        <option value="">Not assessed</option>
+        <option value="stable">Stable</option>
+        <option value="borderline">Borderline</option>
+        <option value="unstable">Unstable</option>
+        <option value="shock_suspected">Shock suspected</option>
+      </select>
+    </div>
+    <div>
+      <label>Escalation Status</label>
+      <select id="rfEscalation">
+        <option value="">Not documented</option>
+        <option value="observe">Observe / reassess</option>
+        <option value="senior_review">Senior review</option>
+        <option value="specialist_referral">Specialist referral</option>
+        <option value="er_referral">Emergency department referral</option>
+        <option value="ambulance">Ambulance / emergency transfer</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Neurological / Spine Red Flags</label>
+    <div id="rfNeuroChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="rfNeuro" value="Progressive motor weakness">Progressive motor weakness</label>
+      <label class="check"><input type="checkbox" name="rfNeuro" value="Acute foot drop">Acute foot drop</label>
+      <label class="check"><input type="checkbox" name="rfNeuro" value="Saddle anesthesia">Saddle anesthesia</label>
+      <label class="check"><input type="checkbox" name="rfNeuro" value="New urinary retention/incontinence">New urinary retention / incontinence</label>
+      <label class="check"><input type="checkbox" name="rfNeuro" value="New fecal incontinence">New fecal incontinence</label>
+      <label class="check"><input type="checkbox" name="rfNeuro" value="Bilateral severe radicular symptoms">Bilateral severe radicular symptoms</label>
+      <label class="check"><input type="checkbox" name="rfNeuro" value="Acute focal neurological deficit">Acute focal neurological deficit</label>
+      <label class="check"><input type="checkbox" name="rfNeuro" value="Myelopathic signs">Myelopathic signs</label>
+      <label class="check"><input type="checkbox" name="rfNeuro" value="Altered consciousness">Altered consciousness</label>
+      <label class="check"><input type="checkbox" name="rfNeuro" value="Seizure / new convulsion">Seizure / new convulsion</label>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Cardio-Respiratory Red Flags</label>
+    <div id="rfCardioRespChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="rfCardioResp" value="Severe chest pain">Severe chest pain</label>
+      <label class="check"><input type="checkbox" name="rfCardioResp" value="Severe breathlessness">Severe breathlessness</label>
+      <label class="check"><input type="checkbox" name="rfCardioResp" value="Syncope / collapse">Syncope / collapse</label>
+      <label class="check"><input type="checkbox" name="rfCardioResp" value="Marked cyanosis">Marked cyanosis</label>
+      <label class="check"><input type="checkbox" name="rfCardioResp" value="New serious arrhythmia suspected">New serious arrhythmia suspected</label>
+      <label class="check"><input type="checkbox" name="rfCardioResp" value="Severe uncontrolled hypertension with symptoms">Severe uncontrolled hypertension with symptoms</label>
+      <label class="check"><input type="checkbox" name="rfCardioResp" value="Shock / poor perfusion">Shock / poor perfusion</label>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Infection / Systemic / Trauma Red Flags</label>
+    <div id="rfSystemicChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="rfSystemic" value="Sepsis / toxic appearance">Sepsis / toxic appearance</label>
+      <label class="check"><input type="checkbox" name="rfSystemic" value="High fever with instability">High fever with instability</label>
+      <label class="check"><input type="checkbox" name="rfSystemic" value="Recent major trauma">Recent major trauma</label>
+      <label class="check"><input type="checkbox" name="rfSystemic" value="Suspected fracture / dislocation with neurovascular compromise">Suspected fracture / dislocation with neurovascular compromise</label>
+      <label class="check"><input type="checkbox" name="rfSystemic" value="Active major bleeding">Active major bleeding</label>
+      <label class="check"><input type="checkbox" name="rfSystemic" value="Severe dehydration">Severe dehydration</label>
+      <label class="check"><input type="checkbox" name="rfSystemic" value="Acute abdomen / guarding">Acute abdomen / guarding</label>
+      <label class="check"><input type="checkbox" name="rfSystemic" value="Rapidly worsening unexplained weakness">Rapidly worsening unexplained weakness</label>
+      <label class="check"><input type="checkbox" name="rfSystemic" value="Night/rest pain with malignancy concern">Night/rest pain with malignancy concern</label>
+      <label class="check"><input type="checkbox" name="rfSystemic" value="Unexplained weight loss with systemic concern">Unexplained weight loss with systemic concern</label>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>High-Risk Context</label>
+    <div id="rfRiskContextChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="rfRiskContext" value="Pregnancy / postpartum concern">Pregnancy / postpartum concern</label>
+      <label class="check"><input type="checkbox" name="rfRiskContext" value="Immunocompromised">Immunocompromised</label>
+      <label class="check"><input type="checkbox" name="rfRiskContext" value="Cancer history">Cancer history</label>
+      <label class="check"><input type="checkbox" name="rfRiskContext" value="Anticoagulant / bleeding risk">Anticoagulant / bleeding risk</label>
+      <label class="check"><input type="checkbox" name="rfRiskContext" value="Severe renal disease">Severe renal disease</label>
+      <label class="check"><input type="checkbox" name="rfRiskContext" value="Severe liver disease">Severe liver disease</label>
+      <label class="check"><input type="checkbox" name="rfRiskContext" value="Very old / frail patient">Very old / frail patient</label>
+      <label class="check"><input type="checkbox" name="rfRiskContext" value="Recent surgery / invasive procedure">Recent surgery / invasive procedure</label>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Emergency / Referral Action Taken</label>
+      <textarea id="rfActionTaken" placeholder="Referred to ER, called ambulance, senior reviewed, imaging ordered, urgent specialist opinion, etc."></textarea>
+    </div>
+    <div>
+      <label>Reason for Non-Escalation / Observation</label>
+      <textarea id="rfObservationReason" placeholder="If a potential red flag is present but emergency transfer is not chosen, document the clinical reasoning and safety-net plan."></textarea>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Safety-Net Advice</label>
+      <textarea id="rfSafetyNet" placeholder="Warning symptoms, when to seek emergency care, next review timing..."></textarea>
+    </div>
+    <div>
+      <label>Referral Destination / Specialist</label>
+      <input id="rfReferralDestination" placeholder="Hospital / ER / Neurology / Orthopedics / Cardiology / Surgery etc.">
+    </div>
+  </div>
+
+  <div id="redFlagEmergencySummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No red-flag / emergency safety assessment documented.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="generateRfSummaryBtn" class="secondary">Generate / Refresh Safety Summary</button>
+    <button type="button" id="addRfSummaryBtn" class="secondary">Add Safety Summary to Ayurveda Notes</button>
+  </div>
+</div>
+
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -2598,6 +2726,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Ortho-Neuro Examination Engine V2.30 */
 /* SKMCIS Investigations-Reports Engine V2.31 */
 /* SKMCIS Integrated Diagnosis Engine V2.32 */
+/* SKMCIS Red-Flag Emergency Safety Engine V2.33 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -2653,7 +2782,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),redFlagEmergency:collectRedFlagEmergency(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -3242,7 +3371,7 @@ function initSrotasClinicalEngine(){
     parent.addEventListener('change',()=>{
       if(!current.ayurveda.srotasDetails)current.ayurveda.srotasDetails={};
       current.ayurveda.srotasDetails=collectSrotasDetails();
-      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();
+      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();restoreRedFlagEmergency();
     });
     parent.dataset.srotasDetailBound='1';
   }
@@ -4915,6 +5044,128 @@ function initIntegratedDiagnosisEngine(){
     add.dataset.idxBound='1';
   }
 }
+
+function collectRedFlagEmergency(){
+  return {
+    urgency:val('rfUrgency'),
+    hemodynamic:val('rfHemodynamic'),
+    escalation:val('rfEscalation'),
+    neuro:selected('rfNeuro'),
+    cardioresp:selected('rfCardioResp'),
+    systemic:selected('rfSystemic'),
+    risk_context:selected('rfRiskContext'),
+    action_taken:val('rfActionTaken'),
+    observation_reason:val('rfObservationReason'),
+    safety_net:val('rfSafetyNet'),
+    referral_destination:val('rfReferralDestination')
+  };
+}
+
+function buildRedFlagEmergencySummary(){
+  const a=collectRedFlagEmergency(), lines=[];
+  const allFlags=[...(a.neuro||[]),...(a.cardioresp||[]),...(a.systemic||[])];
+
+  if(a.urgency)lines.push(`Overall urgency: ${humanizeAyuToken(a.urgency)}`);
+  if(a.hemodynamic)lines.push(`Hemodynamic status: ${humanizeAyuToken(a.hemodynamic)}`);
+  if(a.escalation)lines.push(`Escalation status: ${humanizeAyuToken(a.escalation)}`);
+  if(a.neuro.length)lines.push(`Neurological/spine red flags: ${a.neuro.join('; ')}`);
+  if(a.cardioresp.length)lines.push(`Cardio-respiratory red flags: ${a.cardioresp.join('; ')}`);
+  if(a.systemic.length)lines.push(`Systemic/trauma red flags: ${a.systemic.join('; ')}`);
+  if(a.risk_context.length)lines.push(`High-risk context: ${a.risk_context.join('; ')}`);
+  if(a.action_taken)lines.push(`Action taken: ${a.action_taken}`);
+  if(a.observation_reason)lines.push(`Observation/non-escalation rationale: ${a.observation_reason}`);
+  if(a.safety_net)lines.push(`Safety-net advice: ${a.safety_net}`);
+  if(a.referral_destination)lines.push(`Referral destination: ${a.referral_destination}`);
+
+  const alerts=[];
+  if(a.hemodynamic==='unstable'||a.hemodynamic==='shock_suspected')alerts.push('Hemodynamic instability is documented.');
+  if(a.urgency==='emergency' && !['er_referral','ambulance'].includes(a.escalation))
+    alerts.push('Emergency urgency selected without ER referral or ambulance escalation.');
+  if(allFlags.length && !a.action_taken && !a.observation_reason)
+    alerts.push('One or more red flags are selected but no action or observation rationale is documented.');
+  if(a.neuro.includes('Saddle anesthesia') || a.neuro.includes('New urinary retention/incontinence') || a.neuro.includes('New fecal incontinence'))
+    alerts.push('Possible cauda equina syndrome features are documented; urgent emergency assessment is generally required.');
+  if(a.neuro.includes('Acute focal neurological deficit'))
+    alerts.push('Acute focal neurological deficit may represent a time-sensitive neurological emergency.');
+  if(a.cardioresp.includes('Severe chest pain') || a.cardioresp.includes('Severe breathlessness') || a.cardioresp.includes('Syncope / collapse'))
+    alerts.push('Potential cardio-respiratory emergency symptoms are documented.');
+  if(a.systemic.includes('Sepsis / toxic appearance'))
+    alerts.push('Possible sepsis/toxic appearance is documented.');
+  if(a.systemic.includes('Active major bleeding'))
+    alerts.push('Active major bleeding is documented.');
+
+  if(alerts.length)lines.push(`EMERGENCY SAFETY ALERT: ${alerts.join(' ')}`);
+
+  lines.push('Red-flag screening is a safety aid only. Immediate clinical judgment, local emergency protocols and appropriate referral take priority.');
+  return lines.length
+    ? `Red-Flag & Emergency Safety Summary:\n${lines.map(x=>'• '+x).join('\n')}`
+    : 'No red-flag / emergency safety assessment documented.';
+}
+
+function renderRedFlagEmergencySummary(){
+  const box=$('redFlagEmergencySummary');
+  if(box)box.textContent=buildRedFlagEmergencySummary();
+}
+
+function restoreRedFlagEmergency(){
+  const a=current?.ayurveda?.redFlagEmergency||{};
+  set('rfUrgency',a.urgency||'');
+  set('rfHemodynamic',a.hemodynamic||'');
+  set('rfEscalation',a.escalation||'');
+  document.querySelectorAll('input[name="rfNeuro"]').forEach(cb=>cb.checked=(a.neuro||[]).includes(cb.value));
+  document.querySelectorAll('input[name="rfCardioResp"]').forEach(cb=>cb.checked=(a.cardioresp||[]).includes(cb.value));
+  document.querySelectorAll('input[name="rfSystemic"]').forEach(cb=>cb.checked=(a.systemic||[]).includes(cb.value));
+  document.querySelectorAll('input[name="rfRiskContext"]').forEach(cb=>cb.checked=(a.risk_context||[]).includes(cb.value));
+  set('rfActionTaken',a.action_taken||'');
+  set('rfObservationReason',a.observation_reason||'');
+  set('rfSafetyNet',a.safety_net||'');
+  set('rfReferralDestination',a.referral_destination||'');
+  renderRedFlagEmergencySummary();
+}
+
+function initRedFlagEmergencyEngine(){
+  ['rfUrgency','rfHemodynamic','rfEscalation','rfActionTaken','rfObservationReason','rfSafetyNet','rfReferralDestination'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.rfBound){
+      const ev=(el.tagName==='TEXTAREA'||el.tagName==='INPUT')?'input':'change';
+      el.addEventListener(ev,()=>{
+        current.ayurveda.redFlagEmergency=collectRedFlagEmergency();
+        renderRedFlagEmergencySummary();
+      });
+      el.dataset.rfBound='1';
+    }
+  });
+
+  ['rfNeuroChecks','rfCardioRespChecks','rfSystemicChecks','rfRiskContextChecks'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.rfBound){
+      el.addEventListener('change',()=>{
+        current.ayurveda.redFlagEmergency=collectRedFlagEmergency();
+        renderRedFlagEmergencySummary();
+      });
+      el.dataset.rfBound='1';
+    }
+  });
+
+  const gen=$('generateRfSummaryBtn');
+  if(gen&&!gen.dataset.rfBound){
+    gen.onclick=()=>{renderRedFlagEmergencySummary();status('Red-flag safety summary refreshed.');};
+    gen.dataset.rfBound='1';
+  }
+
+  const add=$('addRfSummaryBtn');
+  if(add&&!add.dataset.rfBound){
+    add.onclick=()=>{
+      renderRedFlagEmergencySummary();
+      const txt=$('redFlagEmergencySummary')?.textContent||'';
+      if(!txt||txt.startsWith('No red-flag'))return;
+      const old=val('ayurNotes');
+      set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));
+      status('Red-flag safety summary added to Ayurveda Notes.');
+    };
+    add.dataset.rfBound='1';
+  }
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -4999,7 +5250,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();initRedFlagEmergencyEngine();restoreRedFlagEmergency();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -5027,7 +5278,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
