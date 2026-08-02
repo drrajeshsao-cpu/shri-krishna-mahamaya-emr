@@ -2317,6 +2317,137 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   </div>
 </div>
 
+
+<div class="card" id="prescriptionEngineCard" style="margin-top:12px">
+  <h3>Integrated Prescription Engine</h3>
+  <div class="small">Structured prescription documentation for Ayurveda, modern medicine and integrated use. Every medicine remains physician-entered and physician-approved.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Prescription Type</label>
+      <select id="rxType">
+        <option value="">Not selected</option>
+        <option value="ayurveda">Ayurveda only</option>
+        <option value="modern">Modern medicine only</option>
+        <option value="integrated">Integrated / mixed</option>
+        <option value="procedure_only">Procedure / therapy only</option>
+      </select>
+    </div>
+    <div>
+      <label>Prescription Status</label>
+      <select id="rxStatus">
+        <option value="">Draft</option>
+        <option value="reviewed">Reviewed</option>
+        <option value="approved">Approved</option>
+        <option value="hold">On hold</option>
+      </select>
+    </div>
+    <div>
+      <label>Follow-up After</label>
+      <input id="rxFollowupDays" type="number" min="0" max="3650" placeholder="Days">
+    </div>
+  </div>
+
+  <div style="margin-top:12px">
+    <h4>Add Medicine / Product</h4>
+    <div class="grid3">
+      <div><label>System</label><select id="rxMedSystem">
+        <option value="ayurveda">Ayurveda</option>
+        <option value="modern">Modern</option>
+        <option value="supplement">Supplement / Nutraceutical</option>
+        <option value="external">External / topical</option>
+        <option value="other">Other</option>
+      </select></div>
+      <div><label>Medicine / Product Name</label><input id="rxMedName" placeholder="Medicine name"></div>
+      <div><label>Strength / Formulation</label><input id="rxMedStrength" placeholder="e.g. 500 mg / tablet / churna / taila"></div>
+    </div>
+
+    <div class="grid3" style="margin-top:10px">
+      <div><label>Dose</label><input id="rxMedDose" placeholder="e.g. 1 tab / 5 ml / 3 g"></div>
+      <div><label>Route</label><select id="rxMedRoute">
+        <option value="">Not selected</option>
+        <option value="oral">Oral</option>
+        <option value="topical">Topical</option>
+        <option value="nasal">Nasal</option>
+        <option value="rectal">Rectal</option>
+        <option value="inhalation">Inhalation</option>
+        <option value="injection">Injection</option>
+        <option value="other">Other</option>
+      </select></div>
+      <div><label>Frequency</label><input id="rxMedFrequency" placeholder="OD / BD / TDS / HS / PRN / custom"></div>
+    </div>
+
+    <div class="grid3" style="margin-top:10px">
+      <div><label>Duration</label><input id="rxMedDuration" placeholder="e.g. 5 days / 2 weeks / 1 month"></div>
+      <div><label>Relation to Food</label><select id="rxMedFood">
+        <option value="">Not specified</option>
+        <option value="before_food">Before food</option>
+        <option value="after_food">After food</option>
+        <option value="with_food">With food</option>
+        <option value="empty_stomach">Empty stomach</option>
+        <option value="bedtime">At bedtime</option>
+        <option value="as_directed">As directed</option>
+      </select></div>
+      <div><label>PRN / As Needed</label><select id="rxMedPrn">
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+      </select></div>
+    </div>
+
+    <div class="grid" style="margin-top:10px">
+      <div><label>Anupana / Administration Instructions</label><textarea id="rxMedInstructions" placeholder="Warm water, milk, honey, application site, special instruction..."></textarea></div>
+      <div><label>Indication / Purpose</label><textarea id="rxMedIndication" placeholder="Why this medicine is prescribed..."></textarea></div>
+    </div>
+
+    <div style="margin-top:10px">
+      <button type="button" id="rxAddMedicineBtn" class="secondary">Add Medicine</button>
+      <button type="button" id="rxClearMedicineBtn" class="secondary">Clear Entry</button>
+    </div>
+  </div>
+
+  <div id="rxMedicineList" style="margin-top:12px"></div>
+
+  <div class="grid" style="margin-top:12px">
+    <div>
+      <label>Investigations Advised</label>
+      <textarea id="rxInvestigations" placeholder="CBC, LFT, KFT, MRI, X-ray, etc."></textarea>
+    </div>
+    <div>
+      <label>Procedures / Panchakarma / Therapy Advice</label>
+      <textarea id="rxProcedures" placeholder="Procedure, session plan, precautions, eligibility status..."></textarea>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Pathya–Apathya / Diet Advice</label>
+      <textarea id="rxDietAdvice" placeholder="Dietary advice for prescription output..."></textarea>
+    </div>
+    <div>
+      <label>Exercise / Rehabilitation / Yoga</label>
+      <textarea id="rxExerciseAdvice" placeholder="Exercise, movement precautions, yoga, rehabilitation plan..."></textarea>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Patient Instructions / Warning Signs</label>
+      <textarea id="rxPatientInstructions" placeholder="How to take medicines, stop rules, emergency warning signs, follow-up advice..."></textarea>
+    </div>
+    <div>
+      <label>Prescription Notes</label>
+      <textarea id="rxNotes" placeholder="Other physician notes..."></textarea>
+    </div>
+  </div>
+
+  <div id="prescriptionSummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No prescription documented.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="generatePrescriptionSummaryBtn" class="secondary">Generate / Refresh Prescription Summary</button>
+    <button type="button" id="addPrescriptionSummaryBtn" class="secondary">Add Prescription Summary to Ayurveda Notes</button>
+  </div>
+</div>
+
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -2875,6 +3006,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Integrated Diagnosis Engine V2.32 */
 /* SKMCIS Red-Flag Emergency Safety Engine V2.33 */
 /* SKMCIS Medication Safety Engine V2.34 */
+/* SKMCIS Prescription Engine V2.35 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -2930,7 +3062,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),redFlagEmergency:collectRedFlagEmergency(),medicationSafety:collectMedicationSafety(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),redFlagEmergency:collectRedFlagEmergency(),medicationSafety:collectMedicationSafety(),prescriptionData:collectPrescriptionData(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -3519,7 +3651,7 @@ function initSrotasClinicalEngine(){
     parent.addEventListener('change',()=>{
       if(!current.ayurveda.srotasDetails)current.ayurveda.srotasDetails={};
       current.ayurveda.srotasDetails=collectSrotasDetails();
-      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();restoreRedFlagEmergency();restoreMedicationSafety();
+      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();restoreRedFlagEmergency();restoreMedicationSafety();restorePrescriptionData();
     });
     parent.dataset.srotasDetailBound='1';
   }
@@ -5473,6 +5605,247 @@ function initMedicationSafetyEngine(){
     add.dataset.msBound='1';
   }
 }
+
+function currentPrescriptionData(){
+  if(!current.ayurveda.prescriptionData) current.ayurveda.prescriptionData={medicines:[]};
+  if(!Array.isArray(current.ayurveda.prescriptionData.medicines)) current.ayurveda.prescriptionData.medicines=[];
+  return current.ayurveda.prescriptionData;
+}
+
+function collectPrescriptionData(){
+  const p=currentPrescriptionData();
+  return {
+    type:val('rxType'),
+    status:val('rxStatus'),
+    followup_days:val('rxFollowupDays'),
+    medicines:[...(p.medicines||[])],
+    investigations:val('rxInvestigations'),
+    procedures:val('rxProcedures'),
+    diet_advice:val('rxDietAdvice'),
+    exercise_advice:val('rxExerciseAdvice'),
+    patient_instructions:val('rxPatientInstructions'),
+    notes:val('rxNotes')
+  };
+}
+
+function collectRxMedicineEntry(){
+  return {
+    system:val('rxMedSystem'),
+    name:val('rxMedName'),
+    strength:val('rxMedStrength'),
+    dose:val('rxMedDose'),
+    route:val('rxMedRoute'),
+    frequency:val('rxMedFrequency'),
+    duration:val('rxMedDuration'),
+    food_relation:val('rxMedFood'),
+    prn:val('rxMedPrn')==='yes',
+    instructions:val('rxMedInstructions'),
+    indication:val('rxMedIndication')
+  };
+}
+
+function clearRxMedicineEntry(){
+  set('rxMedSystem','ayurveda');
+  set('rxMedName','');
+  set('rxMedStrength','');
+  set('rxMedDose','');
+  set('rxMedRoute','');
+  set('rxMedFrequency','');
+  set('rxMedDuration','');
+  set('rxMedFood','');
+  set('rxMedPrn','no');
+  set('rxMedInstructions','');
+  set('rxMedIndication','');
+}
+
+function renderRxMedicineList(){
+  const box=$('rxMedicineList'); if(!box)return;
+  const meds=currentPrescriptionData().medicines||[];
+  if(!meds.length){
+    box.innerHTML='<div class="small">No medicines added.</div>';
+    return;
+  }
+  box.innerHTML=meds.map((m,i)=>`
+    <div class="subtype-card" style="margin-top:8px">
+      <h4>${i+1}. ${esc(m.name||'Unnamed medicine')} <span class="pill">${esc(humanizeAyuToken(m.system||''))}</span></h4>
+      <div class="small">
+        ${m.strength?`Strength/Form: ${esc(m.strength)}<br>`:''}
+        ${m.dose?`Dose: ${esc(m.dose)}<br>`:''}
+        ${m.route?`Route: ${esc(humanizeAyuToken(m.route))}<br>`:''}
+        ${m.frequency?`Frequency: ${esc(m.frequency)}<br>`:''}
+        ${m.duration?`Duration: ${esc(m.duration)}<br>`:''}
+        ${m.food_relation?`Food relation: ${esc(humanizeAyuToken(m.food_relation))}<br>`:''}
+        ${m.prn?'PRN: Yes<br>':''}
+        ${m.instructions?`Instructions: ${esc(m.instructions)}<br>`:''}
+        ${m.indication?`Indication: ${esc(m.indication)}<br>`:''}
+      </div>
+      <div style="margin-top:8px"><button type="button" class="secondary rx-remove-med" data-index="${i}">Remove</button></div>
+    </div>
+  `).join('');
+}
+
+function buildPrescriptionSummary(){
+  const p=collectPrescriptionData(), lines=[];
+  const safety=collectMedicationSafety();
+
+  if(p.type)lines.push(`Prescription type: ${humanizeAyuToken(p.type)}`);
+  if(p.status)lines.push(`Prescription status: ${humanizeAyuToken(p.status)}`);
+  if(p.followup_days)lines.push(`Follow-up after: ${p.followup_days} day(s)`);
+
+  if(p.medicines.length){
+    lines.push('Medicines:');
+    p.medicines.forEach((m,i)=>{
+      const parts=[`${i+1}. ${m.name||'Unnamed medicine'}`];
+      if(m.strength)parts.push(m.strength);
+      if(m.dose)parts.push(`Dose ${m.dose}`);
+      if(m.route)parts.push(humanizeAyuToken(m.route));
+      if(m.frequency)parts.push(m.frequency);
+      if(m.duration)parts.push(m.duration);
+      if(m.food_relation)parts.push(humanizeAyuToken(m.food_relation));
+      if(m.prn)parts.push('PRN');
+      if(m.instructions)parts.push(m.instructions);
+      lines.push(parts.join(' | '));
+    });
+  }
+
+  if(p.investigations)lines.push(`Investigations advised: ${p.investigations}`);
+  if(p.procedures)lines.push(`Procedures / therapies: ${p.procedures}`);
+  if(p.diet_advice)lines.push(`Diet / Pathya-Apathya: ${p.diet_advice}`);
+  if(p.exercise_advice)lines.push(`Exercise / rehab / yoga: ${p.exercise_advice}`);
+  if(p.patient_instructions)lines.push(`Patient instructions: ${p.patient_instructions}`);
+  if(p.notes)lines.push(`Prescription notes: ${p.notes}`);
+
+  const warnings=[];
+  p.medicines.forEach((m,i)=>{
+    if(!m.name)warnings.push(`Medicine ${i+1} has no name.`);
+    if(m.name && !m.dose)warnings.push(`${m.name}: dose is missing.`);
+    if(m.name && !m.frequency)warnings.push(`${m.name}: frequency is missing.`);
+    if(m.name && !m.duration)warnings.push(`${m.name}: duration is missing.`);
+  });
+
+  if(p.medicines.length && safety.allergy_status==='known' && !safety.checks.includes('Allergy checked'))
+    warnings.push('Known drug allergy exists, but “Allergy checked” is not documented in Medication Safety.');
+
+  if(p.medicines.length && safety.reconciliation!=='complete' && safety.risks.includes('Polypharmacy'))
+    warnings.push('Polypharmacy is documented without complete medication reconciliation.');
+
+  if(p.status==='approved' && p.medicines.length && safety.checks.length<5)
+    warnings.push('Prescription is marked approved with limited documented medication-safety checks.');
+
+  if(warnings.length)lines.push(`PRESCRIPTION REVIEW ALERT: ${warnings.join(' ')}`);
+
+  lines.push('Final medicine choice, dose, route, frequency, duration and monitoring remain physician responsibility.');
+  return lines.length
+    ? `Integrated Prescription Summary:\n${lines.map(x=>'• '+x).join('\n')}`
+    : 'No prescription documented.';
+}
+
+function renderPrescriptionSummary(){
+  const box=$('prescriptionSummary');
+  if(box)box.textContent=buildPrescriptionSummary();
+  renderRxMedicineList();
+}
+
+function restorePrescriptionData(){
+  const p=current?.ayurveda?.prescriptionData||{medicines:[]};
+  current.ayurveda.prescriptionData={
+    type:p.type||'',
+    status:p.status||'',
+    followup_days:p.followup_days||'',
+    medicines:Array.isArray(p.medicines)?p.medicines:[],
+    investigations:p.investigations||'',
+    procedures:p.procedures||'',
+    diet_advice:p.diet_advice||'',
+    exercise_advice:p.exercise_advice||'',
+    patient_instructions:p.patient_instructions||'',
+    notes:p.notes||''
+  };
+  set('rxType',p.type||'');
+  set('rxStatus',p.status||'');
+  set('rxFollowupDays',p.followup_days||'');
+  set('rxInvestigations',p.investigations||'');
+  set('rxProcedures',p.procedures||'');
+  set('rxDietAdvice',p.diet_advice||'');
+  set('rxExerciseAdvice',p.exercise_advice||'');
+  set('rxPatientInstructions',p.patient_instructions||'');
+  set('rxNotes',p.notes||'');
+  clearRxMedicineEntry();
+  renderPrescriptionSummary();
+}
+
+function initPrescriptionEngine(){
+  const addMed=$('rxAddMedicineBtn');
+  if(addMed&&!addMed.dataset.rxBound){
+    addMed.onclick=()=>{
+      const m=collectRxMedicineEntry();
+      if(!m.name){
+        status('Medicine name is required before adding.');
+        return;
+      }
+      currentPrescriptionData().medicines.push(m);
+      current.ayurveda.prescriptionData=collectPrescriptionData();
+      clearRxMedicineEntry();
+      renderPrescriptionSummary();
+      status('Medicine added to prescription.');
+    };
+    addMed.dataset.rxBound='1';
+  }
+
+  const clear=$('rxClearMedicineBtn');
+  if(clear&&!clear.dataset.rxBound){
+    clear.onclick=clearRxMedicineEntry;
+    clear.dataset.rxBound='1';
+  }
+
+  const list=$('rxMedicineList');
+  if(list&&!list.dataset.rxBound){
+    list.addEventListener('click',e=>{
+      const btn=e.target.closest('.rx-remove-med');
+      if(!btn)return;
+      const i=Number(btn.dataset.index);
+      currentPrescriptionData().medicines.splice(i,1);
+      current.ayurveda.prescriptionData=collectPrescriptionData();
+      renderPrescriptionSummary();
+      status('Medicine removed from prescription.');
+    });
+    list.dataset.rxBound='1';
+  }
+
+  ['rxType','rxStatus','rxFollowupDays','rxInvestigations','rxProcedures','rxDietAdvice','rxExerciseAdvice','rxPatientInstructions','rxNotes'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.rxBound){
+      const ev=(el.tagName==='TEXTAREA'||el.tagName==='INPUT')?'input':'change';
+      el.addEventListener(ev,()=>{
+        current.ayurveda.prescriptionData=collectPrescriptionData();
+        renderPrescriptionSummary();
+      });
+      el.dataset.rxBound='1';
+    }
+  });
+
+  const gen=$('generatePrescriptionSummaryBtn');
+  if(gen&&!gen.dataset.rxBound){
+    gen.onclick=()=>{
+      current.ayurveda.prescriptionData=collectPrescriptionData();
+      renderPrescriptionSummary();
+      status('Prescription summary refreshed.');
+    };
+    gen.dataset.rxBound='1';
+  }
+
+  const add=$('addPrescriptionSummaryBtn');
+  if(add&&!add.dataset.rxBound){
+    add.onclick=()=>{
+      renderPrescriptionSummary();
+      const txt=$('prescriptionSummary')?.textContent||'';
+      if(!txt||txt.startsWith('No prescription'))return;
+      const old=val('ayurNotes');
+      set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));
+      status('Prescription summary added to Ayurveda Notes.');
+    };
+    add.dataset.rxBound='1';
+  }
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -5557,7 +5930,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();initRedFlagEmergencyEngine();restoreRedFlagEmergency();initMedicationSafetyEngine();restoreMedicationSafety();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();initRedFlagEmergencyEngine();restoreRedFlagEmergency();initMedicationSafetyEngine();restoreMedicationSafety();initPrescriptionEngine();restorePrescriptionData();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -5585,7 +5958,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
