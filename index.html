@@ -2504,6 +2504,134 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   </div>
 </div>
 
+
+<div class="card" id="patientEducationCard" style="margin-top:12px">
+  <h3>Patient Education & Counseling Engine</h3>
+  <div class="small">Creates structured, patient-friendly counseling content for diagnosis, medicines, lifestyle, procedures, warning signs and follow-up. Physician review is required before sharing.</div>
+
+  <div class="grid3" style="margin-top:10px">
+    <div>
+      <label>Education Topic</label>
+      <select id="peTopic">
+        <option value="">Not selected</option>
+        <option value="sciatica">Sciatica / Gridhrasi</option>
+        <option value="low_back_pain">Low Back Pain</option>
+        <option value="cervical_pain">Cervical Pain / Radiculopathy</option>
+        <option value="oa_knee">Osteoarthritis Knee</option>
+        <option value="frozen_shoulder">Frozen Shoulder</option>
+        <option value="plantar_fasciitis">Plantar Fasciitis</option>
+        <option value="rheumatoid_arthritis">Rheumatoid Arthritis</option>
+        <option value="gout">Gout</option>
+        <option value="avn">AVN Hip</option>
+        <option value="diabetes">Diabetes</option>
+        <option value="hypertension">Hypertension</option>
+        <option value="nafld">NAFLD / Fatty Liver</option>
+        <option value="ibs">IBS / Grahani</option>
+        <option value="general_ayurveda">General Ayurveda Counseling</option>
+        <option value="panchakarma">Panchakarma Counseling</option>
+        <option value="medicine_use">Medicine Use & Safety</option>
+        <option value="custom">Custom Topic</option>
+      </select>
+    </div>
+    <div>
+      <label>Language Style</label>
+      <select id="peLanguageStyle">
+        <option value="simple_english">Simple English</option>
+        <option value="simple_hinglish">Simple Hindi-English</option>
+        <option value="hindi">Hindi</option>
+        <option value="clinical">Clinical / professional</option>
+      </select>
+    </div>
+    <div>
+      <label>Education Length</label>
+      <select id="peLength">
+        <option value="short">Short handout</option>
+        <option value="standard">Standard handout</option>
+        <option value="detailed">Detailed counseling note</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="margin-top:10px">
+    <label>Sections to Include</label>
+    <div id="peSectionChecks" class="checkgrid">
+      <label class="check"><input type="checkbox" name="peSection" value="Condition" checked>What is the condition?</label>
+      <label class="check"><input type="checkbox" name="peSection" value="Causes" checked>Common causes / aggravating factors</label>
+      <label class="check"><input type="checkbox" name="peSection" value="Do" checked>What to do</label>
+      <label class="check"><input type="checkbox" name="peSection" value="Avoid" checked>What to avoid</label>
+      <label class="check"><input type="checkbox" name="peSection" value="Diet" checked>Diet / Pathya-Apathya</label>
+      <label class="check"><input type="checkbox" name="peSection" value="Exercise" checked>Exercise / movement guidance</label>
+      <label class="check"><input type="checkbox" name="peSection" value="Medicines" checked>Medicine instructions</label>
+      <label class="check"><input type="checkbox" name="peSection" value="Procedure">Procedure / Panchakarma guidance</label>
+      <label class="check"><input type="checkbox" name="peSection" value="RedFlags" checked>Red flags / when to seek urgent care</label>
+      <label class="check"><input type="checkbox" name="peSection" value="Followup" checked>Follow-up plan</label>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Condition Explanation</label>
+      <textarea id="peConditionExplanation" placeholder="Explain the condition in simple patient language..."></textarea>
+    </div>
+    <div>
+      <label>Common Aggravating Factors / Nidana</label>
+      <textarea id="peAggravatingFactors" placeholder="Posture, lifting, diet, sleep, inactivity, overuse, stress, etc."></textarea>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>What Patient Should Do</label>
+      <textarea id="peDoAdvice" placeholder="Activity, posture, home care, medicine adherence, hydration, sleep, self-monitoring..."></textarea>
+    </div>
+    <div>
+      <label>What Patient Should Avoid</label>
+      <textarea id="peAvoidAdvice" placeholder="Avoid heavy lifting, prolonged sitting, specific food/habits, strenuous movement, self-medication, etc."></textarea>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Diet / Pathya-Apathya Counseling</label>
+      <textarea id="peDietAdvice" placeholder="Patient-friendly diet advice..."></textarea>
+    </div>
+    <div>
+      <label>Exercise / Movement Guidance</label>
+      <textarea id="peExerciseAdvice" placeholder="Allowed movement, precautions, exercises, stop rules..."></textarea>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Medicine / Procedure Counseling</label>
+      <textarea id="peMedicineProcedureAdvice" placeholder="How to take medicines, expected response, procedure preparation/aftercare..."></textarea>
+    </div>
+    <div>
+      <label>Red Flags / Urgent Care Advice</label>
+      <textarea id="peRedFlagAdvice" placeholder="Symptoms that require urgent medical review..."></textarea>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:10px">
+    <div>
+      <label>Follow-up Instructions</label>
+      <textarea id="peFollowupAdvice" placeholder="When to return, what to monitor, investigations to bring..."></textarea>
+    </div>
+    <div>
+      <label>Custom Patient Message</label>
+      <textarea id="peCustomMessage" placeholder="Any personalized counseling note..."></textarea>
+    </div>
+  </div>
+
+  <div id="patientEducationSummary" class="notice" style="white-space:pre-wrap;margin-top:10px">No patient education handout generated.</div>
+
+  <div style="margin-top:10px">
+    <button type="button" id="generatePeSummaryBtn" class="secondary">Generate / Refresh Patient Handout</button>
+    <button type="button" id="copyPeSummaryBtn" class="secondary">Copy Patient Handout</button>
+    <button type="button" id="addPeSummaryBtn" class="secondary">Add Education Summary to Ayurveda Notes</button>
+  </div>
+</div>
+
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -3064,6 +3192,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS Medication Safety Engine V2.34 */
 /* SKMCIS Prescription Engine V2.35 */
 /* SKMCIS PDF-Print Prescription Engine V2.36 */
+/* SKMCIS Patient Education Engine V2.37 */
 (function(){
 'use strict';
 const PREFIX='skm-emr-v12:';
@@ -3119,7 +3248,7 @@ function collectSubtypeAssessments(){
   });
   return out;
 }
-function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),redFlagEmergency:collectRedFlagEmergency(),medicationSafety:collectMedicationSafety(),prescriptionData:collectPrescriptionData(),printPrescriptionSettings:collectPrintPrescriptionSettings(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
+function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),redFlagEmergency:collectRedFlagEmergency(),medicationSafety:collectMedicationSafety(),prescriptionData:collectPrescriptionData(),printPrescriptionSettings:collectPrintPrescriptionSettings(),patientEducation:collectPatientEducation(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
 function readPrescription(){
 current.prescription.provisionalDiagnosis=val('provisionalDiagnosis');
@@ -3708,7 +3837,7 @@ function initSrotasClinicalEngine(){
     parent.addEventListener('change',()=>{
       if(!current.ayurveda.srotasDetails)current.ayurveda.srotasDetails={};
       current.ayurveda.srotasDetails=collectSrotasDetails();
-      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();restoreRedFlagEmergency();restoreMedicationSafety();restorePrescriptionData();restorePrintPrescriptionSettings();
+      renderSrotasClinicalEngine();restoreRogamargaKriyakala();restoreNidanaPanchakaDetailed();restoreSampraptiSynthesisMeta();restoreDiagnosisPrognosis();restoreChikitsaPlanning();restorePathyaApathyaPlan();restorePanchakarmaEligibility();restoreFollowupOutcome();restoreFinalAyuSummarySettings();restoreDashavidhaAdvanced();restoreAshtavidhaAdvanced();restoreModernClinicalExam();restoreOrthoNeuroExam();restoreInvestigationReports();restoreIntegratedDiagnosis();restoreRedFlagEmergency();restoreMedicationSafety();restorePrescriptionData();restorePrintPrescriptionSettings();restorePatientEducation();
     });
     parent.dataset.srotasDetailBound='1';
   }
@@ -6104,6 +6233,164 @@ function initPrintPrescriptionEngine(){
     cp.dataset.ppBound='1';
   }
 }
+
+function collectPatientEducation(){
+  return {
+    topic:val('peTopic'),
+    language_style:val('peLanguageStyle'),
+    length:val('peLength'),
+    sections:selected('peSection'),
+    condition_explanation:val('peConditionExplanation'),
+    aggravating_factors:val('peAggravatingFactors'),
+    do_advice:val('peDoAdvice'),
+    avoid_advice:val('peAvoidAdvice'),
+    diet_advice:val('peDietAdvice'),
+    exercise_advice:val('peExerciseAdvice'),
+    medicine_procedure_advice:val('peMedicineProcedureAdvice'),
+    red_flag_advice:val('peRedFlagAdvice'),
+    followup_advice:val('peFollowupAdvice'),
+    custom_message:val('peCustomMessage')
+  };
+}
+
+function defaultPatientEducationByTopic(topic){
+  const map={
+    sciatica:{
+      condition:'Sciatica is pain or nerve-related symptoms that travel from the lower back or buttock into the leg, usually because a lumbar nerve root is irritated or compressed.',
+      causes:'Prolonged sitting, repeated bending/lifting, poor lifting technique, sudden overload, disc problems and reduced physical conditioning may aggravate symptoms.',
+      do:'Keep gentle daily movement within tolerance, use correct posture and lifting technique, take prescribed medicines as directed and follow the rehabilitation plan.',
+      avoid:'Avoid repeated heavy lifting, prolonged bed rest, sudden twisting, forceful stretching during acute pain and activities that clearly worsen leg symptoms.',
+      red:'Seek urgent care for new bladder/bowel difficulty, saddle numbness, rapidly increasing weakness, acute foot drop, severe bilateral leg symptoms or major trauma.'
+    },
+    low_back_pain:{
+      condition:'Low back pain is common and may arise from muscles, joints, discs or other spinal structures. Most cases improve with appropriate activity and treatment, but some need further evaluation.',
+      causes:'Heavy lifting, prolonged sitting, deconditioning, poor ergonomics, sudden strain and repetitive bending can aggravate low back pain.',
+      do:'Stay gently active, change posture regularly, use proper lifting mechanics and follow prescribed exercise/rehabilitation.',
+      avoid:'Avoid prolonged bed rest, sudden heavy lifting and repeated movements that clearly worsen symptoms.',
+      red:'Seek urgent evaluation for major trauma, fever with severe back pain, progressive weakness, bladder/bowel changes, saddle numbness or unexplained severe night/rest pain.'
+    },
+    oa_knee:{
+      condition:'Knee osteoarthritis is a degenerative joint condition that can cause pain, stiffness and reduced function.',
+      causes:'Age, excess body weight, previous injury, muscle weakness, repeated high joint load and alignment problems can contribute.',
+      do:'Use graded strengthening, weight management when relevant, comfortable low-impact activity and prescribed treatment.',
+      avoid:'Avoid sudden high-impact loading, repeated deep squats if painful and prolonged inactivity.',
+      red:'Urgent review is needed for a hot swollen joint with fever, inability to bear weight after injury or rapidly increasing swelling.'
+    }
+  };
+  return map[topic]||{};
+}
+
+function buildPatientEducationSummary(){
+  const a=collectPatientEducation(), sections=new Set(a.sections||[]), d=defaultPatientEducationByTopic(a.topic);
+  const lines=[];
+  lines.push(`PATIENT EDUCATION HANDOUT${a.topic?` — ${humanizeAyuToken(a.topic)}`:''}`);
+
+  if(sections.has('Condition')){
+    const t=a.condition_explanation||d.condition;
+    if(t)lines.push(`What is the condition?\n${t}`);
+  }
+  if(sections.has('Causes')){
+    const t=a.aggravating_factors||d.causes;
+    if(t)lines.push(`Common causes / aggravating factors\n${t}`);
+  }
+  if(sections.has('Do')){
+    const t=a.do_advice||d.do;
+    if(t)lines.push(`What to do\n${t}`);
+  }
+  if(sections.has('Avoid')){
+    const t=a.avoid_advice||d.avoid;
+    if(t)lines.push(`What to avoid\n${t}`);
+  }
+  if(sections.has('Diet') && a.diet_advice)lines.push(`Diet / Pathya-Apathya\n${a.diet_advice}`);
+  if(sections.has('Exercise') && a.exercise_advice)lines.push(`Exercise / movement guidance\n${a.exercise_advice}`);
+  if(sections.has('Medicines') && a.medicine_procedure_advice)lines.push(`Medicine / procedure guidance\n${a.medicine_procedure_advice}`);
+  if(sections.has('RedFlags')){
+    const t=a.red_flag_advice||d.red;
+    if(t)lines.push(`When to seek urgent medical care\n${t}`);
+  }
+  if(sections.has('Followup') && a.followup_advice)lines.push(`Follow-up\n${a.followup_advice}`);
+  if(a.custom_message)lines.push(`Personalized advice\n${a.custom_message}`);
+
+  lines.push('This handout supports the physician’s advice and does not replace urgent medical evaluation when warning signs are present.');
+  return lines.join('\n\n');
+}
+
+function renderPatientEducationSummary(){
+  const box=$('patientEducationSummary');
+  if(box)box.textContent=buildPatientEducationSummary();
+}
+
+function restorePatientEducation(){
+  const a=current?.ayurveda?.patientEducation||{};
+  set('peTopic',a.topic||'');
+  set('peLanguageStyle',a.language_style||'simple_english');
+  set('peLength',a.length||'short');
+  document.querySelectorAll('input[name="peSection"]').forEach(cb=>{
+    if((a.sections||[]).length)cb.checked=(a.sections||[]).includes(cb.value);
+  });
+  set('peConditionExplanation',a.condition_explanation||'');
+  set('peAggravatingFactors',a.aggravating_factors||'');
+  set('peDoAdvice',a.do_advice||'');
+  set('peAvoidAdvice',a.avoid_advice||'');
+  set('peDietAdvice',a.diet_advice||'');
+  set('peExerciseAdvice',a.exercise_advice||'');
+  set('peMedicineProcedureAdvice',a.medicine_procedure_advice||'');
+  set('peRedFlagAdvice',a.red_flag_advice||'');
+  set('peFollowupAdvice',a.followup_advice||'');
+  set('peCustomMessage',a.custom_message||'');
+  renderPatientEducationSummary();
+}
+
+function initPatientEducationEngine(){
+  ['peTopic','peLanguageStyle','peLength','peConditionExplanation','peAggravatingFactors','peDoAdvice','peAvoidAdvice',
+   'peDietAdvice','peExerciseAdvice','peMedicineProcedureAdvice','peRedFlagAdvice','peFollowupAdvice','peCustomMessage'].forEach(id=>{
+    const el=$(id);
+    if(el&&!el.dataset.peBound){
+      const ev=(el.tagName==='TEXTAREA')?'input':'change';
+      el.addEventListener(ev,()=>{
+        current.ayurveda.patientEducation=collectPatientEducation();
+        renderPatientEducationSummary();
+      });
+      el.dataset.peBound='1';
+    }
+  });
+
+  const sections=$('peSectionChecks');
+  if(sections&&!sections.dataset.peBound){
+    sections.addEventListener('change',()=>{
+      current.ayurveda.patientEducation=collectPatientEducation();
+      renderPatientEducationSummary();
+    });
+    sections.dataset.peBound='1';
+  }
+
+  const gen=$('generatePeSummaryBtn');
+  if(gen&&!gen.dataset.peBound){
+    gen.onclick=()=>{renderPatientEducationSummary();status('Patient education handout refreshed.');};
+    gen.dataset.peBound='1';
+  }
+
+  const cp=$('copyPeSummaryBtn');
+  if(cp&&!cp.dataset.peBound){
+    cp.onclick=async()=>{
+      const txt=buildPatientEducationSummary();
+      try{await navigator.clipboard.writeText(txt);status('Patient education handout copied.');}
+      catch(e){status('Copy unavailable in this browser; use the visible handout for manual copy.');}
+    };
+    cp.dataset.peBound='1';
+  }
+
+  const add=$('addPeSummaryBtn');
+  if(add&&!add.dataset.peBound){
+    add.onclick=()=>{
+      const txt=buildPatientEducationSummary();
+      const old=val('ayurNotes');
+      set('ayurNotes',[old,txt].filter(Boolean).join(old?'\n\n':''));
+      status('Patient education summary added to Ayurveda Notes.');
+    };
+    add.dataset.peBound='1';
+  }
+}
 function syncSubtypeSelectionsFromCurrent(){
   const saved=current?.ayurveda?.subtypes||[];
   document.querySelectorAll('input[name="subtype"]').forEach(el=>el.checked=saved.includes(el.value));
@@ -6188,7 +6475,7 @@ async function loadAyurvedaSubtypeData(){
     const jsonSubtypes=ayuSubtypeMaster.map(item=>item.name_en||item.name_hi||item.name_sa).filter(Boolean);
     if(jsonSubtypes.length){
       renderChecks('subtypeChecks','subtype',jsonSubtypes);
-      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();initRedFlagEmergencyEngine();restoreRedFlagEmergency();initMedicationSafetyEngine();restoreMedicationSafety();initPrescriptionEngine();restorePrescriptionData();initPrintPrescriptionEngine();restorePrintPrescriptionSettings();
+      initSubtypeInterpretationEngine();initDhatuOjasMalaEngine();renderDhatuOjasMalaAssessment();initAgniAmaKoshthaEngine();restoreAgniAmaKoshtha();initSrotasClinicalEngine();renderSrotasClinicalEngine();initRogamargaKriyakalaEngine();restoreRogamargaKriyakala();initNidanaPanchakaEngine();restoreNidanaPanchakaDetailed();initSampraptiSynthesisEngine();restoreSampraptiSynthesisMeta();initDiagnosisPrognosisEngine();restoreDiagnosisPrognosis();initChikitsaPlanningEngine();restoreChikitsaPlanning();initPathyaApathyaEngine();restorePathyaApathyaPlan();initPanchakarmaEligibilityEngine();restorePanchakarmaEligibility();initFollowupOutcomeEngine();restoreFollowupOutcome();initFinalAyurvedaSummaryEngine();restoreFinalAyuSummarySettings();initDashavidhaAdvancedEngine();restoreDashavidhaAdvanced();initAshtavidhaAdvancedEngine();restoreAshtavidhaAdvanced();initModernClinicalExamEngine();restoreModernClinicalExam();initOrthoNeuroExamEngine();restoreOrthoNeuroExam();initInvestigationReportsEngine();restoreInvestigationReports();initIntegratedDiagnosisEngine();restoreIntegratedDiagnosis();initRedFlagEmergencyEngine();restoreRedFlagEmergency();initMedicationSafetyEngine();restoreMedicationSafety();initPrescriptionEngine();restorePrescriptionData();initPrintPrescriptionEngine();restorePrintPrescriptionSettings();initPatientEducationEngine();restorePatientEducation();
       syncSubtypeSelectionsFromCurrent();
       console.log('SKMCIS Ayurveda subtype JSON loaded:',jsonSubtypes.length);
       return;
@@ -6216,7 +6503,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};if(!a.printPrescriptionSettings)a.printPrescriptionSettings={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};if(!a.printPrescriptionSettings)a.printPrescriptionSettings={};if(!a.patientEducation)a.patientEducation={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
