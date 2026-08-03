@@ -3667,6 +3667,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <button id="printBtn" class="primary">🖨 Print / Save as PDF</button>
 <button id="downloadTxtBtn" class="secondary">⬇ Download Text Summary</button>
 <button id="shareBtn" class="success">📤 Share Prescription</button>
+  <button id="sharePdfBtn" class="success">📄 Share PDF</button>
 <button id="backPrescriptionBtn" class="secondary">← Edit Prescription</button>
 </div>
 <div class="notice">Android Chrome में <b>Print / Save as PDF</b> दबाकर printer selection में <b>Save as PDF</b> चुनें। यही Hindi/Devanagari के लिए सबसे विश्वसनीय तरीका है।</div>
@@ -9910,7 +9911,67 @@ try{await navigator.share({title:'Mahamaya Clinic Prescription',text});status('S
 }
 try{await navigator.clipboard.writeText(text);status('Prescription copied to clipboard. Paste it in WhatsApp.')}catch(e){status('Sharing unavailable. Use Print / Save as PDF.',true)}
 }
+async function sharePrescriptionPdf(){
+$('sharePdfBtn').onclick=sharePrescriptionPdf;
+  try{
+    const sheet=document.getElementById('printSheet');
+    if(!sheet) return status('Prescription preview not ready.',true);
 
+    status('Preparing PDF...');
+
+    if(!window.html2pdf){
+      await new Promise((resolve,reject)=>{
+        const s=document.createElement('script');
+        s.src='https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+        s.onload=resolve;
+        s.onerror=()=>reject(new Error('PDF library could not load'));
+        document.head.appendChild(s);
+      });
+    }
+
+    const filename=`SKM-Prescription-${current?.uhid || current?.id || 'Patient'}.pdf`;
+
+    const opt={
+      margin:8,
+      filename:filename,
+      image:{type:'jpeg',quality:0.98},
+      html2canvas:{scale:2,useCORS:true},
+      jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
+    };
+
+    const blob=await html2pdf()
+      .set(opt)
+      .from(sheet)
+      .outputPdf('blob');
+
+    const file=new File([blob],filename,{type:'application/pdf'});
+
+    if(navigator.share && navigator.canShare && navigator.canShare({files:[file]})){
+      await navigator.share({
+        title:'Mahamaya Clinic Prescription',
+        text:'Prescription PDF',
+        files:[file]
+      });
+      status('PDF share menu opened successfully.');
+      return;
+    }
+
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download=filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(()=>{
+      URL.revokeObjectURL(a.href);
+      a.remove();
+    },1000);
+
+    status('Direct PDF sharing is not supported here. PDF downloaded instead.');
+  }catch(e){
+    console.error(e);
+    status('PDF sharing failed: '+(e.message||e),true);
+  }
+}
 
 
 function visitGroupId(r){return r.patientGroupId||r.uhid||r.id}
@@ -11006,6 +11067,7 @@ $('backPrescriptionBtn').onclick=showPrescription;
 $('printBtn').onclick=()=>window.print();
 $('downloadTxtBtn').onclick=downloadText;
 $('shareBtn').onclick=sharePrescription;
+$('sharePdfBtn').onclick=sharePrescriptionPdf;
 $('goRecordsBtn').onclick=showRecords;
 $('newBtn').onclick=()=>{populate(blank());status('New blank patient ready.')};
 
