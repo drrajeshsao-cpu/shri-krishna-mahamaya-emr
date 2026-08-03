@@ -1,0 +1,9 @@
+// Add this file to the end of index.html using:
+// <script src="install-pwa.js"></script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(reg => console.log('PWA service worker registered:', reg.scope))
+      .catch(err => console.error('PWA registration failed:', err));
+  });
+}
