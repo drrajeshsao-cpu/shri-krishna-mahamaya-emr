@@ -11221,6 +11221,14 @@ renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks(
 
 <script type="module">
 const SKMC_FB_CFG_KEY='SKMCIS_FIREBASE_WEB_CONFIG_V2_49A';
+  const SKMC_DEFAULT_FIREBASE_CONFIG = {
+  apiKey: "AIzaSyAXHGaPCFVbJpTu56dQbrYfF3hgMgn4It8",
+  authDomain: "skmc-e75de.firebaseapp.com",
+  projectId: "skmc-e75de",
+  storageBucket: "skmc-e75de.firebasestorage.app",
+  messagingSenderId: "45255430834",
+  appId: "1:45255430834:web:de98bb110cbd2874846fab"
+};
 const g=id=>document.getElementById(id);
 const fbStatus=msg=>{const x=g('skmcFirebaseGateStatus');if(x)x.textContent=msg;};
 const showFbGate=v=>{const x=g('skmcFirebaseGate');if(x)x.style.display=v?'flex':'none';};
@@ -11307,7 +11315,10 @@ async function connectSKMCFirebase(config){
   fbStatus('Firebase connected. Doctor email/password se sign in karein.');
 }
 async function bootSKMCFirebase(){
-  const saved=localStorage.getItem(SKMC_FB_CFG_KEY) || localStorage.getItem('SKMCIS_FIREBASE_WEB_CONFIG_V1');
+  const saved =
+  localStorage.getItem(SKMC_FB_CFG_KEY) ||
+  localStorage.getItem('SKMCIS_FIREBASE_WEB_CONFIG_V1') ||
+  JSON.stringify(SKMC_DEFAULT_FIREBASE_CONFIG);
   if(!saved){
     showFbGate(true);
     showFbConfig(true);
