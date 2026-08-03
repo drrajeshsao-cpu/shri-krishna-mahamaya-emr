@@ -4165,6 +4165,39 @@ async function save(r){
   }
 }
 function all(){const a=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX)){try{a.push(JSON.parse(localStorage.getItem(k)))}catch(e){}}}return a.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''))}
+  async function syncCloudPatientsToLocal(){
+  try{
+    const fb=window.SKMCIS_FIREBASE;
+    if(!fb?.db || !fb?.fsMod || !fb?.auth?.currentUser) return;
+
+    const snap=await fb.fsMod.getDocs(
+      fb.fsMod.collection(fb.db,'patients')
+    );
+
+    snap.forEach(docSnap=>{
+      const r=docSnap.data();
+      if(!r) return;
+
+      const id=r.id || r.uhid || docSnap.id;
+      r.id=id;
+
+      const localRaw=localStorage.getItem(key(id));
+      let local=null;
+      try{ local=localRaw ? JSON.parse(localRaw) : null; }catch(e){}
+
+      const cloudTime=Date.parse(r.updatedAt||0)||0;
+      const localTime=Date.parse(local?.updatedAt||0)||0;
+
+      if(!local || cloudTime>=localTime){
+        localStorage.setItem(key(id),JSON.stringify(r));
+      }
+    });
+
+    console.log('Firestore patients synced to local records.');
+  }catch(e){
+    console.warn('Firestore cloud load failed:',e);
+  }
+}
 function remove(id){localStorage.removeItem(key(id))}
 function selected(name){return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(x=>x.value)}
 function restore(name,arr=[]){document.querySelectorAll(`input[name="${name}"]`).forEach(x=>x.checked=arr.includes(x.value))}
@@ -10904,7 +10937,14 @@ function showAyurveda(){hideAll();$('ayurvedaSection').classList.remove('hidden'
 function showPrescription(){hideAll();$('prescriptionSection').classList.remove('hidden');setActive('tabPrescription');renderMedicines()}
 function showSafety(){hideAll();$('safetySection').classList.remove('hidden');setActive('tabSafety');populateSafetyProfile()}
 function showPreview(){hideAll();$('previewSection').classList.remove('hidden');setActive('tabPreview');renderPreview()}
-function showRecords(){hideAll();$('recordsSection').classList.remove('hidden');setActive('tabRecords');renderRecords()}
+async function showRecords(){
+  hideAll();
+  $('recordsSection').classList.remove('hidden');
+  setActive('tabRecords');
+
+  await syncCloudPatientsToLocal();
+  renderRecords();
+}
 function renderRecords(){const term=val('search').toLowerCase();const rows=all().filter(r=>[r.uhid,r.patient?.name,r.patient?.mobile,r.complaint?.primary,JSON.stringify(r.investigations||{}),JSON.stringify(r.ayurveda||{})].join(' ').toLowerCase().includes(term));$('recordsList').innerHTML=rows.map(r=>`<div class="item"><b>${esc(r.patient?.name||'Unnamed')}</b><div class="small">UHID: ${esc(r.uhid)} • ${esc(r.visitDate)}</div><div class="small">Complaint: ${esc(r.complaint?.primary||'Not entered')} • Dosha: ${esc((r.ayurveda?.dosha||[]).join(', ')||'Not assessed')} • Medicines: ${(r.prescription?.medicines||[]).length}</div><div class="actions"><button class="primary" data-open="${esc(r.id)}">Open/Edit</button><button class="secondary" data-timeline="${esc(r.id)}">Timeline</button><button class="danger" data-delete="${esc(r.id)}">Delete</button></div></div>`).join('')||'<div class="notice">No saved records found.</div>';status(rows.length+' record(s) shown.')}
 
 $('savePatientBtn').onclick=()=>{if(!val('name')||!val('age')||!val('sex')||!val('mobile'))return status('Please fill Name, Age, Sex and Mobile.',true);readPatient();save(current);audit('Patient saved',current.uhid+' '+(current.patient?.name||''));status('Patient saved successfully.')};
