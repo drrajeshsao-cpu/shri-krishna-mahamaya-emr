@@ -1,9 +1,22 @@
-// Add this file to the end of index.html using:
-// <script src="install-pwa.js"></script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./service-worker.js')
-      .then(reg => console.log('PWA service worker registered:', reg.scope))
-      .catch(err => console.error('PWA registration failed:', err));
-  });
+{
+  "name": "Mahamaya Clinic EMR",
+  "short_name": "SKMC EMR",
+  "description": "Mahamaya Clinic Integrated Ayurveda, Spine & Orthopedic EMR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#126b82",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
