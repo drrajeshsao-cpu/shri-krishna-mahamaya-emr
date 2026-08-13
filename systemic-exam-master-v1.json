@@ -1,0 +1,1885 @@
+{
+  "version": "Systemic Exam Master v1.0",
+  "build": "2026.08.13-R4",
+  "disclaimer": "Structured bedside documentation and explainable clinical decision support only. It does not establish a diagnosis or replace clinical judgment, local protocols, emergency pathways, or specialist evaluation.",
+  "status_options": [
+    "Not assessed",
+    "Examined — NAD",
+    "Abnormal findings"
+  ],
+  "systems": [
+    {
+      "id": "cvs",
+      "label": "CVS / Cardiovascular",
+      "icon": "🫀",
+      "legacyNoteId": "cvsNotes",
+      "fields": [
+        {
+          "id": "rhythm",
+          "label": "Heart rhythm",
+          "kind": "select",
+          "tier": "core",
+          "group": "Rate & rhythm",
+          "options": [
+            "Not assessed",
+            "Regular",
+            "Irregular",
+            "Irregularly irregular",
+            "Other"
+          ],
+          "learn": "An irregularly irregular rhythm should prompt rhythm confirmation with ECG; pulse examination alone does not establish atrial fibrillation."
+        },
+        {
+          "id": "heart_sounds",
+          "label": "S1 / S2",
+          "kind": "select",
+          "tier": "core",
+          "group": "Heart sounds",
+          "options": [
+            "Not assessed",
+            "Normal",
+            "Soft S1",
+            "Loud S1",
+            "Soft S2",
+            "Loud P2",
+            "Abnormal / split",
+            "Other"
+          ]
+        },
+        {
+          "id": "s3",
+          "label": "S3 gallop",
+          "kind": "select",
+          "tier": "core",
+          "group": "Heart sounds",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ],
+          "learn": "An S3 can be physiologic in some younger people but in the appropriate context may reflect increased ventricular filling pressures or volume overload."
+        },
+        {
+          "id": "s4",
+          "label": "S4",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Heart sounds",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ],
+          "learn": "S4 is associated with atrial contraction into a relatively stiff ventricle; interpret with age, rhythm and structural disease context."
+        },
+        {
+          "id": "murmur",
+          "label": "Murmur",
+          "kind": "select",
+          "tier": "core",
+          "group": "Murmur",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ],
+          "learn": "A murmur should be characterized by timing, intensity, location, radiation and response to maneuvers; intensity alone does not define lesion severity."
+        },
+        {
+          "id": "murmur_timing",
+          "label": "Murmur timing",
+          "kind": "select",
+          "tier": "core",
+          "group": "Murmur",
+          "options": [
+            "Not assessed",
+            "Early systolic",
+            "Mid-systolic / ejection",
+            "Holosystolic / pansystolic",
+            "Late systolic",
+            "Early diastolic",
+            "Mid-diastolic",
+            "Late diastolic / presystolic",
+            "Continuous"
+          ]
+        },
+        {
+          "id": "murmur_grade",
+          "label": "Murmur intensity — Levine",
+          "kind": "select",
+          "tier": "core",
+          "group": "Murmur",
+          "options": [
+            "Not assessed",
+            "1/6",
+            "2/6",
+            "3/6",
+            "4/6",
+            "5/6",
+            "6/6"
+          ],
+          "help": "Use 1/6–6/6 only when a murmur is present. A palpable thrill generally accompanies higher grades; document the actual finding."
+        },
+        {
+          "id": "murmur_site",
+          "label": "Maximal area",
+          "kind": "select",
+          "tier": "core",
+          "group": "Murmur",
+          "options": [
+            "Not assessed",
+            "Aortic area",
+            "Pulmonary area",
+            "Erb's point",
+            "Tricuspid area",
+            "Mitral / apex",
+            "Other"
+          ]
+        },
+        {
+          "id": "murmur_radiation",
+          "label": "Radiation",
+          "kind": "select",
+          "tier": "core",
+          "group": "Murmur",
+          "options": [
+            "Not assessed",
+            "None",
+            "Carotids / neck",
+            "Axilla",
+            "Back / interscapular",
+            "Left sternal border",
+            "Diffuse precordium",
+            "Other"
+          ]
+        },
+        {
+          "id": "murmur_character",
+          "label": "Character",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Murmur",
+          "options": [
+            "Not assessed",
+            "Crescendo-decrescendo",
+            "Blowing",
+            "Harsh",
+            "Rumbling",
+            "Musical / vibratory",
+            "Machine-like",
+            "Other"
+          ]
+        },
+        {
+          "id": "jvp",
+          "label": "JVP",
+          "kind": "select",
+          "tier": "core",
+          "group": "Congestion",
+          "options": [
+            "Not assessed",
+            "Not elevated",
+            "Elevated",
+            "Unable to assess"
+          ],
+          "learn": "Elevated JVP suggests raised right-sided filling pressure but requires correct technique and clinical correlation."
+        },
+        {
+          "id": "hjr",
+          "label": "Hepatojugular reflux",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Congestion",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "edema",
+          "label": "Peripheral edema",
+          "kind": "select",
+          "tier": "core",
+          "group": "Congestion",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "edema_grade",
+          "label": "Pitting edema grade",
+          "kind": "select",
+          "tier": "core",
+          "group": "Congestion",
+          "options": [
+            "Not assessed",
+            "1+",
+            "2+",
+            "3+",
+            "4+",
+            "Non-pitting"
+          ],
+          "help": "Edema grading is semi-quantitative and varies between conventions; document location and clinical context."
+        },
+        {
+          "id": "edema_site",
+          "label": "Edema distribution",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Congestion",
+          "options": [
+            "Not assessed",
+            "Ankles",
+            "Pretibial",
+            "Bilateral legs",
+            "Sacral",
+            "Generalized",
+            "Other"
+          ]
+        },
+        {
+          "id": "apex",
+          "label": "Apex beat",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Precordium",
+          "options": [
+            "Not assessed",
+            "Normal location",
+            "Displaced laterally/inferiorly",
+            "Heaving",
+            "Hyperdynamic",
+            "Not palpable",
+            "Other"
+          ]
+        },
+        {
+          "id": "thrill",
+          "label": "Palpable thrill",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Precordium",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "pericardial_rub",
+          "label": "Pericardial rub",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Precordium",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "peripheral_pulse",
+          "label": "Peripheral pulse volume",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Peripheral circulation",
+          "options": [
+            "Not assessed",
+            "0 — absent",
+            "1+ — weak",
+            "2+ — normal",
+            "3+ — increased",
+            "4+ — bounding"
+          ]
+        },
+        {
+          "id": "cap_refill",
+          "label": "Capillary refill",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Peripheral circulation",
+          "options": [
+            "Not assessed",
+            "≤2 seconds",
+            ">2 seconds",
+            "Unable to assess"
+          ]
+        },
+        {
+          "id": "carotid_bruit",
+          "label": "Carotid bruit",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Peripheral circulation",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resp",
+      "label": "Respiratory / Chest",
+      "icon": "🫁",
+      "legacyNoteId": "rsNotes",
+      "fields": [
+        {
+          "id": "effort",
+          "label": "Respiratory effort",
+          "kind": "select",
+          "tier": "core",
+          "group": "Inspection",
+          "options": [
+            "Not assessed",
+            "Normal",
+            "Increased work of breathing",
+            "Accessory muscle use",
+            "Retractions",
+            "Paradoxical breathing"
+          ]
+        },
+        {
+          "id": "chest_symmetry",
+          "label": "Chest movement",
+          "kind": "select",
+          "tier": "core",
+          "group": "Inspection",
+          "options": [
+            "Not assessed",
+            "Symmetric",
+            "Reduced right",
+            "Reduced left",
+            "Reduced bilaterally",
+            "Asymmetric / other"
+          ]
+        },
+        {
+          "id": "trachea",
+          "label": "Tracheal position",
+          "kind": "select",
+          "tier": "core",
+          "group": "Inspection",
+          "options": [
+            "Not assessed",
+            "Central",
+            "Shifted right",
+            "Shifted left"
+          ]
+        },
+        {
+          "id": "air_entry",
+          "label": "Air entry",
+          "kind": "select",
+          "tier": "core",
+          "group": "Auscultation",
+          "options": [
+            "Not assessed",
+            "Normal bilateral",
+            "Reduced right",
+            "Reduced left",
+            "Reduced bilateral",
+            "Absent right",
+            "Absent left"
+          ],
+          "learn": "Reduced or absent air entry must be interpreted with percussion, respiratory distress, oxygenation and imaging context."
+        },
+        {
+          "id": "breath_sound",
+          "label": "Breath sound pattern",
+          "kind": "select",
+          "tier": "core",
+          "group": "Auscultation",
+          "options": [
+            "Not assessed",
+            "Vesicular",
+            "Bronchial",
+            "Diminished",
+            "Mixed / other"
+          ]
+        },
+        {
+          "id": "wheeze",
+          "label": "Wheeze",
+          "kind": "select",
+          "tier": "core",
+          "group": "Added sounds",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ],
+          "learn": "Wheeze suggests airflow narrowing; asthma and COPD are common considerations, but the differential is broader and objective lung-function testing is used when appropriate."
+        },
+        {
+          "id": "wheeze_phase",
+          "label": "Wheeze phase",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Added sounds",
+          "options": [
+            "Not assessed",
+            "Expiratory",
+            "Inspiratory",
+            "Biphasic"
+          ]
+        },
+        {
+          "id": "wheeze_distribution",
+          "label": "Wheeze distribution",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Added sounds",
+          "options": [
+            "Not assessed",
+            "Focal",
+            "Diffuse bilateral",
+            "Right predominant",
+            "Left predominant"
+          ]
+        },
+        {
+          "id": "crackles",
+          "label": "Crackles / crepitations",
+          "kind": "select",
+          "tier": "core",
+          "group": "Added sounds",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ],
+          "learn": "Crackles can occur with alveolar or interstitial processes and congestion; distribution and clinical context matter."
+        },
+        {
+          "id": "crackle_type",
+          "label": "Crackle type",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Added sounds",
+          "options": [
+            "Not assessed",
+            "Fine",
+            "Coarse",
+            "Mixed"
+          ]
+        },
+        {
+          "id": "crackle_distribution",
+          "label": "Crackle distribution",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Added sounds",
+          "options": [
+            "Not assessed",
+            "Bibasal",
+            "Basal right",
+            "Basal left",
+            "Diffuse",
+            "Focal",
+            "Other"
+          ]
+        },
+        {
+          "id": "rhonchi",
+          "label": "Rhonchi",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Added sounds",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "pleural_rub",
+          "label": "Pleural friction rub",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Added sounds",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "percussion",
+          "label": "Percussion note",
+          "kind": "select",
+          "tier": "core",
+          "group": "Percussion",
+          "options": [
+            "Not assessed",
+            "Resonant",
+            "Dull",
+            "Stony dull",
+            "Hyperresonant",
+            "Mixed / localized abnormality"
+          ]
+        },
+        {
+          "id": "fremitus",
+          "label": "Tactile fremitus",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Palpation",
+          "options": [
+            "Not assessed",
+            "Normal",
+            "Increased",
+            "Reduced",
+            "Asymmetric"
+          ]
+        },
+        {
+          "id": "vocal_resonance",
+          "label": "Vocal resonance",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Auscultation",
+          "options": [
+            "Not assessed",
+            "Normal",
+            "Increased",
+            "Reduced"
+          ]
+        },
+        {
+          "id": "egophony",
+          "label": "Egophony",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Auscultation",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "clubbing",
+          "label": "Clubbing",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Peripheral signs",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "cyanosis",
+          "label": "Central cyanosis",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Peripheral signs",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abd",
+      "label": "Abdomen / GI",
+      "icon": "🩺",
+      "legacyNoteId": "abdNotes",
+      "fields": [
+        {
+          "id": "contour",
+          "label": "Abdominal contour",
+          "kind": "select",
+          "tier": "core",
+          "group": "Inspection",
+          "options": [
+            "Not assessed",
+            "Flat",
+            "Scaphoid",
+            "Distended",
+            "Asymmetric"
+          ]
+        },
+        {
+          "id": "bowel_sounds",
+          "label": "Bowel sounds",
+          "kind": "select",
+          "tier": "core",
+          "group": "Auscultation",
+          "options": [
+            "Not assessed",
+            "Normal",
+            "Hypoactive",
+            "Hyperactive",
+            "Absent after adequate auscultation"
+          ]
+        },
+        {
+          "id": "tenderness",
+          "label": "Tenderness",
+          "kind": "select",
+          "tier": "core",
+          "group": "Palpation",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "tenderness_severity",
+          "label": "Tenderness severity",
+          "kind": "select",
+          "tier": "core",
+          "group": "Palpation",
+          "options": [
+            "Not assessed",
+            "Mild",
+            "Moderate",
+            "Severe",
+            "Very severe"
+          ]
+        },
+        {
+          "id": "tenderness_site",
+          "label": "Tenderness site",
+          "kind": "select",
+          "tier": "core",
+          "group": "Palpation",
+          "options": [
+            "Not assessed",
+            "Epigastric",
+            "RUQ",
+            "LUQ",
+            "Periumbilical",
+            "RIF/RLQ",
+            "LIF/LLQ",
+            "Suprapubic",
+            "Generalized",
+            "Other"
+          ]
+        },
+        {
+          "id": "guarding",
+          "label": "Guarding",
+          "kind": "select",
+          "tier": "core",
+          "group": "Peritoneal signs",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Voluntary",
+            "Involuntary"
+          ],
+          "learn": "Involuntary guarding, rigidity or rebound tenderness may indicate peritoneal irritation and requires prompt clinical assessment."
+        },
+        {
+          "id": "rigidity",
+          "label": "Rigidity",
+          "kind": "select",
+          "tier": "core",
+          "group": "Peritoneal signs",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "rebound",
+          "label": "Rebound tenderness",
+          "kind": "select",
+          "tier": "core",
+          "group": "Peritoneal signs",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "liver",
+          "label": "Liver",
+          "kind": "select",
+          "tier": "core",
+          "group": "Organomegaly",
+          "options": [
+            "Not assessed",
+            "Not palpable",
+            "Palpable",
+            "Enlarged / hepatomegaly",
+            "Tender",
+            "Nodular / irregular",
+            "Other"
+          ]
+        },
+        {
+          "id": "spleen",
+          "label": "Spleen",
+          "kind": "select",
+          "tier": "core",
+          "group": "Organomegaly",
+          "options": [
+            "Not assessed",
+            "Not palpable",
+            "Palpable / splenomegaly",
+            "Tender",
+            "Other"
+          ]
+        },
+        {
+          "id": "mass",
+          "label": "Abdominal mass",
+          "kind": "select",
+          "tier": "core",
+          "group": "Mass / fluid",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "shifting_dullness",
+          "label": "Shifting dullness",
+          "kind": "select",
+          "tier": "core",
+          "group": "Mass / fluid",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ],
+          "learn": "Positive shifting dullness supports the presence of ascites; ultrasound can help confirm and characterize fluid."
+        },
+        {
+          "id": "fluid_wave",
+          "label": "Fluid thrill / wave",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Mass / fluid",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "murphy",
+          "label": "Murphy sign",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Focused signs",
+          "options": [
+            "Not assessed",
+            "Negative",
+            "Positive"
+          ]
+        },
+        {
+          "id": "mcburney",
+          "label": "McBurney point tenderness",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Focused signs",
+          "options": [
+            "Not assessed",
+            "Negative",
+            "Positive"
+          ]
+        },
+        {
+          "id": "rovsing",
+          "label": "Rovsing sign",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Focused signs",
+          "options": [
+            "Not assessed",
+            "Negative",
+            "Positive"
+          ]
+        },
+        {
+          "id": "cva_tenderness",
+          "label": "CVA / renal-angle tenderness",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Focused signs",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Right",
+            "Left",
+            "Bilateral"
+          ]
+        },
+        {
+          "id": "hernia",
+          "label": "Hernia examination",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Focused signs",
+          "options": [
+            "Not assessed",
+            "No hernia detected",
+            "Hernia present / suspected"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cns",
+      "label": "CNS / Neurology",
+      "icon": "🧠",
+      "legacyNoteId": "cnsNotes",
+      "fields": [
+        {
+          "id": "consciousness",
+          "label": "Level of consciousness",
+          "kind": "select",
+          "tier": "core",
+          "group": "Mental status",
+          "options": [
+            "Not assessed",
+            "Alert",
+            "Drowsy",
+            "Confused",
+            "Obtunded",
+            "Stuporous",
+            "Unresponsive"
+          ]
+        },
+        {
+          "id": "orientation",
+          "label": "Orientation",
+          "kind": "select",
+          "tier": "core",
+          "group": "Mental status",
+          "options": [
+            "Not assessed",
+            "Oriented ×3",
+            "Disoriented to time",
+            "Disoriented to place",
+            "Disoriented to person",
+            "Unable to assess"
+          ]
+        },
+        {
+          "id": "gcs_e",
+          "label": "GCS Eye",
+          "kind": "select",
+          "tier": "core",
+          "group": "GCS",
+          "options": [
+            "Not assessed",
+            "E4 — spontaneous",
+            "E3 — to sound",
+            "E2 — to pressure",
+            "E1 — none",
+            "NT — not testable"
+          ],
+          "help": "Record components separately; total score is calculated only when E, V and M are testable."
+        },
+        {
+          "id": "gcs_v",
+          "label": "GCS Verbal",
+          "kind": "select",
+          "tier": "core",
+          "group": "GCS",
+          "options": [
+            "Not assessed",
+            "V5 — orientated",
+            "V4 — confused",
+            "V3 — words",
+            "V2 — sounds",
+            "V1 — none",
+            "NT — not testable"
+          ]
+        },
+        {
+          "id": "gcs_m",
+          "label": "GCS Motor",
+          "kind": "select",
+          "tier": "core",
+          "group": "GCS",
+          "options": [
+            "Not assessed",
+            "M6 — obeys commands",
+            "M5 — localising",
+            "M4 — normal flexion",
+            "M3 — abnormal flexion",
+            "M2 — extension",
+            "M1 — none",
+            "NT — not testable"
+          ]
+        },
+        {
+          "id": "pupils",
+          "label": "Pupils",
+          "kind": "select",
+          "tier": "core",
+          "group": "Cranial / pupils",
+          "options": [
+            "Not assessed",
+            "Equal and reactive",
+            "Anisocoria",
+            "Sluggish reaction",
+            "Non-reactive unilateral",
+            "Non-reactive bilateral",
+            "Other"
+          ]
+        },
+        {
+          "id": "cranial_nerves",
+          "label": "Cranial nerve screen",
+          "kind": "select",
+          "tier": "core",
+          "group": "Cranial / pupils",
+          "options": [
+            "Not assessed",
+            "No focal deficit detected",
+            "Abnormal / focal deficit",
+            "Not fully assessed"
+          ]
+        },
+        {
+          "id": "power_rul",
+          "label": "Motor power RUL — MRC",
+          "kind": "select",
+          "tier": "core",
+          "group": "Motor",
+          "options": [
+            "Not assessed",
+            "0/5 — no visible contraction",
+            "1/5 — trace contraction",
+            "2/5 — movement with gravity eliminated",
+            "3/5 — movement against gravity",
+            "4/5 — movement against resistance",
+            "5/5 — normal power"
+          ]
+        },
+        {
+          "id": "power_lul",
+          "label": "Motor power LUL — MRC",
+          "kind": "select",
+          "tier": "core",
+          "group": "Motor",
+          "options": [
+            "Not assessed",
+            "0/5 — no visible contraction",
+            "1/5 — trace contraction",
+            "2/5 — movement with gravity eliminated",
+            "3/5 — movement against gravity",
+            "4/5 — movement against resistance",
+            "5/5 — normal power"
+          ]
+        },
+        {
+          "id": "power_rll",
+          "label": "Motor power RLL — MRC",
+          "kind": "select",
+          "tier": "core",
+          "group": "Motor",
+          "options": [
+            "Not assessed",
+            "0/5 — no visible contraction",
+            "1/5 — trace contraction",
+            "2/5 — movement with gravity eliminated",
+            "3/5 — movement against gravity",
+            "4/5 — movement against resistance",
+            "5/5 — normal power"
+          ]
+        },
+        {
+          "id": "power_lll",
+          "label": "Motor power LLL — MRC",
+          "kind": "select",
+          "tier": "core",
+          "group": "Motor",
+          "options": [
+            "Not assessed",
+            "0/5 — no visible contraction",
+            "1/5 — trace contraction",
+            "2/5 — movement with gravity eliminated",
+            "3/5 — movement against gravity",
+            "4/5 — movement against resistance",
+            "5/5 — normal power"
+          ]
+        },
+        {
+          "id": "tone",
+          "label": "Tone",
+          "kind": "select",
+          "tier": "core",
+          "group": "Motor",
+          "options": [
+            "Not assessed",
+            "Normal",
+            "Hypotonia",
+            "Spasticity",
+            "Rigidity",
+            "Mixed / other"
+          ]
+        },
+        {
+          "id": "dtr_upper",
+          "label": "Upper-limb DTR",
+          "kind": "select",
+          "tier": "core",
+          "group": "Reflexes",
+          "options": [
+            "Not assessed",
+            "0 — absent",
+            "1+ — reduced",
+            "2+ — normal",
+            "3+ — brisk",
+            "4+ — clonus"
+          ],
+          "help": "0–4+ convention: 0 absent, 1+ reduced, 2+ normal, 3+ brisk, 4+ clonus. Compare symmetry and clinical context."
+        },
+        {
+          "id": "dtr_knee",
+          "label": "Knee jerk",
+          "kind": "select",
+          "tier": "core",
+          "group": "Reflexes",
+          "options": [
+            "Not assessed",
+            "0 — absent",
+            "1+ — reduced",
+            "2+ — normal",
+            "3+ — brisk",
+            "4+ — clonus"
+          ]
+        },
+        {
+          "id": "dtr_ankle",
+          "label": "Ankle jerk",
+          "kind": "select",
+          "tier": "core",
+          "group": "Reflexes",
+          "options": [
+            "Not assessed",
+            "0 — absent",
+            "1+ — reduced",
+            "2+ — normal",
+            "3+ — brisk",
+            "4+ — clonus"
+          ]
+        },
+        {
+          "id": "plantar_r",
+          "label": "Plantar response — Right",
+          "kind": "select",
+          "tier": "core",
+          "group": "Reflexes",
+          "options": [
+            "Not assessed",
+            "Flexor",
+            "Extensor / Babinski",
+            "Mute / equivocal"
+          ]
+        },
+        {
+          "id": "plantar_l",
+          "label": "Plantar response — Left",
+          "kind": "select",
+          "tier": "core",
+          "group": "Reflexes",
+          "options": [
+            "Not assessed",
+            "Flexor",
+            "Extensor / Babinski",
+            "Mute / equivocal"
+          ]
+        },
+        {
+          "id": "sensation",
+          "label": "Sensory screen",
+          "kind": "select",
+          "tier": "core",
+          "group": "Sensory",
+          "options": [
+            "Not assessed",
+            "Intact",
+            "Reduced / sensory deficit",
+            "Allodynia / hyperesthesia",
+            "Dermatomal deficit",
+            "Stocking-glove pattern",
+            "Other"
+          ]
+        },
+        {
+          "id": "coordination",
+          "label": "Coordination",
+          "kind": "select",
+          "tier": "core",
+          "group": "Coordination / gait",
+          "options": [
+            "Not assessed",
+            "Normal",
+            "Dysmetria",
+            "Dysdiadochokinesia",
+            "Intention tremor",
+            "Other"
+          ]
+        },
+        {
+          "id": "gait",
+          "label": "Neurologic gait",
+          "kind": "select",
+          "tier": "core",
+          "group": "Coordination / gait",
+          "options": [
+            "Not assessed",
+            "Normal",
+            "Ataxic",
+            "Spastic",
+            "Hemiparetic",
+            "High-stepping",
+            "Parkinsonian",
+            "Antalgic",
+            "Unable to assess"
+          ]
+        },
+        {
+          "id": "romberg",
+          "label": "Romberg",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Coordination / gait",
+          "options": [
+            "Not assessed",
+            "Negative",
+            "Positive",
+            "Unable to assess"
+          ]
+        },
+        {
+          "id": "meningeal",
+          "label": "Meningeal signs",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Meningeal / red flags",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Neck stiffness",
+            "Kernig positive",
+            "Brudzinski positive",
+            "Multiple signs present"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "msk",
+      "label": "Musculoskeletal / Spine",
+      "icon": "🦴",
+      "legacyNoteId": null,
+      "fields": [
+        {
+          "id": "swelling",
+          "label": "Joint swelling",
+          "kind": "select",
+          "tier": "core",
+          "group": "Joint screen",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "warmth",
+          "label": "Joint warmth",
+          "kind": "select",
+          "tier": "core",
+          "group": "Joint screen",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "tenderness",
+          "label": "Joint / bony tenderness",
+          "kind": "select",
+          "tier": "core",
+          "group": "Joint screen",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "rom",
+          "label": "Range of motion",
+          "kind": "select",
+          "tier": "core",
+          "group": "Joint screen",
+          "options": [
+            "Not assessed",
+            "Full",
+            "Painful but full",
+            "Restricted mild",
+            "Restricted moderate",
+            "Restricted severe"
+          ]
+        },
+        {
+          "id": "deformity",
+          "label": "Deformity",
+          "kind": "select",
+          "tier": "core",
+          "group": "Joint screen",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "spine_tenderness",
+          "label": "Spinal midline tenderness",
+          "kind": "select",
+          "tier": "core",
+          "group": "Spine",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "paraspinal_spasm",
+          "label": "Paraspinal spasm",
+          "kind": "select",
+          "tier": "core",
+          "group": "Spine",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "gait",
+          "label": "Functional gait",
+          "kind": "select",
+          "tier": "core",
+          "group": "Function",
+          "options": [
+            "Not assessed",
+            "Normal",
+            "Antalgic",
+            "Trendelenburg",
+            "Ataxic",
+            "Spastic",
+            "High-stepping",
+            "Other"
+          ]
+        },
+        {
+          "id": "neurovascular",
+          "label": "Distal neurovascular status",
+          "kind": "select",
+          "tier": "core",
+          "group": "Function",
+          "options": [
+            "Not assessed",
+            "Intact",
+            "Abnormal",
+            "Unable to assess"
+          ]
+        },
+        {
+          "id": "joint_distribution",
+          "label": "Joint distribution / site",
+          "kind": "text",
+          "tier": "advanced",
+          "group": "Detail",
+          "placeholder": "e.g., bilateral MCP/PIP, right knee, lumbar spine"
+        }
+      ]
+    },
+    {
+      "id": "heent",
+      "label": "HEENT / Neck",
+      "icon": "👁️",
+      "legacyNoteId": null,
+      "fields": [
+        {
+          "id": "pupils",
+          "label": "Pupils",
+          "kind": "select",
+          "tier": "core",
+          "group": "Eyes",
+          "options": [
+            "Not assessed",
+            "PERRL / no gross abnormality",
+            "Anisocoria",
+            "Abnormal reactivity",
+            "Other"
+          ]
+        },
+        {
+          "id": "conjunctiva",
+          "label": "Conjunctiva",
+          "kind": "select",
+          "tier": "core",
+          "group": "Eyes",
+          "options": [
+            "Not assessed",
+            "Normal",
+            "Pallor",
+            "Injection",
+            "Icteric sclera / jaundice",
+            "Other"
+          ]
+        },
+        {
+          "id": "oral",
+          "label": "Oral cavity / mucosa",
+          "kind": "select",
+          "tier": "core",
+          "group": "Mouth / throat",
+          "options": [
+            "Not assessed",
+            "Normal",
+            "Dry mucosa",
+            "Ulcer / lesion",
+            "Thrush",
+            "Pharyngeal erythema",
+            "Other"
+          ]
+        },
+        {
+          "id": "tonsils",
+          "label": "Tonsils",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Mouth / throat",
+          "options": [
+            "Not assessed",
+            "Normal",
+            "Enlarged",
+            "Exudative",
+            "Asymmetric",
+            "Other"
+          ]
+        },
+        {
+          "id": "ear",
+          "label": "Ear / otoscopy",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Ear / nose",
+          "options": [
+            "Not assessed",
+            "No gross abnormality",
+            "Cerumen",
+            "Otitis / inflammation suspected",
+            "Perforation suspected",
+            "Other"
+          ]
+        },
+        {
+          "id": "nose",
+          "label": "Nose / sinuses",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Ear / nose",
+          "options": [
+            "Not assessed",
+            "No gross abnormality",
+            "Congestion",
+            "Discharge",
+            "Sinus tenderness",
+            "Epistaxis",
+            "Other"
+          ]
+        },
+        {
+          "id": "nodes",
+          "label": "Cervical lymph nodes",
+          "kind": "select",
+          "tier": "core",
+          "group": "Neck",
+          "options": [
+            "Not assessed",
+            "Not enlarged",
+            "Enlarged / lymphadenopathy",
+            "Tender nodes",
+            "Hard/fixed nodes",
+            "Other"
+          ]
+        },
+        {
+          "id": "thyroid",
+          "label": "Thyroid",
+          "kind": "select",
+          "tier": "core",
+          "group": "Neck",
+          "options": [
+            "Not assessed",
+            "Not enlarged",
+            "Diffuse enlargement",
+            "Nodule / asymmetric enlargement",
+            "Tender",
+            "Other"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skin",
+      "label": "Skin / Peripheral",
+      "icon": "🖐️",
+      "legacyNoteId": null,
+      "fields": [
+        {
+          "id": "rash",
+          "label": "Rash",
+          "kind": "select",
+          "tier": "core",
+          "group": "Skin",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "rash_pattern",
+          "label": "Rash pattern",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Skin",
+          "options": [
+            "Not assessed",
+            "Maculopapular",
+            "Urticarial",
+            "Petechial / purpuric",
+            "Vesicular",
+            "Target / erythema multiforme-like",
+            "Other"
+          ]
+        },
+        {
+          "id": "lesion",
+          "label": "Skin lesion / ulcer",
+          "kind": "select",
+          "tier": "core",
+          "group": "Skin",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "temperature",
+          "label": "Peripheral skin temperature",
+          "kind": "select",
+          "tier": "core",
+          "group": "Perfusion",
+          "options": [
+            "Not assessed",
+            "Warm",
+            "Cool",
+            "Asymmetric"
+          ]
+        },
+        {
+          "id": "perfusion",
+          "label": "Peripheral perfusion",
+          "kind": "select",
+          "tier": "core",
+          "group": "Perfusion",
+          "options": [
+            "Not assessed",
+            "Normal",
+            "Reduced / poor",
+            "Asymmetric"
+          ]
+        },
+        {
+          "id": "edema",
+          "label": "Peripheral edema",
+          "kind": "select",
+          "tier": "core",
+          "group": "Perfusion",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "clubbing",
+          "label": "Clubbing",
+          "kind": "select",
+          "tier": "core",
+          "group": "Peripheral signs",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "cyanosis",
+          "label": "Cyanosis",
+          "kind": "select",
+          "tier": "core",
+          "group": "Peripheral signs",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Peripheral",
+            "Central"
+          ]
+        },
+        {
+          "id": "petechiae",
+          "label": "Petechiae / purpura / ecchymosis",
+          "kind": "select",
+          "tier": "core",
+          "group": "Bleeding signs",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "renal",
+      "label": "Renal / Genitourinary",
+      "icon": "🫘",
+      "legacyNoteId": null,
+      "fields": [
+        {
+          "id": "cva",
+          "label": "Renal-angle / CVA tenderness",
+          "kind": "select",
+          "tier": "core",
+          "group": "Renal",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Right",
+            "Left",
+            "Bilateral"
+          ]
+        },
+        {
+          "id": "suprapubic",
+          "label": "Suprapubic tenderness",
+          "kind": "select",
+          "tier": "core",
+          "group": "Urinary",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "bladder",
+          "label": "Bladder distension",
+          "kind": "select",
+          "tier": "core",
+          "group": "Urinary",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "edema",
+          "label": "Edema related to fluid status",
+          "kind": "select",
+          "tier": "core",
+          "group": "Fluid status",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "urine_output",
+          "label": "Urine-output concern",
+          "kind": "select",
+          "tier": "core",
+          "group": "Fluid status",
+          "options": [
+            "Not assessed",
+            "No concern reported",
+            "Reduced / oliguria suspected",
+            "Anuria suspected",
+            "Polyuria reported",
+            "Unable to assess"
+          ]
+        },
+        {
+          "id": "external_exam",
+          "label": "External genital examination",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Sensitive exam",
+          "options": [
+            "Not assessed",
+            "Not indicated / not assessed",
+            "Normal when examined",
+            "Abnormal finding documented"
+          ],
+          "help": "Perform only when clinically indicated, with consent, privacy and appropriate chaperone policy."
+        }
+      ]
+    },
+    {
+      "id": "endocrine",
+      "label": "Endocrine / Metabolic",
+      "icon": "🧬",
+      "legacyNoteId": null,
+      "fields": [
+        {
+          "id": "thyroid",
+          "label": "Thyroid enlargement / nodule",
+          "kind": "select",
+          "tier": "core",
+          "group": "Thyroid",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Diffuse enlargement",
+            "Nodule / asymmetric",
+            "Tender"
+          ]
+        },
+        {
+          "id": "tremor",
+          "label": "Fine tremor",
+          "kind": "select",
+          "tier": "core",
+          "group": "Thyroid",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "eye_signs",
+          "label": "Thyroid eye signs",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Thyroid",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "acanthosis",
+          "label": "Acanthosis nigricans",
+          "kind": "select",
+          "tier": "core",
+          "group": "Metabolic",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "dehydration",
+          "label": "Clinical dehydration",
+          "kind": "select",
+          "tier": "core",
+          "group": "Metabolic",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Mild",
+            "Moderate",
+            "Severe"
+          ]
+        },
+        {
+          "id": "neuropathy_screen",
+          "label": "Diabetic peripheral neuropathy screen",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Diabetes",
+          "options": [
+            "Not assessed",
+            "No gross deficit",
+            "Abnormal / deficit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heme",
+      "label": "Hematology / Lymphatic",
+      "icon": "🩸",
+      "legacyNoteId": null,
+      "fields": [
+        {
+          "id": "nodes",
+          "label": "Lymphadenopathy",
+          "kind": "select",
+          "tier": "core",
+          "group": "Lymphatic",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "node_character",
+          "label": "Node character",
+          "kind": "select",
+          "tier": "advanced",
+          "group": "Lymphatic",
+          "options": [
+            "Not assessed",
+            "Tender / soft",
+            "Rubbery",
+            "Hard",
+            "Fixed / matted",
+            "Generalized",
+            "Other"
+          ]
+        },
+        {
+          "id": "bleeding",
+          "label": "Petechiae / purpura / ecchymosis",
+          "kind": "select",
+          "tier": "core",
+          "group": "Bleeding",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "splenomegaly",
+          "label": "Splenomegaly",
+          "kind": "select",
+          "tier": "core",
+          "group": "Organomegaly",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        },
+        {
+          "id": "hepatomegaly",
+          "label": "Hepatomegaly",
+          "kind": "select",
+          "tier": "core",
+          "group": "Organomegaly",
+          "options": [
+            "Not assessed",
+            "Absent",
+            "Present"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "repro",
+      "label": "Reproductive / Pelvic (when indicated)",
+      "icon": "⚕️",
+      "legacyNoteId": null,
+      "fields": [
+        {
+          "id": "consent",
+          "label": "Consent / chaperone documentation",
+          "kind": "select",
+          "tier": "core",
+          "group": "Safety",
+          "options": [
+            "Not assessed",
+            "Not indicated",
+            "Consent documented",
+            "Consent + chaperone documented"
+          ]
+        },
+        {
+          "id": "exam_status",
+          "label": "Focused reproductive / pelvic exam",
+          "kind": "select",
+          "tier": "core",
+          "group": "Focused exam",
+          "options": [
+            "Not assessed",
+            "Not indicated / not assessed",
+            "No abnormality detected",
+            "Abnormal finding documented"
+          ],
+          "help": "Use only when clinically indicated. Document consent, privacy, chaperone policy and relevant findings."
+        },
+        {
+          "id": "finding",
+          "label": "Focused finding",
+          "kind": "text",
+          "tier": "advanced",
+          "group": "Focused exam",
+          "placeholder": "Document clinically relevant finding only"
+        }
+      ]
+    },
+    {
+      "id": "other",
+      "label": "Other / Custom",
+      "icon": "➕",
+      "legacyNoteId": null,
+      "fields": [
+        {
+          "id": "custom",
+          "label": "Custom systemic finding",
+          "kind": "textarea",
+          "tier": "core",
+          "group": "Custom",
+          "placeholder": "Add any finding not represented above"
+        }
+      ]
+    }
+  ],
+  "clinical_scales": {
+    "cardiac_murmur": "Levine intensity 1/6–6/6; intensity is documented separately from lesion severity.",
+    "deep_tendon_reflex": "0–4+ convention: 0 absent, 1+ reduced/slight, 2+ normal, 3+ brisk/very brisk, 4+ clonus; interpret symmetry and context.",
+    "motor_power": "MRC muscle power 0–5.",
+    "gcs": "Glasgow Coma Scale records Eye (E1–E4), Verbal (V1–V5), Motor (M1–M6) components and total when all are testable.",
+    "edema": "1+–4+ pitting edema is semi-quantitative and convention-dependent; document site/distribution."
+  },
+  "design_principles": [
+    "Not assessed is distinct from absent/normal.",
+    "Examined — NAD is a system-level fast action and never fabricates individual findings.",
+    "Use validated or conventional grading only where appropriate; do not force a universal mild/moderate/severe scale.",
+    "Clinical decision support suggests directions and next checks but does not autonomously diagnose or order tests."
+  ]
+}

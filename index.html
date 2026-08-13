@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<title>Mahamaya Clinic EMR | Responsive Clinical Workspace V2.80</title>
+<title>Mahamaya Clinic EMR | Systemic Clinical Intelligence V2.90</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -367,6 +367,65 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 @media print{.encounter-dock,.fastflow-panel,.fastflow-backdrop{display:none!important}}
 </style>
 
+
+<style id="mahamaya-v290-systemic-css">
+/* V2.90 — Structured Systemic Examination + Explainable Clinical Decision Support */
+.systemic-workspace-v290{overflow:visible}
+.systemic-fastbar{position:sticky;top:126px;z-index:54;display:flex;gap:7px;flex-wrap:wrap;padding:8px;border:1px solid #d5e6e8;border-radius:14px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-shadow:0 8px 24px rgba(13,77,86,.07);margin:10px 0}
+.systemic-fastbar button{min-height:40px}
+.systemic-control-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0}
+.systemic-view-switch{display:inline-flex;border:1px solid var(--line);border-radius:12px;padding:3px;background:#f4f8f9}
+.sx-view-btn{background:transparent;color:#55717a;border-radius:9px;padding:7px 10px;font-size:11px}
+.sx-view-btn.active{background:var(--p);color:#fff}
+.systemic-tab-strip{display:flex;gap:7px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 1px 9px;scrollbar-width:thin}
+.systemic-tab-btn{flex:0 0 auto;scroll-snap-align:start;min-width:128px;display:flex;align-items:center;justify-content:flex-start;gap:7px;background:#f1f7f8;color:#315d66;border:1px solid #d7e6e8;padding:9px 10px;border-radius:13px;box-shadow:none}
+.systemic-tab-btn .sx-tab-icon{font-size:18px}.systemic-tab-btn .sx-tab-copy{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}.systemic-tab-btn .sx-tab-copy small{font-size:8px;color:#71878d;font-weight:700;margin-top:3px}
+.systemic-tab-btn.active{background:var(--p);color:#fff;border-color:var(--p)}
+.systemic-tab-btn.active .sx-tab-copy small{color:rgba(255,255,255,.8)}
+.systemic-tab-btn.sx-nad{border-color:#9ad4b7;background:#edf9f2}.systemic-tab-btn.sx-abnormal{border-color:#e2b46e;background:#fff7e7}
+.systemic-tab-btn.sx-nad.active,.systemic-tab-btn.sx-abnormal.active{background:var(--p);color:#fff}
+.systemic-panel-shell{border:1px solid #d8e7e9;border-radius:16px;background:linear-gradient(180deg,#fff,#fbfdfe);padding:13px;min-height:180px}
+.sx-system-head{display:grid;grid-template-columns:1fr minmax(220px,320px);gap:12px;align-items:end;padding-bottom:10px;border-bottom:1px solid #e3ecee}
+.sx-system-title{display:flex;align-items:center;gap:9px}.sx-system-title .icon{width:42px;height:42px;border-radius:13px;background:#e5f3f3;display:grid;place-items:center;font-size:22px}.sx-system-title h3{margin:0}.sx-system-title p{margin:3px 0 0;color:#6a8188;font-size:11px}
+.sx-system-status-wrap label{margin-top:0}.sx-system-status{font-weight:800}
+.sx-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.sx-group-title{grid-column:1/-1;display:flex;align-items:center;gap:8px;margin:7px 0 -1px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#5c747c;font-weight:900}
+.sx-group-title:after{content:"";height:1px;background:#e1eaec;flex:1}
+.sx-field{border:1px solid #dce9eb;border-radius:13px;padding:10px;background:#fff;min-width:0}
+.sx-field.sx-abnormal-field{border-color:#e4b66e;background:#fffaf0;box-shadow:inset 4px 0 #dca23e}
+.sx-field-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.sx-field-label{font-size:11px;font-weight:900;color:#254f58}.sx-field-tier{font-size:8px;padding:3px 5px;border-radius:999px;background:#edf4f5;color:#657b82;font-weight:800;text-transform:uppercase}
+.sx-field select,.sx-field input,.sx-field textarea{margin-top:6px;padding:9px;font-size:13px}.sx-field textarea{min-height:70px}
+.sx-help{font-size:9px;color:#73878d;line-height:1.35;margin-top:5px}.sx-learn{margin-top:6px;border-left:3px solid #78b5bb;padding:5px 7px;background:#f4fafb;border-radius:0 8px 8px 0;font-size:9px;color:#45666d}
+.sx-note-shell{margin-top:12px;border-top:1px solid #e3ecee;padding-top:10px}.sx-note-shell textarea{min-height:78px}
+.systemic-cds-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.systemic-cds-card{border:1px solid #d7e6e8;border-radius:16px;padding:13px;background:#fff;box-shadow:0 6px 18px rgba(13,77,86,.05)}
+.systemic-cds-card h3{margin:0;color:var(--p)}.cds-badge{font-size:9px;font-weight:900;background:#e7f4f5;color:#226a70;padding:5px 7px;border-radius:999px}
+.systemic-cds-content{font-size:11px;line-height:1.45}.sx-cds-block{margin:8px 0;border-radius:11px;padding:9px 10px;background:#f7fbfc;border:1px solid #e0eaec}.sx-cds-block b{color:#245661}.sx-cds-block ul{margin:6px 0 0 18px;padding:0}.sx-cds-block li{margin:3px 0}
+.sx-cds-block.warn{background:#fff8e9;border-color:#ebcf91}.sx-cds-block.red{background:#fff0ee;border-color:#e6aaa4}.sx-cds-block.green{background:#edf9f2;border-color:#b8dfc8}
+.systemic-urgent-box{margin-top:12px;padding:12px;border-radius:13px;background:#fff0ee;border:1px solid #dc918a;color:#7f271f}.systemic-urgent-box h3{margin:0 0 6px;color:#9c2b22}.systemic-urgent-box ul{margin:5px 0 0 18px;padding:0}
+.systemic-summary-details{margin-top:12px;border:1px solid #d8e7e9;border-radius:13px;background:#f8fbfc;padding:9px}.systemic-summary-details summary{font-weight:900;color:#275863;cursor:pointer}.systemic-summary-details textarea{margin-top:8px;min-height:130px;background:#fff;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;line-height:1.45}
+.sx-investigation-chip,.sx-ddx-chip{display:inline-flex;gap:4px;align-items:center;margin:3px;padding:5px 7px;border-radius:999px;background:#eef6f7;border:1px solid #d3e4e6;font-size:9px;font-weight:800;color:#315d66}
+.sx-score-card{grid-column:1/-1;border:1px solid #cfe2e4;background:#f3fafb;border-radius:13px;padding:10px;display:flex;align-items:center;justify-content:space-between;gap:10px}.sx-score-card b{color:var(--p)}
+@media(max-width:1000px){
+  .systemic-fastbar{top:120px}.sx-fields{grid-template-columns:1fr}.systemic-cds-grid{grid-template-columns:1fr}.sx-system-head{grid-template-columns:1fr 250px}
+}
+@media(max-width:760px){
+  .systemic-fastbar{position:static;display:grid;grid-template-columns:1fr 1fr;box-shadow:none}.systemic-fastbar button{padding:9px 7px;font-size:11px}
+  .systemic-control-row{align-items:flex-start;flex-direction:column}.systemic-view-switch{width:100%}.sx-view-btn{flex:1}
+  .systemic-tab-strip{margin-left:-3px;margin-right:-3px;padding-bottom:8px}.systemic-tab-btn{min-width:116px;padding:8px 9px}
+  .systemic-panel-shell{padding:10px;border-radius:14px}.sx-system-head{grid-template-columns:1fr}.sx-fields{gap:8px}.sx-field{padding:9px}
+  .sx-field select,.sx-field input,.sx-field textarea{font-size:16px;min-height:44px}.sx-system-status{font-size:16px}
+  .systemic-cds-card{padding:11px}.systemic-summary-details textarea{font-size:12px}
+  .systemic-workspace-v290 .workflow-actions{bottom:76px}
+}
+@media(max-width:430px){
+  .systemic-fastbar{grid-template-columns:1fr}.systemic-tab-btn{min-width:108px}.systemic-tab-btn .sx-tab-copy span{font-size:10px}
+}
+@media print{
+  .systemic-fastbar,.systemic-control-row,.systemic-tab-strip{display:none!important}.systemic-cds-grid{grid-template-columns:1fr 1fr}.systemic-panel-shell{border:0;padding:0}
+}
+</style>
+
 </head>
 <body>
 
@@ -393,8 +452,8 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
     <div class="brand-lockup">
       <img class="brand-logo" src="./icon-192.png" alt="Mahamaya Clinic">
       <div class="brand-copy">
-        <h1>Mahamaya Clinic <span class="version-badge">V2.80</span></h1>
-        <p>Responsive Clinical Workspace • SLAIE Core v1.0 • Build 2026.08.13-R3</p>
+        <h1>Mahamaya Clinic <span class="version-badge">V2.90</span></h1>
+        <p>Systemic Clinical Intelligence • SLAIE Core v1.0 • Build 2026.08.13-R4</p>
       </div>
     </div>
     <div class="header-meta">
@@ -419,7 +478,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 </nav>
 
 <div class="system-strip no-print">
-  <div id="status" class="status">App loaded successfully. V2.80 Responsive Clinical Workspace + SLAIE ready.</div>
+  <div id="status" class="status">App loaded successfully. V2.90 Systemic Clinical Intelligence + SLAIE ready.</div>
   <div class="actions">
     <span id="activeRoleBadge" class="role-badge">Locked</span>
     <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -735,10 +794,74 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 </div>
 </section>
 
+
 <section id="systemicSection" class="hidden">
-<div class="card"><h2>Systemic Examination</h2>
-<label>CVS Notes</label><textarea id="cvsNotes"></textarea><label>Respiratory Notes</label><textarea id="rsNotes"></textarea><label>Abdomen Notes</label><textarea id="abdNotes"></textarea><label>CNS Notes</label><textarea id="cnsNotes"></textarea><label>Additional Systemic Notes</label><textarea id="systemicNotes"></textarea>
-<div class="actions"><button id="saveSystemicBtn" class="primary">💾 Save Systemic</button><button id="goAssessmentBtn" class="secondary">Next: Assessment & Dx →</button></div>
+<div class="card systemic-workspace-v290">
+  <div class="section-head">
+    <div>
+      <h2>Systemic Examination — Structured Clinical Workspace</h2>
+      <div class="section-kicker">Fast bedside charting • standard grading where applicable • explainable clinical decision support</div>
+    </div>
+    <span id="sxCompletionBadge" class="evidence-badge">0 systems assessed</span>
+  </div>
+
+  <div class="notice clinical-note">
+    <b>Clinical safety:</b> Findings are clinician-entered. “Smart Interpretation” is explainable decision support for learning and workflow — not an autonomous diagnosis. 
+    Use local emergency pathways, guideline-based care, specialist review and the complete clinical context.
+  </div>
+
+  <div class="systemic-fastbar no-print">
+    <button type="button" id="sxMarkNadBtn" class="success">✓ Current system: Examined — NAD</button>
+    <button type="button" id="sxResetSystemBtn" class="secondary">↺ Current system: Not assessed</button>
+    <button type="button" id="sxInterpretBtn" class="primary">🧠 Interpret & Learn</button>
+    <button type="button" id="sxAddInvestigationsBtn" class="secondary" disabled>＋ Add Suggested Investigations</button>
+    <button type="button" id="sxAddDxBtn" class="secondary" disabled>↘ Add DDx Directions</button>
+  </div>
+
+  <div class="systemic-control-row">
+    <div class="systemic-view-switch" role="group" aria-label="Systemic examination detail level">
+      <button type="button" class="sx-view-btn active" data-sx-view="core">Core OPD</button>
+      <button type="button" class="sx-view-btn" data-sx-view="advanced">Full / Advanced</button>
+    </div>
+    <div class="small">Tip: routine normal exam = one tap “Examined — NAD”. Open structured findings only where detail is clinically useful.</div>
+  </div>
+
+  <div id="sxSystemTabs" class="systemic-tab-strip no-print" aria-label="Body systems"></div>
+  <div id="sxSystemPanel" class="systemic-panel-shell">
+    <div class="notice">Loading structured systemic examination…</div>
+  </div>
+
+  <div class="systemic-cds-grid">
+    <div class="systemic-cds-card">
+      <div class="section-head"><div><h3>🧠 Smart Interpretation & Learning</h3><div class="section-kicker">What the selected findings may mean and what to examine next</div></div><span class="cds-badge">Explainable CDS</span></div>
+      <div id="sxMeaningBox" class="systemic-cds-content"><div class="small">Select findings and press <b>Interpret & Learn</b>.</div></div>
+    </div>
+    <div class="systemic-cds-card">
+      <div class="section-head"><div><h3>🧪 Suggested Next Steps</h3><div class="section-kicker">Bedside checks, investigations and differential directions for clinician review</div></div></div>
+      <div id="sxNextBox" class="systemic-cds-content"><div class="small">No suggestions generated yet.</div></div>
+    </div>
+  </div>
+
+  <div id="sxUrgentBox" class="systemic-urgent-box hidden"></div>
+
+  <details class="systemic-summary-details" open>
+    <summary>Structured Systemic Examination Summary</summary>
+    <textarea id="sxStructuredSummary" readonly placeholder="Structured summary will appear here."></textarea>
+  </details>
+
+  <label>Additional Systemic / Clinical Notes</label>
+  <textarea id="systemicNotes" placeholder="Free text for findings not captured in structured fields, clinical correlation, or examination limitations."></textarea>
+
+  <!-- Legacy note fields retained for backward compatibility with older Mahamaya EMR records -->
+  <textarea id="cvsNotes" class="hidden" aria-hidden="true"></textarea>
+  <textarea id="rsNotes" class="hidden" aria-hidden="true"></textarea>
+  <textarea id="abdNotes" class="hidden" aria-hidden="true"></textarea>
+  <textarea id="cnsNotes" class="hidden" aria-hidden="true"></textarea>
+
+  <div class="actions workflow-actions">
+    <button id="saveSystemicBtn" class="primary">💾 Save Systemic Examination</button>
+    <button id="goAssessmentBtn" class="secondary">Next: Assessment & Dx →</button>
+  </div>
 </div>
 </section>
 
@@ -4592,8 +4715,8 @@ const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
 function key(id){return PREFIX+id}
-function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',items:[],duration:'',severity:'',onset:'',progression:'',character:'',site:'',laterality:'',associated:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},slaie:{reports:[],working:null},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],subtypeAssessments:{},gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',diagnosisTerms:[],medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},labProfiles:{mode:'diabetes',values:{},results:[],summary:''},updatedAt:new Date().toISOString()}}
-function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!Array.isArray(r.complaint.items))r.complaint.items=[];if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.slaie)r.slaie=b.slaie;if(!Array.isArray(r.slaie.reports))r.slaie.reports=[];if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!Array.isArray(r.prescription.diagnosisTerms))r.prescription.diagnosisTerms=[];if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;if(!r.labProfiles)r.labProfiles=b.labProfiles;return r}
+function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',items:[],duration:'',severity:'',onset:'',progression:'',character:'',site:'',laterality:'',associated:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:'',structured:{version:'Systemic Exam Master v1.0',systemStatus:{},values:{},notes:{}},interpretation:{generatedAt:'',meaning:[],bedside:[],investigations:[],differentials:[],urgent:[],summary:''}},investigations:{previous:[],advised:[]},slaie:{reports:[],working:null},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],subtypeAssessments:{},gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',diagnosisTerms:[],medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},labProfiles:{mode:'diabetes',values:{},results:[],summary:''},updatedAt:new Date().toISOString()}}
+function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!Array.isArray(r.complaint.items))r.complaint.items=[];if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.systemic.structured)r.systemic.structured=b.systemic.structured;if(!r.systemic.structured.systemStatus)r.systemic.structured.systemStatus={};if(!r.systemic.structured.values)r.systemic.structured.values={};if(!r.systemic.structured.notes)r.systemic.structured.notes={};if(!r.systemic.interpretation)r.systemic.interpretation=b.systemic.interpretation;if(!r.investigations)r.investigations=b.investigations;if(!r.slaie)r.slaie=b.slaie;if(!Array.isArray(r.slaie.reports))r.slaie.reports=[];if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!Array.isArray(r.prescription.diagnosisTerms))r.prescription.diagnosisTerms=[];if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;if(!r.labProfiles)r.labProfiles=b.labProfiles;return r}
 async function save(r){
   r.updatedAt=new Date().toISOString();
 
@@ -4670,7 +4793,13 @@ function readComplaint(){
 }
 function readClinical(){current.clinical={chiefComplaints:val('chiefComplaints'),duration:val('duration'),onset:val('onset'),hpi:val('hpi'),pastHistory:val('pastHistory'),currentMedicines:val('currentMedicines'),allergy:val('allergy'),familyHistory:val('familyHistory'),bp:val('bp'),pulse:val('pulse'),spo2:val('spo2'),temp:val('temp'),rr:val('rr'),pain:val('pain'),clinicalNotes:val('clinicalNotes')}}
 function readExam(){const findings={};generalFindingNames.forEach((name,i)=>findings[name]={status:val('fs'+i),grade:val('fg'+i),remarks:val('fr'+i)});current.exam={findings,build:val('build'),nutrition:val('nutrition'),gait:val('gait'),examNotes:val('examNotes')}}
-function readSystemic(){current.systemic={cvsNotes:val('cvsNotes'),rsNotes:val('rsNotes'),abdNotes:val('abdNotes'),cnsNotes:val('cnsNotes'),systemicNotes:val('systemicNotes')}}
+function readSystemic(){
+  const previous=current.systemic||{};
+  const engine=window.MAHAMAYA_SYSTEMIC_ENGINE;
+  const structured=engine?.collect?.()||previous.structured||{version:'Systemic Exam Master v1.0',systemStatus:{},values:{},notes:{}};
+  const interpretation=engine?.getInterpretation?.()||previous.interpretation||{generatedAt:'',meaning:[],bedside:[],investigations:[],differentials:[],urgent:[],summary:''};
+  current.systemic={...previous,cvsNotes:val('cvsNotes'),rsNotes:val('rsNotes'),abdNotes:val('abdNotes'),cnsNotes:val('cnsNotes'),systemicNotes:val('systemicNotes'),structured,interpretation};
+}
 function collectSubtypeAssessments(){
   const existing=current?.ayurveda?.subtypeAssessments||{};
   const selectedNames=new Set(selected('subtype'));
@@ -9957,13 +10086,13 @@ function readAssessment(){readPrescription();renderRxDiagnosisSummary()}
 function renderEncounterProgress(){if(!$('homeProgressFill'))return;const stages=[
  ['patient',!!(current?.patient?.name&&current?.patient?.mobile)],
  ['complaint',!!(current?.complaint?.primary||(current?.complaint?.items||[]).length)],
- ['exam',!!(current?.clinical?.hpi||current?.clinical?.bp||current?.exam?.examNotes||current?.systemic?.systemicNotes)],
+ ['exam',!!(current?.clinical?.hpi||current?.clinical?.bp||current?.exam?.examNotes||current?.systemic?.systemicNotes||Object.values(current?.systemic?.structured?.systemStatus||{}).some(v=>v&&v!=='Not assessed'))],
  ['assessment',!!(current?.prescription?.provisionalDiagnosis||current?.prescription?.finalDiagnosis)],
  ['investigations',!!((current?.investigations?.previous||[]).length||(current?.investigations?.advised||[]).length)],
  ['ayurveda',!!(current?.ayurveda?.notes||(current?.ayurveda?.dosha||[]).length||current?.ayurveda?.prakriti)],
  ['plan',!!((current?.prescription?.medicines||[]).length||current?.prescription?.pathya||current?.prescription?.followupDate)]
  ];const done=stages.filter(x=>x[1]).length,pct=Math.round(done/stages.length*100);$('homeProgressFill').style.width=pct+'%';$('homeProgressPercent').textContent=pct+'%';$('homeProgressText').textContent=current?.patient?.name?'Current encounter: '+current.patient.name:(done?'Current encounter in progress':'Current encounter: not started');document.querySelectorAll('[data-progress-key]').forEach(b=>{const x=stages.find(s=>s[0]===b.dataset.progressKey);b.classList.toggle('is-done',!!x?.[1]);b.classList.remove('is-current')});const next=stages.find(x=>!x[1]);if(next)document.querySelector(`[data-progress-key="${next[0]}"]`)?.classList.add('is-current')}
-function nextEncounterTab(){if(!(current?.patient?.name&&current?.patient?.mobile))return 'tabPatient';if(!(current?.complaint?.primary||(current?.complaint?.items||[]).length))return 'tabComplaint';if(!(current?.clinical?.hpi||current?.clinical?.chiefComplaints))return 'tabClinical';if(!(current?.exam?.examNotes||current?.systemic?.systemicNotes))return 'tabExam';if(!(current?.prescription?.provisionalDiagnosis||current?.prescription?.finalDiagnosis))return 'tabAssessment';if(!(current?.ayurveda?.notes||(current?.ayurveda?.dosha||[]).length))return 'tabAyurveda';if(!((current?.prescription?.medicines||[]).length||current?.prescription?.pathya))return 'tabPrescription';return 'tabSafety'}
+function nextEncounterTab(){if(!(current?.patient?.name&&current?.patient?.mobile))return 'tabPatient';if(!(current?.complaint?.primary||(current?.complaint?.items||[]).length))return 'tabComplaint';if(!(current?.clinical?.hpi||current?.clinical?.chiefComplaints))return 'tabClinical';if(!(current?.exam?.examNotes||current?.systemic?.systemicNotes||Object.values(current?.systemic?.structured?.systemStatus||{}).some(v=>v&&v!=='Not assessed')))return 'tabExam';if(!(current?.prescription?.provisionalDiagnosis||current?.prescription?.finalDiagnosis))return 'tabAssessment';if(!(current?.ayurveda?.notes||(current?.ayurveda?.dosha||[]).length))return 'tabAyurveda';if(!((current?.prescription?.medicines||[]).length||current?.prescription?.pathya))return 'tabPrescription';return 'tabSafety'}
 function renderGeneralRows(){$('findings').innerHTML=generalFindingNames.map((n,i)=>`<div class="finding-row"><div class="finding-name">${esc(n)}</div><div><label>Status</label><select id="fs${i}"><option value=""></option><option>Absent</option><option>Present</option><option>Not assessed</option></select></div><div><label>Grade</label><select id="fg${i}"><option value=""></option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>Mild</option><option>Moderate</option><option>Severe</option></select></div><div><label>Site / Remarks</label><input id="fr${i}"></div></div>`).join('')}
 function renderInvestigations(){$('previousList').innerHTML=current.investigations.previous.map((x,i)=>`<div class="item"><b>${esc(x.category)} — ${esc(x.test)}</b><div class="small">${esc(x.date||'')} • ${esc(x.result||'')}</div><button class="danger" data-previdx="${i}">Remove</button></div>`).join('')||'<div class="notice">No previous reports.</div>';$('advisedList').innerHTML=current.investigations.advised.map((x,i)=>`<div class="item"><b>${esc(x.category)} — ${esc(x.test)}</b><div class="small">${esc(x.priority||'')} • ${esc(x.note||'')}</div><button class="danger" data-advidx="${i}">Remove</button></div>`).join('')||'<div class="notice">No advised tests.</div>'}
 
@@ -9976,7 +10105,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintSite',r.complaint.site);set('complaintLaterality',r.complaint.laterality);set('complaintAssociated',r.complaint.associated);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};if(!a.printPrescriptionSettings)a.printPrescriptionSettings={};if(!a.patientEducation)a.patientEducation={};if(!a.exerciseRehabYoga)a.exerciseRehabYoga={};if(!a.followupComparison)a.followupComparison={visits:[]};if(!a.patientTimeline)a.patientTimeline={events:[]};if(!a.diseaseTemplateSettings)a.diseaseTemplateSettings={};if(!a.clinicalRegistryLastSearch)a.clinicalRegistryLastSearch={};if(!a.backupRestoreSettings)a.backupRestoreSettings={};if(!a.userRoleAuditSettings)a.userRoleAuditSettings={};if(!a.securityReadiness)a.securityReadiness={};if(!a.backendMigrationSettings)a.backendMigrationSettings={};if(!a.firebaseBackendSettings)a.firebaseBackendSettings={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintSite',r.complaint.site);set('complaintLaterality',r.complaint.laterality);set('complaintAssociated',r.complaint.associated);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));setTimeout(()=>window.MAHAMAYA_SYSTEMIC_ENGINE?.restore?.(r.systemic||{}),0);const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};if(!a.printPrescriptionSettings)a.printPrescriptionSettings={};if(!a.patientEducation)a.patientEducation={};if(!a.exerciseRehabYoga)a.exerciseRehabYoga={};if(!a.followupComparison)a.followupComparison={visits:[]};if(!a.patientTimeline)a.patientTimeline={events:[]};if(!a.diseaseTemplateSettings)a.diseaseTemplateSettings={};if(!a.clinicalRegistryLastSearch)a.clinicalRegistryLastSearch={};if(!a.backupRestoreSettings)a.backupRestoreSettings={};if(!a.userRoleAuditSettings)a.userRoleAuditSettings={};if(!a.securityReadiness)a.securityReadiness={};if(!a.backendMigrationSettings)a.backendMigrationSettings={};if(!a.firebaseBackendSettings)a.firebaseBackendSettings={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
@@ -11511,7 +11640,7 @@ function showPatient(){hideAll();$('patientSection').classList.remove('hidden');
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
 function showClinical(){hideAll();$('clinicalSection').classList.remove('hidden');setActive('tabClinical')}
 function showExam(){hideAll();$('examSection').classList.remove('hidden');setActive('tabExam')}
-function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden');setActive('tabSystemic')}
+function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden');setActive('tabSystemic');window.MAHAMAYA_SYSTEMIC_ENGINE?.open?.(current?.systemic||{})}
 function showAssessment(){hideAll();$('assessmentSection').classList.remove('hidden');setActive('tabAssessment');renderAssessmentContext();renderDiagnosisTerms();renderDiagnosisSearch()}
 function showInvestigations(){hideAll();$('investigationsSection').classList.remove('hidden');setActive('tabInvestigations');renderInvestigations()}
 function showSLAIE(){hideAll();$('slaieSection').classList.remove('hidden');setActive('tabSLAIE');window.dispatchEvent(new CustomEvent('mahamaya:slaie-open'))}
@@ -11804,7 +11933,7 @@ window.MahamayaBridge={
   esc:(x)=>esc(x)
 };
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V2.80 Responsive Clinical Workspace + SLAIE ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V2.90 Systemic Clinical Intelligence + SLAIE ready.');
 })();
 </script>
 
@@ -12239,6 +12368,618 @@ bootSKMCFirebase();
   refreshContext();setInterval(refreshContext,3500);
 })();
 </script>
+
+
+<script id="mahamaya-v290-systemic-js">
+(function(){
+  'use strict';
+  const MASTER_URL='./systemic-exam-master-v1.json';
+  const byId=id=>document.getElementById(id);
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const unique=a=>[...new Set((a||[]).filter(Boolean))];
+  const uniqObj=(a,key='test')=>{const seen=new Set();return (a||[]).filter(x=>{const k=String(x?.[key]||JSON.stringify(x)).toLowerCase();if(seen.has(k))return false;seen.add(k);return true})};
+  const state={
+    master:null,active:'cvs',view:'core',
+    systemStatus:{},values:{},notes:{},
+    lastInterpretation:{generatedAt:'',meaning:[],bedside:[],investigations:[],differentials:[],urgent:[],summary:''}
+  };
+  let loadPromise=null;
+
+  async function loadMaster(){
+    if(state.master)return state.master;
+    if(loadPromise)return loadPromise;
+    loadPromise=fetch(MASTER_URL,{cache:'no-store'})
+      .then(r=>{if(!r.ok)throw new Error('Systemic master '+r.status);return r.json()})
+      .then(d=>{state.master=d;return d})
+      .catch(err=>{
+        console.error(err);
+        const p=byId('sxSystemPanel');
+        if(p)p.innerHTML='<div class="notice red"><b>Structured examination master could not load.</b><br>Refresh once after V2.90 files are fully published. Free notes remain available below.</div>';
+        throw err;
+      });
+    return loadPromise;
+  }
+
+  function activeSystem(){return state.master?.systems?.find(s=>s.id===state.active)||state.master?.systems?.[0]}
+  function key(sid,fid){return sid+'.'+fid}
+  function get(sid,fid){return state.values[key(sid,fid)]??'Not assessed'}
+  function setVal(sid,fid,v){state.values[key(sid,fid)]=v}
+  function hasValue(v){return v!==undefined&&v!==null&&String(v).trim()!==''&&String(v)!=='Not assessed'}
+  function fieldIsAssessed(sid,f){return hasValue(get(sid,f.id))}
+  function systemFieldCount(sid){
+    const s=state.master?.systems?.find(x=>x.id===sid);if(!s)return {n:0,total:0};
+    const fields=s.fields.filter(f=>state.view==='advanced'||f.tier!=='advanced');
+    return {n:fields.filter(f=>fieldIsAssessed(sid,f)).length,total:fields.length};
+  }
+  function isClearlyNormal(v){
+    return ['Regular','Normal','Absent','Not elevated','≤2 seconds','Normal location','2+ — normal',
+      'Normal bilateral','Symmetric','Central','Vesicular','Resonant','Intact','Full','No focal deficit detected',
+      'Equal and reactive','Oriented ×3','Alert','Flexor','Negative','No gross abnormality','Not enlarged',
+      'No concern reported','No hernia detected','No abnormality detected','Warm'].includes(v);
+  }
+  function isConcerningValue(v){
+    if(!hasValue(v))return false;
+    if(isClearlyNormal(v))return false;
+    if(['Present','Elevated','Irregular','Irregularly irregular','Abnormal / focal deficit','Extensor / Babinski',
+        'Rigidity','Involuntary','Positive','Anuria suspected','Reduced / poor','Central','Petechial / purpuric',
+        'Hard','Fixed / matted','Abnormal finding documented'].some(x=>String(v).includes(x)))return true;
+    return false;
+  }
+
+  function renderTabs(){
+    const box=byId('sxSystemTabs');if(!box||!state.master)return;
+    box.innerHTML=state.master.systems.map(s=>{
+      const st=state.systemStatus[s.id]||'Not assessed';
+      const c=systemFieldCount(s.id);
+      const cls=s.id===state.active?' active':'';
+      const badge=st==='Examined — NAD'?'✓':st==='Abnormal findings'?'!':c.n?String(c.n):'';
+      const statusCls=st==='Examined — NAD'?' sx-nad':st==='Abnormal findings'?' sx-abnormal':'';
+      return `<button type="button" class="systemic-tab-btn${cls}${statusCls}" data-sx-tab="${esc(s.id)}" title="${esc(st)}">
+        <span>${esc(s.icon||'•')} ${esc(s.label)}</span>${badge?`<b class="sx-tab-badge">${esc(badge)}</b>`:''}
+      </button>`;
+    }).join('');
+  }
+
+  function gcsScore(){
+    const parts=[get('cns','gcs_e'),get('cns','gcs_v'),get('cns','gcs_m')];
+    if(parts.some(v=>!hasValue(v)))return null;
+    const nums=parts.map(v=>Number((String(v).match(/[EVM](\d)/)||[])[1]));
+    if(nums.some(n=>!Number.isFinite(n)))return null;
+    return {e:nums[0],v:nums[1],m:nums[2],total:nums[0]+nums[1]+nums[2]};
+  }
+
+  function renderField(s,f){
+    const v=get(s.id,f.id);
+    const adv=f.tier==='advanced';
+    const concern=isConcerningValue(v);
+    let control='';
+    if(f.kind==='select'){
+      const opts=unique(f.options||['Not assessed']);
+      control=`<select data-sx-key="${esc(key(s.id,f.id))}" aria-label="${esc(f.label)}">${opts.map(o=>`<option${String(o)===String(v)?' selected':''}>${esc(o)}</option>`).join('')}</select>`;
+    } else if(f.kind==='textarea'){
+      control=`<textarea data-sx-key="${esc(key(s.id,f.id))}" rows="3" placeholder="Type finding / description">${esc(hasValue(v)?v:'')}</textarea>`;
+    } else {
+      control=`<input data-sx-key="${esc(key(s.id,f.id))}" value="${esc(hasValue(v)?v:'')}" placeholder="Type finding / description">`;
+    }
+    return `<div class="sx-field${adv?' sx-advanced-field':''}${concern?' sx-abnormal-field':''}" data-sx-field="${esc(f.id)}">
+      <div class="sx-field-head"><label class="sx-field-label">${esc(f.label)}</label>${adv?'<span class="sx-field-tier">Advanced</span>':''}</div>
+      ${control}
+      ${f.help?`<div class="sx-help">${esc(f.help)}</div>`:''}
+      ${f.learn?`<details class="sx-learn"><summary>Clinical meaning</summary><div>${esc(f.learn)}</div></details>`:''}
+    </div>`;
+  }
+
+  function renderPanel(){
+    const box=byId('sxSystemPanel');if(!box||!state.master)return;
+    const s=activeSystem();if(!s)return;
+    const fields=s.fields.filter(f=>state.view==='advanced'||f.tier!=='advanced');
+    const groups=[];
+    fields.forEach(f=>{const g=f.group||'Findings';if(!groups.includes(g))groups.push(g)});
+    const status=state.systemStatus[s.id]||'Not assessed';
+    const note=state.notes[s.id]||'';
+    const count=systemFieldCount(s.id);
+    const gcs=s.id==='cns'?gcsScore():null;
+    box.innerHTML=`
+      <div class="sx-system-head">
+        <div><h3>${esc(s.icon||'•')} ${esc(s.label)}</h3><div class="small">${count.n}/${count.total} visible parameters documented</div></div>
+        <div class="sx-system-status-wrap">
+          <label>System status</label>
+          <select id="sxCurrentSystemStatus" class="sx-system-status">
+            ${['Not assessed','Examined — NAD','Abnormal findings'].map(x=>`<option${x===status?' selected':''}>${esc(x)}</option>`).join('')}
+          </select>
+        </div>
+      </div>
+      ${s.id==='repro'?'<div class="notice yellow"><b>Consent-sensitive examination:</b> perform only when clinically indicated, with consent/chaperone documentation according to setting and local policy.</div>':''}
+      ${gcs?`<div class="sx-score-card"><b>Glasgow Coma Scale:</b> E${gcs.e} V${gcs.v} M${gcs.m} = <strong>${gcs.total}/15</strong><span>Record components, not only the total.</span></div>`:''}
+      ${groups.map(g=>`<section><div class="sx-group-title">${esc(g)}</div><div class="sx-fields">${fields.filter(f=>(f.group||'Findings')===g).map(f=>renderField(s,f)).join('')}</div></section>`).join('')}
+      <section class="sx-note-shell"><label>${esc(s.label)} notes</label>
+        <textarea id="sxActiveSystemNote" rows="3" placeholder="Optional focused free-text note">${esc(note)}</textarea>
+      </section>`;
+    const st=byId('sxCurrentSystemStatus');if(st)st.addEventListener('change',()=>{state.systemStatus[s.id]=st.value;renderTabs();updateSummary();updateCompletion()});
+    const noteEl=byId('sxActiveSystemNote');if(noteEl)noteEl.addEventListener('input',()=>{state.notes[s.id]=noteEl.value;updateSummary();syncLegacy()});
+  }
+
+  function updateCompletion(){
+    const badge=byId('sxCompletionBadge');if(!badge||!state.master)return;
+    const total=state.master.systems.length;
+    const assessed=state.master.systems.filter(s=>(state.systemStatus[s.id]||'Not assessed')!=='Not assessed'||s.fields.some(f=>fieldIsAssessed(s.id,f))).length;
+    badge.textContent=`${assessed}/${total} systems touched`;
+    badge.classList.toggle('is-complete',assessed===total);
+  }
+
+  function systemSummary(s){
+    const st=state.systemStatus[s.id]||'Not assessed';
+    const vals=s.fields.filter(f=>fieldIsAssessed(s.id,f)).map(f=>`${f.label}: ${get(s.id,f.id)}`);
+    const note=(state.notes[s.id]||'').trim();
+    if(st==='Not assessed'&&!vals.length&&!note)return '';
+    if(st==='Examined — NAD'&&!vals.length&&!note)return `${s.label}: Examined — NAD`;
+    const parts=[];
+    if(st!=='Not assessed')parts.push(st);
+    if(vals.length)parts.push(vals.join('; '));
+    if(note)parts.push('Note: '+note);
+    return `${s.label}: ${parts.join(' | ')}`;
+  }
+  function buildSummary(){
+    if(!state.master)return '';
+    const lines=state.master.systems.map(systemSummary).filter(Boolean);
+    const g=gcsScore();if(g&&!lines.some(x=>x.includes('Glasgow Coma Scale')))lines.push(`GCS: E${g.e} V${g.v} M${g.m} = ${g.total}/15`);
+    return lines.join('\n');
+  }
+  function syncLegacy(){
+    const map={cvs:'cvsNotes',resp:'rsNotes',abd:'abdNotes',cns:'cnsNotes'};
+    Object.entries(map).forEach(([sid,id])=>{
+      const s=state.master?.systems?.find(x=>x.id===sid);const el=byId(id);if(!s||!el)return;
+      const structured=systemSummary(s);
+      el.value=structured||state.notes[sid]||el.value||'';
+    });
+  }
+  function updateSummary(){
+    const box=byId('sxStructuredSummary');if(box)box.value=buildSummary();
+    syncLegacy();updateCompletion();
+  }
+
+  function addMeaning(arr,title,body,level='info'){arr.push({title,body,level})}
+  function interpretation(){
+    const meaning=[],bedside=[],investigations=[],differentials=[],urgent=[];
+    const inv=(category,test,priority='Routine',note='Clinical correlation required.')=>investigations.push({category,test,priority,note});
+    const diff=x=>differentials.push(x);
+    const urgentAdd=x=>urgent.push(x);
+    const bed=x=>bedside.push(x);
+    const val=(s,f)=>get(s,f);
+    const has=(s,f,x)=>String(val(s,f)).includes(x);
+    const present=(s,f)=>val(s,f)==='Present';
+    let symptomText='';
+    try{
+      const c=current?.complaint||{}, cl=current?.clinical||{};
+      symptomText=[c.primary,(c.items||[]).map(x=>typeof x==='string'?x:(x?.term||x?.name||x?.complaint||'')).join(' '),c.associated,c.notes,cl.chiefComplaints,cl.hpi]
+        .filter(Boolean).join(' ').toLowerCase();
+    }catch(_e){}
+    const symptom=(...words)=>words.some(w=>symptomText.includes(String(w).toLowerCase()));
+
+    // CARDIOVASCULAR
+    const rhythm=val('cvs','rhythm');
+    if(rhythm==='Irregularly irregular'){
+      addMeaning(meaning,'Irregularly irregular rhythm','This pattern raises concern for an arrhythmia such as atrial fibrillation, but the diagnosis requires ECG/rhythm confirmation.','warn');
+      bed('Recheck apical and peripheral pulse, rate, pulse deficit, symptoms, hemodynamic stability and reversible triggers.');
+      inv('ECG','12-lead ECG','Urgent','Confirm rhythm and assess rate/conduction/ischemic changes in clinical context.');
+      diff('Atrial fibrillation / other supraventricular arrhythmia');
+    }else if(rhythm==='Irregular'){
+      addMeaning(meaning,'Irregular rhythm','An irregular pulse can occur with ectopy or sustained/intermittent arrhythmia and should be rhythm-confirmed.','info');
+      inv('ECG','12-lead ECG','Routine','Rhythm confirmation; urgency depends on symptoms/hemodynamics.');
+      diff('Ectopy / intermittent arrhythmia');
+    }
+    const murmur=present('cvs','murmur');
+    if(murmur){
+      const timing=val('cvs','murmur_timing'),grade=val('cvs','murmur_grade'),site=val('cvs','murmur_site'),rad=val('cvs','murmur_radiation');
+      addMeaning(meaning,'Cardiac murmur documented',`Characterize timing, Levine intensity, maximal area, radiation and associated signs. Current entry: ${[timing,grade,site,rad].filter(hasValue).join(' • ')||'details not yet completed'}. Murmur intensity alone does not determine valve-lesion severity.`,'warn');
+      bed('Complete auscultation in standard valve areas; correlate with pulse character, JVP, edema, symptoms and relevant bedside maneuvers.');
+      inv('Echo/Doppler','Transthoracic echocardiography','Routine','Consider when valve disease is suspected from murmur, symptoms or other signs; urgency depends on red flags.');
+      diff('Valvular heart disease — lesion depends on timing/site/radiation');
+      if(String(timing).includes('diastolic')||timing==='Continuous'||['3/6','4/6','5/6','6/6'].includes(grade)){
+        addMeaning(meaning,'Murmur needs focused review','Diastolic/continuous timing or a clearly audible higher-grade murmur warrants focused structural assessment in the appropriate clinical context.','warn');
+      }
+    }
+    if(val('cvs','jvp')==='Elevated'){
+      addMeaning(meaning,'Elevated JVP','May reflect raised right-sided filling pressure; technique, volume status and clinical context are essential.','warn');
+      bed('Reassess JVP technique, hepatojugular response, edema, lung findings, perfusion and volume status.');
+      inv('Blood','Renal function & electrolytes','Routine','Assess renal function/electrolytes when congestion or cardiorenal issues are suspected.');
+      inv('Echo/Doppler','Transthoracic echocardiography','Routine','Assess cardiac structure/function when clinically indicated.');
+      diff('Venous congestion / right-sided pressure elevation');
+    }
+    if(present('cvs','edema')){
+      addMeaning(meaning,'Peripheral edema','Edema is nonspecific; distribution and associated JVP, lung, renal, hepatic, venous and medication findings guide the differential.','info');
+      bed('Document pitting/non-pitting, grade, symmetry/distribution, JVP, lung findings and skin/venous changes.');
+      diff('Cardiac / renal / hepatic / venous / medication-related edema');
+    }
+    if(present('cvs','s3')){
+      addMeaning(meaning,'S3 heard','An S3 may be physiologic in some younger patients, but with dyspnea/JVP/edema it can support a volume-overload or elevated-filling-pressure pattern.','warn');
+      inv('Echo/Doppler','Transthoracic echocardiography','Routine','Consider if heart failure/structural disease is suspected.');
+      diff('Volume overload / ventricular dysfunction context');
+    }
+    if(present('cvs','pericardial_rub')){
+      addMeaning(meaning,'Pericardial rub','A documented rub should be correlated with chest pain, positional features, ECG and inflammatory/structural context.','warn');
+      inv('ECG','12-lead ECG','Urgent','Evaluate pericardial/ischemic patterns according to symptoms.');
+      inv('Echo/Doppler','Transthoracic echocardiography','Urgent','Assess for pericardial effusion/hemodynamic effects if clinically suspected.');
+      diff('Pericardial inflammation');
+    }
+    if((symptom('breathlessness','dyspnea','shortness of breath')||symptom('orthopnea')) &&
+       (murmur||val('cvs','jvp')==='Elevated'||present('cvs','edema')||present('cvs','s3'))){
+      addMeaning(meaning,'Symptoms + cardiac signs converge','Dyspnea/orthopnea together with structural or congestion-type signs increases the importance of focused cardiac evaluation; this is a pattern direction, not a diagnosis.','warn');
+      inv('ECG','12-lead ECG','Routine','Assess rhythm/conduction/ischemic context.');
+      inv('Echo/Doppler','Transthoracic echocardiography','Routine','Assess valve disease and ventricular structure/function when clinically indicated.');
+      inv('X-ray','Chest X-ray','Routine','Consider when congestion or an alternate pulmonary cause is suspected.');
+      diff('Heart failure / structural heart disease pattern');
+    }
+    if(symptom('chest pain')&&present('cvs','pericardial_rub')){
+      addMeaning(meaning,'Chest pain + pericardial rub','This combination increases the clinical relevance of a pericardial-inflammatory direction, while ischemic and other dangerous causes of chest pain still require assessment.','warn');
+    }
+
+    // RESPIRATORY
+    if(present('resp','wheeze')){
+      addMeaning(meaning,'Wheeze','Suggests airflow narrowing; diffuse expiratory wheeze commonly points toward obstructive-airway physiology, while focal/monophonic findings require localization.','info');
+      bed('Assess respiratory effort, SpO₂, peak-flow/spirometry feasibility, trigger/exposure history and response to bronchodilator when appropriate.');
+      inv('Pulmonary function','Spirometry with bronchodilator assessment','Routine','Use when stable and obstructive-airway disease is suspected; not a substitute for acute stabilization.');
+      diff('Asthma / COPD / other airflow obstruction; focal obstruction if localized');
+    }
+    if(present('resp','crackles')){
+      addMeaning(meaning,'Crackles','Crackles can occur with alveolar/interstitial fluid, infection, fibrosis and other processes; distribution and associated findings are key.','info');
+      bed('Document fine/coarse and focal/basal/diffuse distribution; correlate with fever, edema/JVP, oxygenation and cough.');
+      inv('X-ray','Chest X-ray','Routine','Consider for focal infection, congestion, interstitial or pleural disease according to presentation.');
+      diff('Pulmonary edema / pneumonia / interstitial lung disease — context dependent');
+    }
+    const ae=val('resp','air_entry'), perc=val('resp','percussion'), tr=val('resp','trachea');
+    if((ae==='Absent right'||ae==='Absent left')&&perc==='Hyperresonant'){
+      urgentAdd('Marked unilateral reduction/absence of air entry with hyperresonance can indicate pneumothorax. If acute or symptomatic, assess immediately and follow emergency/local imaging protocol.');
+      diff('Pneumothorax');
+      inv('X-ray','Urgent chest imaging / point-of-care thoracic ultrasound when appropriate','Emergency','Do not delay stabilization in an unstable patient.');
+    }
+    if(['Stony dull','Dull'].includes(perc)&&(String(ae).includes('Reduced')||String(ae).includes('absent'))){
+      addMeaning(meaning,'Reduced air entry + dull percussion','This combination can direct attention toward pleural fluid or consolidation depending on fremitus/vocal-resonance and imaging.','warn');
+      inv('X-ray','Chest X-ray','Routine','Characterize pleural/parenchymal abnormality.');
+      inv('USG','Thoracic ultrasound','Routine','Useful when pleural fluid is suspected and available.');
+      diff('Pleural effusion / consolidation');
+    }
+    if(val('resp','breath_sound')==='Bronchial'||val('resp','vocal_resonance')==='Increased'||present('resp','egophony')){
+      addMeaning(meaning,'Consolidation-type auscultatory pattern','Bronchial breathing, increased vocal resonance or egophony can support focal air-space consolidation in the right context.','warn');
+      inv('X-ray','Chest X-ray','Routine','Correlate with fever, cough, oxygenation and examination.');
+      diff('Focal lung consolidation');
+    }
+    if(tr==='Shifted right'||tr==='Shifted left'){
+      addMeaning(meaning,'Tracheal deviation','May reflect significant asymmetric thoracic pathology; correlate immediately with percussion, air entry and respiratory status.','warn');
+      bed('Recheck tracheal position and compare both hemithoraces for expansion, percussion and air entry.');
+      inv('X-ray','Chest imaging','Urgent','Urgency depends on respiratory distress/hemodynamic status.');
+    }
+    if((symptom('fever')||symptom('cough')) &&
+       (present('resp','crackles')||val('resp','breath_sound')==='Bronchial'||present('resp','egophony'))){
+      addMeaning(meaning,'Respiratory symptoms + focal chest signs converge','Fever/cough with focal crackles, bronchial breathing or egophony strengthens an infective/consolidation direction, while imaging and overall severity determine the next step.','warn');
+      inv('X-ray','Chest X-ray','Routine','Evaluate suspected focal air-space disease.');
+      inv('Blood','CBC ± CRP/selected inflammatory tests','Routine','Use according to severity and diagnostic uncertainty.');
+      diff('Lower respiratory infection / pneumonia pattern');
+    }
+
+    // ABDOMEN
+    if(val('abd','guarding')==='Involuntary'||present('abd','rigidity')||present('abd','rebound')){
+      urgentAdd('Involuntary guarding, rigidity or rebound can indicate peritoneal irritation. Reassess urgently; consider surgical/emergency evaluation according to the full clinical picture.');
+      addMeaning(meaning,'Peritoneal irritation signs','These findings are not diagnosis-specific but raise concern for an acute intra-abdominal process.','danger');
+      bed('Repeat focused abdominal exam, vitals/perfusion, pain evolution and evaluate for systemic toxicity.');
+      inv('Blood','CBC, renal function, electrolytes and selected inflammatory/biochemical tests','Urgent','Select tests according to suspected source and patient condition.');
+      inv('Imaging','Urgent abdominal imaging appropriate to suspected pathology','Urgent','Choice of USG/CT and contrast depends on presentation, age, pregnancy and renal considerations.');
+      diff('Acute abdomen / peritoneal irritation — cause to be localized');
+    }
+    if(val('abd','murphy')==='Positive'){
+      addMeaning(meaning,'Positive Murphy sign','Supports a biliary/gallbladder direction when the history and examination fit; it is not independently diagnostic.','warn');
+      inv('USG','Ultrasound abdomen / hepatobiliary system','Routine','Assess gallbladder and biliary tract when clinically suspected.');
+      inv('Blood','Liver profile + CBC','Routine','Correlate for inflammation/cholestatic pattern.');
+      diff('Gallbladder / biliary pathology');
+    }
+    if(present('abd','shifting_dullness')||present('abd','fluid_wave')){
+      addMeaning(meaning,'Ascites-type bedside sign','Positive shifting dullness/fluid wave suggests free intraperitoneal fluid but should be confirmed and etiologically evaluated.','warn');
+      inv('USG','Ultrasound abdomen','Routine','Confirm/quantify fluid and assess liver/portal/abdominal pathology.');
+      inv('Blood','LFT, albumin, renal function, electrolytes, PT/INR','Routine','Etiologic and procedural context.');
+      diff('Ascites — hepatic, cardiac, malignant, infectious and other causes');
+    }
+    if(['Palpable / splenomegaly','Tender'].includes(val('abd','spleen'))){
+      inv('Blood','CBC with peripheral smear','Routine','Evaluate hematologic/infectious context.');
+      inv('USG','Ultrasound abdomen','Routine','Confirm organ size and associated abdominal findings.');
+      diff('Splenomegaly — hematologic/infectious/portal causes');
+    }
+    if(val('abd','liver')==='Enlarged / hepatomegaly'||val('abd','liver')==='Tender'){
+      inv('Blood','Liver function profile','Routine','Correlate hepatomegaly/tenderness with biochemical pattern.');
+      inv('USG','Ultrasound abdomen / liver','Routine','Assess liver size/parenchyma/biliary and portal features.');
+      diff('Hepatomegaly — hepatic/congestive/infiltrative causes');
+    }
+    if(['Right','Left','Bilateral'].includes(val('abd','cva_tenderness'))){
+      addMeaning(meaning,'CVA tenderness','Can accompany upper urinary infection or stone/obstruction; symptoms, fever and urinalysis guide the direction.','warn');
+      inv('Urine','Urinalysis ± urine culture','Routine','Select culture when infection is suspected.');
+      inv('Blood','Renal function & electrolytes','Routine','Assess renal function when clinically indicated.');
+      diff('Pyelonephritis / urinary stone-obstruction — context dependent');
+    }
+
+    // CNS / NEUROLOGY
+    const g=gcsScore();
+    if(g&&g.total<15){
+      urgentAdd(`GCS ${g.total}/15 (E${g.e} V${g.v} M${g.m}) indicates impaired responsiveness compared with a fully alert score. Confirm components and urgently assess cause, airway/breathing/circulation and neurologic trajectory.`);
+      addMeaning(meaning,'Reduced GCS','Document each component and trend over time; a total alone can hide clinically important changes.','danger');
+      bed('Repeat GCS components, pupils, glucose, focal neurologic exam and vital signs; identify reversible causes.');
+      inv('Bedside','Point-of-care blood glucose','Urgent','Rapidly exclude hypoglycemia as a reversible contributor.');
+      diff('Altered consciousness — metabolic, toxic, neurologic, infectious or systemic cause');
+    }
+    const powers=['power_rul','power_lul','power_rll','power_lll'].map(f=>({f,v:val('cns',f)}));
+    const weak=powers.filter(x=>{const m=String(x.v).match(/^([0-5])\/5/);return m&&Number(m[1])<5});
+    if(weak.length){
+      addMeaning(meaning,'Motor weakness documented',`MRC power below 5/5 is documented in ${weak.length} limb field(s). Distribution, tone, reflexes, plantar response and sensory findings help localize the lesion.`,'warn');
+      bed('Confirm side/segment pattern, pronator drift where relevant, tone, reflex symmetry, plantar responses, sensory level/dermatomes and gait if safe.');
+      diff('Central vs peripheral motor pathway lesion — localize clinically');
+    }
+    const extR=val('cns','plantar_r')==='Extensor / Babinski', extL=val('cns','plantar_l')==='Extensor / Babinski';
+    const brisk=['dtr_upper','dtr_knee','dtr_ankle'].some(f=>['3+ — brisk','4+ — clonus'].includes(val('cns',f)));
+    if(extR||extL||brisk){
+      addMeaning(meaning,'Upper-motor-neuron pattern possible','Extensor plantar response and/or clearly brisk/clonic reflexes can support corticospinal/upper-motor-neuron localization when consistent with the overall examination.','warn');
+      inv('MRI','MRI brain or spine — select by neurologic localization','Routine','Imaging choice and urgency depend on onset, level and red flags.');
+      diff('Central nervous system / corticospinal tract lesion');
+    }
+    const reducedRef=['dtr_upper','dtr_knee','dtr_ankle'].some(f=>['0 — absent','1+ — reduced'].includes(val('cns',f)));
+    if(reducedRef&&weak.length){
+      addMeaning(meaning,'Lower-motor-neuron/peripheral pattern possible','Weakness with reduced/absent reflexes can direct localization toward nerve root, peripheral nerve, plexus, neuromuscular or muscle disorders, depending on distribution.','info');
+      inv('Neurophysiology','Nerve conduction study / EMG when clinically indicated','Routine','Use after clinical localization and appropriate timing.');
+      diff('Radiculopathy / peripheral neuropathy / LMN-neuromuscular disorder');
+    }
+    if(val('cns','cranial_nerves')==='Abnormal / focal deficit'){
+      addMeaning(meaning,'Focal cranial-nerve deficit','Localize by nerve(s), side, associated long-tract/cerebellar findings and time course.','warn');
+      diff('Focal brainstem/cranial nerve/peripheral lesion — localization required');
+    }
+    if(val('cns','meningeal')!=='Not assessed'&&val('cns','meningeal')!=='Absent'){
+      urgentAdd('Meningeal signs are documented. In compatible acute headache/fever/altered consciousness, urgent evaluation for meningitis, subarachnoid hemorrhage or other meningeal irritation is required.');
+      diff('Meningeal irritation — infectious/hemorrhagic/other causes');
+    }
+    if((symptom('weakness','numbness','speech','facial','vertigo')) &&
+       (weak.length||val('cns','cranial_nerves')==='Abnormal / focal deficit'||extR||extL)){
+      addMeaning(meaning,'Neurologic symptoms + focal signs converge','Symptoms compatible with a focal neurologic syndrome plus objective focal signs require attention to onset/time course and localization. Acute/new deficits should follow the local stroke/emergency pathway.','danger');
+      urgentAdd('If the focal neurologic deficit is acute or newly recognized, document last-known-well/onset and activate the appropriate stroke/emergency pathway without waiting for this decision-support tool.');
+      diff('Acute focal neurologic syndrome / stroke mimic — urgent localization required');
+    }
+
+    // MSK / SPINE
+    if(val('msk','neurovascular')==='Abnormal'){
+      urgentAdd('Abnormal distal neurovascular status is documented in a musculoskeletal examination. Reassess perfusion, pulses, capillary refill, sensation and motor function promptly.');
+    }
+    if(present('msk','spine_tenderness')||val('msk','deformity')==='Present'){
+      bed('Correlate spine tenderness/deformity with trauma, fever, cancer/osteoporosis risk, neurologic deficit and bladder/bowel red flags.');
+      diff('Mechanical / structural / inflammatory / traumatic spine disorder — context dependent');
+    }
+
+    // HEENT / NECK
+    if(val('heent','thyroid')==='Nodule / asymmetric enlargement'){
+      addMeaning(meaning,'Thyroid nodule/asymmetry','A palpable nodule/asymmetry needs risk-oriented thyroid evaluation rather than diagnosis from palpation alone.','info');
+      inv('Blood','TSH','Routine','Initial thyroid functional assessment.');
+      inv('USG','Thyroid ultrasound','Routine','Characterize nodule/anatomy when clinically indicated.');
+      diff('Thyroid nodule / asymmetric thyroid enlargement');
+    }
+    if(val('heent','nodes')==='Enlarged / lymphadenopathy'){
+      bed('Document node region, size, tenderness, consistency, mobility, duration and generalized vs localized distribution.');
+      diff('Lymphadenopathy — infectious/inflammatory/hematologic/malignant causes');
+    }
+
+    // SKIN / PERIPHERAL
+    if(present('skin','petechiae')||val('skin','rash_pattern')==='Petechial / purpuric'){
+      addMeaning(meaning,'Petechial/purpuric finding','Petechiae/purpura can reflect platelet/coagulation, vascular, infectious or inflammatory causes and require context including fever/systemic illness.','warn');
+      inv('Blood','CBC with platelet count','Routine','Assess platelet count and other hematologic abnormalities.');
+      diff('Platelet/coagulation/vascular/infectious cause of petechiae/purpura');
+    }
+    if(val('skin','cyanosis')==='Central'){
+      urgentAdd('Central cyanosis is documented. Confirm oxygenation promptly and assess respiratory/cardiovascular cause.');
+      bed('Check SpO₂ waveform/quality, respiratory effort, perfusion and cardiopulmonary examination.');
+    }
+
+    // RENAL / GU
+    if(['Right','Left','Bilateral'].includes(val('renal','cva'))){
+      inv('Urine','Urinalysis ± urine culture','Routine','Correlate with fever/dysuria/stone symptoms.');
+      inv('Blood','Renal function & electrolytes','Routine','Assess renal function according to severity/context.');
+      diff('Upper urinary infection / stone-obstruction');
+    }
+    if(val('renal','urine_output')==='Anuria suspected'){
+      urgentAdd('Anuria is suspected. Verify actual urine output, bladder distension/catheter status if relevant, volume/perfusion and urgent renal/obstructive causes.');
+      inv('Blood','Urgent renal function & electrolytes','Urgent','Assess AKI/electrolyte risk.');
+      inv('USG','Renal/bladder ultrasound when obstruction is suspected','Urgent','Assess urinary obstruction where appropriate.');
+    }
+
+    // ENDOCRINE
+    if(val('endocrine','thyroid')==='Nodule / asymmetric'){
+      inv('Blood','TSH','Routine','Assess thyroid function.');
+      inv('USG','Thyroid ultrasound','Routine','Characterize nodule/anatomy when indicated.');
+      diff('Thyroid nodule / asymmetry');
+    }
+    if(present('endocrine','acanthosis')){
+      addMeaning(meaning,'Acanthosis nigricans pattern','Can be associated with insulin resistance in the appropriate context; correlate with BMI, metabolic history and glycemic testing.','info');
+      inv('Blood','Fasting glucose / HbA1c as clinically appropriate','Routine','Assess glycemic status according to risk and symptoms.');
+      diff('Insulin resistance / metabolic risk context');
+    }
+    if(['Moderate','Severe'].includes(val('endocrine','dehydration'))){
+      bed('Assess hemodynamics, mucosa, orthostasis where appropriate, urine output and cause of fluid loss.');
+      inv('Blood','Renal function & electrolytes','Routine','Evaluate dehydration-related renal/electrolyte effects.');
+    }
+
+    // HEME / LYMPH
+    if(present('heme','nodes')){
+      bed('Document distribution, size, tenderness, consistency, mobility/fixation, skin changes and hepatosplenomegaly.');
+      inv('Blood','CBC with peripheral smear','Routine','Initial hematologic context when lymphadenopathy is unexplained/persistent.');
+      diff('Reactive/infectious/inflammatory/hematologic lymphadenopathy');
+    }
+    if(present('heme','bleeding')){
+      inv('Blood','CBC with platelet count','Urgent','Assess anemia/platelet count according to bleeding severity.');
+      inv('Blood','PT/INR ± aPTT when clinically indicated','Urgent','Evaluate coagulation pathway/anticoagulant context.');
+      diff('Platelet/coagulation/vascular cause of bleeding');
+    }
+    if(present('heme','splenomegaly')){
+      inv('Blood','CBC with peripheral smear','Routine','Assess cytopenias/hematologic pattern.');
+      inv('USG','Ultrasound abdomen','Routine','Confirm splenic size and related abdominal findings.');
+    }
+
+    // VITAL-SIGN CONTEXT from current record
+    try{
+      const spo=Number((current?.clinical?.spo2||'').toString().replace(/[^\d.]/g,''));
+      if(Number.isFinite(spo)&&spo<90){
+        urgentAdd(`Recorded SpO₂ ${spo}% is low. Verify probe signal/measurement immediately and assess oxygenation, respiratory effort and patient-specific target/context.`);
+      }
+      const rr=Number((current?.clinical?.rr||'').toString().replace(/[^\d.]/g,''));
+      if(Number.isFinite(rr)&&(rr<8||rr>30)){
+        urgentAdd(`Recorded respiratory rate ${rr}/min is markedly abnormal; repeat manually and assess clinical stability.`);
+      }
+    }catch(_e){}
+
+    const out={
+      generatedAt:new Date().toISOString(),
+      meaning:meaning.map(x=>({...x})),
+      bedside:unique(bedside),
+      investigations:uniqObj(investigations,'test'),
+      differentials:unique(differentials),
+      urgent:unique(urgent),
+      summary:buildSummary()
+    };
+    return out;
+  }
+
+  function renderInterpretation(out){
+    state.lastInterpretation=out||state.lastInterpretation;
+    const m=byId('sxMeaningBox'),n=byId('sxNextBox'),u=byId('sxUrgentBox');
+    if(m){
+      const items=state.lastInterpretation.meaning||[];
+      m.innerHTML=items.length?items.map(x=>`<div class="sx-cds-block ${x.level==='danger'?'red':x.level==='warn'?'warn':''}"><b>${esc(x.title)}</b><div>${esc(x.body)}</div></div>`).join(''):'<div class="small">No rule-based interpretation generated yet. Document findings and press <b>Interpret findings</b>.</div>';
+    }
+    if(n){
+      const b=state.lastInterpretation.bedside||[], invs=state.lastInterpretation.investigations||[], ddx=state.lastInterpretation.differentials||[];
+      n.innerHTML=`${b.length?`<h4>Next bedside checks</h4>${b.map(x=>`<div class="sx-next-line">→ ${esc(x)}</div>`).join('')}`:''}
+      ${invs.length?`<h4>Suggested investigations — clinician must confirm</h4><div class="sx-chip-wrap">${invs.map(x=>`<span class="sx-investigation-chip">${esc(x.priority)} • ${esc(x.test)}</span>`).join('')}</div>`:''}
+      ${ddx.length?`<h4>Diagnostic directions — not diagnoses</h4><div class="sx-chip-wrap">${ddx.map(x=>`<span class="sx-ddx-chip">${esc(x)}</span>`).join('')}</div>`:''}
+      ${!b.length&&!invs.length&&!ddx.length?'<div class="small">No additional rule-based next step generated from the documented findings.</div>':''}`;
+    }
+    if(u){
+      const a=state.lastInterpretation.urgent||[];
+      u.classList.toggle('hidden',!a.length);
+      u.innerHTML=a.length?`<b>⚠ Urgent / red-flag review</b>${a.map(x=>`<div>• ${esc(x)}</div>`).join('')}`:'';
+    }
+    const ai=byId('sxAddInvestigationsBtn');if(ai)ai.disabled=!(state.lastInterpretation.investigations||[]).length;
+    const ad=byId('sxAddDxBtn');if(ad)ad.disabled=!(state.lastInterpretation.differentials||[]).length;
+  }
+
+  function runInterpretation(){
+    updateSummary();
+    const out=interpretation();renderInterpretation(out);
+    if(typeof status==='function')status('Structured systemic interpretation refreshed. Review every suggestion before adding it to the chart.');
+    return out;
+  }
+
+  function addSuggestedInvestigations(){
+    const list=state.lastInterpretation.investigations||[];
+    if(!list.length)return;
+    try{
+      current.investigations=current.investigations||{previous:[],advised:[]};
+      current.investigations.advised=current.investigations.advised||[];
+      let added=0;
+      list.forEach(x=>{
+        const exists=current.investigations.advised.some(y=>String(y.test||'').toLowerCase()===String(x.test||'').toLowerCase());
+        if(!exists){current.investigations.advised.push({...x});added++}
+      });
+      if(typeof save==='function')save(current);
+      if(typeof renderInvestigations==='function')renderInvestigations();
+      if(typeof status==='function')status(`${added} suggested investigation(s) added for clinician review.`);
+    }catch(e){console.error(e);if(typeof status==='function')status('Could not add investigations: '+e.message,true)}
+  }
+
+  function addSuggestedDx(){
+    const list=state.lastInterpretation.differentials||[];
+    if(!list.length)return;
+    try{
+      current.prescription=current.prescription||{};
+      const existing=(current.prescription.differentialDiagnosis||'').split(/\n|;/).map(x=>x.trim()).filter(Boolean);
+      const merged=unique([...existing,...list]);
+      current.prescription.differentialDiagnosis=merged.join('\n');
+      const box=byId('differentialDiagnosis');if(box)box.value=current.prescription.differentialDiagnosis;
+      if(typeof save==='function')save(current);
+      if(typeof status==='function')status('Diagnostic directions added to Differential Diagnosis for clinician editing/confirmation.');
+    }catch(e){console.error(e)}
+  }
+
+  function markCurrentNad(){
+    const s=activeSystem();if(!s)return;
+    state.systemStatus[s.id]='Examined — NAD';
+    renderTabs();renderPanel();updateSummary();
+    if(typeof status==='function')status(`${s.label}: marked Examined — NAD. Individual findings were not fabricated.`);
+  }
+
+  function resetCurrent(){
+    const s=activeSystem();if(!s)return;
+    const any=s.fields.some(f=>fieldIsAssessed(s.id,f))||(state.notes[s.id]||'').trim();
+    if(any&&!confirm(`Clear documented ${s.label} findings?`))return;
+    s.fields.forEach(f=>delete state.values[key(s.id,f.id)]);
+    state.notes[s.id]='';state.systemStatus[s.id]='Not assessed';
+    renderTabs();renderPanel();updateSummary();renderInterpretation({generatedAt:'',meaning:[],bedside:[],investigations:[],differentials:[],urgent:[],summary:buildSummary()});
+  }
+
+  function collect(){
+    const s=activeSystem();
+    const noteEl=byId('sxActiveSystemNote');if(s&&noteEl)state.notes[s.id]=noteEl.value||'';
+    updateSummary();
+    return {
+      version:state.master?.version||'Systemic Exam Master v1.0',
+      build:state.master?.build||'2026.08.13-R4',
+      systemStatus:{...state.systemStatus},
+      values:{...state.values},
+      notes:{...state.notes}
+    };
+  }
+  function getInterpretation(){return JSON.parse(JSON.stringify(state.lastInterpretation||{}))}
+
+  async function restore(systemic={}){
+    await loadMaster();
+    const st=systemic?.structured||{};
+    state.systemStatus={...(st.systemStatus||{})};
+    state.values={...(st.values||{})};
+    state.notes={...(st.notes||{})};
+    const structuredHasData=Object.keys(state.systemStatus).length||Object.keys(state.values).length||Object.keys(state.notes).length;
+    const legacy={cvs:systemic.cvsNotes||'',resp:systemic.rsNotes||'',abd:systemic.abdNotes||'',cns:systemic.cnsNotes||''};
+    if(!structuredHasData)Object.entries(legacy).forEach(([sid,v])=>{if(v&&!state.notes[sid])state.notes[sid]=v});
+    state.lastInterpretation=systemic?.interpretation||{generatedAt:'',meaning:[],bedside:[],investigations:[],differentials:[],urgent:[],summary:''};
+    if(!state.master.systems.some(s=>s.id===state.active))state.active=state.master.systems[0]?.id||'cvs';
+    renderTabs();renderPanel();updateSummary();renderInterpretation(state.lastInterpretation);updateCompletion();
+  }
+  async function open(systemic={}){
+    await restore(systemic);
+    setTimeout(()=>byId('sxSystemTabs')?.scrollIntoView({block:'nearest'}),40);
+  }
+
+  function bind(){
+    document.addEventListener('click',e=>{
+      const tab=e.target.closest('[data-sx-tab]');
+      if(tab){const s=activeSystem();const note=byId('sxActiveSystemNote');if(s&&note)state.notes[s.id]=note.value||'';state.active=tab.dataset.sxTab;renderTabs();renderPanel();updateSummary();return}
+      const view=e.target.closest('[data-sx-view]');
+      if(view){state.view=view.dataset.sxView;document.querySelectorAll('[data-sx-view]').forEach(b=>b.classList.toggle('active',b===view));renderTabs();renderPanel();return}
+    });
+    document.addEventListener('change',e=>{
+      const k=e.target?.dataset?.sxKey;if(!k)return;
+      state.values[k]=e.target.value;renderTabs();updateSummary();
+      if(k.startsWith('cns.gcs_'))renderPanel();
+    });
+    document.addEventListener('input',e=>{
+      const k=e.target?.dataset?.sxKey;if(!k)return;
+      state.values[k]=e.target.value;updateSummary();
+    });
+    byId('sxMarkNadBtn')?.addEventListener('click',markCurrentNad);
+    byId('sxResetSystemBtn')?.addEventListener('click',resetCurrent);
+    byId('sxInterpretBtn')?.addEventListener('click',runInterpretation);
+    byId('sxAddInvestigationsBtn')?.addEventListener('click',addSuggestedInvestigations);
+    byId('sxAddDxBtn')?.addEventListener('click',addSuggestedDx);
+  }
+
+  window.MAHAMAYA_SYSTEMIC_ENGINE={open,restore,collect,getInterpretation,interpret:runInterpretation};
+  bind();
+  loadMaster().then(()=>{
+    const params=new URLSearchParams(location.search);
+    if(params.get('action')==='systemic')setTimeout(()=>byId('tabSystemic')?.click(),650);
+  }).catch(()=>{});
+})();
+</script>
+
 
 <script src="./install-pwa.js"></script>
 </body>
