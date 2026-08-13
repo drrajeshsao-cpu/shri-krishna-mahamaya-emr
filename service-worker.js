@@ -1,6 +1,8 @@
-const CACHE_NAME = 'mahamaya-emr-v3.30-20260814-r8';
+const CACHE_NAME = 'mahamaya-emr-v3.40-20260814-r9';
 const CORE_ASSETS = [
-  './', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png', './logo.jpg', './clinical-terminology-master.json', './slaie-omega-exact-row-v1.json', './systemic-exam-master-v1.json', './investigation-catalog-v1.json', './ayurveda-lifestyle-master-v1.json'
+  './', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png', './logo.jpg', './clinical-terminology-master.json', './slaie-omega-exact-row-v1.json', './systemic-exam-master-v1.json', './investigation-catalog-v1.json', './ayurveda-lifestyle-master-v1.json',
+  './complaint-intelligence-master-v1.json',
+  './complaint-intelligence-engine.js'
 ];
 
 self.addEventListener('install', event => {
