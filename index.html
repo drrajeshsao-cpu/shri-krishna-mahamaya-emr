@@ -4,8 +4,12 @@
 <link rel="manifest" href="./manifest.webmanifest">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#126b82">
-<title>Mahamaya Clinic | Advanced Ayurveda, Spine & Orthopedic Centre</title>
+<meta name="theme-color" content="#0b6f78">
+<meta name="color-scheme" content="light">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<title>Mahamaya Clinic EMR | Clinical Command Center V2.50</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -204,6 +208,98 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS V2.49C FULL STRUCTURE REPAIR: rebuilt corrupted print function and removed nested auth markup from main JS. */
 #lockOverlay{display:none!important}
 </style>
+
+<style id="mahamaya-v250-ui">
+/* Mahamaya Clinic EMR V2.50 — Clinical Command Center */
+:root{
+  --p:#0b6f78;--s:#168b84;--p2:#0b506b;--ink:#15333c;--muted:#667f89;
+  --bg:#f3f8fa;--card:#ffffff;--line:#d6e3e7;--soft:#eaf4f6;--soft2:#f8fbfc;
+  --ok:#16724c;--warn:#936000;--danger:#ad3028;--shadow:0 8px 26px rgba(19,62,73,.08);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;padding-bottom:28px}
+button,.btn,input,select,textarea{font-family:inherit}
+button,.btn{transition:transform .12s ease,box-shadow .12s ease,background .12s ease}
+button:hover,.btn:hover{box-shadow:0 5px 14px rgba(20,71,82,.10)}
+button:active,.btn:active{transform:translateY(1px)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(11,111,120,.20);outline-offset:2px}
+
+.app-header{position:sticky;top:0;z-index:80;background:linear-gradient(118deg,#075966,#0b6f78 55%,#168b84);padding:0;color:#fff;box-shadow:0 4px 18px rgba(6,70,79,.18)}
+.app-header-inner{max-width:1440px;margin:auto;min-height:72px;padding:10px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand-lockup{display:flex;align-items:center;gap:11px;min-width:0}
+.brand-logo{width:48px;height:48px;border-radius:13px;background:#fff;object-fit:cover;border:2px solid rgba(255,255,255,.68);box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.brand-copy{min-width:0}.brand-copy h1{font-size:21px;line-height:1.1;margin:0;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-copy p{font-size:12px;margin:5px 0 0;opacity:.92;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.version-badge{display:inline-flex;margin-left:7px;padding:3px 7px;border-radius:999px;background:rgba(255,255,255,.17);font-size:11px;font-weight:800;letter-spacing:.02em;vertical-align:2px}
+.header-meta{display:flex;align-items:center;gap:8px}.clock-chip,.cloud-chip{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:8px 10px;font-size:12px;font-weight:700;white-space:nowrap}
+.header-menu-btn{background:#fff;color:var(--p);padding:9px 12px;border-radius:11px}
+
+.command-bar{position:sticky;top:72px;z-index:70;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.command-inner{max-width:1440px;margin:auto;padding:8px 18px;display:flex;align-items:center;gap:8px}
+.command-btn{background:#edf5f7;color:#285965;border:1px solid transparent;padding:9px 13px;border-radius:11px;gap:6px}
+.command-btn.is-active{background:var(--p);color:#fff}.command-spacer{flex:1}
+.system-strip{max-width:1440px;margin:0 auto;padding:8px 18px 0;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#status{margin:0;flex:1;min-width:260px;background:#f2faf6;border-color:#b9dec7;padding:8px 10px}
+.system-strip .actions{margin:0}.system-strip .secondary{padding:8px 10px}
+
+main{max-width:1440px;padding:10px 18px 24px}
+.card{border-color:var(--line);box-shadow:var(--shadow);border-radius:16px}
+
+/* Home */
+.home-dashboard{display:block}
+.home-hero{background:linear-gradient(135deg,#ffffff,#eef8f7);border:1px solid #cfe3e4;border-radius:20px;padding:18px;margin:10px 0 12px;box-shadow:var(--shadow)}
+.hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}.eyebrow{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--p)}
+.hero-title{font-size:27px;color:#123c46;margin:4px 0 5px;line-height:1.16}.hero-subtitle{font-size:13px;color:var(--muted);margin:0;max-width:780px}
+.hero-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.hero-actions button{min-height:44px}
+.home-search-shell{position:relative;margin-top:15px}.home-search-shell .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:18px;pointer-events:none}
+#dashboardSearch{height:50px;border:2px solid #c5dce1;border-radius:14px;padding-left:43px;padding-right:12px;font-size:15px;background:#fff;box-shadow:0 4px 14px rgba(22,78,88,.05)}
+#dashboardSearch:focus{border-color:var(--p)}
+#dashboardSearchResults{margin-top:8px}.context-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.context-chip{display:inline-flex;align-items:center;gap:5px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 9px;font-size:11px;color:#49656d;font-weight:750}
+
+.dashboard-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:12px}
+.stat-card{padding:14px 12px;text-align:left;background:#fff;border-radius:15px;box-shadow:0 3px 12px rgba(19,62,73,.04)}
+.stat-card .stat-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:#eaf5f6;margin-bottom:8px;font-size:18px}.stat-card .num{font-size:25px}.stat-card .lbl{font-size:11px}
+.home-main-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(330px,.75fr);gap:12px;align-items:start}
+.home-stack{display:grid;gap:12px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.section-head h2{font-size:18px;margin:0}.section-kicker{font-size:11px;color:var(--muted);font-weight:700}
+.workflow-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.workflow-step{position:relative;min-height:78px;background:#f8fbfc;border:1px solid var(--line);border-radius:13px;padding:10px 8px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#315b65;font-size:11px;font-weight:800}
+.workflow-step .step-no{position:absolute;top:6px;left:7px;width:19px;height:19px;border-radius:50%;display:grid;place-items:center;background:#dceef0;color:var(--p);font-size:10px}.workflow-step .step-icon{font-size:21px;margin:4px 0}.workflow-step:hover{border-color:#8fc1c5;background:#f0f8f8}
+.safety-line{margin-top:10px;border-radius:12px;padding:9px 11px;background:#fff7df;border:1px solid #e9cc7d;font-size:12px;color:#6e5208}
+
+.quick-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.quick-btn{min-height:76px;border:1px solid var(--line);background:#f8fbfc;color:#285865;padding:10px 8px}.quick-btn.primary{background:var(--p);color:#fff;border-color:var(--p)}.quick-btn.warning{background:#fff6dd;color:#775400;border-color:#e5cc82}.quick-btn span{font-size:11px;line-height:1.25}
+.tool-group-title{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:#71858b;font-weight:900;margin:12px 0 7px}
+.queue-card .timeline-item,.recent-card .timeline-item{background:#fbfdfe;border:1px solid var(--line);border-left:4px solid var(--p);border-radius:11px;padding:10px;margin:8px 0}.queue-card .timeline-item .actions,.recent-card .timeline-item .actions{margin-top:7px}.queue-card .timeline-item button,.recent-card .timeline-item button{padding:7px 9px;font-size:11px}
+.empty-hint{padding:18px;text-align:center;color:var(--muted);background:#f8fbfc;border:1px dashed #cbdde3;border-radius:12px}
+
+/* Module drawer */
+.module-drawer-backdrop{position:fixed;inset:0;background:rgba(10,36,43,.42);z-index:9990;opacity:0;pointer-events:none;transition:opacity .18s ease}
+.module-drawer{position:fixed;top:0;right:0;bottom:0;width:min(430px,94vw);background:#f7fbfc;z-index:9991;transform:translateX(102%);transition:transform .2s ease;box-shadow:-20px 0 60px rgba(9,50,59,.2);display:flex;flex-direction:column}
+body.drawer-open .module-drawer-backdrop{opacity:1;pointer-events:auto}body.drawer-open .module-drawer{transform:translateX(0)}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--line);background:#fff}.drawer-head h2{font-size:18px;margin:0}.drawer-close{background:#edf5f7;color:var(--p);padding:8px 11px}
+.drawer-body{overflow:auto;padding:12px 14px 24px}.drawer-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#778c92;font-weight:900;margin:12px 2px 6px}.module-tabs{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:0!important}.module-tabs button{width:100%;justify-content:flex-start;min-height:42px;padding:9px 10px;border:1px solid var(--line)!important;border-radius:11px!important;text-align:left}.module-tabs button.primary{background:var(--p)!important;color:#fff!important}.module-tabs button.secondary{background:#fff!important;color:#315e67!important}
+.drawer-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.drawer-tools button{font-size:12px}
+
+/* Generic section polish */
+section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#dashboardSection) h2{font-size:20px}
+.item,.profile-panel,.ayu-box,.lab-field,.progress-box,.inventory-row,.lab-order,.imaging-card{background:#fbfdfe}
+
+.mobile-bottom-nav{display:none}
+#skmcFirebaseUserBar{bottom:82px!important}
+
+@media(max-width:1100px){
+  .home-main-grid{grid-template-columns:1fr}.workflow-grid{grid-template-columns:repeat(5,1fr)}.quick-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:820px){
+  body{padding-bottom:86px}.app-header-inner{min-height:64px;padding:8px 11px}.brand-logo{width:42px;height:42px}.brand-copy h1{font-size:18px}.brand-copy p{font-size:11px}.header-meta .clock-chip{display:none}.cloud-chip{padding:7px 8px;font-size:10px}.header-menu-btn{display:none}
+  .command-bar{display:none}.system-strip{padding:7px 10px 0}.system-strip .actions{display:none}main{padding:7px 10px 20px}.home-hero{padding:14px;border-radius:16px}.hero-top{display:block}.hero-title{font-size:22px}.hero-actions{margin-top:12px;justify-content:stretch}.hero-actions button{flex:1}.dashboard-grid{grid-template-columns:repeat(2,1fr)}
+  .workflow-grid{grid-template-columns:repeat(3,1fr)}.quick-grid{grid-template-columns:repeat(3,1fr)}.quick-btn{min-height:70px}.mobile-bottom-nav{position:fixed;left:8px;right:8px;bottom:8px;z-index:9000;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:17px;box-shadow:0 9px 30px rgba(12,55,63,.18);display:grid;grid-template-columns:repeat(5,1fr);padding:6px}.mobile-nav-btn{background:transparent;color:#49666e;border-radius:11px;padding:6px 3px;font-size:10px;display:flex;flex-direction:column;gap:2px;min-width:0}.mobile-nav-btn b{font-size:18px;line-height:1}.mobile-nav-btn.is-active{background:#e8f4f5;color:var(--p)}
+  #skmcFirebaseUserBar{bottom:88px!important;right:8px!important;max-width:calc(100vw - 16px)}
+}
+@media(max-width:520px){
+  .brand-copy p{display:none}.version-badge{font-size:9px}.cloud-chip{display:none}.hero-subtitle{font-size:12px}.hero-actions{gap:6px}.dashboard-grid{gap:7px}.stat-card{padding:11px}.stat-card .num{font-size:22px}.workflow-grid{grid-template-columns:repeat(2,1fr)}.workflow-step{min-height:70px}.quick-grid{grid-template-columns:repeat(2,1fr)}.module-tabs{grid-template-columns:1fr}.context-chip{font-size:10px}
+}
+@media print{.app-header,.command-bar,.system-strip,.mobile-bottom-nav,.module-drawer,.module-drawer-backdrop{display:none!important}}
+</style>
+
 </head>
 <body>
 
@@ -225,96 +321,195 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
   </div>
 </div>
 
-<header>
-<h1>Mahamaya Clinic </h1>
-<p>V2.49C • Full Structured Integrated EMR • Firebase Authentication</p>
+<header class="app-header">
+  <div class="app-header-inner">
+    <div class="brand-lockup">
+      <img class="brand-logo" src="./icon-192.png" alt="Mahamaya Clinic">
+      <div class="brand-copy">
+        <h1>Mahamaya Clinic <span class="version-badge">V2.50</span></h1>
+        <p>Clinical Command Center • Ayurveda + Modern Medicine EMR • Build 2026.08.13</p>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="clock-chip" id="headerClock">--</div>
+      <div class="cloud-chip" id="cloudStateChip">☁ Firebase</div>
+      <button type="button" class="header-menu-btn" data-open-drawer>☰ Modules</button>
+    </div>
+  </div>
 </header>
+
+<nav class="command-bar no-print" aria-label="Primary application navigation">
+  <div class="command-inner">
+    <button type="button" class="command-btn is-active" data-modern-tab="tabDashboard">🏠 Home</button>
+    <button type="button" class="command-btn" data-modern-action="new-patient">➕ New Patient</button>
+    <button type="button" class="command-btn" data-modern-tab="tabRecords">📁 Records</button>
+    <button type="button" class="command-btn" data-modern-tab="tabPrescription">💊 Prescription</button>
+    <button type="button" class="command-btn" data-modern-tab="tabAppointments">📅 Appointments</button>
+    <div class="command-spacer"></div>
+    <button type="button" class="command-btn" data-modern-action="search">🔎 Patient Search</button>
+    <button type="button" class="command-btn" data-open-drawer>☰ All Modules</button>
+  </div>
+</nav>
+
+<div class="system-strip no-print">
+  <div id="status" class="status">App loaded successfully. V2.50 Clinical Command Center ready.</div>
+  <div class="actions">
+    <span id="activeRoleBadge" class="role-badge">Locked</span>
+    <button id="lockNowBtn" class="secondary">🔒 Lock</button>
+    <button id="tabSettingsQuick" class="secondary">⚙ Settings & Backup</button>
+  </div>
+</div>
+
 <main>
-<div class="card">
-<div class="notice"><b>Full structured build:</b> V2.49C में V2.11–V2.49A clinical modules, structured Ayurveda/modern assessment, prescription, backup और Firebase authentication preserved हैं।</div>
-<div class="tabs actions">
-<button id="tabDashboard" class="primary active">🏠 Dashboard</button>
-<button id="tabTimeline" class="secondary">🔄 Follow-up</button>
-<button id="tabPatient" class="secondary">👤 Patient</button>
-<button id="tabComplaint" class="secondary">🧭 Complaint</button>
-<button id="tabClinical" class="secondary">🩺 Clinical</button>
-<button id="tabExam" class="secondary">🔍 General</button>
-<button id="tabSystemic" class="secondary">🫀 Systemic</button>
-<button id="tabInvestigations" class="secondary">🧪 Investigations</button>
-<button id="tabCBC" class="secondary">🩸 CBC Interpreter</button>
-<button id="tabLabProfiles" class="secondary">🧪 Lab Profiles</button>
-<button id="tabAyurveda" class="secondary">🌿 Ayurveda</button>
-<button id="tabPrescription" class="secondary">💊 Prescription</button>
-<button id="tabSafety" class="secondary">🛡 Safety</button>
-<button id="tabPreview" class="secondary">📄 Preview/PDF</button>
-<button id="tabAppointments" class="secondary">📅 Appointments</button>
-<button id="tabBilling" class="secondary">💰 Billing</button>
-<button id="tabPharmacy" class="secondary">💊 Pharmacy</button>
-<button id="tabLabMgmt" class="secondary">🔬 Laboratory</button>
-<button id="tabImaging" class="secondary">🩻 Imaging</button>
-<button id="tabKnowledge" class="secondary">📚 Knowledge</button>
-<button id="tabSettings" class="secondary">⚙ Settings</button>
-<button id="tabRecords" class="secondary">📁 Records</button>
-</div>
-<div id="status" class="status">App loaded successfully. Version: V2.49C</div>
-<div class="actions no-print">
-  <span id="activeRoleBadge" class="role-badge">Locked</span>
-  <button id="lockNowBtn" class="secondary">🔒 Lock</button>
-  <button id="tabSettingsQuick" class="secondary">⚙ Settings & Backup</button>
-</div>
 
-</div>
+<div class="module-drawer-backdrop" data-close-drawer></div>
+<aside class="module-drawer no-print" id="moduleDrawer" aria-label="All EMR modules" aria-hidden="true">
+  <div class="drawer-head">
+    <div><div class="eyebrow">Clinical Modules</div><h2>All Modules</h2></div>
+    <button type="button" class="drawer-close" data-close-drawer>✕ Close</button>
+  </div>
+  <div class="drawer-body">
+    <div class="drawer-label">Clinical workflow</div>
+    <div class="tabs actions module-tabs" id="moduleTabsClinical">
+      <button id="tabDashboard" class="primary active">🏠 Dashboard</button>
+      <button id="tabTimeline" class="secondary">🔄 Follow-up</button>
+      <button id="tabPatient" class="secondary">👤 Patient</button>
+      <button id="tabComplaint" class="secondary">🧭 Complaint</button>
+      <button id="tabClinical" class="secondary">🩺 Clinical</button>
+      <button id="tabExam" class="secondary">🔍 General</button>
+      <button id="tabSystemic" class="secondary">🫀 Systemic</button>
+    </div>
+    <div class="drawer-label">Diagnostics</div>
+    <div class="tabs actions module-tabs">
+      <button id="tabInvestigations" class="secondary">🧪 Investigations</button>
+      <button id="tabCBC" class="secondary">🩸 CBC Interpreter</button>
+      <button id="tabLabProfiles" class="secondary">🧪 Lab Profiles</button>
+      <button id="tabLabMgmt" class="secondary">🔬 Laboratory</button>
+      <button id="tabImaging" class="secondary">🩻 Imaging</button>
+    </div>
+    <div class="drawer-label">Treatment & safety</div>
+    <div class="tabs actions module-tabs">
+      <button id="tabAyurveda" class="secondary">🌿 Ayurveda</button>
+      <button id="tabPrescription" class="secondary">💊 Prescription</button>
+      <button id="tabSafety" class="secondary">🛡 Safety</button>
+      <button id="tabPreview" class="secondary">📄 Preview / PDF</button>
+    </div>
+    <div class="drawer-label">Clinic operations</div>
+    <div class="tabs actions module-tabs">
+      <button id="tabAppointments" class="secondary">📅 Appointments</button>
+      <button id="tabBilling" class="secondary">💰 Billing</button>
+      <button id="tabPharmacy" class="secondary">💊 Pharmacy</button>
+      <button id="tabKnowledge" class="secondary">📚 Knowledge</button>
+      <button id="tabRecords" class="secondary">📁 Records</button>
+      <button id="tabSettings" class="secondary">⚙ Settings</button>
+    </div>
+    <div class="drawer-tools">
+      <button type="button" id="pwaInstallBtn" class="primary" style="display:none">⬇ Install App</button>
+      <button type="button" class="secondary" data-modern-tab="tabSettings">💾 Backup & Settings</button>
+    </div>
+  </div>
+</aside>
+<section id="dashboardSection" class="home-dashboard">
+  <div class="home-hero">
+    <div class="hero-top">
+      <div>
+        <div class="eyebrow">Today’s Clinical Workspace</div>
+        <h2 class="hero-title" id="homeGreeting">Namaste, Doctor</h2>
+        <p class="hero-subtitle">Patient को जल्दी खोजें, नया encounter शुरू करें, और structured clinical workflow में बिना अनावश्यक clicks के आगे बढ़ें।</p>
+      </div>
+      <div class="hero-actions">
+        <button id="dashNewPatient" class="primary">➕ New Patient</button>
+        <button id="dashSearch" class="secondary">🔎 Search</button>
+        <button id="dashRecords" class="secondary">📁 Records</button>
+      </div>
+    </div>
+    <div class="home-search-shell">
+      <span class="search-icon">🔎</span>
+      <input id="dashboardSearch" autocomplete="off" placeholder="Search patient: name, mobile, UHID, complaint or diagnosis">
+    </div>
+    <div id="dashboardSearchResults"></div>
+    <div class="context-strip" aria-label="Current patient context">
+      <span class="context-chip" id="homeCurrentPatient">👤 No patient selected</span>
+      <span class="context-chip" id="homeCurrentUHID">🆔 UHID —</span>
+      <span class="context-chip" id="homeCurrentVisit">📅 Visit —</span>
+      <span class="context-chip">🔐 Firebase authenticated workspace</span>
+    </div>
+  </div>
 
+  <div class="dashboard-grid">
+    <div class="stat-card"><div class="stat-icon">🧑‍⚕️</div><div class="num" id="todayPatients">0</div><div class="lbl">Today’s OPD</div></div>
+    <div class="stat-card"><div class="stat-icon">🔄</div><div class="num" id="followupCount">0</div><div class="lbl">Follow-up Visits</div></div>
+    <div class="stat-card"><div class="stat-icon">📁</div><div class="num" id="totalPatients">0</div><div class="lbl">Total Records</div></div>
+    <div class="stat-card"><div class="stat-icon">💊</div><div class="num" id="rxCount">0</div><div class="lbl">Saved Prescriptions</div></div>
+  </div>
 
-<section id="dashboardSection">
-<div class="card">
-<h2>Clinic Dashboard</h2>
-<div class="dashboard-grid">
-<div class="stat-card"><div class="num" id="totalPatients">0</div><div class="lbl">Total Records</div></div>
-<div class="stat-card"><div class="num" id="todayPatients">0</div><div class="lbl">Today’s OPD</div></div>
-<div class="stat-card"><div class="num" id="followupCount">0</div><div class="lbl">Follow-up Visits</div></div>
-<div class="stat-card"><div class="num" id="rxCount">0</div><div class="lbl">Saved Prescriptions</div></div>
-</div>
-</div>
+  <div class="home-main-grid">
+    <div class="home-stack">
+      <div class="card">
+        <div class="section-head"><div><h2>Clinical Workflow</h2><div class="section-kicker">Fast structured encounter path</div></div><button type="button" class="secondary" data-open-drawer>All modules</button></div>
+        <div class="workflow-grid">
+          <button type="button" class="workflow-step" data-workflow-tab="tabPatient"><span class="step-no">1</span><span class="step-icon">👤</span>Patient</button>
+          <button type="button" class="workflow-step" data-workflow-tab="tabComplaint"><span class="step-no">2</span><span class="step-icon">🧭</span>Complaint</button>
+          <button type="button" class="workflow-step" data-workflow-tab="tabClinical"><span class="step-no">3</span><span class="step-icon">🩺</span>Clinical</button>
+          <button type="button" class="workflow-step" data-workflow-tab="tabExam"><span class="step-no">4</span><span class="step-icon">🔍</span>General Exam</button>
+          <button type="button" class="workflow-step" data-workflow-tab="tabSystemic"><span class="step-no">5</span><span class="step-icon">🫀</span>Systemic</button>
+          <button type="button" class="workflow-step" data-workflow-tab="tabInvestigations"><span class="step-no">6</span><span class="step-icon">🧪</span>Investigations</button>
+          <button type="button" class="workflow-step" data-workflow-tab="tabAyurveda"><span class="step-no">7</span><span class="step-icon">🌿</span>Ayurveda</button>
+          <button type="button" class="workflow-step" data-workflow-tab="tabPrescription"><span class="step-no">8</span><span class="step-icon">💊</span>Prescription</button>
+          <button type="button" class="workflow-step" data-workflow-tab="tabSafety"><span class="step-no">9</span><span class="step-icon">🛡</span>Safety Check</button>
+          <button type="button" class="workflow-step" data-workflow-tab="tabPreview"><span class="step-no">10</span><span class="step-icon">📄</span>Preview / PDF</button>
+        </div>
+        <div class="safety-line">⚠ <b>Clinical safety sequence:</b> diagnosis → investigations/contraindications → medicine safety → final prescription/PDF. Red flags always override routine workflow.</div>
+      </div>
 
-<div class="card">
-<h2>Quick Actions</h2>
-<div class="quick-grid">
-<button id="dashNewPatient" class="primary quick-btn">👤<span>New Patient</span></button>
-<button id="dashRecords" class="secondary quick-btn">📁<span>Open Records</span></button>
-<button id="dashSearch" class="secondary quick-btn">🔍<span>Search Patient</span></button>
-<button id="dashInvestigations" class="secondary quick-btn">🧪<span>Investigations</span></button>
-<button id="dashCBC" class="secondary quick-btn">🩸<span>CBC Interpreter</span></button>
-<button id="dashLabProfiles" class="secondary quick-btn">🧪<span>Lab Profiles</span></button>
-<button id="dashAyurveda" class="secondary quick-btn">🌿<span>Ayurveda</span></button>
-<button id="dashPrescription" class="secondary quick-btn">💊<span>Prescription</span></button>
-<button id="dashSafety" class="warning quick-btn">🛡<span>Medicine Safety</span></button>
-<button id="dashAppointments" class="secondary quick-btn">📅<span>Appointments</span></button>
-<button id="dashBilling" class="secondary quick-btn">💰<span>Billing</span></button>
-<button id="dashPharmacy" class="secondary quick-btn">💊<span>Pharmacy</span></button>
-<button id="dashLabMgmt" class="secondary quick-btn">🔬<span>Laboratory</span></button>
-<button id="dashImaging" class="secondary quick-btn">🩻<span>Imaging</span></button>
-<button id="dashKnowledge" class="secondary quick-btn">📚<span>Disease Knowledge</span></button>
-</div>
-</div>
+      <div class="card queue-card">
+        <div class="section-head"><div><h2>Today’s OPD Queue</h2><div class="section-kicker">Open, follow-up or prescribe directly</div></div><button class="secondary" type="button" data-modern-tab="tabAppointments">Calendar</button></div>
+        <div id="todayList"></div>
+      </div>
 
-<div class="card">
-<h2>Quick Patient Search</h2>
-<input id="dashboardSearch" placeholder="Search by name, mobile, UHID, complaint or diagnosis">
-<div id="dashboardSearchResults"></div>
-</div>
+      <div class="card recent-card">
+        <div class="section-head"><div><h2>Recent Patients</h2><div class="section-kicker">Continue from the last saved record</div></div><button class="secondary" type="button" data-modern-tab="tabRecords">View all</button></div>
+        <div id="recentList"></div>
+      </div>
+    </div>
 
-<div class="card">
-<h2>Today’s OPD</h2>
-<div id="todayList"></div>
-</div>
+    <div class="home-stack">
+      <div class="card">
+        <div class="section-head"><div><h2>Fast Tools</h2><div class="section-kicker">One-tap clinical & clinic operations</div></div></div>
+        <div class="tool-group-title">Diagnostics</div>
+        <div class="quick-grid">
+          <button id="dashInvestigations" class="quick-btn secondary">🧪<span>Investigations</span></button>
+          <button id="dashCBC" class="quick-btn secondary">🩸<span>CBC Interpreter</span></button>
+          <button id="dashLabProfiles" class="quick-btn secondary">🧬<span>Lab Profiles</span></button>
+          <button id="dashImaging" class="quick-btn secondary">🩻<span>Imaging</span></button>
+          <button id="dashLabMgmt" class="quick-btn secondary">🔬<span>Laboratory</span></button>
+        </div>
+        <div class="tool-group-title">Treatment & safety</div>
+        <div class="quick-grid">
+          <button id="dashAyurveda" class="quick-btn secondary">🌿<span>Ayurveda</span></button>
+          <button id="dashPrescription" class="quick-btn primary">💊<span>Prescription</span></button>
+          <button id="dashSafety" class="quick-btn warning">🛡<span>Medicine Safety</span></button>
+          <button id="dashKnowledge" class="quick-btn secondary">📚<span>Knowledge</span></button>
+        </div>
+        <div class="tool-group-title">Clinic operations</div>
+        <div class="quick-grid">
+          <button id="dashAppointments" class="quick-btn secondary">📅<span>Appointments</span></button>
+          <button id="dashBilling" class="quick-btn secondary">💰<span>Billing</span></button>
+          <button id="dashPharmacy" class="quick-btn secondary">💊<span>Pharmacy</span></button>
+        </div>
+      </div>
 
-<div class="card">
-<h2>Recent Patients</h2>
-<div id="recentList"></div>
-</div>
+      <div class="card">
+        <div class="section-head"><div><h2>Operational Shortcuts</h2><div class="section-kicker">Desktop keyboard shortcuts</div></div></div>
+        <div class="item"><b>Alt + N</b><div class="small">New patient encounter</div></div>
+        <div class="item"><b>Alt + S</b><div class="small">Patient search</div></div>
+        <div class="item"><b>Alt + R</b><div class="small">Records</div></div>
+        <div class="item"><b>Alt + P</b><div class="small">Prescription</div></div>
+        <div class="item"><b>Esc</b><div class="small">Close module drawer</div></div>
+      </div>
+    </div>
+  </div>
 </section>
-
 
 <section id="timelineSection" class="hidden">
 <div class="card">
@@ -3787,7 +3982,7 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 <div class="grid3">
 <div><label>Generic / Main Name *</label><input id="invGeneric"></div>
 <div><label>Brand / Product Name</label><input id="invBrand"></div>
-<div><label>Category</label><select id="invCategory">
+<div><label>Category</label><select id="pharmCategory">
 <option>Tablet</option><option>Capsule</option><option>Syrup</option><option>Injection</option><option>IV Fluid</option><option>Churna</option><option>Vati</option><option>Guggulu</option><option>Bhasma</option><option>Rasoushadhi</option><option>Kwatha</option><option>Asava-Arishta</option><option>Ghrita</option><option>Taila / Panchakarma Oil</option><option>Cream / Ointment</option><option>Surgical Consumable</option><option>Other</option>
 </select></div>
 </div>
@@ -10543,14 +10738,14 @@ function daysToExpiry(dateStr){
 }
 function clearInventoryForm(){
   ['invGeneric','invBrand','invStrength','invCompany','invPack','invBatch','invMfg','invExpiry','invPurchase','invSelling','invTaxInfo','invStock','invLocation','invNotes','invEditId'].forEach(id=>set(id,''));
-  set('invMinStock','5');set('invCategory','Tablet');
+  set('invMinStock','5');set('pharmCategory','Tablet');
 }
 function saveInventoryItem(){
   if(!val('invGeneric')||!val('invExpiry')||val('invStock')==='')return status('Generic name, expiry date and current stock are required.',true);
   const rows=inventoryRows();
   const id=val('invEditId')||('INV-'+Date.now());
   const item={
-    id,generic:val('invGeneric'),brand:val('invBrand'),category:val('invCategory'),
+    id,generic:val('invGeneric'),brand:val('invBrand'),category:val('pharmCategory'),
     strength:val('invStrength'),company:val('invCompany'),pack:val('invPack'),
     batch:val('invBatch'),mfg:val('invMfg'),expiry:val('invExpiry'),
     purchase:Number(val('invPurchase')||0),selling:Number(val('invSelling')||0),
@@ -10611,7 +10806,7 @@ function renderInventory(){
 }
 function editInventoryItem(id){
   const x=inventoryRows().find(r=>r.id===id);if(!x)return;
-  set('invEditId',x.id);set('invGeneric',x.generic);set('invBrand',x.brand);set('invCategory',x.category);
+  set('invEditId',x.id);set('invGeneric',x.generic);set('invBrand',x.brand);set('pharmCategory',x.category);
   set('invStrength',x.strength);set('invCompany',x.company);set('invPack',x.pack);set('invBatch',x.batch);
   set('invMfg',x.mfg);set('invExpiry',x.expiry);set('invPurchase',x.purchase);set('invSelling',x.selling);
   set('invTaxInfo',x.taxInfo);set('invStock',x.stock);set('invMinStock',x.minStock);set('invLocation',x.location);set('invNotes',x.notes);
@@ -11243,9 +11438,94 @@ $('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('t
 $('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V2.15 Dhatu–Ojas–Mala Assessment ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V2.50 Clinical Command Center ready.');
 })();
 </script>
+
+
+<script id="mahamaya-v250-ui-js">
+(()=>{
+  const $=id=>document.getElementById(id);
+  const openDrawer=()=>{document.body.classList.add('drawer-open');$('moduleDrawer')?.setAttribute('aria-hidden','false')};
+  const closeDrawer=()=>{document.body.classList.remove('drawer-open');$('moduleDrawer')?.setAttribute('aria-hidden','true')};
+  const clickTab=id=>{const el=$(id);if(el){el.click();closeDrawer();window.scrollTo({top:0,behavior:'smooth'})}};
+  const newPatient=()=>{const el=$('dashNewPatient');if(el){el.click();closeDrawer();window.scrollTo({top:0,behavior:'smooth'})}};
+  const searchPatient=()=>{clickTab('tabDashboard');setTimeout(()=>{$('dashboardSearch')?.focus();$('dashboardSearch')?.scrollIntoView({behavior:'smooth',block:'center'})},80)};
+
+  document.addEventListener('click',e=>{
+    const open=e.target.closest('[data-open-drawer]');if(open){openDrawer();return}
+    const close=e.target.closest('[data-close-drawer]');if(close){closeDrawer();return}
+    const tab=e.target.closest('[data-modern-tab]');if(tab){clickTab(tab.dataset.modernTab);return}
+    const wf=e.target.closest('[data-workflow-tab]');if(wf){clickTab(wf.dataset.workflowTab);return}
+    const act=e.target.closest('[data-modern-action]');
+    if(act){if(act.dataset.modernAction==='new-patient')newPatient();if(act.dataset.modernAction==='search')searchPatient();}
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape')closeDrawer();
+    if(!e.altKey)return;
+    const k=e.key.toLowerCase();
+    if(k==='n'){e.preventDefault();newPatient()}
+    if(k==='s'){e.preventDefault();searchPatient()}
+    if(k==='r'){e.preventDefault();clickTab('tabRecords')}
+    if(k==='p'){e.preventDefault();clickTab('tabPrescription')}
+  });
+
+  const clock=()=>{
+    const now=new Date();
+    const hr=now.getHours();
+    const greeting=hr<12?'Good morning':hr<17?'Good afternoon':'Good evening';
+    const c=$('headerClock');if(c)c.textContent=now.toLocaleString('en-IN',{weekday:'short',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
+    const g=$('homeGreeting');if(g)g.textContent=greeting+', Doctor';
+  };
+  clock();setInterval(clock,30000);
+
+  const updateCloudChip=()=>{
+    const chip=$('cloudStateChip');if(!chip)return;
+    const state=document.documentElement.dataset.skmcisAuthenticated;
+    chip.textContent=state==='1'?'☁ Cloud connected':state==='0'?'☁ Sign in required':'☁ Firebase';
+  };
+  new MutationObserver(updateCloudChip).observe(document.documentElement,{attributes:true,attributeFilter:['data-skmcis-authenticated']});
+  updateCloudChip();
+
+  const updateContext=()=>{
+    const n=($('name')?.value||'').trim(), u=($('uhid')?.value||'').trim(), v=($('visitDate')?.value||'').trim();
+    if($('homeCurrentPatient'))$('homeCurrentPatient').textContent=n?'👤 '+n:'👤 No patient selected';
+    if($('homeCurrentUHID'))$('homeCurrentUHID').textContent='🆔 '+(u||'UHID —');
+    if($('homeCurrentVisit'))$('homeCurrentVisit').textContent='📅 '+(v||'Visit —');
+  };
+  document.addEventListener('input',e=>{if(['name','uhid','visitDate'].includes(e.target?.id))updateContext()});
+  document.addEventListener('click',()=>setTimeout(updateContext,30));
+  setTimeout(updateContext,250);
+
+  const syncActiveNav=()=>{
+    const active=document.querySelector('.module-tabs button.primary.active,.module-tabs button.primary');
+    const id=active?.id||'tabDashboard';
+    document.querySelectorAll('.command-btn,.mobile-nav-btn').forEach(b=>b.classList.remove('is-active'));
+    document.querySelectorAll(`[data-modern-tab="${id}"]`).forEach(b=>b.classList.add('is-active'));
+    if(id==='tabDashboard')document.querySelectorAll('[data-modern-tab="tabDashboard"]').forEach(b=>b.classList.add('is-active'));
+    if(['tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic'].includes(id))document.querySelectorAll('[data-modern-action="new-patient"]').forEach(b=>b.classList.add('is-active'));
+    if(id==='tabRecords')document.querySelectorAll('[data-modern-tab="tabRecords"]').forEach(b=>b.classList.add('is-active'));
+    if(id==='tabPrescription'||id==='tabSafety'||id==='tabPreview')document.querySelectorAll('[data-modern-tab="tabPrescription"]').forEach(b=>b.classList.add('is-active'));
+  };
+  const tabs=document.querySelectorAll('.module-tabs button');
+  tabs.forEach(t=>new MutationObserver(syncActiveNav).observe(t,{attributes:true,attributeFilter:['class']}));
+  tabs.forEach(t=>t.addEventListener('click',()=>setTimeout(syncActiveNav,0)));
+  syncActiveNav();
+
+  // Query actions for PWA shortcuts without changing the existing clinical data model.
+  const action=new URLSearchParams(location.search).get('action');
+  if(action==='new')setTimeout(newPatient,400);
+  if(action==='records')setTimeout(()=>clickTab('tabRecords'),400);
+})();
+</script>
+
+<nav class="mobile-bottom-nav no-print" aria-label="Mobile app navigation">
+  <button type="button" class="mobile-nav-btn is-active" data-modern-tab="tabDashboard"><b>🏠</b>Home</button>
+  <button type="button" class="mobile-nav-btn" data-modern-action="new-patient"><b>➕</b>New</button>
+  <button type="button" class="mobile-nav-btn" data-modern-tab="tabRecords"><b>📁</b>Records</button>
+  <button type="button" class="mobile-nav-btn" data-modern-tab="tabPrescription"><b>💊</b>Rx</button>
+  <button type="button" class="mobile-nav-btn" data-open-drawer><b>☰</b>More</button>
+</nav>
 
 <!-- SKMCIS FIREBASE AUTH FIX V2.49A -->
 <div id="skmcFirebaseGate" style="position:fixed;inset:0;z-index:100000;background:linear-gradient(135deg,#0b3456,#1596c4);display:flex;align-items:center;justify-content:center;padding:18px">

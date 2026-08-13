@@ -1,29 +1,43 @@
-# Mahamaya EMR — PWA Add-on
+const CACHE_NAME = 'mahamaya-emr-v2.50-20260813';
+const CORE_ASSETS = [
+  './', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png', './logo.jpg'
+];
 
-इन files को GitHub repository की root directory में upload करें:
+self.addEventListener('install', event => {
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(CORE_ASSETS)).then(()=>self.skipWaiting()));
+});
 
-- `manifest.webmanifest`
-- `service-worker.js`
-- `install-pwa.js`
-- पूरा `icons` folder
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))))
+      .then(()=>self.clients.claim())
+  );
+});
 
-फिर मौजूदा `index.html` के `<head>` में यह जोड़ें:
+self.addEventListener('fetch', event => {
+  const req = event.request;
+  if (req.method !== 'GET') return;
+  const url = new URL(req.url);
+  if (url.origin !== self.location.origin) return;
 
-```html
-<link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#1c8ba3">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
-```
+  if (req.mode === 'navigate') {
+    event.respondWith(
+      fetch(req).then(resp => {
+        const copy = resp.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put('./index.html', copy));
+        return resp;
+      }).catch(()=>caches.match('./index.html').then(r=>r||caches.match('./')))
+    );
+    return;
+  }
 
-और `</body>` से ठीक पहले यह जोड़ें:
-
-```html
-<script src="install-pwa.js"></script>
-```
-
-Commit के बाद GitHub Pages को 2–5 मिनट दें। Chrome में website खोलें → menu → **Add to Home screen / Install app**.
-
-महत्वपूर्ण:
-- Service worker पहली सफल online visit के बाद offline cache बनाता है।
-- Patient data यदि localStorage में है, तो वह उसी browser/app storage में रहेगा।
-- Browser data clear या app uninstall करने से local records मिट सकते हैं; नियमित backup रखें।
+  event.respondWith(
+    caches.match(req).then(cached => {
+      const network = fetch(req).then(resp => {
+        if (resp && resp.ok) caches.open(CACHE_NAME).then(cache => cache.put(req, resp.clone()));
+        return resp;
+      }).catch(()=>cached);
+      return cached || network;
+    })
+  );
+});

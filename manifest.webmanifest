@@ -1,22 +1,61 @@
 {
-  "name": "Mahamaya Clinic EMR",
-  "short_name": "SKMC EMR",
-  "description": "Mahamaya Clinic Integrated Ayurveda, Spine & Orthopedic EMR",
+  "id": "./",
+  "name": "Mahamaya Clinic EMR — Clinical Command Center",
+  "short_name": "Mahamaya EMR",
+  "description": "Integrated Ayurveda, spine, orthopedic and general clinical EMR for Mahamaya Clinic.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#126b82",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "any",
+  "lang": "en-IN",
+  "background_color": "#f3f8fa",
+  "theme_color": "#0b6f78",
+  "categories": [
+    "medical",
+    "health",
+    "productivity"
+  ],
   "icons": [
     {
       "src": "./icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "./icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "New Patient",
+      "short_name": "New Patient",
+      "url": "./?action=new",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Patient Records",
+      "short_name": "Records",
+      "url": "./?action=records",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }
