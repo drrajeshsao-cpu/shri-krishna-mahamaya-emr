@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<title>Mahamaya Clinic EMR | Expanded Complaint Search V3.50</title>
+<title>Mahamaya Clinic EMR | Mission Assurance Research System V3.60</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -571,6 +571,18 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 @media print{body.pri-print-mode>*{display:none!important}body.pri-print-mode #lifestyleSection{display:block!important;position:static!important}body.pri-print-mode #lifestyleSection>*{display:none!important}body.pri-print-mode #lifestyleSection .lifestyle-workspace{display:block!important;border:none!important;box-shadow:none!important}body.pri-print-mode #lifestyleSection .lifestyle-workspace>*{display:none!important}body.pri-print-mode #lifestyleSection .pti-panel[data-pti-panel="research"]{display:block!important}body.pri-print-mode #lifestyleSection .pti-panel[data-pti-panel="research"]>*{display:none!important}body.pri-print-mode #priResearchReport{display:block!important;border:none!important;margin:0!important;padding:0!important}body.pri-print-mode #priResearchReport *{visibility:visible!important}.pri-report-preview table{page-break-inside:auto}.pri-report-preview tr{page-break-inside:avoid}.pri-actionbar{display:none!important}}
 </style>
 
+
+<style id="v360-mission-css">
+/* V3.60 — Mission Assurance / research-quality control. Publicly inspired by NASA software assurance, ISRO reliability/quality, CCRAS research rigor and ABDM interoperability/privacy principles; no institutional affiliation implied. */
+.mission-card{border:1px solid #b9d7dc;background:linear-gradient(180deg,#fbfeff,#f4fafb);position:relative;overflow:hidden}
+.mission-card:before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:#0b6f78}
+.mission-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}.mission-head h2,.mission-head h3{margin:0}.mission-sub{font-size:12px;color:#607985;margin-top:3px}
+.mission-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:12px}.mission-kpi{border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px}.mission-kpi b{display:block;font-size:18px;color:#075f68}.mission-kpi small{display:block;color:#677e88;margin-top:3px}.mission-kpi .mini{font-size:11px;margin-top:4px}
+.mission-status{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 10px;font-weight:800;font-size:12px;border:1px solid}.mission-green{background:#eef9f2;color:#17693b;border-color:#abd7bc}.mission-amber{background:#fff8e4;color:#7a5511;border-color:#e8cf86}.mission-red{background:#fff0ef;color:#9b2d25;border-color:#e1aaa5}.mission-blue{background:#edf7fa;color:#0c6572;border-color:#b6d9df}
+.mission-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}.mission-panel{border:1px solid var(--line);background:#fff;border-radius:12px;padding:13px}.mission-panel h4{margin:0 0 8px}.mission-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.mission-check{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:9px;background:#fbfdfe}.mission-check input{margin-top:3px}.mission-check small{display:block;color:#6b8089;margin-top:2px}.mission-list{display:grid;gap:7px}.mission-row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed #dbe6e9;padding:6px 0}.mission-row:last-child{border-bottom:none}.mission-row span{color:#607985}.mission-row b{text-align:right}.mission-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.mission-note{font-size:11px;color:#6b7e86;margin-top:10px}.mission-integrity-list{max-height:240px;overflow:auto;border:1px solid var(--line);border-radius:10px;padding:8px;background:#fbfdfe}.mission-integrity-item{display:grid;grid-template-columns:1fr auto;gap:8px;padding:6px;border-bottom:1px dashed #dbe6e9;font-size:12px}.mission-integrity-item:last-child{border-bottom:none}.mission-code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;overflow-wrap:anywhere}.mission-banner{margin:0 0 12px;border-radius:12px;padding:10px 12px;border:1px solid #e5c76d;background:#fff8dc;font-size:12px}.mission-banner strong{color:#6c4f09}
+@media(max-width:1000px){.mission-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.mission-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.mission-kpis{grid-template-columns:1fr 1fr}.mission-checks{grid-template-columns:1fr}.mission-kpi{padding:9px}.mission-actions button{flex:1 1 45%}}
+</style>
 </head>
 <body>
 
@@ -597,8 +609,8 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
     <div class="brand-lockup">
       <img class="brand-logo" src="./icon-192.png" alt="Mahamaya Clinic">
       <div class="brand-copy">
-        <h1>Mahamaya Clinic <span class="version-badge">V3.50</span></h1>
-        <p>Expanded Complaint Search • Advanced Phenotyping • Research Prakriti • Smart Investigations • SLAIE Core v1.0 • Build 2026.08.14-R10</p>
+        <h1>Mahamaya Clinic <span class="version-badge">V3.60</span></h1>
+        <p>Mission Assurance • Research-grade Traceability • Expanded Complaints • Research Prakriti • SLAIE • Build 2026.08.14-R11</p>
       </div>
     </div>
     <div class="header-meta">
@@ -623,7 +635,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 </nav>
 
 <div class="system-strip no-print">
-  <div id="status" class="status">App loaded successfully. V3.50 Expanded Complaint Search + Advanced Phenotyping + Research Prakriti + Smart Investigations + SLAIE ready.</div>
+  <div id="status" class="status">App loaded successfully. V3.60 Mission Assurance + Research Traceability + Expanded Complaints + Research Prakriti + Smart Investigations + SLAIE ready.</div>
   <div class="actions">
     <span id="activeRoleBadge" class="role-badge">Locked</span>
     <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -12644,7 +12656,7 @@ window.MahamayaBridge={
   esc:(x)=>esc(x)
 };
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.50 Expanded Complaint Search + Advanced Phenotyping + Research Prakriti + Smart Investigations + SLAIE ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.60 Mission Assurance + Research Traceability + Expanded Complaints + Research Prakriti + Smart Investigations + SLAIE ready.');
 })();
 </script>
 
@@ -14330,6 +14342,7 @@ renderBaseRows();bind();installBidirectionalNavigation();setTimeout(()=>open((ty
 </script>
 
 <script src="./complaint-intelligence-engine.js"></script>
+<script src="./mission-assurance-engine.js"></script>
 <script src="./install-pwa.js"></script>
 </body>
 </html>

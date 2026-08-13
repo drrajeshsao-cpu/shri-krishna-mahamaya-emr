@@ -1,0 +1,105 @@
+{
+  "name": "Mahamaya Mission Assurance Master",
+  "version": "1.0",
+  "app_version": "3.60",
+  "build": "2026.08.14-R11",
+  "disclaimer": "Publicly inspired by published quality/research principles; not affiliated with or certified by NASA, ISRO, CCRAS, RAV, NHA/ABDM, WHO or HL7.",
+  "pillars": [
+    {
+      "id": "software_assurance",
+      "title": "Software Assurance & IV&V mindset",
+      "inspiration": "NASA public Software Engineering/Assurance standards",
+      "controls": [
+        "versioned build",
+        "configuration integrity hashes",
+        "error capture",
+        "release gate",
+        "independent regression evidence"
+      ]
+    },
+    {
+      "id": "reliability_quality",
+      "title": "Reliability & Quality Engineering",
+      "inspiration": "ISRO public reliability/quality approach",
+      "controls": [
+        "defined acceptance checks",
+        "deployment state",
+        "fault visibility",
+        "restore drill",
+        "change control"
+      ]
+    },
+    {
+      "id": "ayurveda_research",
+      "title": "Ayurveda Research Rigor",
+      "inspiration": "CCRAS/RAV public research and training mission",
+      "controls": [
+        "instrument versioning",
+        "protocol/IEC metadata",
+        "clinician confirmation",
+        "research export",
+        "classical/modern evidence separation"
+      ]
+    },
+    {
+      "id": "digital_health",
+      "title": "Interoperability & Privacy by Design",
+      "inspiration": "ABDM/WHO/HL7 public digital-health principles",
+      "controls": [
+        "consent-aware research use",
+        "data classification",
+        "terminology roadmap",
+        "provenance",
+        "de-identification-first export"
+      ]
+    }
+  ],
+  "release_gate_checks": [
+    {
+      "id": "mobile_regression",
+      "label": "Mobile/tablet/laptop/desktop regression completed"
+    },
+    {
+      "id": "restore_drill",
+      "label": "Backup restore drill completed successfully"
+    },
+    {
+      "id": "backend_roles",
+      "label": "Backend role permissions independently verified"
+    },
+    {
+      "id": "privacy_consent",
+      "label": "Privacy and patient-consent workflow reviewed"
+    },
+    {
+      "id": "clinical_rules",
+      "label": "Critical clinical rules/red flags clinician-reviewed"
+    },
+    {
+      "id": "research_dictionary",
+      "label": "Research data dictionary/instrument versions frozen for study"
+    },
+    {
+      "id": "external_security",
+      "label": "External security review completed before production claim"
+    },
+    {
+      "id": "release_notes",
+      "label": "Release notes and known limitations documented"
+    }
+  ],
+  "research_metadata_fields": [
+    "protocol_id",
+    "iec_ethics_ref",
+    "study_site",
+    "assessor",
+    "dataset_version",
+    "instrument_versions",
+    "deidentification_mode"
+  ],
+  "quality_levels": {
+    "green": "All machine-verifiable checks pass; human release gates still require review.",
+    "amber": "One or more checks are incomplete or unverified.",
+    "red": "Integrity/error/safety issue detected; do not treat the build as release-ready."
+  }
+}
