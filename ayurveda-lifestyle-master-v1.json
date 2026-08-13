@@ -1,0 +1,649 @@
+{
+  "version": "Prakriti & Trayopastambha Master v1.0",
+  "build": "2026.08.14-R7",
+  "safety": {
+    "constitution": "Ayurveda constitutional documentation is a traditional clinical framework. This custom structured index is not a validated diagnostic instrument and must not be used alone to predict disease.",
+    "manas": "Sattva–Rajas–Tamas and classical subtype labels are descriptive Ayurvedic archetypes, not psychiatric diagnoses or moral grades.",
+    "dreams": "Dream content is recorded only as a classical/subjective history. It must not be used to diagnose disease, predict prognosis, death, or future events.",
+    "sexual": "Sensitive sexual-health history requires privacy, consent and age-appropriate safeguarding. Classical self-restraint fields are optional and are not a medical morality score.",
+    "fertility": "Fertility guidance is sex-neutral. No sex-selection, fetal-sex prediction, or male-child guarantee is supported."
+  },
+  "deha_prakriti": [
+    {
+      "id": "vata",
+      "name": "Vataja / Vatala",
+      "short": "Lean/dry tendency, variable appetite/bowel pattern, quick activity, cold intolerance; traits vary by person."
+    },
+    {
+      "id": "pitta",
+      "name": "Pittaja / Pittala",
+      "short": "Heat/metabolic tendency, stronger hunger/thirst, warmth/sweating and sharper activity pattern may predominate."
+    },
+    {
+      "id": "kapha",
+      "name": "Kaphaja / Shleshmala",
+      "short": "Stable/heavier build, steadier temperament, slower appetite/activity and good endurance/retention may predominate."
+    },
+    {
+      "id": "vata_pitta",
+      "name": "Vata–Pittaja",
+      "short": "Combined Vata and Pitta constitutional traits."
+    },
+    {
+      "id": "vata_kapha",
+      "name": "Vata–Kaphaja",
+      "short": "Combined Vata and Kapha constitutional traits."
+    },
+    {
+      "id": "pitta_kapha",
+      "name": "Pitta–Kaphaja",
+      "short": "Combined Pitta and Kapha constitutional traits."
+    },
+    {
+      "id": "sama",
+      "name": "Sama-doshaja / Tridosha-balanced",
+      "short": "Relatively balanced expression of all three dosha; clinician confirmation required."
+    }
+  ],
+  "deha_domains": [
+    {
+      "id": "build",
+      "label": "Body build / frame",
+      "vata": "Lean/light/variable",
+      "pitta": "Moderate/defined",
+      "kapha": "Broad/solid/heavier"
+    },
+    {
+      "id": "skin",
+      "label": "Skin tendency",
+      "vata": "Dry/rough/cool",
+      "pitta": "Warm/sensitive/flushing",
+      "kapha": "Smooth/oily/cool"
+    },
+    {
+      "id": "appetite",
+      "label": "Appetite",
+      "vata": "Variable/irregular",
+      "pitta": "Strong/sharp",
+      "kapha": "Steady/slower"
+    },
+    {
+      "id": "digestion",
+      "label": "Digestion",
+      "vata": "Variable/bloating tendency",
+      "pitta": "Fast/burning tendency",
+      "kapha": "Slow/heaviness tendency"
+    },
+    {
+      "id": "bowel",
+      "label": "Bowel tendency",
+      "vata": "Dry/hard/variable",
+      "pitta": "Soft/frequent tendency",
+      "kapha": "Regular/formed/slower"
+    },
+    {
+      "id": "temperature",
+      "label": "Temperature preference",
+      "vata": "Cold intolerance",
+      "pitta": "Heat intolerance",
+      "kapha": "Cold/damp intolerance"
+    },
+    {
+      "id": "activity",
+      "label": "Activity pattern",
+      "vata": "Quick/variable",
+      "pitta": "Focused/intense",
+      "kapha": "Steady/enduring"
+    },
+    {
+      "id": "sleep",
+      "label": "Sleep tendency",
+      "vata": "Light/interrupted",
+      "pitta": "Moderate",
+      "kapha": "Deep/longer"
+    },
+    {
+      "id": "speech",
+      "label": "Speech / pace",
+      "vata": "Fast/variable",
+      "pitta": "Sharp/direct",
+      "kapha": "Slow/calm"
+    },
+    {
+      "id": "memory",
+      "label": "Learning / retention",
+      "vata": "Quick learning, variable retention",
+      "pitta": "Sharp discrimination",
+      "kapha": "Slower learning, good retention"
+    }
+  ],
+  "manas_triguna": [
+    {
+      "id": "sattva",
+      "name": "Sattvika",
+      "short": "Clarity, truthfulness, self-control, compassion, knowledge, memory and balanced conduct."
+    },
+    {
+      "id": "rajas",
+      "name": "Rajasika",
+      "short": "Activity, drive, restlessness, attachment, anger/desire and reactivity may predominate."
+    },
+    {
+      "id": "tamas",
+      "name": "Tamasika",
+      "short": "Inertia, dullness, excessive sleepiness, avoidance or reduced initiative may predominate."
+    }
+  ],
+  "manas_subtypes": [
+    {
+      "group": "Sattvika",
+      "id": "brahma",
+      "name": "Brahma",
+      "short": "Knowledge, discrimination, truthfulness, restraint, broad goodwill; classical archetype."
+    },
+    {
+      "group": "Sattvika",
+      "id": "arsha",
+      "name": "Arsha / Rishi",
+      "short": "Memory, purity, self-control, study, disciplined/auspicious conduct."
+    },
+    {
+      "group": "Sattvika",
+      "id": "aindra",
+      "name": "Aindra / Indra",
+      "short": "Leadership, confidence, disciplined responsibility and devotion to valued principles."
+    },
+    {
+      "group": "Sattvika",
+      "id": "yamya",
+      "name": "Yamya / Yama",
+      "short": "Justice, discipline, hard work, restraint from conflicting impulses."
+    },
+    {
+      "group": "Sattvika",
+      "id": "varuna",
+      "name": "Varuna",
+      "short": "Orderliness, cleanliness, appropriate emotional expression and discipline."
+    },
+    {
+      "group": "Sattvika",
+      "id": "kaubera",
+      "name": "Kaubera / Kubera",
+      "short": "Courage, patience, resource stewardship, purity and timely emotional expression."
+    },
+    {
+      "group": "Sattvika",
+      "id": "gandharva",
+      "name": "Gandharva",
+      "short": "Affinity for arts, music, poetry, aesthetics and refined enjoyment without excessive attachment."
+    },
+    {
+      "group": "Rajasika",
+      "id": "asura",
+      "name": "Asura",
+      "short": "Courage/drive with possible competitiveness, jealousy, harshness or self-focus; classical archetype."
+    },
+    {
+      "group": "Rajasika",
+      "id": "rakshasa",
+      "name": "Rakshasa",
+      "short": "High reactivity/anger, intolerance, intense effort, strong food/sleep drives; classical archetype."
+    },
+    {
+      "group": "Rajasika",
+      "id": "paishacha",
+      "name": "Paishacha",
+      "short": "Disorganized habits, excessive drives or poor cleanliness/self-regulation may be emphasized in classical description."
+    },
+    {
+      "group": "Rajasika",
+      "id": "sarpa",
+      "name": "Sarpa",
+      "short": "Fear/reactivity, sharp response, variable courage and high arousal; classical archetype."
+    },
+    {
+      "group": "Rajasika",
+      "id": "preta",
+      "name": "Preta",
+      "short": "Restlessness, craving/attachment and dissatisfaction themes; classical archetype."
+    },
+    {
+      "group": "Rajasika",
+      "id": "shakuna",
+      "name": "Shakuna",
+      "short": "Mobility, changing preferences, attraction to immediate gratification; classical archetype."
+    },
+    {
+      "group": "Tamasika",
+      "id": "pashava",
+      "name": "Pashava",
+      "short": "Low reflective control, excessive sleep/sexual drive or reduced adaptive judgment in classical description."
+    },
+    {
+      "group": "Tamasika",
+      "id": "matsya",
+      "name": "Matsya",
+      "short": "Fearfulness, food craving, anger/desire, instability and attraction to water in classical description."
+    },
+    {
+      "group": "Tamasika",
+      "id": "vanaspatya",
+      "name": "Vanaspatya",
+      "short": "Marked inertia, food-centered routine and low initiative/reflective engagement in classical description."
+    }
+  ],
+  "mental_tendencies": [
+    {
+      "id": "kama",
+      "name": "Kama / desire-lust"
+    },
+    {
+      "id": "krodha",
+      "name": "Krodha / anger"
+    },
+    {
+      "id": "lobha",
+      "name": "Lobha / greed"
+    },
+    {
+      "id": "moha",
+      "name": "Moha / confusion-attachment"
+    },
+    {
+      "id": "mada",
+      "name": "Mada / pride-intoxicated self-importance"
+    },
+    {
+      "id": "matsarya",
+      "name": "Matsarya / jealousy-envy"
+    }
+  ],
+  "scale_0_3": [
+    {
+      "value": "0",
+      "label": "0 • Absent / well controlled"
+    },
+    {
+      "value": "1",
+      "label": "1+ • Occasional, mild, no functional impact"
+    },
+    {
+      "value": "2",
+      "label": "2+ • Recurrent/moderate, noticeable impact"
+    },
+    {
+      "value": "3",
+      "label": "3+ • Frequent/severe or loss of control / functional impact"
+    }
+  ],
+  "ahara": {
+    "diet_types": [
+      "Vegetarian",
+      "Lacto-vegetarian",
+      "Lacto-ovo vegetarian / Eggetarian",
+      "Vegan",
+      "Mixed / Omnivorous",
+      "Non-vegetarian",
+      "Pescatarian",
+      "Therapeutic / prescribed diet",
+      "Other"
+    ],
+    "meal_sources": [
+      "Home-cooked",
+      "Home + outside mixed",
+      "Restaurant / hotel",
+      "Canteen / workplace",
+      "Packaged / ready-to-eat dominant",
+      "Street food frequent",
+      "Other"
+    ],
+    "meals": [
+      "Early morning intake",
+      "Breakfast",
+      "Mid-morning snack",
+      "Lunch",
+      "Evening snack",
+      "Dinner",
+      "Late-night intake"
+    ],
+    "six_rasa": [
+      "Madhura • Sweet",
+      "Amla • Sour",
+      "Lavana • Salty",
+      "Katu • Pungent",
+      "Tikta • Bitter",
+      "Kashaya • Astringent"
+    ],
+    "guna_pairs": [
+      [
+        "Guru • Heavy",
+        "Laghu • Light"
+      ],
+      [
+        "Sheeta • Cold",
+        "Ushna • Hot"
+      ],
+      [
+        "Snigdha • Unctuous",
+        "Ruksha • Dry"
+      ],
+      [
+        "Manda • Dull/slow",
+        "Tikshna • Sharp"
+      ],
+      [
+        "Sthira • Stable",
+        "Sara • Mobile/flowing"
+      ],
+      [
+        "Mridu • Soft",
+        "Kathina • Hard"
+      ],
+      [
+        "Vishada • Clear/non-slimy",
+        "Pichchila • Slimy"
+      ],
+      [
+        "Shlakshna • Smooth",
+        "Khara • Coarse"
+      ],
+      [
+        "Sthula • Gross",
+        "Sukshma • Subtle"
+      ],
+      [
+        "Sandra • Solid/compact",
+        "Drava • Liquid/fluid"
+      ]
+    ],
+    "mahabhuta": [
+      "Prithvi",
+      "Jala",
+      "Agni/Tejas",
+      "Vayu",
+      "Akasha"
+    ],
+    "ashta_ahara_vidhi": [
+      [
+        "prakriti",
+        "Prakriti",
+        "Natural/inherent qualities of food"
+      ],
+      [
+        "karana",
+        "Karana",
+        "Processing / preparation method"
+      ],
+      [
+        "samyoga",
+        "Samyoga",
+        "Food combinations"
+      ],
+      [
+        "rashi",
+        "Rashi",
+        "Total and individual quantity"
+      ],
+      [
+        "desha",
+        "Desha",
+        "Source/habitat/geographic context"
+      ],
+      [
+        "kala",
+        "Kala",
+        "Time/season/age/disease context"
+      ],
+      [
+        "upayoga",
+        "Upayoga-samstha",
+        "Rules/method of use"
+      ],
+      [
+        "upayokta",
+        "Upayokta",
+        "Individual suitability / person eating"
+      ]
+    ],
+    "ahara_vidhi_rules": [
+      [
+        "ushna",
+        "Warm/fresh as appropriate (Ushnam)"
+      ],
+      [
+        "snigdha",
+        "Appropriate unctuousness (Snigdham)"
+      ],
+      [
+        "matra",
+        "Appropriate quantity (Matravat)"
+      ],
+      [
+        "jirna",
+        "After previous meal is adequately digested / genuine appetite (Jirne)"
+      ],
+      [
+        "aviruddha",
+        "Avoid clinician-identified incompatible combinations (Virya-aviruddha)"
+      ],
+      [
+        "pleasant",
+        "Clean/congenial place and suitable setting"
+      ],
+      [
+        "not_fast",
+        "Not excessively fast"
+      ],
+      [
+        "not_slow",
+        "Not excessively slow"
+      ],
+      [
+        "no_talk_laugh",
+        "Focused eating; avoid excessive talking/laughing/distraction"
+      ],
+      [
+        "self_awareness",
+        "Consider personal suitability, appetite and response"
+      ]
+    ],
+    "dvadasha_ashana": [
+      "Sheeta Ahara • cold food/administration",
+      "Ushna Ahara • hot food/administration",
+      "Snigdha Ahara • unctuous/fat-containing",
+      "Ruksha Ahara • non-unctuous/dry quality",
+      "Drava Ahara • liquid food",
+      "Shushka Ahara • low-moisture/dry food",
+      "Ekakalika Ahara • once-daily administration",
+      "Dwikalika Ahara • twice-daily administration",
+      "Aushadha-yukta Ahara • food administered with medicine",
+      "Matra-heena Ahara • reduced quantity",
+      "Dosha-prashamana Ahara • dosha-pacifying therapeutic diet",
+      "Vrityartha Ahara • sustaining/health-maintenance diet"
+    ],
+    "gita_food": [
+      "Sattvika-oriented (classical/spiritual)",
+      "Rajasika-oriented (classical/spiritual)",
+      "Tamasika-oriented (classical/spiritual)",
+      "Mixed / not classified",
+      "Prefer not to classify"
+    ],
+    "spiritual": [
+      "Meal offered / Bhagavad-arpana or Prasada practice",
+      "Meal prayer/mantra / gratitude",
+      "Mindful/quiet eating",
+      "Prefer not to discuss spirituality"
+    ]
+  },
+  "nidra": {
+    "quality": [
+      "Very good / restorative",
+      "Good",
+      "Fair",
+      "Poor",
+      "Very poor"
+    ],
+    "classical": [
+      "Tamobhava • sleep associated with predominance of Tamas",
+      "Shleshma-samudbhava • Kapha-associated sleep",
+      "Mana-shrama-sambhava • after mental exertion",
+      "Sharira-shrama-sambhava • after physical exertion",
+      "Agantuki • due to exogenous/other factors",
+      "Vyadhyanuvartini • associated with disease",
+      "Ratri-svabhava-prabhava • natural nighttime sleep"
+    ],
+    "dream_frequency": [
+      "None / rarely",
+      "<1 night/week",
+      "1–2 nights/week",
+      "3–4 nights/week",
+      "Most nights",
+      "Multiple times/night"
+    ],
+    "dream_types": [
+      "Neutral/ordinary",
+      "Pleasant",
+      "Distressing/nightmare",
+      "Recurrent theme",
+      "Trauma-related theme",
+      "Sleep-paralysis-like experience",
+      "Classical dosha-associated description (education only)",
+      "Other"
+    ],
+    "red_flags": [
+      "Loud habitual snoring",
+      "Witnessed apnea / choking",
+      "Severe daytime sleepiness",
+      "Drowsy driving / near miss",
+      "Restless legs symptoms",
+      "Parasomnia / injury during sleep",
+      "Recurrent distressing nightmares",
+      "Marked insomnia >3 nights/week",
+      "Other"
+    ]
+  },
+  "brahmacharya": {
+    "orientation": [
+      "Naishthika Brahmacharya / chosen celibacy",
+      "Grihastha Brahmacharya / regulated married-partnered conduct",
+      "Personal spiritual restraint practice",
+      "No specific Brahmacharya practice",
+      "Prefer not to classify"
+    ],
+    "relationship": [
+      "Single / unmarried",
+      "Married",
+      "Committed partner",
+      "Live-in relationship",
+      "Separated",
+      "Divorced",
+      "Widowed",
+      "Multiple/current partners",
+      "Prefer not to answer",
+      "Other"
+    ],
+    "ashrama": [
+      "Brahmacharya ashrama (classical life-stage)",
+      "Grihastha ashrama",
+      "Vanaprastha ashrama",
+      "Sannyasa ashrama",
+      "Not applicable / not used"
+    ],
+    "ashtanga_maithuna": [
+      [
+        "smarana",
+        "Smarana",
+        "Sexual thought/remembrance"
+      ],
+      [
+        "kirtana",
+        "Kirtana",
+        "Sexual/romantic talk or praise"
+      ],
+      [
+        "keli",
+        "Keli",
+        "Flirtation/intimate play"
+      ],
+      [
+        "prekshana",
+        "Prekshana",
+        "Sexualized looking/viewing"
+      ],
+      [
+        "guhya",
+        "Guhya-bhashana",
+        "Private intimate/sexual conversation"
+      ],
+      [
+        "sankalpa",
+        "Sankalpa",
+        "Sexual fantasy/intention"
+      ],
+      [
+        "adhyavasaya",
+        "Adhyavasaya",
+        "Decision/pursuit toward sexual activity"
+      ],
+      [
+        "kriya",
+        "Kriya",
+        "Sexual act"
+      ]
+    ],
+    "modern_5p": [
+      "Partners",
+      "Practices",
+      "Protection from STIs",
+      "Past STI history",
+      "Pregnancy intention"
+    ],
+    "functions": [
+      "Libido / desire",
+      "Arousal",
+      "Erection (if applicable)",
+      "Ejaculation control/timing (if applicable)",
+      "Orgasm",
+      "Pain with sex / dyspareunia",
+      "Vaginal dryness/lubrication issue (if applicable)",
+      "Sexual satisfaction",
+      "Consent / relationship safety"
+    ],
+    "concerns": [
+      "Erectile dysfunction",
+      "Premature ejaculation / early ejaculation concern",
+      "Delayed ejaculation",
+      "Low libido",
+      "Painful intercourse",
+      "Infertility / subfertility",
+      "STI symptoms/exposure",
+      "Recurrent genital/urinary symptoms",
+      "Sexual compulsivity / loss of control",
+      "Porn/sexual-media use causing distress or impairment",
+      "Other"
+    ]
+  },
+  "activity": {
+    "types": [
+      "Walking",
+      "Yoga asana",
+      "Pranayama",
+      "Meditation/Dhyana",
+      "Strength exercise",
+      "Aerobic exercise",
+      "Sports",
+      "Physical work/household activity",
+      "Sedentary work",
+      "Other"
+    ],
+    "spiritual": [
+      "Prayer/Bhakti",
+      "Japa/mantra",
+      "Scripture/ethical reading",
+      "Satsanga",
+      "Seva/service",
+      "Vrata/fasting practice",
+      "None / prefer not to discuss"
+    ]
+  }
+}

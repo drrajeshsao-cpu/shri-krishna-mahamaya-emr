@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<title>Mahamaya Clinic EMR | Smart Investigation Catalog V3.10</title>
+<title>Mahamaya Clinic EMR | Prakriti & Trayopastambha Intelligence V3.20</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -218,6 +218,44 @@ body{background:linear-gradient(180deg,#eef7f8 0,#f7fbfc 38%,#f2f7f8 100%)}
 .evidence-badge{display:inline-flex;padding:6px 9px;border-radius:999px;background:#eaf6f4;border:1px solid #c8e4df;color:#27675f;font-size:10px;font-weight:900}.clinical-note{border-left:4px solid #3d9fa5}.complaint-workspace,.assessment-workspace{overflow:visible}.smart-search-wrap{position:relative}.smart-results{position:absolute;z-index:5000;left:0;right:0;top:calc(100% + 5px);max-height:330px;overflow:auto;background:#fff;border:1px solid #bed8dc;border-radius:14px;box-shadow:0 18px 45px rgba(11,72,82,.17);padding:5px}.smart-results.hidden{display:none}.smart-result{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left;background:#fff;color:#214a53;border:0;border-radius:10px;padding:9px 10px;font-weight:700}.smart-result:hover,.smart-result:focus{background:#eef8f8}.term-main{min-width:0}.term-title{font-size:12px}.term-meta{font-size:9px;color:#73868b;margin-top:2px;font-weight:600}.term-type{flex:0 0 auto;padding:4px 6px;border-radius:999px;background:#edf4f6;font-size:8px;text-transform:uppercase;letter-spacing:.04em;color:#58717a}.field-help{font-size:9px;color:#71848a;margin-top:5px}.quick-term-row{display:flex;gap:6px;flex-wrap:wrap}.quick-term-chip,.term-pill{border:1px solid #cfe1e4;background:#f7fbfc;color:#2a5962;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:800}.quick-term-chip:hover,.term-pill:hover{background:#eaf6f6;border-color:#9ac7cb}.selected-term-list{display:flex;gap:7px;flex-wrap:wrap;min-height:38px;padding:8px;border:1px dashed #cbdde0;border-radius:12px;background:#fbfdfd}.selected-term{display:inline-flex;align-items:center;gap:5px;padding:6px 7px;border-radius:10px;background:#edf7f7;border:1px solid #cbe3e3;color:#214f58;font-size:10px}.selected-term.primary-term{background:#e6f5ef;border-color:#9ed7c1}.selected-term .mini-btn{border:0;background:transparent;color:#5b7277;padding:1px 3px;font-size:10px}.selected-term .mini-btn:hover{color:#b43c3c;background:#fff1f1}.compact-actions{margin:8px 0}.clinical-guidance-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.assessment-context{padding:10px 12px;border:1px solid #d2e4e6;border-radius:12px;background:#f8fbfc;font-size:11px;color:#355b64;margin:9px 0}.suggestion-strip{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.workflow-actions{position:sticky;bottom:0;z-index:120;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);padding:10px 0 2px;border-top:1px solid rgba(210,228,231,.8);margin-top:12px}.rx-context-card{border-left:4px solid #4f9ca3}
 @media(max-width:1180px){.workflow-phase-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:760px){.workflow-phase-grid{grid-template-columns:repeat(2,1fr)}.workflow-phase{min-height:92px}.clinical-guidance-grid{grid-template-columns:1fr}.complaint-top-grid,.assessment-search-grid{grid-template-columns:1fr}.workflow-actions{bottom:68px;padding:8px;background:rgba(255,255,255,.97);border-radius:12px;box-shadow:0 -8px 20px rgba(18,72,80,.08)}.smart-results{position:fixed;left:10px;right:10px;top:auto;bottom:82px;max-height:45vh}.hero-actions{display:grid;grid-template-columns:1fr 1fr}.hero-actions button{width:100%}}
+
+/* V3.20 — Prakriti, Trayopastambha & Lifestyle Intelligence */
+.workflow-phase-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media(min-width:1440px){.workflow-phase-grid{grid-template-columns:repeat(9,minmax(0,1fr))}}
+.lifestyle-workspace{overflow:visible}
+.pti-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.pti-nav{position:sticky;top:166px;z-index:42;display:flex;gap:7px;overflow-x:auto;padding:8px;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;margin:10px 0 12px;scrollbar-width:thin}
+.pti-nav button{white-space:nowrap;flex:0 0 auto;min-height:38px;padding:8px 11px;border-radius:10px;background:#f2f7f8;color:#315e66}
+.pti-nav button.active{background:var(--p);color:#fff}
+.pti-panel{display:none}.pti-panel.active{display:block}
+.pti-summary-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:10px 0}
+.pti-kpi{border:1px solid #d8e7e9;border-radius:13px;background:#fbfdfd;padding:10px}.pti-kpi b{display:block;color:var(--p);font-size:16px}.pti-kpi small{color:#657c82}
+.pti-info{border-left:4px solid #409da4;background:#f1faf9;padding:10px 12px;border-radius:10px;margin:8px 0;font-size:11px}
+.pti-caution{border-left:4px solid #d59a20;background:#fff8e8;padding:10px 12px;border-radius:10px;margin:8px 0;font-size:11px}
+.pti-danger{border-left:4px solid #b6403a;background:#fff0ef;padding:10px 12px;border-radius:10px;margin:8px 0;font-size:11px}
+.pti-card{border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0;background:#fff}
+.pti-card h3,.pti-card h4{margin-top:0}
+.pti-trait-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.pti-trait{border:1px solid #dbe8ea;border-radius:12px;padding:9px;background:#fbfdfd}
+.pti-trait-title{font-weight:900;color:#225861;font-size:11px;margin-bottom:6px}
+.pti-scale-row{display:grid;grid-template-columns:1.15fr repeat(3,minmax(90px,.7fr));gap:7px;align-items:center;border:1px solid #dbe8ea;border-radius:12px;padding:8px;margin:7px 0;background:#fbfdfd}
+.pti-scale-row .label{font-weight:800;color:#2b5962}
+.pti-subtype-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.pti-subtype{border:1px solid #dce8ea;border-radius:12px;padding:10px;background:#fbfdfd}.pti-subtype b{color:#1f626b}.pti-subtype small{display:block;margin-top:4px;color:#687f85;line-height:1.35}
+.pti-meal-grid{display:grid;grid-template-columns:1.1fr .65fr 1.7fr;gap:7px;align-items:end;margin:7px 0}
+.pti-checkgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.pti-check{border:1px solid #dbe8ea;border-radius:11px;padding:8px;background:#fbfdfd;display:flex;gap:7px;align-items:flex-start}
+.pti-rule-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.pti-rule{display:grid;grid-template-columns:1fr 165px;gap:8px;align-items:center;border:1px solid #dbe8ea;border-radius:11px;padding:8px;background:#fbfdfd}
+.pti-sensitive{border:1px solid #e5c98a;background:#fffbef;border-radius:14px;padding:12px}
+.pti-sensitive.locked .pti-sensitive-body{display:none}
+.pti-privacy-badge{display:inline-flex;gap:5px;align-items:center;padding:5px 8px;border-radius:999px;background:#fff2cc;color:#74520d;font-size:10px;font-weight:900}
+.pti-analysis{white-space:pre-wrap;line-height:1.45}
+.pti-scorebar{height:8px;border-radius:999px;background:#e4edef;overflow:hidden;margin-top:5px}.pti-scorebar span{display:block;height:100%;background:linear-gradient(90deg,#0b7079,#2f9f82)}
+.pti-sticky-actions{position:sticky;bottom:0;z-index:44;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:9px 0 2px;margin-top:10px}
+@media(max-width:1199px){.pti-nav{top:178px}.pti-subtype-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pti-checkgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:820px){.pti-nav{top:112px}.pti-summary-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.pti-trait-grid,.pti-subtype-grid,.pti-rule-grid{grid-template-columns:1fr}.pti-scale-row{grid-template-columns:1fr 1fr}.pti-meal-grid{grid-template-columns:1fr 1fr}.pti-meal-grid .pti-meal-detail{grid-column:1/-1}.pti-sticky-actions{bottom:76px;border-radius:12px;padding:8px}.pti-checkgrid{grid-template-columns:1fr}}
+@media(max-width:520px){.pti-summary-strip{grid-template-columns:1fr 1fr}.pti-scale-row{grid-template-columns:1fr}.pti-meal-grid{grid-template-columns:1fr}.pti-meal-grid .pti-meal-detail{grid-column:auto}}
+
 </style>
 
 <style id="mahamaya-v250-ui">
@@ -482,6 +520,22 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 @media(max-width:1050px){.investigation-entry-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){.investigation-entry-grid{grid-template-columns:1fr}.inv-quick-strip{margin-right:-6px}.inv-quick-chip{padding:9px 11px}#investigationsSection .workflow-actions{position:sticky;bottom:72px;z-index:25;background:rgba(238,246,248,.96);padding:8px;border-radius:12px;backdrop-filter:blur(8px)}}
 </style>
+
+<style id="v320-lifestyle-engine-css">
+/* Generated V3.20 lifestyle-engine controls */
+.pti-subtype-card{border:1px solid #d7e6e8;background:linear-gradient(180deg,#fff,#f8fbfc);border-radius:13px;padding:10px;text-align:left;color:#245760;min-height:94px;box-shadow:0 2px 8px rgba(14,74,83,.04)}
+.pti-subtype-card b{display:block;font-size:12px;color:#155f69}.pti-subtype-card small{display:block;margin-top:5px;line-height:1.35;color:#657d84;font-weight:600}.pti-subtype-card.selected{border-color:#3a9aa1;background:#eaf8f6;box-shadow:0 0 0 3px rgba(11,111,120,.10)}
+.pti-trait-row{display:grid;grid-template-columns:minmax(180px,1.25fr) minmax(230px,1fr);gap:10px;align-items:center;border:1px solid #dbe8ea;border-radius:12px;padding:9px 10px;margin:7px 0;background:#fbfdfd}.pti-trait-row small{display:block;color:#6b8086;line-height:1.35;margin-top:3px}
+.pti-meal-row{display:grid;grid-template-columns:minmax(130px,.8fr) 135px 190px minmax(220px,1.5fr);gap:8px;align-items:end;border:1px solid #dbe8ea;border-radius:12px;padding:9px;margin:7px 0;background:#fbfdfd}.pti-meal-row label{font-size:9px;color:#6b7e84;margin-bottom:4px}
+.pti-mini-card{border:1px solid #dbe8ea;border-radius:11px;padding:8px;background:#fbfdfd;display:grid;gap:6px}.pti-mini-card b,.pti-mini-card label{font-size:10px;color:#245963;font-weight:800}
+.pti-analysis-section{margin-top:10px;padding:10px 12px;border:1px solid #d7e7e8;border-radius:11px;background:#fff}.pti-analysis-section h4{margin:0 0 6px;color:#17636b}.pti-analysis-section ul{margin:0;padding-left:20px}.pti-analysis-section li{margin:5px 0}.pti-analysis-section.alert{border-left:5px solid #b6403a;background:#fff5f4}
+.pti-action-row{border-top:1px solid #dce8ea;padding:8px 0}.pti-action-row:first-of-type{border-top:0}.pti-action-row b{display:block}.pti-action-row small{display:block;color:#647d84;margin-top:3px}
+.pti-sensitive .pti-sensitive-body :disabled{cursor:not-allowed}.pti-sensitive.locked{background:#fffaf0}.pti-sensitive:not(.locked){background:#fffdf7;border-color:#d7b968}
+.pti-kpi b{overflow-wrap:anywhere}.pti-card textarea{min-height:72px}.pti-card h4{margin-top:14px;color:#1a6069}
+@media(max-width:980px){.pti-meal-row{grid-template-columns:1fr 1fr}.pti-meal-row>div:nth-child(4){grid-column:1/-1}.pti-trait-row{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.pti-meal-row,.pti-trait-row{grid-template-columns:1fr}.pti-meal-row>div:nth-child(4){grid-column:auto}.pti-subtype-card{min-height:auto}.pti-card{padding:10px}.pti-nav{scroll-snap-type:x proximity}.pti-nav button{scroll-snap-align:start}.pti-sticky-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}.pti-sticky-actions button{width:100%;min-height:44px}#prevLifestyleBtn{grid-column:1/-1}}
+</style>
+
 </head>
 <body>
 
@@ -508,8 +562,8 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
     <div class="brand-lockup">
       <img class="brand-logo" src="./icon-192.png" alt="Mahamaya Clinic">
       <div class="brand-copy">
-        <h1>Mahamaya Clinic <span class="version-badge">V3.10</span></h1>
-        <p>Clinical Intelligence + Smart Investigations • SLAIE Core v1.0 • Build 2026.08.13-R6</p>
+        <h1>Mahamaya Clinic <span class="version-badge">V3.20</span></h1>
+        <p>Prakriti + Trayopastambha Intelligence • Smart Investigations • SLAIE Core v1.0 • Build 2026.08.14-R7</p>
       </div>
     </div>
     <div class="header-meta">
@@ -534,7 +588,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 </nav>
 
 <div class="system-strip no-print">
-  <div id="status" class="status">App loaded successfully. V3.10 Smart Investigation Catalog + Clinical Intelligence + SLAIE ready.</div>
+  <div id="status" class="status">App loaded successfully. V3.20 Prakriti + Trayopastambha Intelligence + Smart Investigations + SLAIE ready.</div>
   <div class="actions">
     <span id="activeRoleBadge" class="role-badge">Locked</span>
     <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -572,6 +626,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
       <button id="tabPatient" class="secondary">👤 Patient</button>
       <button id="tabComplaint" class="secondary">🧭 Complaints</button>
       <button id="tabClinical" class="secondary">🩺 History & Vitals</button>
+      <button id="tabLifestyle" class="secondary">🧬 Prakriti & Lifestyle</button>
       <button id="tabExam" class="secondary">🔍 General</button>
       <button id="tabSystemic" class="secondary">🫀 Systemic</button>
       <button id="tabAssessment" class="secondary">🧠 Assessment & Dx</button>
@@ -618,14 +673,15 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
     <button data-fast-tab="tabPatient"><span>1</span><b>Patient & Visit</b><small>Identity, contact, vitals baseline</small></button>
     <button data-fast-tab="tabComplaint"><span>2</span><b>Complaints</b><small>Search or free type • red flags</small></button>
     <button data-fast-tab="tabClinical"><span>3</span><b>History & Vitals</b><small>HPI, PMH, medicines, allergy</small></button>
-    <button data-fast-tab="tabExam"><span>4</span><b>General Exam</b><small>Focused physical examination</small></button>
-    <button data-fast-tab="tabSystemic"><span>5</span><b>Systemic Exam</b><small>CVS, RS, abdomen, CNS</small></button>
-    <button data-fast-tab="tabAssessment"><span>6</span><b>Assessment & Dx</b><small>Provisional, DDx, final diagnosis</small></button>
-    <button data-fast-tab="tabInvestigations"><span>7</span><b>Investigations</b><small>Reports, orders, SLAIE</small></button>
-    <button data-fast-tab="tabAyurveda"><span>8</span><b>Ayurveda</b><small>Pariksha → samprapti → planning</small></button>
-    <button data-fast-tab="tabPrescription"><span>9</span><b>Treatment / Rx</b><small>Medicines, pathya-apathya, follow-up</small></button>
-    <button data-fast-tab="tabSafety"><span>10</span><b>Safety Review</b><small>Contraindications, interactions, alerts</small></button>
-    <button data-fast-tab="tabPreview"><span>11</span><b>Preview / PDF</b><small>Final review, print, share</small></button>
+    <button data-fast-tab="tabLifestyle"><span>4</span><b>Prakriti & Lifestyle</b><small>Constitution • Ahara • Nidra • activity • sensitive history</small></button>
+    <button data-fast-tab="tabExam"><span>5</span><b>General Exam</b><small>Focused physical examination</small></button>
+    <button data-fast-tab="tabSystemic"><span>6</span><b>Systemic Exam</b><small>CVS, RS, abdomen, CNS</small></button>
+    <button data-fast-tab="tabAssessment"><span>7</span><b>Assessment & Dx</b><small>Provisional, DDx, final diagnosis</small></button>
+    <button data-fast-tab="tabInvestigations"><span>8</span><b>Investigations</b><small>Reports, orders, SLAIE</small></button>
+    <button data-fast-tab="tabAyurveda"><span>9</span><b>Ayurveda</b><small>Pariksha → samprapti → planning</small></button>
+    <button data-fast-tab="tabPrescription"><span>10</span><b>Treatment / Rx</b><small>Medicines, pathya-apathya, follow-up</small></button>
+    <button data-fast-tab="tabSafety"><span>11</span><b>Safety Review</b><small>Contraindications, interactions, alerts</small></button>
+    <button data-fast-tab="tabPreview"><span>12</span><b>Preview / PDF</b><small>Final review, print, share</small></button>
   </div>
   <div class="fastflow-footer"><button type="button" id="fastFlowContinueBtn" class="primary">▶ Continue next incomplete step</button><button type="button" class="secondary" data-modern-tab="tabRecords">📁 Records</button></div>
 </aside>
@@ -676,12 +732,14 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
         </div>
         <div class="workflow-phase-grid">
           <button type="button" class="workflow-phase" data-progress-key="patient" data-workflow-tab="tabPatient"><span class="phase-no">1</span><span class="phase-icon">👤</span><b>Patient & Visit</b><small>Register / identify encounter</small></button>
-          <button type="button" class="workflow-phase" data-progress-key="complaint" data-workflow-tab="tabComplaint"><span class="phase-no">2</span><span class="phase-icon">🧭</span><b>Complaints & HPI</b><small>Search, type, red flags, history</small></button>
-          <button type="button" class="workflow-phase" data-progress-key="exam" data-workflow-tab="tabClinical"><span class="phase-no">3</span><span class="phase-icon">🩺</span><b>Vitals & Examination</b><small>History → General → Systemic</small></button>
-          <button type="button" class="workflow-phase" data-progress-key="assessment" data-workflow-tab="tabAssessment"><span class="phase-no">4</span><span class="phase-icon">🧠</span><b>Assessment & Dx</b><small>Provisional → DDx → confirmed</small></button>
-          <button type="button" class="workflow-phase" data-progress-key="investigations" data-workflow-tab="tabInvestigations"><span class="phase-no">5</span><span class="phase-icon">🧪</span><b>Investigations</b><small>Previous reports & advised tests</small></button>
-          <button type="button" class="workflow-phase" data-progress-key="ayurveda" data-workflow-tab="tabAyurveda"><span class="phase-no">6</span><span class="phase-icon">🌿</span><b>Ayurveda Assessment</b><small>Pariksha → samprapti → planning</small></button>
-          <button type="button" class="workflow-phase" data-progress-key="plan" data-workflow-tab="tabPrescription"><span class="phase-no">7</span><span class="phase-icon">💊</span><b>Plan, Safety & PDF</b><small>Rx → safety → preview / print</small></button>
+          <button type="button" class="workflow-phase" data-progress-key="complaint" data-workflow-tab="tabComplaint"><span class="phase-no">2</span><span class="phase-icon">🧭</span><b>Complaints & HPI</b><small>Search, type, red flags</small></button>
+          <button type="button" class="workflow-phase" data-progress-key="clinical" data-workflow-tab="tabClinical"><span class="phase-no">3</span><span class="phase-icon">🩺</span><b>History & Vitals</b><small>HPI • PMH • medicines • vitals</small></button>
+          <button type="button" class="workflow-phase" data-progress-key="lifestyle" data-workflow-tab="tabLifestyle"><span class="phase-no">4</span><span class="phase-icon">🧬</span><b>Prakriti & Lifestyle</b><small>Ahara • Nidra • activity • privacy</small></button>
+          <button type="button" class="workflow-phase" data-progress-key="exam" data-workflow-tab="tabExam"><span class="phase-no">5</span><span class="phase-icon">🔍</span><b>Clinical Examination</b><small>General → Systemic</small></button>
+          <button type="button" class="workflow-phase" data-progress-key="assessment" data-workflow-tab="tabAssessment"><span class="phase-no">6</span><span class="phase-icon">🧠</span><b>Assessment & Dx</b><small>Provisional → DDx → confirmed</small></button>
+          <button type="button" class="workflow-phase" data-progress-key="investigations" data-workflow-tab="tabInvestigations"><span class="phase-no">7</span><span class="phase-icon">🧪</span><b>Investigations</b><small>Reports • orders • SLAIE</small></button>
+          <button type="button" class="workflow-phase" data-progress-key="ayurveda" data-workflow-tab="tabAyurveda"><span class="phase-no">8</span><span class="phase-icon">🌿</span><b>Ayurveda Assessment</b><small>Pariksha → samprapti → planning</small></button>
+          <button type="button" class="workflow-phase" data-progress-key="plan" data-workflow-tab="tabPrescription"><span class="phase-no">9</span><span class="phase-icon">💊</span><b>Plan, Safety & PDF</b><small>Rx → safety → final review</small></button>
         </div>
         <div class="safety-line">⚠ <b>Safety gate:</b> emergency/red-flag findings override routine workflow. Diagnostic suggestions are prompts for clinician review, not automatic diagnoses.</div>
       </div>
@@ -838,7 +896,257 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 <div class="grid3"><div><label>Blood Pressure</label><input id="bp"></div><div><label>Pulse / min</label><input id="pulse" type="number"></div><div><label>SpO₂ %</label><input id="spo2" type="number"></div></div>
 <div class="grid3"><div><label>Temperature °F</label><input id="temp"></div><div><label>Respiratory Rate / min</label><input id="rr" type="number"></div><div><label>Pain Score 0–10</label><input id="pain" type="number" min="0" max="10"></div></div>
 <label>General Clinical Notes</label><textarea id="clinicalNotes"></textarea>
-<div class="actions"><button id="saveClinicalBtn" class="primary">💾 Save Clinical</button><button id="goExamBtn" class="secondary">Next: General Exam →</button></div>
+<div class="actions"><button id="saveClinicalBtn" class="primary">💾 Save Clinical</button><button id="goLifestyleBtn" class="secondary">Next: Prakriti & Lifestyle →</button></div>
+</div>
+</section>
+
+
+<section id="lifestyleSection" class="hidden">
+<div class="card lifestyle-workspace">
+  <div class="pti-head">
+    <div>
+      <h2>Prakriti & Trayopastambha Lifestyle Intelligence</h2>
+      <div class="section-kicker">Sharirika + Manasika Prakriti • Ahara • Nidra • Brahmacharya/Sexual Health • Activity • Explainable clinical learning</div>
+    </div>
+    <span class="evidence-badge">V3.20 • Structured history</span>
+  </div>
+  <div class="notice clinical-note"><b>Use in the right sequence:</b> This is a structured history module after HPI/vitals and before physical examination. For acute/fast OPD, use <b>Skip detailed lifestyle for this visit</b>; it will not block urgent care. Classical Ayurveda fields and modern clinical fields are kept visibly separate.</div>
+  <div class="pti-caution"><b>Scoring safety:</b> 0–3 trait scores and 0–10 lifestyle snapshots are clinician/patient documentation aids created for this app; they are <b>not validated diagnostic scales</b>. They must not be used alone to label personality, diagnose disease, or predict prognosis.</div>
+
+  <div class="pti-nav" id="ptiNav">
+    <button type="button" class="active" data-pti-view="overview">📋 Overview</button>
+    <button type="button" data-pti-view="deha">🧬 Sharirika Prakriti</button>
+    <button type="button" data-pti-view="manas">🧠 Manasika Prakriti</button>
+    <button type="button" data-pti-view="ahara">🍲 Ahara</button>
+    <button type="button" data-pti-view="nidra">🌙 Nidra</button>
+    <button type="button" data-pti-view="brahmacharya">🔐 Brahmacharya & Sexual Health</button>
+    <button type="button" data-pti-view="activity">🧘 Activity / Yoga / Spiritual Preference</button>
+    <button type="button" data-pti-view="interpret">✨ Interpret & Learn</button>
+  </div>
+
+  <div class="pti-summary-strip">
+    <div class="pti-kpi"><small>Deha Prakriti</small><b id="ptiKpiDeha">Not assessed</b></div>
+    <div class="pti-kpi"><small>Manas profile</small><b id="ptiKpiManas">Not assessed</b></div>
+    <div class="pti-kpi"><small>Ahara routine</small><b id="ptiKpiAhara">— /10</b><div class="pti-scorebar"><span id="ptiKpiAharaBar" style="width:0"></span></div></div>
+    <div class="pti-kpi"><small>Nidra snapshot</small><b id="ptiKpiNidra">— /10</b><div class="pti-scorebar"><span id="ptiKpiNidraBar" style="width:0"></span></div></div>
+  </div>
+
+  <div class="pti-panel active" data-pti-panel="overview">
+    <div class="pti-card">
+      <h3>Fast Lifestyle Snapshot</h3>
+      <div class="grid3">
+        <div><label>Assessment Status</label><select id="ptiStatus"><option value="">Not started</option><option value="in_progress">In progress</option><option value="completed">Completed / clinician reviewed</option><option value="skipped">Skipped for this visit</option></select></div>
+        <div><label>Assessment Source</label><select id="ptiSource"><option value="">Not set</option><option>Patient self-report</option><option>Clinician observation + interview</option><option>Prior documented assessment</option><option>Mixed sources</option></select></div>
+        <div><label>Overall Confidence</label><select id="ptiConfidence"><option value="">Not set</option><option>Low</option><option>Moderate</option><option>High</option></select></div>
+      </div>
+      <label>Key lifestyle context / patient goals</label><textarea id="ptiGoals" placeholder="Weight, digestion, sleep, stress, fertility, routine, spiritual preferences, behaviour change goal…"></textarea>
+      <div id="ptiOverviewSummary" class="pti-info">No structured lifestyle data documented yet.</div>
+      <div class="actions"><button type="button" id="ptiSkipBtn" class="secondary">⏭ Skip detailed lifestyle for this visit</button><button type="button" class="secondary" data-pti-view-jump="deha">Start Sharirika Prakriti →</button></div>
+    </div>
+  </div>
+
+  <div class="pti-panel" data-pti-panel="deha">
+    <div class="pti-card">
+      <h3>Sharirika / Deha Prakriti</h3>
+      <div class="pti-info">Seven classical constitutional forms are documented as Vata, Pitta, Kapha, three dual-dosha forms and Sama-doshaja. Select the clinician conclusion and record the observed evidence rather than relying on a single symptom.</div>
+      <div class="grid3">
+        <div><label>Clinician-selected Prakriti</label><select id="ptiDehaType"></select></div>
+        <div><label>Confidence</label><select id="ptiDehaConfidence"><option value="">Not set</option><option>Low</option><option>Moderate</option><option>High</option></select></div>
+        <div><label>Previously known since</label><input id="ptiDehaSince" placeholder="e.g. longstanding / prior Ayurveda record"></div>
+      </div>
+      <div id="ptiDehaTypeCards" class="pti-subtype-grid"></div>
+      <h4>Observed constitutional domains — evidence grid</h4>
+      <div class="small">For each domain choose the closest predominance. This helps documentation; it does not automatically validate Prakriti.</div>
+      <div id="ptiDehaTraits"></div>
+      <label>Clinician notes / conflicting traits</label><textarea id="ptiDehaNotes"></textarea>
+    </div>
+  </div>
+
+  <div class="pti-panel" data-pti-panel="manas">
+    <div class="pti-card">
+      <h3>Manasika Prakriti — Triguna + Classical Archetypes</h3>
+      <div class="pti-caution"><b>Non-stigmatizing use:</b> Sattvika/Rajasika/Tamasika and the 16 classical subtype names are historical Ayurvedic archetypes, not psychiatric diagnoses, intelligence labels or judgments of a person's worth.</div>
+      <div id="ptiTrigunaGrid"></div>
+      <div class="grid">
+        <div><label>Predominant Manasika pattern — clinician conclusion</label><select id="ptiManasPrimary"><option value="">Not assessed</option><option>Sattvika predominant</option><option>Rajasika predominant</option><option>Tamasika predominant</option><option>Mixed / context-dependent</option></select></div>
+        <div><label>Classical subtype (optional)</label><select id="ptiManasSubtype"><option value="">Not selected</option></select></div>
+      </div>
+      <div id="ptiManasSubtypeMeaning" class="pti-info">Select a subtype only when clinically/educationally useful.</div>
+
+      <h4>Mental/behavioural tendencies — structured 0–3 documentation</h4>
+      <div class="small">Ayurveda commonly describes Rajas and Tamas as Manasa dosha; Kama, Krodha, Lobha, Moha, Mada and Matsarya are recorded here as behavioural/mental tendencies, not mislabeled as six independent Manasa doshas.</div>
+      <div id="ptiMentalTendencies"></div>
+      <div class="grid3">
+        <div><label>Trust / interpersonal security</label><select id="ptiTrust"><option value="">Not assessed</option><option>Stable / appropriate</option><option>Mild difficulty</option><option>Moderate difficulty</option><option>Severe / functionally impairing</option></select></div>
+        <div><label>Stress regulation</label><select id="ptiStressReg"><option value="">Not assessed</option><option>Good</option><option>Fair</option><option>Poor</option><option>Severely impaired</option></select></div>
+        <div><label>Spiritual/Bhakti relevance to care</label><select id="ptiBhakti"><option value="">Not discussed</option><option>Important supportive resource</option><option>Occasional practice</option><option>Not personally relevant</option><option>Prefer not to discuss</option></select></div>
+      </div>
+      <label>Behaviour / coping / social context notes</label><textarea id="ptiManasNotes"></textarea>
+    </div>
+  </div>
+
+  <div class="pti-panel" data-pti-panel="ahara">
+    <div class="pti-card">
+      <h3>Ahara Intelligence — Classical + Modern Diet History</h3>
+      <div class="grid3">
+        <div><label>Diet pattern</label><select id="ptiDietType"></select></div>
+        <div><label>Meal source</label><select id="ptiMealSource"></select></div>
+        <div><label>Appetite / Agni context</label><select id="ptiAgniContext"><option value="">Not assessed</option><option>Sama-like / regular</option><option>Vishama-like / variable</option><option>Tikshna-like / excessive hunger/burning</option><option>Manda-like / low appetite/heaviness</option><option>Mixed</option></select></div>
+      </div>
+      <h4>Actual meal timing — use the patient's real clock time</h4>
+      <div id="ptiMeals"></div>
+      <div class="grid3">
+        <div><label>Approx. daily water / fluids</label><input id="ptiWater" placeholder="e.g. 1.8 L/day; do not force a fixed target"></div>
+        <div><label>Water around meals</label><select id="ptiWaterMeals"><option value="">Not assessed</option><option>Mostly before meals</option><option>Small amounts during meals</option><option>Large amounts during meals</option><option>Mostly immediately after meals</option><option>Variable</option></select></div>
+        <div><label>Late-night eating</label><select id="ptiLateEating"><option value="">Not assessed</option><option>Rare / none</option><option>1–2 nights/week</option><option>3–4 nights/week</option><option>Most nights</option></select></div>
+      </div>
+
+      <h4>Shadrasa — predominant intake/preferences</h4><div id="ptiRasaGrid" class="pti-checkgrid"></div>
+      <h4>20 Sharira Guna — 10 opposite pairs</h4><div id="ptiGunaPairs" class="pti-trait-grid"></div>
+      <h4>Panchamahabhuta emphasis — clinician/classical interpretation only</h4><div id="ptiMahabhutaGrid" class="pti-checkgrid"></div>
+
+      <h4>Ashta Ahara Vidhi Visheshayatana</h4>
+      <div id="ptiAshtaAhara"></div>
+      <h4>Ahara Vidhi Vidhana — adherence documentation</h4>
+      <div class="small">0 = generally not followed, 1 = partly/inconsistently, 2 = generally followed. This is a custom adherence snapshot, not a validated clinical scale.</div>
+      <div id="ptiAharaRules" class="pti-rule-grid"></div>
+
+      <div class="grid3" style="margin-top:10px">
+        <div><label>Dvadasha Ashana Pravicharana — classical reference (optional)</label><select id="ptiDvadasha"><option value="">Not selected</option></select></div>
+        <div><label>Gita food orientation — optional spiritual/classical</label><select id="ptiGitaFood"><option value="">Not assessed</option></select></div>
+        <div><label>Meal prayer / Prasada / Bhagavad-arpana</label><select id="ptiMealSpiritual"><option value="">Not discussed</option><option>Usually</option><option>Sometimes</option><option>Rarely / no</option><option>Prefer not to discuss</option></select></div>
+      </div>
+      <div class="pti-info"><b>Yukta-ahara principle:</b> The app records moderation/regularity as a classical-spiritual principle and separately records modern diet quality. Spiritual practices are optional patient preferences and are not used as a medical quality score.</div>
+      <label>Pathya/Apathya, Satmya, food intolerance, food insecurity, special diet, cultural context</label><textarea id="ptiAharaNotes"></textarea>
+    </div>
+  </div>
+
+  <div class="pti-panel" data-pti-panel="nidra">
+    <div class="pti-card">
+      <h3>Nidra Intelligence — Sleep Timing, Quality & Dream History</h3>
+      <div class="grid3">
+        <div><label>Usual bedtime</label><input id="ptiBedtime" type="time"></div>
+        <div><label>Usual wake time</label><input id="ptiWakeTime" type="time"></div>
+        <div><label>Estimated sleep hours / 24 h</label><input id="ptiSleepHours" type="number" min="0" max="24" step="0.25"></div>
+      </div>
+      <div class="grid3">
+        <div><label>Sleep onset latency</label><select id="ptiSleepLatency"><option value="">Not assessed</option><option>≤15 min</option><option>16–30 min</option><option>31–60 min</option><option>>60 min</option></select></div>
+        <div><label>Night awakenings</label><select id="ptiAwakenings"><option value="">Not assessed</option><option>0</option><option>1</option><option>2</option><option>3+</option></select></div>
+        <div><label>Sleep quality</label><select id="ptiSleepQuality"></select></div>
+      </div>
+      <div class="grid3">
+        <div><label>Daytime nap</label><select id="ptiNap"><option value="">Not assessed</option><option>No</option><option><30 min</option><option>30–60 min</option><option>>60 min</option><option>Shift-worker planned sleep</option></select></div>
+        <div><label>Classical Nidra descriptor</label><select id="ptiNidraClassical"></select></div>
+        <div><label>Restorative on waking?</label><select id="ptiRestorative"><option value="">Not assessed</option><option>Yes</option><option>Partly</option><option>No</option></select></div>
+      </div>
+      <h4>Sleep red flags / focused history</h4><div id="ptiSleepFlags" class="pti-checkgrid"></div>
+      <h4>Swapna / dreams — subjective history</h4>
+      <div class="grid3">
+        <div><label>Dream / nightmare frequency</label><select id="ptiDreamFrequency"></select></div>
+        <div><label>Dream type</label><select id="ptiDreamType"></select></div>
+        <div><label>Distress / next-day impact</label><select id="ptiDreamImpact"><option value="">Not assessed</option><option>None</option><option>Mild</option><option>Moderate</option><option>Severe</option></select></div>
+      </div>
+      <div class="pti-danger"><b>Dream safety rule:</b> Classical dream descriptions from Ayurveda can be stored for study, but this app will never use dream content to diagnose Rajayakshma, Unmada, Apasmara or any other disease, and never to predict prognosis/death. Recurrent distressing dreams trigger ordinary sleep/mental-health review prompts instead.</div>
+      <label>Sleep / dream notes</label><textarea id="ptiNidraNotes"></textarea>
+    </div>
+  </div>
+
+  <div class="pti-panel" data-pti-panel="brahmacharya">
+    <div class="pti-sensitive locked" id="ptiSensitiveCard">
+      <div class="pti-head"><div><h3>🔐 Brahmacharya, Sexual & Reproductive Health</h3><div class="small">Sensitive section • hidden from routine summary/PDF unless explicitly included</div></div><span class="pti-privacy-badge">Privacy + consent</span></div>
+      <label class="pti-check"><input type="checkbox" id="ptiSensitiveConsent"> Patient consents to discussing/documenting sensitive sexual/reproductive history in a private clinical setting</label>
+      <div id="ptiSensitiveAgeNote" class="pti-caution">Age-aware safeguards will be applied.</div>
+      <div class="pti-sensitive-body">
+        <div class="grid3">
+          <div><label>Classical Brahmacharya orientation</label><select id="ptiBrahmaOrientation"></select></div>
+          <div><label>Ashrama / life-stage — optional</label><select id="ptiAshrama"></select></div>
+          <div><label>Relationship status</label><select id="ptiRelationship"></select></div>
+        </div>
+        <div class="grid3">
+          <div><label>Self-defined Brahmacharya / restraint alignment 0–10</label><input id="ptiBrahmaScore" type="number" min="0" max="10"><div class="field-help">Personal goal-alignment only; not a medical or moral score.</div></div>
+          <div><label>Sexual activity frequency</label><input id="ptiSexFrequency" placeholder="Patient-defined; e.g. /week or /month"></div>
+          <div><label>Current pregnancy context</label><select id="ptiPregnancyContext"><option value="">Not applicable / not assessed</option><option>Pregnant — uncomplicated to current knowledge</option><option>Pregnant — obstetric restriction/advice present</option><option>Partner pregnant</option><option>Trying to conceive</option><option>Not pregnant / not trying</option></select></div>
+        </div>
+
+        <h4>Ashtanga Maithuna — optional classical self-restraint reflection</h4>
+        <div class="small">Traditional educational framework only. Frequency/impact is recorded neutrally; it is not used to shame normal consensual sexuality or diagnose disease.</div>
+        <div id="ptiMaithunaGrid"></div>
+
+        <h4>Modern sexual history — CDC-style 5P framework</h4>
+        <div id="ptiFivePGrid" class="pti-trait-grid"></div>
+
+        <h4>Sexual function / symptom screen</h4>
+        <div id="ptiSexFunctionGrid" class="pti-rule-grid"></div>
+        <h4>Current concerns</h4><div id="ptiSexConcernGrid" class="pti-checkgrid"></div>
+
+        <div class="grid3">
+          <div><label>Sexual-media / pornography use frequency</label><select id="ptiPornFrequency"><option value="">Not assessed</option><option>None</option><option>Occasional</option><option>Weekly</option><option>Most days</option><option>Multiple times/day</option><option>Prefer not to answer</option></select></div>
+          <div><label>Loss of control / inability to reduce</label><select id="ptiPornControl"><option value="">Not assessed</option><option>No</option><option>Mild</option><option>Moderate</option><option>Severe / recurrent failed control</option></select></div>
+          <div><label>Distress / functional impairment</label><select id="ptiPornImpact"><option value="">Not assessed</option><option>None</option><option>Mild</option><option>Moderate</option><option>Severe</option></select></div>
+        </div>
+        <div class="pti-info">Frequency alone is not labeled “addiction.” Clinical concern is driven by loss of control, distress, risk, consent/safety issues or functional impairment.</div>
+
+        <h4>Fertility / Preconception</h4>
+        <div class="grid3">
+          <div><label>Pregnancy intention</label><select id="ptiFertilityIntent"><option value="">Not assessed</option><option>Trying now</option><option>Planning within 12 months</option><option>Preventing pregnancy</option><option>Unsure</option><option>Not applicable / prefer not answer</option></select></div>
+          <div><label>Months trying to conceive</label><input id="ptiTryingMonths" type="number" min="0"></div>
+          <div><label>Age of person providing eggs / female partner or patient</label><input id="ptiEggAge" type="number" min="10" max="60" placeholder="For referral timing only"></div>
+        </div>
+        <div class="grid3">
+          <div><label>Cycle / ovulation concern (if applicable)</label><select id="ptiCycleConcern"><option value="">Not applicable / not assessed</option><option>Regular cycles / no known concern</option><option>Irregular / absent cycles</option><option>Known ovulatory issue</option><option>Post-menopausal / ovarian insufficiency concern</option></select></div>
+          <div><label>Semen analysis status (if applicable)</label><select id="ptiSemenStatus"><option value="">Not applicable / not done</option><option>Previously normal</option><option>Abnormal / needs review</option><option>Pending</option></select></div>
+          <div><label>Prior pregnancy / fertility treatment</label><select id="ptiFertilityHistory"><option value="">Not assessed</option><option>None</option><option>Prior pregnancy</option><option>Prior infertility evaluation</option><option>IUI/IVF/ART history</option><option>Pregnancy loss history</option></select></div>
+        </div>
+        <div class="pti-danger"><b>Ethical/legal gate:</b> The module supports healthy preconception/Garbhadhana counselling and infertility care only. It does <b>not</b> provide fetal-sex prediction, sex selection, “Putra/son guarantee,” or any method intended to select a child's sex.</div>
+        <div class="pti-info"><b>Pregnancy correction:</b> The app does not apply a blanket rule of abstinence during pregnancy. In an uncomplicated pregnancy, sexual activity is generally considered safe unless the obstetric clinician advises restriction; bleeding, ruptured membranes, placenta-related concerns, preterm-labour risk or other obstetric factors require individualized advice.</div>
+        <label>Private sexual/reproductive notes</label><textarea id="ptiSexNotes"></textarea>
+        <label class="pti-check"><input type="checkbox" id="ptiIncludeSensitiveSummary"> Explicitly include a brief sensitive-health summary in the general lifestyle summary (default OFF)</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="pti-panel" data-pti-panel="activity">
+    <div class="pti-card">
+      <h3>Vihara, Activity, Yoga & Optional Spiritual Supports</h3>
+      <div class="grid3">
+        <div><label>Moderate activity min/week</label><input id="ptiModerateMin" type="number" min="0"></div>
+        <div><label>Vigorous activity min/week</label><input id="ptiVigorousMin" type="number" min="0"></div>
+        <div><label>Strength training days/week</label><input id="ptiStrengthDays" type="number" min="0" max="7"></div>
+      </div>
+      <div class="grid3">
+        <div><label>Average sitting / sedentary hours/day</label><input id="ptiSittingHours" type="number" min="0" max="24" step="0.5"></div>
+        <div><label>Walking / steps if known</label><input id="ptiWalking" placeholder="e.g. 30 min/day or 7000 steps"></div>
+        <div><label>Exercise limitations</label><input id="ptiExerciseLimit" placeholder="Pain, dyspnea, disability, none…"></div>
+      </div>
+      <h4>Activities practiced</h4><div id="ptiActivityGrid" class="pti-checkgrid"></div>
+      <h4>Optional spiritual / self-regulation supports</h4><div id="ptiSpiritualGrid" class="pti-checkgrid"></div>
+      <div class="grid3">
+        <div><label>Yoga frequency</label><select id="ptiYogaFreq"><option value="">Not assessed</option><option>None</option><option>1–2 days/week</option><option>3–4 days/week</option><option>5–7 days/week</option></select></div>
+        <div><label>Meditation / Dhyana frequency</label><select id="ptiMeditationFreq"><option value="">Not assessed</option><option>None</option><option>Occasional</option><option>1–2 days/week</option><option>3–4 days/week</option><option>Daily</option></select></div>
+        <div><label>Pranayama frequency</label><select id="ptiPranayamaFreq"><option value="">Not assessed</option><option>None</option><option>Occasional</option><option>1–2 days/week</option><option>3–4 days/week</option><option>Daily</option></select></div>
+      </div>
+      <label>Vihara / work / social environment / friendship (Sanga) notes</label><textarea id="ptiActivityNotes"></textarea>
+    </div>
+  </div>
+
+  <div class="pti-panel" data-pti-panel="interpret">
+    <div class="pti-card">
+      <div class="section-head"><div><h3>✨ Interpret & Learn — Explainable Lifestyle CDS</h3><div class="section-kicker">Observed pattern → classical context → modern clinical relevance → next questions / clinician-reviewed actions</div></div><button type="button" id="ptiInterpretBtn" class="primary">🧠 Refresh Interpretation</button></div>
+      <div class="pti-caution"><b>No autonomous diagnosis:</b> This engine does not assign disease probability, prescribe treatment, or treat Prakriti/Manas subtype/dream content as proof of disease.</div>
+      <div id="ptiInterpretation" class="pti-analysis pti-info">Enter data and press Refresh Interpretation.</div>
+      <div id="ptiSuggestedActions"></div>
+      <div class="actions">
+        <button type="button" id="ptiAddToAyurvedaBtn" class="secondary">＋ Add clinician-reviewed summary to Ayurveda Notes</button>
+        <button type="button" id="ptiAddInvBtn" class="secondary">＋ Add suggested investigations for review</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions pti-sticky-actions">
+    <button type="button" id="prevLifestyleBtn" data-prev-for="goExamBtn" class="secondary workflow-prev-btn">← Previous: History & Vitals</button>
+    <button type="button" id="saveLifestyleBtn" class="primary">💾 Save Prakriti & Lifestyle</button>
+    <button type="button" id="goExamBtn" class="secondary">Next: General Exam →</button>
+  </div>
 </div>
 </section>
 
@@ -849,7 +1157,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
       <h2>General Examination — Clinical Intelligence Workspace</h2>
       <div class="section-kicker">Fast general examination • focused oedema/gait/pain characterization • explainable next-step suggestions</div>
     </div>
-    <span class="evidence-badge">V3.10 • Clinician verified</span>
+    <span class="evidence-badge">V3.20 • Clinician verified</span>
   </div>
 
   <div class="notice clinical-note"><b>Clinical safety:</b> Findings and grades must be observed/entered by the clinician. The interpretation below provides pattern-based decision support and learning prompts; it does not confirm a diagnosis or replace emergency assessment, specialist judgment, validated pathways, or the original report/examination.</div>
@@ -1026,7 +1334,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
   </div>
 
   <div class="gei-bottom-nav no-print">
-    <button type="button" id="prevExamBtn" class="secondary workflow-prev-btn">← Previous: History & Vitals</button>
+    <button type="button" id="prevExamBtn" class="secondary workflow-prev-btn">← Previous: Prakriti & Lifestyle</button>
     <button id="saveExamBtn" class="primary">💾 Save Examination</button>
     <button id="goSystemicBtn" class="secondary">Next: Systemic →</button>
   </div>
@@ -1379,6 +1687,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 <div class="card">
 <h2>Ayurveda Assessment</h2>
 <div class="ayu-workspace-nav" id="ayuWorkspaceNav">
+  <button type="button" class="ayu-view-btn" data-modern-tab="tabLifestyle">🧬 Prakriti & Trayopastambha</button>
   <button type="button" class="ayu-view-btn active" data-ayu-view="core">🌿 Quick Ayurveda</button>
   <button type="button" class="ayu-view-btn" data-ayu-view="pariksha">🩺 Ashtavidha / Dashavidha</button>
   <button type="button" class="ayu-view-btn" data-ayu-view="samprapti">🧬 Samprapti & Nidana</button>
@@ -4978,8 +5287,8 @@ const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
 function key(id){return PREFIX+id}
-function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',items:[],duration:'',severity:'',onset:'',progression:'',character:'',site:'',laterality:'',associated:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:'',structured:{version:'Systemic Exam Master v1.0',systemStatus:{},values:{},notes:{}},interpretation:{generatedAt:'',meaning:[],bedside:[],investigations:[],differentials:[],urgent:[],summary:''}},investigations:{previous:[],advised:[]},slaie:{reports:[],working:null},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],subtypeAssessments:{},gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',diagnosisTerms:[],medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},labProfiles:{mode:'diabetes',values:{},results:[],summary:''},updatedAt:new Date().toISOString()}}
-function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!Array.isArray(r.complaint.items))r.complaint.items=[];if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.systemic.structured)r.systemic.structured=b.systemic.structured;if(!r.systemic.structured.systemStatus)r.systemic.structured.systemStatus={};if(!r.systemic.structured.values)r.systemic.structured.values={};if(!r.systemic.structured.notes)r.systemic.structured.notes={};if(!r.systemic.interpretation)r.systemic.interpretation=b.systemic.interpretation;if(!r.investigations)r.investigations=b.investigations;if(!r.slaie)r.slaie=b.slaie;if(!Array.isArray(r.slaie.reports))r.slaie.reports=[];if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!Array.isArray(r.prescription.diagnosisTerms))r.prescription.diagnosisTerms=[];if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;if(!r.labProfiles)r.labProfiles=b.labProfiles;return r}
+function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',items:[],duration:'',severity:'',onset:'',progression:'',character:'',site:'',laterality:'',associated:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},lifestyle:{status:'',source:'',confidence:'',goals:'',version:'Prakriti & Trayopastambha Master v1.0'},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:'',structured:{version:'Systemic Exam Master v1.0',systemStatus:{},values:{},notes:{}},interpretation:{generatedAt:'',meaning:[],bedside:[],investigations:[],differentials:[],urgent:[],summary:''}},investigations:{previous:[],advised:[]},slaie:{reports:[],working:null},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],subtypeAssessments:{},gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',diagnosisTerms:[],medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},labProfiles:{mode:'diabetes',values:{},results:[],summary:''},updatedAt:new Date().toISOString()}}
+function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!Array.isArray(r.complaint.items))r.complaint.items=[];if(!r.lifestyle)r.lifestyle=b.lifestyle;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.systemic.structured)r.systemic.structured=b.systemic.structured;if(!r.systemic.structured.systemStatus)r.systemic.structured.systemStatus={};if(!r.systemic.structured.values)r.systemic.structured.values={};if(!r.systemic.structured.notes)r.systemic.structured.notes={};if(!r.systemic.interpretation)r.systemic.interpretation=b.systemic.interpretation;if(!r.investigations)r.investigations=b.investigations;if(!r.slaie)r.slaie=b.slaie;if(!Array.isArray(r.slaie.reports))r.slaie.reports=[];if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!Array.isArray(r.prescription.diagnosisTerms))r.prescription.diagnosisTerms=[];if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;if(!r.labProfiles)r.labProfiles=b.labProfiles;return r}
 async function save(r){
   r.updatedAt=new Date().toISOString();
 
@@ -5081,6 +5390,10 @@ function collectSubtypeAssessments(){
     }
   });
   return out;
+}
+function readLifestyle(){
+  try{current.lifestyle=window.MAHAMAYA_LIFESTYLE_ENGINE?.collect?.()||current.lifestyle||{}}
+  catch(e){console.warn('Lifestyle collect failed',e);current.lifestyle=current.lifestyle||{}}
 }
 function readAyurveda(){current.ayurveda={prakriti:val('prakriti'),vikriti:val('vikriti'),ama:val('ama'),dosha:selected('dosha'),subtypes:selected('subtype'),subtypeAssessments:collectSubtypeAssessments(),tissueAssessments:collectTissueAssessments(),agniAmaKoshtha:collectAgniAmaKoshtha(),srotasDetails:collectSrotasDetails(),rogamargaKriyakala:collectRogamargaKriyakala(),nidanaPanchakaDetailed:collectNidanaPanchakaDetailed(),sampraptiSynthesisMeta:collectSampraptiSynthesisMeta(),diagnosisPrognosis:collectDiagnosisPrognosis(),chikitsaPlanning:collectChikitsaPlanning(),pathyaApathyaPlan:collectPathyaApathyaPlan(),panchakarmaEligibility:collectPanchakarmaEligibility(),followupOutcome:collectFollowupOutcome(),finalSummarySettings:collectFinalAyuSummarySettings(),dashavidhaAdvanced:collectDashavidhaAdvanced(),ashtavidhaAdvanced:collectAshtavidhaAdvanced(),modernClinicalExam:collectModernClinicalExam(),orthoNeuroExam:collectOrthoNeuroExam(),investigationReports:collectInvestigationReports(),integratedDiagnosis:collectIntegratedDiagnosis(),redFlagEmergency:collectRedFlagEmergency(),medicationSafety:collectMedicationSafety(),prescriptionData:collectPrescriptionData(),printPrescriptionSettings:collectPrintPrescriptionSettings(),patientEducation:collectPatientEducation(),exerciseRehabYoga:collectExerciseRehabYoga(),followupComparison:currentFollowupComparisonData(),patientTimeline:currentPatientTimeline(),diseaseTemplateSettings:(current.ayurveda.diseaseTemplateSettings||{}),clinicalRegistryLastSearch:(current.ayurveda.clinicalRegistryLastSearch||{}),backupRestoreSettings:collectBackupRestoreSettings(),userRoleAuditSettings:collectUserRoleAuditSettings(),securityReadiness:collectSecurityReadiness(),backendMigrationSettings:collectBackendMigrationSettings(),firebaseBackendSettings:collectFirebaseBackendSettings(),gunas:selected('guna'),agni:val('agni'),koshtha:val('koshtha'),rogamarga:val('rogamarga'),ashtavidha:{nadi:val('nadi'),mutra:val('mutra'),mala:val('mala'),jihva:val('jihva'),shabda:val('shabda'),sparsha:val('sparsha'),drik:val('drik'),akriti:val('akriti')},dashavidha:{sara:val('sara'),samhanana:val('samhanana'),pramana:val('pramana'),satmya:val('satmya'),satva:val('satva'),aharaShakti:val('aharaShakti'),vyayamaShakti:val('vyayamaShakti'),vaya:val('vaya'),rogaBala:val('rogaBala')},srotas:selected('srotas'),srotodushti:val('srotodushti'),sadhya:val('sadhya'),shatkriya:val('shatkriya'),dushya:val('dushya'),sthana:val('sthana'),samprapti:val('samprapti'),notes:val('ayurNotes')}}
 
@@ -10346,16 +10659,18 @@ function renderDiagnosisTerms(){if(!$('diagnosisSelectedList'))return;const rows
 function renderAssessmentContext(){if(!$('assessmentComplaintSummary'))return;const items=(current?.complaint?.items||[]).map(x=>typeof x==='string'?x:x.term).filter(Boolean);const p=current?.complaint?.primary||items[0]||'';$('assessmentComplaintSummary').innerHTML=`<b>Complaint context:</b> ${esc(items.join('; ')||p||'Not documented')} ${current?.complaint?.duration?' • '+esc(current.complaint.duration):''} ${current?.complaint?.severity?' • severity '+esc(current.complaint.severity)+'/10':''}`;const d=complaintRules[p];if($('assessmentSuggestedDx'))$('assessmentSuggestedDx').innerHTML=d?.dx?.length?`<span class="small"><b>Complaint-linked prompts:</b></span> `+d.dx.map(x=>`<button type="button" class="term-pill" data-assess-suggest="${esc(x)}">${esc(x)}</button>`).join(''):'<span class="small">No complaint-specific differential prompts; use clinical assessment.</span>';}
 function renderRxDiagnosisSummary(){if(!$('rxDiagnosisSummary'))return;const p=val('provisionalDiagnosis')||current?.prescription?.provisionalDiagnosis||'';const f=val('finalDiagnosis')||current?.prescription?.finalDiagnosis||'';const d=val('differentialDiagnosis')||current?.prescription?.differentialDiagnosis||'';$('rxDiagnosisSummary').innerHTML=`<b>Final:</b> ${esc(f||'Not entered')}<br><b>Provisional:</b> ${esc(p||'—')}<br><b>Differential:</b> ${esc(d||'—')}`}
 function readAssessment(){readPrescription();renderRxDiagnosisSummary()}
-function renderEncounterProgress(){if(!$('homeProgressFill'))return;const stages=[
+function renderEncounterProgress(){if(!$('homeProgressFill'))return;const lifestyleDone=['completed','skipped'].includes(current?.lifestyle?.status);const stages=[
  ['patient',!!(current?.patient?.name&&current?.patient?.mobile)],
  ['complaint',!!(current?.complaint?.primary||(current?.complaint?.items||[]).length)],
- ['exam',!!(current?.clinical?.hpi||current?.clinical?.bp||current?.exam?.examNotes||current?.systemic?.systemicNotes||Object.values(current?.systemic?.structured?.systemStatus||{}).some(v=>v&&v!=='Not assessed'))],
+ ['clinical',!!(current?.clinical?.hpi||current?.clinical?.chiefComplaints||current?.clinical?.bp)],
+ ['lifestyle',lifestyleDone],
+ ['exam',!!(current?.exam?.examNotes||current?.systemic?.systemicNotes||Object.values(current?.systemic?.structured?.systemStatus||{}).some(v=>v&&v!=='Not assessed'))],
  ['assessment',!!(current?.prescription?.provisionalDiagnosis||current?.prescription?.finalDiagnosis)],
  ['investigations',!!((current?.investigations?.previous||[]).length||(current?.investigations?.advised||[]).length)],
  ['ayurveda',!!(current?.ayurveda?.notes||(current?.ayurveda?.dosha||[]).length||current?.ayurveda?.prakriti)],
  ['plan',!!((current?.prescription?.medicines||[]).length||current?.prescription?.pathya||current?.prescription?.followupDate)]
  ];const done=stages.filter(x=>x[1]).length,pct=Math.round(done/stages.length*100);$('homeProgressFill').style.width=pct+'%';$('homeProgressPercent').textContent=pct+'%';$('homeProgressText').textContent=current?.patient?.name?'Current encounter: '+current.patient.name:(done?'Current encounter in progress':'Current encounter: not started');document.querySelectorAll('[data-progress-key]').forEach(b=>{const x=stages.find(s=>s[0]===b.dataset.progressKey);b.classList.toggle('is-done',!!x?.[1]);b.classList.remove('is-current')});const next=stages.find(x=>!x[1]);if(next)document.querySelector(`[data-progress-key="${next[0]}"]`)?.classList.add('is-current')}
-function nextEncounterTab(){if(!(current?.patient?.name&&current?.patient?.mobile))return 'tabPatient';if(!(current?.complaint?.primary||(current?.complaint?.items||[]).length))return 'tabComplaint';if(!(current?.clinical?.hpi||current?.clinical?.chiefComplaints))return 'tabClinical';if(!(current?.exam?.examNotes||current?.systemic?.systemicNotes||Object.values(current?.systemic?.structured?.systemStatus||{}).some(v=>v&&v!=='Not assessed')))return 'tabExam';if(!(current?.prescription?.provisionalDiagnosis||current?.prescription?.finalDiagnosis))return 'tabAssessment';if(!(current?.ayurveda?.notes||(current?.ayurveda?.dosha||[]).length))return 'tabAyurveda';if(!((current?.prescription?.medicines||[]).length||current?.prescription?.pathya))return 'tabPrescription';return 'tabSafety'}
+function nextEncounterTab(){if(!(current?.patient?.name&&current?.patient?.mobile))return 'tabPatient';if(!(current?.complaint?.primary||(current?.complaint?.items||[]).length))return 'tabComplaint';if(!(current?.clinical?.hpi||current?.clinical?.chiefComplaints))return 'tabClinical';if(!['completed','skipped'].includes(current?.lifestyle?.status))return 'tabLifestyle';if(!(current?.exam?.examNotes||current?.systemic?.systemicNotes||Object.values(current?.systemic?.structured?.systemStatus||{}).some(v=>v&&v!=='Not assessed')))return 'tabExam';if(!(current?.prescription?.provisionalDiagnosis||current?.prescription?.finalDiagnosis))return 'tabAssessment';if(!(current?.ayurveda?.notes||(current?.ayurveda?.dosha||[]).length))return 'tabAyurveda';if(!((current?.prescription?.medicines||[]).length||current?.prescription?.pathya))return 'tabPrescription';return 'tabSafety'}
 function renderGeneralRows(){$('findings').innerHTML=generalFindingNames.map((n,i)=>`<div class="finding-row"><div class="finding-name">${esc(n)}</div><div><label>Status</label><select id="fs${i}"><option value=""></option><option>Absent</option><option>Present</option><option>Not assessed</option></select></div><div><label>Grade</label><select id="fg${i}"><option value=""></option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>Mild</option><option>Moderate</option><option>Severe</option></select></div><div><label>Site / Remarks</label><input id="fr${i}"></div></div>`).join('')}
 function renderInvestigations(){$('previousList').innerHTML=current.investigations.previous.map((x,i)=>`<div class="item"><b>${esc(x.category)} — ${esc(x.test)}</b><div class="small">${esc(x.date||'')} • ${esc(x.result||'')}</div><button class="danger" data-previdx="${i}">Remove</button></div>`).join('')||'<div class="notice">No previous reports.</div>';$('advisedList').innerHTML=current.investigations.advised.map((x,i)=>`<div class="item"><b>${esc(x.category)} — ${esc(x.test)}</b><div class="small">${esc(x.priority||'')} • ${esc(x.note||'')}</div><button class="danger" data-advidx="${i}">Remove</button></div>`).join('')||'<div class="notice">No advised tests.</div>'}
 
@@ -10368,7 +10683,7 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintSite',r.complaint.site);set('complaintLaterality',r.complaint.laterality);set('complaintAssociated',r.complaint.associated);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));setTimeout(()=>window.MAHAMAYA_SYSTEMIC_ENGINE?.restore?.(r.systemic||{}),0);const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};if(!a.printPrescriptionSettings)a.printPrescriptionSettings={};if(!a.patientEducation)a.patientEducation={};if(!a.exerciseRehabYoga)a.exerciseRehabYoga={};if(!a.followupComparison)a.followupComparison={visits:[]};if(!a.patientTimeline)a.patientTimeline={events:[]};if(!a.diseaseTemplateSettings)a.diseaseTemplateSettings={};if(!a.clinicalRegistryLastSearch)a.clinicalRegistryLastSearch={};if(!a.backupRestoreSettings)a.backupRestoreSettings={};if(!a.userRoleAuditSettings)a.userRoleAuditSettings={};if(!a.securityReadiness)a.securityReadiness={};if(!a.backendMigrationSettings)a.backendMigrationSettings={};if(!a.firebaseBackendSettings)a.firebaseBackendSettings={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintSite',r.complaint.site);set('complaintLaterality',r.complaint.laterality);set('complaintAssociated',r.complaint.associated);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));setTimeout(()=>window.MAHAMAYA_SYSTEMIC_ENGINE?.restore?.(r.systemic||{}),0);setTimeout(()=>window.MAHAMAYA_LIFESTYLE_ENGINE?.restore?.(r.lifestyle||{}),0);const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};if(!a.printPrescriptionSettings)a.printPrescriptionSettings={};if(!a.patientEducation)a.patientEducation={};if(!a.exerciseRehabYoga)a.exerciseRehabYoga={};if(!a.followupComparison)a.followupComparison={visits:[]};if(!a.patientTimeline)a.patientTimeline={events:[]};if(!a.diseaseTemplateSettings)a.diseaseTemplateSettings={};if(!a.clinicalRegistryLastSearch)a.clinicalRegistryLastSearch={};if(!a.backupRestoreSettings)a.backupRestoreSettings={};if(!a.userRoleAuditSettings)a.userRoleAuditSettings={};if(!a.securityReadiness)a.securityReadiness={};if(!a.backendMigrationSettings)a.backendMigrationSettings={};if(!a.firebaseBackendSettings)a.firebaseBackendSettings={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
@@ -11896,12 +12211,13 @@ else showPatient();
 status('Saved patient reopened successfully.');
 }
 
-function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabAssessment','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabAppointments','tabBilling','tabPharmacy','tabLabMgmt','tabImaging','tabKnowledge','tabSLAIE','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','assessmentSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','appointmentsSection','billingSection','pharmacySection','labMgmtSection','imagingSection','knowledgeSection','slaieSection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabLifestyle','tabExam','tabSystemic','tabAssessment','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabAppointments','tabBilling','tabPharmacy','tabLabMgmt','tabImaging','tabKnowledge','tabSLAIE','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','lifestyleSection','examSection','systemicSection','assessmentSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','appointmentsSection','billingSection','pharmacySection','labMgmtSection','imagingSection','knowledgeSection','slaieSection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
 function showDashboard(){hideAll();$('dashboardSection').classList.remove('hidden');setActive('tabDashboard');renderDashboard()}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
 function showClinical(){hideAll();$('clinicalSection').classList.remove('hidden');setActive('tabClinical')}
+function showLifestyle(){hideAll();$('lifestyleSection').classList.remove('hidden');setActive('tabLifestyle');window.MAHAMAYA_LIFESTYLE_ENGINE?.open?.(current?.lifestyle||{})}
 function showExam(){hideAll();$('examSection').classList.remove('hidden');setActive('tabExam');window.MAHAMAYA_GENERAL_ENGINE?.open?.(current?.exam||{})}
 function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden');setActive('tabSystemic');window.MAHAMAYA_SYSTEMIC_ENGINE?.open?.(current?.systemic||{})}
 function showAssessment(){hideAll();$('assessmentSection').classList.remove('hidden');setActive('tabAssessment');renderAssessmentContext();renderDiagnosisTerms();renderDiagnosisSearch()}
@@ -11926,6 +12242,7 @@ function renderRecords(){const term=val('search').toLowerCase();const rows=all()
 $('savePatientBtn').onclick=()=>{if(!val('name')||!val('age')||!val('sex')||!val('mobile'))return status('Please fill Name, Age, Sex and Mobile.',true);readPatient();save(current);audit('Patient saved',current.uhid+' '+(current.patient?.name||''));status('Patient saved successfully.')};
 $('saveComplaintBtn').onclick=()=>{readPatient();readComplaint();save(current);audit('Complaint saved',current.uhid);status('Complaint saved successfully.')};
 $('saveClinicalBtn').onclick=()=>{readPatient();readComplaint();readClinical();save(current);audit('Clinical data saved',current.uhid);status('Clinical data saved successfully.')};
+$('saveLifestyleBtn').onclick=()=>{readPatient();readComplaint();readClinical();readLifestyle();if(!current.lifestyle.status)current.lifestyle.status='completed';save(current);audit('Prakriti and lifestyle saved',current.uhid);status('Prakriti & lifestyle assessment saved successfully.');renderEncounterProgress();};
 $('saveExamBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();save(current);audit('General examination saved',current.uhid);status('General examination saved successfully.')};
 $('saveSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);audit('Systemic examination saved',current.uhid);status('Systemic examination saved successfully.')};
 $('saveAssessmentBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();readAssessment();save(current);audit('Clinical assessment saved',current.uhid);status('Assessment and diagnosis saved successfully.')};
@@ -11965,7 +12282,8 @@ $('advisedList').onclick=e=>{if(e.target.dataset.advidx!==undefined){current.inv
 
 $('goComplaintBtn').onclick=()=>{readPatient();save(current);showComplaint()};
 $('goClinicalBtn2').onclick=()=>{readPatient();readComplaint();save(current);showClinical()};
-$('goExamBtn').onclick=()=>{readPatient();readComplaint();readClinical();save(current);showExam()};
+$('goLifestyleBtn').onclick=()=>{readPatient();readComplaint();readClinical();save(current);showLifestyle()};
+$('goExamBtn').onclick=()=>{readPatient();readComplaint();readClinical();readLifestyle();save(current);showExam()};
 $('goSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();save(current);showSystemic()};
 $('goAssessmentBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);showAssessment()};
 $('goInvestigationsBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();readAssessment();save(current);showInvestigations()};
@@ -12156,7 +12474,7 @@ if(rx)openDashboardRecord(rx,true);
 if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}
 };
 
-$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabAssessment').onclick=showAssessment;$('tabInvestigations').onclick=showInvestigations;$('tabSLAIE').onclick=showSLAIE;$('tabCBC').onclick=showCBC;$('tabLabProfiles').onclick=showLabProfiles;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabSafety').onclick=showSafety;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
+$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabLifestyle').onclick=showLifestyle;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabAssessment').onclick=showAssessment;$('tabInvestigations').onclick=showInvestigations;$('tabSLAIE').onclick=showSLAIE;$('tabCBC').onclick=showCBC;$('tabLabProfiles').onclick=showLabProfiles;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabSafety').onclick=showSafety;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
 $('primaryComplaint').oninput=()=>{renderComplaintSearch();updateComplaintWorkflow()};$('primaryComplaint').onchange=updateComplaintWorkflow;$('complaintSearchScope').onchange=renderComplaintSearch;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
@@ -12197,7 +12515,7 @@ window.MahamayaBridge={
   esc:(x)=>esc(x)
 };
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.10 Smart Investigation Catalog + Clinical Intelligence + SLAIE ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.20 Prakriti + Trayopastambha Intelligence + Smart Investigations + SLAIE ready.');
 })();
 </script>
 
@@ -12845,16 +13163,16 @@ function open(exam={}){restore(exam);updateSummary()}
 function bind(){
  initTabs();byId('geiInterpretBtn')?.addEventListener('click',()=>{interpret();activateTab('intelligence');status('General Examination interpretation refreshed. Review every suggestion before using it.')});byId('geiAddInvestigationsBtn')?.addEventListener('click',addInvestigations);byId('geiAddDxBtn')?.addEventListener('click',addDx);
  document.querySelectorAll('#geiPanelEdema input,#geiPanelEdema select,#geiPanelGait input,#geiPanelGait select,#geiPanelPain input,#geiPanelPain select,#geiPanelPain textarea').forEach(el=>{el.addEventListener('input',()=>{if(el.id==='geiPainNrs'||el.id==='geiPainVas')updateScaleLabels();syncCoreFromSpecial();updateSummary()});el.addEventListener('change',()=>{syncCoreFromSpecial();updateSummary()})});
- byId('prevExamBtn')?.addEventListener('click',()=>{try{readPatient();readComplaint();readClinical();readExam();save(current)}catch(_e){};showClinical();window.scrollTo({top:0,behavior:'smooth'})});
+ byId('prevExamBtn')?.addEventListener('click',()=>{try{readPatient();readComplaint();readClinical();readExam();save(current)}catch(_e){};showLifestyle();window.scrollTo({top:0,behavior:'smooth'})});
  byId('prevSystemicBtn')?.addEventListener('click',()=>{try{readSystemic();save(current)}catch(_e){};showExam();window.scrollTo({top:0,behavior:'smooth'})});
 }
 
 // Install Previous buttons across the core encounter without changing existing Next behavior.
 function installBidirectionalNavigation(){
  const map=[
-  ['goClinicalBtn2','← Previous: Patient','showPatient'],['goExamBtn','← Previous: Complaints','showComplaint'],['goInvestigationsBtn','← Previous: Systemic','showSystemic'],['goAyurvedaBtn','← Previous: Assessment & Dx','showAssessment'],['goCBCBtn','← Previous: Investigations','showInvestigations'],['goLabProfilesBtn','← Previous: Investigations','showInvestigations'],['goAyurvedaFromLabBtn','← Previous: CBC / Investigations','showCBC'],['goPrescriptionBtn','← Previous: Investigations','showInvestigations'],['goPreviewBtn','← Previous: Ayurveda','showAyurveda']
+  ['goClinicalBtn2','← Previous: Patient','showPatient'],['goLifestyleBtn','← Previous: Complaints','showComplaint'],['goExamBtn','← Previous: History & Vitals','showClinical'],['goInvestigationsBtn','← Previous: Systemic','showSystemic'],['goAyurvedaBtn','← Previous: Assessment & Dx','showAssessment'],['goCBCBtn','← Previous: Investigations','showInvestigations'],['goLabProfilesBtn','← Previous: Investigations','showInvestigations'],['goAyurvedaFromLabBtn','← Previous: CBC / Investigations','showCBC'],['goPrescriptionBtn','← Previous: Investigations','showInvestigations'],['goPreviewBtn','← Previous: Ayurveda','showAyurveda']
  ];
- map.forEach(([nextId,label,fn])=>{const next=byId(nextId);if(!next||next.parentElement?.querySelector(`[data-prev-for="${nextId}"]`))return;const b=document.createElement('button');b.type='button';b.className='secondary workflow-prev-btn';b.dataset.prevFor=nextId;b.textContent=label;b.addEventListener('click',()=>{try{if(nextId==='goClinicalBtn2'){readPatient();readComplaint()}else if(nextId==='goExamBtn'){readPatient();readComplaint();readClinical()}else if(nextId==='goInvestigationsBtn'){readAssessment()}else if(nextId==='goAyurvedaBtn'){save(current)}else if(nextId==='goCBCBtn'){save(current)}else if(nextId==='goLabProfilesBtn'){try{readCBC()}catch(_e){}}else if(nextId==='goAyurvedaFromLabBtn'){try{readLabProfiles()}catch(_e){}}else if(nextId==='goPrescriptionBtn'){readAyurveda()}else if(nextId==='goPreviewBtn'){readPrescription()}save(current)}catch(_e){};try{window[fn]?.()}catch(_e){};window.scrollTo({top:0,behavior:'smooth'})});next.parentElement.insertBefore(b,next)});
+ map.forEach(([nextId,label,fn])=>{const next=byId(nextId);if(!next||next.parentElement?.querySelector(`[data-prev-for="${nextId}"]`))return;const b=document.createElement('button');b.type='button';b.className='secondary workflow-prev-btn';b.dataset.prevFor=nextId;b.textContent=label;b.addEventListener('click',()=>{try{if(nextId==='goClinicalBtn2'){readPatient();readComplaint()}else if(nextId==='goLifestyleBtn'){readPatient();readComplaint();readClinical()}else if(nextId==='goExamBtn'){readPatient();readComplaint();readClinical();try{readLifestyle()}catch(_e){}}else if(nextId==='goInvestigationsBtn'){readAssessment()}else if(nextId==='goAyurvedaBtn'){save(current)}else if(nextId==='goCBCBtn'){save(current)}else if(nextId==='goLabProfilesBtn'){try{readCBC()}catch(_e){}}else if(nextId==='goAyurvedaFromLabBtn'){try{readLabProfiles()}catch(_e){}}else if(nextId==='goPrescriptionBtn'){readAyurveda()}else if(nextId==='goPreviewBtn'){readPrescription()}save(current)}catch(_e){};try{window[fn]?.()}catch(_e){};window.scrollTo({top:0,behavior:'smooth'})});next.parentElement.insertBefore(b,next)});
 }
 
 try{
@@ -12892,7 +13210,7 @@ renderBaseRows();bind();installBidirectionalNavigation();setTimeout(()=>open((ty
       .catch(err=>{
         console.error(err);
         const p=byId('sxSystemPanel');
-        if(p)p.innerHTML='<div class="notice red"><b>Structured examination master could not load.</b><br>Refresh once after V3.10 files are fully published. Free notes remain available below.</div>';
+        if(p)p.innerHTML='<div class="notice red"><b>Structured examination master could not load.</b><br>Refresh once after V3.20 files are fully published. Free notes remain available below.</div>';
         throw err;
       });
     return loadPromise;
@@ -13479,6 +13797,312 @@ renderBaseRows();bind();installBidirectionalNavigation();setTimeout(()=>open((ty
 </script>
 
 
+
+<script id="v320-lifestyle-engine">
+(()=>{
+  'use strict';
+  const MASTER_URL='./ayurveda-lifestyle-master-v1.json';
+  const byId=id=>document.getElementById(id);
+  const qsa=s=>[...document.querySelectorAll(s)];
+  const h=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  const num=v=>{if(v===null||v===undefined||String(v).trim()==='')return null;const n=Number(v);return Number.isFinite(n)?n:null};
+  const state={master:null,rendered:false,lastInterpretation:{summary:'',classical:[],modern:[],next:[],investigations:[],alerts:[]}};
+
+  const safeVal=id=>byId(id)?.value??'';
+  const safeSet=(id,v)=>{const e=byId(id);if(e)e.value=v??''};
+  const checked=id=>!!byId(id)?.checked;
+  const setChecked=(id,v)=>{const e=byId(id);if(e)e.checked=!!v};
+  const arrChecked=(selector,attr='value')=>qsa(selector).filter(x=>x.checked).map(x=>x.dataset[attr]??x.value).filter(Boolean);
+  const scaleOptions=(max=3)=>{
+    const defaults=[['','Not assessed'],['0','0 • Absent / well controlled'],['1','1+ • Mild / occasional'],['2','2+ • Moderate / recurrent'],['3','3+ • Severe / frequent / functionally relevant']];
+    return defaults.filter((_,i)=>i<=max+1).map(([v,l])=>`<option value="${h(v)}">${h(l)}</option>`).join('');
+  };
+  const checkbox=(cls,key,label)=>`<label class="pti-check"><input type="checkbox" class="${cls}" data-key="${h(key)}"> <span>${h(label)}</span></label>`;
+
+  async function loadMaster(){
+    if(state.master)return state.master;
+    try{
+      const r=await fetch(MASTER_URL,{cache:'no-store'});
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      state.master=await r.json();
+    }catch(err){
+      console.error('Lifestyle master load failed',err);
+      state.master={version:'Prakriti & Trayopastambha Master v1.0',build:'2026.08.14-R7',deha_prakriti:[],deha_domains:[],manas_triguna:[],manas_subtypes:[],mental_tendencies:[],ahara:{diet_types:[],meal_sources:[],meals:[],six_rasa:[],guna_pairs:[],mahabhuta:[],ashta_ahara_vidhi:[],ahara_vidhi_rules:[],dvadasha_ashana:[],gita_food:[],spiritual:[]},nidra:{quality:[],classical:[],dream_frequency:[],dream_types:[],red_flags:[]},brahmacharya:{orientation:[],relationship:[],ashrama:[],ashtanga_maithuna:[],modern_5p:[],functions:[],concerns:[]},activity:{types:[],spiritual:[]}};
+      const box=byId('ptiOverviewSummary');if(box)box.innerHTML='<div class="pti-danger"><b>Structured lifestyle master could not load.</b> Publish/refresh the V3.20 JSON file. Free-text clinical workflow remains usable.</div>';
+    }
+    renderBase();
+    return state.master;
+  }
+
+  function fillSelect(id,items,placeholder='Not assessed'){
+    const e=byId(id);if(!e)return;
+    const old=e.value;
+    e.innerHTML=`<option value="">${h(placeholder)}</option>`+items.map(x=>`<option value="${h(typeof x==='string'?x:(x.id||x.name||''))}">${h(typeof x==='string'?x:(x.name||x.label||x.id||''))}</option>`).join('');
+    if([...e.options].some(o=>o.value===old))e.value=old;
+  }
+
+  function renderBase(){
+    if(state.rendered||!state.master)return;
+    const m=state.master;
+    fillSelect('ptiDehaType',m.deha_prakriti,'Not assessed');
+    fillSelect('ptiDietType',m.ahara.diet_types,'Not assessed');
+    fillSelect('ptiMealSource',m.ahara.meal_sources,'Not assessed');
+    fillSelect('ptiSleepQuality',m.nidra.quality,'Not assessed');
+    fillSelect('ptiNidraClassical',m.nidra.classical,'Not classified');
+    fillSelect('ptiDreamFrequency',m.nidra.dream_frequency,'Not assessed');
+    fillSelect('ptiDreamType',m.nidra.dream_types,'Not assessed');
+    fillSelect('ptiBrahmaOrientation',m.brahmacharya.orientation,'Not assessed');
+    fillSelect('ptiAshrama',m.brahmacharya.ashrama,'Not assessed');
+    fillSelect('ptiRelationship',m.brahmacharya.relationship,'Not assessed');
+    fillSelect('ptiDvadasha',m.ahara.dvadasha_ashana,'Not selected');
+    fillSelect('ptiGitaFood',m.ahara.gita_food,'Not assessed');
+
+    const dt=byId('ptiDehaTypeCards');
+    if(dt)dt.innerHTML=m.deha_prakriti.map(x=>`<button type="button" class="pti-subtype-card" data-deha-pick="${h(x.id)}"><b>${h(x.name)}</b><small>${h(x.short)}</small></button>`).join('');
+
+    const traits=byId('ptiDehaTraits');
+    if(traits)traits.innerHTML=m.deha_domains.map(d=>`<div class="pti-trait-row"><div><b>${h(d.label)}</b></div><div><select data-deha-domain="${h(d.id)}"><option value="">Not assessed</option><option value="vata">Vata-like • ${h(d.vata)}</option><option value="pitta">Pitta-like • ${h(d.pitta)}</option><option value="kapha">Kapha-like • ${h(d.kapha)}</option><option value="mixed">Mixed / not classifiable</option></select></div></div>`).join('');
+
+    const tg=byId('ptiTrigunaGrid');
+    if(tg)tg.innerHTML=m.manas_triguna.map(g=>`<div class="pti-trait-row"><div><b>${h(g.name)}</b><small>${h(g.short)}</small></div><div><select data-triguna="${h(g.id)}">${scaleOptions()}</select></div></div>`).join('');
+
+    const sub=byId('ptiManasSubtype');
+    if(sub){
+      const groups=['Sattvika','Rajasika','Tamasika'];
+      sub.innerHTML='<option value="">Not selected</option>'+groups.map(group=>`<optgroup label="${h(group)}">${m.manas_subtypes.filter(x=>x.group===group).map(x=>`<option value="${h(x.id)}">${h(x.name)}</option>`).join('')}</optgroup>`).join('');
+    }
+
+    const mt=byId('ptiMentalTendencies');
+    if(mt)mt.innerHTML=m.mental_tendencies.map(x=>`<div class="pti-trait-row"><div><b>${h(x.name)}</b></div><div><select data-mental="${h(x.id)}">${scaleOptions()}</select></div></div>`).join('');
+
+    const meals=byId('ptiMeals');
+    if(meals)meals.innerHTML=m.ahara.meals.map((name,i)=>`<div class="pti-meal-row"><div><b>${h(name)}</b></div><div><label>Time</label><input type="time" data-meal-time="${i}"></div><div><label>Frequency</label><select data-meal-frequency="${i}"><option value="">Not assessed</option><option>Daily / most days</option><option>3–4 days/week</option><option>1–2 days/week</option><option>Rarely</option><option>Usually not taken</option></select></div><div><label>Typical food / quantity</label><input data-meal-detail="${i}" placeholder="Patient's usual intake"></div></div>`).join('');
+
+    const rasa=byId('ptiRasaGrid');
+    if(rasa)rasa.innerHTML=m.ahara.six_rasa.map((x,i)=>`<div class="pti-mini-card"><b>${h(x)}</b><select data-rasa="${i}">${scaleOptions()}</select></div>`).join('');
+
+    const gp=byId('ptiGunaPairs');
+    if(gp)gp.innerHTML=m.ahara.guna_pairs.map((pair,i)=>`<div class="pti-trait-row"><div><b>${h(pair[0])}</b><small>↔ ${h(pair[1])}</small></div><div><select data-guna-pair="${i}"><option value="">Not assessed</option><option value="left">Predominantly ${h(pair[0])}</option><option value="right">Predominantly ${h(pair[1])}</option><option value="balanced">Balanced / mixed</option></select></div></div>`).join('');
+
+    const mb=byId('ptiMahabhutaGrid');
+    if(mb)mb.innerHTML=m.ahara.mahabhuta.map((x,i)=>checkbox('pti-mahabhuta',String(i),x)).join('');
+
+    const av=byId('ptiAshtaAhara');
+    if(av)av.innerHTML=m.ahara.ashta_ahara_vidhi.map(x=>`<div class="pti-trait-row"><div><b>${h(x[1])}</b><small>${h(x[2])}</small></div><div><select data-ashta="${h(x[0])}"><option value="">Not assessed</option><option value="adequate">Appropriate / no major issue identified</option><option value="review">Needs review / possible issue</option><option value="uncertain">Uncertain / more history needed</option></select></div></div>`).join('');
+
+    const ar=byId('ptiAharaRules');
+    if(ar)ar.innerHTML=m.ahara.ahara_vidhi_rules.map(x=>`<div class="pti-rule"><div><b>${h(x[1])}</b></div><select data-ahara-rule="${h(x[0])}"><option value="">Not assessed</option><option value="0">0 • Usually not followed</option><option value="1">1 • Partly / inconsistently</option><option value="2">2 • Usually followed</option></select></div>`).join('');
+
+    const sg=byId('ptiMealSpiritual')?.parentElement;
+    if(sg && !byId('ptiMealSpiritualOptions')){
+      const wrap=document.createElement('div');wrap.id='ptiMealSpiritualOptions';wrap.className='pti-checkgrid';wrap.style.gridColumn='1/-1';wrap.innerHTML=m.ahara.spiritual.map((x,i)=>checkbox('pti-meal-spiritual',String(i),x)).join('');sg.parentElement.appendChild(wrap);
+    }
+
+    const sf=byId('ptiSleepFlags');if(sf)sf.innerHTML=m.nidra.red_flags.map((x,i)=>checkbox('pti-sleep-flag',String(i),x)).join('');
+    const ag=byId('ptiActivityGrid');if(ag)ag.innerHTML=m.activity.types.map((x,i)=>checkbox('pti-activity',String(i),x)).join('');
+    const sp=byId('ptiSpiritualGrid');if(sp)sp.innerHTML=m.activity.spiritual.map((x,i)=>checkbox('pti-spiritual',String(i),x)).join('');
+
+    const mg=byId('ptiMaithunaGrid');
+    if(mg)mg.innerHTML=m.brahmacharya.ashtanga_maithuna.map(x=>`<div class="pti-trait-row"><div><b>${h(x[1])}</b><small>${h(x[2])}</small></div><div><select data-maithuna="${h(x[0])}">${scaleOptions()}</select></div></div>`).join('');
+
+    const five=byId('ptiFivePGrid');
+    if(five)five.innerHTML=m.brahmacharya.modern_5p.map((x,i)=>`<div class="pti-mini-card"><label>${h(x)}</label><input data-fivep="${i}" placeholder="Private clinician note / prefer not to answer"></div>`).join('');
+
+    const fn=byId('ptiSexFunctionGrid');
+    if(fn)fn.innerHTML=m.brahmacharya.functions.map((x,i)=>`<div class="pti-rule"><div><b>${h(x)}</b></div><select data-sex-function="${i}"><option value="">Not assessed / not applicable</option><option>No current concern</option><option>Mild concern</option><option>Moderate concern</option><option>Severe / functionally significant concern</option><option>Prefer not to answer</option></select></div>`).join('');
+    const sc=byId('ptiSexConcernGrid');if(sc)sc.innerHTML=m.brahmacharya.concerns.map((x,i)=>checkbox('pti-sex-concern',String(i),x)).join('');
+
+    state.rendered=true;
+    bindDynamic();
+    updateSubtypeMeaning();
+    updateSensitiveGate();
+    updateKPIs();
+  }
+
+  function setView(view){
+    qsa('[data-pti-view]').forEach(b=>b.classList.toggle('active',b.dataset.ptiView===view));
+    qsa('[data-pti-panel]').forEach(p=>p.classList.toggle('active',p.dataset.ptiPanel===view));
+    const panel=document.querySelector(`[data-pti-panel="${CSS.escape(view)}"]`);if(panel)setTimeout(()=>panel.scrollIntoView({block:'start',behavior:'smooth'}),20);
+  }
+
+  function updateSubtypeMeaning(){
+    const id=safeVal('ptiManasSubtype'),x=state.master?.manas_subtypes?.find(s=>s.id===id),box=byId('ptiManasSubtypeMeaning');
+    if(box)box.innerHTML=x?`<b>${h(x.group)} — ${h(x.name)}</b><br>${h(x.short)}<br><span class="small">Historical Ayurvedic archetype only; do not use as a psychiatric or moral label.</span>`:'Select a subtype only when clinically/educationally useful.';
+  }
+
+  function getPatientAge(){const a=num((typeof current!=='undefined'&&current?.patient?.age)||safeVal('age'));return a;}
+  function updateSensitiveGate(){
+    const card=byId('ptiSensitiveCard'),body=card?.querySelector('.pti-sensitive-body'),consent=checked('ptiSensitiveConsent'),age=getPatientAge(),adult=age===null||age>=18;
+    if(card)card.classList.toggle('locked',!(consent&&adult));
+    if(body){body.querySelectorAll('input,select,textarea,button').forEach(e=>{if(e.id==='ptiSensitiveConsent')return;e.disabled=!(consent&&adult)});}
+    const note=byId('ptiSensitiveAgeNote');if(note){
+      if(age!==null&&age<18)note.innerHTML='<b>Age safeguard:</b> Patient age is under 18. Adult sexual-function and explicit sexual-behaviour fields are disabled. Use an age-appropriate safeguarding/adolescent sexual-health pathway and local consent/confidentiality law.';
+      else note.innerHTML=consent?'<b>Consent documented for this visit.</b> Keep details clinically necessary, private and neutral.':'Age-aware safeguards are active. Tick consent only after private, appropriate clinical permission.';
+    }
+  }
+
+  function collect(){
+    const m=state.master||{};
+    const o={
+      version:m.version||'Prakriti & Trayopastambha Master v1.0',build:m.build||'2026.08.14-R7',
+      status:safeVal('ptiStatus'),source:safeVal('ptiSource'),confidence:safeVal('ptiConfidence'),goals:safeVal('ptiGoals'),
+      deha:{type:safeVal('ptiDehaType'),confidence:safeVal('ptiDehaConfidence'),since:safeVal('ptiDehaSince'),notes:safeVal('ptiDehaNotes'),domains:{}},
+      manas:{primary:safeVal('ptiManasPrimary'),subtype:safeVal('ptiManasSubtype'),triguna:{},tendencies:{},trust:safeVal('ptiTrust'),stressReg:safeVal('ptiStressReg'),bhakti:safeVal('ptiBhakti'),notes:safeVal('ptiManasNotes')},
+      ahara:{dietType:safeVal('ptiDietType'),mealSource:safeVal('ptiMealSource'),agniContext:safeVal('ptiAgniContext'),meals:[],water:safeVal('ptiWater'),waterMeals:safeVal('ptiWaterMeals'),lateEating:safeVal('ptiLateEating'),rasa:{},gunaPairs:{},mahabhuta:arrChecked('.pti-mahabhuta','key'),ashta:{},rules:{},dvadasha:safeVal('ptiDvadasha'),gitaFood:safeVal('ptiGitaFood'),mealSpiritual:safeVal('ptiMealSpiritual'),spiritual:arrChecked('.pti-meal-spiritual','key'),notes:safeVal('ptiAharaNotes')},
+      nidra:{bedtime:safeVal('ptiBedtime'),wakeTime:safeVal('ptiWakeTime'),hours:safeVal('ptiSleepHours'),latency:safeVal('ptiSleepLatency'),awakenings:safeVal('ptiAwakenings'),quality:safeVal('ptiSleepQuality'),nap:safeVal('ptiNap'),classical:safeVal('ptiNidraClassical'),restorative:safeVal('ptiRestorative'),flags:arrChecked('.pti-sleep-flag','key'),dreamFrequency:safeVal('ptiDreamFrequency'),dreamType:safeVal('ptiDreamType'),dreamImpact:safeVal('ptiDreamImpact'),notes:safeVal('ptiNidraNotes')},
+      sensitive:{consent:checked('ptiSensitiveConsent'),includeSummary:checked('ptiIncludeSensitiveSummary'),ageAtAssessment:getPatientAge(),orientation:safeVal('ptiBrahmaOrientation'),ashrama:safeVal('ptiAshrama'),relationship:safeVal('ptiRelationship'),brahmaScore:safeVal('ptiBrahmaScore'),sexFrequency:safeVal('ptiSexFrequency'),pregnancyContext:safeVal('ptiPregnancyContext'),maithuna:{},fiveP:{},functions:{},concerns:arrChecked('.pti-sex-concern','key'),pornFrequency:safeVal('ptiPornFrequency'),pornControl:safeVal('ptiPornControl'),pornImpact:safeVal('ptiPornImpact'),fertilityIntent:safeVal('ptiFertilityIntent'),tryingMonths:safeVal('ptiTryingMonths'),eggAge:safeVal('ptiEggAge'),cycleConcern:safeVal('ptiCycleConcern'),semenStatus:safeVal('ptiSemenStatus'),fertilityHistory:safeVal('ptiFertilityHistory'),notes:safeVal('ptiSexNotes')},
+      activity:{moderateMin:safeVal('ptiModerateMin'),vigorousMin:safeVal('ptiVigorousMin'),strengthDays:safeVal('ptiStrengthDays'),sittingHours:safeVal('ptiSittingHours'),walking:safeVal('ptiWalking'),exerciseLimit:safeVal('ptiExerciseLimit'),types:arrChecked('.pti-activity','key'),spiritual:arrChecked('.pti-spiritual','key'),yogaFreq:safeVal('ptiYogaFreq'),meditationFreq:safeVal('ptiMeditationFreq'),pranayamaFreq:safeVal('ptiPranayamaFreq'),notes:safeVal('ptiActivityNotes')}
+    };
+    qsa('[data-deha-domain]').forEach(e=>o.deha.domains[e.dataset.dehaDomain]=e.value);
+    qsa('[data-triguna]').forEach(e=>o.manas.triguna[e.dataset.triguna]=e.value);
+    qsa('[data-mental]').forEach(e=>o.manas.tendencies[e.dataset.mental]=e.value);
+    qsa('[data-meal-time]').forEach(e=>{const i=Number(e.dataset.mealTime);o.ahara.meals[i]={name:m.ahara?.meals?.[i]||String(i),time:e.value,frequency:document.querySelector(`[data-meal-frequency="${i}"]`)?.value||'',detail:document.querySelector(`[data-meal-detail="${i}"]`)?.value||''}});
+    qsa('[data-rasa]').forEach(e=>o.ahara.rasa[e.dataset.rasa]=e.value);
+    qsa('[data-guna-pair]').forEach(e=>o.ahara.gunaPairs[e.dataset.gunaPair]=e.value);
+    qsa('[data-ashta]').forEach(e=>o.ahara.ashta[e.dataset.ashta]=e.value);
+    qsa('[data-ahara-rule]').forEach(e=>o.ahara.rules[e.dataset.aharaRule]=e.value);
+    qsa('[data-maithuna]').forEach(e=>o.sensitive.maithuna[e.dataset.maithuna]=e.value);
+    qsa('[data-fivep]').forEach(e=>o.sensitive.fiveP[e.dataset.fivep]=e.value);
+    qsa('[data-sex-function]').forEach(e=>o.sensitive.functions[e.dataset.sexFunction]=e.value);
+    o.scores=calculateScores(o);
+    o.interpretation=state.lastInterpretation;
+    return o;
+  }
+
+  function restoreChecks(selector,values=[]){const setv=new Set((values||[]).map(String));qsa(selector).forEach(e=>e.checked=setv.has(String(e.dataset.key??e.value)))}
+  async function restore(data={}){
+    await loadMaster();
+    if(!state.rendered)return;
+    const o=data||{};
+    safeSet('ptiStatus',o.status);safeSet('ptiSource',o.source);safeSet('ptiConfidence',o.confidence);safeSet('ptiGoals',o.goals);
+    safeSet('ptiDehaType',o.deha?.type);safeSet('ptiDehaConfidence',o.deha?.confidence);safeSet('ptiDehaSince',o.deha?.since);safeSet('ptiDehaNotes',o.deha?.notes);
+    qsa('[data-deha-domain]').forEach(e=>e.value=o.deha?.domains?.[e.dataset.dehaDomain]||'');
+    safeSet('ptiManasPrimary',o.manas?.primary);safeSet('ptiManasSubtype',o.manas?.subtype);safeSet('ptiTrust',o.manas?.trust);safeSet('ptiStressReg',o.manas?.stressReg);safeSet('ptiBhakti',o.manas?.bhakti);safeSet('ptiManasNotes',o.manas?.notes);
+    qsa('[data-triguna]').forEach(e=>e.value=o.manas?.triguna?.[e.dataset.triguna]??'');qsa('[data-mental]').forEach(e=>e.value=o.manas?.tendencies?.[e.dataset.mental]??'');
+    safeSet('ptiDietType',o.ahara?.dietType);safeSet('ptiMealSource',o.ahara?.mealSource);safeSet('ptiAgniContext',o.ahara?.agniContext);safeSet('ptiWater',o.ahara?.water);safeSet('ptiWaterMeals',o.ahara?.waterMeals);safeSet('ptiLateEating',o.ahara?.lateEating);safeSet('ptiDvadasha',o.ahara?.dvadasha);safeSet('ptiGitaFood',o.ahara?.gitaFood);safeSet('ptiMealSpiritual',o.ahara?.mealSpiritual);safeSet('ptiAharaNotes',o.ahara?.notes);
+    (o.ahara?.meals||[]).forEach((x,i)=>{const t=document.querySelector(`[data-meal-time="${i}"]`),f=document.querySelector(`[data-meal-frequency="${i}"]`),d=document.querySelector(`[data-meal-detail="${i}"]`);if(t)t.value=x?.time||'';if(f)f.value=x?.frequency||'';if(d)d.value=x?.detail||''});
+    qsa('[data-rasa]').forEach(e=>e.value=o.ahara?.rasa?.[e.dataset.rasa]??'');qsa('[data-guna-pair]').forEach(e=>e.value=o.ahara?.gunaPairs?.[e.dataset.gunaPair]??'');qsa('[data-ashta]').forEach(e=>e.value=o.ahara?.ashta?.[e.dataset.ashta]??'');qsa('[data-ahara-rule]').forEach(e=>e.value=o.ahara?.rules?.[e.dataset.aharaRule]??'');restoreChecks('.pti-mahabhuta',o.ahara?.mahabhuta);restoreChecks('.pti-meal-spiritual',o.ahara?.spiritual);
+    safeSet('ptiBedtime',o.nidra?.bedtime);safeSet('ptiWakeTime',o.nidra?.wakeTime);safeSet('ptiSleepHours',o.nidra?.hours);safeSet('ptiSleepLatency',o.nidra?.latency);safeSet('ptiAwakenings',o.nidra?.awakenings);safeSet('ptiSleepQuality',o.nidra?.quality);safeSet('ptiNap',o.nidra?.nap);safeSet('ptiNidraClassical',o.nidra?.classical);safeSet('ptiRestorative',o.nidra?.restorative);safeSet('ptiDreamFrequency',o.nidra?.dreamFrequency);safeSet('ptiDreamType',o.nidra?.dreamType);safeSet('ptiDreamImpact',o.nidra?.dreamImpact);safeSet('ptiNidraNotes',o.nidra?.notes);restoreChecks('.pti-sleep-flag',o.nidra?.flags);
+    setChecked('ptiSensitiveConsent',o.sensitive?.consent);setChecked('ptiIncludeSensitiveSummary',o.sensitive?.includeSummary);safeSet('ptiBrahmaOrientation',o.sensitive?.orientation);safeSet('ptiAshrama',o.sensitive?.ashrama);safeSet('ptiRelationship',o.sensitive?.relationship);safeSet('ptiBrahmaScore',o.sensitive?.brahmaScore);safeSet('ptiSexFrequency',o.sensitive?.sexFrequency);safeSet('ptiPregnancyContext',o.sensitive?.pregnancyContext);safeSet('ptiPornFrequency',o.sensitive?.pornFrequency);safeSet('ptiPornControl',o.sensitive?.pornControl);safeSet('ptiPornImpact',o.sensitive?.pornImpact);safeSet('ptiFertilityIntent',o.sensitive?.fertilityIntent);safeSet('ptiTryingMonths',o.sensitive?.tryingMonths);safeSet('ptiEggAge',o.sensitive?.eggAge);safeSet('ptiCycleConcern',o.sensitive?.cycleConcern);safeSet('ptiSemenStatus',o.sensitive?.semenStatus);safeSet('ptiFertilityHistory',o.sensitive?.fertilityHistory);safeSet('ptiSexNotes',o.sensitive?.notes);
+    qsa('[data-maithuna]').forEach(e=>e.value=o.sensitive?.maithuna?.[e.dataset.maithuna]??'');qsa('[data-fivep]').forEach(e=>e.value=o.sensitive?.fiveP?.[e.dataset.fivep]??'');qsa('[data-sex-function]').forEach(e=>e.value=o.sensitive?.functions?.[e.dataset.sexFunction]??'');restoreChecks('.pti-sex-concern',o.sensitive?.concerns);
+    safeSet('ptiModerateMin',o.activity?.moderateMin);safeSet('ptiVigorousMin',o.activity?.vigorousMin);safeSet('ptiStrengthDays',o.activity?.strengthDays);safeSet('ptiSittingHours',o.activity?.sittingHours);safeSet('ptiWalking',o.activity?.walking);safeSet('ptiExerciseLimit',o.activity?.exerciseLimit);safeSet('ptiYogaFreq',o.activity?.yogaFreq);safeSet('ptiMeditationFreq',o.activity?.meditationFreq);safeSet('ptiPranayamaFreq',o.activity?.pranayamaFreq);safeSet('ptiActivityNotes',o.activity?.notes);restoreChecks('.pti-activity',o.activity?.types);restoreChecks('.pti-spiritual',o.activity?.spiritual);
+    state.lastInterpretation=o.interpretation||state.lastInterpretation;
+    updateSubtypeMeaning();updateSensitiveGate();updateKPIs(o);renderInterpretation(state.lastInterpretation);updateSelectedCards();
+  }
+
+  function calculateScores(o){
+    const rules=Object.values(o.ahara?.rules||{}).map(num).filter(x=>x!==null);
+    const ahara=rules.length?Math.round((rules.reduce((a,b)=>a+b,0)/(rules.length*2))*100)/10:null;
+    let nidra=0,max=0;
+    const age=getPatientAge(),hours=num(o.nidra?.hours);
+    if(hours!==null){max+=3;if(age!==null&&age<18){nidra+=hours>=8?3:hours>=7?2:hours>=6?1:0}else nidra+=hours>=7?3:hours>=6?2:hours>=5?1:0}
+    if(o.nidra?.quality){max+=3;nidra+=({'Very good / restorative':3,'Good':3,'Fair':2,'Poor':1,'Very poor':0}[o.nidra.quality]??0)}
+    if(o.nidra?.restorative){max+=2;nidra+=({'Yes':2,'Partly':1,'No':0}[o.nidra.restorative]??0)}
+    if(o.nidra?.latency){max+=1;nidra+=['≤15 min','16–30 min'].includes(o.nidra.latency)?1:0}
+    if(o.nidra?.awakenings){max+=1;nidra+=['0','1'].includes(o.nidra.awakenings)?1:0}
+    const nidra10=max?Math.round((nidra/max)*100)/10:null;
+    const tendency=Object.values(o.manas?.tendencies||{}).map(num).filter(x=>x!==null);
+    const selfReg=tendency.length?Math.round((10-(tendency.reduce((a,b)=>a+b,0)/tendency.length)*(10/3))*10)/10:null;
+    return {ahara10:ahara,nidra10,selfRegulationSnapshot10:selfReg,nonValidated:true};
+  }
+
+  function updateKPIs(o=null){
+    o=o||collect();
+    const d=state.master?.deha_prakriti?.find(x=>x.id===o.deha?.type);if(byId('ptiKpiDeha'))byId('ptiKpiDeha').textContent=d?.name||'Not assessed';
+    const vals=Object.entries(o.manas?.triguna||{}).map(([k,v])=>[k,num(v)]).filter(x=>x[1]!==null);vals.sort((a,b)=>b[1]-a[1]);const manas=vals.length?((state.master?.manas_triguna?.find(x=>x.id===vals[0][0])?.name||vals[0][0])+(vals.length>1&&vals[0][1]===vals[1][1]?' / mixed':'')):(o.manas?.primary||'Not assessed');if(byId('ptiKpiManas'))byId('ptiKpiManas').textContent=manas||'Not assessed';
+    const a=o.scores?.ahara10??calculateScores(o).ahara10,n=o.scores?.nidra10??calculateScores(o).nidra10;if(byId('ptiKpiAhara'))byId('ptiKpiAhara').textContent=a===null?'— /10':`${a}/10*`;if(byId('ptiKpiAharaBar'))byId('ptiKpiAharaBar').style.width=(a===null?0:a*10)+'%';if(byId('ptiKpiNidra'))byId('ptiKpiNidra').textContent=n===null?'— /10':`${n}/10*`;if(byId('ptiKpiNidraBar'))byId('ptiKpiNidraBar').style.width=(n===null?0:n*10)+'%';
+    const ov=byId('ptiOverviewSummary');if(ov){const pieces=[];if(d)pieces.push(`Deha: ${d.name}`);if(o.manas?.primary)pieces.push(`Manas: ${o.manas.primary}`);if(a!==null)pieces.push(`Ahara snapshot*: ${a}/10`);if(n!==null)pieces.push(`Nidra snapshot*: ${n}/10`);if(o.activity?.moderateMin||o.activity?.vigorousMin)pieces.push(`Activity: ${Number(o.activity.moderateMin||0)+2*Number(o.activity.vigorousMin||0)} moderate-equivalent min/week`);ov.innerHTML=pieces.length?h(pieces.join(' • '))+'<br><span class="small">*Custom non-validated documentation snapshot.</span>':'No structured lifestyle data documented yet.'}
+  }
+
+  function updateSelectedCards(){const v=safeVal('ptiDehaType');qsa('[data-deha-pick]').forEach(b=>b.classList.toggle('selected',b.dataset.dehaPick===v))}
+
+  function interpret(){
+    const o=collect(),m=state.master||{};const r={generatedAt:new Date().toISOString(),classical:[],modern:[],next:[],investigations:[],alerts:[],summary:''};
+    const d=m.deha_prakriti?.find(x=>x.id===o.deha.type);if(d)r.classical.push(`Sharirika Prakriti documented as ${d.name}. ${d.short} Treat this as a constitutional Ayurveda framework, not a disease diagnosis or deterministic prediction.`);
+    const trig=Object.entries(o.manas.triguna||{}).map(([k,v])=>[k,num(v)]).filter(x=>x[1]!==null).sort((a,b)=>b[1]-a[1]);if(trig.length){const g=m.manas_triguna?.find(x=>x.id===trig[0][0]);r.classical.push(`Manas snapshot: ${g?.name||trig[0][0]} has the highest entered 0–3 trait score. This app score is descriptive/non-validated and should not be used as a psychiatric label.`)}
+    const subtype=m.manas_subtypes?.find(x=>x.id===o.manas.subtype);if(subtype)r.classical.push(`Classical Manas archetype selected: ${subtype.group} — ${subtype.name}. ${subtype.short}`);
+    const highs=Object.entries(o.manas.tendencies||{}).filter(([,v])=>num(v)!==null&&num(v)>=2).map(([k,v])=>`${m.mental_tendencies?.find(x=>x.id===k)?.name||k} ${v}+`);if(highs.length)r.next.push(`Mental/self-regulation review: recurrent or functionally relevant tendencies documented (${highs.join(', ')}). Explore triggers, coping, sleep, stress, relationships and functional impact before considering any mental-health diagnosis.`);
+
+    const scores=calculateScores(o);if(scores.ahara10!==null)r.classical.push(`Ahara Vidhi adherence snapshot*: ${scores.ahara10}/10 (*custom clinic score, not a validated scale).`);
+    const outside=['Restaurant / hotel','Packaged / ready-to-eat dominant','Street food frequent'].includes(o.ahara.mealSource);if(outside)r.modern.push('Diet source suggests frequent outside/packaged intake. Review overall adequacy, balance, moderation, diversity, food safety, sodium/free sugars and minimally processed food pattern rather than judging diet only by vegetarian/non-vegetarian category.');
+    const mealTimes=(o.ahara.meals||[]).filter(x=>x.time&&x.frequency&&!x.frequency.includes('not taken'));if(mealTimes.length>=2){const mins=mealTimes.map(x=>{const [hh,mm]=x.time.split(':').map(Number);return hh*60+mm});const spread=Math.max(...mins)-Math.min(...mins);if(spread>900)r.next.push('Meal timing spans a long waking interval; correlate late-night intake, appetite, reflux/metabolic symptoms, shift work and total energy pattern rather than enforcing a single universal clock time.')}
+    if(o.ahara.lateEating==='Most nights')r.next.push('Late-night eating is frequent. Review reflux, sleep timing, total calorie distribution, work schedule and patient goals.');
+
+    if(scores.nidra10!==null)r.modern.push(`Nidra/sleep snapshot*: ${scores.nidra10}/10 (*custom clinic score, not a validated sleep scale).`);
+    const age=getPatientAge(),hours=num(o.nidra.hours);if(hours!==null&&((age===null||age>=18)&&hours<7))r.modern.push(`Reported sleep ${hours} h/24 h is below the general ≥7 h/day recommendation for most adults; individual needs and age/clinical context still matter.`);
+    const flags=(o.nidra.flags||[]).map(i=>m.nidra?.red_flags?.[Number(i)]||i);if(flags.includes('Loud habitual snoring')&&flags.includes('Witnessed apnea / choking')){r.alerts.push('Snoring plus witnessed apnea/choking raises concern for sleep-disordered breathing. Do not diagnose from this screen alone.');r.investigations.push({category:'Other',test:'Sleep-disordered breathing evaluation / sleep study',priority:'Routine / clinically prioritized',note:'Consider validated OSA screening and sleep study based on symptoms, comorbidity and clinician assessment.'})}
+    if(flags.includes('Drowsy driving / near miss'))r.alerts.push('Drowsy driving/near-miss is a safety concern: advise immediate driving-risk reduction and evaluate excessive sleepiness.');
+    if(['Moderate','Severe'].includes(o.nidra.dreamImpact)||flags.includes('Recurrent distressing nightmares'))r.next.push('Recurrent distressing dreams/nightmares: assess sleep quality, trauma/stress, medicines/substances and mental-health symptoms. Dream content itself is not used to diagnose or prognosticate Ayurveda or modern disease.');
+
+    const moderate=num(o.activity.moderateMin)||0,vigorous=num(o.activity.vigorousMin)||0,eq=moderate+2*vigorous;if((o.activity.moderateMin||o.activity.vigorousMin)&&eq<150)r.modern.push(`Entered activity is about ${eq} moderate-equivalent min/week, below the usual adult WHO target range. Individualize for age, pregnancy, disability and contraindications.`);else if(eq>=150)r.modern.push(`Entered activity is about ${eq} moderate-equivalent min/week, meeting the basic adult aerobic activity threshold; strength/balance needs depend on age and health.`);
+
+    const sens=o.sensitive,adult=age===null||age>=18;if(sens.consent&&adult){
+      if(sens.pregnancyContext==='Pregnant — uncomplicated to current knowledge')r.modern.push('Pregnancy context: no blanket abstinence rule is applied. In an uncomplicated pregnancy, sexual activity is generally safe unless the obstetric clinician has advised restriction; bleeding, ruptured membranes, placenta/preterm-labour or other risks need individualized advice.');
+      const concerns=(sens.concerns||[]).map(i=>m.brahmacharya?.concerns?.[Number(i)]||i);if(concerns.some(x=>/STI/i.test(x))){r.next.push('STI symptoms/exposure documented: take exposure-specific sexual history, examine as indicated and use guideline-directed testing rather than a universal panel.');r.investigations.push({category:'Other',test:'Targeted STI testing based on exposure/history',priority:'Clinician review',note:'Choose site-specific and organism-specific tests according to symptoms, practices, pregnancy status and local guidelines.'})}
+      const badFn=Object.entries(sens.functions||{}).filter(([,v])=>/Moderate|Severe/.test(v));if(badFn.length)r.next.push('Moderate/severe sexual-function concern documented: review onset, medicines, relationship/psychological factors, endocrine/metabolic/vascular/neurologic context and focused examination before assigning a diagnosis.');
+      if(/Moderate|Severe/.test(sens.pornControl)||/Moderate|Severe/.test(sens.pornImpact))r.next.push('Sexual-media use has loss-of-control or functional-impact features. Explore distress, functioning, consent/safety, compulsive patterns and mental-health context; frequency alone is not labeled addiction.');
+      if(sens.fertilityIntent==='Trying now'){
+        const months=num(sens.tryingMonths),eggAge=num(sens.eggAge);if(months!==null&&eggAge!==null){if(eggAge>40)r.next.push('Trying to conceive with egg-provider age >40: consider prompt fertility evaluation rather than waiting for a fixed interval.');else if((eggAge>=35&&months>=6)||(eggAge<35&&months>=12))r.next.push(`Trying ${months} months with egg-provider age ${eggAge}: duration meets the usual threshold for infertility evaluation (earlier evaluation is appropriate when known risk factors exist).`)}
+      }
+      if(sens.fertilityIntent==='Trying now')r.modern.push('For natural conception, regular intercourse during the fertile window is preferable to rigid abstinence rules; frequency should be individualized and consensual.');
+      r.classical.push('Brahmacharya/Ashtanga Maithuna entries are retained as optional classical self-reflection. They are not converted into a disease-risk or moral-worth score.');
+    }else if(sens.consent&&!adult){r.alerts.push('Adult sensitive-history fields are disabled because recorded age is under 18; use an age-appropriate safeguarding/adolescent pathway.')}
+
+    if(o.sensitive?.includeSummary&&sens.consent&&adult)r.modern.push('Sensitive-health summary inclusion was explicitly enabled for this visit; keep exported wording brief and clinically necessary.');
+    r.classical.push('No fetal-sex prediction, sex selection or “son/Putra guarantee” is generated. Garbhadhana/preconception documentation is health-focused only.');
+    const sum=[];if(d)sum.push(`Deha ${d.name}`);if(o.manas.primary)sum.push(`Manas ${o.manas.primary}`);if(scores.ahara10!==null)sum.push(`Ahara* ${scores.ahara10}/10`);if(scores.nidra10!==null)sum.push(`Nidra* ${scores.nidra10}/10`);if(eq)sum.push(`Activity ${eq} mod-eq min/wk`);r.summary=sum.join(' • ')||'Lifestyle assessment entered; see structured sections.';
+    state.lastInterpretation=r;renderInterpretation(r);updateKPIs({...o,scores});return r;
+  }
+
+  function renderInterpretation(r){
+    const box=byId('ptiInterpretation');if(!box)return;
+    const section=(title,items,cls='')=>items?.length?`<div class="pti-analysis-section ${cls}"><h4>${h(title)}</h4><ul>${items.map(x=>`<li>${h(typeof x==='string'?x:(x.test||''))}</li>`).join('')}</ul></div>`:'';
+    box.innerHTML=`<div><b>Structured summary:</b> ${h(r?.summary||'No interpretation generated yet.')}</div>${section('Classical Ayurveda context',r?.classical)}${section('Modern clinical context',r?.modern)}${section('What to assess next',r?.next)}${section('Safety / priority alerts',r?.alerts,'alert')}`;
+    const act=byId('ptiSuggestedActions');if(act)act.innerHTML=(r?.investigations||[]).length?`<div class="pti-info"><b>Clinician-review investigation suggestions</b>${r.investigations.map(x=>`<div class="pti-action-row"><b>${h(x.test)}</b><small>${h(x.note||'')}</small></div>`).join('')}</div>`:'<div class="small">No investigation suggestions generated from the documented lifestyle history.</div>';
+  }
+
+  function addToAyurveda(){
+    const r=state.lastInterpretation?.generatedAt?state.lastInterpretation:interpret(),o=collect();
+    const lines=[`Prakriti & Trayopastambha Lifestyle Summary (${new Date().toLocaleDateString()}):`,r.summary];
+    if(r.classical?.length)lines.push('Classical context: '+r.classical.join(' '));if(r.modern?.length)lines.push('Modern context: '+r.modern.join(' '));if(r.alerts?.length)lines.push('Alerts: '+r.alerts.join(' '));
+    if(o.sensitive?.includeSummary&&o.sensitive?.consent&&getPatientAge()>=18)lines.push('Sensitive health: clinician-reviewed brief summary enabled; see private structured section for details.');
+    const note=byId('ayurNotes');if(note){note.value=(note.value?note.value+'\n\n':'')+lines.join('\n');}
+    const d=state.master?.deha_prakriti?.find(x=>x.id===o.deha.type);if(d&&byId('prakriti'))byId('prakriti').value=d.name;
+    if(typeof current!=='undefined'){current.lifestyle=o;current.ayurveda=current.ayurveda||{};current.ayurveda.notes=note?.value||current.ayurveda.notes||'';if(d)current.ayurveda.prakriti=d.name;save(current)}
+    if(typeof status==='function')status('Clinician-reviewed lifestyle summary added to Ayurveda Notes.');
+  }
+
+  function addInvestigations(){
+    const r=state.lastInterpretation?.generatedAt?state.lastInterpretation:interpret();if(!r.investigations?.length){if(typeof status==='function')status('No focused investigation suggestion generated from current lifestyle data.',true);return}
+    if(typeof current==='undefined')return;current.investigations=current.investigations||{previous:[],advised:[]};current.investigations.advised=current.investigations.advised||[];
+    let added=0;r.investigations.forEach(x=>{if(!current.investigations.advised.some(y=>String(y.test||'').toLowerCase()===String(x.test).toLowerCase())){current.investigations.advised.push({category:x.category||'Other',test:x.test,priority:x.priority||'Routine',note:(x.note||'')+' Lifestyle CDS suggestion — clinician must confirm appropriateness.'});added++}});save(current);if(typeof renderInvestigations==='function')renderInvestigations();if(typeof status==='function')status(`${added} clinician-review investigation suggestion(s) added.`);
+  }
+
+  function skip(){
+    const o=collect();o.status='skipped';safeSet('ptiStatus','skipped');if(typeof current!=='undefined'){current.lifestyle=o;save(current)};updateKPIs(o);if(typeof status==='function')status('Detailed Prakriti & lifestyle assessment skipped for this visit.');if(typeof showExam==='function')showExam();window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function bindDynamic(){
+    qsa('[data-pti-view]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.ptiView)));
+    qsa('[data-pti-view-jump]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.ptiViewJump)));
+    qsa('[data-deha-pick]').forEach(b=>b.addEventListener('click',()=>{safeSet('ptiDehaType',b.dataset.dehaPick);updateSelectedCards();updateKPIs()}));
+    byId('ptiManasSubtype')?.addEventListener('change',()=>{updateSubtypeMeaning();updateKPIs()});
+    byId('ptiSensitiveConsent')?.addEventListener('change',updateSensitiveGate);
+    byId('ptiInterpretBtn')?.addEventListener('click',interpret);
+    byId('ptiAddToAyurvedaBtn')?.addEventListener('click',addToAyurveda);
+    byId('ptiAddInvBtn')?.addEventListener('click',addInvestigations);
+    byId('ptiSkipBtn')?.addEventListener('click',skip);
+    byId('prevLifestyleBtn')?.addEventListener('click',()=>{try{const o=collect();if(typeof current!=='undefined'){current.lifestyle=o;save(current)}}catch(_e){};if(typeof showClinical==='function')showClinical();window.scrollTo({top:0,behavior:'smooth'})});
+    byId('lifestyleSection')?.addEventListener('change',()=>updateKPIs());
+    byId('lifestyleSection')?.addEventListener('input',e=>{if(e.target.matches('input[type=number],input[type=time]'))updateKPIs()});
+  }
+
+  async function open(data={}){await restore(data);setView('overview');updateSensitiveGate()}
+  window.MAHAMAYA_LIFESTYLE_ENGINE={loadMaster,open,restore,collect,interpret,addToAyurveda,addInvestigations,state};
+  loadMaster().then(()=>{if(new URLSearchParams(location.search).get('action')==='lifestyle')setTimeout(()=>byId('tabLifestyle')?.click(),700)}).catch(()=>{});
+})();
+
+</script>
 
 <script id="v310-investigation-picker">
 (()=>{
