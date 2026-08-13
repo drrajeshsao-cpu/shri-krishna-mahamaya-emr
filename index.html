@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<title>Mahamaya Clinic EMR | General + Systemic Clinical Intelligence V3.00</title>
+<title>Mahamaya Clinic EMR | Smart Investigation Catalog V3.10</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -467,6 +467,21 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 @media print{.gei-tabbar,.gei-detail-btn,.gei-bottom-nav,.gei-actions,.gei-source-note{display:none!important}.gei-panel{display:block!important}.gei-detail-stack{display:block!important}.gei-ai-grid{grid-template-columns:1fr 1fr}}
 </style>
 
+
+<style id="v310-investigation-style">
+/* V3.10 — Smart Investigation Catalog */
+.inv-smart-card{overflow:visible}
+.inv-block{padding:4px 0 8px}
+.inv-block-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-end;margin:8px 0}
+.inv-block-head h3{margin:0;color:var(--p)}.inv-block-head small{color:#607a84}
+.investigation-entry-grid{display:grid;grid-template-columns:.85fr 1.35fr 1.35fr .8fr;gap:10px;align-items:end}
+.inv-quick-strip{display:flex;gap:7px;overflow-x:auto;padding:8px 1px 4px;scrollbar-width:thin;min-height:42px}
+.inv-quick-chip{flex:0 0 auto;border:1px solid #bcd6dd;background:#f5fafb;color:var(--p);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:800;cursor:pointer}
+.inv-quick-chip:hover,.inv-quick-chip:focus{background:#e2f1f3;outline:2px solid #8fc5ce;outline-offset:1px}
+.inv-catalog-hint{font-size:11px;color:#607a84;margin-top:4px}
+@media(max-width:1050px){.investigation-entry-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.investigation-entry-grid{grid-template-columns:1fr}.inv-quick-strip{margin-right:-6px}.inv-quick-chip{padding:9px 11px}#investigationsSection .workflow-actions{position:sticky;bottom:72px;z-index:25;background:rgba(238,246,248,.96);padding:8px;border-radius:12px;backdrop-filter:blur(8px)}}
+</style>
 </head>
 <body>
 
@@ -493,8 +508,8 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
     <div class="brand-lockup">
       <img class="brand-logo" src="./icon-192.png" alt="Mahamaya Clinic">
       <div class="brand-copy">
-        <h1>Mahamaya Clinic <span class="version-badge">V3.00</span></h1>
-        <p>General + Systemic Clinical Intelligence • SLAIE Core v1.0 • Build 2026.08.13-R5</p>
+        <h1>Mahamaya Clinic <span class="version-badge">V3.10</span></h1>
+        <p>Clinical Intelligence + Smart Investigations • SLAIE Core v1.0 • Build 2026.08.13-R6</p>
       </div>
     </div>
     <div class="header-meta">
@@ -519,7 +534,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 </nav>
 
 <div class="system-strip no-print">
-  <div id="status" class="status">App loaded successfully. V3.00 General + Systemic Clinical Intelligence + SLAIE ready.</div>
+  <div id="status" class="status">App loaded successfully. V3.10 Smart Investigation Catalog + Clinical Intelligence + SLAIE ready.</div>
   <div class="actions">
     <span id="activeRoleBadge" class="role-badge">Locked</span>
     <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -834,7 +849,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
       <h2>General Examination — Clinical Intelligence Workspace</h2>
       <div class="section-kicker">Fast general examination • focused oedema/gait/pain characterization • explainable next-step suggestions</div>
     </div>
-    <span class="evidence-badge">V3.00 • Clinician verified</span>
+    <span class="evidence-badge">V3.10 • Clinician verified</span>
   </div>
 
   <div class="notice clinical-note"><b>Clinical safety:</b> Findings and grades must be observed/entered by the clinician. The interpretation below provides pattern-based decision support and learning prompts; it does not confirm a diagnosis or replace emergency assessment, specialist judgment, validated pathways, or the original report/examination.</div>
@@ -1119,15 +1134,38 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
   <div class="section-head"><div class="slaie-brand"><div class="slaie-brand-icon">🧠</div><div><h2 class="slaie-title">SAO Lab AutoRead & Interpretation Engine — SLAIE</h2><div class="slaie-subtitle">SLAIE Core v1.0 • Omega Exact-Row Template v1.0 • upload → read → verify → interpret → archive</div></div></div><button type="button" id="openSLAIEBtn" class="primary">Open SLAIE →</button></div>
   <div class="notice"><b>Lab-specific ranges preserved:</b> SLAIE keeps the result, laboratory flag, reference range and unit from each report row. Interpretation is generated only after clinician verification.</div>
 </div>
-<div class="card"><h2>Investigations</h2>
-<div class="grid3"><div><label>Category</label><select id="prevCategory"><option>Blood</option><option>Urine</option><option>Stool</option><option>X-ray</option><option>USG</option><option>CT</option><option>MRI</option><option>ECG</option><option>Echo/Doppler</option><option>Other</option></select></div><div><label>Previous Test / Study</label><input id="prevTest"></div><div><label>Report Date</label><input id="prevDate" type="date"></div></div>
-<div class="grid"><div><label>Result Summary</label><textarea id="prevResult"></textarea></div><div><label>Interpretation / Remark</label><textarea id="prevRemark"></textarea></div></div>
-<div class="actions"><button id="addPrevBtn" class="secondary">＋ Add Previous Report</button></div><div id="previousList"></div>
-<hr>
-<div class="grid3"><div><label>Category</label><select id="advCategory"><option>Blood</option><option>Urine</option><option>X-ray</option><option>USG</option><option>CT</option><option>MRI</option><option>ECG</option><option>Echo/Doppler</option><option>Other</option></select></div><div><label>Advised Test / Study</label><input id="advTest"></div><div><label>Priority</label><select id="advPriority"><option>Routine</option><option>Urgent</option><option>Emergency</option><option>Follow-up</option></select></div></div>
-<label>Clinical Indication / Preparation</label><textarea id="advNote"></textarea>
-<div class="actions"><button id="addAdvBtn" class="secondary">＋ Add Advised Test</button></div><div id="advisedList"></div>
-<div class="actions"><button id="saveInvestigationsBtn" class="primary">💾 Save Investigations</button><button id="goAyurvedaBtn" class="secondary">Next: Ayurveda Assessment →</button><button id="goCBCBtn" class="secondary">Optional: CBC Interpreter</button></div>
+<div class="card inv-smart-card">
+  <div class="section-head"><div><h2>Smart Investigations Workspace</h2><div class="section-kicker">377 curated starter investigations • category-aware searchable suggestions • editable free text • view/protocol support</div></div><span id="invCatalogStatus" class="evidence-badge">Catalog loading…</span></div>
+  <div class="notice clinical-note"><b>Ordering safety:</b> Suggestions are terminology/documentation support, not an automatic appropriateness decision. Final test, radiographic view, CT/MRI contrast/protocol, preparation and urgency must match the clinical indication and local radiology/laboratory protocol. Review pregnancy, renal function and contrast-reaction history when relevant.</div>
+
+  <div class="inv-block">
+    <div class="inv-block-head"><div><h3>Previous Report / Study</h3><small>Choose from the catalog or type any custom test manually.</small></div></div>
+    <div class="investigation-entry-grid">
+      <div><label>Category</label><select id="prevCategory"><option>Blood</option><option>Urine</option><option>Stool</option><option>X-ray</option><option>USG</option><option>CT</option><option>MRI</option><option>ECG</option><option>Echo/Doppler</option><option>Pulmonary Function</option><option>Neurodiagnostic</option><option>Endoscopy</option><option>Pathology/Cytology</option><option>Nuclear Medicine/PET</option><option>Other</option></select></div>
+      <div><label>Test / Study — searchable & editable</label><input id="prevTest" list="prevTestOptions" autocomplete="off" placeholder="Type CBC, LFT, X-ray Knee, MRI Brain…"><datalist id="prevTestOptions"></datalist></div>
+      <div><label>View / Protocol / Variant (optional)</label><input id="prevVariant" list="prevVariantOptions" autocomplete="off" placeholder="AP + Lateral / Fasting / Non-contrast…"><datalist id="prevVariantOptions"></datalist></div>
+      <div><label>Report Date</label><input id="prevDate" type="date"></div>
+    </div>
+    <div id="prevQuickTests" class="inv-quick-strip" aria-label="Common previous investigation suggestions"></div>
+    <div class="grid"><div><label>Result Summary</label><textarea id="prevResult"></textarea></div><div><label>Interpretation / Remark</label><textarea id="prevRemark"></textarea></div></div>
+    <div class="actions"><button id="addPrevBtn" class="secondary">＋ Add Previous Report</button></div><div id="previousList"></div>
+  </div>
+
+  <hr>
+  <div class="inv-block">
+    <div class="inv-block-head"><div><h3>Advised Investigation</h3><small>Category → test → view/protocol. Manual typing remains available at every step.</small></div></div>
+    <div class="investigation-entry-grid">
+      <div><label>Category</label><select id="advCategory"><option>Blood</option><option>Urine</option><option>Stool</option><option>X-ray</option><option>USG</option><option>CT</option><option>MRI</option><option>ECG</option><option>Echo/Doppler</option><option>Pulmonary Function</option><option>Neurodiagnostic</option><option>Endoscopy</option><option>Pathology/Cytology</option><option>Nuclear Medicine/PET</option><option>Other</option></select></div>
+      <div><label>Advised Test / Study — searchable & editable</label><input id="advTest" list="advTestOptions" autocomplete="off" placeholder="Type/select investigation…"><datalist id="advTestOptions"></datalist></div>
+      <div><label>View / Protocol / Variant (optional)</label><input id="advVariant" list="advVariantOptions" autocomplete="off" placeholder="PA + Lateral / With contrast / Doppler…"><datalist id="advVariantOptions"></datalist></div>
+      <div><label>Priority</label><select id="advPriority"><option>Routine</option><option>Urgent</option><option>Emergency</option><option>Follow-up</option></select></div>
+    </div>
+    <div id="advQuickTests" class="inv-quick-strip" aria-label="Common advised investigation suggestions"></div>
+    <label>Clinical Indication / Preparation / Question for Radiology-Lab</label><textarea id="advNote" placeholder="Clinical question, site/laterality, symptom duration, relevant red flags, pregnancy/renal/contrast context, comparison requested…"></textarea>
+    <div class="actions"><button id="addAdvBtn" class="secondary">＋ Add Advised Test</button></div><div id="advisedList"></div>
+  </div>
+
+  <div class="actions workflow-actions"><button type="button" id="prevInvestigationsBtn" class="secondary workflow-prev-btn">← Previous: Assessment & Dx</button><button id="saveInvestigationsBtn" class="primary">💾 Save Investigations</button><button id="goAyurvedaBtn" class="secondary">Next: Ayurveda Assessment →</button><button id="goCBCBtn" class="secondary">Optional: CBC Interpreter</button></div>
 </div>
 </section>
 
@@ -11867,7 +11905,7 @@ function showClinical(){hideAll();$('clinicalSection').classList.remove('hidden'
 function showExam(){hideAll();$('examSection').classList.remove('hidden');setActive('tabExam');window.MAHAMAYA_GENERAL_ENGINE?.open?.(current?.exam||{})}
 function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden');setActive('tabSystemic');window.MAHAMAYA_SYSTEMIC_ENGINE?.open?.(current?.systemic||{})}
 function showAssessment(){hideAll();$('assessmentSection').classList.remove('hidden');setActive('tabAssessment');renderAssessmentContext();renderDiagnosisTerms();renderDiagnosisSearch()}
-function showInvestigations(){hideAll();$('investigationsSection').classList.remove('hidden');setActive('tabInvestigations');renderInvestigations()}
+function showInvestigations(){hideAll();$('investigationsSection').classList.remove('hidden');setActive('tabInvestigations');renderInvestigations();window.MAHAMAYA_INVESTIGATION_PICKER?.refresh?.()}
 function showSLAIE(){hideAll();$('slaieSection').classList.remove('hidden');setActive('tabSLAIE');window.dispatchEvent(new CustomEvent('mahamaya:slaie-open'))}
 function showCBC(){hideAll();$('cbcSection').classList.remove('hidden');setActive('tabCBC');populateCBC()}
 function showLabProfiles(){hideAll();$('labProfilesSection').classList.remove('hidden');setActive('tabLabProfiles');populateLabProfiles()}
@@ -11920,8 +11958,8 @@ save(current);renderMedicines();status('Medicine removed.');
 };
 
 
-$('addPrevBtn').onclick=()=>{if(!val('prevTest'))return status('Enter previous test name.',true);current.investigations.previous.push({category:val('prevCategory'),test:val('prevTest'),date:val('prevDate'),result:val('prevResult'),remark:val('prevRemark')});set('prevTest','');set('prevResult','');set('prevRemark','');save(current);renderInvestigations()};
-$('addAdvBtn').onclick=()=>{if(!val('advTest'))return status('Enter advised test name.',true);current.investigations.advised.push({category:val('advCategory'),test:val('advTest'),priority:val('advPriority'),note:val('advNote')});set('advTest','');set('advNote','');save(current);renderInvestigations()};
+$('addPrevBtn').onclick=()=>{const base=val('prevTest').trim(),variant=val('prevVariant').trim();if(!base)return status('Enter or select previous test / study.',true);const display=variant?base+' — '+variant:base;current.investigations.previous.push({category:val('prevCategory'),test:display,testBase:base,variant,date:val('prevDate'),result:val('prevResult'),remark:val('prevRemark')});set('prevTest','');set('prevVariant','');set('prevResult','');set('prevRemark','');save(current);renderInvestigations();window.MAHAMAYA_INVESTIGATION_PICKER?.refresh?.()};
+$('addAdvBtn').onclick=()=>{const base=val('advTest').trim(),variant=val('advVariant').trim();if(!base)return status('Enter or select advised test / study.',true);const display=variant?base+' — '+variant:base;current.investigations.advised.push({category:val('advCategory'),test:display,testBase:base,variant,priority:val('advPriority'),note:val('advNote')});set('advTest','');set('advVariant','');set('advNote','');save(current);renderInvestigations();window.MAHAMAYA_INVESTIGATION_PICKER?.refresh?.()};
 $('previousList').onclick=e=>{if(e.target.dataset.previdx!==undefined){current.investigations.previous.splice(Number(e.target.dataset.previdx),1);save(current);renderInvestigations()}};
 $('advisedList').onclick=e=>{if(e.target.dataset.advidx!==undefined){current.investigations.advised.splice(Number(e.target.dataset.advidx),1);save(current);renderInvestigations()}};
 
@@ -11931,6 +11969,7 @@ $('goExamBtn').onclick=()=>{readPatient();readComplaint();readClinical();save(cu
 $('goSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();save(current);showSystemic()};
 $('goAssessmentBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);showAssessment()};
 $('goInvestigationsBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();readAssessment();save(current);showInvestigations()};
+$('prevInvestigationsBtn').onclick=()=>{save(current);showAssessment()};
 $('goCBCBtn').onclick=()=>{save(current);showCBC()};
 $('goAyurvedaBtn').onclick=()=>{save(current);showAyurveda()};
 $('goLabProfilesBtn').onclick=()=>{readCBC();save(current);showLabProfiles()};
@@ -12158,7 +12197,7 @@ window.MahamayaBridge={
   esc:(x)=>esc(x)
 };
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.00 General + Systemic Clinical Intelligence + SLAIE ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.10 Smart Investigation Catalog + Clinical Intelligence + SLAIE ready.');
 })();
 </script>
 
@@ -12853,7 +12892,7 @@ renderBaseRows();bind();installBidirectionalNavigation();setTimeout(()=>open((ty
       .catch(err=>{
         console.error(err);
         const p=byId('sxSystemPanel');
-        if(p)p.innerHTML='<div class="notice red"><b>Structured examination master could not load.</b><br>Refresh once after V3.00 files are fully published. Free notes remain available below.</div>';
+        if(p)p.innerHTML='<div class="notice red"><b>Structured examination master could not load.</b><br>Refresh once after V3.10 files are fully published. Free notes remain available below.</div>';
         throw err;
       });
     return loadPromise;
@@ -13439,6 +13478,58 @@ renderBaseRows();bind();installBidirectionalNavigation();setTimeout(()=>open((ty
 })();
 </script>
 
+
+
+<script id="v310-investigation-picker">
+(()=>{
+  const $i=id=>document.getElementById(id);
+  const state={catalog:{items:[],quick:{},categories:[]},loaded:false};
+  const fallback={
+    Blood:['Complete Blood Count (CBC)','Blood Glucose','HbA1c (Glycated Hemoglobin)','Liver Function Test (LFT)','Renal / Kidney Function Test (RFT / KFT)','Lipid Profile','Thyroid Profile'],
+    Urine:['Urine Routine Examination','Urine Culture & Sensitivity','Urine Albumin-to-Creatinine Ratio (UACR)'],
+    'X-ray':['X-ray Chest','X-ray Knee','X-ray Ankle','X-ray Lumbar Spine'],
+    CT:['CT Head / Brain','CT Chest','CT Abdomen & Pelvis'],
+    MRI:['MRI Brain','MRI Cervical Spine','MRI Lumbar / Lumbosacral Spine','MRI Knee']
+  };
+  function norm(v){return String(v||'').trim().toLowerCase()}
+  function categoryItems(cat){return state.catalog.items.filter(x=>x.category===cat)}
+  function setOptions(id,values){const dl=$i(id);if(!dl)return;dl.innerHTML=[...new Set(values.filter(Boolean))].map(v=>`<option value="${String(v).replace(/&/g,'&amp;').replace(/\"/g,'&quot;').replace(/</g,'&lt;')}"></option>`).join('')}
+  function exactItem(cat,test){const n=norm(test);return categoryItems(cat).find(x=>norm(x.test)===n)||categoryItems(cat).find(x=>(x.aliases||[]).some(a=>norm(a)===n))}
+  function renderQuick(prefix){
+    const cat=$i(prefix+'Category')?.value||'Blood',box=$i(prefix+'QuickTests');if(!box)return;
+    const quick=(state.catalog.quick?.[cat]||fallback[cat]||categoryItems(cat).slice(0,10).map(x=>x.test)).slice(0,10);
+    box.innerHTML=quick.map(t=>`<button type="button" class="inv-quick-chip" data-inv-prefix="${prefix}" data-inv-test="${String(t).replace(/&/g,'&amp;').replace(/\"/g,'&quot;').replace(/</g,'&lt;')}">${t}</button>`).join('')||'<span class="inv-catalog-hint">No preset suggestions in this category — type any test manually.</span>';
+  }
+  function updateTests(prefix){
+    const cat=$i(prefix+'Category')?.value||'Blood';
+    setOptions(prefix+'TestOptions',categoryItems(cat).map(x=>x.test));
+    renderQuick(prefix);updateVariants(prefix);
+  }
+  function updateVariants(prefix){
+    const cat=$i(prefix+'Category')?.value||'',test=$i(prefix+'Test')?.value||'';
+    const item=exactItem(cat,test);
+    setOptions(prefix+'VariantOptions',item?.variants||[]);
+    const input=$i(prefix+'Variant');if(input){input.placeholder=(item?.variants||[]).length?'Choose suggested view/protocol or type custom…':'Optional — type custom view/protocol/timing…'}
+  }
+  function refresh(){updateTests('prev');updateTests('adv');const badge=$i('invCatalogStatus');if(badge)badge.textContent=state.loaded?`${state.catalog.items.length} tests • ${state.catalog.categories.length} categories`:'Manual mode • catalog unavailable'}
+  function bind(){
+    ['prev','adv'].forEach(prefix=>{
+      $i(prefix+'Category')?.addEventListener('change',()=>{if($i(prefix+'Test'))$i(prefix+'Test').value='';if($i(prefix+'Variant'))$i(prefix+'Variant').value='';updateTests(prefix)});
+      $i(prefix+'Test')?.addEventListener('input',()=>updateVariants(prefix));
+      $i(prefix+'Test')?.addEventListener('change',()=>updateVariants(prefix));
+    });
+    document.addEventListener('click',e=>{const b=e.target.closest('[data-inv-prefix][data-inv-test]');if(!b)return;const prefix=b.dataset.invPrefix,input=$i(prefix+'Test');if(input){input.value=b.dataset.invTest;updateVariants(prefix);$i(prefix+'Variant')?.focus()}});
+  }
+  async function load(){
+    try{const r=await fetch('./investigation-catalog-v1.json',{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);state.catalog=await r.json();state.loaded=Array.isArray(state.catalog.items)&&state.catalog.items.length>0}
+    catch(err){console.warn('Investigation catalog fallback mode',err);state.catalog={items:Object.entries(fallback).flatMap(([category,tests])=>tests.map(test=>({category,test,variants:[]}))),quick:fallback,categories:Object.keys(fallback)};state.loaded=false}
+    refresh();
+  }
+  bind();load();
+  if(new URLSearchParams(location.search).get('action')==='investigations')setTimeout(()=>$i('tabInvestigations')?.click(),650);
+  window.MAHAMAYA_INVESTIGATION_PICKER={refresh,load,state};
+})();
+</script>
 
 <script src="./install-pwa.js"></script>
 </body>

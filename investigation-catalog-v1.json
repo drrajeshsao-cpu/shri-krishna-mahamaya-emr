@@ -1,0 +1,3845 @@
+{
+  "version": "Investigation Catalog v1.0",
+  "build": "2026.08.13-R6",
+  "principles": [
+    "Searchable suggestions never block free-text entry.",
+    "Imaging view/protocol/contrast choices are clinician/radiologist decisions based on indication and local protocol.",
+    "For contrast imaging, review pregnancy status, renal function and contrast-reaction history when relevant.",
+    "Catalog labels are order-entry terminology, not automatic diagnoses or appropriateness determinations."
+  ],
+  "categories": [
+    "Blood",
+    "CT",
+    "ECG",
+    "Echo/Doppler",
+    "Endoscopy",
+    "MRI",
+    "Neurodiagnostic",
+    "Nuclear Medicine/PET",
+    "Other",
+    "Pathology/Cytology",
+    "Pulmonary Function",
+    "Stool",
+    "USG",
+    "Urine",
+    "X-ray"
+  ],
+  "quick": {
+    "Blood": [
+      "Complete Blood Count (CBC)",
+      "Blood Glucose",
+      "HbA1c (Glycated Hemoglobin)",
+      "Liver Function Test (LFT)",
+      "Renal / Kidney Function Test (RFT / KFT)",
+      "Lipid Profile",
+      "Thyroid Profile",
+      "C-Reactive Protein (CRP)",
+      "ESR",
+      "Iron Profile"
+    ],
+    "Urine": [
+      "Urine Routine Examination",
+      "Urine Culture & Sensitivity",
+      "Urine Albumin-to-Creatinine Ratio (UACR)",
+      "Urine Protein",
+      "Urine Pregnancy Test (hCG)"
+    ],
+    "Stool": [
+      "Stool Routine Examination",
+      "Stool Occult Blood",
+      "Stool Culture & Sensitivity",
+      "Stool Calprotectin",
+      "H. pylori Stool Antigen"
+    ],
+    "X-ray": [
+      "X-ray Chest",
+      "X-ray Cervical Spine",
+      "X-ray Lumbar Spine",
+      "X-ray Pelvis",
+      "X-ray Knee",
+      "X-ray Ankle",
+      "X-ray Foot",
+      "X-ray Shoulder",
+      "X-ray Hand",
+      "X-ray Abdomen / KUB"
+    ],
+    "USG": [
+      "USG Whole Abdomen",
+      "USG Abdomen & Pelvis",
+      "USG KUB / Renal",
+      "USG Pelvis",
+      "USG Thyroid",
+      "USG Scrotum / Testes",
+      "Venous Doppler Lower Limb",
+      "Carotid Doppler"
+    ],
+    "CT": [
+      "CT Head / Brain",
+      "CT Chest",
+      "CT Abdomen & Pelvis",
+      "CT KUB / Stone Protocol",
+      "CT Pulmonary Angiography (CTPA)",
+      "CT Cervical Spine",
+      "CT Lumbar Spine",
+      "CT Paranasal Sinuses"
+    ],
+    "MRI": [
+      "MRI Brain",
+      "MRI Cervical Spine",
+      "MRI Lumbar / Lumbosacral Spine",
+      "MRI Knee",
+      "MRI Shoulder",
+      "MRI Sacroiliac Joints",
+      "MRCP",
+      "MRI Pelvis"
+    ],
+    "ECG": [
+      "12-lead ECG",
+      "Holter Monitoring",
+      "Exercise Treadmill Test (TMT / Exercise ECG)",
+      "Ambulatory Blood Pressure Monitoring (ABPM)"
+    ],
+    "Echo/Doppler": [
+      "Transthoracic Echocardiography (TTE)",
+      "Transesophageal Echocardiography (TEE)",
+      "Stress Echocardiography",
+      "Lower Limb Venous Duplex",
+      "Carotid Duplex Doppler"
+    ],
+    "Pulmonary Function": [
+      "Spirometry",
+      "Complete Pulmonary Function Test (PFT)",
+      "6-Minute Walk Test (6MWT)",
+      "Sleep Study / Polysomnography"
+    ],
+    "Neurodiagnostic": [
+      "EEG",
+      "Nerve Conduction Study (NCS)",
+      "Electromyography (EMG)"
+    ],
+    "Endoscopy": [
+      "Upper GI Endoscopy (EGD)",
+      "Colonoscopy",
+      "ERCP",
+      "Bronchoscopy"
+    ],
+    "Pathology/Cytology": [
+      "Fine Needle Aspiration Cytology (FNAC)",
+      "Core Needle Biopsy",
+      "Histopathology",
+      "Pap Smear / Cervical Cytology"
+    ],
+    "Nuclear Medicine/PET": [
+      "PET/CT",
+      "Bone Scan / Skeletal Scintigraphy",
+      "Renal Scintigraphy",
+      "HIDA / Hepatobiliary Scan"
+    ],
+    "Other": [
+      "DEXA / DXA Bone Density",
+      "Mammography",
+      "Audiometry"
+    ]
+  },
+  "items": [
+    {
+      "category": "Blood",
+      "test": "Complete Blood Count (CBC)",
+      "variants": [
+        "CBC with differential",
+        "CBC without differential",
+        "CBC + peripheral smear review",
+        "CBC + reticulocyte count"
+      ],
+      "aliases": [
+        "hemogram",
+        "FBC"
+      ],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Hemoglobin (Hb)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Hematocrit / PCV",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Total Leukocyte Count (TLC / WBC)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Differential Leukocyte Count (DLC)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Platelet Count",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Peripheral Blood Smear (PBS)",
+      "variants": [
+        "Morphology review",
+        "Malaria parasite smear",
+        "Manual differential"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Reticulocyte Count",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "ESR",
+      "variants": [
+        "Westergren method"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "C-Reactive Protein (CRP)",
+      "variants": [
+        "Qualitative",
+        "Quantitative",
+        "High-sensitivity CRP (hs-CRP)"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Blood Glucose",
+      "variants": [
+        "Fasting plasma glucose (FPG / FBS)",
+        "Post-prandial glucose (PPBS, 2-hour)",
+        "Random plasma glucose (RPG / RBS)",
+        "Pre-meal glucose",
+        "2-hour post-meal glucose"
+      ],
+      "aliases": [
+        "blood sugar"
+      ],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Oral Glucose Tolerance Test (OGTT)",
+      "variants": [
+        "75 g, fasting + 2-hour",
+        "Pregnancy protocol per local guideline"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "HbA1c (Glycated Hemoglobin)",
+      "variants": [
+        "HbA1c + estimated average glucose (eAG)"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Serum Insulin",
+      "variants": [
+        "Fasting insulin",
+        "Post-prandial insulin"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "C-Peptide",
+      "variants": [
+        "Fasting",
+        "Stimulated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Ketones / Beta-Hydroxybutyrate",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Liver Function Test (LFT)",
+      "variants": [
+        "Bilirubin + AST/ALT + ALP + proteins",
+        "Expanded LFT incl. GGT"
+      ],
+      "aliases": [
+        "liver profile"
+      ],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Total Bilirubin",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Direct Bilirubin",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Indirect Bilirubin",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "AST (SGOT)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "ALT (SGPT)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Alkaline Phosphatase (ALP)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Gamma-Glutamyl Transferase (GGT)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Total Protein",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Albumin",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Globulin",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "A/G Ratio",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "LDH",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Renal / Kidney Function Test (RFT / KFT)",
+      "variants": [
+        "Urea + Creatinine + eGFR",
+        "Expanded RFT incl. electrolytes"
+      ],
+      "aliases": [
+        "renal profile"
+      ],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Serum Urea",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Blood Urea Nitrogen (BUN)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Serum Creatinine",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Estimated GFR (eGFR)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Serum Uric Acid",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Cystatin C",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Electrolyte Panel",
+      "variants": [
+        "Sodium + Potassium + Chloride",
+        "Electrolytes + Bicarbonate",
+        "Expanded electrolytes incl. Calcium/Magnesium/Phosphate"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Sodium (Na+)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Potassium (K+)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Chloride (Cl-)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Bicarbonate / Total CO2",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Calcium",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Ionized Calcium",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Magnesium",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Phosphate / Phosphorus",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Lipid Profile",
+      "variants": [
+        "Fasting lipid profile",
+        "Non-fasting lipid profile"
+      ],
+      "aliases": [
+        "cholesterol panel"
+      ],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Total Cholesterol",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "LDL Cholesterol",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "HDL Cholesterol",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Triglycerides",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Non-HDL Cholesterol",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Apolipoprotein B (ApoB)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Lipoprotein(a) [Lp(a)]",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Thyroid Profile",
+      "variants": [
+        "TSH only",
+        "TSH + Free T4",
+        "TSH + Free T4 + Free T3",
+        "Total T3 + Total T4 + TSH"
+      ],
+      "aliases": [
+        "TFT"
+      ],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "TSH",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Free T4 (FT4)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Free T3 (FT3)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Total T4",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Total T3",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Anti-TPO Antibody",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Anti-Thyroglobulin Antibody",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "TSH Receptor Antibody (TRAb)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Iron Profile",
+      "variants": [
+        "Serum iron + TIBC + transferrin saturation",
+        "Iron profile + ferritin"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Serum Iron",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Ferritin",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Total Iron Binding Capacity (TIBC)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Transferrin",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Transferrin Saturation",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Vitamin B12",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Folate",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "25-OH Vitamin D",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Vitamin A",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Vitamin E",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Zinc",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Copper",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Ceruloplasmin",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Coagulation Profile",
+      "variants": [
+        "PT/INR + aPTT",
+        "PT/INR + aPTT + fibrinogen"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Prothrombin Time (PT)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "INR",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Activated Partial Thromboplastin Time (aPTT)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Fibrinogen",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "D-Dimer",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Cardiac Biomarkers",
+      "variants": [
+        "High-sensitivity Troponin I",
+        "High-sensitivity Troponin T",
+        "Troponin + CK-MB"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Troponin I",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Troponin T",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "CK-MB",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "BNP",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "NT-proBNP",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Pancreatic Enzymes",
+      "variants": [
+        "Serum Lipase",
+        "Serum Amylase",
+        "Amylase + Lipase"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Serum Amylase",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Serum Lipase",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Arterial Blood Gas (ABG)",
+      "variants": [
+        "ABG + lactate",
+        "ABG + electrolytes"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Venous Blood Gas (VBG)",
+      "variants": [
+        "VBG + lactate"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Serum Lactate",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Procalcitonin",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Blood Culture",
+      "variants": [
+        "Aerobic",
+        "Aerobic + anaerobic",
+        "Paired sets before antibiotics when appropriate"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Malaria Test",
+      "variants": [
+        "Peripheral smear",
+        "Rapid antigen test"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Dengue Testing",
+      "variants": [
+        "NS1 antigen",
+        "IgM antibody",
+        "IgG antibody",
+        "NS1 + IgM"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "HIV Testing",
+      "variants": [
+        "HIV-1/2 antigen-antibody test",
+        "HIV antibody test",
+        "HIV nucleic acid test when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Hepatitis B Panel",
+      "variants": [
+        "HBsAg",
+        "HBsAg + anti-HBs + total anti-HBc",
+        "HBV DNA when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Hepatitis C Testing",
+      "variants": [
+        "Anti-HCV antibody",
+        "HCV RNA when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "VDRL / RPR (Syphilis Screening)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "ANA (Antinuclear Antibody)",
+      "variants": [
+        "ANA by IFA",
+        "ANA profile / ENA as indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Rheumatoid Factor (RF)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Anti-CCP Antibody",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "HLA-B27",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Complement C3 / C4",
+      "variants": [
+        "C3",
+        "C4",
+        "C3 + C4"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Creatine Kinase (CK / CPK)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Aldolase",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Serum Protein Electrophoresis (SPEP)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Immunofixation Electrophoresis",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Serum Free Light Chains",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "PSA",
+      "variants": [
+        "Total PSA",
+        "Free PSA",
+        "Total + Free PSA"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "CA-125",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "CEA",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "AFP (Alpha-fetoprotein)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "CA 19-9",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Beta-hCG",
+      "variants": [
+        "Qualitative",
+        "Quantitative"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Cortisol",
+      "variants": [
+        "8 AM serum cortisol",
+        "Random cortisol",
+        "Post-dexamethasone cortisol when protocol requires"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "ACTH",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Prolactin",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "FSH",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "LH",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Estradiol (E2)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Progesterone",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Testosterone",
+      "variants": [
+        "Total testosterone",
+        "Free testosterone",
+        "Total + SHBG"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Parathyroid Hormone (PTH)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Serum Osmolality",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Ammonia",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": "Interpret only in the appropriate clinical context; not a standalone diagnosis of hepatic encephalopathy."
+    },
+    {
+      "category": "Blood",
+      "test": "Lead Level",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Blood",
+      "test": "Drug Level / Therapeutic Drug Monitoring",
+      "variants": [
+        "Lithium",
+        "Digoxin",
+        "Valproate",
+        "Carbamazepine",
+        "Phenytoin",
+        "Other — type manually"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Routine Examination",
+      "variants": [
+        "Dipstick",
+        "Routine + microscopy (R/M)"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Microscopy",
+      "variants": [
+        "RBC/WBC/casts/crystals"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Culture & Sensitivity",
+      "variants": [
+        "Midstream clean-catch",
+        "Catheter specimen when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Protein",
+      "variants": [
+        "Dipstick",
+        "Quantitative"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Albumin-to-Creatinine Ratio (UACR)",
+      "variants": [
+        "Spot urine"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Protein-to-Creatinine Ratio (UPCR)",
+      "variants": [
+        "Spot urine"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "24-hour Urine Protein",
+      "variants": [
+        "24-hour collection"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Glucose",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Ketones",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Pregnancy Test (hCG)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Sodium",
+      "variants": [
+        "Spot urine"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Potassium",
+      "variants": [
+        "Spot urine"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Osmolality",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Uric Acid",
+      "variants": [
+        "Spot",
+        "24-hour"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Calcium",
+      "variants": [
+        "Spot Ca/Cr ratio",
+        "24-hour"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Creatinine",
+      "variants": [
+        "Spot",
+        "24-hour"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Microalbumin",
+      "variants": [
+        "Spot"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Cytology",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine AFB / Mycobacterial Testing",
+      "variants": [
+        "As per TB protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Toxicology Screen",
+      "variants": [
+        "Panel — specify drugs"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Metanephrines",
+      "variants": [
+        "24-hour"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Urine",
+      "test": "Urine Free Cortisol",
+      "variants": [
+        "24-hour"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Stool",
+      "test": "Stool Routine Examination",
+      "variants": [
+        "Macroscopy + microscopy"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Stool",
+      "test": "Stool Occult Blood",
+      "variants": [
+        "FIT",
+        "Guaiac-based"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Stool",
+      "test": "Stool Culture & Sensitivity",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Stool",
+      "test": "Stool Ova & Parasite Examination",
+      "variants": [
+        "Single sample",
+        "Serial samples when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Stool",
+      "test": "Stool Calprotectin",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Stool",
+      "test": "Stool Lactoferrin",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Stool",
+      "test": "Stool Reducing Substances",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Stool",
+      "test": "Stool Fat",
+      "variants": [
+        "Qualitative",
+        "Quantitative"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Stool",
+      "test": "Stool Pancreatic Elastase",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Stool",
+      "test": "C. difficile Testing",
+      "variants": [
+        "Toxin / NAAT per local algorithm"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Stool",
+      "test": "H. pylori Stool Antigen",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Stool",
+      "test": "Stool Rotavirus Antigen",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Stool",
+      "test": "Stool Giardia Antigen",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Stool",
+      "test": "Stool Cryptosporidium Antigen",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Chest",
+      "variants": [
+        "PA",
+        "PA + Lateral",
+        "AP portable",
+        "AP",
+        "Lateral",
+        "Right lateral decubitus",
+        "Left lateral decubitus"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Abdomen / KUB",
+      "variants": [
+        "AP supine (KUB)",
+        "AP erect",
+        "Supine + Erect",
+        "Left lateral decubitus"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Cervical Spine",
+      "variants": [
+        "AP + Lateral",
+        "AP + Lateral + Open-mouth odontoid",
+        "AP + Lateral + Obliques",
+        "Flexion + Extension",
+        "Swimmer’s view when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Thoracic Spine",
+      "variants": [
+        "AP + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Lumbar Spine",
+      "variants": [
+        "AP + Lateral",
+        "AP + Lateral + Obliques",
+        "Flexion + Extension",
+        "Standing AP + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Lumbosacral Spine",
+      "variants": [
+        "AP + Lateral",
+        "AP + Lateral + Obliques",
+        "Flexion + Extension"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Sacrum / Coccyx",
+      "variants": [
+        "AP + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray SI Joints",
+      "variants": [
+        "AP",
+        "AP + Obliques"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Pelvis",
+      "variants": [
+        "AP",
+        "AP pelvis + frog-leg hips when appropriate"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Hip",
+      "variants": [
+        "AP + Lateral",
+        "AP + Frog-leg lateral",
+        "AP + Cross-table lateral (trauma)"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Femur",
+      "variants": [
+        "AP + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Knee",
+      "variants": [
+        "AP + Lateral",
+        "Weight-bearing AP + Lateral",
+        "AP + Lateral + Skyline/Sunrise",
+        "AP + Lateral + Tunnel/Notch",
+        "Bilateral standing AP"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Leg / Tibia-Fibula",
+      "variants": [
+        "AP + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Ankle",
+      "variants": [
+        "AP + Mortise + Lateral",
+        "AP + Lateral",
+        "Weight-bearing AP + Mortise + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Foot",
+      "variants": [
+        "DP/AP + Oblique + Lateral",
+        "Weight-bearing DP + Oblique + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Calcaneum",
+      "variants": [
+        "Axial + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Toes",
+      "variants": [
+        "AP + Oblique + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Shoulder",
+      "variants": [
+        "AP + Axillary + Scapular Y",
+        "AP + Grashey + Axillary",
+        "AP internal + external rotation"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Clavicle",
+      "variants": [
+        "AP + AP axial"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray AC Joint",
+      "variants": [
+        "Bilateral AP comparison",
+        "With/without weights only if locally indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Humerus",
+      "variants": [
+        "AP + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Elbow",
+      "variants": [
+        "AP + Lateral",
+        "AP + Lateral + Oblique"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Forearm",
+      "variants": [
+        "AP + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Wrist",
+      "variants": [
+        "PA + Oblique + Lateral",
+        "Scaphoid series when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Hand",
+      "variants": [
+        "PA + Oblique + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Fingers",
+      "variants": [
+        "PA/AP + Oblique + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Thumb",
+      "variants": [
+        "AP + Oblique + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Skull",
+      "variants": [
+        "AP/PA + Lateral",
+        "Towne view when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Paranasal Sinuses",
+      "variants": [
+        "Waters (occipitomental)",
+        "Caldwell (PA axial)",
+        "Lateral",
+        "Waters + Caldwell + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Nasal Bones",
+      "variants": [
+        "Lateral views"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Mandible",
+      "variants": [
+        "PA + Obliques",
+        "Panoramic radiograph (OPG)"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray TMJ",
+      "variants": [
+        "Open + closed mouth views"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Neck Soft Tissue",
+      "variants": [
+        "AP + Lateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Ribs",
+      "variants": [
+        "PA chest + oblique rib views",
+        "Unilateral rib series"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Sternum",
+      "variants": [
+        "Lateral + oblique"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Scapula",
+      "variants": [
+        "AP + Lateral/Y"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Bone Age",
+      "variants": [
+        "Left hand + wrist PA"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "X-ray",
+      "test": "X-ray Skeletal Survey",
+      "variants": [
+        "Adult skeletal survey protocol",
+        "Pediatric skeletal survey protocol — specialist indication"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Whole Abdomen",
+      "variants": [
+        "Grayscale",
+        "Grayscale + Doppler when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Upper Abdomen / Hepatobiliary",
+      "variants": [
+        "Liver + gallbladder + biliary tree",
+        "With portal/hepatic Doppler when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Abdomen & Pelvis",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Pelvis",
+      "variants": [
+        "Transabdominal",
+        "Transvaginal (TVS) when appropriate"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG KUB / Renal",
+      "variants": [
+        "Kidneys + ureters visualized + bladder",
+        "Pre/post-void bladder volume"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Prostate",
+      "variants": [
+        "Transabdominal",
+        "Transrectal when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Scrotum / Testes",
+      "variants": [
+        "Gray scale + color Doppler"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Thyroid",
+      "variants": [
+        "Gray scale + Doppler"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Neck",
+      "variants": [
+        "Soft tissue / nodes"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Breast",
+      "variants": [
+        "Targeted",
+        "Bilateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Axilla",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Soft Tissue / Lump",
+      "variants": [
+        "Targeted region"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Musculoskeletal",
+      "variants": [
+        "Shoulder",
+        "Elbow",
+        "Wrist/Hand",
+        "Hip",
+        "Knee",
+        "Ankle/Foot",
+        "Muscle/Tendon — type site"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Pleura / Chest",
+      "variants": [
+        "Pleural fluid / chest wall"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Appendix / RLQ",
+      "variants": [
+        "Targeted"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Hernia",
+      "variants": [
+        "Inguinal",
+        "Umbilical/Ventral",
+        "Dynamic with Valsalva"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Obstetric",
+      "variants": [
+        "Early pregnancy",
+        "Dating/viability",
+        "NT scan",
+        "Anomaly scan",
+        "Growth scan",
+        "Biophysical profile",
+        "Obstetric Doppler"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "Follicular Monitoring",
+      "variants": [
+        "Serial transvaginal ultrasound"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "USG Uterus & Adnexa",
+      "variants": [
+        "TA",
+        "TVS"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "Saline Infusion Sonography / Sonohysterography",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "Carotid Doppler",
+      "variants": [
+        "Duplex"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "Venous Doppler Lower Limb",
+      "variants": [
+        "Unilateral",
+        "Bilateral",
+        "DVT study"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "Arterial Doppler Lower Limb",
+      "variants": [
+        "Unilateral",
+        "Bilateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "Venous Doppler Upper Limb",
+      "variants": [
+        "Unilateral",
+        "Bilateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "Arterial Doppler Upper Limb",
+      "variants": [
+        "Unilateral",
+        "Bilateral"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "Renal Artery Doppler",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "Portal Venous Doppler",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "Hepatic Vein Doppler",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "Aortic / Abdominal Vascular Ultrasound",
+      "variants": [
+        "AAA screening / measurement"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "USG",
+      "test": "Transcranial Doppler",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Head / Brain",
+      "variants": [
+        "Non-contrast (NCCT)",
+        "With IV contrast",
+        "With and without IV contrast",
+        "Stroke protocol / CT perfusion + CTA when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Paranasal Sinuses",
+      "variants": [
+        "Non-contrast thin-section"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Temporal Bones",
+      "variants": [
+        "High-resolution non-contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Orbits",
+      "variants": [
+        "Without contrast",
+        "With IV contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Face / Maxillofacial",
+      "variants": [
+        "Non-contrast trauma protocol",
+        "With contrast for infection/mass when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Neck",
+      "variants": [
+        "With IV contrast",
+        "Without contrast",
+        "CTA neck"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Chest",
+      "variants": [
+        "Non-contrast",
+        "With IV contrast",
+        "High-resolution CT (HRCT)",
+        "Low-dose CT when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Pulmonary Angiography (CTPA)",
+      "variants": [
+        "IV contrast PE protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Coronary Calcium Score",
+      "variants": [
+        "Non-contrast ECG-gated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "Coronary CT Angiography (CCTA)",
+      "variants": [
+        "ECG-gated IV contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Aortogram / CTA Aorta",
+      "variants": [
+        "Chest",
+        "Abdomen",
+        "Chest + Abdomen + Pelvis"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Abdomen",
+      "variants": [
+        "Without contrast",
+        "With IV contrast",
+        "With oral + IV contrast per indication",
+        "Multiphasic liver protocol when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Abdomen & Pelvis",
+      "variants": [
+        "Without contrast",
+        "With IV contrast",
+        "With oral + IV contrast per indication"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT KUB / Stone Protocol",
+      "variants": [
+        "Non-contrast low-dose when appropriate"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Urography",
+      "variants": [
+        "Multiphasic contrast protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Enterography",
+      "variants": [
+        "Enteric + IV contrast protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Colonography",
+      "variants": [
+        "CT virtual colonoscopy protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Pancreas",
+      "variants": [
+        "Pancreatic protocol with contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Liver",
+      "variants": [
+        "Multiphasic liver protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Adrenal",
+      "variants": [
+        "Adrenal protocol / washout when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Pelvis",
+      "variants": [
+        "Without contrast",
+        "With IV contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Cervical Spine",
+      "variants": [
+        "Non-contrast bone protocol",
+        "With contrast when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Thoracic Spine",
+      "variants": [
+        "Non-contrast bone protocol",
+        "With contrast when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Lumbar Spine",
+      "variants": [
+        "Non-contrast bone protocol",
+        "With contrast when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Whole Spine",
+      "variants": [
+        "Trauma / specified protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Shoulder",
+      "variants": [
+        "Non-contrast",
+        "CT arthrogram when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Elbow",
+      "variants": [
+        "Non-contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Wrist / Hand",
+      "variants": [
+        "Non-contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Hip / Pelvis Bone",
+      "variants": [
+        "Non-contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Knee",
+      "variants": [
+        "Non-contrast",
+        "CT arthrogram when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Ankle / Foot",
+      "variants": [
+        "Non-contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Angiography Head",
+      "variants": [
+        "Intracranial CTA"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Venography Head",
+      "variants": [
+        "CTV"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Angiography Lower Limbs",
+      "variants": [
+        "Runoff study"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Angiography Upper Limbs",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Mesenteric Angiography",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT Renal Angiography",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "CT 3D Reconstruction",
+      "variants": [
+        "Add-on to selected CT dataset"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "CT",
+      "test": "Dental Cone Beam CT (CBCT)",
+      "variants": [
+        "Maxilla",
+        "Mandible",
+        "TMJ / dental region"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Brain",
+      "variants": [
+        "Without contrast",
+        "With and without contrast",
+        "Stroke/DWI protocol",
+        "Epilepsy protocol",
+        "Demyelination protocol",
+        "Tumor protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Pituitary / Sella",
+      "variants": [
+        "With and without contrast dynamic pituitary protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Orbits",
+      "variants": [
+        "With and without contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Internal Auditory Canals (IAC)",
+      "variants": [
+        "With and without contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRA Brain",
+      "variants": [
+        "TOF non-contrast",
+        "Contrast-enhanced when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MR Venography Brain (MRV)",
+      "variants": [
+        "Non-contrast",
+        "Contrast-enhanced when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Cervical Spine",
+      "variants": [
+        "Without contrast",
+        "With and without contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Thoracic Spine",
+      "variants": [
+        "Without contrast",
+        "With and without contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Lumbar / Lumbosacral Spine",
+      "variants": [
+        "Without contrast",
+        "With and without contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Whole Spine",
+      "variants": [
+        "Screening protocol",
+        "With contrast when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Sacroiliac Joints",
+      "variants": [
+        "Inflammatory sacroiliitis protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Brachial Plexus",
+      "variants": [
+        "With and without contrast when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Lumbosacral Plexus",
+      "variants": [
+        "With and without contrast when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Shoulder",
+      "variants": [
+        "Without contrast",
+        "MR arthrogram"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Elbow",
+      "variants": [
+        "Without contrast",
+        "MR arthrogram"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Wrist / Hand",
+      "variants": [
+        "Without contrast",
+        "With contrast when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Hip",
+      "variants": [
+        "Without contrast",
+        "MR arthrogram"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Knee",
+      "variants": [
+        "Without contrast",
+        "With contrast when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Ankle / Foot",
+      "variants": [
+        "Without contrast",
+        "With contrast when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Abdomen",
+      "variants": [
+        "Without contrast",
+        "With and without contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRCP",
+      "variants": [
+        "Non-contrast MRCP",
+        "Contrast-enhanced MRI/MRCP when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Liver",
+      "variants": [
+        "With and without contrast liver protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Pancreas",
+      "variants": [
+        "With and without contrast / MRCP"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MR Enterography",
+      "variants": [
+        "Enterography protocol with contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MR Urography",
+      "variants": [
+        "Without contrast",
+        "With contrast when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Pelvis",
+      "variants": [
+        "Without contrast",
+        "With and without contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Female Pelvis",
+      "variants": [
+        "Uterus/adnexa protocol",
+        "Endometriosis protocol when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Prostate",
+      "variants": [
+        "Multiparametric prostate MRI"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Rectum",
+      "variants": [
+        "Rectal cancer staging protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MR Defecography",
+      "variants": [
+        "Pelvic floor protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "Cardiac MRI",
+      "variants": [
+        "Function/viability protocol",
+        "Cardiomyopathy protocol",
+        "Stress perfusion when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRA Aorta",
+      "variants": [
+        "Contrast-enhanced or noncontrast per protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRA Renal Arteries",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRA Lower Limbs",
+      "variants": [
+        "Runoff"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MR Venography",
+      "variants": [
+        "Region-specific — type manually"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Chest",
+      "variants": [
+        "With and without contrast when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Neck",
+      "variants": [
+        "With and without contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Soft Tissue Mass",
+      "variants": [
+        "Region-specific, with and without contrast when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "MRI",
+      "test": "MRI Temporomandibular Joint (TMJ)",
+      "variants": [
+        "Open/closed mouth protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "ECG",
+      "test": "12-lead ECG",
+      "variants": [
+        "Resting ECG"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "ECG",
+      "test": "Rhythm Strip",
+      "variants": [
+        "Single / multi-lead"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "ECG",
+      "test": "Holter Monitoring",
+      "variants": [
+        "24-hour",
+        "48-hour",
+        "72-hour",
+        "Extended ambulatory monitor"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "ECG",
+      "test": "Event Monitor",
+      "variants": [
+        "Patient-activated / auto-triggered"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "ECG",
+      "test": "Ambulatory Blood Pressure Monitoring (ABPM)",
+      "variants": [
+        "24-hour"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "ECG",
+      "test": "Exercise Treadmill Test (TMT / Exercise ECG)",
+      "variants": [
+        "Bruce protocol / local protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "ECG",
+      "test": "Signal-averaged ECG",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Echo/Doppler",
+      "test": "Transthoracic Echocardiography (TTE)",
+      "variants": [
+        "2D + M-mode + Doppler",
+        "Comprehensive TTE",
+        "Focused TTE"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Echo/Doppler",
+      "test": "Transesophageal Echocardiography (TEE)",
+      "variants": [
+        "2D/3D as indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Echo/Doppler",
+      "test": "Stress Echocardiography",
+      "variants": [
+        "Exercise",
+        "Dobutamine"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Echo/Doppler",
+      "test": "Contrast Echocardiography",
+      "variants": [
+        "Ultrasound enhancing agent when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Echo/Doppler",
+      "test": "Bubble Study",
+      "variants": [
+        "Agitated saline contrast"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Echo/Doppler",
+      "test": "Fetal Echocardiography",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Echo/Doppler",
+      "test": "Carotid Duplex Doppler",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Echo/Doppler",
+      "test": "Lower Limb Venous Duplex",
+      "variants": [
+        "DVT study",
+        "Venous insufficiency/reflux study"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Echo/Doppler",
+      "test": "Lower Limb Arterial Duplex",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Echo/Doppler",
+      "test": "Upper Limb Venous Duplex",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Echo/Doppler",
+      "test": "Upper Limb Arterial Duplex",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Echo/Doppler",
+      "test": "Renal Artery Doppler",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Echo/Doppler",
+      "test": "Portal / Hepatic Doppler",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pulmonary Function",
+      "test": "Spirometry",
+      "variants": [
+        "Pre-bronchodilator",
+        "Pre + post bronchodilator"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pulmonary Function",
+      "test": "Complete Pulmonary Function Test (PFT)",
+      "variants": [
+        "Spirometry + lung volumes + DLCO"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pulmonary Function",
+      "test": "Peak Expiratory Flow (PEF)",
+      "variants": [
+        "Single measurement",
+        "Serial diary"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pulmonary Function",
+      "test": "6-Minute Walk Test (6MWT)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pulmonary Function",
+      "test": "Pulse Oximetry",
+      "variants": [
+        "Resting",
+        "Ambulatory/exertional"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pulmonary Function",
+      "test": "Sleep Study / Polysomnography",
+      "variants": [
+        "Diagnostic PSG",
+        "Split-night when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pulmonary Function",
+      "test": "Home Sleep Apnea Test",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Neurodiagnostic",
+      "test": "EEG",
+      "variants": [
+        "Routine EEG",
+        "Sleep-deprived EEG",
+        "Video EEG monitoring"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Neurodiagnostic",
+      "test": "Nerve Conduction Study (NCS)",
+      "variants": [
+        "Upper limb",
+        "Lower limb",
+        "Region-specific"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Neurodiagnostic",
+      "test": "Electromyography (EMG)",
+      "variants": [
+        "Needle EMG + NCS"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Neurodiagnostic",
+      "test": "Evoked Potentials",
+      "variants": [
+        "VEP",
+        "BAER/BERA",
+        "SSEP"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Neurodiagnostic",
+      "test": "Autonomic Function Testing",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Endoscopy",
+      "test": "Upper GI Endoscopy (EGD)",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Endoscopy",
+      "test": "Colonoscopy",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Endoscopy",
+      "test": "Flexible Sigmoidoscopy",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Endoscopy",
+      "test": "ERCP",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Endoscopy",
+      "test": "Endoscopic Ultrasound (EUS)",
+      "variants": [
+        "Upper GI/pancreatobiliary"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Endoscopy",
+      "test": "Bronchoscopy",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Endoscopy",
+      "test": "Cystoscopy",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Endoscopy",
+      "test": "Hysteroscopy",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Endoscopy",
+      "test": "Laryngoscopy",
+      "variants": [
+        "Flexible nasolaryngoscopy"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pathology/Cytology",
+      "test": "Fine Needle Aspiration Cytology (FNAC)",
+      "variants": [
+        "Site-specific"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pathology/Cytology",
+      "test": "Core Needle Biopsy",
+      "variants": [
+        "Site-specific"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pathology/Cytology",
+      "test": "Histopathology",
+      "variants": [
+        "Biopsy specimen",
+        "Excision specimen"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pathology/Cytology",
+      "test": "Pap Smear / Cervical Cytology",
+      "variants": [
+        "Conventional",
+        "Liquid-based cytology"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pathology/Cytology",
+      "test": "Bone Marrow Aspiration",
+      "variants": [
+        "Aspirate"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pathology/Cytology",
+      "test": "Bone Marrow Biopsy",
+      "variants": [
+        "Trephine biopsy"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pathology/Cytology",
+      "test": "Flow Cytometry",
+      "variants": [
+        "Specimen-specific"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Pathology/Cytology",
+      "test": "Immunohistochemistry Panel",
+      "variants": [
+        "Pathologist-directed"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Nuclear Medicine/PET",
+      "test": "PET/CT",
+      "variants": [
+        "FDG PET/CT",
+        "Other tracer — specify"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Nuclear Medicine/PET",
+      "test": "Bone Scan / Skeletal Scintigraphy",
+      "variants": [
+        "Whole body"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Nuclear Medicine/PET",
+      "test": "Thyroid Scan & Uptake",
+      "variants": [
+        "Iodine / technetium per protocol"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Nuclear Medicine/PET",
+      "test": "Renal Scintigraphy",
+      "variants": [
+        "MAG3/DTPA dynamic",
+        "DMSA cortical"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Nuclear Medicine/PET",
+      "test": "HIDA / Hepatobiliary Scan",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Nuclear Medicine/PET",
+      "test": "Myocardial Perfusion SPECT",
+      "variants": [
+        "Stress/rest"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Nuclear Medicine/PET",
+      "test": "V/Q Lung Scan",
+      "variants": [
+        "Ventilation/perfusion"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Nuclear Medicine/PET",
+      "test": "Lymphoscintigraphy",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Other",
+      "test": "DEXA / DXA Bone Density",
+      "variants": [
+        "Lumbar spine + hip",
+        "Forearm when indicated"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Other",
+      "test": "Mammography",
+      "variants": [
+        "Screening bilateral",
+        "Diagnostic",
+        "Tomosynthesis when available"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Other",
+      "test": "Audiometry",
+      "variants": [
+        "Pure tone audiometry",
+        "Speech audiometry"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Other",
+      "test": "Tympanometry",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Other",
+      "test": "Visual Field Testing",
+      "variants": [
+        "Automated perimetry"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Other",
+      "test": "OCT Eye",
+      "variants": [
+        "Retina",
+        "Optic nerve"
+      ],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    },
+    {
+      "category": "Other",
+      "test": "Slit Lamp Examination",
+      "variants": [],
+      "aliases": [],
+      "tags": [],
+      "note": ""
+    }
+  ]
+}
