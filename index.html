@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<title>Mahamaya Clinic EMR | Advanced Complaint Phenotyping V3.40</title>
+<title>Mahamaya Clinic EMR | Expanded Complaint Search V3.50</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -257,7 +257,7 @@ body{background:linear-gradient(180deg,#eef7f8 0,#f7fbfc 38%,#f2f7f8 100%)}
 @media(max-width:520px){.pti-summary-strip{grid-template-columns:1fr 1fr}.pti-scale-row{grid-template-columns:1fr}.pti-meal-grid{grid-template-columns:1fr}.pti-meal-grid .pti-meal-detail{grid-column:auto}}
 
 
-/* V3.40 — Advanced Complaint Phenotyping + global form alignment polish */
+/* V3.50 — Expanded complaint/symptom typeahead library + system filtering */
 :root{--ci-teal:#0b7285;--ci-deep:#075d68;--ci-soft:#eef9fa;--ci-line:#cfe3e7;--ci-warn:#fff7dc;--ci-danger:#fff0ef}
 .grid>div,.grid3>div{min-width:0}
 label{line-height:1.25}
@@ -597,8 +597,8 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
     <div class="brand-lockup">
       <img class="brand-logo" src="./icon-192.png" alt="Mahamaya Clinic">
       <div class="brand-copy">
-        <h1>Mahamaya Clinic <span class="version-badge">V3.40</span></h1>
-        <p>Advanced Complaint Phenotyping • Research Prakriti • Smart Investigations • SLAIE Core v1.0 • Build 2026.08.14-R9</p>
+        <h1>Mahamaya Clinic <span class="version-badge">V3.50</span></h1>
+        <p>Expanded Complaint Search • Advanced Phenotyping • Research Prakriti • Smart Investigations • SLAIE Core v1.0 • Build 2026.08.14-R10</p>
       </div>
     </div>
     <div class="header-meta">
@@ -623,7 +623,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 </nav>
 
 <div class="system-strip no-print">
-  <div id="status" class="status">App loaded successfully. V3.40 Advanced Complaint Phenotyping + Research Prakriti + Smart Investigations + SLAIE ready.</div>
+  <div id="status" class="status">App loaded successfully. V3.50 Expanded Complaint Search + Advanced Phenotyping + Research Prakriti + Smart Investigations + SLAIE ready.</div>
   <div class="actions">
     <span id="activeRoleBadge" class="role-badge">Locked</span>
     <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -895,12 +895,14 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 <div class="grid complaint-top-grid">
   <div>
     <label>Primary Complaint / Symptom *</label>
-    <div class="smart-search-wrap"><input id="primaryComplaint" autocomplete="off" placeholder="Type any symptom, disease, Ayurveda term or patient wording…"><div id="complaintSearchResults" class="smart-results hidden"></div></div>
-    <div class="complaint-library-meta"><span id="complaintLibraryCount">Loading terminology…</span><span>Free typing always allowed</span><span>Saved custom terms reusable</span></div>
+    <div class="smart-search-wrap"><input id="primaryComplaint" autocomplete="off" placeholder="Start typing: cough, pain, swelling, dizziness, burning urination…"><div id="complaintSearchResults" class="smart-results hidden"></div></div>
+    <div class="complaint-library-meta"><span id="complaintLibraryCount">Loading complaint library…</span><span>Typeahead starts from the first character</span><span>Free typing always allowed</span><span>Saved custom terms reusable</span></div>
   </div>
   <div>
-    <label>Search Scope</label>
-    <select id="complaintSearchScope"><option value="all">All clinical terms</option><option value="symptom">Symptoms / complaints</option><option value="condition">Diseases / conditions</option><option value="ayurveda">Ayurveda terms</option><option value="custom">My saved terms</option></select>
+    <div class="grid" style="gap:8px">
+      <div><label>Search Scope</label><select id="complaintSearchScope"><option value="symptom" selected>Symptoms / complaints</option><option value="all">All clinical terms</option><option value="condition">Diseases / conditions</option><option value="ayurveda">Ayurveda terms</option><option value="custom">My saved terms</option></select></div>
+      <div><label>Body System</label><select id="complaintSystemFilter"><option value="">All systems</option></select></div>
+    </div>
     <div id="complaintQuickChips" class="quick-term-row" style="margin-top:7px"></div>
   </div>
 </div>
@@ -10750,9 +10752,12 @@ function mergeClinicalTerminology(remote=[]){
   const merged=[...customClinicalTerms(),...base];const seen=new Set();clinicalTerminology=merged.filter(x=>{const k=normalizeTerm(x.label)+'|'+(x.type||'');if(seen.has(k))return false;seen.add(k);return true});
   clinicalTermByLabel=new Map(clinicalTerminology.map(x=>[normalizeTerm(x.label),x]));
 }
+function complaintSymptomCount(){return clinicalTerminology.filter(x=>x.type==='symptom').length}
+function renderComplaintLibraryMeta(){if(!$('complaintLibraryCount'))return;const symptoms=complaintSymptomCount(),total=clinicalTerminology.length;$('complaintLibraryCount').textContent=`${symptoms.toLocaleString('en-IN')} symptom/complaint terms • ${total.toLocaleString('en-IN')} total clinical terms`;}
+function renderComplaintSystemFilter(){const el=$('complaintSystemFilter');if(!el)return;const keep=el.value;const systems=[...new Set(clinicalTerminology.filter(x=>x.type==='symptom').map(x=>x.system).filter(Boolean))].sort((a,b)=>a.localeCompare(b));el.innerHTML='<option value="">All systems</option>'+systems.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');if(systems.includes(keep))el.value=keep;}
 async function loadClinicalTerminology(){
   if(!clinicalTerminology.length){clinicalTerminology=complaintList.map((label,i)=>({id:'FALLBACK-'+i,label,type:'symptom',system:'Common',synonyms:[]}));mergeClinicalTerminology();}
-  try{const r=await fetch('clinical-terminology-master.json',{cache:'no-store'});if(r.ok){const d=await r.json();mergeClinicalTerminology(d.entries||[]);renderComplaintQuickChips();if($('complaintLibraryCount'))$('complaintLibraryCount').textContent=clinicalTerminology.length.toLocaleString('en-IN')+' searchable terms loaded';}}catch(e){console.warn('Clinical terminology fallback active:',e)}
+  try{const r=await fetch('clinical-terminology-master.json',{cache:'no-store'});if(r.ok){const d=await r.json();mergeClinicalTerminology(d.entries||[]);renderComplaintQuickChips();renderComplaintSystemFilter();renderComplaintLibraryMeta();}}catch(e){console.warn('Clinical terminology fallback active:',e);renderComplaintSystemFilter();renderComplaintLibraryMeta();}
 }
 function scoreClinicalTerm(item,q){
   const n=normalizeTerm(q);if(!n)return 0;const label=normalizeTerm(item.label),syn=(item.synonyms||[]).map(normalizeTerm);let score=0;
@@ -10761,14 +10766,13 @@ function scoreClinicalTerm(item,q){
   const toks=n.split(' ').filter(Boolean);if(toks.length>1&&toks.every(t=>(label+' '+syn.join(' ')).includes(t)))score=Math.max(score,55);
   return score;
 }
-function searchClinicalTerms(q,types=[]){
-  const typeSet=new Set(types);return clinicalTerminology.map(x=>({x,score:scoreClinicalTerm(x,q)})).filter(o=>o.score>0&&(!typeSet.size||typeSet.has(o.x.type))).sort((a,b)=>b.score-a.score||a.x.label.localeCompare(b.x.label)).slice(0,40).map(o=>o.x);
-}
+function clinicalTermMatches(q,types=[],system=''){const typeSet=new Set(types);return clinicalTerminology.map(x=>({x,score:scoreClinicalTerm(x,q)})).filter(o=>o.score>0&&(!typeSet.size||typeSet.has(o.x.type))&&(!system||o.x.system===system)).sort((a,b)=>b.score-a.score||a.x.label.localeCompare(b.x.label));}
+function searchClinicalTerms(q,types=[],system=''){return clinicalTermMatches(q,types,system).slice(0,80).map(o=>o.x)}
 function termResultHtml(x,mode){return `<button type="button" class="smart-result" data-term-mode="${mode}" data-term-label="${esc(x.label)}"><span class="term-main"><span class="term-title">${esc(x.label)}</span><span class="term-meta">${esc(x.system||'Clinical terminology')}${(x.synonyms||[]).length?' • '+esc((x.synonyms||[]).slice(0,3).join(', ')):''}</span></span><span class="term-type">${esc(x.type||'term')}</span></button>`}
-function renderComplaintSearch(){const q=val('primaryComplaint'),box=$('complaintSearchResults');if(!box)return;const scope=val('complaintSearchScope')||'all';const types=scope==='all'?['symptom','condition','ayurveda','custom']:[scope];const rows=q?searchClinicalTerms(q,types):[];box.innerHTML=rows.map(x=>termResultHtml(x,'complaint')).join('')+(q&&!rows.length?`<div class="notice">No library match in this scope. You can still add the typed term exactly as entered: <b>${esc(q)}</b>.</div>`:'');box.classList.toggle('hidden',!q)}
+function renderComplaintSearch(){const q=val('primaryComplaint'),box=$('complaintSearchResults');if(!box)return;const scope=val('complaintSearchScope')||'symptom';const types=scope==='all'?['symptom','condition','ayurveda','custom']:[scope];const system=val('complaintSystemFilter')||'';const all=q?clinicalTermMatches(q,types,system):[];const rows=all.slice(0,80).map(o=>o.x);box.innerHTML=rows.map(x=>termResultHtml(x,'complaint')).join('')+(q&&all.length>80?`<div class="field-help" style="padding:8px 10px">Showing best 80 of ${all.length.toLocaleString('en-IN')} matches — type more letters to narrow the list.</div>`:'')+(q&&!rows.length?`<div class="notice">No library match in this scope. You can still add the typed term exactly as entered: <b>${esc(q)}</b>.</div>`:'');box.classList.toggle('hidden',!q)}
 function renderDiagnosisSearch(){const q=val('diagnosisSearchInput'),box=$('diagnosisSearchResults');if(!box)return;const rows=q?searchClinicalTerms(q,['condition','ayurveda','custom']):[];box.innerHTML=rows.map(x=>termResultHtml(x,'diagnosis')).join('')+(q&&!rows.length?`<div class="notice">No exact library match. Typed diagnosis can still be added and saved to My Terms.</div>`:'');box.classList.toggle('hidden',!q)}
-function renderComplaintQuickChips(){const quick=['Low Back Pain','Sciatica','Neck Pain','Knee Pain','Fever','Cough','Breathlessness','Abdominal Pain','Headache','Dysuria'];if($('complaintQuickChips'))$('complaintQuickChips').innerHTML=quick.map(x=>`<button type="button" class="quick-term-chip" data-quick-complaint="${esc(x)}">${esc(x)}</button>`).join('')}
-function renderComplaintOptions(){loadClinicalTerminology();renderComplaintQuickChips();renderComplaintSelection();if($('complaintLibraryCount'))$('complaintLibraryCount').textContent=clinicalTerminology.length.toLocaleString('en-IN')+' searchable terms loaded'}
+function renderComplaintQuickChips(){const quick=['Cough','Breathlessness','Chest Pain','Fever','Abdominal Pain','Headache','Dizziness','Palpitations','Low Back Pain','Sciatica','Knee Pain','Dysuria','Vomiting','Diarrhea','Constipation','Swelling'];if($('complaintQuickChips'))$('complaintQuickChips').innerHTML=quick.map(x=>`<button type="button" class="quick-term-chip" data-quick-complaint="${esc(x)}">${esc(x)}</button>`).join('')}
+function renderComplaintOptions(){loadClinicalTerminology();renderComplaintQuickChips();renderComplaintSelection();renderComplaintLibraryMeta()}
 function addComplaintTerm(term){term=String(term||'').trim();if(!term)return;let items=Array.isArray(current.complaint?.items)?current.complaint.items:[];if(!items.some(x=>normalizeTerm(typeof x==='string'?x:x.term)===normalizeTerm(term)))items.push({term,primary:items.length===0});current.complaint.items=items;if(!current.complaint.primary){current.complaint.primary=term;set('primaryComplaint',term)}if(!clinicalTermByLabel.has(normalizeTerm(term)))addCustomClinicalTerm(term,'custom','My Complaints');renderComplaintSelection();updateComplaintWorkflow();renderAssessmentContext();}
 function setPrimaryComplaintTerm(term){current.complaint.items=(current.complaint.items||[]).map(x=>({...(typeof x==='string'?{term:x}:x),primary:normalizeTerm(typeof x==='string'?x:x.term)===normalizeTerm(term)}));current.complaint.primary=term;set('primaryComplaint',term);renderComplaintSelection();updateComplaintWorkflow();renderAssessmentContext()}
 function renderComplaintSelection(){if(!$('complaintSelectedList'))return;let items=Array.isArray(current?.complaint?.items)?current.complaint.items:[];if(!items.length&&current?.complaint?.primary)items=[{term:current.complaint.primary,primary:true}];$('complaintSelectedList').innerHTML=items.length?items.map((x,i)=>{const o=typeof x==='string'?{term:x}:x;return `<span class="selected-term ${o.primary?'primary-term':''}">${o.primary?'★ ':''}${esc(o.term)}<button type="button" class="mini-btn" title="Set primary" data-set-primary-complaint="${esc(o.term)}">P</button><button type="button" class="mini-btn" title="Remove" data-remove-complaint="${i}">✕</button></span>`}).join(''):'<span class="small">No complaint added yet.</span>'}
@@ -12600,7 +12604,7 @@ if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw))
 };
 
 $('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabLifestyle').onclick=showLifestyle;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabAssessment').onclick=showAssessment;$('tabInvestigations').onclick=showInvestigations;$('tabSLAIE').onclick=showSLAIE;$('tabCBC').onclick=showCBC;$('tabLabProfiles').onclick=showLabProfiles;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabSafety').onclick=showSafety;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
-$('primaryComplaint').oninput=()=>{renderComplaintSearch();updateComplaintWorkflow()};$('primaryComplaint').onchange=updateComplaintWorkflow;$('complaintSearchScope').onchange=renderComplaintSearch;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
+$('primaryComplaint').oninput=()=>{renderComplaintSearch();updateComplaintWorkflow()};$('primaryComplaint').onfocus=()=>{if(val('primaryComplaint'))renderComplaintSearch()};$('primaryComplaint').onchange=updateComplaintWorkflow;$('complaintSearchScope').onchange=()=>{renderComplaintSystemFilter();renderComplaintSearch()};$('complaintSystemFilter').onchange=renderComplaintSearch;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
 $('addComplaintTermBtn').onclick=()=>addComplaintTerm(val('primaryComplaint'));
@@ -12640,7 +12644,7 @@ window.MahamayaBridge={
   esc:(x)=>esc(x)
 };
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.40 Advanced Complaint Phenotyping + Research Prakriti + Smart Investigations + SLAIE ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.50 Expanded Complaint Search + Advanced Phenotyping + Research Prakriti + Smart Investigations + SLAIE ready.');
 })();
 </script>
 
