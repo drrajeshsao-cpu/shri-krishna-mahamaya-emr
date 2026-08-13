@@ -1,0 +1,704 @@
+{
+  "engine": "SAO Lab AutoRead & Interpretation Engine — SLAIE",
+  "engine_version": "SLAIE Core v1.0",
+  "template": "Omega Exact-Row Template v1.0",
+  "updated": "2026-08-13",
+  "principle": "Preserve exact result, report flag, lab-specific reference range and unit; clinician verification precedes interpretation.",
+  "rows": [
+    {
+      "label": "Haemoglobin",
+      "profile": "CBC",
+      "aliases": [
+        "Hemoglobin",
+        "Hb"
+      ]
+    },
+    {
+      "label": "Total Leucocyte Count",
+      "profile": "CBC",
+      "aliases": [
+        "TLC",
+        "WBC",
+        "White Blood Cell Count"
+      ]
+    },
+    {
+      "label": "Neutrophils",
+      "profile": "CBC",
+      "aliases": []
+    },
+    {
+      "label": "Lymphocytes",
+      "profile": "CBC",
+      "aliases": []
+    },
+    {
+      "label": "Eosinophils",
+      "profile": "CBC",
+      "aliases": []
+    },
+    {
+      "label": "Monocytes",
+      "profile": "CBC",
+      "aliases": []
+    },
+    {
+      "label": "Basophils",
+      "profile": "CBC",
+      "aliases": []
+    },
+    {
+      "label": "Absolute Neutrophils",
+      "profile": "CBC",
+      "aliases": [
+        "ANC",
+        "Absolute Neutrophil Count"
+      ]
+    },
+    {
+      "label": "Absolute Lymphocytes",
+      "profile": "CBC",
+      "aliases": []
+    },
+    {
+      "label": "Absolute Eosinophils",
+      "profile": "CBC",
+      "aliases": [
+        "AEC",
+        "Absolute Eosinophil Count"
+      ]
+    },
+    {
+      "label": "Absolute Monocytes",
+      "profile": "CBC",
+      "aliases": []
+    },
+    {
+      "label": "Absolute Basophils",
+      "profile": "CBC",
+      "aliases": []
+    },
+    {
+      "label": "RBC Count",
+      "profile": "CBC",
+      "aliases": [
+        "Red Blood Cell Count"
+      ]
+    },
+    {
+      "label": "Hct",
+      "profile": "CBC",
+      "aliases": [
+        "Hematocrit",
+        "PCV"
+      ]
+    },
+    {
+      "label": "MCV",
+      "profile": "CBC",
+      "aliases": []
+    },
+    {
+      "label": "MCH",
+      "profile": "CBC",
+      "aliases": []
+    },
+    {
+      "label": "MCHC",
+      "profile": "CBC",
+      "aliases": []
+    },
+    {
+      "label": "RDW-CV",
+      "profile": "CBC",
+      "aliases": [
+        "RDW CV"
+      ]
+    },
+    {
+      "label": "RDW-SD",
+      "profile": "CBC",
+      "aliases": [
+        "RDW SD"
+      ]
+    },
+    {
+      "label": "Platelet Count",
+      "profile": "CBC",
+      "aliases": [
+        "Platelets"
+      ]
+    },
+    {
+      "label": "PCT",
+      "profile": "CBC",
+      "aliases": [
+        "Plateletcrit"
+      ]
+    },
+    {
+      "label": "MPV",
+      "profile": "CBC",
+      "aliases": []
+    },
+    {
+      "label": "PDW",
+      "profile": "CBC",
+      "aliases": []
+    },
+    {
+      "label": "P-LCR",
+      "profile": "CBC",
+      "aliases": [
+        "P LCR"
+      ]
+    },
+    {
+      "label": "P-LCC",
+      "profile": "CBC",
+      "aliases": [
+        "P LCC"
+      ]
+    },
+    {
+      "label": "Erythrocyte Sedimentation Rate (ESR)",
+      "profile": "Inflammation",
+      "aliases": [
+        "ESR",
+        "Erythrocyte Sedimentation Rate"
+      ]
+    },
+    {
+      "label": "HbA1C",
+      "profile": "Diabetes",
+      "aliases": [
+        "HbA1c",
+        "Glycated Hemoglobin"
+      ]
+    },
+    {
+      "label": "Estimated Average Glucose",
+      "profile": "Diabetes",
+      "aliases": [
+        "eAG"
+      ]
+    },
+    {
+      "label": "Bilirubin Total",
+      "profile": "LFT",
+      "aliases": [
+        "BILIRUBIN TOTAL",
+        "Total Bilirubin"
+      ]
+    },
+    {
+      "label": "Bilirubin Direct",
+      "profile": "LFT",
+      "aliases": [
+        "BILIRUBIN DIRECT",
+        "Direct Bilirubin"
+      ]
+    },
+    {
+      "label": "Bilirubin Indirect",
+      "profile": "LFT",
+      "aliases": [
+        "BILIRUBIN INDIRECT",
+        "Indirect Bilirubin"
+      ]
+    },
+    {
+      "label": "SGPT",
+      "profile": "LFT",
+      "aliases": [
+        "ALT",
+        "Alanine Aminotransferase"
+      ]
+    },
+    {
+      "label": "SGOT",
+      "profile": "LFT",
+      "aliases": [
+        "AST",
+        "Aspartate Aminotransferase"
+      ]
+    },
+    {
+      "label": "SGOT/SGPT Ratio",
+      "profile": "LFT",
+      "aliases": [
+        "AST/ALT Ratio"
+      ]
+    },
+    {
+      "label": "Alkaline Phosphatase",
+      "profile": "LFT",
+      "aliases": [
+        "ALP",
+        "ALKALINE PHOSPHATASE"
+      ]
+    },
+    {
+      "label": "Gamma Glutamyl Transferase (GGT)",
+      "profile": "LFT",
+      "aliases": [
+        "GGT",
+        "Gamma GT"
+      ]
+    },
+    {
+      "label": "Total Proteins",
+      "profile": "LFT",
+      "aliases": [
+        "Total Protein"
+      ]
+    },
+    {
+      "label": "Albumin",
+      "profile": "LFT",
+      "aliases": []
+    },
+    {
+      "label": "Globulin",
+      "profile": "LFT",
+      "aliases": []
+    },
+    {
+      "label": "A:G Ratio",
+      "profile": "LFT",
+      "aliases": [
+        "A : G RATIO",
+        "A/G Ratio"
+      ]
+    },
+    {
+      "label": "Serum Iron",
+      "profile": "Iron Profile",
+      "aliases": [
+        "Iron"
+      ]
+    },
+    {
+      "label": "Total Iron Binding Capacity",
+      "profile": "Iron Profile",
+      "aliases": [
+        "TIBC"
+      ]
+    },
+    {
+      "label": "Unsaturated Iron Binding Capacity",
+      "profile": "Iron Profile",
+      "aliases": [
+        "UIBC"
+      ]
+    },
+    {
+      "label": "Transferrin Saturation",
+      "profile": "Iron Profile",
+      "aliases": [
+        "Transferrin saturation"
+      ]
+    },
+    {
+      "label": "Ferritin",
+      "profile": "Iron Profile",
+      "aliases": [
+        "Serum Ferritin"
+      ]
+    },
+    {
+      "label": "Calcium",
+      "profile": "Mineral",
+      "aliases": [
+        "Serum Calcium"
+      ]
+    },
+    {
+      "label": "Phosphorus",
+      "profile": "Mineral",
+      "aliases": [
+        "Phosphate",
+        "Serum Phosphorus"
+      ]
+    },
+    {
+      "label": "Magnesium",
+      "profile": "Mineral",
+      "aliases": [
+        "Serum Magnesium"
+      ]
+    },
+    {
+      "label": "Urea Serum",
+      "profile": "RFT",
+      "aliases": [
+        "UREA SERUM",
+        "Serum Urea"
+      ]
+    },
+    {
+      "label": "Creatinine Serum",
+      "profile": "RFT",
+      "aliases": [
+        "CREATININE SERUM",
+        "Serum Creatinine",
+        "Creatinine"
+      ]
+    },
+    {
+      "label": "Urea Nitrogen (BUN)",
+      "profile": "RFT",
+      "aliases": [
+        "BUN",
+        "Blood Urea Nitrogen"
+      ]
+    },
+    {
+      "label": "BUN/Creatinine Ratio",
+      "profile": "RFT",
+      "aliases": [
+        "BUN/CREATNINE Ratio",
+        "BUN Creatinine Ratio"
+      ]
+    },
+    {
+      "label": "Urea / Creatinine",
+      "profile": "RFT",
+      "aliases": [
+        "UREA / CREATININE"
+      ]
+    },
+    {
+      "label": "Serum Uric Acid",
+      "profile": "RFT",
+      "aliases": [
+        "Uric Acid"
+      ]
+    },
+    {
+      "label": "Serum Sodium",
+      "profile": "RFT",
+      "aliases": [
+        "Serum Sodium (Na+)",
+        "Serum Sodium (Na⁺)",
+        "Sodium"
+      ]
+    },
+    {
+      "label": "Serum Potassium",
+      "profile": "RFT",
+      "aliases": [
+        "Serum Potassium (K+)",
+        "Serum Potassium (K⁺)",
+        "Potassium"
+      ]
+    },
+    {
+      "label": "Serum Chloride",
+      "profile": "RFT",
+      "aliases": [
+        "Serum Chloride (Cl-)",
+        "Serum Chloride (Cl⁻)",
+        "Chloride"
+      ]
+    },
+    {
+      "label": "Estimated GFR (eGFR)",
+      "profile": "RFT",
+      "aliases": [
+        "eGFR",
+        "Estimated GFR"
+      ]
+    },
+    {
+      "label": "Total Cholesterol",
+      "profile": "Lipid Profile",
+      "aliases": [
+        "Cholesterol Total"
+      ]
+    },
+    {
+      "label": "Triglycerides",
+      "profile": "Lipid Profile",
+      "aliases": [
+        "TG"
+      ]
+    },
+    {
+      "label": "HDL Cholesterol",
+      "profile": "Lipid Profile",
+      "aliases": [
+        "HDL",
+        "HDL-C"
+      ]
+    },
+    {
+      "label": "LDL Cholesterol",
+      "profile": "Lipid Profile",
+      "aliases": [
+        "LDL",
+        "LDL-C"
+      ]
+    },
+    {
+      "label": "VLDL Cholesterol",
+      "profile": "Lipid Profile",
+      "aliases": [
+        "VLDL"
+      ]
+    },
+    {
+      "label": "Cholesterol/HDL Ratio",
+      "profile": "Lipid Profile",
+      "aliases": [
+        "TC/HDL Ratio"
+      ]
+    },
+    {
+      "label": "LDL/HDL Ratio",
+      "profile": "Lipid Profile",
+      "aliases": []
+    },
+    {
+      "label": "Non-HDL Cholesterol",
+      "profile": "Lipid Profile",
+      "aliases": [
+        "Non HDL"
+      ]
+    },
+    {
+      "label": "Specific Gravity",
+      "profile": "Urine Routine",
+      "aliases": [
+        "Urine Specific Gravity"
+      ]
+    },
+    {
+      "label": "Urine pH",
+      "profile": "Urine Routine",
+      "aliases": [
+        "pH"
+      ]
+    },
+    {
+      "label": "Urine Protein",
+      "profile": "Urine Routine",
+      "aliases": [
+        "Protein"
+      ]
+    },
+    {
+      "label": "Urine Glucose",
+      "profile": "Urine Routine",
+      "aliases": [
+        "Glucose"
+      ]
+    },
+    {
+      "label": "Urine Blood",
+      "profile": "Urine Routine",
+      "aliases": [
+        "Blood"
+      ]
+    },
+    {
+      "label": "Urine Bilirubin",
+      "profile": "Urine Routine",
+      "aliases": [
+        "Bilirubin"
+      ]
+    },
+    {
+      "label": "Pus Cell",
+      "profile": "Urine Routine",
+      "aliases": [
+        "Pus Cells"
+      ]
+    },
+    {
+      "label": "Epithelial Cell",
+      "profile": "Urine Routine",
+      "aliases": [
+        "Epithelial Cells"
+      ]
+    },
+    {
+      "label": "Urine RBC",
+      "profile": "Urine Routine",
+      "aliases": [
+        "RBC"
+      ]
+    },
+    {
+      "label": "Urine Cast",
+      "profile": "Urine Routine",
+      "aliases": [
+        "Cast"
+      ]
+    },
+    {
+      "label": "Urine Crystal",
+      "profile": "Urine Routine",
+      "aliases": [
+        "Crystal"
+      ]
+    },
+    {
+      "label": "Urine Bacteria",
+      "profile": "Urine Routine",
+      "aliases": [
+        "Bacteria"
+      ]
+    },
+    {
+      "label": "T3",
+      "profile": "Thyroid",
+      "aliases": [
+        "Total T3"
+      ]
+    },
+    {
+      "label": "T4",
+      "profile": "Thyroid",
+      "aliases": [
+        "Total T4"
+      ]
+    },
+    {
+      "label": "TSH",
+      "profile": "Thyroid",
+      "aliases": [
+        "TSH(Serum)",
+        "Thyroid Stimulating Hormone"
+      ]
+    },
+    {
+      "label": "Free T3",
+      "profile": "Thyroid",
+      "aliases": [
+        "FT3"
+      ]
+    },
+    {
+      "label": "Free T4",
+      "profile": "Thyroid",
+      "aliases": [
+        "FT4"
+      ]
+    },
+    {
+      "label": "Serum Vitamin D3",
+      "profile": "Vitamin",
+      "aliases": [
+        "Vitamin D3",
+        "25-OH Vitamin D",
+        "Vitamin D"
+      ]
+    },
+    {
+      "label": "Vitamin B12",
+      "profile": "Vitamin",
+      "aliases": [
+        "Serum Vitamin B12",
+        "Vitamin B 12"
+      ]
+    },
+    {
+      "label": "Folate",
+      "profile": "Vitamin",
+      "aliases": [
+        "Folic Acid"
+      ]
+    },
+    {
+      "label": "Fasting Blood Sugar",
+      "profile": "Diabetes",
+      "aliases": [
+        "FBS",
+        "Fasting Glucose",
+        "Fasting Plasma Glucose"
+      ]
+    },
+    {
+      "label": "Postprandial Blood Sugar",
+      "profile": "Diabetes",
+      "aliases": [
+        "PPBS",
+        "PPBG"
+      ]
+    },
+    {
+      "label": "Random Blood Sugar",
+      "profile": "Diabetes",
+      "aliases": [
+        "RBS",
+        "Random Glucose"
+      ]
+    },
+    {
+      "label": "C-Reactive Protein",
+      "profile": "Inflammation",
+      "aliases": [
+        "CRP"
+      ]
+    },
+    {
+      "label": "High Sensitivity CRP",
+      "profile": "Inflammation",
+      "aliases": [
+        "hs-CRP",
+        "hsCRP"
+      ]
+    },
+    {
+      "label": "Rheumatoid Factor",
+      "profile": "Rheumatology",
+      "aliases": [
+        "RF"
+      ]
+    },
+    {
+      "label": "Anti-CCP",
+      "profile": "Rheumatology",
+      "aliases": [
+        "Anti CCP"
+      ]
+    },
+    {
+      "label": "Amylase",
+      "profile": "Pancreas",
+      "aliases": [
+        "Serum Amylase"
+      ]
+    },
+    {
+      "label": "Lipase",
+      "profile": "Pancreas",
+      "aliases": [
+        "Serum Lipase"
+      ]
+    },
+    {
+      "label": "Urine Color",
+      "profile": "Urine Routine",
+      "aliases": [
+        "Color",
+        "Colour"
+      ]
+    },
+    {
+      "label": "Urine Appearance",
+      "profile": "Urine Routine",
+      "aliases": [
+        "Appearance"
+      ]
+    },
+    {
+      "label": "Urine Volume",
+      "profile": "Urine Routine",
+      "aliases": [
+        "Volume"
+      ]
+    }
+  ]
+}

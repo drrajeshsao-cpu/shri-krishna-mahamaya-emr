@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<title>Mahamaya Clinic EMR | Clinical Workflow Edition V2.60</title>
+<title>Mahamaya Clinic EMR | Mobile Clinical Workspace V2.70</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -311,6 +311,23 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 @media print{.app-header,.command-bar,.system-strip,.mobile-bottom-nav,.module-drawer,.module-drawer-backdrop{display:none!important}}
 </style>
 
+<style>
+
+/* Mahamaya Clinic EMR V2.70 — Mobile Clinical Workspace + SLAIE */
+.slaie-launch-card{background:linear-gradient(135deg,#f7fffe,#eef9fb);border:1px solid #b9dfe1}
+.slaie-brand{display:flex;gap:12px;align-items:center}.slaie-brand-icon{width:48px;height:48px;border-radius:15px;background:#dff3f4;display:grid;place-items:center;font-size:25px}
+.slaie-title{margin:0}.slaie-subtitle{color:#58747b;font-size:13px;margin-top:3px}
+.slaie-stepper{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:12px 0}.slaie-step{border:1px solid var(--line);background:#fbfdfe;border-radius:12px;padding:9px;text-align:center;font-size:12px}.slaie-step b{display:block;color:var(--p);font-size:15px}
+.slaie-upload-zone{border:2px dashed #abd2d5;border-radius:15px;padding:16px;background:#fbfefe}.slaie-upload-actions{display:flex;gap:8px;flex-wrap:wrap}.slaie-upload-actions label{cursor:pointer}
+.slaie-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:13px;background:#fff;max-height:52vh}.slaie-table{width:100%;border-collapse:collapse;min-width:860px}.slaie-table th,.slaie-table td{padding:8px;border-bottom:1px solid #e6eff1;vertical-align:middle;text-align:left;font-size:12px}.slaie-table th{position:sticky;top:0;background:#eef7f8;z-index:2;color:#375c64}.slaie-table input{min-width:92px;padding:7px}.slaie-table .test-input{min-width:190px}.slaie-flag-normal{color:#25744a;font-weight:800}.slaie-flag-low,.slaie-flag-high{color:#9a5d00;font-weight:800}.slaie-flag-critical{color:#a1251e;font-weight:900}.slaie-summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.slaie-kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}.slaie-kpi{border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;background:#fbfdfe}.slaie-kpi b{display:block;font-size:21px;color:var(--p)}
+.slaie-archive-item{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px;margin:8px 0;background:#fbfdfe}.slaie-archive-actions{display:flex;gap:6px;flex-wrap:wrap}
+.ayu-workspace-nav{position:sticky;top:70px;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:14px;padding:8px;margin:8px 0 12px;display:flex;gap:7px;flex-wrap:wrap}.ayu-view-btn{font-size:12px;padding:9px 11px}.ayu-view-btn.active{background:var(--p);color:#fff}.ayu-panel{display:none}.ayu-panel.ayu-panel-active{display:block}.ayu-mode-note{background:#eef8f8;border-left:4px solid var(--p);padding:10px;border-radius:10px;margin:8px 0 12px;font-size:13px}
+.complaint-library-meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:6px}.complaint-library-meta span{font-size:11px;background:#edf6f7;border-radius:999px;padding:4px 8px;color:#4d6c73}.complaint-top-grid{align-items:end}
+.mobile-sticky-actions{position:sticky;bottom:0;z-index:25;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);padding-top:7px}
+@media(max-width:900px){.slaie-stepper{grid-template-columns:repeat(2,1fr)}.slaie-summary-grid{grid-template-columns:1fr}.slaie-kpi-row{grid-template-columns:repeat(2,1fr)}.ayu-workspace-nav{top:58px;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}.ayu-view-btn{white-space:nowrap}.complaint-top-grid{grid-template-columns:1fr!important}}
+@media(max-width:700px){main{padding-bottom:88px}.card{border-radius:14px;padding:13px}.grid,.grid3,.settings-grid{grid-template-columns:1fr!important}.actions button,.actions .btn{min-height:44px}.smart-results{max-height:48vh}.slaie-upload-actions>*{flex:1 1 46%}.slaie-kpi-row{grid-template-columns:repeat(2,1fr)}.workflow-actions{position:sticky;bottom:76px;z-index:35;background:rgba(255,255,255,.96);padding:8px;border-radius:12px;border:1px solid var(--line)}.workflow-actions button{flex:1 1 45%}.slaie-table-wrap{max-height:46vh}.slaie-table input{font-size:16px}.slaie-archive-item{grid-template-columns:1fr}.slaie-archive-actions button{flex:1 1 40%}}
+
+</style>
 </head>
 <body>
 
@@ -337,8 +354,8 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
     <div class="brand-lockup">
       <img class="brand-logo" src="./icon-192.png" alt="Mahamaya Clinic">
       <div class="brand-copy">
-        <h1>Mahamaya Clinic <span class="version-badge">V2.60</span></h1>
-        <p>Clinical Workflow Edition • Ayurveda + Modern Medicine EMR • Build 2026.08.13</p>
+        <h1>Mahamaya Clinic <span class="version-badge">V2.70</span></h1>
+        <p>Mobile Clinical Workspace • SLAIE Core v1.0 • Build 2026.08.13-R2</p>
       </div>
     </div>
     <div class="header-meta">
@@ -363,7 +380,7 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 </nav>
 
 <div class="system-strip no-print">
-  <div id="status" class="status">App loaded successfully. V2.60 Clinical Workflow Edition ready.</div>
+  <div id="status" class="status">App loaded successfully. V2.70 Mobile Clinical Workspace + SLAIE ready.</div>
   <div class="actions">
     <span id="activeRoleBadge" class="role-badge">Locked</span>
     <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -412,6 +429,7 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
       <button id="tabBilling" class="secondary">💰 Billing</button>
       <button id="tabPharmacy" class="secondary">💊 Pharmacy</button>
       <button id="tabKnowledge" class="secondary">📚 Knowledge</button>
+      <button id="tabSLAIE" class="secondary">🧠 SLAIE Lab AutoRead</button>
       <button id="tabRecords" class="secondary">📁 Records</button>
       <button id="tabSettings" class="secondary">⚙ Settings</button>
     </div>
@@ -434,6 +452,7 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
         <button id="dashSearch" class="secondary">🔎 Find Patient</button>
         <button id="dashContinue" class="secondary">▶ Continue Visit</button>
         <button id="dashRecords" class="secondary">📁 Records</button>
+        <button id="pwaInstallHomeBtn" data-pwa-install class="secondary" style="display:none">📲 Install App</button>
       </div>
     </div>
     <div class="home-search-shell">
@@ -497,6 +516,7 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
           <button id="dashLabProfiles" class="quick-btn secondary">🧬<span>Lab Profiles</span></button>
           <button id="dashImaging" class="quick-btn secondary">🩻<span>Imaging</span></button>
           <button id="dashLabMgmt" class="quick-btn secondary">🔬<span>Laboratory</span></button>
+          <button id="dashSLAIE" class="quick-btn secondary">🧠<span>SLAIE AutoRead</span></button>
         </div>
         <div class="tool-group-title">Treatment & safety</div>
         <div class="quick-grid">
@@ -582,12 +602,13 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 <div class="grid complaint-top-grid">
   <div>
     <label>Primary Complaint / Symptom *</label>
-    <div class="smart-search-wrap"><input id="primaryComplaint" autocomplete="off" placeholder="Type e.g. low back pain, sciatica, fever, kamar dard…"><div id="complaintSearchResults" class="smart-results hidden"></div></div>
-    <div class="field-help">Search English terms, common abbreviations, selected Hindi aliases, or enter your own wording.</div>
+    <div class="smart-search-wrap"><input id="primaryComplaint" autocomplete="off" placeholder="Type any symptom, disease, Ayurveda term or patient wording…"><div id="complaintSearchResults" class="smart-results hidden"></div></div>
+    <div class="complaint-library-meta"><span id="complaintLibraryCount">Loading terminology…</span><span>Free typing always allowed</span><span>Saved custom terms reusable</span></div>
   </div>
   <div>
-    <label>Quick Add</label>
-    <div id="complaintQuickChips" class="quick-term-row"></div>
+    <label>Search Scope</label>
+    <select id="complaintSearchScope"><option value="all">All clinical terms</option><option value="symptom">Symptoms / complaints</option><option value="condition">Diseases / conditions</option><option value="ayurveda">Ayurveda terms</option><option value="custom">My saved terms</option></select>
+    <div id="complaintQuickChips" class="quick-term-row" style="margin-top:7px"></div>
   </div>
 </div>
 <div class="actions compact-actions"><button id="addComplaintTermBtn" class="secondary">＋ Add Complaint</button><button id="saveComplaintCustomBtn" class="secondary">★ Save Typed Term to My List</button></div>
@@ -661,6 +682,10 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 </section>
 
 <section id="investigationsSection" class="hidden">
+<div class="card slaie-launch-card">
+  <div class="section-head"><div class="slaie-brand"><div class="slaie-brand-icon">🧠</div><div><h2 class="slaie-title">SAO Lab AutoRead & Interpretation Engine — SLAIE</h2><div class="slaie-subtitle">SLAIE Core v1.0 • Omega Exact-Row Template v1.0 • upload → read → verify → interpret → archive</div></div></div><button type="button" id="openSLAIEBtn" class="primary">Open SLAIE →</button></div>
+  <div class="notice"><b>Lab-specific ranges preserved:</b> SLAIE keeps the result, laboratory flag, reference range and unit from each report row. Interpretation is generated only after clinician verification.</div>
+</div>
 <div class="card"><h2>Investigations</h2>
 <div class="grid3"><div><label>Category</label><select id="prevCategory"><option>Blood</option><option>Urine</option><option>Stool</option><option>X-ray</option><option>USG</option><option>CT</option><option>MRI</option><option>ECG</option><option>Echo/Doppler</option><option>Other</option></select></div><div><label>Previous Test / Study</label><input id="prevTest"></div><div><label>Report Date</label><input id="prevDate" type="date"></div></div>
 <div class="grid"><div><label>Result Summary</label><textarea id="prevResult"></textarea></div><div><label>Interpretation / Remark</label><textarea id="prevRemark"></textarea></div></div>
@@ -673,6 +698,57 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 </div>
 </section>
 
+
+
+<section id="slaieSection" class="hidden">
+<div class="card">
+  <div class="section-head"><div><h2>🧠 SAO Lab AutoRead & Interpretation Engine — SLAIE</h2><div class="section-kicker">SLAIE Core v1.0 • Omega Exact-Row Template v1.0</div></div><button type="button" id="slaieBackInvBtn" class="secondary">← Investigations</button></div>
+  <div class="slaie-stepper"><div class="slaie-step"><b>1</b>Upload report</div><div class="slaie-step"><b>2</b>AutoRead</div><div class="slaie-step"><b>3</b>Verify rows</div><div class="slaie-step"><b>4</b>Interpret</div><div class="slaie-step"><b>5</b>Save & archive</div></div>
+  <div class="notice"><b>Clinical safety:</b> Original report remains the source of truth. Confirm patient identity, specimen/date, values, units and lab-specific reference ranges before using the interpretation.</div>
+</div>
+
+<div class="card">
+  <h2>1. Report Intake</h2>
+  <div class="grid3">
+    <div><label>Template</label><select id="slaieTemplate"><option value="omega">Omega Exact-Row Template v1.0</option><option value="generic">Generic laboratory text</option></select></div>
+    <div><label>Report Date</label><input id="slaieReportDate" type="date"></div>
+    <div><label>Laboratory / Centre</label><input id="slaieLabName" placeholder="Omega / reporting laboratory"></div>
+  </div>
+  <div class="slaie-upload-zone">
+    <div class="slaie-upload-actions">
+      <label class="btn primary">📄 PDF / File<input id="slaieFileInput" type="file" accept="application/pdf,text/plain,.txt,.pdf" hidden></label>
+      <label class="btn secondary">🖼 Image / Gallery<input id="slaieImageInput" type="file" accept="image/*" hidden></label>
+      <label class="btn secondary">📷 Camera<input id="slaieCameraInput" type="file" accept="image/*" capture="environment" hidden></label>
+      <button type="button" id="slaieRunReadBtn" class="secondary">⚡ AutoRead Selected File</button>
+    </div>
+    <div id="slaieFileStatus" class="small" style="margin-top:8px">No report selected.</div>
+  </div>
+  <label>Extracted / OCR Report Text — editable</label>
+  <textarea id="slaieRawText" rows="8" placeholder="AutoRead text will appear here. You can also paste report text manually and press Parse Exact Rows."></textarea>
+  <div class="actions"><button type="button" id="slaieParseBtn" class="primary">Parse Exact Rows</button><button type="button" id="slaieClearBtn" class="secondary">Clear Working Report</button></div>
+</div>
+
+<div class="card">
+  <div class="section-head"><div><h2>2. Verify Exact Rows</h2><div class="section-kicker">Every row remains editable; result/range/unit are kept separately</div></div><span id="slaieRowCount" class="evidence-badge">0 rows</span></div>
+  <div class="slaie-kpi-row"><div class="slaie-kpi"><b id="slaieTotalKpi">0</b>Total rows</div><div class="slaie-kpi"><b id="slaieHighKpi">0</b>High</div><div class="slaie-kpi"><b id="slaieLowKpi">0</b>Low</div><div class="slaie-kpi"><b id="slaieCriticalKpi">0</b>Critical</div></div>
+  <div class="slaie-table-wrap"><table class="slaie-table"><thead><tr><th>Test</th><th>Result</th><th>Lab flag</th><th>Reference range</th><th>Unit</th><th>Review</th><th></th></tr></thead><tbody id="slaieRowsBody"></tbody></table></div>
+  <div class="actions"><button type="button" id="slaieAddManualRowBtn" class="secondary">＋ Add Row</button><button type="button" id="slaieVerifyBtn" class="primary">✓ Verify Rows & Interpret</button></div>
+</div>
+
+<div class="card">
+  <h2>3. Interpretation & Clinical Summary</h2>
+  <div class="slaie-summary-grid">
+    <div><h3>Abnormal / Priority Findings</h3><div id="slaieAbnormalSummary" class="notice">No verified interpretation yet.</div></div>
+    <div><h3>Report Summary</h3><textarea id="slaieClinicalSummary" rows="9" placeholder="Generated summary remains editable before saving."></textarea></div>
+  </div>
+  <div class="actions workflow-actions"><button type="button" id="slaieSaveBtn" class="primary">💾 Save to Patient & Archive</button><button type="button" id="slaieAddInvBtn" class="secondary">＋ Add Summary to Investigations</button><button type="button" id="slaieBackInvBtn2" class="secondary">Next: Investigations →</button></div>
+</div>
+
+<div class="card">
+  <div class="section-head"><div><h2>4. SLAIE Report Archive</h2><div class="section-kicker">Current patient • extracted rows + interpretation + original file stored locally in IndexedDB when available</div></div><button type="button" id="slaieRefreshArchiveBtn" class="secondary">Refresh</button></div>
+  <div id="slaieArchiveList"><div class="notice">No SLAIE report saved for this patient.</div></div>
+</div>
+</section>
 
 <section id="cbcSection" class="hidden">
 <div class="card">
@@ -831,6 +907,17 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 <section id="ayurvedaSection" class="hidden">
 <div class="card">
 <h2>Ayurveda Assessment</h2>
+<div class="ayu-workspace-nav" id="ayuWorkspaceNav">
+  <button type="button" class="ayu-view-btn active" data-ayu-view="core">🌿 Quick Ayurveda</button>
+  <button type="button" class="ayu-view-btn" data-ayu-view="pariksha">🩺 Ashtavidha / Dashavidha</button>
+  <button type="button" class="ayu-view-btn" data-ayu-view="samprapti">🧬 Samprapti & Nidana</button>
+  <button type="button" class="ayu-view-btn" data-ayu-view="chikitsa">💚 Chikitsa Planning</button>
+  <button type="button" class="ayu-view-btn" data-ayu-view="followup">📈 Follow-up & Summary</button>
+  <button type="button" class="ayu-view-btn" data-ayu-view="extended">🧰 Extended Clinical Tools</button>
+  <button type="button" class="ayu-view-btn" data-ayu-view="admin">⚙ System / Admin</button>
+</div>
+<div class="ayu-mode-note">Default view intentionally shows only the fast Ayurveda core. Detailed engines remain available one group at a time, so desktop and mobile do not require a very long continuous scroll.</div>
+<div class="ayu-panel ayu-panel-active" data-ayu-panel="core">
 <div class="grid3"><div><label>Prakriti</label><select id="prakriti"><option value=""></option><option>Vata</option><option>Pitta</option><option>Kapha</option><option>Vata-Pitta</option><option>Pitta-Kapha</option><option>Vata-Kapha</option><option>Sama Prakriti</option></select></div><div><label>Vikriti</label><select id="vikriti"><option value=""></option><option>Vata</option><option>Pitta</option><option>Kapha</option><option>Vata-Pitta</option><option>Pitta-Kapha</option><option>Vata-Kapha</option><option>Tridoshaja</option></select></div><div><label>Ama Status</label><select id="ama"><option value=""></option><option>Nirama</option><option>Sama</option><option>Mixed</option></select></div></div>
 
 <h3>Affected Dosha</h3><div id="doshaChecks" class="checkgrid"></div>
@@ -843,6 +930,8 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
   <div class="actions"><button id="addSubtypeSummaryBtn" type="button" class="secondary">＋ Add Subtype Summary to Assessment Notes</button></div>
 </div>
 
+</div>
+<div class="ayu-panel" data-ayu-panel="samprapti">
 <div class="card" id="doshaSynthesisCard" style="margin-top:12px">
   <h3>Dosha Synthesis & Clinical Pattern</h3>
   <div class="small">Automatically combines selected subtype State, Severity, Confidence and observed features into an overall Dosha-level pattern.</div>
@@ -897,6 +986,8 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 </div>
 
 
+</div>
+<div class="ayu-panel" data-ayu-panel="pariksha">
 <div class="card" id="dashavidhaAdvancedCard" style="margin-top:12px">
   <h3>Dashavidha Pariksha Advanced Engine</h3>
   <div class="small">Structured assessment of Prakriti, Vikriti, Sara, Samhanana, Pramana, Satmya, Sattva, Ahara Shakti, Vyayama Shakti and Vaya with Rogi Bala synthesis.</div>
@@ -1043,6 +1134,8 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 </div>
 
 
+</div>
+<div class="ayu-panel" data-ayu-panel="samprapti">
 <div class="card" id="rogamargaKriyakalaCard" style="margin-top:12px">
   <h3>Rogamarga & Shatkriyakala Disease Evolution</h3>
   <div class="small">Document primary/secondary Rogamarga, involved structures, Khavaigunya, disease course and the current Shatkriyakala stage with supporting evidence.</div>
@@ -1390,6 +1483,8 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 </div>
 
 
+</div>
+<div class="ayu-panel" data-ayu-panel="chikitsa">
 <div class="card" id="chikitsaPlanningCard" style="margin-top:12px">
   <h3>Chikitsa & Samprapti-Vighatana Planning Engine</h3>
   <div class="small">Converts the documented Samprapti into a physician-reviewable treatment-principle plan. It does not autonomously prescribe medicines or procedures.</div>
@@ -1685,6 +1780,8 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 </div>
 
 
+</div>
+<div class="ayu-panel" data-ayu-panel="followup">
 <div class="card" id="followupOutcomeCard" style="margin-top:12px">
   <h3>Follow-up, Outcome & Dhatusamya Engine</h3>
   <div class="small">Tracks change over time across symptoms, Agni, Ama, Dosha, Dhatu/Ojas/Mala, Srotas, function and overall recovery.</div>
@@ -1865,6 +1962,8 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 </div>
 
 
+</div>
+<div class="ayu-panel" data-ayu-panel="extended">
 <div class="card" id="modernClinicalExamCard" style="margin-top:12px">
   <h3>Modern Clinical Examination Engine</h3>
   <div class="small">Structured general and systemic examination for integrated clinical practice. Abnormal findings and red flags remain physician-entered and require clinical correlation.</div>
@@ -3415,6 +3514,8 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 </div>
 
 
+</div>
+<div class="ayu-panel" data-ayu-panel="admin">
 <div class="card" id="backupRestoreCard" style="margin-top:12px">
   <h3>Backup / Export / Restore Engine</h3>
   <div class="small">Creates local backups of the current patient record and clinical registry, and supports restoring previously exported SKMCIS backup files.</div>
@@ -3797,6 +3898,7 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
   </div>
 </div>
 
+</div>
 <label>Ayurveda Assessment Notes</label><textarea id="ayurNotes"></textarea>
 <div class="actions"><button id="saveAyurvedaBtn" class="primary">💾 Save Ayurveda Assessment</button><button id="goPrescriptionBtn" class="secondary">Next: Prescription →</button></div>
 </div>
@@ -4405,8 +4507,8 @@ const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
 function key(id){return PREFIX+id}
-function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',items:[],duration:'',severity:'',onset:'',progression:'',character:'',site:'',laterality:'',associated:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],subtypeAssessments:{},gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',diagnosisTerms:[],medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},labProfiles:{mode:'diabetes',values:{},results:[],summary:''},updatedAt:new Date().toISOString()}}
-function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!Array.isArray(r.complaint.items))r.complaint.items=[];if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!Array.isArray(r.prescription.diagnosisTerms))r.prescription.diagnosisTerms=[];if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;if(!r.labProfiles)r.labProfiles=b.labProfiles;return r}
+function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',items:[],duration:'',severity:'',onset:'',progression:'',character:'',site:'',laterality:'',associated:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},slaie:{reports:[],working:null},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],subtypeAssessments:{},gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',diagnosisTerms:[],medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},labProfiles:{mode:'diabetes',values:{},results:[],summary:''},updatedAt:new Date().toISOString()}}
+function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!Array.isArray(r.complaint.items))r.complaint.items=[];if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.slaie)r.slaie=b.slaie;if(!Array.isArray(r.slaie.reports))r.slaie.reports=[];if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!Array.isArray(r.prescription.diagnosisTerms))r.prescription.diagnosisTerms=[];if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;if(!r.labProfiles)r.labProfiles=b.labProfiles;return r}
 async function save(r){
   r.updatedAt=new Date().toISOString();
 
@@ -9732,7 +9834,7 @@ function mergeClinicalTerminology(remote=[]){
 }
 async function loadClinicalTerminology(){
   if(!clinicalTerminology.length){clinicalTerminology=complaintList.map((label,i)=>({id:'FALLBACK-'+i,label,type:'symptom',system:'Common',synonyms:[]}));mergeClinicalTerminology();}
-  try{const r=await fetch('clinical-terminology-master.json',{cache:'no-store'});if(r.ok){const d=await r.json();mergeClinicalTerminology(d.entries||[]);renderComplaintQuickChips();}}catch(e){console.warn('Clinical terminology fallback active:',e)}
+  try{const r=await fetch('clinical-terminology-master.json',{cache:'no-store'});if(r.ok){const d=await r.json();mergeClinicalTerminology(d.entries||[]);renderComplaintQuickChips();if($('complaintLibraryCount'))$('complaintLibraryCount').textContent=clinicalTerminology.length.toLocaleString('en-IN')+' searchable terms loaded';}}catch(e){console.warn('Clinical terminology fallback active:',e)}
 }
 function scoreClinicalTerm(item,q){
   const n=normalizeTerm(q);if(!n)return 0;const label=normalizeTerm(item.label),syn=(item.synonyms||[]).map(normalizeTerm);let score=0;
@@ -9742,13 +9844,13 @@ function scoreClinicalTerm(item,q){
   return score;
 }
 function searchClinicalTerms(q,types=[]){
-  const typeSet=new Set(types);return clinicalTerminology.map(x=>({x,score:scoreClinicalTerm(x,q)})).filter(o=>o.score>0&&(!typeSet.size||typeSet.has(o.x.type))).sort((a,b)=>b.score-a.score||a.x.label.localeCompare(b.x.label)).slice(0,24).map(o=>o.x);
+  const typeSet=new Set(types);return clinicalTerminology.map(x=>({x,score:scoreClinicalTerm(x,q)})).filter(o=>o.score>0&&(!typeSet.size||typeSet.has(o.x.type))).sort((a,b)=>b.score-a.score||a.x.label.localeCompare(b.x.label)).slice(0,40).map(o=>o.x);
 }
 function termResultHtml(x,mode){return `<button type="button" class="smart-result" data-term-mode="${mode}" data-term-label="${esc(x.label)}"><span class="term-main"><span class="term-title">${esc(x.label)}</span><span class="term-meta">${esc(x.system||'Clinical terminology')}${(x.synonyms||[]).length?' • '+esc((x.synonyms||[]).slice(0,3).join(', ')):''}</span></span><span class="term-type">${esc(x.type||'term')}</span></button>`}
-function renderComplaintSearch(){const q=val('primaryComplaint'),box=$('complaintSearchResults');if(!box)return;const rows=q?searchClinicalTerms(q,['symptom','condition','ayurveda','custom']):[];box.innerHTML=rows.map(x=>termResultHtml(x,'complaint')).join('')+(q&&!rows.length?`<div class="notice">No exact library match. You can still add your typed term: <b>${esc(q)}</b>.</div>`:'');box.classList.toggle('hidden',!q)}
+function renderComplaintSearch(){const q=val('primaryComplaint'),box=$('complaintSearchResults');if(!box)return;const scope=val('complaintSearchScope')||'all';const types=scope==='all'?['symptom','condition','ayurveda','custom']:[scope];const rows=q?searchClinicalTerms(q,types):[];box.innerHTML=rows.map(x=>termResultHtml(x,'complaint')).join('')+(q&&!rows.length?`<div class="notice">No library match in this scope. You can still add the typed term exactly as entered: <b>${esc(q)}</b>.</div>`:'');box.classList.toggle('hidden',!q)}
 function renderDiagnosisSearch(){const q=val('diagnosisSearchInput'),box=$('diagnosisSearchResults');if(!box)return;const rows=q?searchClinicalTerms(q,['condition','ayurveda','custom']):[];box.innerHTML=rows.map(x=>termResultHtml(x,'diagnosis')).join('')+(q&&!rows.length?`<div class="notice">No exact library match. Typed diagnosis can still be added and saved to My Terms.</div>`:'');box.classList.toggle('hidden',!q)}
 function renderComplaintQuickChips(){const quick=['Low Back Pain','Sciatica','Neck Pain','Knee Pain','Fever','Cough','Breathlessness','Abdominal Pain','Headache','Dysuria'];if($('complaintQuickChips'))$('complaintQuickChips').innerHTML=quick.map(x=>`<button type="button" class="quick-term-chip" data-quick-complaint="${esc(x)}">${esc(x)}</button>`).join('')}
-function renderComplaintOptions(){loadClinicalTerminology();renderComplaintQuickChips();renderComplaintSelection()}
+function renderComplaintOptions(){loadClinicalTerminology();renderComplaintQuickChips();renderComplaintSelection();if($('complaintLibraryCount'))$('complaintLibraryCount').textContent=clinicalTerminology.length.toLocaleString('en-IN')+' searchable terms loaded'}
 function addComplaintTerm(term){term=String(term||'').trim();if(!term)return;let items=Array.isArray(current.complaint?.items)?current.complaint.items:[];if(!items.some(x=>normalizeTerm(typeof x==='string'?x:x.term)===normalizeTerm(term)))items.push({term,primary:items.length===0});current.complaint.items=items;if(!current.complaint.primary){current.complaint.primary=term;set('primaryComplaint',term)}if(!clinicalTermByLabel.has(normalizeTerm(term)))addCustomClinicalTerm(term,'custom','My Complaints');renderComplaintSelection();updateComplaintWorkflow();renderAssessmentContext();}
 function setPrimaryComplaintTerm(term){current.complaint.items=(current.complaint.items||[]).map(x=>({...(typeof x==='string'?{term:x}:x),primary:normalizeTerm(typeof x==='string'?x:x.term)===normalizeTerm(term)}));current.complaint.primary=term;set('primaryComplaint',term);renderComplaintSelection();updateComplaintWorkflow();renderAssessmentContext()}
 function renderComplaintSelection(){if(!$('complaintSelectedList'))return;let items=Array.isArray(current?.complaint?.items)?current.complaint.items:[];if(!items.length&&current?.complaint?.primary)items=[{term:current.complaint.primary,primary:true}];$('complaintSelectedList').innerHTML=items.length?items.map((x,i)=>{const o=typeof x==='string'?{term:x}:x;return `<span class="selected-term ${o.primary?'primary-term':''}">${o.primary?'★ ':''}${esc(o.term)}<button type="button" class="mini-btn" title="Set primary" data-set-primary-complaint="${esc(o.term)}">P</button><button type="button" class="mini-btn" title="Remove" data-remove-complaint="${i}">✕</button></span>`}).join(''):'<span class="small">No complaint added yet.</span>'}
@@ -11314,8 +11416,8 @@ else showPatient();
 status('Saved patient reopened successfully.');
 }
 
-function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabAssessment','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabAppointments','tabBilling','tabPharmacy','tabLabMgmt','tabImaging','tabKnowledge','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','assessmentSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','appointmentsSection','billingSection','pharmacySection','labMgmtSection','imagingSection','knowledgeSection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabAssessment','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabAppointments','tabBilling','tabPharmacy','tabLabMgmt','tabImaging','tabKnowledge','tabSLAIE','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','assessmentSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','appointmentsSection','billingSection','pharmacySection','labMgmtSection','imagingSection','knowledgeSection','slaieSection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
 function showDashboard(){hideAll();$('dashboardSection').classList.remove('hidden');setActive('tabDashboard');renderDashboard()}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
@@ -11324,6 +11426,7 @@ function showExam(){hideAll();$('examSection').classList.remove('hidden');setAct
 function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden');setActive('tabSystemic')}
 function showAssessment(){hideAll();$('assessmentSection').classList.remove('hidden');setActive('tabAssessment');renderAssessmentContext();renderDiagnosisTerms();renderDiagnosisSearch()}
 function showInvestigations(){hideAll();$('investigationsSection').classList.remove('hidden');setActive('tabInvestigations');renderInvestigations()}
+function showSLAIE(){hideAll();$('slaieSection').classList.remove('hidden');setActive('tabSLAIE');window.dispatchEvent(new CustomEvent('mahamaya:slaie-open'))}
 function showCBC(){hideAll();$('cbcSection').classList.remove('hidden');setActive('tabCBC');populateCBC()}
 function showLabProfiles(){hideAll();$('labProfilesSection').classList.remove('hidden');setActive('tabLabProfiles');populateLabProfiles()}
 function showAyurveda(){hideAll();$('ayurvedaSection').classList.remove('hidden');setActive('tabAyurveda')}
@@ -11558,7 +11661,7 @@ if(rx){const raw=localStorage.getItem(key(rx));if(raw){populate(JSON.parse(raw))
 $('dashNewPatient').onclick=()=>{populate(blank());showPatient();status('New blank patient ready.')};
 $('dashRecords').onclick=showRecords;
 $('dashSearch').onclick=()=>{$('dashboardSearch').focus();window.scrollTo({top:$('dashboardSearch').offsetTop-80,behavior:'smooth'})};
-$('dashInvestigations').onclick=showInvestigations;
+$('dashInvestigations').onclick=showInvestigations;$('dashSLAIE').onclick=showSLAIE;
 $('dashCBC').onclick=showCBC;
 $('dashLabProfiles').onclick=showLabProfiles;
 $('dashAyurveda').onclick=showAyurveda;
@@ -11572,8 +11675,8 @@ if(rx)openDashboardRecord(rx,true);
 if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}
 };
 
-$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabAssessment').onclick=showAssessment;$('tabInvestigations').onclick=showInvestigations;$('tabCBC').onclick=showCBC;$('tabLabProfiles').onclick=showLabProfiles;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabSafety').onclick=showSafety;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
-$('primaryComplaint').oninput=()=>{renderComplaintSearch();updateComplaintWorkflow()};$('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
+$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabAssessment').onclick=showAssessment;$('tabInvestigations').onclick=showInvestigations;$('tabSLAIE').onclick=showSLAIE;$('tabCBC').onclick=showCBC;$('tabLabProfiles').onclick=showLabProfiles;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabSafety').onclick=showSafety;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
+$('primaryComplaint').oninput=()=>{renderComplaintSearch();updateComplaintWorkflow()};$('primaryComplaint').onchange=updateComplaintWorkflow;$('complaintSearchScope').onchange=renderComplaintSearch;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
 $('addComplaintTermBtn').onclick=()=>addComplaintTerm(val('primaryComplaint'));
@@ -11591,10 +11694,141 @@ $('useSuggestedDxBtn').onclick=()=>{const d=complaintRules[val('primaryComplaint
 $('openAssessmentFromRx').onclick=showAssessment;
 $('dashContinue').onclick=()=>{const tab=nextEncounterTab();$(tab)?.click();status('Continuing current encounter at the next incomplete stage.')};
 document.addEventListener('click',e=>{if(!e.target.closest('.smart-search-wrap')){if($('complaintSearchResults'))$('complaintSearchResults').classList.add('hidden');if($('diagnosisSearchResults'))$('diagnosisSearchResults').classList.add('hidden')}});
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V2.60 Clinical Workflow Edition ready.');
+
+function setAyurvedaWorkspaceView(view='core'){
+  document.querySelectorAll('#ayurvedaSection [data-ayu-panel]').forEach(p=>p.classList.toggle('ayu-panel-active',p.dataset.ayuPanel===view));
+  document.querySelectorAll('#ayurvedaSection [data-ayu-view]').forEach(b=>b.classList.toggle('active',b.dataset.ayuView===view));
+  try{sessionStorage.setItem('mahamaya_ayu_view',view)}catch{}
+}
+$('ayuWorkspaceNav')?.addEventListener('click',e=>{const b=e.target.closest('[data-ayu-view]');if(b){setAyurvedaWorkspaceView(b.dataset.ayuView);window.scrollTo({top:$('ayurvedaSection').offsetTop-80,behavior:'smooth'})}});
+setAyurvedaWorkspaceView((()=>{try{return sessionStorage.getItem('mahamaya_ayu_view')||'core'}catch{return 'core'}})());
+
+
+window.MahamayaBridge={
+  getCurrent:()=>current,
+  ensureCurrent:()=>ensureSchema(current),
+  saveCurrent:()=>save(current),
+  status:(m,e=false)=>status(m,e),
+  renderInvestigations:()=>renderInvestigations(),
+  showInvestigations:()=>showInvestigations(),
+  showSLAIE:()=>showSLAIE(),
+  today:()=>today(),
+  esc:(x)=>esc(x)
+};
+
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V2.70 Mobile Clinical Workspace + SLAIE ready.');
 })();
 </script>
 
+
+
+<script id="slaie-core-v1-js">
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const B=()=>window.MahamayaBridge;
+const state={file:null,fileName:'',fileType:'',rows:[],verified:false,originalText:'',dbReady:false};
+const OMEGA_TEMPLATE_URL='slaie-omega-exact-row-v1.json';
+let templateRows=[];
+
+function norm(s){return String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[⁺+]/g,'+').replace(/[^a-z0-9+/%.-]+/g,' ').replace(/\s+/g,' ').trim()}
+function safe(s){return String(s??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]))}
+function current(){return B()?.ensureCurrent?.()||B()?.getCurrent?.()}
+function toast(m,e=false){B()?.status?.(m,e)}
+function today(){return B()?.today?.()||new Date().toISOString().slice(0,10)}
+function rid(){return 'SLAIE-'+Date.now()+'-'+Math.random().toString(36).slice(2,7)}
+
+async function loadTemplate(){
+  if(templateRows.length)return;
+  try{const r=await fetch(OMEGA_TEMPLATE_URL,{cache:'no-store'});if(r.ok){const d=await r.json();templateRows=d.rows||[]}}catch(e){console.warn('SLAIE template fallback',e)}
+}
+
+function openDB(){return new Promise((resolve,reject)=>{if(!('indexedDB'in window))return resolve(null);const req=indexedDB.open('MahamayaSLAIEFiles',1);req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains('files'))db.createObjectStore('files',{keyPath:'id'})};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
+async function putFile(id,file){if(!file)return;try{const db=await openDB();if(!db)return;await new Promise((res,rej)=>{const tx=db.transaction('files','readwrite');tx.objectStore('files').put({id,blob:file,name:file.name,type:file.type,updatedAt:new Date().toISOString()});tx.oncomplete=res;tx.onerror=()=>rej(tx.error)})}catch(e){console.warn('SLAIE file archive failed',e)}}
+async function getFile(id){try{const db=await openDB();if(!db)return null;return await new Promise((res,rej)=>{const tx=db.transaction('files','readonly');const q=tx.objectStore('files').get(id);q.onsuccess=()=>res(q.result||null);q.onerror=()=>rej(q.error)})}catch{return null}}
+async function deleteFile(id){try{const db=await openDB();if(!db)return;await new Promise((res,rej)=>{const tx=db.transaction('files','readwrite');tx.objectStore('files').delete(id);tx.oncomplete=res;tx.onerror=()=>rej(tx.error)})}catch{}}
+
+function selectFile(file){state.file=file||null;state.fileName=file?.name||'';state.fileType=file?.type||'';$('slaieFileStatus').textContent=file?`${file.name} • ${(file.size/1024/1024).toFixed(2)} MB • ready for AutoRead`:'No report selected.'}
+
+async function ensurePdfJs(){
+  if(window.pdfjsLib)return window.pdfjsLib;
+  try{
+    const m=await import('https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.mjs');
+    m.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.mjs';
+    window.pdfjsLib=m;return m;
+  }catch(e){throw new Error('PDF reader could not load. Paste the report text manually or retry online.')}
+}
+async function readPdf(file){const lib=await ensurePdfJs();const data=new Uint8Array(await file.arrayBuffer());const pdf=await lib.getDocument({data}).promise;const pages=[];for(let i=1;i<=pdf.numPages;i++){const p=await pdf.getPage(i);const tc=await p.getTextContent();let line='',lastY=null;const out=[];for(const it of tc.items){const y=Math.round(it.transform?.[5]||0);if(lastY!==null&&Math.abs(y-lastY)>3){if(line.trim())out.push(line.trim());line=''}line+=(line?' ':'')+it.str;lastY=y}if(line.trim())out.push(line.trim());pages.push(out.join('\n'))}return pages.join('\n')}
+async function ensureTesseract(){if(window.Tesseract)return window.Tesseract;await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';s.onload=res;s.onerror=()=>rej(new Error('Image OCR library could not load.'));document.head.appendChild(s)});return window.Tesseract}
+async function readImage(file){const T=await ensureTesseract();$('slaieFileStatus').textContent='Image OCR running locally in this browser…';const r=await T.recognize(file,'eng',{logger:m=>{if(m.status&&m.progress!=null)$('slaieFileStatus').textContent=`OCR: ${m.status} ${Math.round(m.progress*100)}%`}});return r.data?.text||''}
+async function autoRead(){if(!state.file)return toast('Select a PDF/image report first.',true);try{$('slaieFileStatus').textContent='Reading report…';let text='';if(state.file.type==='application/pdf'||/\.pdf$/i.test(state.file.name))text=await readPdf(state.file);else if(state.file.type.startsWith('image/'))text=await readImage(state.file);else text=await state.file.text();state.originalText=text;$('slaieRawText').value=text;$('slaieFileStatus').textContent=`AutoRead complete • ${text.length.toLocaleString('en-IN')} characters extracted`;await parseRows();}catch(e){console.error(e);$('slaieFileStatus').textContent=e.message;toast(e.message,true)}}
+
+function detectMeta(text){const get=re=>{const m=text.match(re);return m?.[1]?.trim()||''};return{name:get(/Name\s*:\s*([^\n]+)/i),patientId:get(/Patient ID\s*:\s*([^\n]+)/i),reportId:get(/Report ID\s*:\s*([^\n]+)/i),reportDate:get(/Report Date\s*:\s*([^\n]+)/i)}}
+function canonicalFor(label,profileHint=''){const n=norm(label);let matches=[];for(const row of templateRows){for(const a of [row.label,...(row.aliases||[])]){const na=norm(a);let score=0;if(n===na)score=3000+na.length;else if(n.startsWith(na))score=2000+na.length;else if(na.startsWith(n))score=1000+n.length;if(score)matches.push({row,score,profileMatch:profileHint&&row.profile===profileHint});}}if(profileHint&&matches.some(x=>x.profileMatch))matches=matches.filter(x=>x.profileMatch);matches.sort((a,b)=>b.score-a.score);return matches[0]?.row||null}
+function parseRange(s){s=String(s||'').trim();let m=s.match(/^\s*(-?\d+(?:\.\d+)?)\s*[-–]\s*(-?\d+(?:\.\d+)?)\s*$/);if(m){const low=Number(m[1]),high=Number(m[2]);if(low>high)return{mode:'invalid',low,high};return{low,high,mode:'range'}}m=s.match(/^\s*[<>]=?\s*(-?\d+(?:\.\d+)?)\s*$/);if(m)return{threshold:Number(m[1]),mode:s.includes('>')?'gt':'lt'};return null}
+function deriveFlag(row){const raw=String(row.flag||'').toUpperCase();if(/CRIT|PANIC/.test(raw))return'critical';if(/\bHH\b|\bH\b|HIGH/.test(raw))return'high';if(/\bLL\b|\bL\b|LOW/.test(raw))return'low';const v=Number(String(row.result).replace(/,/g,''));if(!Number.isFinite(v))return'';const rr=parseRange(row.range);if(!rr||rr.mode==='invalid')return'';if(rr.mode==='range'){if(v<rr.low)return'low';if(v>rr.high)return'high';return'normal'}if(rr.mode==='gt')return v>=rr.threshold?'normal':'low';if(rr.mode==='lt')return v<=rr.threshold?'normal':'high';return''}
+function criticalFlag(row){return /CRIT|PANIC/i.test(String(row.flag||''))}
+function makeRow(test,result,flag,range,unit,profile=''){const c=canonicalFor(test,profile);unit=String(unit||'').trim().replace(/^=\s*Normal\s*/i,'');const row={id:rid(),test:c?.label||test,canonical:c?.label||test,profile:profile||c?.profile||'',result:String(result||'').trim(),flag:String(flag||'').trim(),range:String(range||'').trim(),unit,reviewed:false};const f=deriveFlag(row);row.derivedFlag=criticalFlag(row)?'critical':f;return row}
+function parseNumericLine(line,profile=''){
+  const m=line.match(/^(.+?)\s+((?:[<>]=?\s*)?-?\d+(?:\.\d+)?(?:\s*[-–]\s*-?\d+(?:\.\d+)?)?)\s+(?:(H|L|HH|LL|HIGH|LOW|CRITICAL|PANIC)\s+)?([<>]=?\s*-?\d+(?:\.\d+)?|-?\d+(?:\.\d+)?\s*[-–]\s*-?\d+(?:\.\d+)?|\d+\s*:\s*\d+\s*[-–]\s*\d+\s*:\s*\d+)\s*(.*)$/i);
+  if(!m)return null;let [,test,result,flag='',range,unit='']=m;test=test.trim();if(/^(name|age|age\/gender|phone|referred|patient id|report id|registration date|received date|collection date|report date|report status|b2b lab|test description|sample type|method|interpretation|reference group)$/i.test(test))return null;if(test.length>80)return null;if(/[–-]/.test(result)&&profile!=='Urine Routine')return null;return makeRow(test,result,flag,range,unit,profile)
+}
+function parseQualitativeLine(line,profile=''){
+  const known='Absent|Present|Negative|Positive|Non-Reactive|Reactive|Clear|Turbid|Pale Yellow|Yellow|Nil|Nill|Normal';
+  let m=line.match(new RegExp('^(.+?)\\s+('+known+')\\s+('+known+')(?:\\s+(.*))?$','i'));if(m)return makeRow(m[1],m[2],'',m[3],m[4]||'',profile);
+  m=line.match(new RegExp('^(.+?)\\s+('+known+')\\s+([<>]=?\\s*-?\\d+(?:\\.\\d+)?|-?\\d+(?:\\.\\d+)?\\s*[-–]\\s*-?\\d+(?:\\.\\d+)?)\\s*(.*)$','i'));if(m)return makeRow(m[1],m[2],'',m[3],m[4]||'',profile);
+  return null
+}
+function parseValueOnlyCanonical(line,profile=''){if(/^vitamin\s+b\s*12$/i.test(line.trim())||/^vitamin\s+d(?:\s+hydroxy)?(?:\s+d?3)?$/i.test(line.trim()))return null;const m=line.match(/^(.+?)\s+(-?\d+(?:\.\d+)?)\s*(H|L|HH|LL|HIGH|LOW|CRITICAL|PANIC)?\s*([A-Za-zµμ%][A-Za-z0-9µμ%^/*³². -]*)?$/i);if(!m)return null;const c=canonicalFor(m[1],profile);if(!c)return null;return makeRow(m[1],m[2],m[3]||'','',m[4]||'',profile||c.profile||'')}
+function inferProfile(line,current=''){
+  const n=norm(line);
+  if(/complete blood count|haematology/.test(n))return'CBC';
+  if(/erythrocyte sedimentation rate|\besr\b/.test(n))return'Inflammation';
+  if(/hba1c|glycocylated hemoglobin|glycated hemoglobin/.test(n))return'Diabetes';
+  if(/lft|liver function test/.test(n))return'LFT';
+  if(/iron profile/.test(n))return'Iron Profile';
+  if(/vitamin d hydroxy/.test(n))return'Vitamin';
+  if((n==='calcium'||(n.includes('sample type')&&/\bcalcium\b/.test(n))))return'Mineral';
+  if(/rft|renal function test/.test(n))return'RFT';
+  if(/lipid screen|lipid profile/.test(n))return'Lipid Profile';
+  if(/urine examination|urine routine/.test(n))return'Urine Routine';
+  if(/thyroid profile/.test(n))return'Thyroid';
+  if(/vitamin b ?12/.test(n))return'Vitamin';
+  return current
+}
+function parseOmega(text){const lines=String(text||'').replace(/\r/g,'').split('\n').map(x=>x.replace(/\s+/g,' ').trim()).filter(Boolean);const rows=[];let profile='',inInterpretation=false;for(let i=0;i<lines.length;i++){let line=lines[i];const before=profile, inferred=inferProfile(line,profile);if(inferred!==profile){profile=inferred;inInterpretation=false}else profile=inferred;if(/^test description\b/i.test(line)||/^sample type\s*:/i.test(line))inInterpretation=false;if(/^interpretation\s*:/i.test(line)||/^comments\s*:/i.test(line)){inInterpretation=true;continue}if(inInterpretation)continue;let row=parseNumericLine(line,profile)||parseQualitativeLine(line,profile);if(row)rows.push(row);else if(/erythrocyte sedimentation rate/i.test(line)&&i+2<lines.length){for(let j=1;j<=3;j++){const mm=lines[i+j]?.match(/^(-?\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?\s*[-–]\s*\d+(?:\.\d+)?)\s*(.*)$/);if(mm){rows.push(makeRow('Erythrocyte Sedimentation Rate (ESR)',mm[1],'',mm[2],mm[3],'Inflammation'));break}}}else{const lone=parseValueOnlyCanonical(line,profile);if(lone)rows.push(lone)}}
+  const seen=new Set();return rows.filter(r=>{const k=norm(r.test)+'|'+r.result+'|'+r.range+'|'+r.profile;if(seen.has(k))return false;seen.add(k);return true})
+}
+async function parseRows(){await loadTemplate();const text=$('slaieRawText').value.trim();if(!text)return toast('No report text available to parse.',true);state.originalText=text;state.rows=parseOmega(text);state.verified=false;if(!state.rows.length){toast('No exact rows detected. Keep the text and add rows manually, or verify the report format.',true)}renderRows();const meta=detectMeta(text);if(!$('slaieReportDate').value&&meta.reportDate){const m=meta.reportDate.match(/(\d{2})\/(\d{2})\/(\d{4})/);if(m)$('slaieReportDate').value=`${m[3]}-${m[2]}-${m[1]}`}}
+function renderRows(){const body=$('slaieRowsBody');body.innerHTML=state.rows.length?state.rows.map((r,i)=>`<tr data-slaie-i="${i}"><td><input class="test-input" data-k="test" value="${safe(r.test)}"></td><td><input data-k="result" value="${safe(r.result)}"></td><td><input data-k="flag" value="${safe(r.flag)}"></td><td><input data-k="range" value="${safe(r.range)}"></td><td><input data-k="unit" value="${safe(r.unit)}"></td><td><span class="slaie-flag-${r.derivedFlag||'normal'}">${safe(r.reviewed?'Verified':(r.derivedFlag||'Review'))}</span></td><td><button type="button" class="danger mini-btn" data-slaie-remove="${i}">✕</button></td></tr>`).join(''):'<tr><td colspan="7"><div class="notice">No extracted rows yet.</div></td></tr>';updateKpis()}
+function syncRowsFromTable(){document.querySelectorAll('#slaieRowsBody tr[data-slaie-i]').forEach(tr=>{const r=state.rows[Number(tr.dataset.slaieI)];if(!r)return;tr.querySelectorAll('input[data-k]').forEach(inp=>r[inp.dataset.k]=inp.value);const c=canonicalFor(r.test,r.profile);r.canonical=c?.label||r.test;r.profile=r.profile||c?.profile||'';r.derivedFlag=criticalFlag(r)?'critical':deriveFlag(r)})}
+function updateKpis(){syncRowsFromTable();const counts={high:0,low:0,critical:0};state.rows.forEach(r=>{if(counts[r.derivedFlag]!=null)counts[r.derivedFlag]++});$('slaieRowCount').textContent=state.rows.length+' rows';$('slaieTotalKpi').textContent=state.rows.length;$('slaieHighKpi').textContent=counts.high;$('slaieLowKpi').textContent=counts.low;$('slaieCriticalKpi').textContent=counts.critical}
+function addRow(){state.rows.push(makeRow('','','','',''));renderRows();setTimeout(()=>document.querySelector('#slaieRowsBody tr:last-child input')?.focus(),20)}
+function verifyInterpret(){syncRowsFromTable();if(!state.rows.length)return toast('No rows to verify.',true);state.rows.forEach(r=>{r.reviewed=true;r.derivedFlag=criticalFlag(r)?'critical':deriveFlag(r)});state.verified=true;renderRows();const abnormal=state.rows.filter(r=>['critical','high','low'].includes(r.derivedFlag));const critical=abnormal.filter(r=>r.derivedFlag==='critical');$('slaieAbnormalSummary').innerHTML=abnormal.length?abnormal.map(r=>`<div class="item"><b class="slaie-flag-${r.derivedFlag}">${r.derivedFlag==='critical'?'🔴':'🟡'} ${safe(r.test)} — ${safe(r.result)} ${safe(r.unit)}</b><div class="small">Lab range: ${safe(r.range||'not captured')} ${safe(r.unit)}${r.flag?' • report flag '+safe(r.flag):''}</div></div>`).join(''):'<div class="alert alert-green">No row is outside a parsed laboratory reference interval. Always review the original report.</div>';const lines=[];if(critical.length)lines.push(`URGENT REVIEW: ${critical.map(r=>r.test+' '+r.result+' '+r.unit).join('; ')}`);if(abnormal.length)lines.push(`Abnormal rows (${abnormal.length}): ${abnormal.map(r=>r.test+' '+r.result+' '+r.unit+' ['+(r.derivedFlag||'flag')+']').join('; ')}`);else lines.push('No configured abnormal row detected against parsed laboratory reference ranges.');const profiles=[...new Set(state.rows.map(r=>r.profile).filter(Boolean))];if(profiles.length)lines.push('Profiles represented: '+profiles.join(', '));lines.push(`Rows verified: ${state.rows.length}. Interpretation is decision support; correlate with symptoms, examination, medicines and the original report.`);$('slaieClinicalSummary').value=lines.join('\n');toast('SLAIE rows verified and interpreted. Review every highlighted result.')}
+
+function reportObject(existingId=''){syncRowsFromTable();const c=current();return{id:existingId||rid(),template:$('slaieTemplate').value,templateVersion:'Omega Exact-Row Template v1.0',engineVersion:'SLAIE Core v1.0',reportDate:$('slaieReportDate').value||today(),labName:$('slaieLabName').value.trim(),fileName:state.fileName,rows:state.rows.map(x=>({...x})),verified:state.verified,summary:$('slaieClinicalSummary').value.trim(),rawText:$('slaieRawText').value.slice(0,120000),patientName:c?.patient?.name||'',uhid:c?.uhid||'',savedAt:new Date().toISOString()}}
+function investigationItem(rep){const ab=rep.rows.filter(r=>['critical','high','low'].includes(r.derivedFlag));const profiles=[...new Set(rep.rows.map(r=>r.profile).filter(Boolean))];let category='Other';if(profiles.length===1&&profiles[0]==='Urine Routine')category='Urine';else if(profiles.length===1)category='Blood';return{category,test:'SLAIE AutoRead — '+(rep.labName||'Laboratory Report'),date:rep.reportDate,result:rep.summary||`${rep.rows.length} verified lab rows; ${ab.length} abnormal`,remark:`SLAIE Core v1.0 / Omega Exact-Row Template v1.0. Verify original report, units and laboratory-specific reference ranges.`}}
+async function saveReport(addInv=true){if(!state.verified)return toast('Verify rows before saving the SLAIE report.',true);const c=current();if(!c?.patient?.name)return toast('Open/select a patient before saving SLAIE.',true);const rep=reportObject();c.slaie=c.slaie||{reports:[]};c.slaie.reports=c.slaie.reports||[];c.slaie.reports.unshift(rep);if(addInv){c.investigations=c.investigations||{previous:[],advised:[]};c.investigations.previous.unshift(investigationItem(rep))}await putFile(rep.id,state.file);await B().saveCurrent();B().renderInvestigations();renderArchive();toast('SLAIE report saved and archived for the current patient.')}
+async function addToInvestigations(){if(!state.verified)return toast('Verify rows first.',true);const c=current();const rep=reportObject('WORKING');c.investigations.previous.unshift(investigationItem(rep));await B().saveCurrent();B().renderInvestigations();toast('SLAIE summary added to Previous Investigations.')}
+function renderArchive(){const c=current();const rows=c?.slaie?.reports||[];$('slaieArchiveList').innerHTML=rows.length?rows.map((r,i)=>`<div class="slaie-archive-item"><div><b>${safe(r.reportDate||'')} • ${safe(r.labName||'Laboratory report')}</b><div class="small">${safe(r.fileName||'No original filename')} • ${r.rows?.length||0} rows • ${r.verified?'verified':'not verified'}<br>${safe((r.summary||'').split('\n')[0]||'')}</div></div><div class="slaie-archive-actions"><button type="button" class="secondary" data-slaie-load="${i}">Open</button><button type="button" class="secondary" data-slaie-file="${safe(r.id)}">Original</button><button type="button" class="danger" data-slaie-delete="${i}">Delete</button></div></div>`).join(''):'<div class="notice">No SLAIE report saved for this patient.</div>'}
+function loadArchive(i){const r=current()?.slaie?.reports?.[i];if(!r)return;state.rows=(r.rows||[]).map(x=>({...x}));state.verified=!!r.verified;state.file=null;state.fileName=r.fileName||'';$('slaieRawText').value=r.rawText||'';$('slaieClinicalSummary').value=r.summary||'';$('slaieReportDate').value=r.reportDate||'';$('slaieLabName').value=r.labName||'';$('slaieFileStatus').textContent=r.fileName?'Archived original: '+r.fileName:'Archived row data loaded';renderRows();if(state.verified)verifyInterpret();toast('Archived SLAIE report loaded.')}
+async function openOriginal(id){const f=await getFile(id);if(!f?.blob)return toast('Original file is not available on this device. Row data and interpretation remain archived.',true);const url=URL.createObjectURL(f.blob);window.open(url,'_blank','noopener');setTimeout(()=>URL.revokeObjectURL(url),60000)}
+async function deleteArchive(i){const c=current();const r=c?.slaie?.reports?.[i];if(!r)return;if(!confirm('Delete this SLAIE archive entry from this patient?'))return;c.slaie.reports.splice(i,1);await deleteFile(r.id);await B().saveCurrent();renderArchive();toast('SLAIE archive entry deleted.')}
+function clearWorking(){state.file=null;state.fileName='';state.rows=[];state.verified=false;state.originalText='';$('slaieRawText').value='';$('slaieClinicalSummary').value='';$('slaieReportDate').value=today();$('slaieLabName').value='';$('slaieFileStatus').textContent='No report selected.';$('slaieAbnormalSummary').textContent='No verified interpretation yet.';renderRows()}
+
+function bind(){
+  $('openSLAIEBtn')?.addEventListener('click',()=>B().showSLAIE());
+  $('slaieBackInvBtn')?.addEventListener('click',()=>B().showInvestigations());$('slaieBackInvBtn2')?.addEventListener('click',()=>B().showInvestigations());
+  $('slaieFileInput')?.addEventListener('change',e=>selectFile(e.target.files?.[0]));$('slaieImageInput')?.addEventListener('change',e=>selectFile(e.target.files?.[0]));$('slaieCameraInput')?.addEventListener('change',e=>selectFile(e.target.files?.[0]));
+  $('slaieRunReadBtn')?.addEventListener('click',autoRead);$('slaieParseBtn')?.addEventListener('click',parseRows);$('slaieClearBtn')?.addEventListener('click',clearWorking);$('slaieAddManualRowBtn')?.addEventListener('click',addRow);$('slaieVerifyBtn')?.addEventListener('click',verifyInterpret);$('slaieSaveBtn')?.addEventListener('click',()=>saveReport(true));$('slaieAddInvBtn')?.addEventListener('click',addToInvestigations);$('slaieRefreshArchiveBtn')?.addEventListener('click',renderArchive);
+  $('slaieRowsBody')?.addEventListener('input',updateKpis);$('slaieRowsBody')?.addEventListener('click',e=>{const i=e.target.dataset.slaieRemove;if(i!==undefined){state.rows.splice(Number(i),1);renderRows()}});
+  $('slaieArchiveList')?.addEventListener('click',e=>{if(e.target.dataset.slaieLoad!==undefined)loadArchive(Number(e.target.dataset.slaieLoad));if(e.target.dataset.slaieFile)openOriginal(e.target.dataset.slaieFile);if(e.target.dataset.slaieDelete!==undefined)deleteArchive(Number(e.target.dataset.slaieDelete))});
+  window.addEventListener('mahamaya:slaie-open',()=>{if(!$('slaieReportDate').value)$('slaieReportDate').value=today();renderArchive();loadTemplate()});
+  clearWorking();loadTemplate();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind);else bind();
+})();
+</script>
 
 <script id="mahamaya-v260-ui-js">
 (()=>{
