@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<title>Mahamaya Clinic EMR | Clinical Command Center V2.50</title>
+<title>Mahamaya Clinic EMR | Clinical Workflow Edition V2.60</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -207,10 +207,21 @@ button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;cursor
 /* SKMCIS V2.49A: Firebase authentication is the primary app gate. */
 /* SKMCIS V2.49C FULL STRUCTURE REPAIR: rebuilt corrupted print function and removed nested auth markup from main JS. */
 #lockOverlay{display:none!important}
+
+/* V2.60 premium clinical workflow */
+:root{--surface:#ffffff;--surface-soft:#f7fbfc;--ink:#123f49;--muted:#607a82;--shadow-soft:0 10px 30px rgba(13,77,86,.08)}
+body{background:linear-gradient(180deg,#eef7f8 0,#f7fbfc 38%,#f2f7f8 100%)}
+.card{box-shadow:var(--shadow-soft);border-color:#d6e7ea}.card:hover{box-shadow:0 14px 34px rgba(13,77,86,.10)}
+.command-bar{box-shadow:0 6px 20px rgba(13,77,86,.06)}
+.encounter-path-card{overflow:hidden}.encounter-progress{padding:12px 14px;background:linear-gradient(135deg,#f2fbfa,#f8fbff);border:1px solid #d6e9e8;border-radius:14px;margin:10px 0 14px}.encounter-progress-head{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:#355e66}.encounter-progress-track{height:7px;background:#e1ecee;border-radius:999px;overflow:hidden;margin-top:8px}.encounter-progress-track span{display:block;width:0;height:100%;background:linear-gradient(90deg,#0b7079,#28a092);border-radius:999px;transition:width .25s ease}
+.workflow-phase-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px}.workflow-phase{position:relative;min-height:112px;padding:14px 9px 10px;border-radius:16px;border:1px solid #d7e6e9;background:linear-gradient(180deg,#fff,#f8fbfc);color:#214f58;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:3px;box-shadow:0 3px 12px rgba(13,77,86,.04);transition:.18s ease}.workflow-phase:hover{transform:translateY(-2px);border-color:#8fc5c8;box-shadow:0 9px 22px rgba(13,77,86,.10)}.workflow-phase .phase-no{position:absolute;top:7px;left:8px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#e3f1f2;color:#0b6f78;font-size:10px;font-weight:900}.workflow-phase .phase-icon{font-size:23px}.workflow-phase b{font-size:11px}.workflow-phase small{font-size:9px;line-height:1.25;color:#6a7f85;font-weight:600}.workflow-phase.is-done{border-color:#9dd4c1;background:linear-gradient(180deg,#f5fff9,#eefaf5)}.workflow-phase.is-done .phase-no{background:#d8f1e4;color:#176840}.workflow-phase.is-current{outline:3px solid rgba(11,111,120,.12);border-color:#4aa4ab}
+.evidence-badge{display:inline-flex;padding:6px 9px;border-radius:999px;background:#eaf6f4;border:1px solid #c8e4df;color:#27675f;font-size:10px;font-weight:900}.clinical-note{border-left:4px solid #3d9fa5}.complaint-workspace,.assessment-workspace{overflow:visible}.smart-search-wrap{position:relative}.smart-results{position:absolute;z-index:5000;left:0;right:0;top:calc(100% + 5px);max-height:330px;overflow:auto;background:#fff;border:1px solid #bed8dc;border-radius:14px;box-shadow:0 18px 45px rgba(11,72,82,.17);padding:5px}.smart-results.hidden{display:none}.smart-result{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left;background:#fff;color:#214a53;border:0;border-radius:10px;padding:9px 10px;font-weight:700}.smart-result:hover,.smart-result:focus{background:#eef8f8}.term-main{min-width:0}.term-title{font-size:12px}.term-meta{font-size:9px;color:#73868b;margin-top:2px;font-weight:600}.term-type{flex:0 0 auto;padding:4px 6px;border-radius:999px;background:#edf4f6;font-size:8px;text-transform:uppercase;letter-spacing:.04em;color:#58717a}.field-help{font-size:9px;color:#71848a;margin-top:5px}.quick-term-row{display:flex;gap:6px;flex-wrap:wrap}.quick-term-chip,.term-pill{border:1px solid #cfe1e4;background:#f7fbfc;color:#2a5962;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:800}.quick-term-chip:hover,.term-pill:hover{background:#eaf6f6;border-color:#9ac7cb}.selected-term-list{display:flex;gap:7px;flex-wrap:wrap;min-height:38px;padding:8px;border:1px dashed #cbdde0;border-radius:12px;background:#fbfdfd}.selected-term{display:inline-flex;align-items:center;gap:5px;padding:6px 7px;border-radius:10px;background:#edf7f7;border:1px solid #cbe3e3;color:#214f58;font-size:10px}.selected-term.primary-term{background:#e6f5ef;border-color:#9ed7c1}.selected-term .mini-btn{border:0;background:transparent;color:#5b7277;padding:1px 3px;font-size:10px}.selected-term .mini-btn:hover{color:#b43c3c;background:#fff1f1}.compact-actions{margin:8px 0}.clinical-guidance-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.assessment-context{padding:10px 12px;border:1px solid #d2e4e6;border-radius:12px;background:#f8fbfc;font-size:11px;color:#355b64;margin:9px 0}.suggestion-strip{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.workflow-actions{position:sticky;bottom:0;z-index:120;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);padding:10px 0 2px;border-top:1px solid rgba(210,228,231,.8);margin-top:12px}.rx-context-card{border-left:4px solid #4f9ca3}
+@media(max-width:1180px){.workflow-phase-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:760px){.workflow-phase-grid{grid-template-columns:repeat(2,1fr)}.workflow-phase{min-height:92px}.clinical-guidance-grid{grid-template-columns:1fr}.complaint-top-grid,.assessment-search-grid{grid-template-columns:1fr}.workflow-actions{bottom:68px;padding:8px;background:rgba(255,255,255,.97);border-radius:12px;box-shadow:0 -8px 20px rgba(18,72,80,.08)}.smart-results{position:fixed;left:10px;right:10px;top:auto;bottom:82px;max-height:45vh}.hero-actions{display:grid;grid-template-columns:1fr 1fr}.hero-actions button{width:100%}}
 </style>
 
 <style id="mahamaya-v250-ui">
-/* Mahamaya Clinic EMR V2.50 — Clinical Command Center */
+/* Mahamaya Clinic EMR V2.60 — Clinical Workflow Edition */
 :root{
   --p:#0b6f78;--s:#168b84;--p2:#0b506b;--ink:#15333c;--muted:#667f89;
   --bg:#f3f8fa;--card:#ffffff;--line:#d6e3e7;--soft:#eaf4f6;--soft2:#f8fbfc;
@@ -326,8 +337,8 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
     <div class="brand-lockup">
       <img class="brand-logo" src="./icon-192.png" alt="Mahamaya Clinic">
       <div class="brand-copy">
-        <h1>Mahamaya Clinic <span class="version-badge">V2.50</span></h1>
-        <p>Clinical Command Center • Ayurveda + Modern Medicine EMR • Build 2026.08.13</p>
+        <h1>Mahamaya Clinic <span class="version-badge">V2.60</span></h1>
+        <p>Clinical Workflow Edition • Ayurveda + Modern Medicine EMR • Build 2026.08.13</p>
       </div>
     </div>
     <div class="header-meta">
@@ -341,7 +352,7 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 <nav class="command-bar no-print" aria-label="Primary application navigation">
   <div class="command-inner">
     <button type="button" class="command-btn is-active" data-modern-tab="tabDashboard">🏠 Home</button>
-    <button type="button" class="command-btn" data-modern-action="new-patient">➕ New Patient</button>
+    <button type="button" class="command-btn" data-modern-action="new-patient">➕ New Visit</button>
     <button type="button" class="command-btn" data-modern-tab="tabRecords">📁 Records</button>
     <button type="button" class="command-btn" data-modern-tab="tabPrescription">💊 Prescription</button>
     <button type="button" class="command-btn" data-modern-tab="tabAppointments">📅 Appointments</button>
@@ -352,7 +363,7 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 </nav>
 
 <div class="system-strip no-print">
-  <div id="status" class="status">App loaded successfully. V2.50 Clinical Command Center ready.</div>
+  <div id="status" class="status">App loaded successfully. V2.60 Clinical Workflow Edition ready.</div>
   <div class="actions">
     <span id="activeRoleBadge" class="role-badge">Locked</span>
     <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -374,10 +385,11 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
       <button id="tabDashboard" class="primary active">🏠 Dashboard</button>
       <button id="tabTimeline" class="secondary">🔄 Follow-up</button>
       <button id="tabPatient" class="secondary">👤 Patient</button>
-      <button id="tabComplaint" class="secondary">🧭 Complaint</button>
-      <button id="tabClinical" class="secondary">🩺 Clinical</button>
+      <button id="tabComplaint" class="secondary">🧭 Complaints</button>
+      <button id="tabClinical" class="secondary">🩺 History & Vitals</button>
       <button id="tabExam" class="secondary">🔍 General</button>
       <button id="tabSystemic" class="secondary">🫀 Systemic</button>
+      <button id="tabAssessment" class="secondary">🧠 Assessment & Dx</button>
     </div>
     <div class="drawer-label">Diagnostics</div>
     <div class="tabs actions module-tabs">
@@ -390,7 +402,7 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
     <div class="drawer-label">Treatment & safety</div>
     <div class="tabs actions module-tabs">
       <button id="tabAyurveda" class="secondary">🌿 Ayurveda</button>
-      <button id="tabPrescription" class="secondary">💊 Prescription</button>
+      <button id="tabPrescription" class="secondary">💊 Plan & Prescription</button>
       <button id="tabSafety" class="secondary">🛡 Safety</button>
       <button id="tabPreview" class="secondary">📄 Preview / PDF</button>
     </div>
@@ -418,8 +430,9 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
         <p class="hero-subtitle">Patient को जल्दी खोजें, नया encounter शुरू करें, और structured clinical workflow में बिना अनावश्यक clicks के आगे बढ़ें।</p>
       </div>
       <div class="hero-actions">
-        <button id="dashNewPatient" class="primary">➕ New Patient</button>
-        <button id="dashSearch" class="secondary">🔎 Search</button>
+        <button id="dashNewPatient" class="primary">➕ New Visit</button>
+        <button id="dashSearch" class="secondary">🔎 Find Patient</button>
+        <button id="dashContinue" class="secondary">▶ Continue Visit</button>
         <button id="dashRecords" class="secondary">📁 Records</button>
       </div>
     </div>
@@ -445,21 +458,22 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 
   <div class="home-main-grid">
     <div class="home-stack">
-      <div class="card">
-        <div class="section-head"><div><h2>Clinical Workflow</h2><div class="section-kicker">Fast structured encounter path</div></div><button type="button" class="secondary" data-open-drawer>All modules</button></div>
-        <div class="workflow-grid">
-          <button type="button" class="workflow-step" data-workflow-tab="tabPatient"><span class="step-no">1</span><span class="step-icon">👤</span>Patient</button>
-          <button type="button" class="workflow-step" data-workflow-tab="tabComplaint"><span class="step-no">2</span><span class="step-icon">🧭</span>Complaint</button>
-          <button type="button" class="workflow-step" data-workflow-tab="tabClinical"><span class="step-no">3</span><span class="step-icon">🩺</span>Clinical</button>
-          <button type="button" class="workflow-step" data-workflow-tab="tabExam"><span class="step-no">4</span><span class="step-icon">🔍</span>General Exam</button>
-          <button type="button" class="workflow-step" data-workflow-tab="tabSystemic"><span class="step-no">5</span><span class="step-icon">🫀</span>Systemic</button>
-          <button type="button" class="workflow-step" data-workflow-tab="tabInvestigations"><span class="step-no">6</span><span class="step-icon">🧪</span>Investigations</button>
-          <button type="button" class="workflow-step" data-workflow-tab="tabAyurveda"><span class="step-no">7</span><span class="step-icon">🌿</span>Ayurveda</button>
-          <button type="button" class="workflow-step" data-workflow-tab="tabPrescription"><span class="step-no">8</span><span class="step-icon">💊</span>Prescription</button>
-          <button type="button" class="workflow-step" data-workflow-tab="tabSafety"><span class="step-no">9</span><span class="step-icon">🛡</span>Safety Check</button>
-          <button type="button" class="workflow-step" data-workflow-tab="tabPreview"><span class="step-no">10</span><span class="step-icon">📄</span>Preview / PDF</button>
+      <div class="card encounter-path-card">
+        <div class="section-head"><div><h2>Clinical Encounter Path</h2><div class="section-kicker">One logical sequence • fewer clicks • detailed modules stay available</div></div><button type="button" class="secondary" data-open-drawer>All modules</button></div>
+        <div class="encounter-progress">
+          <div class="encounter-progress-head"><b id="homeProgressText">Current encounter: not started</b><span id="homeProgressPercent">0%</span></div>
+          <div class="encounter-progress-track"><span id="homeProgressFill"></span></div>
         </div>
-        <div class="safety-line">⚠ <b>Clinical safety sequence:</b> diagnosis → investigations/contraindications → medicine safety → final prescription/PDF. Red flags always override routine workflow.</div>
+        <div class="workflow-phase-grid">
+          <button type="button" class="workflow-phase" data-progress-key="patient" data-workflow-tab="tabPatient"><span class="phase-no">1</span><span class="phase-icon">👤</span><b>Patient & Visit</b><small>Register / identify encounter</small></button>
+          <button type="button" class="workflow-phase" data-progress-key="complaint" data-workflow-tab="tabComplaint"><span class="phase-no">2</span><span class="phase-icon">🧭</span><b>Complaints & HPI</b><small>Search, type, red flags, history</small></button>
+          <button type="button" class="workflow-phase" data-progress-key="exam" data-workflow-tab="tabClinical"><span class="phase-no">3</span><span class="phase-icon">🩺</span><b>Vitals & Examination</b><small>History → General → Systemic</small></button>
+          <button type="button" class="workflow-phase" data-progress-key="assessment" data-workflow-tab="tabAssessment"><span class="phase-no">4</span><span class="phase-icon">🧠</span><b>Assessment & Dx</b><small>Provisional → DDx → confirmed</small></button>
+          <button type="button" class="workflow-phase" data-progress-key="investigations" data-workflow-tab="tabInvestigations"><span class="phase-no">5</span><span class="phase-icon">🧪</span><b>Investigations</b><small>Previous reports & advised tests</small></button>
+          <button type="button" class="workflow-phase" data-progress-key="ayurveda" data-workflow-tab="tabAyurveda"><span class="phase-no">6</span><span class="phase-icon">🌿</span><b>Ayurveda Assessment</b><small>Pariksha → samprapti → planning</small></button>
+          <button type="button" class="workflow-phase" data-progress-key="plan" data-workflow-tab="tabPrescription"><span class="phase-no">7</span><span class="phase-icon">💊</span><b>Plan, Safety & PDF</b><small>Rx → safety → preview / print</small></button>
+        </div>
+        <div class="safety-line">⚠ <b>Safety gate:</b> emergency/red-flag findings override routine workflow. Diagnostic suggestions are prompts for clinician review, not automatic diagnoses.</div>
       </div>
 
       <div class="card queue-card">
@@ -563,20 +577,39 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 </section>
 
 <section id="complaintSection" class="hidden">
-<div class="card"><h2>Complaint Workflow</h2>
-<div class="grid3"><div><label>Primary Complaint</label><select id="primaryComplaint"></select></div><div><label>Duration</label><input id="complaintDuration"></div><div><label>Severity 0–10</label><input id="complaintSeverity" type="number" min="0" max="10"></div></div>
-<div class="grid3"><div><label>Onset</label><select id="complaintOnset"><option value=""></option><option>Sudden</option><option>Gradual</option><option>Recurrent</option></select></div><div><label>Progression</label><select id="complaintProgression"><option value=""></option><option>Improving</option><option>Static</option><option>Progressive</option><option>Intermittent</option></select></div><div><label>Character / Radiation</label><input id="complaintCharacter"></div></div>
+<div class="card complaint-workspace"><div class="section-head"><div><h2>Complaints & Symptom Capture</h2><div class="section-kicker">Search standardized terms or type exactly what the patient says</div></div><span class="evidence-badge">Search + free text</span></div>
+<div class="notice clinical-note"><b>Clinical structure:</b> Complaint ≠ Diagnosis. यहाँ symptom/complaint capture करें; disease/condition को आगे <b>Assessment & Dx</b> में रखें. Typed custom terms are allowed and can be reused.</div>
+<div class="grid complaint-top-grid">
+  <div>
+    <label>Primary Complaint / Symptom *</label>
+    <div class="smart-search-wrap"><input id="primaryComplaint" autocomplete="off" placeholder="Type e.g. low back pain, sciatica, fever, kamar dard…"><div id="complaintSearchResults" class="smart-results hidden"></div></div>
+    <div class="field-help">Search English terms, common abbreviations, selected Hindi aliases, or enter your own wording.</div>
+  </div>
+  <div>
+    <label>Quick Add</label>
+    <div id="complaintQuickChips" class="quick-term-row"></div>
+  </div>
+</div>
+<div class="actions compact-actions"><button id="addComplaintTermBtn" class="secondary">＋ Add Complaint</button><button id="saveComplaintCustomBtn" class="secondary">★ Save Typed Term to My List</button></div>
+<div><label>Selected Complaints</label><div id="complaintSelectedList" class="selected-term-list"><span class="small">No complaint added yet.</span></div></div>
+
+<div class="grid3"><div><label>Duration</label><input id="complaintDuration" placeholder="e.g. 5 days / 3 months"></div><div><label>Severity 0–10</label><input id="complaintSeverity" type="number" min="0" max="10"></div><div><label>Laterality</label><select id="complaintLaterality"><option value=""></option><option>Right</option><option>Left</option><option>Bilateral</option><option>Midline</option><option>Not applicable</option></select></div></div>
+<div class="grid3"><div><label>Onset</label><select id="complaintOnset"><option value=""></option><option>Sudden</option><option>Gradual</option><option>Recurrent</option></select></div><div><label>Progression / Course</label><select id="complaintProgression"><option value=""></option><option>Improving</option><option>Static</option><option>Progressive</option><option>Intermittent</option><option>Fluctuating</option></select></div><div><label>Site</label><input id="complaintSite" placeholder="Exact site / region"></div></div>
+<div class="grid"><div><label>Character / Radiation</label><input id="complaintCharacter" placeholder="burning, throbbing, radiating…"></div><div><label>Associated Symptoms</label><input id="complaintAssociated" placeholder="numbness, fever, nausea…"></div></div>
 <div class="grid"><div><label>Aggravating Factors</label><textarea id="aggravating"></textarea></div><div><label>Relieving Factors</label><textarea id="relieving"></textarea></div></div>
-<h3>Red Flag Checklist</h3><div id="redFlags" class="checkgrid"></div><div id="redFlagAlert" class="alert alert-green">No red flag selected.</div>
-<h3>Suggested Examination</h3><div id="suggestedExam"></div><h3>Suggested Investigations</h3><div id="suggestedInv"></div><h3>Rule-based Differential Considerations</h3><div id="suggestedDx"></div>
-<label>Additional Complaint Notes</label><textarea id="complaintNotes"></textarea>
-<div class="actions"><button id="saveComplaintBtn" class="primary">💾 Save Complaint</button><button id="goClinicalBtn2" class="secondary">Next: Clinical →</button></div>
+<div class="clinical-guidance-grid">
+  <div><h3>Red Flag Checklist</h3><div id="redFlags" class="checkgrid"></div><div id="redFlagAlert" class="alert alert-green">No red flag selected.</div></div>
+  <div><h3>Focused Examination Prompts</h3><div id="suggestedExam"></div><h3>Investigation Prompts</h3><div id="suggestedInv"></div></div>
+</div>
+<h3>Rule-based Differential Prompts</h3><div id="suggestedDx"></div>
+<label>Additional Complaint / HPI Notes</label><textarea id="complaintNotes" placeholder="Patient narrative, chronology, previous episodes, associated context…"></textarea>
+<div class="actions workflow-actions"><button id="saveComplaintBtn" class="primary">💾 Save Complaints</button><button id="goClinicalBtn2" class="secondary">Next: History & Vitals →</button></div>
 </div>
 </section>
 
 <section id="clinicalSection" class="hidden">
-<div class="card"><h2>Clinical History & Vitals</h2>
-<label>Chief Complaints</label><textarea id="chiefComplaints"></textarea>
+<div class="card"><div class="section-head"><div><h2>History & Vitals</h2><div class="section-kicker">HPI, relevant history, medicines, allergies and vital signs</div></div></div>
+<label>Chief Complaints Summary</label><textarea id="chiefComplaints" placeholder="Auto-synced from complaint list; editable if needed"></textarea>
 <div class="grid"><div><label>Duration</label><input id="duration"></div><div><label>Onset</label><select id="onset"><option value=""></option><option>Sudden</option><option>Gradual</option><option>Recurrent</option></select></div></div>
 <label>History of Present Illness</label><textarea id="hpi"></textarea>
 <div class="grid"><div><label>Past Medical History</label><textarea id="pastHistory"></textarea></div><div><label>Current Medicines / Treatment</label><textarea id="currentMedicines"></textarea></div></div>
@@ -599,7 +632,31 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 <section id="systemicSection" class="hidden">
 <div class="card"><h2>Systemic Examination</h2>
 <label>CVS Notes</label><textarea id="cvsNotes"></textarea><label>Respiratory Notes</label><textarea id="rsNotes"></textarea><label>Abdomen Notes</label><textarea id="abdNotes"></textarea><label>CNS Notes</label><textarea id="cnsNotes"></textarea><label>Additional Systemic Notes</label><textarea id="systemicNotes"></textarea>
-<div class="actions"><button id="saveSystemicBtn" class="primary">💾 Save Systemic</button><button id="goInvestigationsBtn" class="secondary">Next: Investigations →</button></div>
+<div class="actions"><button id="saveSystemicBtn" class="primary">💾 Save Systemic</button><button id="goAssessmentBtn" class="secondary">Next: Assessment & Dx →</button></div>
+</div>
+</section>
+
+<section id="assessmentSection" class="hidden">
+<div class="card assessment-workspace">
+  <div class="section-head"><div><h2>Clinical Assessment & Diagnosis</h2><div class="section-kicker">Keep symptoms separate from diagnoses • searchable terminology + editable text</div></div><span class="evidence-badge">Clinician confirmed</span></div>
+  <div class="notice clinical-note"><b>Terminology support:</b> Search is designed around standardized clinical-term principles. No ICD/SNOMED code is fabricated or auto-assigned. Final diagnosis remains the clinician’s decision.</div>
+  <div id="assessmentComplaintSummary" class="assessment-context"></div>
+  <div class="grid assessment-search-grid">
+    <div>
+      <label>Search Disease / Condition / Ayurveda Term</label>
+      <div class="smart-search-wrap"><input id="diagnosisSearchInput" autocomplete="off" placeholder="Type diagnosis, condition or Ayurveda term…"><div id="diagnosisSearchResults" class="smart-results hidden"></div></div>
+    </div>
+    <div><label>Add As</label><select id="diagnosisKind"><option value="provisional">Provisional diagnosis</option><option value="differential">Differential diagnosis</option><option value="final">Final / confirmed diagnosis</option></select></div>
+  </div>
+  <div class="actions compact-actions"><button id="addDiagnosisTermBtn" class="secondary">＋ Add Diagnosis Term</button><button id="saveDiagnosisCustomBtn" class="secondary">★ Save Typed Term to My List</button><button id="useSuggestedDxBtn" class="secondary">↘ Add Complaint DDx Suggestions</button></div>
+  <div><label>Selected Diagnosis Terms</label><div id="diagnosisSelectedList" class="selected-term-list"><span class="small">No diagnosis term selected.</span></div></div>
+  <div id="assessmentSuggestedDx" class="suggestion-strip"></div>
+  <div class="grid">
+    <div><label>Provisional Diagnosis</label><textarea id="provisionalDiagnosis"></textarea></div>
+    <div><label>Differential Diagnosis</label><textarea id="differentialDiagnosis"></textarea></div>
+  </div>
+  <label>Final / Confirmed Diagnosis</label><textarea id="finalDiagnosis"></textarea>
+  <div class="actions workflow-actions"><button id="saveAssessmentBtn" class="primary">💾 Save Assessment</button><button id="goInvestigationsBtn" class="secondary">Next: Investigations →</button></div>
 </div>
 </section>
 
@@ -612,7 +669,7 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 <div class="grid3"><div><label>Category</label><select id="advCategory"><option>Blood</option><option>Urine</option><option>X-ray</option><option>USG</option><option>CT</option><option>MRI</option><option>ECG</option><option>Echo/Doppler</option><option>Other</option></select></div><div><label>Advised Test / Study</label><input id="advTest"></div><div><label>Priority</label><select id="advPriority"><option>Routine</option><option>Urgent</option><option>Emergency</option><option>Follow-up</option></select></div></div>
 <label>Clinical Indication / Preparation</label><textarea id="advNote"></textarea>
 <div class="actions"><button id="addAdvBtn" class="secondary">＋ Add Advised Test</button></div><div id="advisedList"></div>
-<div class="actions"><button id="saveInvestigationsBtn" class="primary">💾 Save Investigations</button><button id="goCBCBtn" class="secondary">Next: CBC Interpreter →</button><button id="goAyurvedaBtn" class="secondary">Skip to Ayurveda →</button></div>
+<div class="actions"><button id="saveInvestigationsBtn" class="primary">💾 Save Investigations</button><button id="goAyurvedaBtn" class="secondary">Next: Ayurveda Assessment →</button><button id="goCBCBtn" class="secondary">Optional: CBC Interpreter</button></div>
 </div>
 </section>
 
@@ -3747,14 +3804,7 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 
 
 <section id="prescriptionSection" class="hidden">
-<div class="card">
-<h2>Diagnosis</h2>
-<div class="grid">
-<div><label>Provisional Diagnosis</label><textarea id="provisionalDiagnosis"></textarea></div>
-<div><label>Differential Diagnosis</label><textarea id="differentialDiagnosis"></textarea></div>
-</div>
-<label>Final / Confirmed Diagnosis</label><textarea id="finalDiagnosis"></textarea>
-</div>
+<div class="card rx-context-card"><div class="section-head"><div><h2>Plan & Prescription</h2><div class="section-kicker">Diagnosis is documented in Assessment & Dx; review it here before prescribing</div></div><button type="button" id="openAssessmentFromRx" class="secondary">🧠 Edit Diagnosis</button></div><div id="rxDiagnosisSummary" class="assessment-context"></div></div>
 
 <div class="card">
 <h2>Add Medicine</h2>
@@ -3801,7 +3851,7 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 <div class="actions">
 <button id="savePrescriptionBtn" class="primary">💾 Save Prescription</button>
 <button id="runSafetyBtn" class="warning">🛡 Run Safety Screening</button>
-<button id="goPreviewBtn" class="secondary">Next: Preview / PDF →</button>
+<button id="goPreviewBtn" class="secondary">Next: Safety Check →</button>
 <button id="goRecordsBtn" class="secondary">Open Records</button>
 </div>
 </div>
@@ -4318,8 +4368,27 @@ section:not(#dashboardSection)>.card:first-child{margin-top:10px}section:not(#da
 const PREFIX='skm-emr-v12:';
 let current=null;
 
-const complaintList=['','Low Back Pain','Neck Pain','Knee Pain','Chest Pain','Breathlessness','Fever','Headache','Abdominal Pain','Dysuria','Leucorrhoea','Cough','Vertigo','Vomiting','Shoulder Pain','Sciatica','Plantar Heel Pain','Other'];
-const complaintRules={'Low Back Pain':{red:['Bladder dysfunction','Bowel dysfunction','Saddle anaesthesia','Progressive weakness','Fever','Recent significant trauma','Unexplained weight loss','History of cancer'],exam:['SLR','Cross SLR','Motor power','Sensory examination','Knee/ankle reflex','FABER','Spine ROM'],inv:['X-ray lumbosacral spine','MRI lumbar spine if neurological deficit/red flag','CBC/ESR/CRP if infection suspected'],dx:['Mechanical low back pain','Lumbar radiculopathy / sciatica','Disc prolapse','SI joint dysfunction','Piriformis syndrome']},'Chest Pain':{red:['Severe ongoing pain','Radiation to arm/jaw','Sweating','Syncope','Breathlessness','Hypotension'],exam:['Vitals','CVS examination','Respiratory examination','Peripheral pulses'],inv:['12-lead ECG','Troponin','Chest X-ray','Blood glucose'],dx:['Acute coronary syndrome—must exclude','Musculoskeletal chest pain','GERD','Pleuritic pain']},'Fever':{red:['Altered sensorium','Hypotension','Respiratory distress','Neck stiffness','Seizure','Persistent vomiting'],exam:['Vitals','Hydration','Rash','Lymph nodes','Respiratory exam','Abdominal exam'],inv:['CBC','Urine routine','CRP/ESR','Malaria/dengue/typhoid tests as indicated'],dx:['Viral febrile illness','Bacterial infection','UTI','Respiratory infection']}};
+const complaintList=['Low Back Pain','Sciatica','Neck Pain','Knee Pain','Shoulder Pain','Fever','Cough','Breathlessness','Chest Pain','Headache','Abdominal Pain','Dysuria','Vertigo','Vomiting','Plantar Heel Pain'];
+let clinicalTerminology=[];
+let clinicalTermByLabel=new Map();
+const CUSTOM_TERMS_KEY='skm-clinical-custom-terms-v260';
+const complaintRules={
+'Low Back Pain':{red:['New bladder dysfunction or urinary retention','New bowel dysfunction','Saddle/perineal numbness','Progressive motor weakness','Fever or systemic illness','Recent significant trauma','Unexplained weight loss','History of cancer'],exam:['Neurological lower-limb examination','SLR / crossed SLR when indicated','Motor power, sensation and reflexes','Gait / heel-toe walking','Lumbar range of motion','Hip / SI joint screening'],inv:['Imaging only when clinically indicated','MRI lumbar spine for significant/progressive neurological deficit or serious red flag','CBC/ESR/CRP when infection/inflammation suspected'],dx:['Mechanical low back pain','Lumbar radiculopathy / sciatica','Lumbar disc disease','Spinal stenosis','Sacroiliac / facet source','Hip / referred pain']},
+'Sciatica':{red:['New bladder dysfunction or urinary retention','New bowel dysfunction','Saddle/perineal numbness','Progressive motor weakness','Bilateral severe neurological symptoms','Fever or systemic illness','Recent significant trauma','History of cancer'],exam:['SLR / crossed SLR','Dermatomal sensation','Myotomal motor power','Knee and ankle reflexes','Heel / toe walking','Gait and lumbar examination'],inv:['MRI lumbar spine for significant/progressive neurological deficit, cauda equina concern or persistent symptoms when imaging changes management','X-ray only for selected bony indications'],dx:['Lumbar radiculopathy','Disc herniation','Lumbar spinal stenosis','Spondylolisthesis','Piriformis / deep gluteal syndrome','Peripheral neuropathy / hip mimic']},
+'Neck Pain':{red:['Major trauma','Progressive limb weakness or numbness','Gait disturbance / hand clumsiness','New bladder or bowel dysfunction','Fever / infection concern','History of cancer or unexplained weight loss','Severe unremitting pain with systemic features'],exam:['Cervical range of motion','Upper-limb motor, sensory and reflex examination','Myelopathy screen and gait','Shoulder examination','Provocative tests when appropriate'],inv:['Imaging when trauma, neurological deficit, myelopathy or other red flag is present','MRI cervical spine when cord/root pathology suspected'],dx:['Mechanical neck pain','Cervical spondylosis','Cervical radiculopathy','Cervical myelopathy','Shoulder / myofascial referred pain']},
+'Knee Pain':{red:['Hot swollen joint with fever/systemic illness','Major trauma or deformity','Unable to bear weight after acute injury','Neurovascular compromise','Locked knee after injury'],exam:['Inspection and gait','Effusion / warmth / tenderness','Range of motion','Ligament stability','Meniscal tests when indicated','Hip and neurovascular screening'],inv:['Weight-bearing X-ray for suspected osteoarthritis or selected trauma','Ultrasound/MRI only when soft-tissue result will change management','CBC/CRP and aspiration when septic arthritis/crystal disease suspected'],dx:['Knee osteoarthritis','Patellofemoral pain','Meniscal pathology','Ligament injury','Bursitis / tendinopathy','Inflammatory or crystal arthritis']},
+'Shoulder Pain':{red:['Major trauma/deformity','Neurovascular compromise','Hot swollen joint with fever','Acute profound weakness after injury','Associated chest pain or cardiopulmonary symptoms'],exam:['Active and passive range of motion','Rotator cuff strength','Impingement tests','Cervical screen','Neurovascular examination'],inv:['X-ray for trauma or persistent structural concern','Ultrasound/MRI for selected rotator cuff pathology'],dx:['Rotator cuff tendinopathy','Shoulder impingement','Adhesive capsulitis','Rotator cuff tear','Cervical referred pain']},
+'Chest Pain':{red:['Severe or ongoing pressure-type pain','Radiation to arm, jaw or back','Sweating / nausea with chest pain','Syncope or severe weakness','Breathlessness / hypoxia','Hypotension or hemodynamic instability'],exam:['Immediate vital signs','Cardiovascular examination','Respiratory examination','Peripheral perfusion and pulses'],inv:['12-lead ECG promptly when ACS possible','Cardiac troponin according to acute chest-pain pathway','Chest imaging / other testing according to differential'],dx:['Acute coronary syndrome—must exclude','Musculoskeletal chest pain','Gastroesophageal reflux','Pleuritic / pulmonary cause']},
+'Breathlessness':{red:['Severe respiratory distress','Low oxygen saturation / cyanosis','Unable to speak full sentences','Chest pain or suspected acute coronary syndrome','Altered mental status','Hypotension / shock','Suspected anaphylaxis'],exam:['Airway and respiratory effort','Pulse, BP, respiratory rate and SpO₂','Chest examination','Cardiovascular examination','Signs of DVT / edema when relevant'],inv:['ECG, chest X-ray and basic labs as clinically indicated','ABG/VBG in severe illness','Further testing based on asthma/COPD, infection, heart failure or embolic concern'],dx:['Asthma / COPD exacerbation','Respiratory infection','Heart failure','Acute coronary syndrome','Pulmonary embolism','Anemia / metabolic cause']},
+'Fever':{red:['Altered sensorium','Hypotension / shock','Respiratory distress','Neck stiffness / meningism','Seizure','Persistent vomiting / severe dehydration','Bleeding or severe rash'],exam:['Full vital signs','Hydration and perfusion','Rash / lymph nodes','Respiratory examination','Abdominal examination','Focused source examination'],inv:['Targeted testing based on history, geography and examination','CBC and urinalysis when indicated','Malaria/dengue/other infection tests according to epidemiology and clinical context'],dx:['Self-limited viral illness','Bacterial infection','Urinary infection','Respiratory infection','Vector-borne infection']},
+'Headache':{red:['Thunderclap / sudden maximal-onset headache','New focal neurological deficit','Altered consciousness or seizure','Fever with neck stiffness','New severe headache in pregnancy/postpartum','New headache with papilledema / visual loss','New or progressive headache with cancer/immunosuppression'],exam:['Vital signs','Focused neurological examination','Fundoscopy when feasible/indicated','Neck stiffness','Temporal artery assessment when relevant'],inv:['Urgent neuroimaging / emergency evaluation when red flags are present','Testing guided by suspected secondary cause'],dx:['Migraine','Tension-type headache','Cluster headache','Medication-overuse headache','Secondary headache—must exclude when red flags']},
+'Abdominal Pain':{red:['Hemodynamic instability / shock','Guarding, rigidity or peritonism','GI bleeding','Persistent bilious or bloody vomiting','Pregnancy with pain/bleeding or ectopic concern','Pulsatile abdominal mass','Severe pain with systemic toxicity'],exam:['Vital signs and hydration','Abdominal inspection, palpation and percussion','Bowel sounds when relevant','Hernial or rectal/pelvic examination when indicated'],inv:['Pregnancy test when relevant','Urinalysis','CBC/metabolic/liver/pancreatic tests as indicated','Ultrasound/CT according to suspected pathology'],dx:['Dyspepsia / gastritis','Gastroenteritis','Biliary disease','Appendicitis','Urinary cause','Gynecologic cause','IBS / functional pain']},
+'Dysuria':{red:['Fever with flank pain / sepsis concern','Pregnancy','Urinary retention','Visible hematuria','Severe systemic illness','Male patient with systemic symptoms / prostatitis concern'],exam:['Vital signs','Suprapubic / flank tenderness','Hydration','Genital/prostate examination only when indicated'],inv:['Urinalysis','Urine culture in selected/complicated cases','Pregnancy test when relevant','Renal function or imaging for complicated/recurrent disease'],dx:['Cystitis / UTI','Pyelonephritis','Urethritis','Stone disease','Prostatitis','Vaginal/vulval cause']},
+'Cough':{red:['Hemoptysis','Severe breathlessness / hypoxia','Chest pain with acute cardiopulmonary concern','High fever with toxicity','Unexplained weight loss / TB or malignancy concern','Immunocompromised patient with systemic illness'],exam:['Vital signs and SpO₂','Respiratory examination','ENT / upper airway assessment','Hydration'],inv:['Chest X-ray when pneumonia, TB, malignancy or persistent cough is suspected','Targeted infectious testing according to context'],dx:['Upper respiratory infection','Post-viral cough','Asthma','Bronchitis / pneumonia','Allergic rhinitis / postnasal drip','GERD']},
+'Vertigo':{red:['New focal neurological deficit','Severe new headache / neck pain','Unable to stand or walk independently','New diplopia, dysarthria or dysphagia','Syncope / chest pain','Sudden hearing loss'],exam:['Neurological examination and gait','Eye movements / nystagmus','Head impulse / positional testing when appropriate','Ear examination','Orthostatic vitals when relevant'],inv:['Urgent neuroimaging when central cause suspected','Audiology/ENT evaluation when hearing symptoms are present'],dx:['Benign paroxysmal positional vertigo','Vestibular neuritis','Meniere disease','Orthostatic dizziness','Central vertigo—must exclude with red flags']},
+'Vomiting':{red:['Hematemesis','Bilious vomiting with obstruction concern','Severe dehydration / shock','Severe abdominal pain or peritonism','Severe headache / neurological signs','Pregnancy with inability to maintain hydration'],exam:['Vital signs and hydration','Abdominal examination','Neurological examination when indicated'],inv:['Electrolytes/renal function in significant or persistent vomiting','Pregnancy test when relevant','Targeted abdominal or neurological testing according to cause'],dx:['Gastroenteritis','Gastritis / dyspepsia','Medication-related vomiting','Pregnancy-related vomiting','Biliary / pancreatic cause','Neurological cause']},
+'Plantar Heel Pain':{red:['Major trauma or inability to bear weight','Hot swollen foot with fever','Neurovascular compromise','Open wound / diabetic foot concern'],exam:['Point tenderness at medial calcaneal tubercle','Ankle/foot range of motion','Achilles and calf assessment','Gait and footwear','Neurological screen if burning/numbness'],inv:['Usually clinical; imaging for trauma, atypical symptoms or failure of appropriate conservative care'],dx:['Plantar fasciitis','Calcaneal stress injury','Heel fat-pad pain','Achilles insertional pain','Nerve entrapment']}
+};
 
 const generalFindingNames=['Pallor','Icterus','Cyanosis','Clubbing','Lymphadenopathy','Pedal Oedema','Generalized Oedema','Dehydration','Respiratory Distress','Abnormal Gait'];
 const doshas=['Vata','Pitta','Kapha'];
@@ -4336,8 +4405,8 @@ const makeUHID=()=> 'SKM-'+new Date().getFullYear()+'-'+String(Date.now()).slice
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
 function key(id){return PREFIX+id}
-function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',duration:'',severity:'',onset:'',progression:'',character:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],subtypeAssessments:{},gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},labProfiles:{mode:'diabetes',values:{},results:[],summary:''},updatedAt:new Date().toISOString()}}
-function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;if(!r.labProfiles)r.labProfiles=b.labProfiles;return r}
+function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',items:[],duration:'',severity:'',onset:'',progression:'',character:'',site:'',laterality:'',associated:'',aggravating:'',relieving:'',redFlags:[],notes:''},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:''},investigations:{previous:[],advised:[]},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],subtypeAssessments:{},gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',diagnosisTerms:[],medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},labProfiles:{mode:'diabetes',values:{},results:[],summary:''},updatedAt:new Date().toISOString()}}
+function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!Array.isArray(r.complaint.items))r.complaint.items=[];if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.investigations)r.investigations=b.investigations;if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!Array.isArray(r.prescription.diagnosisTerms))r.prescription.diagnosisTerms=[];if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;if(!r.labProfiles)r.labProfiles=b.labProfiles;return r}
 async function save(r){
   r.updatedAt=new Date().toISOString();
 
@@ -4400,7 +4469,15 @@ function selected(name){return [...document.querySelectorAll(`input[name="${name
 function restore(name,arr=[]){document.querySelectorAll(`input[name="${name}"]`).forEach(x=>x.checked=arr.includes(x.value))}
 function calcBMI(){const h=Number(val('height')),w=Number(val('weight'));set('bmi',h>0&&w>0?(w/((h/100)**2)).toFixed(1):'')}
 function readPatient(){calcBMI();current.visitDate=val('visitDate');current.visitType=val('visitType');current.patient={name:val('name'),age:val('age'),sex:val('sex'),mobile:val('mobile'),height:val('height'),weight:val('weight'),bmi:val('bmi'),address:val('address')}}
-function readComplaint(){current.complaint={primary:val('primaryComplaint'),duration:val('complaintDuration'),severity:val('complaintSeverity'),onset:val('complaintOnset'),progression:val('complaintProgression'),character:val('complaintCharacter'),aggravating:val('aggravating'),relieving:val('relieving'),redFlags:selected('redFlag'),notes:val('complaintNotes')}}
+function readComplaint(){
+  const typed=val('primaryComplaint');
+  let items=Array.isArray(current.complaint?.items)?current.complaint.items.map(x=>typeof x==='string'?{term:x,primary:false}:({...x})):[];
+  if(typed&&!items.some(x=>String(x.term||'').toLowerCase()===typed.toLowerCase()))items.unshift({term:typed,primary:items.length===0});
+  if(typed){items=items.map(x=>({...x,primary:String(x.term||'').toLowerCase()===typed.toLowerCase()}));}
+  const primary=typed||(items.find(x=>x.primary)?.term||items[0]?.term||'');
+  current.complaint={primary,items,duration:val('complaintDuration'),severity:val('complaintSeverity'),onset:val('complaintOnset'),progression:val('complaintProgression'),character:val('complaintCharacter'),site:val('complaintSite'),laterality:val('complaintLaterality'),associated:val('complaintAssociated'),aggravating:val('aggravating'),relieving:val('relieving'),redFlags:selected('redFlag'),notes:val('complaintNotes')};
+  syncComplaintSummaryToHistory();
+}
 function readClinical(){current.clinical={chiefComplaints:val('chiefComplaints'),duration:val('duration'),onset:val('onset'),hpi:val('hpi'),pastHistory:val('pastHistory'),currentMedicines:val('currentMedicines'),allergy:val('allergy'),familyHistory:val('familyHistory'),bp:val('bp'),pulse:val('pulse'),spo2:val('spo2'),temp:val('temp'),rr:val('rr'),pain:val('pain'),clinicalNotes:val('clinicalNotes')}}
 function readExam(){const findings={};generalFindingNames.forEach((name,i)=>findings[name]={status:val('fs'+i),grade:val('fg'+i),remarks:val('fr'+i)});current.exam={findings,build:val('build'),nutrition:val('nutrition'),gait:val('gait'),examNotes:val('examNotes')}}
 function readSystemic(){current.systemic={cvsNotes:val('cvsNotes'),rsNotes:val('rsNotes'),abdNotes:val('abdNotes'),cnsNotes:val('cnsNotes'),systemicNotes:val('systemicNotes')}}
@@ -9640,9 +9717,63 @@ async function loadAyurvedaSubtypeData(){
   syncSubtypeSelectionsFromCurrent();
 }
 
-function renderComplaintOptions(){$('primaryComplaint').innerHTML=complaintList.map(x=>`<option>${esc(x)}</option>`).join('')}
-function updateComplaintWorkflow(){const d=complaintRules[val('primaryComplaint')];if(!d){$('redFlags').innerHTML='<div class="notice">No predefined red flags.</div>';$('suggestedExam').innerHTML='<span class="pill">Focused examination</span>';$('suggestedInv').innerHTML='<span class="pill">Tests as clinically indicated</span>';$('suggestedDx').innerHTML='<span class="pill">Doctor-defined differentials</span>';return}const sel=new Set(current?.complaint?.redFlags||[]);$('redFlags').innerHTML=d.red.map(x=>`<label class="check"><input type="checkbox" name="redFlag" value="${esc(x)}" ${sel.has(x)?'checked':''}>${esc(x)}</label>`).join('');$('suggestedExam').innerHTML=d.exam.map(x=>`<span class="pill">${esc(x)}</span>`).join('');$('suggestedInv').innerHTML=d.inv.map(x=>`<span class="pill">${esc(x)}</span>`).join('');$('suggestedDx').innerHTML=d.dx.map((x,i)=>`<span class="pill">${i+1}. ${esc(x)}</span>`).join('');updateRedFlagAlert()}
-function updateRedFlagAlert(){const n=selected('redFlag').length;$('redFlagAlert').className='alert '+(n?'alert-red':'alert-green');$('redFlagAlert').textContent=n?`🚨 ${n} red flag(s) selected.`:'No red flag selected.'}
+function normalizeTerm(s){return String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\u0900-\u097f]+/g,' ').trim()}
+function customClinicalTerms(){try{return JSON.parse(localStorage.getItem(CUSTOM_TERMS_KEY))||[]}catch{return []}}
+function saveCustomClinicalTerms(rows){localStorage.setItem(CUSTOM_TERMS_KEY,JSON.stringify(rows.slice(0,300)))}
+function addCustomClinicalTerm(label,type='custom',system='My Terms'){
+  label=String(label||'').trim();if(!label)return;
+  const rows=customClinicalTerms();if(!rows.some(x=>normalizeTerm(x.label)===normalizeTerm(label))){rows.unshift({id:'CUSTOM-'+Date.now(),label,type,system,synonyms:[]});saveCustomClinicalTerms(rows)}
+  mergeClinicalTerminology();
+}
+function mergeClinicalTerminology(remote=[]){
+  const base=(remote.length?remote:clinicalTerminology).filter(x=>!String(x.id||'').startsWith('CUSTOM-'));
+  const merged=[...customClinicalTerms(),...base];const seen=new Set();clinicalTerminology=merged.filter(x=>{const k=normalizeTerm(x.label)+'|'+(x.type||'');if(seen.has(k))return false;seen.add(k);return true});
+  clinicalTermByLabel=new Map(clinicalTerminology.map(x=>[normalizeTerm(x.label),x]));
+}
+async function loadClinicalTerminology(){
+  if(!clinicalTerminology.length){clinicalTerminology=complaintList.map((label,i)=>({id:'FALLBACK-'+i,label,type:'symptom',system:'Common',synonyms:[]}));mergeClinicalTerminology();}
+  try{const r=await fetch('clinical-terminology-master.json',{cache:'no-store'});if(r.ok){const d=await r.json();mergeClinicalTerminology(d.entries||[]);renderComplaintQuickChips();}}catch(e){console.warn('Clinical terminology fallback active:',e)}
+}
+function scoreClinicalTerm(item,q){
+  const n=normalizeTerm(q);if(!n)return 0;const label=normalizeTerm(item.label),syn=(item.synonyms||[]).map(normalizeTerm);let score=0;
+  if(label===n)score=120;else if(label.startsWith(n))score=95;else if(label.includes(n))score=75;
+  for(const x of syn){if(x===n)score=Math.max(score,110);else if(x.startsWith(n))score=Math.max(score,85);else if(x.includes(n))score=Math.max(score,65)}
+  const toks=n.split(' ').filter(Boolean);if(toks.length>1&&toks.every(t=>(label+' '+syn.join(' ')).includes(t)))score=Math.max(score,55);
+  return score;
+}
+function searchClinicalTerms(q,types=[]){
+  const typeSet=new Set(types);return clinicalTerminology.map(x=>({x,score:scoreClinicalTerm(x,q)})).filter(o=>o.score>0&&(!typeSet.size||typeSet.has(o.x.type))).sort((a,b)=>b.score-a.score||a.x.label.localeCompare(b.x.label)).slice(0,24).map(o=>o.x);
+}
+function termResultHtml(x,mode){return `<button type="button" class="smart-result" data-term-mode="${mode}" data-term-label="${esc(x.label)}"><span class="term-main"><span class="term-title">${esc(x.label)}</span><span class="term-meta">${esc(x.system||'Clinical terminology')}${(x.synonyms||[]).length?' • '+esc((x.synonyms||[]).slice(0,3).join(', ')):''}</span></span><span class="term-type">${esc(x.type||'term')}</span></button>`}
+function renderComplaintSearch(){const q=val('primaryComplaint'),box=$('complaintSearchResults');if(!box)return;const rows=q?searchClinicalTerms(q,['symptom','condition','ayurveda','custom']):[];box.innerHTML=rows.map(x=>termResultHtml(x,'complaint')).join('')+(q&&!rows.length?`<div class="notice">No exact library match. You can still add your typed term: <b>${esc(q)}</b>.</div>`:'');box.classList.toggle('hidden',!q)}
+function renderDiagnosisSearch(){const q=val('diagnosisSearchInput'),box=$('diagnosisSearchResults');if(!box)return;const rows=q?searchClinicalTerms(q,['condition','ayurveda','custom']):[];box.innerHTML=rows.map(x=>termResultHtml(x,'diagnosis')).join('')+(q&&!rows.length?`<div class="notice">No exact library match. Typed diagnosis can still be added and saved to My Terms.</div>`:'');box.classList.toggle('hidden',!q)}
+function renderComplaintQuickChips(){const quick=['Low Back Pain','Sciatica','Neck Pain','Knee Pain','Fever','Cough','Breathlessness','Abdominal Pain','Headache','Dysuria'];if($('complaintQuickChips'))$('complaintQuickChips').innerHTML=quick.map(x=>`<button type="button" class="quick-term-chip" data-quick-complaint="${esc(x)}">${esc(x)}</button>`).join('')}
+function renderComplaintOptions(){loadClinicalTerminology();renderComplaintQuickChips();renderComplaintSelection()}
+function addComplaintTerm(term){term=String(term||'').trim();if(!term)return;let items=Array.isArray(current.complaint?.items)?current.complaint.items:[];if(!items.some(x=>normalizeTerm(typeof x==='string'?x:x.term)===normalizeTerm(term)))items.push({term,primary:items.length===0});current.complaint.items=items;if(!current.complaint.primary){current.complaint.primary=term;set('primaryComplaint',term)}if(!clinicalTermByLabel.has(normalizeTerm(term)))addCustomClinicalTerm(term,'custom','My Complaints');renderComplaintSelection();updateComplaintWorkflow();renderAssessmentContext();}
+function setPrimaryComplaintTerm(term){current.complaint.items=(current.complaint.items||[]).map(x=>({...(typeof x==='string'?{term:x}:x),primary:normalizeTerm(typeof x==='string'?x:x.term)===normalizeTerm(term)}));current.complaint.primary=term;set('primaryComplaint',term);renderComplaintSelection();updateComplaintWorkflow();renderAssessmentContext()}
+function renderComplaintSelection(){if(!$('complaintSelectedList'))return;let items=Array.isArray(current?.complaint?.items)?current.complaint.items:[];if(!items.length&&current?.complaint?.primary)items=[{term:current.complaint.primary,primary:true}];$('complaintSelectedList').innerHTML=items.length?items.map((x,i)=>{const o=typeof x==='string'?{term:x}:x;return `<span class="selected-term ${o.primary?'primary-term':''}">${o.primary?'★ ':''}${esc(o.term)}<button type="button" class="mini-btn" title="Set primary" data-set-primary-complaint="${esc(o.term)}">P</button><button type="button" class="mini-btn" title="Remove" data-remove-complaint="${i}">✕</button></span>`}).join(''):'<span class="small">No complaint added yet.</span>'}
+function syncComplaintSummaryToHistory(){if(!$('chiefComplaints'))return;const items=(current.complaint?.items||[]).map(x=>typeof x==='string'?x:x.term).filter(Boolean);const txt=items.length?items.join('; '):(current.complaint?.primary||'');if(txt&&!val('chiefComplaints'))set('chiefComplaints',txt)}
+function genericComplaintGuidance(){return{red:['Hemodynamic instability / shock','Severe respiratory distress','Altered consciousness','New major neurological deficit','Major trauma or severe bleeding','Severe rapidly progressive symptoms / clinician concern'],exam:['Focused examination guided by symptom and system','Vital signs when clinically relevant'],inv:['Tests only when clinically indicated by history, examination, red flags or differential'],dx:['Clinician-defined differential diagnosis']}}
+function updateComplaintWorkflow(){const d=complaintRules[val('primaryComplaint')]||genericComplaintGuidance();const sel=new Set(current?.complaint?.redFlags||[]);$('redFlags').innerHTML=d.red.map(x=>`<label class="check"><input type="checkbox" name="redFlag" value="${esc(x)}" ${sel.has(x)?'checked':''}>${esc(x)}</label>`).join('');$('suggestedExam').innerHTML=d.exam.map(x=>`<span class="pill">${esc(x)}</span>`).join('');$('suggestedInv').innerHTML=d.inv.map(x=>`<span class="pill">${esc(x)}</span>`).join('');$('suggestedDx').innerHTML=d.dx.map((x,i)=>`<span class="pill">${i+1}. ${esc(x)}</span>`).join('');updateRedFlagAlert();renderAssessmentContext()}
+function updateRedFlagAlert(){const n=selected('redFlag').length;$('redFlagAlert').className='alert '+(n?'alert-red':'alert-green');$('redFlagAlert').textContent=n?`🚨 ${n} red flag(s) selected — address before routine workflow.`:'No red flag selected.'}
+
+function diagnosisTerms(){if(!Array.isArray(current.prescription.diagnosisTerms))current.prescription.diagnosisTerms=[];return current.prescription.diagnosisTerms}
+function appendDiagnosisText(kind,term){const map={provisional:'provisionalDiagnosis',differential:'differentialDiagnosis',final:'finalDiagnosis'};const id=map[kind]||'provisionalDiagnosis';const old=val(id);const parts=old.split(/\n|;/).map(x=>x.trim()).filter(Boolean);if(!parts.some(x=>normalizeTerm(x)===normalizeTerm(term)))set(id,[...parts,term].join('\n'))}
+function addDiagnosisTerm(term,kind=val('diagnosisKind')||'provisional'){term=String(term||'').trim();if(!term)return;const rows=diagnosisTerms();if(!rows.some(x=>normalizeTerm(x.term)===normalizeTerm(term)&&x.kind===kind))rows.push({term,kind,system:clinicalTermByLabel.get(normalizeTerm(term))?.system||'Custom'});appendDiagnosisText(kind,term);if(!clinicalTermByLabel.has(normalizeTerm(term)))addCustomClinicalTerm(term,'custom','My Diagnoses');renderDiagnosisTerms();renderRxDiagnosisSummary()}
+function renderDiagnosisTerms(){if(!$('diagnosisSelectedList'))return;const rows=diagnosisTerms();const label={provisional:'Provisional',differential:'DDx',final:'Final'};$('diagnosisSelectedList').innerHTML=rows.length?rows.map((x,i)=>`<span class="selected-term ${x.kind==='final'?'primary-term':''}"><b>${label[x.kind]||x.kind}:</b> ${esc(x.term)}<button type="button" class="mini-btn" data-remove-diagnosis="${i}">✕</button></span>`).join(''):'<span class="small">No diagnosis term selected.</span>'}
+function renderAssessmentContext(){if(!$('assessmentComplaintSummary'))return;const items=(current?.complaint?.items||[]).map(x=>typeof x==='string'?x:x.term).filter(Boolean);const p=current?.complaint?.primary||items[0]||'';$('assessmentComplaintSummary').innerHTML=`<b>Complaint context:</b> ${esc(items.join('; ')||p||'Not documented')} ${current?.complaint?.duration?' • '+esc(current.complaint.duration):''} ${current?.complaint?.severity?' • severity '+esc(current.complaint.severity)+'/10':''}`;const d=complaintRules[p];if($('assessmentSuggestedDx'))$('assessmentSuggestedDx').innerHTML=d?.dx?.length?`<span class="small"><b>Complaint-linked prompts:</b></span> `+d.dx.map(x=>`<button type="button" class="term-pill" data-assess-suggest="${esc(x)}">${esc(x)}</button>`).join(''):'<span class="small">No complaint-specific differential prompts; use clinical assessment.</span>';}
+function renderRxDiagnosisSummary(){if(!$('rxDiagnosisSummary'))return;const p=val('provisionalDiagnosis')||current?.prescription?.provisionalDiagnosis||'';const f=val('finalDiagnosis')||current?.prescription?.finalDiagnosis||'';const d=val('differentialDiagnosis')||current?.prescription?.differentialDiagnosis||'';$('rxDiagnosisSummary').innerHTML=`<b>Final:</b> ${esc(f||'Not entered')}<br><b>Provisional:</b> ${esc(p||'—')}<br><b>Differential:</b> ${esc(d||'—')}`}
+function readAssessment(){readPrescription();renderRxDiagnosisSummary()}
+function renderEncounterProgress(){if(!$('homeProgressFill'))return;const stages=[
+ ['patient',!!(current?.patient?.name&&current?.patient?.mobile)],
+ ['complaint',!!(current?.complaint?.primary||(current?.complaint?.items||[]).length)],
+ ['exam',!!(current?.clinical?.hpi||current?.clinical?.bp||current?.exam?.examNotes||current?.systemic?.systemicNotes)],
+ ['assessment',!!(current?.prescription?.provisionalDiagnosis||current?.prescription?.finalDiagnosis)],
+ ['investigations',!!((current?.investigations?.previous||[]).length||(current?.investigations?.advised||[]).length)],
+ ['ayurveda',!!(current?.ayurveda?.notes||(current?.ayurveda?.dosha||[]).length||current?.ayurveda?.prakriti)],
+ ['plan',!!((current?.prescription?.medicines||[]).length||current?.prescription?.pathya||current?.prescription?.followupDate)]
+ ];const done=stages.filter(x=>x[1]).length,pct=Math.round(done/stages.length*100);$('homeProgressFill').style.width=pct+'%';$('homeProgressPercent').textContent=pct+'%';$('homeProgressText').textContent=current?.patient?.name?'Current encounter: '+current.patient.name:(done?'Current encounter in progress':'Current encounter: not started');document.querySelectorAll('[data-progress-key]').forEach(b=>{const x=stages.find(s=>s[0]===b.dataset.progressKey);b.classList.toggle('is-done',!!x?.[1]);b.classList.remove('is-current')});const next=stages.find(x=>!x[1]);if(next)document.querySelector(`[data-progress-key="${next[0]}"]`)?.classList.add('is-current')}
+function nextEncounterTab(){if(!(current?.patient?.name&&current?.patient?.mobile))return 'tabPatient';if(!(current?.complaint?.primary||(current?.complaint?.items||[]).length))return 'tabComplaint';if(!(current?.clinical?.hpi||current?.clinical?.chiefComplaints))return 'tabClinical';if(!(current?.exam?.examNotes||current?.systemic?.systemicNotes))return 'tabExam';if(!(current?.prescription?.provisionalDiagnosis||current?.prescription?.finalDiagnosis))return 'tabAssessment';if(!(current?.ayurveda?.notes||(current?.ayurveda?.dosha||[]).length))return 'tabAyurveda';if(!((current?.prescription?.medicines||[]).length||current?.prescription?.pathya))return 'tabPrescription';return 'tabSafety'}
 function renderGeneralRows(){$('findings').innerHTML=generalFindingNames.map((n,i)=>`<div class="finding-row"><div class="finding-name">${esc(n)}</div><div><label>Status</label><select id="fs${i}"><option value=""></option><option>Absent</option><option>Present</option><option>Not assessed</option></select></div><div><label>Grade</label><select id="fg${i}"><option value=""></option><option>1+</option><option>2+</option><option>3+</option><option>4+</option><option>Mild</option><option>Moderate</option><option>Severe</option></select></div><div><label>Site / Remarks</label><input id="fr${i}"></div></div>`).join('')}
 function renderInvestigations(){$('previousList').innerHTML=current.investigations.previous.map((x,i)=>`<div class="item"><b>${esc(x.category)} — ${esc(x.test)}</b><div class="small">${esc(x.date||'')} • ${esc(x.result||'')}</div><button class="danger" data-previdx="${i}">Remove</button></div>`).join('')||'<div class="notice">No previous reports.</div>';$('advisedList').innerHTML=current.investigations.advised.map((x,i)=>`<div class="item"><b>${esc(x.category)} — ${esc(x.test)}</b><div class="small">${esc(x.priority||'')} • ${esc(x.note||'')}</div><button class="danger" data-advidx="${i}">Remove</button></div>`).join('')||'<div class="notice">No advised tests.</div>'}
 
@@ -9655,12 +9786,12 @@ $('medicineList').innerHTML=current.prescription.medicines.map((m,i)=>`<div clas
 </div>`).join('')||'<div class="notice">No medicines added.</div>';
 }
 
-function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};if(!a.printPrescriptionSettings)a.printPrescriptionSettings={};if(!a.patientEducation)a.patientEducation={};if(!a.exerciseRehabYoga)a.exerciseRehabYoga={};if(!a.followupComparison)a.followupComparison={visits:[]};if(!a.patientTimeline)a.patientTimeline={events:[]};if(!a.diseaseTemplateSettings)a.diseaseTemplateSettings={};if(!a.clinicalRegistryLastSearch)a.clinicalRegistryLastSearch={};if(!a.backupRestoreSettings)a.backupRestoreSettings={};if(!a.userRoleAuditSettings)a.userRoleAuditSettings={};if(!a.securityReadiness)a.securityReadiness={};if(!a.backendMigrationSettings)a.backendMigrationSettings={};if(!a.firebaseBackendSettings)a.firebaseBackendSettings={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
+function populate(r){current=ensureSchema(r);set('uhid',r.uhid);set('visitDate',r.visitDate);set('visitType',r.visitType);Object.entries(r.patient||{}).forEach(([k,v])=>set(k,v));Object.entries(r.clinical||{}).forEach(([k,v])=>set(k,v));set('primaryComplaint',r.complaint.primary);set('complaintSite',r.complaint.site);set('complaintLaterality',r.complaint.laterality);set('complaintAssociated',r.complaint.associated);set('complaintDuration',r.complaint.duration);set('complaintSeverity',r.complaint.severity);set('complaintOnset',r.complaint.onset);set('complaintProgression',r.complaint.progression);set('complaintCharacter',r.complaint.character);set('aggravating',r.complaint.aggravating);set('relieving',r.complaint.relieving);set('complaintNotes',r.complaint.notes);Object.entries(r.exam||{}).forEach(([k,v])=>{if(k!=='findings')set(k,v)});generalFindingNames.forEach((n,i)=>{const f=r.exam.findings?.[n]||{};set('fs'+i,f.status);set('fg'+i,f.grade);set('fr'+i,f.remarks)});Object.entries(r.systemic||{}).forEach(([k,v])=>set(k,v));const a=r.ayurveda;if(!a.subtypeAssessments)a.subtypeAssessments={};if(!a.tissueAssessments)a.tissueAssessments={};if(!a.agniAmaKoshtha)a.agniAmaKoshtha={};if(!a.srotasDetails)a.srotasDetails={};if(!a.rogamargaKriyakala)a.rogamargaKriyakala={};if(!a.nidanaPanchakaDetailed)a.nidanaPanchakaDetailed={};if(!a.sampraptiSynthesisMeta)a.sampraptiSynthesisMeta={};if(!a.diagnosisPrognosis)a.diagnosisPrognosis={};if(!a.chikitsaPlanning)a.chikitsaPlanning={};if(!a.pathyaApathyaPlan)a.pathyaApathyaPlan={};if(!a.panchakarmaEligibility)a.panchakarmaEligibility={};if(!a.followupOutcome)a.followupOutcome={};if(!a.finalSummarySettings)a.finalSummarySettings={};if(!a.dashavidhaAdvanced)a.dashavidhaAdvanced={};if(!a.ashtavidhaAdvanced)a.ashtavidhaAdvanced={};if(!a.modernClinicalExam)a.modernClinicalExam={};if(!a.orthoNeuroExam)a.orthoNeuroExam={};if(!a.investigationReports)a.investigationReports={};if(!a.integratedDiagnosis)a.integratedDiagnosis={};if(!a.redFlagEmergency)a.redFlagEmergency={};if(!a.medicationSafety)a.medicationSafety={};if(!a.prescriptionData)a.prescriptionData={medicines:[]};if(!a.printPrescriptionSettings)a.printPrescriptionSettings={};if(!a.patientEducation)a.patientEducation={};if(!a.exerciseRehabYoga)a.exerciseRehabYoga={};if(!a.followupComparison)a.followupComparison={visits:[]};if(!a.patientTimeline)a.patientTimeline={events:[]};if(!a.diseaseTemplateSettings)a.diseaseTemplateSettings={};if(!a.clinicalRegistryLastSearch)a.clinicalRegistryLastSearch={};if(!a.backupRestoreSettings)a.backupRestoreSettings={};if(!a.userRoleAuditSettings)a.userRoleAuditSettings={};if(!a.securityReadiness)a.securityReadiness={};if(!a.backendMigrationSettings)a.backendMigrationSettings={};if(!a.firebaseBackendSettings)a.firebaseBackendSettings={};['prakriti','vikriti','ama','agni','koshtha','rogamarga','srotodushti','sadhya','shatkriya','dushya','sthana','samprapti'].forEach(k=>set(k,a[k]));set('ayurNotes',a.notes);Object.entries(a.ashtavidha||{}).forEach(([k,v])=>set(k,v));Object.entries(a.dashavidha||{}).forEach(([k,v])=>set(k,v));restore('dosha',a.dosha);restore('subtype',a.subtypes);restore('guna',a.gunas);restore('srotas',a.srotas);renderSrotasClinicalEngine();renderSubtypeInterpretations();renderDhatuOjasMalaAssessment();
 const p=r.prescription;
 set('provisionalDiagnosis',p.provisionalDiagnosis);set('differentialDiagnosis',p.differentialDiagnosis);set('finalDiagnosis',p.finalDiagnosis);
 set('pathya',p.pathya);set('apathya',p.apathya);set('lifestyleAdvice',p.lifestyleAdvice);set('precautionAdvice',p.precautionAdvice);
 set('followupDate',p.followupDate);set('followupNote',p.followupNote);set('emergencyContact',p.emergencyContact);set('prescriptionNotes',p.notes);
-updateComplaintWorkflow();renderInvestigations();renderMedicines();populateFollowup();populateSafetyProfile();populateCBC();populateLabProfiles();showPatient()}
+renderComplaintSelection();renderDiagnosisTerms();renderAssessmentContext();renderRxDiagnosisSummary();updateComplaintWorkflow();renderInvestigations();renderMedicines();populateFollowup();populateSafetyProfile();populateCBC();populateLabProfiles();showPatient()}
 
 
 
@@ -11034,7 +11165,7 @@ function renderAudit(){
 }
 function applyRolePermissions(){
   const reception=activeRole==='Reception';
-  ['tabAyurveda','tabPrescription','tabSafety','tabPreview','tabCBC','tabLabProfiles','tabSystemic','tabExam'].forEach(id=>{
+  ['tabAyurveda','tabPrescription','tabSafety','tabPreview','tabCBC','tabLabProfiles','tabSystemic','tabExam','tabAssessment'].forEach(id=>{
     if($(id))$(id).style.display=reception?'none':'inline-flex';
   });
   $('activeRoleBadge').textContent=activeRole;
@@ -11072,6 +11203,10 @@ function restoreSession(){
     applyRolePermissions();
   }
 }
+window.SKMC_ROLE_BRIDGE={
+  setDoctor(userLabel='Firebase user'){activeRole='Doctor';sessionStorage.setItem('skm-active-role','Doctor');$('lockOverlay')?.classList.add('hidden');applyRolePermissions();audit('Firebase Login',userLabel+' authenticated');renderDashboard();},
+  clear(){activeRole='Locked';sessionStorage.removeItem('skm-active-role');$('activeRoleBadge').textContent='Locked';}
+};
 function savePins(){
   if(activeRole!=='Doctor')return status('Only Doctor role can change PINs.',true);
   const d=val('doctorPinSetting'),r=val('receptionPinSetting');
@@ -11159,14 +11294,14 @@ $('followupCount').textContent=followups.length;
 $('rxCount').textContent=rx.length;
 $('todayList').innerHTML=todays.slice(0,20).map(r=>recordCard(r,true)).join('')||'<div class="notice">Today no patient record is saved yet.</div>';
 $('recentList').innerHTML=rows.slice(0,8).map(r=>recordCard(r,true)).join('')||'<div class="notice">No recent patient records.</div>';
-renderDashboardSearch();
+renderDashboardSearch();renderEncounterProgress();
 }
 function renderDashboardSearch(){
 const term=val('dashboardSearch').toLowerCase();
 if(!term){$('dashboardSearchResults').innerHTML='';return}
 const rows=all().filter(r=>[
-r.uhid,r.patient?.name,r.patient?.mobile,r.complaint?.primary,
-r.prescription?.provisionalDiagnosis,r.prescription?.finalDiagnosis
+r.uhid,r.patient?.name,r.patient?.mobile,r.complaint?.primary,JSON.stringify(r.complaint?.items||[]),
+r.prescription?.provisionalDiagnosis,r.prescription?.finalDiagnosis,JSON.stringify(r.prescription?.diagnosisTerms||[])
 ].join(' ').toLowerCase().includes(term)).slice(0,10);
 $('dashboardSearchResults').innerHTML=rows.map(r=>recordCard(r,false)).join('')||'<div class="notice" style="margin-top:10px">No matching patient found.</div>';
 }
@@ -11174,24 +11309,25 @@ function openDashboardRecord(id,toPrescription=false){
 const raw=localStorage.getItem(key(id));
 if(!raw)return status('Patient record not found.',true);
 populate(JSON.parse(raw));
-if(toPrescription)showPreview();
+if(toPrescription)showPrescription();
 else showPatient();
 status('Saved patient reopened successfully.');
 }
 
-function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabAppointments','tabBilling','tabPharmacy','tabLabMgmt','tabImaging','tabKnowledge','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
-function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','appointmentsSection','billingSection','pharmacySection','labMgmtSection','imagingSection','knowledgeSection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
+function setActive(tab){['tabDashboard','tabTimeline','tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabAssessment','tabInvestigations','tabCBC','tabLabProfiles','tabAyurveda','tabPrescription','tabSafety','tabPreview','tabAppointments','tabBilling','tabPharmacy','tabLabMgmt','tabImaging','tabKnowledge','tabSettings','tabRecords'].forEach(id=>$(id).className='secondary');$(tab).className='primary active'}
+function hideAll(){['dashboardSection','timelineSection','patientSection','complaintSection','clinicalSection','examSection','systemicSection','assessmentSection','investigationsSection','cbcSection','labProfilesSection','ayurvedaSection','prescriptionSection','safetySection','previewSection','appointmentsSection','billingSection','pharmacySection','labMgmtSection','imagingSection','knowledgeSection','settingsSection','recordsSection'].forEach(id=>$(id).classList.add('hidden'))}
 function showDashboard(){hideAll();$('dashboardSection').classList.remove('hidden');setActive('tabDashboard');renderDashboard()}
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
 function showClinical(){hideAll();$('clinicalSection').classList.remove('hidden');setActive('tabClinical')}
 function showExam(){hideAll();$('examSection').classList.remove('hidden');setActive('tabExam')}
 function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden');setActive('tabSystemic')}
+function showAssessment(){hideAll();$('assessmentSection').classList.remove('hidden');setActive('tabAssessment');renderAssessmentContext();renderDiagnosisTerms();renderDiagnosisSearch()}
 function showInvestigations(){hideAll();$('investigationsSection').classList.remove('hidden');setActive('tabInvestigations');renderInvestigations()}
 function showCBC(){hideAll();$('cbcSection').classList.remove('hidden');setActive('tabCBC');populateCBC()}
 function showLabProfiles(){hideAll();$('labProfilesSection').classList.remove('hidden');setActive('tabLabProfiles');populateLabProfiles()}
 function showAyurveda(){hideAll();$('ayurvedaSection').classList.remove('hidden');setActive('tabAyurveda')}
-function showPrescription(){hideAll();$('prescriptionSection').classList.remove('hidden');setActive('tabPrescription');renderMedicines()}
+function showPrescription(){hideAll();$('prescriptionSection').classList.remove('hidden');setActive('tabPrescription');renderMedicines();renderRxDiagnosisSummary()}
 function showSafety(){hideAll();$('safetySection').classList.remove('hidden');setActive('tabSafety');populateSafetyProfile()}
 function showPreview(){hideAll();$('previewSection').classList.remove('hidden');setActive('tabPreview');renderPreview()}
 async function showRecords(){
@@ -11209,6 +11345,7 @@ $('saveComplaintBtn').onclick=()=>{readPatient();readComplaint();save(current);a
 $('saveClinicalBtn').onclick=()=>{readPatient();readComplaint();readClinical();save(current);audit('Clinical data saved',current.uhid);status('Clinical data saved successfully.')};
 $('saveExamBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();save(current);audit('General examination saved',current.uhid);status('General examination saved successfully.')};
 $('saveSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);audit('Systemic examination saved',current.uhid);status('Systemic examination saved successfully.')};
+$('saveAssessmentBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();readAssessment();save(current);audit('Clinical assessment saved',current.uhid);status('Assessment and diagnosis saved successfully.')};
 $('saveInvestigationsBtn').onclick=()=>{save(current);audit('Investigations saved',current.uhid);status('Investigations saved successfully.')};
 $('interpretCBCBtn').onclick=interpretCBC;
 $('saveCBCBtn').onclick=()=>{readCBC();save(current);status('CBC values saved successfully.')};
@@ -11247,7 +11384,8 @@ $('goComplaintBtn').onclick=()=>{readPatient();save(current);showComplaint()};
 $('goClinicalBtn2').onclick=()=>{readPatient();readComplaint();save(current);showClinical()};
 $('goExamBtn').onclick=()=>{readPatient();readComplaint();readClinical();save(current);showExam()};
 $('goSystemicBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();save(current);showSystemic()};
-$('goInvestigationsBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);showInvestigations()};
+$('goAssessmentBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();save(current);showAssessment()};
+$('goInvestigationsBtn').onclick=()=>{readPatient();readComplaint();readClinical();readExam();readSystemic();readAssessment();save(current);showInvestigations()};
 $('goCBCBtn').onclick=()=>{save(current);showCBC()};
 $('goAyurvedaBtn').onclick=()=>{save(current);showAyurveda()};
 $('goLabProfilesBtn').onclick=()=>{readCBC();save(current);showLabProfiles()};
@@ -11255,7 +11393,7 @@ $('goAyurvedaFromCBCBtn').onclick=()=>{readCBC();save(current);showAyurveda()};
 $('goAyurvedaFromLabBtn').onclick=()=>{readLabProfiles();save(current);showAyurveda()};
 $('goPrescriptionBtn').onclick=()=>{readAyurveda();save(current);showPrescription()};
 $('runSafetyBtn').onclick=()=>{readPrescription();save(current);showSafety();runMedicineSafety()};
-$('goPreviewBtn').onclick=()=>{readPrescription();save(current);showPreview()};
+$('goPreviewBtn').onclick=()=>{readPrescription();save(current);showSafety();runMedicineSafety()};
 $('saveSafetyProfileBtn').onclick=()=>{readSafetyProfile();save(current);status('Safety profile saved successfully.')};
 $('screenNowBtn').onclick=runMedicineSafety;
 $('backPrescriptionSafetyBtn').onclick=showPrescription;
@@ -11434,16 +11572,31 @@ if(rx)openDashboardRecord(rx,true);
 if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}
 };
 
-$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabInvestigations').onclick=showInvestigations;$('tabCBC').onclick=showCBC;$('tabLabProfiles').onclick=showLabProfiles;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabSafety').onclick=showSafety;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
-$('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
+$('tabPatient').onclick=showPatient;$('tabComplaint').onclick=showComplaint;$('tabClinical').onclick=showClinical;$('tabExam').onclick=showExam;$('tabSystemic').onclick=showSystemic;$('tabAssessment').onclick=showAssessment;$('tabInvestigations').onclick=showInvestigations;$('tabCBC').onclick=showCBC;$('tabLabProfiles').onclick=showLabProfiles;$('tabAyurveda').onclick=showAyurveda;$('tabPrescription').onclick=showPrescription;$('tabSafety').onclick=showSafety;$('tabPreview').onclick=showPreview;$('tabRecords').onclick=showRecords;
+$('primaryComplaint').oninput=()=>{renderComplaintSearch();updateComplaintWorkflow()};$('primaryComplaint').onchange=updateComplaintWorkflow;$('redFlags').onchange=updateRedFlagAlert;$('search').oninput=renderRecords;$('height').oninput=calcBMI;$('weight').oninput=calcBMI;
 $('recordsList').onclick=e=>{const open=e.target.dataset.open,del=e.target.dataset.delete,tl=e.target.dataset.timeline;if(open){const raw=localStorage.getItem(key(open));if(raw){populate(JSON.parse(raw));status('Saved patient reopened successfully.')}}if(tl){const raw=localStorage.getItem(key(tl));if(raw){populate(JSON.parse(raw));showTimeline();status('Patient timeline opened.')}}if(del&&confirm('Delete this patient?')){remove(del);renderRecords()}};
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V2.50 Clinical Command Center ready.');
+$('addComplaintTermBtn').onclick=()=>addComplaintTerm(val('primaryComplaint'));
+$('saveComplaintCustomBtn').onclick=()=>{if(!val('primaryComplaint'))return status('Type a complaint term first.',true);addCustomClinicalTerm(val('primaryComplaint'),'custom','My Complaints');status('Typed complaint saved to My Terms.')};
+$('complaintQuickChips').onclick=e=>{const x=e.target.dataset.quickComplaint;if(x)addComplaintTerm(x)};
+$('complaintSearchResults').onclick=e=>{const b=e.target.closest('[data-term-mode="complaint"]');if(b){addComplaintTerm(b.dataset.termLabel);$('complaintSearchResults').classList.add('hidden')}};
+$('complaintSelectedList').onclick=e=>{const p=e.target.dataset.setPrimaryComplaint,ri=e.target.dataset.removeComplaint;if(p)setPrimaryComplaintTerm(p);if(ri!==undefined){current.complaint.items.splice(Number(ri),1);const first=current.complaint.items[0];current.complaint.primary=first?(typeof first==='string'?first:first.term):'';if(current.complaint.items.length)current.complaint.items=current.complaint.items.map((x,i)=>({...((typeof x==='string')?{term:x}:x),primary:i===0}));set('primaryComplaint',current.complaint.primary);renderComplaintSelection();updateComplaintWorkflow()}};
+$('diagnosisSearchInput').oninput=renderDiagnosisSearch;
+$('diagnosisSearchResults').onclick=e=>{const b=e.target.closest('[data-term-mode="diagnosis"]');if(b){set('diagnosisSearchInput',b.dataset.termLabel);addDiagnosisTerm(b.dataset.termLabel);$('diagnosisSearchResults').classList.add('hidden')}};
+$('addDiagnosisTermBtn').onclick=()=>{if(!val('diagnosisSearchInput'))return status('Type or select a diagnosis term.',true);addDiagnosisTerm(val('diagnosisSearchInput'));set('diagnosisSearchInput','')};
+$('saveDiagnosisCustomBtn').onclick=()=>{if(!val('diagnosisSearchInput'))return status('Type a diagnosis term first.',true);addCustomClinicalTerm(val('diagnosisSearchInput'),'custom','My Diagnoses');status('Typed diagnosis saved to My Terms.')};
+$('diagnosisSelectedList').onclick=e=>{const i=e.target.dataset.removeDiagnosis;if(i!==undefined){current.prescription.diagnosisTerms.splice(Number(i),1);renderDiagnosisTerms()}};
+$('assessmentSuggestedDx').onclick=e=>{const x=e.target.dataset.assessSuggest;if(x)addDiagnosisTerm(x,'differential')};
+$('useSuggestedDxBtn').onclick=()=>{const d=complaintRules[val('primaryComplaint')||current.complaint.primary];if(!d?.dx?.length)return status('No complaint-specific differential prompts available.',true);d.dx.forEach(x=>addDiagnosisTerm(x,'differential'));status('Complaint-linked differential prompts added for clinician review.')};
+$('openAssessmentFromRx').onclick=showAssessment;
+$('dashContinue').onclick=()=>{const tab=nextEncounterTab();$(tab)?.click();status('Continuing current encounter at the next incomplete stage.')};
+document.addEventListener('click',e=>{if(!e.target.closest('.smart-search-wrap')){if($('complaintSearchResults'))$('complaintSearchResults').classList.add('hidden');if($('diagnosisSearchResults'))$('diagnosisSearchResults').classList.add('hidden')}});
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V2.60 Clinical Workflow Edition ready.');
 })();
 </script>
 
 
-<script id="mahamaya-v250-ui-js">
+<script id="mahamaya-v260-ui-js">
 (()=>{
   const $=id=>document.getElementById(id);
   const openDrawer=()=>{document.body.classList.add('drawer-open');$('moduleDrawer')?.setAttribute('aria-hidden','false')};
@@ -11503,7 +11656,7 @@ renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks(
     document.querySelectorAll('.command-btn,.mobile-nav-btn').forEach(b=>b.classList.remove('is-active'));
     document.querySelectorAll(`[data-modern-tab="${id}"]`).forEach(b=>b.classList.add('is-active'));
     if(id==='tabDashboard')document.querySelectorAll('[data-modern-tab="tabDashboard"]').forEach(b=>b.classList.add('is-active'));
-    if(['tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic'].includes(id))document.querySelectorAll('[data-modern-action="new-patient"]').forEach(b=>b.classList.add('is-active'));
+    if(['tabPatient','tabComplaint','tabClinical','tabExam','tabSystemic','tabAssessment'].includes(id))document.querySelectorAll('[data-modern-action="new-patient"]').forEach(b=>b.classList.add('is-active'));
     if(id==='tabRecords')document.querySelectorAll('[data-modern-tab="tabRecords"]').forEach(b=>b.classList.add('is-active'));
     if(id==='tabPrescription'||id==='tabSafety'||id==='tabPreview')document.querySelectorAll('[data-modern-tab="tabPrescription"]').forEach(b=>b.classList.add('is-active'));
   };
@@ -11603,21 +11756,10 @@ function validateFirebaseClientConfig(c){
   return c;
 }
 function setFirebaseDoctorSession(user){
-  try{
-    if(typeof activeRole!=='undefined'){
-      activeRole='Doctor';
-      sessionStorage.setItem('skm-active-role','Doctor');
-      if(typeof applyRolePermissions==='function')applyRolePermissions();
-      if(typeof audit==='function')audit('Firebase Login',(user.email||user.uid)+' authenticated');
-      if(typeof renderDashboard==='function')renderDashboard();
-    }
-  }catch(e){console.warn('Role bridge warning',e);}
+  try{window.SKMC_ROLE_BRIDGE?.setDoctor(user.email||user.uid||'Firebase user')}catch(e){console.warn('Role bridge warning',e);}
 }
 function clearFirebaseDoctorSession(){
-  try{
-    if(typeof activeRole!=='undefined')activeRole='Locked';
-    sessionStorage.removeItem('skm-active-role');
-  }catch(e){}
+  try{window.SKMC_ROLE_BRIDGE?.clear()}catch(e){}
 }
 async function connectSKMCFirebase(config){
   config=validateFirebaseClientConfig(config);

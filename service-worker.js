@@ -1,6 +1,6 @@
-const CACHE_NAME = 'mahamaya-emr-v2.50-20260813';
+const CACHE_NAME = 'mahamaya-emr-v2.60-20260813';
 const CORE_ASSETS = [
-  './', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png', './logo.jpg'
+  './', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png', './logo.jpg', './clinical-terminology-master.json'
 ];
 
 self.addEventListener('install', event => {
