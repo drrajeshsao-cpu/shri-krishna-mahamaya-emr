@@ -1,0 +1,25 @@
+Mahamaya Clinic EMR V2.80 — Validation Summary
+Build: 2026.08.13-R3
+
+Static checks completed:
+PASS — index.html parses as HTML.
+PASS — no duplicate HTML IDs detected after V2.80 additions.
+PASS — all four classic inline JavaScript blocks pass `node --check` syntax validation.
+PASS — manifest.webmanifest parses as valid JSON.
+PASS — service-worker cache key upgraded to v2.80-20260813-r3.
+PASS — Fast Flow panel, Active Patient Dock and mobile Flow button IDs are present.
+PASS — complaint terminology master retained: 1,185 entries plus editable/free-typed custom terms.
+PASS — SLAIE Core v1.0 and Omega Exact-Row Template v1.0 retained.
+PASS — existing patient schema and Firebase/local save pathway retained; V2.80 adds save-state visibility without changing schema.
+
+Responsive design targets encoded in CSS:
+- <=390 px: compact phone
+- <=560 px: standard phone
+- <=820 px: phone / compact tablet, bottom navigation and bottom-sheet Fast Flow
+- 821–1199 px: tablet / small laptop, adaptive two-column forms
+- >=1200 px: laptop compact-density mode
+- >=1440 px: wide desktop optimized workspace
+- landscape compact-height rule for mobile/tablet
+- prefers-reduced-motion accessibility rule
+
+Important: Static validation is not a substitute for real-device regression testing, Firebase security-rule testing, or clinical validation.

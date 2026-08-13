@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mahamaya-emr-v2.70-20260813-r2';
+const CACHE_NAME = 'mahamaya-emr-v2.80-20260813-r3';
 const CORE_ASSETS = [
   './', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png', './logo.jpg', './clinical-terminology-master.json', './slaie-omega-exact-row-v1.json'
 ];

@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Mahamaya Clinic EMR — Mobile Clinical Workspace",
+  "name": "Mahamaya Clinic EMR — Responsive Clinical Workspace V2.80",
   "short_name": "Mahamaya EMR",
-  "description": "Integrated Ayurveda + modern medicine EMR with fast encounter workflow, SLAIE lab AutoRead, searchable editable terminology, safety review and cloud records.",
+  "description": "Device-adaptive Ayurveda + modern medicine EMR with fast clinical flow, SLAIE lab AutoRead, editable terminology, safety review, cloud records and PWA installation.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -39,6 +39,17 @@
       "name": "New Patient",
       "short_name": "New Patient",
       "url": "./?action=new",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Fast Clinical Flow",
+      "short_name": "Fast Flow",
+      "url": "./?action=flow",
       "icons": [
         {
           "src": "./icon-192.png",
