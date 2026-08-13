@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<title>Mahamaya Clinic EMR | Systemic Clinical Intelligence V2.90</title>
+<title>Mahamaya Clinic EMR | General + Systemic Clinical Intelligence V3.00</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -426,6 +426,47 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 }
 </style>
 
+<style id="mahamaya-v300-general-intelligence-css">
+/* V3.00 — General Examination, Pain & Gait Intelligence + bidirectional workflow */
+.gei-workspace{overflow:visible}
+.gei-kicker-row{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin:8px 0 12px}
+.gei-chip{display:inline-flex;align-items:center;gap:5px;padding:6px 9px;border-radius:999px;border:1px solid #cfe2e5;background:#f5fafb;color:#2b626a;font-size:10px;font-weight:800}
+.gei-tabbar{display:flex;gap:7px;overflow-x:auto;padding:4px 1px 9px;scroll-snap-type:x proximity;scrollbar-width:thin;position:sticky;top:126px;z-index:51;background:rgba(243,248,250,.96);backdrop-filter:blur(10px)}
+.gei-tabbtn{flex:0 0 auto;scroll-snap-align:start;min-height:42px;padding:8px 12px;border-radius:12px;border:1px solid #d3e4e7;background:#f2f8f9;color:#2a5f68;font-weight:900;box-shadow:none}
+.gei-tabbtn.active{background:var(--p);border-color:var(--p);color:#fff}
+.gei-panel{display:none}.gei-panel.active{display:block}
+.gei-panel-shell{border:1px solid #d7e7e9;border-radius:16px;padding:13px;background:linear-gradient(180deg,#fff,#fbfdfe);margin-top:5px}
+.gei-core-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.gei-workspace .finding-row{display:grid;grid-template-columns:minmax(150px,1.05fr) minmax(140px,.72fr) minmax(140px,.72fr) minmax(180px,1fr) auto;gap:8px;align-items:end;border:1px solid #dce9eb;border-radius:13px;padding:10px;background:#fbfdfe;margin:0}
+.gei-workspace .finding-name{align-self:center;font-size:13px;font-weight:900;color:#076b74}
+.gei-workspace .finding-row label{font-size:9px;color:#657a80;font-weight:800;margin:0 0 4px;display:block}
+.gei-detail-btn{min-height:42px;padding:7px 9px;border-radius:10px;background:#eef6f7;color:#27636b;border:1px solid #d5e5e7;font-weight:900}
+.gei-detail-stack{grid-column:1/-1;display:none;margin-top:2px;padding:10px;border-radius:12px;background:#f7fbfc;border:1px dashed #cbdfe2}
+.gei-detail-stack.open{display:block}
+.gei-detail-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.gei-detail-grid .wide{grid-column:span 2}.gei-detail-grid .full{grid-column:1/-1}
+.gei-mini-note{font-size:10px;line-height:1.45;color:#5f737a;margin-top:5px}
+.gei-section-title{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+.gei-section-title h3{margin:0;color:var(--p);font-size:17px}.gei-section-title p{margin:3px 0 0;font-size:10px;color:#71858b}
+.gei-form-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.gei-form-grid .span2{grid-column:span 2}.gei-form-grid .span3{grid-column:span 3}.gei-form-grid .span4{grid-column:1/-1}
+.gei-toggle-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-top:7px}.gei-toggle{display:flex;align-items:center;gap:7px;border:1px solid #dbe8ea;border-radius:10px;background:#fbfdfe;padding:8px;font-size:10px;font-weight:750}.gei-toggle input{width:auto;margin:0}
+.gei-scale-line{display:grid;grid-template-columns:120px 1fr 68px;gap:9px;align-items:center}.gei-scale-line input[type="range"]{width:100%;accent-color:var(--p)}.gei-scale-value{font-weight:900;text-align:center;border:1px solid #d4e4e6;background:#fff;border-radius:10px;padding:8px}
+.gei-ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.gei-ai-card{border:1px solid #d8e7e9;border-radius:14px;background:#fff;padding:12px}.gei-ai-card h3{margin:0 0 7px;color:var(--p);font-size:15px}.gei-ai-block{padding:9px 10px;margin:7px 0;border-radius:11px;background:#f6fafb;border:1px solid #e0eaec;font-size:10px;line-height:1.48}.gei-ai-block.warn{background:#fff8e9;border-color:#e9c982}.gei-ai-block.red{background:#fff0ee;border-color:#df9b94}.gei-ai-block b{color:#235d66}
+.gei-suggest-chip{display:inline-flex;margin:3px 4px 3px 0;padding:5px 7px;border-radius:999px;background:#edf6f7;border:1px solid #cfe3e6;font-size:9px;font-weight:800;color:#2c626a}
+.gei-urgent{padding:11px;border-radius:12px;background:#fff0ee;border:1px solid #dc938c;color:#7d2b23;margin-top:10px}.gei-urgent.hidden{display:none}
+.gei-summary{width:100%;min-height:150px;background:#fbfdfe;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;line-height:1.45}
+.gei-bottom-nav{position:sticky;bottom:8px;z-index:53;display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px;border:1px solid #d1e3e6;border-radius:14px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-shadow:0 8px 26px rgba(8,75,83,.10);margin-top:12px}
+.gei-bottom-nav button{min-height:44px}
+.workflow-prev-btn{background:#f3f8f9!important;color:#265d65!important;border:1px solid #cfe0e3!important}
+.workflow-prev-btn:hover{background:#e8f3f4!important}
+.gei-source-note{font-size:9px;color:#6f8389;line-height:1.45;margin-top:8px}
+.gei-safety-note{border-left:4px solid #d6a02f;background:#fff8e4;border-radius:10px;padding:9px 10px;font-size:10px;line-height:1.45}
+@media(max-width:1200px){.gei-core-grid{grid-template-columns:1fr}.gei-detail-grid,.gei-form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gei-toggle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.gei-form-grid .span3,.gei-form-grid .span4{grid-column:1/-1}}
+@media(max-width:760px){.gei-tabbar{position:static}.gei-workspace .finding-row{grid-template-columns:1fr 1fr}.gei-workspace .finding-name{grid-column:1/-1}.gei-workspace .finding-row>div:nth-child(4){grid-column:1/-1}.gei-detail-btn{width:100%}.gei-detail-grid,.gei-form-grid,.gei-toggle-grid,.gei-ai-grid{grid-template-columns:1fr}.gei-detail-grid .wide,.gei-form-grid .span2,.gei-form-grid .span3,.gei-form-grid .span4{grid-column:auto}.gei-scale-line{grid-template-columns:1fr 68px}.gei-scale-line label{grid-column:1/-1}.gei-bottom-nav{bottom:75px}.gei-bottom-nav button{flex:1 1 140px}.gei-section-title{flex-direction:column}.gei-panel-shell{padding:10px}}
+@media(max-width:430px){.gei-workspace .finding-row{grid-template-columns:1fr}.gei-workspace .finding-name,.gei-workspace .finding-row>div:nth-child(4){grid-column:auto}.gei-bottom-nav{position:static}.gei-tabbtn{font-size:10px;padding:8px 9px}}
+@media print{.gei-tabbar,.gei-detail-btn,.gei-bottom-nav,.gei-actions,.gei-source-note{display:none!important}.gei-panel{display:block!important}.gei-detail-stack{display:block!important}.gei-ai-grid{grid-template-columns:1fr 1fr}}
+</style>
+
 </head>
 <body>
 
@@ -452,8 +493,8 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
     <div class="brand-lockup">
       <img class="brand-logo" src="./icon-192.png" alt="Mahamaya Clinic">
       <div class="brand-copy">
-        <h1>Mahamaya Clinic <span class="version-badge">V2.90</span></h1>
-        <p>Systemic Clinical Intelligence • SLAIE Core v1.0 • Build 2026.08.13-R4</p>
+        <h1>Mahamaya Clinic <span class="version-badge">V3.00</span></h1>
+        <p>General + Systemic Clinical Intelligence • SLAIE Core v1.0 • Build 2026.08.13-R5</p>
       </div>
     </div>
     <div class="header-meta">
@@ -478,7 +519,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 </nav>
 
 <div class="system-strip no-print">
-  <div id="status" class="status">App loaded successfully. V2.90 Systemic Clinical Intelligence + SLAIE ready.</div>
+  <div id="status" class="status">App loaded successfully. V3.00 General + Systemic Clinical Intelligence + SLAIE ready.</div>
   <div class="actions">
     <span id="activeRoleBadge" class="role-badge">Locked</span>
     <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -787,10 +828,193 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 </section>
 
 <section id="examSection" class="hidden">
-<div class="card"><h2>General Physical Examination</h2><div id="findings"></div>
-<div class="grid3"><div><label>Build</label><select id="build"><option value=""></option><option>Lean</option><option>Average</option><option>Muscular</option><option>Obese</option><option>Cachectic</option></select></div><div><label>Nutrition</label><select id="nutrition"><option value=""></option><option>Good</option><option>Average</option><option>Poor</option><option>Malnourished</option></select></div><div><label>Gait</label><select id="gait"><option value=""></option><option>Normal</option><option>Antalgic</option><option>Ataxic</option><option>Spastic</option><option>High-stepping</option><option>Other</option></select></div></div>
-<label>Additional General Examination Notes</label><textarea id="examNotes"></textarea>
-<div class="actions"><button id="saveExamBtn" class="primary">💾 Save Examination</button><button id="goSystemicBtn" class="secondary">Next: Systemic →</button></div>
+<div class="card gei-workspace">
+  <div class="section-head">
+    <div>
+      <h2>General Examination — Clinical Intelligence Workspace</h2>
+      <div class="section-kicker">Fast general examination • focused oedema/gait/pain characterization • explainable next-step suggestions</div>
+    </div>
+    <span class="evidence-badge">V3.00 • Clinician verified</span>
+  </div>
+
+  <div class="notice clinical-note"><b>Clinical safety:</b> Findings and grades must be observed/entered by the clinician. The interpretation below provides pattern-based decision support and learning prompts; it does not confirm a diagnosis or replace emergency assessment, specialist judgment, validated pathways, or the original report/examination.</div>
+
+  <div class="gei-kicker-row no-print">
+    <span class="gei-chip">↔ Previous + Next navigation</span>
+    <span class="gei-chip">🦶 Oedema characterization</span>
+    <span class="gei-chip">🚶 Gait localization</span>
+    <span class="gei-chip">🎯 NRS / VAS pain assessment</span>
+    <span class="gei-chip">🧠 Explainable CDS</span>
+  </div>
+
+  <div class="gei-tabbar no-print" role="tablist" aria-label="General examination modules">
+    <button type="button" class="gei-tabbtn active" data-gei-tab="core">🔍 Core Exam</button>
+    <button type="button" class="gei-tabbtn" data-gei-tab="edema">🦶 Oedema</button>
+    <button type="button" class="gei-tabbtn" data-gei-tab="gait">🚶 Gait</button>
+    <button type="button" class="gei-tabbtn" data-gei-tab="pain">🎯 Pain</button>
+    <button type="button" class="gei-tabbtn" data-gei-tab="intelligence">🧠 Interpret & Learn</button>
+  </div>
+
+  <div id="geiPanelCore" class="gei-panel active">
+    <div class="gei-panel-shell">
+      <div class="gei-section-title"><div><h3>Core General Physical Examination</h3><p>Use status first; open Details only when clinically relevant. Grade options are finding-specific rather than one generic scale.</p></div></div>
+      <div id="findings" class="gei-core-grid"></div>
+      <div class="grid3" style="margin-top:10px">
+        <div><label>Build</label><select id="build"><option value=""></option><option>Lean</option><option>Average</option><option>Muscular</option><option>Overweight / Obese</option><option>Cachectic</option><option>Other</option></select></div>
+        <div><label>Nutrition</label><select id="nutrition"><option value=""></option><option>Apparently adequate</option><option>At risk / borderline</option><option>Poor / undernourished</option><option>Severe wasting / cachexia</option><option>Not assessed</option></select></div>
+        <div><label>Overall Gait</label><select id="gait"><option value=""></option><option>Normal</option><option>Antalgic</option><option>Trendelenburg</option><option>Waddling / myopathic</option><option>Steppage / foot-drop</option><option>Hemiparetic / circumduction</option><option>Spastic / scissoring</option><option>Cerebellar ataxic</option><option>Sensory ataxic / stomping</option><option>Parkinsonian / festinating</option><option>Frontal / apraxic</option><option>Vestibular</option><option>Hyperkinetic / choreiform</option><option>Cautious / fear-of-falling</option><option>Other / mixed</option><option>Not assessed</option></select></div>
+      </div>
+      <label>Additional General Examination Notes</label><textarea id="examNotes" placeholder="Free text for findings not captured above, examination limitations, or clinical correlation."></textarea>
+    </div>
+  </div>
+
+  <div id="geiPanelEdema" class="gei-panel">
+    <div class="gei-panel-shell">
+      <div class="gei-section-title"><div><h3>Oedema / Swelling Intelligence</h3><p>Characterize distribution and tissue behavior before considering systemic, venous, lymphatic, renal, hepatic, endocrine, medication-related or local causes.</p></div><span class="cds-badge">Pattern support</span></div>
+      <div class="gei-form-grid">
+        <div><label>Oedema Status</label><select id="geiEdemaStatus"><option value=""></option><option>Not assessed</option><option>Absent</option><option>Present</option></select></div>
+        <div><label>Pitting Character</label><select id="geiEdemaPitting"><option value=""></option><option>Not assessed</option><option>Pitting</option><option>Non-pitting</option><option>Mixed / uncertain</option></select></div>
+        <div><label>Pitting Grade*</label><select id="geiEdemaGrade"><option value=""></option><option>Not graded</option><option>1+</option><option>2+</option><option>3+</option><option>4+</option></select></div>
+        <div><label>Distribution</label><select id="geiEdemaDistribution"><option value=""></option><option>Unilateral leg</option><option>Bilateral dependent legs</option><option>Periorbital + dependent</option><option>Generalized / anasarca</option><option>Sacral / dependent in bedbound patient</option><option>Upper limb</option><option>Localized swelling</option><option>Other</option></select></div>
+        <div><label>Laterality</label><select id="geiEdemaLaterality"><option value=""></option><option>Right</option><option>Left</option><option>Bilateral symmetric</option><option>Bilateral asymmetric</option><option>Not applicable</option></select></div>
+        <div><label>Extent</label><select id="geiEdemaExtent"><option value=""></option><option>Foot / ankle</option><option>To shin</option><option>To knee</option><option>Above knee / thigh</option><option>Generalized</option><option>Other</option></select></div>
+        <div><label>Onset</label><select id="geiEdemaOnset"><option value=""></option><option>Sudden / hours</option><option>Acute / days</option><option>Subacute / weeks</option><option>Chronic / months+</option><option>Unknown</option></select></div>
+        <div><label>Course</label><select id="geiEdemaCourse"><option value=""></option><option>Progressive</option><option>Stable</option><option>Intermittent</option><option>Worse by evening / dependency</option><option>Improves with elevation</option><option>Unknown</option></select></div>
+        <div class="span4"><label>Local / Tissue Features</label><div class="gei-toggle-grid">
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaTender"> Tender</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaWarm"> Warm</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaRed"> Red / discolored</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaVaricose"> Varicosities / venous skin change</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaThickSkin"> Skin thickening / peau d'orange</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaStemmer"> Stemmer sign positive</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaTrauma"> Recent trauma / local injury</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaImmobility"> Recent immobility / surgery</label>
+        </div></div>
+        <div class="span4"><label>Systemic Correlation</label><div class="gei-toggle-grid">
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaDyspnea"> Dyspnoea / orthopnoea</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaRaisedJvp"> Raised JVP / congestion signs</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaCrackles"> Basal crackles / pulmonary congestion</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaAscites"> Ascites / abdominal distension</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaJaundice"> Jaundice / chronic liver features</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaFoamyUrine"> Foamy urine / known proteinuria</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaLowUrine"> Reduced urine / renal concern</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaPeriorbital"> Periorbital swelling</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaHypothyroid"> Hypothyroid / myxoedema features</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaMedication"> Oedema-associated medicine exposure</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaPallor"> Pallor / significant anaemia concern</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiEdemaPregnancy"> Pregnancy / postpartum context</label>
+        </div></div>
+        <div><label>Calf Circumference Difference (cm)</label><input id="geiEdemaCalfDiff" type="number" min="0" step="0.1" placeholder="Optional; same anatomical level"></div>
+        <div><label>Recent Weight Change</label><input id="geiEdemaWeight" placeholder="e.g. +2 kg in 5 days / unknown"></div>
+        <div><label>Relevant Medicines / Context</label><input id="geiEdemaMeds" placeholder="e.g. calcium-channel blocker, NSAID, steroid, hormones…"></div>
+        <div><label>Oedema Notes</label><input id="geiEdemaNotes" placeholder="Skin change, exact site, dependency/elevation response…"></div>
+      </div>
+      <div class="gei-safety-note">*Pitting “1+–4+” is a commonly used bedside convention but is not perfectly standardized across observers/settings. Treat grade as semi-quantitative and document distribution/extent and clinical context.</div>
+    </div>
+  </div>
+
+  <div id="geiPanelGait" class="gei-panel">
+    <div class="gei-panel-shell">
+      <div class="gei-section-title"><div><h3>Gait & Mobility Intelligence</h3><p>Describe the observed pattern, then localize with motor, sensory, cerebellar, vestibular and musculoskeletal examination.</p></div><span class="cds-badge">Localization support</span></div>
+      <div class="gei-form-grid">
+        <div class="span2"><label>Observed Gait Pattern</label><select id="geiGaitType"><option value=""></option><option>Normal</option><option>Antalgic</option><option>Trendelenburg</option><option>Waddling / myopathic</option><option>Steppage / foot-drop</option><option>Hemiparetic / circumduction</option><option>Spastic / scissoring</option><option>Cerebellar ataxic / broad-based</option><option>Sensory ataxic / stomping</option><option>Parkinsonian / festinating / shuffling</option><option>Frontal / apraxic / gait ignition failure</option><option>Vestibular / veering</option><option>Hyperkinetic / choreiform / dystonic</option><option>Cautious / fear-of-falling</option><option>Neurogenic claudication pattern</option><option>Mixed / other</option><option>Not assessed</option></select></div>
+        <div><label>Functional Severity</label><select id="geiGaitSeverity"><option value=""></option><option>Normal / no limitation</option><option>Mild — independent, visible deviation</option><option>Moderate — needs aid / supervision</option><option>Severe — physical assistance required</option><option>Unable to walk safely</option><option>Not assessed</option></select></div>
+        <div><label>Assistive Device</label><select id="geiGaitAid"><option value=""></option><option>None</option><option>Stick / cane</option><option>Walker</option><option>Crutches</option><option>Wheelchair for distance</option><option>Other</option></select></div>
+        <div><label>Base</label><select id="geiGaitBase"><option value=""></option><option>Normal</option><option>Narrow</option><option>Broad</option><option>Variable</option><option>Not assessed</option></select></div>
+        <div><label>Step / Stride</label><select id="geiGaitStride"><option value=""></option><option>Normal</option><option>Short steps</option><option>Asymmetric</option><option>High stepping</option><option>Stomping</option><option>Circumduction</option><option>Scissoring</option><option>Not assessed</option></select></div>
+        <div><label>Arm Swing</label><select id="geiGaitArm"><option value=""></option><option>Normal</option><option>Reduced unilateral</option><option>Reduced bilateral</option><option>Excess / irregular</option><option>Not assessed</option></select></div>
+        <div><label>Initiation / Freezing</label><select id="geiGaitInit"><option value=""></option><option>Normal</option><option>Hesitant</option><option>Freezing / ignition failure</option><option>Festination</option><option>Not assessed</option></select></div>
+        <div><label>Turning</label><select id="geiGaitTurn"><option value=""></option><option>Normal</option><option>En bloc / multiple steps</option><option>Unsteady</option><option>Freezes on turning</option><option>Not assessed</option></select></div>
+        <div><label>Tandem Gait</label><select id="geiGaitTandem"><option value=""></option><option>Normal</option><option>Impaired</option><option>Unable</option><option>Not assessed</option></select></div>
+        <div><label>Heel Walk</label><select id="geiGaitHeel"><option value=""></option><option>Normal</option><option>Weak / impaired</option><option>Unable</option><option>Not assessed</option></select></div>
+        <div><label>Toe Walk</label><select id="geiGaitToe"><option value=""></option><option>Normal</option><option>Weak / impaired</option><option>Unable</option><option>Not assessed</option></select></div>
+        <div><label>Romberg</label><select id="geiGaitRomberg"><option value=""></option><option>Negative / stable</option><option>Positive</option><option>Unable / unsafe</option><option>Not assessed</option></select></div>
+        <div><label>Timed Up & Go (seconds)</label><input id="geiGaitTug" type="number" step="0.1" min="0" placeholder="Optional; interpret by context"></div>
+        <div><label>Falls / Near-falls</label><select id="geiGaitFalls"><option value=""></option><option>None reported</option><option>Near-falls</option><option>1 fall</option><option>Recurrent falls</option><option>Not assessed</option></select></div>
+        <div class="span2"><label>Gait Notes / Trigger</label><input id="geiGaitNotes" placeholder="Pain source, weakness, numbness, vertigo, distance-to-symptoms, flexion relief…"></div>
+        <div class="span4"><label>Associated Localization Clues</label><div class="gei-toggle-grid">
+          <label class="gei-toggle"><input type="checkbox" id="geiGaitSudden"> Sudden new onset</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiGaitFocalWeak"> Focal unilateral weakness</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiGaitFootDrop"> Foot drop / dorsiflexor weakness</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiGaitHyperreflexia"> Hyperreflexia / extensor plantar</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiGaitHyporeflexia"> Reduced reflexes</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiGaitSensoryLoss"> Distal sensory / proprioception loss</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiGaitCerebellar"> Dysmetria / nystagmus / cerebellar signs</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiGaitVertigo"> Vertigo / vestibular symptoms</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiGaitBackLegPain"> Back-to-leg pain / radicular symptoms</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiGaitHipPain"> Hip / pelvic pain</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiGaitProxWeak"> Proximal muscle weakness</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiGaitBladder"> New bladder/bowel/saddle symptoms</label>
+        </div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="geiPanelPain" class="gei-panel">
+    <div class="gei-panel-shell">
+      <div class="gei-section-title"><div><h3>Pain Measurement & Pattern Workspace</h3><p>Measure intensity separately from location/quality/function. Pattern prompts are differential directions, never organ-specific confirmation.</p></div><span class="cds-badge">NRS • VAS • pattern</span></div>
+      <div class="gei-form-grid">
+        <div class="span2"><label>NRS 0–10</label><div class="gei-scale-line"><label>0 = no pain • 10 = worst imaginable</label><input id="geiPainNrs" type="range" min="0" max="10" step="1" value="0"><div id="geiPainNrsValue" class="gei-scale-value">0</div></div></div>
+        <div class="span2"><label>VAS 0–100 mm</label><div class="gei-scale-line"><label>0 mm = no pain • 100 mm = worst imaginable</label><input id="geiPainVas" type="range" min="0" max="100" step="1" value="0"><div id="geiPainVasValue" class="gei-scale-value">0</div></div></div>
+        <div><label>Verbal Severity</label><select id="geiPainVerbal"><option value=""></option><option>No pain</option><option>Mild</option><option>Moderate</option><option>Severe</option><option>Very severe / excruciating</option></select></div>
+        <div><label>Primary Region</label><select id="geiPainRegion"><option value=""></option><option>Head / face</option><option>Chest</option><option>Neck</option><option>Shoulder / upper limb</option><option>Upper abdomen / epigastrium</option><option>Right upper abdomen</option><option>Periumbilical / central abdomen</option><option>Right lower abdomen</option><option>Left lower abdomen</option><option>Suprapubic / pelvis</option><option>Flank / loin</option><option>Low back / buttock</option><option>Hip / groin</option><option>Knee / lower limb</option><option>Heel / foot</option><option>Generalized / widespread</option><option>Other</option></select></div>
+        <div><label>Laterality</label><select id="geiPainLaterality"><option value=""></option><option>Right</option><option>Left</option><option>Bilateral</option><option>Midline</option><option>Diffuse</option><option>Not applicable</option></select></div>
+        <div><label>Onset</label><select id="geiPainOnset"><option value=""></option><option>Sudden maximal onset</option><option>Sudden</option><option>Gradual</option><option>After trauma / exertion</option><option>Recurrent episodic</option><option>Chronic persistent</option></select></div>
+        <div><label>Quality</label><select id="geiPainQuality"><option value=""></option><option>Sharp / stabbing</option><option>Dull / aching</option><option>Burning</option><option>Electric / shooting</option><option>Throbbing / pulsating</option><option>Cramping / colicky</option><option>Pressure / heaviness</option><option>Tearing</option><option>Deep / boring</option><option>Other</option></select></div>
+        <div><label>Course</label><select id="geiPainCourse"><option value=""></option><option>Constant</option><option>Intermittent</option><option>Colicky / waves</option><option>Progressive</option><option>Improving</option><option>Fluctuating</option></select></div>
+        <div><label>Observed Pain Behaviour / Posture</label><select id="geiPainBehaviour"><option value=""></option><option>No specific posture</option><option>Restless / pacing</option><option>Lies very still / avoids movement</option><option>Guarded / flexed posture</option><option>Antalgic posture / limp</option><option>Forward-flexed / tripod-like posture</option><option>Other / not characterized</option><option>Not assessed</option></select></div>
+        <div><label>Functional Impact</label><select id="geiPainFunction"><option value=""></option><option>None</option><option>Mild — activity possible</option><option>Moderate — activity limited</option><option>Severe — major activity/sleep limitation</option><option>Unable to function / mobilize</option><option>Not assessed</option></select></div>
+        <div class="span2"><label>Radiation / Migration</label><input id="geiPainRadiation" placeholder="e.g. back, groin, jaw/arm, below knee, periumbilical → RLQ…"></div>
+        <div class="span2"><label>Movement / Posture / Meal / Urination Relation</label><input id="geiPainRelation" placeholder="e.g. worse with movement/cough, after meals, bladder filling, relieved by flexion…"></div>
+        <div class="span4"><label>Associated Pattern Clues</label><div class="gei-toggle-grid">
+          <label class="gei-toggle"><input type="checkbox" id="geiPainNausea"> Nausea / vomiting</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainFever"> Fever / systemic illness</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainPhotophobia"> Photophobia / phonophobia</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainNeuro"> Numbness / tingling / weakness</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainDysuria"> Dysuria / frequency / urgency</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainHematuria"> Hematuria / stone concern</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainBowel"> Bowel change / diarrhea / constipation</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainBloodStool"> Blood / mucus in stool</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainTenesmus"> Tenesmus / rectal urgency</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainAnorexia"> Anorexia / appetite loss</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainJaundice"> Jaundice / dark urine</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainBulge"> Groin / abdominal wall bulge</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainDyspnea"> Dyspnoea / diaphoresis / cardiopulmonary symptom</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainPeritonism"> Guarding / rigidity / rebound</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainSyncope"> Syncope / shock / severe weakness</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainPregnancy"> Pregnancy / postpartum context</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainBladderBowel"> New bladder/bowel/saddle neurological red flag</label>
+          <label class="gei-toggle"><input type="checkbox" id="geiPainWeightLoss"> Unexplained weight loss / cancer concern</label>
+        </div></div>
+        <div class="span4"><label>Pain Narrative / Functional Impact</label><textarea id="geiPainNotes" placeholder="Exact patient wording, duration, sleep/work/walking impact, trigger, relieving factors, previous episodes…"></textarea></div>
+      </div>
+      <div class="gei-source-note">Pain intensity scales quantify intensity only; they do not identify the cause. NRS and VAS should be interpreted alongside function, examination, red flags and the patient's clinical context.</div>
+    </div>
+  </div>
+
+  <div id="geiPanelIntelligence" class="gei-panel">
+    <div class="gei-panel-shell">
+      <div class="gei-section-title"><div><h3>🧠 Explainable Clinical Intelligence</h3><p>Finding → possible meaning → next bedside examination → investigations for clinician review → differential directions.</p></div><span class="cds-badge">No black-box probability</span></div>
+      <div class="actions gei-actions no-print">
+        <button type="button" id="geiInterpretBtn" class="primary">🧠 Interpret Current Findings</button>
+        <button type="button" id="geiAddInvestigationsBtn" class="secondary" disabled>＋ Add Suggested Investigations</button>
+        <button type="button" id="geiAddDxBtn" class="secondary" disabled>↘ Add DDx Directions</button>
+      </div>
+      <div class="gei-ai-grid">
+        <div class="gei-ai-card"><h3>Clinical Meaning / Localization</h3><div id="geiMeaningBox"><div class="small">Enter findings, then press Interpret Current Findings.</div></div></div>
+        <div class="gei-ai-card"><h3>Next Examination & Investigations</h3><div id="geiNextBox"><div class="small">No suggestions generated yet.</div></div></div>
+      </div>
+      <div id="geiUrgentBox" class="gei-urgent hidden"></div>
+      <details style="margin-top:10px" open><summary><b>Structured General Examination Summary</b></summary><textarea id="geiSummary" class="gei-summary" readonly></textarea></details>
+      <div class="gei-source-note"><b>Evidence reference set:</b> WHO, IASP, NICE, NHS, NIH/NIDDK, CDC, AHA, ACC, ESC, KDIGO, GOLD, GINA, AAN/Continuum, NCBI clinical references and other specialty guidance. Suggestions are deliberately phrased as “consider / evaluate / direction” rather than diagnostic confirmation.</div>
+    </div>
+  </div>
+
+  <div class="gei-bottom-nav no-print">
+    <button type="button" id="prevExamBtn" class="secondary workflow-prev-btn">← Previous: History & Vitals</button>
+    <button id="saveExamBtn" class="primary">💾 Save Examination</button>
+    <button id="goSystemicBtn" class="secondary">Next: Systemic →</button>
+  </div>
 </div>
 </section>
 
@@ -859,6 +1083,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
   <textarea id="cnsNotes" class="hidden" aria-hidden="true"></textarea>
 
   <div class="actions workflow-actions">
+    <button type="button" id="prevSystemicBtn" class="secondary workflow-prev-btn">← Previous: General Exam</button>
     <button id="saveSystemicBtn" class="primary">💾 Save Systemic Examination</button>
     <button id="goAssessmentBtn" class="secondary">Next: Assessment & Dx →</button>
   </div>
@@ -4792,7 +5017,7 @@ function readComplaint(){
   syncComplaintSummaryToHistory();
 }
 function readClinical(){current.clinical={chiefComplaints:val('chiefComplaints'),duration:val('duration'),onset:val('onset'),hpi:val('hpi'),pastHistory:val('pastHistory'),currentMedicines:val('currentMedicines'),allergy:val('allergy'),familyHistory:val('familyHistory'),bp:val('bp'),pulse:val('pulse'),spo2:val('spo2'),temp:val('temp'),rr:val('rr'),pain:val('pain'),clinicalNotes:val('clinicalNotes')}}
-function readExam(){const findings={};generalFindingNames.forEach((name,i)=>findings[name]={status:val('fs'+i),grade:val('fg'+i),remarks:val('fr'+i)});current.exam={findings,build:val('build'),nutrition:val('nutrition'),gait:val('gait'),examNotes:val('examNotes')}}
+function readExam(){const findings={};generalFindingNames.forEach((name,i)=>findings[name]={status:val('fs'+i),grade:val('fg'+i),remarks:val('fr'+i)});const intelligence=window.MAHAMAYA_GENERAL_ENGINE?.collect?.()||current?.exam?.intelligence||{};current.exam={findings,build:val('build'),nutrition:val('nutrition'),gait:val('gait'),examNotes:val('examNotes'),intelligence};if(Number(intelligence?.pain?.nrs)>0&&current?.clinical)current.clinical.pain=String(intelligence.pain.nrs)}
 function readSystemic(){
   const previous=current.systemic||{};
   const engine=window.MAHAMAYA_SYSTEMIC_ENGINE;
@@ -11639,7 +11864,7 @@ function showDashboard(){hideAll();$('dashboardSection').classList.remove('hidde
 function showPatient(){hideAll();$('patientSection').classList.remove('hidden');setActive('tabPatient')}
 function showComplaint(){hideAll();$('complaintSection').classList.remove('hidden');setActive('tabComplaint');updateComplaintWorkflow()}
 function showClinical(){hideAll();$('clinicalSection').classList.remove('hidden');setActive('tabClinical')}
-function showExam(){hideAll();$('examSection').classList.remove('hidden');setActive('tabExam')}
+function showExam(){hideAll();$('examSection').classList.remove('hidden');setActive('tabExam');window.MAHAMAYA_GENERAL_ENGINE?.open?.(current?.exam||{})}
 function showSystemic(){hideAll();$('systemicSection').classList.remove('hidden');setActive('tabSystemic');window.MAHAMAYA_SYSTEMIC_ENGINE?.open?.(current?.systemic||{})}
 function showAssessment(){hideAll();$('assessmentSection').classList.remove('hidden');setActive('tabAssessment');renderAssessmentContext();renderDiagnosisTerms();renderDiagnosisSearch()}
 function showInvestigations(){hideAll();$('investigationsSection').classList.remove('hidden');setActive('tabInvestigations');renderInvestigations()}
@@ -11933,7 +12158,7 @@ window.MahamayaBridge={
   esc:(x)=>esc(x)
 };
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V2.90 Systemic Clinical Intelligence + SLAIE ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.00 General + Systemic Clinical Intelligence + SLAIE ready.');
 })();
 </script>
 
@@ -12370,6 +12595,240 @@ bootSKMCFirebase();
 </script>
 
 
+<script id="mahamaya-v300-general-intelligence-js">
+(function(){
+'use strict';
+const byId=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const unique=a=>[...new Set((a||[]).filter(Boolean))];
+const checked=id=>!!byId(id)?.checked;
+const value=id=>byId(id)?.value||'';
+const setv=(id,v)=>{const e=byId(id);if(e)e.value=v??''};
+const setc=(id,v)=>{const e=byId(id);if(e)e.checked=!!v};
+const optionHtml=a=>['',...(a||[])].map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');
+
+const FINDINGS={
+ 'Pallor':{grades:['Present — ungraded','Mild visual impression','Moderate visual impression','Marked visual impression'],details:[['site','Examination site',['Conjunctiva','Palmar creases','Nail beds','Tongue/oral mucosa','Multiple sites']],['symptoms','Associated clues',['None documented','Fatigue / exertional dyspnoea','Tachycardia / palpitations','Bleeding history','Nutritional concern','Other']],['note','Remarks',null]]},
+ 'Icterus':{grades:['Present — ungraded','Scleral only / subtle','Clinically obvious / generalized'],details:[['site','Distribution',['Scleral','Skin + sclera','Generalized','Not characterized']],['urine','Urine / stool clue',['None documented','Dark urine','Pale stool','Dark urine + pale stool']],['pruritus','Pruritus',['Absent','Present','Not assessed']],['note','Remarks',null]]},
+ 'Cyanosis':{grades:['Central pattern','Peripheral pattern','Central + peripheral','Present — not characterized'],details:[['type','Type',['Central','Peripheral','Both','Uncertain']],['spo2','SpO₂ / oxygenation note',null],['distress','Respiratory distress',['Absent','Present','Not assessed']],['note','Remarks',null]]},
+ 'Clubbing':{grades:['Present — ungraded','Loss of Schamroth window','Increased nail-fold angle / curvature','Bulbous distal phalanx / advanced appearance'],details:[['symmetry','Distribution',['Bilateral symmetric','Unilateral / asymmetric','Not characterized']],['schamroth','Schamroth window',['Present / normal','Lost / positive','Not assessed']],['tender','Tender hypertrophic change',['Absent','Present','Not assessed']],['note','Remarks',null]]},
+ 'Lymphadenopathy':{grades:['Localized','Generalized','Present — extent not characterized'],details:[['region','Region',['Cervical','Supraclavicular','Axillary','Epitrochlear','Inguinal','Multiple regions','Other']],['tender','Tenderness',['Non-tender','Tender','Not assessed']],['consistency','Consistency',['Soft','Rubbery','Firm','Hard','Matted','Fluctuant','Not assessed']],['mobility','Mobility',['Mobile','Fixed','Not assessed']],['size','Largest node / size note',null],['note','Remarks',null]]},
+ 'Pedal Oedema':{grades:['1+','2+','3+','4+','Present — ungraded'],details:[['pitting','Pitting',['Pitting','Non-pitting','Mixed / uncertain','Not assessed']],['laterality','Laterality',['Right','Left','Bilateral symmetric','Bilateral asymmetric']],['extent','Extent',['Foot/ankle','To shin','To knee','Above knee/thigh']],['note','Remarks',null]]},
+ 'Generalized Oedema':{grades:['Mild','Moderate','Marked / anasarca','Present — ungraded'],details:[['pitting','Pitting',['Pitting','Non-pitting','Mixed / uncertain','Not assessed']],['periorbital','Periorbital swelling',['Absent','Present','Not assessed']],['ascites','Ascites',['Absent','Present','Not assessed']],['note','Remarks',null]]},
+ 'Dehydration':{grades:['Mild','Moderate','Severe','Present — ungraded'],details:[['mucosa','Oral mucosa',['Moist','Dry','Very dry','Not assessed']],['turgor','Skin turgor',['Normal','Reduced','Markedly reduced','Not assessed']],['orthostatic','Orthostatic / perfusion clue',['None documented','Postural symptoms','Tachycardia','Hypotension / poor perfusion','Not assessed']],['urine','Urine output',['Normal / no concern','Reduced','Very low / oliguria concern','Not assessed']],['note','Remarks',null]]},
+ 'Respiratory Distress':{grades:['Mild','Moderate','Severe','Critical / life-threatening features'],details:[['speech','Speech',['Full sentences','Short phrases','Single words / unable','Not assessed']],['accessory','Accessory muscles',['Absent','Present','Marked','Not assessed']],['spo2','SpO₂ / oxygen support note',null],['mental','Mental status',['Normal','Agitated','Drowsy / altered','Not assessed']],['note','Remarks',null]]},
+ 'Abnormal Gait':{grades:['Mild — independent','Moderate — aid/supervision','Severe — assistance required','Unable to walk safely'],details:[['type','Observed pattern',['Antalgic','Trendelenburg','Waddling / myopathic','Steppage / foot-drop','Hemiparetic / circumduction','Spastic / scissoring','Cerebellar ataxic','Sensory ataxic / stomping','Parkinsonian / festinating','Frontal / apraxic','Vestibular','Hyperkinetic / choreiform','Cautious','Mixed / other']],['aid','Aid',['None','Cane/stick','Walker','Crutches','Physical assistance']],['falls','Falls',['None reported','Near-falls','Single fall','Recurrent falls','Not assessed']],['note','Remarks',null]]}
+};
+
+const TAB_IDS={core:'geiPanelCore',edema:'geiPanelEdema',gait:'geiPanelGait',pain:'geiPanelPain',intelligence:'geiPanelIntelligence'};
+const state={findingDetails:{},last:{meaning:[],bedside:[],investigations:[],differentials:[],urgent:[],summary:''}};
+
+function renderBaseRows(){
+ const box=byId('findings');if(!box)return;
+ const names=(typeof generalFindingNames!=='undefined'?generalFindingNames:Object.keys(FINDINGS));
+ box.innerHTML=names.map((n,i)=>{
+   const cfg=FINDINGS[n]||{grades:['Present — ungraded'],details:[['note','Remarks',null]]};
+   const detail=(cfg.details||[]).map(([key,label,opts],j)=>`<div class="${j===(cfg.details.length-1)&&!opts?'wide':''}"><label>${esc(label)}</label>${opts?`<select id="geid_${i}_${key}" data-gei-finding="${esc(n)}" data-gei-key="${esc(key)}">${optionHtml(opts)}</select>`:`<input id="geid_${i}_${key}" data-gei-finding="${esc(n)}" data-gei-key="${esc(key)}">`}</div>`).join('');
+   return `<div class="finding-row" data-gei-row="${esc(n)}"><div class="finding-name">${esc(n)}</div><div><label>Status</label><select id="fs${i}"><option value=""></option><option>Not assessed</option><option>Absent</option><option>Present</option></select></div><div><label>Grade / Type</label><select id="fg${i}">${optionHtml(cfg.grades)}</select></div><div><label>Site / Quick Remarks</label><input id="fr${i}"></div><button type="button" class="gei-detail-btn" data-gei-detail-btn="${i}">Details ▾</button><div id="geiDetail_${i}" class="gei-detail-stack"><div class="gei-detail-grid">${detail}</div><div class="gei-mini-note">Use “Not assessed” when the feature was not examined. Do not infer an absent finding from an empty field.</div></div></div>`;
+ }).join('');
+ document.querySelectorAll('[data-gei-detail-btn]').forEach(b=>b.addEventListener('click',()=>{const p=byId('geiDetail_'+b.dataset.geiDetailBtn);if(!p)return;p.classList.toggle('open');b.textContent=p.classList.contains('open')?'Details ▴':'Details ▾'}));
+ document.querySelectorAll('#findings select,#findings input').forEach(e=>e.addEventListener('change',()=>{syncSpecialFromCore();updateSummary()}));
+ names.forEach((n,i)=>{const st=byId('fs'+i),gr=byId('fg'+i);const apply=()=>{if(!gr)return;const present=st?.value==='Present';gr.disabled=!present;if(!present)gr.value='';};st?.addEventListener('change',apply);apply();});
+}
+
+function activateTab(tab){
+ Object.entries(TAB_IDS).forEach(([k,id])=>byId(id)?.classList.toggle('active',k===tab));
+ document.querySelectorAll('[data-gei-tab]').forEach(b=>b.classList.toggle('active',b.dataset.geiTab===tab));
+ if(tab==='intelligence')updateSummary();
+}
+function initTabs(){document.querySelectorAll('[data-gei-tab]').forEach(b=>b.addEventListener('click',()=>activateTab(b.dataset.geiTab)))}
+
+function collectFindingDetails(){
+ const out={};document.querySelectorAll('[data-gei-finding][data-gei-key]').forEach(e=>{const n=e.dataset.geiFinding,k=e.dataset.geiKey;(out[n]||(out[n]={}))[k]=e.value||''});return out;
+}
+function panelObject(){
+ return {
+  version:'General Exam Intelligence v1.0',build:'2026.08.13-R5',findingDetails:collectFindingDetails(),
+  edema:{status:value('geiEdemaStatus'),pitting:value('geiEdemaPitting'),grade:value('geiEdemaGrade'),distribution:value('geiEdemaDistribution'),laterality:value('geiEdemaLaterality'),extent:value('geiEdemaExtent'),onset:value('geiEdemaOnset'),course:value('geiEdemaCourse'),tender:checked('geiEdemaTender'),warm:checked('geiEdemaWarm'),red:checked('geiEdemaRed'),varicose:checked('geiEdemaVaricose'),thickSkin:checked('geiEdemaThickSkin'),stemmer:checked('geiEdemaStemmer'),trauma:checked('geiEdemaTrauma'),immobility:checked('geiEdemaImmobility'),dyspnea:checked('geiEdemaDyspnea'),raisedJvp:checked('geiEdemaRaisedJvp'),crackles:checked('geiEdemaCrackles'),ascites:checked('geiEdemaAscites'),jaundice:checked('geiEdemaJaundice'),foamyUrine:checked('geiEdemaFoamyUrine'),lowUrine:checked('geiEdemaLowUrine'),periorbital:checked('geiEdemaPeriorbital'),hypothyroid:checked('geiEdemaHypothyroid'),medication:checked('geiEdemaMedication'),pallor:checked('geiEdemaPallor'),pregnancy:checked('geiEdemaPregnancy'),calfDiff:value('geiEdemaCalfDiff'),weight:value('geiEdemaWeight'),meds:value('geiEdemaMeds'),notes:value('geiEdemaNotes')},
+  gait:{type:value('geiGaitType'),severity:value('geiGaitSeverity'),aid:value('geiGaitAid'),base:value('geiGaitBase'),stride:value('geiGaitStride'),arm:value('geiGaitArm'),init:value('geiGaitInit'),turn:value('geiGaitTurn'),tandem:value('geiGaitTandem'),heel:value('geiGaitHeel'),toe:value('geiGaitToe'),romberg:value('geiGaitRomberg'),tug:value('geiGaitTug'),falls:value('geiGaitFalls'),notes:value('geiGaitNotes'),sudden:checked('geiGaitSudden'),focalWeak:checked('geiGaitFocalWeak'),footDrop:checked('geiGaitFootDrop'),hyperreflexia:checked('geiGaitHyperreflexia'),hyporeflexia:checked('geiGaitHyporeflexia'),sensoryLoss:checked('geiGaitSensoryLoss'),cerebellar:checked('geiGaitCerebellar'),vertigo:checked('geiGaitVertigo'),backLegPain:checked('geiGaitBackLegPain'),hipPain:checked('geiGaitHipPain'),proxWeak:checked('geiGaitProxWeak'),bladder:checked('geiGaitBladder')},
+  pain:{nrs:value('geiPainNrs'),vas:value('geiPainVas'),verbal:value('geiPainVerbal'),region:value('geiPainRegion'),laterality:value('geiPainLaterality'),onset:value('geiPainOnset'),quality:value('geiPainQuality'),course:value('geiPainCourse'),behaviour:value('geiPainBehaviour'),function:value('geiPainFunction'),radiation:value('geiPainRadiation'),relation:value('geiPainRelation'),nausea:checked('geiPainNausea'),fever:checked('geiPainFever'),photophobia:checked('geiPainPhotophobia'),neuro:checked('geiPainNeuro'),dysuria:checked('geiPainDysuria'),hematuria:checked('geiPainHematuria'),bowel:checked('geiPainBowel'),bloodStool:checked('geiPainBloodStool'),tenesmus:checked('geiPainTenesmus'),anorexia:checked('geiPainAnorexia'),jaundice:checked('geiPainJaundice'),bulge:checked('geiPainBulge'),dyspnea:checked('geiPainDyspnea'),peritonism:checked('geiPainPeritonism'),syncope:checked('geiPainSyncope'),pregnancy:checked('geiPainPregnancy'),bladderBowel:checked('geiPainBladderBowel'),weightLoss:checked('geiPainWeightLoss'),notes:value('geiPainNotes')},
+  interpretation:state.last
+ };
+}
+
+function syncSpecialFromCore(){
+ try{
+  const names=typeof generalFindingNames!=='undefined'?generalFindingNames:[];
+  const pe=names.indexOf('Pedal Oedema'),ge=names.indexOf('Generalized Oedema'),ag=names.indexOf('Abnormal Gait');
+  if(pe>=0&&byId('fs'+pe)?.value==='Present'&&!value('geiEdemaStatus'))setv('geiEdemaStatus','Present');
+  if(ge>=0&&byId('fs'+ge)?.value==='Present'&&!value('geiEdemaStatus'))setv('geiEdemaStatus','Present');
+  if(ag>=0&&byId('fs'+ag)?.value==='Present'&&!value('geiGaitType'))setv('geiGaitType',value('gait')&&value('gait')!=='Normal'?value('gait'):'Mixed / other');
+ }catch(_e){}
+}
+function syncCoreFromSpecial(){
+ try{
+  const names=typeof generalFindingNames!=='undefined'?generalFindingNames:[];
+  const pe=names.indexOf('Pedal Oedema'),ge=names.indexOf('Generalized Oedema'),ag=names.indexOf('Abnormal Gait');
+  const es=value('geiEdemaStatus'),ep=value('geiEdemaPitting'),ed=value('geiEdemaDistribution');
+  if(es){
+   if(pe>=0){setv('fs'+pe,es);const pg=byId('fg'+pe);if(pg)pg.disabled=es!=='Present';if(es==='Present'&&ep==='Pitting'&&value('geiEdemaGrade'))setv('fg'+pe,value('geiEdemaGrade'));else if(ep&&ep!=='Pitting')setv('fg'+pe,'');}
+   if(ge>=0){if(es==='Absent'||es==='Not assessed'){setv('fs'+ge,es);const gg=byId('fg'+ge);if(gg)gg.disabled=true;setv('fg'+ge,'');}else if(es==='Present'&&(ed.includes('Generalized')||ed.includes('Periorbital')||ed.includes('Sacral'))){setv('fs'+ge,'Present');const gg=byId('fg'+ge);if(gg)gg.disabled=false;}}
+  }
+  const gt=value('geiGaitType');if(gt){setv('gait',gt==='Normal'?'Normal':gt);if(ag>=0){setv('fs'+ag,gt==='Normal'?'Absent':'Present');const gs=value('geiGaitSeverity');if(gs.includes('Mild'))setv('fg'+ag,'Mild — independent');else if(gs.includes('Moderate'))setv('fg'+ag,'Moderate — aid/supervision');else if(gs.includes('Severe'))setv('fg'+ag,'Severe — assistance required');else if(gs.includes('Unable'))setv('fg'+ag,'Unable to walk safely')}}
+ }catch(_e){}
+}
+
+function inv(category,test,priority='Routine',note='Suggested by General Examination CDS; clinician must confirm indication.') {return {category,test,priority,note}}
+function interpret(){
+ syncCoreFromSpecial();const d=panelObject(),meaning=[],bedside=[],investigations=[],differentials=[],urgent=[];
+ const addM=(title,body,level='info')=>meaning.push({title,body,level});const addB=x=>bedside.push(x);const addI=(...a)=>investigations.push(inv(...a));const addD=x=>differentials.push(x);const addU=x=>urgent.push(x);
+ const e=d.edema,g=d.gait,p=d.pain;
+ // Core general findings
+ const names=typeof generalFindingNames!=='undefined'?generalFindingNames:[];
+ const f=n=>{const i=names.indexOf(n);return i>=0?{status:value('fs'+i),grade:value('fg'+i),remarks:value('fr'+i),detail:d.findingDetails[n]||{}}:{}};
+ const pallor=f('Pallor'),icterus=f('Icterus'),cyan=f('Cyanosis'),club=f('Clubbing'),nodes=f('Lymphadenopathy'),dehyd=f('Dehydration'),dist=f('Respiratory Distress');
+ if(pallor.status==='Present'){addM('Pallor documented','Pallor can support an anaemia/low-haemoglobin direction but is not sufficiently specific to quantify haemoglobin clinically. Correlate with symptoms and bleeding/nutritional context.','warn');addB('Check pulse, BP, orthostatic symptoms, bleeding history and nutritional/menstrual/GI context.');addI('Blood','Complete Blood Count (CBC)','Routine','Confirm haemoglobin and red-cell indices; urgency depends on symptoms/hemodynamics.');addD('Anaemia / reduced haemoglobin — characterize cause after CBC');}
+ if(icterus.status==='Present'){addM('Icterus documented','Scleral/skin icterus supports hyperbilirubinaemia and needs biochemical characterization rather than visual grading alone.','warn');addB('Look for dark urine, pale stool, pruritus, hepatomegaly, fever and abdominal tenderness.');addI('Blood','Liver function panel with bilirubin fractions','Routine');addD('Hepatocellular, cholestatic/obstructive or haemolytic bilirubin pattern');}
+ if(cyan.status==='Present'){addM('Cyanosis documented','Central and peripheral cyanosis have different implications; objective oxygenation and cardiopulmonary assessment are important.','warn');addB('Recheck SpO₂ with good waveform/perfusion; characterize central vs peripheral cyanosis and respiratory effort.');addI('Other','Pulse oximetry / oxygenation reassessment','Urgent');if(dist.status==='Present'||p.dyspnea)addU('Cyanosis with respiratory/cardiopulmonary symptoms requires prompt acute assessment.');}
+ if(club.status==='Present'){addM('Clubbing documented','True clubbing can accompany chronic pulmonary, cardiac and some gastrointestinal/hepatobiliary disorders; it is a sign requiring etiologic context, not a diagnosis.');addB('Confirm Schamroth/Lovibond changes and look for respiratory, cardiac, GI/liver symptoms.');addI('X-ray','Chest X-ray — if clinically indicated by respiratory/systemic context','Follow-up');addD('Pulmonary / cardiac / GI-hepatobiliary cause of clubbing');}
+ if(nodes.status==='Present'){addM('Lymphadenopathy documented','Node region, size, tenderness, consistency, mobility, duration and generalized vs localized distribution materially change the differential.');addB('Document all nodal regions, skin/ENT source, fever/night sweats/weight loss and hepatosplenomegaly.');addI('Blood','CBC with differential — if clinically indicated','Routine');addD('Reactive/infectious, inflammatory or hematologic/malignancy direction depending on node features and context');}
+ if(dehyd.status==='Present'){addM('Dehydration documented','Severity should be based on overall perfusion, vitals, oral intake/output and clinical context rather than a single sign.','warn');addB('Check pulse, BP/orthostatic change, capillary refill, mucosa, urine output and mental status.');if(dehyd.grade==='Severe'||dehyd.detail?.orthostatic==='Hypotension / poor perfusion')addU('Severe dehydration or poor perfusion requires prompt fluid-status and hemodynamic assessment.');addI('Blood','Renal function and electrolytes — if moderate/severe or persistent','Urgent');}
+ if(dist.status==='Present'){addM('Respiratory distress documented','Accessory-muscle use, inability to speak, hypoxaemia or altered mental status indicate increasing respiratory severity and need rapid cause-focused assessment.','warn');addB('Repeat RR, SpO₂, work of breathing, air entry/wheeze/crackles and cardiovascular examination.');addI('Other','Oxygenation assessment / ABG or VBG when clinically indicated','Urgent');if(dist.grade.includes('Severe')||dist.grade.includes('Critical')||dist.detail?.mental==='Drowsy / altered')addU('Severe respiratory distress / altered mental status is an emergency feature.');}
+ // Oedema
+ if(e.status==='Present'){
+   addM('Oedema confirmed','First separate pitting vs non-pitting, unilateral vs bilateral/generalized, acute vs chronic, and local inflammatory features before assigning a systemic cause.');
+   addB('Document weight trend, BP, JVP, heart/lung examination, urine change, skin/venous/lymphatic features and medication history.');
+   if(e.pitting==='Pitting'&&(e.distribution.includes('Bilateral')||e.distribution.includes('Generalized')||e.distribution.includes('Sacral'))){
+     if(e.dyspnea||e.raisedJvp||e.crackles){addM('Congestive/cardiac pattern possible','Bilateral dependent pitting oedema plus dyspnoea, raised JVP or pulmonary crackles increases concern for systemic venous congestion/heart failure. This pattern is supportive, not diagnostic.','warn');addI('ECG','12-lead ECG','Urgent');addI('Blood','BNP or NT-proBNP — according to local heart-failure pathway','Urgent');addI('Blood','Renal function and electrolytes','Urgent');addI('Echo/Doppler','Echocardiography — if heart failure/structural disease suspected','Follow-up');addD('Heart failure / systemic venous congestion');}
+     if(e.foamyUrine||e.periorbital||e.lowUrine){addM('Renal/protein-loss pattern possible','Generalized/dependent oedema with periorbital swelling, proteinuria/foamy urine or renal symptoms supports renal and protein-loss evaluation.','warn');addI('Urine','Urinalysis + urine albumin/protein-to-creatinine assessment','Urgent');addI('Blood','Creatinine/eGFR and electrolytes','Urgent');addI('Blood','Serum albumin / total protein','Routine');addD('Renal disease / nephrotic protein-loss pattern');}
+     if(e.ascites||e.jaundice){addM('Hepatic/portal-hypoalbumin pattern possible','Oedema with ascites, jaundice or chronic liver features warrants hepatic synthetic/function and portal/abdominal assessment.','warn');addI('Blood','Liver panel + bilirubin + serum albumin','Urgent');addI('Blood','PT/INR — if liver synthetic dysfunction suspected','Urgent');addI('USG','Abdominal ultrasound — if ascites/liver disease suspected','Follow-up');addD('Chronic liver/portal-hypertensive or hypoalbuminaemic oedema direction');}
+     if(e.varicose&&!e.dyspnea&&!e.raisedJvp&&!e.foamyUrine){addM('Chronic venous pattern possible','Dependent pitting oedema with varicosities/venous skin change and positional variation can support chronic venous insufficiency.');addB('Inspect for stasis pigmentation, lipodermatosclerosis, ulceration and compare limb circumference.');addI('Echo/Doppler','Venous duplex ultrasound — if diagnosis is uncertain, asymmetric, or thrombosis/obstruction is suspected','Follow-up');addD('Chronic venous insufficiency / post-thrombotic venous disease');}
+   }
+   if((e.distribution==='Unilateral leg'||e.laterality==='Right'||e.laterality==='Left')&&(e.tender||e.warm||e.red||e.immobility)){
+     addM('Acute unilateral inflammatory/venous pattern','Unilateral swelling with pain/tenderness, warmth or discoloration can occur with DVT, cellulitis, trauma or other local causes; examination alone cannot reliably confirm DVT.','danger');addU('Possible acute DVT/PE pathway: assess urgently, especially with dyspnoea, chest pain, syncope or hypoxia.');addB('Check VTE risk factors, whole-leg asymmetry/circumference, pulses, skin and cardiopulmonary symptoms.');addI('Echo/Doppler','Venous duplex ultrasound — according to clinical VTE pathway','Urgent');addD('DVT / cellulitis / local inflammation or trauma');
+   }
+   if(e.pitting==='Pitting'&&(e.distribution.includes('Bilateral')||e.distribution.includes('Generalized')||e.distribution.includes('Sacral'))&&!e.dyspnea&&!e.raisedJvp&&!e.crackles&&!e.foamyUrine&&!e.periorbital&&!e.lowUrine&&!e.ascites&&!e.jaundice&&!e.varicose){addM('Systemic oedema — cause not yet localized','Bilateral/generalized pitting oedema without a dominant bedside pattern needs history-guided evaluation of cardiac, renal, hepatic/protein, venous, endocrine and medication causes rather than a single-organ prediction.');addI('Blood','Renal function/electrolytes + serum albumin/total protein — if clinically indicated','Routine');addI('Urine','Urinalysis / urine albumin or protein assessment — if renal/protein loss is plausible','Routine');addI('Blood','Liver panel — if hepatic/systemic context is plausible','Routine');addD('Systemic oedema — cardiac/renal/hepatic-protein/venous/endocrine/medication causes to differentiate');}
+   if(Number(e.calfDiff)>=3&&(e.distribution==='Unilateral leg'||e.laterality==='Right'||e.laterality==='Left')){addM('Objective limb asymmetry documented',`Calf circumference difference ${e.calfDiff} cm is a VTE-assessment clue when measured at the same anatomical level, but it must be used inside a validated clinical pathway rather than as a stand-alone diagnosis.`,'warn');}
+   if(e.pitting==='Non-pitting'||e.pitting==='Mixed / uncertain'){
+     if(e.thickSkin||e.stemmer){addM('Lymphatic pattern possible','Chronic non-pitting swelling with skin thickening and a positive Stemmer-type finding supports lymphatic dysfunction/lymphoedema assessment.');addB('Assess limb distribution, skin infection history, surgery/radiotherapy, malignancy and mobility.');addD('Primary or secondary lymphoedema');}
+     if(e.hypothyroid){addM('Myxoedema/endocrine context','Non-pitting tissue change with compatible hypothyroid features can justify thyroid evaluation.');addI('Blood','TSH + free T4','Routine');addD('Hypothyroidism / myxoedematous change');}
+   }
+   if(e.medication||e.meds){addM('Medication-related oedema should be reviewed','Several medicines can contribute to peripheral oedema. Review timing, dose changes and alternative causes rather than stopping therapy automatically.');addB('Reconcile medicines and onset of swelling.');addD('Medication-associated peripheral oedema');}
+   if(e.trauma){addM('Local post-traumatic swelling possible','Localized swelling after injury may represent soft-tissue trauma rather than systemic oedema.');addB('Assess tenderness, deformity, neurovascular status and ability to bear weight/use the limb.');}
+   if(e.pallor){addM('Anaemia context','Marked anaemia can coexist with or worsen cardiopulmonary symptoms and, in severe cases, contribute to high-output physiology; pallor alone does not explain oedema.');addI('Blood','CBC','Routine');}
+ }
+ // Gait
+ if(g.type&&g.type!=='Normal'&&g.type!=='Not assessed'){
+   addM(`Gait pattern: ${g.type}`,'Gait pattern narrows localization only when combined with strength, tone, reflexes, sensation, coordination, vestibular and musculoskeletal examination.');
+   addB('Observe initiation, base, stride, arm swing, turning, heel/toe walking and tandem gait when safe.');
+   if(g.sudden){addU('Sudden new gait disturbance/ataxia can indicate acute neurological disease; assess for stroke/TIA and other emergency causes.');addI('Other','Urgent neurological/stroke assessment — according to local pathway','Emergency');}
+   if(g.type.includes('Antalgic')){addM('Antalgic gait','A shortened stance phase due to pain points toward a painful musculoskeletal/limb source rather than a specific diagnosis.');addB('Localize pain with joint/spine exam, range of motion, weight-bearing and neurovascular assessment.');addD('Pain-driven musculoskeletal gait abnormality');}
+   if(g.type.includes('Trendelenburg')){addM('Trendelenburg pattern','Contralateral pelvic drop during stance suggests hip abductor mechanism weakness/dysfunction.');addB('Test hip abductors, hip ROM, pelvic stability and lumbar/neurologic contributors.');addD('Hip abductor weakness / hip or superior-gluteal mechanism dysfunction');}
+   if(g.type.includes('Waddling')){addM('Myopathic/waddling pattern','Bilateral pelvic/trunk sway can accompany proximal muscle weakness.');addB('Test proximal power, sit-to-stand, Gowers-type compensation, reflexes and muscle tenderness.');addI('Blood','CK ± TSH/electrolytes — if proximal myopathy is suspected','Routine');addD('Proximal myopathy / neuromuscular weakness');}
+   if(g.type.includes('Steppage')||g.footDrop){addM('Steppage / foot-drop pattern','High stepping suggests ankle dorsiflexor weakness. Localization may include peroneal nerve, L5 root, more proximal neuropathy or central causes depending on the rest of the examination.','warn');addB('Test dorsiflexion/EHL, eversion/inversion, dermatomal sensation, knee/ankle reflexes, heel walking and lumbar examination.');addI('Other','NCS/EMG — if peripheral localization remains uncertain or persistent','Follow-up');addI('MRI','MRI lumbar spine — if root compression is clinically suspected and imaging will change management','Follow-up');addD('Peroneal neuropathy / L5 radiculopathy / other foot-drop cause');}
+   if(g.type.includes('Hemiparetic')||g.focalWeak){addM('Hemiparetic/circumduction pattern','Unilateral weakness with circumduction is an upper-motor-neuron localization pattern until proven otherwise.','warn');addB('Full focal neurologic exam: face/arm/leg power, speech, sensation, reflexes, plantar response and cranial nerves.');if(g.sudden)addU('Sudden focal weakness with gait change is a stroke emergency.');addD('Central/UMN lesion including stroke depending on onset and associated signs');}
+   if(g.type.includes('Spastic')||g.hyperreflexia){addM('Spastic/UMN pattern','Spastic/scissoring gait with hyperreflexia or extensor plantar responses supports corticospinal/upper-motor-neuron localization.');addB('Assess tone, DTR, plantar responses, clonus, sensory level, hand signs and bladder/bowel symptoms.');if(g.bladder)addU('Gait abnormality plus new bladder/bowel/saddle symptoms requires urgent cord/cauda-equina evaluation.');addI('MRI','MRI brain/spine — region selected by neurologic localization and red flags','Urgent');addD('Myelopathy / central motor pathway disorder');}
+   if(g.type.includes('Cerebellar')||g.cerebellar){addM('Cerebellar ataxic pattern','Broad-based irregular gait plus dysmetria/nystagmus supports cerebellar localization; acute onset changes urgency substantially.','warn');addB('Finger-nose/heel-shin, dysdiadochokinesia, nystagmus, speech and tandem gait.');if(g.sudden)addU('Acute cerebellar syndrome may represent posterior-circulation stroke or other emergency cause.');addD('Cerebellar disorder / intoxication / acute posterior-circulation cause depending on onset');}
+   if(g.type.includes('Sensory')||g.sensoryLoss||g.romberg==='Positive'){addM('Sensory ataxic pattern','Stomping/visual dependence and positive Romberg support proprioceptive/posterior-column or large-fiber sensory dysfunction.');addB('Vibration, joint position, distal sensation, reflexes and Romberg with safety support.');addI('Blood','Vitamin B12 ± glucose/HbA1c/TSH — guided by neuropathy context','Routine');addD('Large-fiber neuropathy / posterior-column dysfunction');}
+   if(g.type.includes('Parkinsonian')||g.init.includes('Freezing')||g.init==='Festination'){addM('Parkinsonian/festinating pattern','Short shuffling steps, reduced arm swing, freezing or en-bloc turning can support a parkinsonian syndrome when accompanied by bradykinesia/rigidity/tremor.');addB('Assess bradykinesia, rigidity, rest tremor, postural stability and medication history.');addD('Parkinsonian syndrome');}
+   if(g.type.includes('Frontal')){addM('Frontal/apraxic pattern','Gait ignition failure with relatively preserved limb power can point toward frontal/subcortical gait disorder; clinical context and cognition/urinary features matter.');addB('Assess cognition, frontal release signs, urinary symptoms, lower-body parkinsonism and neurologic examination.');addD('Frontal/subcortical gait disorder including normal-pressure hydrocephalus direction when clinically compatible');}
+   if(g.type.includes('Vestibular')||g.vertigo){addM('Vestibular direction','Veering with vertigo/nystagmus can support vestibular involvement, but central neurologic causes must be excluded when red flags are present.');addB('Eye movements/nystagmus, head impulse when appropriate, hearing, cerebellar and focal neurologic examination.');addD('Peripheral vestibular vs central vestibular/cerebellar cause');}
+   if(g.type.includes('Hyperkinetic')){addM('Hyperkinetic/choreiform/dystonic gait','Irregular involuntary movements or dystonic posturing suggest a movement-disorder direction rather than a primary musculoskeletal gait diagnosis.');addB('Characterize chorea/dystonia/tics, medication exposure, cognition and full neurologic examination.');addD('Hyperkinetic movement disorder / medication or metabolic cause — characterize clinically');}
+   if(g.type.includes('Cautious')){addM('Cautious/fear-of-falling gait','A slow cautious gait can be multifactorial and may reflect balance impairment, pain, sensory loss, deconditioning, vestibular disease, vision problems or fear of falling.');addB('Falls history, orthostatic BP, vision, footwear, strength, sensation, vestibular screen and medication review.');addD('Multifactorial balance/falls-risk gait');}
+   if(g.type.includes('Neurogenic claudication')){addM('Neurogenic claudication direction','Walking/standing-provoked leg symptoms with posture dependence can support lumbar spinal stenosis/neurogenic claudication; vascular claudication and hip pathology must be separated clinically.');addB('Document walking distance, flexion/sitting relief, pulses, hip examination and full neurologic examination.');addI('MRI','MRI lumbar spine — if symptoms are significant/persistent and imaging will change management','Follow-up');addD('Lumbar spinal stenosis / neurogenic claudication vs vascular or musculoskeletal claudication');}
+   if(g.backLegPain&&String(g.notes).toLowerCase().includes('flex')){addM('Neurogenic claudication pattern possible','Walking/standing-provoked leg symptoms relieved by lumbar flexion can support lumbar spinal stenosis/neurogenic claudication.');addB('Lumbar/neurologic exam, pulses to separate vascular claudication, walking tolerance.');addI('MRI','MRI lumbar spine — if persistent/significant symptoms and imaging will alter management','Follow-up');addD('Lumbar spinal stenosis / neurogenic claudication');}
+ }
+ // Pain patterns
+ const region=p.region,qual=p.quality,rad=String(p.radiation||'').toLowerCase(),rel=String(p.relation||'').toLowerCase();
+ if(Number(p.nrs)>0||Number(p.vas)>0||region){addM('Pain intensity documented',`NRS ${p.nrs||'—'}/10 • VAS ${p.vas||'—'} mm. Intensity quantification should be tracked separately from cause, function and red flags.`);}
+ if(p.onset==='Sudden maximal onset'&&region==='Head / face'){addU('Sudden maximal-onset (“thunderclap”) headache requires urgent secondary-headache evaluation.');addI('Other','Emergency neurologic assessment / imaging pathway','Emergency');}
+ if(region==='Head / face'&&(qual.includes('Throbbing')||p.photophobia)&&p.nausea){addM('Migraine-compatible pattern possible','Unilateral/pulsating headache with nausea and light/sound sensitivity supports a migraine direction if secondary-headache red flags are absent.');addB('Focused neurologic exam; assess headache red flags, aura, fever/meningism and blood pressure.');addD('Migraine vs other primary/secondary headache');}
+ if((region==='Low back / buttock'||region==='Hip / groin')&&(rad.includes('leg')||rad.includes('knee')||p.neuro)){addM('Radicular/sciatica direction possible','Back/buttock pain radiating into the leg with sensory symptoms can support lumbosacral radicular pain; neurological deficits and red flags determine urgency.');addB('SLR/crossed SLR when indicated, dermatomes, myotomes, knee/ankle reflexes, heel/toe walking.');if(p.bladderBowel)addU('Back/leg pain with new bladder/bowel or saddle symptoms is a cauda-equina red flag.');addI('MRI','MRI lumbar spine — for serious red flags/progressive deficit or when result will change management','Urgent');addD('Lumbar radiculopathy / sciatica');}
+ if(region==='Flank / loin'&&(qual.includes('colicky')||rad.includes('groin')||p.hematuria)){addM('Renal/ureteric colic direction possible','Flank pain radiating toward the groin with colicky quality, nausea or hematuria supports urinary-stone evaluation; infection and obstruction change urgency.');addB('Check fever, CVA tenderness, hydration, urine symptoms and renal function risk.');addI('Urine','Urinalysis','Urgent');addI('Blood','Creatinine/eGFR ± CBC','Urgent');addI('CT','Non-contrast urinary-tract imaging / ultrasound — select according to patient context and local imaging pathway','Urgent');addD('Ureteric stone / renal colic vs pyelonephritis or other flank-pain cause');if(p.fever)addU('Flank pain plus fever/systemic illness may indicate infected obstruction/pyelonephritis and needs urgent assessment.');}
+ if(region==='Suprapubic / pelvis'&&p.dysuria){addM('Lower urinary tract pattern possible','Suprapubic discomfort with dysuria/frequency/urgency supports cystitis/lower UTI evaluation; fever/flank pain suggests an upper/complicated process.');addI('Urine','Urinalysis ± urine culture according to UTI context','Routine');addD('Cystitis / lower UTI vs bladder pain syndrome or other pelvic cause');if(p.fever)addU('Urinary symptoms with fever/systemic illness require assessment for upper/complicated UTI.');}
+ if((region==='Upper abdomen / epigastrium'||region==='Right upper abdomen')&&rad.includes('back')&&p.nausea){addM('Pancreatic/biliary upper-abdominal pattern','Upper abdominal pain radiating to the back with nausea/vomiting can occur in pancreatitis and biliary disease; examination and labs/imaging are needed to distinguish causes.','warn');addB('Check abdominal tenderness/peritonism, fever, jaundice, hydration and hemodynamics.');addI('Blood','Serum lipase (or local pancreatic enzyme test) + liver panel','Urgent');addI('USG','Abdominal ultrasound — if biliary disease suspected','Urgent');addD('Acute pancreatitis / biliary disease / peptic or other upper-abdominal cause');}
+ if(region==='Right upper abdomen'&&(rel.includes('meal')||p.jaundice)){addM('Biliary pattern possible','Right-upper-quadrant pain, especially after meals or with jaundice, supports gallbladder/biliary evaluation.');addI('Blood','Liver panel + bilirubin','Urgent');addI('USG','Right-upper-quadrant / hepatobiliary ultrasound','Urgent');addD('Biliary colic / cholecystitis / biliary obstruction');}
+ if(region==='Right lower abdomen'&&(p.anorexia||p.nausea||p.fever||rel.includes('movement')||rel.includes('cough'))){addM('Appendicitis-compatible pattern possible','Right-lower-quadrant pain with anorexia, nausea/fever or pain worsened by movement can support appendicitis, but clinical examination and appropriate imaging/lab evaluation are required.','warn');addB('Assess migration from periumbilical area, localized tenderness, guarding/rebound and pregnancy/gynecologic differential when relevant.');addI('Blood','CBC ± CRP','Urgent');addI('Other','Pregnancy test when relevant','Urgent');addI('USG','Ultrasound / CT according to age, pregnancy status and local appendicitis pathway','Urgent');addD('Appendicitis vs gynecologic, urinary or bowel cause');if(p.peritonism)addU('RLQ pain with guarding/rigidity/rebound requires urgent surgical/acute-abdomen assessment.');}
+ if(region==='Hip / groin'&&p.bulge){addM('Hernia direction possible','Groin pain with a visible/palpable bulge worsened by strain can support inguinal/femoral hernia evaluation.');addB('Examine standing and with cough/strain; assess reducibility, tenderness and obstruction symptoms.');addD('Groin hernia');if(p.peritonism||p.nausea||p.fever)addU('Painful irreducible hernia or obstruction/systemic features requires urgent surgical assessment.');}
+ if((region==='Left lower abdomen'||region==='Periumbilical / central abdomen')&&p.bowel&&(p.bloodStool||p.tenesmus||p.fever)){addM('Colonic/inflammatory bowel pattern possible','Lower-abdominal pain with bowel change plus rectal blood/mucus, tenesmus or fever supports a colonic inflammatory/infective/diverticular direction. Location and symptoms alone cannot label this as “colitis”.','warn');addB('Assess hydration, focal tenderness/peritonism, stool frequency/character, rectal bleeding, recent antibiotics/travel, weight loss and extra-intestinal features.');addI('Blood','CBC ± CRP/ESR — according to acute/chronic inflammatory context','Urgent');if(p.bloodStool||p.fever)addI('Stool','Stool testing / culture or inflammatory markers — selected by diarrhea/IBD context','Routine');addD('Colitis/proctocolitis, diverticular, infectious or functional bowel cause — differentiate clinically');if(p.peritonism)addU('Lower-abdominal pain with peritonism requires urgent acute-abdomen assessment.');}
+ if((region==='Upper abdomen / epigastrium')&&(qual.includes('Burning')||rel.includes('empty')||rel.includes('night'))){addM('Dyspeptic/peptic pattern possible','Burning or dull epigastric pain related to meals or fasting can occur with peptic/dyspeptic disease; alarm features determine further testing.');addB('Ask about GI bleeding, NSAIDs, weight loss, dysphagia, anemia and H. pylori risk.');addD('Dyspepsia / peptic ulcer disease / gastritis');}
+ if(p.behaviour==='Restless / pacing'&&region==='Flank / loin'&&(qual.includes('colicky')||rad.includes('groin'))){addM('Pain behaviour supports colic direction','Restlessness can accompany severe colicky pain, but behaviour is nonspecific and does not identify the organ or cause by itself.');}
+ if(p.behaviour==='Lies very still / avoids movement'&&(p.peritonism||rel.includes('movement'))){addM('Pain behaviour raises peritoneal concern','Avoiding movement can occur when movement aggravates peritoneal pain; confirm with abdominal examination rather than using posture as a diagnosis.','warn');}
+ if(p.peritonism){addU('Guarding, rigidity or rebound suggests peritoneal irritation and warrants urgent acute-abdomen evaluation.');}
+ if(p.dyspnea&&region==='Chest'){addU('Chest pain with dyspnoea/diaphoresis/syncope or hemodynamic concern requires urgent cardiopulmonary assessment.');addI('ECG','12-lead ECG','Emergency');addI('Blood','Cardiac troponin — according to acute chest-pain pathway','Emergency');addD('Acute coronary syndrome / pulmonary embolism / other cardiopulmonary cause — must exclude based on context');}
+ if(p.syncope)addU('Pain with syncope/shock or severe weakness is a high-risk feature requiring urgent assessment.');
+ if(p.pregnancy&&(region.includes('abdomen')||region==='Suprapubic / pelvis'))addU('Pregnancy/postpartum with significant abdominal/pelvic pain requires pregnancy-specific urgent differential assessment.');
+
+ const out={generatedAt:new Date().toISOString(),meaning,bedside:unique(bedside),investigations:uniqInv(investigations),differentials:unique(differentials),urgent:unique(urgent),summary:''};out.summary=buildSummary(d,out);state.last=out;renderInterpretation(out);return out;
+}
+function uniqInv(a){const seen=new Set();return (a||[]).filter(x=>{const k=String(x.test||'').toLowerCase();if(seen.has(k))return false;seen.add(k);return true})}
+function buildSummary(d,out){
+ const lines=['General Examination Intelligence Summary'];
+ try{const names=typeof generalFindingNames!=='undefined'?generalFindingNames:[];names.forEach((n,i)=>{const s=value('fs'+i),g=value('fg'+i),r=value('fr'+i);if(s&&s!=='Not assessed')lines.push(`• ${n}: ${s}${g?' — '+g:''}${r?' — '+r:''}`)});}catch(_e){}
+ const e=d.edema;if(e.status&&e.status!=='Not assessed'&&e.status!=='Absent')lines.push(`• Oedema: ${[e.pitting,e.grade,e.distribution,e.laterality,e.extent].filter(Boolean).join(' • ')}`);
+ const g=d.gait;if(g.type&&g.type!=='Not assessed')lines.push(`• Gait: ${[g.type,g.severity,g.aid].filter(Boolean).join(' • ')}`);
+ const p=d.pain;if(Number(p.nrs)>0||Number(p.vas)>0||p.region)lines.push(`• Pain: NRS ${p.nrs||'—'}/10; VAS ${p.vas||'—'} mm; ${[p.region,p.quality,p.radiation&&('radiation '+p.radiation),p.behaviour,p.function].filter(Boolean).join(' • ')}`);
+ if(out.urgent.length)lines.push(`RED-FLAG REVIEW: ${out.urgent.join(' | ')}`);
+ if(out.bedside.length)lines.push(`Next bedside checks: ${out.bedside.join('; ')}`);
+ if(out.investigations.length)lines.push(`Suggested investigations (clinician review): ${out.investigations.map(x=>x.test).join('; ')}`);
+ if(out.differentials.length)lines.push(`Diagnostic directions (not diagnoses): ${out.differentials.join('; ')}`);
+ lines.push('Decision support only. Confirm findings, indications and urgency using the complete clinical context and appropriate specialty/local guideline.');return lines.join('\n');
+}
+function updateSummary(){const d=panelObject();const out=state.last||{urgent:[],bedside:[],investigations:[],differentials:[]};out.summary=buildSummary(d,out);state.last=out;if(byId('geiSummary'))byId('geiSummary').value=out.summary||'';return out.summary}
+function renderInterpretation(out){
+ const m=byId('geiMeaningBox'),n=byId('geiNextBox'),u=byId('geiUrgentBox');
+ if(m)m.innerHTML=out.meaning.length?out.meaning.map(x=>`<div class="gei-ai-block ${x.level==='danger'?'red':x.level==='warn'?'warn':''}"><b>${esc(x.title)}</b><div>${esc(x.body)}</div></div>`).join(''):'<div class="small">No pattern-specific interpretation generated. Empty/Not assessed fields are not treated as normal.</div>';
+ if(n)n.innerHTML=`${out.bedside.length?`<h4>Next bedside examination</h4>${out.bedside.map(x=>`<div class="gei-ai-block">→ ${esc(x)}</div>`).join('')}`:''}${out.investigations.length?`<h4>Suggested investigations — clinician review</h4>${out.investigations.map(x=>`<span class="gei-suggest-chip">${esc(x.priority)} • ${esc(x.test)}</span>`).join('')}`:''}${out.differentials.length?`<h4>Diagnostic directions — not diagnoses</h4>${out.differentials.map(x=>`<span class="gei-suggest-chip">${esc(x)}</span>`).join('')}`:''}${!out.bedside.length&&!out.investigations.length&&!out.differentials.length?'<div class="small">No additional next step generated yet.</div>':''}`;
+ if(u){u.classList.toggle('hidden',!out.urgent.length);u.innerHTML=out.urgent.length?`<b>⚠ Urgent / red-flag review</b>${out.urgent.map(x=>`<div>• ${esc(x)}</div>`).join('')}`:'';}
+ const ai=byId('geiAddInvestigationsBtn');if(ai)ai.disabled=!out.investigations.length;const ad=byId('geiAddDxBtn');if(ad)ad.disabled=!out.differentials.length;if(byId('geiSummary'))byId('geiSummary').value=out.summary||'';
+}
+function addInvestigations(){try{const list=state.last.investigations||[];current.investigations=current.investigations||{previous:[],advised:[]};current.investigations.advised=current.investigations.advised||[];let added=0;list.forEach(x=>{if(!current.investigations.advised.some(y=>String(y.test||'').toLowerCase()===String(x.test||'').toLowerCase())){current.investigations.advised.push({...x});added++}});save(current);if(typeof renderInvestigations==='function')renderInvestigations();status(`${added} General Exam suggested investigation(s) added for clinician review.`)}catch(e){console.error(e);status('Could not add suggested investigations.',true)}}
+function addDx(){try{const list=state.last.differentials||[];const existing=(current.prescription?.differentialDiagnosis||'').split(/\n|;/).map(x=>x.trim()).filter(Boolean);current.prescription=current.prescription||{};current.prescription.differentialDiagnosis=unique([...existing,...list]).join('\n');setv('differentialDiagnosis',current.prescription.differentialDiagnosis);save(current);status('General Exam diagnostic directions added to Differential Diagnosis for clinician editing/confirmation.')}catch(e){console.error(e)}}
+
+function restore(exam={}){
+ renderBaseRows();
+ // Restore the original/core General Examination fields before restoring advanced intelligence details.
+ try{
+  const names=(typeof generalFindingNames!=='undefined'&&Array.isArray(generalFindingNames))?generalFindingNames:[];
+  names.forEach((n,i)=>{const f=exam?.findings?.[n]||{};setv('fs'+i,f.status||'');const gr=byId('fg'+i);if(gr)gr.disabled=f.status!=='Present';setv('fg'+i,f.grade||'');setv('fr'+i,f.remarks||'')});
+  setv('build',exam?.build||'');setv('nutrition',exam?.nutrition||'');setv('gait',exam?.gait||'');setv('examNotes',exam?.examNotes||'');
+ }catch(_e){}
+ const data=exam?.intelligence||{};state.last=data.interpretation||state.last;
+ const fd=data.findingDetails||{};document.querySelectorAll('[data-gei-finding][data-gei-key]').forEach(el=>{el.value=fd?.[el.dataset.geiFinding]?.[el.dataset.geiKey]||''});
+ const e=data.edema||{};['Status','Pitting','Grade','Distribution','Laterality','Extent','Onset','Course','CalfDiff','Weight','Meds','Notes'].forEach(k=>setv('geiEdema'+k,e[k.charAt(0).toLowerCase()+k.slice(1)]||''));['Tender','Warm','Red','Varicose','ThickSkin','Stemmer','Trauma','Immobility','Dyspnea','RaisedJvp','Crackles','Ascites','Jaundice','FoamyUrine','LowUrine','Periorbital','Hypothyroid','Medication','Pallor','Pregnancy'].forEach(k=>setc('geiEdema'+k,e[k.charAt(0).toLowerCase()+k.slice(1)]));
+ const g=data.gait||{};const gm={Type:'type',Severity:'severity',Aid:'aid',Base:'base',Stride:'stride',Arm:'arm',Init:'init',Turn:'turn',Tandem:'tandem',Heel:'heel',Toe:'toe',Romberg:'romberg',Tug:'tug',Falls:'falls',Notes:'notes'};Object.entries(gm).forEach(([id,k])=>setv('geiGait'+id,g[k]||''));['Sudden','FocalWeak','FootDrop','Hyperreflexia','Hyporeflexia','SensoryLoss','Cerebellar','Vertigo','BackLegPain','HipPain','ProxWeak','Bladder'].forEach(k=>setc('geiGait'+k,g[k.charAt(0).toLowerCase()+k.slice(1)]));
+ const p=data.pain||{};const pm={Nrs:'nrs',Vas:'vas',Verbal:'verbal',Region:'region',Laterality:'laterality',Onset:'onset',Quality:'quality',Course:'course',Behaviour:'behaviour',Function:'function',Radiation:'radiation',Relation:'relation',Notes:'notes'};Object.entries(pm).forEach(([id,k])=>setv('geiPain'+id,p[k]??(id==='Nrs'||id==='Vas'?'0':'')));['Nausea','Fever','Photophobia','Neuro','Dysuria','Hematuria','Bowel','BloodStool','Tenesmus','Anorexia','Jaundice','Bulge','Dyspnea','Peritonism','Syncope','Pregnancy','BladderBowel','WeightLoss'].forEach(k=>setc('geiPain'+k,p[k.charAt(0).toLowerCase()+k.slice(1)]));
+ updateScaleLabels();renderInterpretation(state.last);updateSummary();
+}
+function updateScaleLabels(){if(byId('geiPainNrsValue'))byId('geiPainNrsValue').textContent=value('geiPainNrs')||'0';if(byId('geiPainVasValue'))byId('geiPainVasValue').textContent=value('geiPainVas')||'0'}
+function collect(){syncCoreFromSpecial();const x=panelObject();x.interpretation=state.last;return x}
+function open(exam={}){restore(exam);updateSummary()}
+function bind(){
+ initTabs();byId('geiInterpretBtn')?.addEventListener('click',()=>{interpret();activateTab('intelligence');status('General Examination interpretation refreshed. Review every suggestion before using it.')});byId('geiAddInvestigationsBtn')?.addEventListener('click',addInvestigations);byId('geiAddDxBtn')?.addEventListener('click',addDx);
+ document.querySelectorAll('#geiPanelEdema input,#geiPanelEdema select,#geiPanelGait input,#geiPanelGait select,#geiPanelPain input,#geiPanelPain select,#geiPanelPain textarea').forEach(el=>{el.addEventListener('input',()=>{if(el.id==='geiPainNrs'||el.id==='geiPainVas')updateScaleLabels();syncCoreFromSpecial();updateSummary()});el.addEventListener('change',()=>{syncCoreFromSpecial();updateSummary()})});
+ byId('prevExamBtn')?.addEventListener('click',()=>{try{readPatient();readComplaint();readClinical();readExam();save(current)}catch(_e){};showClinical();window.scrollTo({top:0,behavior:'smooth'})});
+ byId('prevSystemicBtn')?.addEventListener('click',()=>{try{readSystemic();save(current)}catch(_e){};showExam();window.scrollTo({top:0,behavior:'smooth'})});
+}
+
+// Install Previous buttons across the core encounter without changing existing Next behavior.
+function installBidirectionalNavigation(){
+ const map=[
+  ['goClinicalBtn2','← Previous: Patient','showPatient'],['goExamBtn','← Previous: Complaints','showComplaint'],['goInvestigationsBtn','← Previous: Systemic','showSystemic'],['goAyurvedaBtn','← Previous: Assessment & Dx','showAssessment'],['goCBCBtn','← Previous: Investigations','showInvestigations'],['goLabProfilesBtn','← Previous: Investigations','showInvestigations'],['goAyurvedaFromLabBtn','← Previous: CBC / Investigations','showCBC'],['goPrescriptionBtn','← Previous: Investigations','showInvestigations'],['goPreviewBtn','← Previous: Ayurveda','showAyurveda']
+ ];
+ map.forEach(([nextId,label,fn])=>{const next=byId(nextId);if(!next||next.parentElement?.querySelector(`[data-prev-for="${nextId}"]`))return;const b=document.createElement('button');b.type='button';b.className='secondary workflow-prev-btn';b.dataset.prevFor=nextId;b.textContent=label;b.addEventListener('click',()=>{try{if(nextId==='goClinicalBtn2'){readPatient();readComplaint()}else if(nextId==='goExamBtn'){readPatient();readComplaint();readClinical()}else if(nextId==='goInvestigationsBtn'){readAssessment()}else if(nextId==='goAyurvedaBtn'){save(current)}else if(nextId==='goCBCBtn'){save(current)}else if(nextId==='goLabProfilesBtn'){try{readCBC()}catch(_e){}}else if(nextId==='goAyurvedaFromLabBtn'){try{readLabProfiles()}catch(_e){}}else if(nextId==='goPrescriptionBtn'){readAyurveda()}else if(nextId==='goPreviewBtn'){readPrescription()}save(current)}catch(_e){};try{window[fn]?.()}catch(_e){};window.scrollTo({top:0,behavior:'smooth'})});next.parentElement.insertBefore(b,next)});
+}
+
+try{
+ const _q=new URLSearchParams(location.search);
+ if(_q.get('action')==='exam')setTimeout(()=>byId('tabExam')?.click(),650);
+}catch(_e){}
+
+window.MAHAMAYA_GENERAL_ENGINE={renderBaseRows,restore,open,collect,interpret,getInterpretation:()=>state.last,activateTab};
+renderBaseRows();bind();installBidirectionalNavigation();setTimeout(()=>open((typeof current!=='undefined'?current?.exam:{})),80);
+})();
+</script>
+
+
 <script id="mahamaya-v290-systemic-js">
 (function(){
   'use strict';
@@ -12394,7 +12853,7 @@ bootSKMCFirebase();
       .catch(err=>{
         console.error(err);
         const p=byId('sxSystemPanel');
-        if(p)p.innerHTML='<div class="notice red"><b>Structured examination master could not load.</b><br>Refresh once after V2.90 files are fully published. Free notes remain available below.</div>';
+        if(p)p.innerHTML='<div class="notice red"><b>Structured examination master could not load.</b><br>Refresh once after V3.00 files are fully published. Free notes remain available below.</div>';
         throw err;
       });
     return loadPromise;
@@ -12922,7 +13381,7 @@ bootSKMCFirebase();
     updateSummary();
     return {
       version:state.master?.version||'Systemic Exam Master v1.0',
-      build:state.master?.build||'2026.08.13-R4',
+      build:state.master?.build||'2026.08.13-R5',
       systemStatus:{...state.systemStatus},
       values:{...state.values},
       notes:{...state.notes}
