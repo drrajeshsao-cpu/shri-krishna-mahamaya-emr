@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<title>Mahamaya Clinic EMR | Prakriti & Trayopastambha Intelligence V3.20</title>
+<title>Mahamaya Clinic EMR | Prakriti & Trayopastambha Intelligence V3.30</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -219,7 +219,7 @@ body{background:linear-gradient(180deg,#eef7f8 0,#f7fbfc 38%,#f2f7f8 100%)}
 @media(max-width:1180px){.workflow-phase-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:760px){.workflow-phase-grid{grid-template-columns:repeat(2,1fr)}.workflow-phase{min-height:92px}.clinical-guidance-grid{grid-template-columns:1fr}.complaint-top-grid,.assessment-search-grid{grid-template-columns:1fr}.workflow-actions{bottom:68px;padding:8px;background:rgba(255,255,255,.97);border-radius:12px;box-shadow:0 -8px 20px rgba(18,72,80,.08)}.smart-results{position:fixed;left:10px;right:10px;top:auto;bottom:82px;max-height:45vh}.hero-actions{display:grid;grid-template-columns:1fr 1fr}.hero-actions button{width:100%}}
 
-/* V3.20 — Prakriti, Trayopastambha & Lifestyle Intelligence */
+/* V3.30 — Prakriti, Trayopastambha & Lifestyle Intelligence */
 .workflow-phase-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
 @media(min-width:1440px){.workflow-phase-grid{grid-template-columns:repeat(9,minmax(0,1fr))}}
 .lifestyle-workspace{overflow:visible}
@@ -522,7 +522,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 </style>
 
 <style id="v320-lifestyle-engine-css">
-/* Generated V3.20 lifestyle-engine controls */
+/* Generated V3.30 lifestyle-engine controls */
 .pti-subtype-card{border:1px solid #d7e6e8;background:linear-gradient(180deg,#fff,#f8fbfc);border-radius:13px;padding:10px;text-align:left;color:#245760;min-height:94px;box-shadow:0 2px 8px rgba(14,74,83,.04)}
 .pti-subtype-card b{display:block;font-size:12px;color:#155f69}.pti-subtype-card small{display:block;margin-top:5px;line-height:1.35;color:#657d84;font-weight:600}.pti-subtype-card.selected{border-color:#3a9aa1;background:#eaf8f6;box-shadow:0 0 0 3px rgba(11,111,120,.10)}
 .pti-trait-row{display:grid;grid-template-columns:minmax(180px,1.25fr) minmax(230px,1fr);gap:10px;align-items:center;border:1px solid #dbe8ea;border-radius:12px;padding:9px 10px;margin:7px 0;background:#fbfdfd}.pti-trait-row small{display:block;color:#6b8086;line-height:1.35;margin-top:3px}
@@ -534,6 +534,15 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 .pti-kpi b{overflow-wrap:anywhere}.pti-card textarea{min-height:72px}.pti-card h4{margin-top:14px;color:#1a6069}
 @media(max-width:980px){.pti-meal-row{grid-template-columns:1fr 1fr}.pti-meal-row>div:nth-child(4){grid-column:1/-1}.pti-trait-row{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.pti-meal-row,.pti-trait-row{grid-template-columns:1fr}.pti-meal-row>div:nth-child(4){grid-column:auto}.pti-subtype-card{min-height:auto}.pti-card{padding:10px}.pti-nav{scroll-snap-type:x proximity}.pti-nav button{scroll-snap-align:start}.pti-sticky-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}.pti-sticky-actions button{width:100%;min-height:44px}#prevLifestyleBtn{grid-column:1/-1}}
+</style>
+
+
+<style id="v330-prakriti-research-css">
+/* V3.30 — research-oriented Prakriti phenotyping */
+.pri-quick-card{margin-top:14px;padding:12px;border:1px solid #b9dfe2;border-radius:14px;background:#f5fcfd;display:grid;grid-template-columns:minmax(220px,1fr) auto auto;gap:12px;align-items:center}.pri-quick-card small{display:block;color:#5e737c;margin-top:3px}.pri-mini-scores{display:flex;gap:6px;flex-wrap:wrap}.pri-mini-scores span{border:1px solid #cfe1e5;background:#fff;border-radius:999px;padding:6px 9px;font-size:12px}.pri-subtype-lab{margin-top:14px;border-top:1px solid #dbe8eb;padding-top:14px}.pri-section-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.pri-section-head h3,.pri-section-head h4{margin:0 0 4px}.pri-segment{display:flex;gap:7px;overflow-x:auto;padding:8px 0;scrollbar-width:thin}.pri-segment button{white-space:nowrap;border:1px solid #cfe0e3;background:#f5fafb;color:#0b5d66;border-radius:999px;padding:8px 12px;font-weight:800}.pri-segment button.active{background:#0b6f78;color:#fff;border-color:#0b6f78}.pri-subtype-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.pri-subtype-card2{border:1px solid #d5e4e7;border-radius:12px;background:#fff;padding:11px;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start}.pri-subtype-card2.selected{outline:2px solid #0b6f78;background:#f2fbfc}.pri-subtype-card2 small{display:block;color:#5b7078;margin-top:3px;line-height:1.35}.pri-subtype-card2 select{min-width:155px}.pri-feature-editor{margin-top:10px;border:1px solid #d7e6e9;border-radius:13px;background:#fbfefe;padding:12px}.pri-feature-row{display:grid;grid-template-columns:minmax(200px,1fr) 250px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #edf2f3}.pri-feature-row:last-child{border-bottom:none}.pri-research-workspace{scroll-margin-top:125px}.pri-score-dashboard{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:12px 0}.pri-score-card{border:1px solid #d6e5e8;border-radius:14px;padding:12px;background:#fff}.pri-score-card small,.pri-score-card span{display:block;color:#5e737c}.pri-score-card b{display:block;font-size:25px;margin:4px 0;color:#0b6f78}.pri-score-card.vata{border-top:4px solid #7896b8}.pri-score-card.pitta{border-top:4px solid #c9795b}.pri-score-card.kapha{border-top:4px solid #6d9a7d}.pri-score-card.neutral{border-top:4px solid #78929a}.pri-details{border:1px solid #d7e5e8;border-radius:14px;background:#fff;margin:12px 0;overflow:hidden}.pri-details>summary{cursor:pointer;font-weight:900;padding:13px 14px;background:#f4f9fa;position:sticky;top:0}.pri-details>div:not(.small){padding-left:12px;padding-right:12px}.pri-details>.small{padding:10px 14px}.pri-q-row{display:grid;grid-template-columns:minmax(230px,.9fr) minmax(360px,1.6fr);gap:10px;align-items:center;padding:10px 12px;border-top:1px solid #edf2f3}.pri-q-row .pri-domain{font-size:11px;font-weight:800;color:#667b83;text-transform:uppercase;letter-spacing:.04em}.pri-q-row label{margin:2px 0;font-weight:800}.pri-q-row select{width:100%}.pri-triguna-summary{display:flex;gap:8px;flex-wrap:wrap;padding:10px 12px}.pri-triguna-summary span{border:1px solid #d4e4e7;border-radius:999px;padding:7px 10px;background:#fff}.pri-actionbar{position:sticky;bottom:0;z-index:4;display:flex;gap:8px;flex-wrap:wrap;padding:10px;background:rgba(248,252,253,.96);border:1px solid #d3e5e8;border-radius:14px;box-shadow:0 -5px 18px rgba(0,0,0,.05);margin-top:12px}.pri-report-preview{border:1px solid #cfdfe2;border-radius:14px;background:#fff;padding:16px;margin-top:12px}.pri-report-preview table{width:100%;border-collapse:collapse;font-size:13px}.pri-report-preview th,.pri-report-preview td{border:1px solid #d9e3e5;padding:7px;text-align:left;vertical-align:top}.pri-report-preview th{background:#f3f8f9}.pri-report-head{display:flex;justify-content:space-between;gap:12px;border-bottom:2px solid #0b6f78;padding-bottom:9px;margin-bottom:10px}.pri-report-head h2{margin:0}.pri-grade-pill{display:inline-block;padding:3px 8px;border-radius:999px;background:#eef6f7;font-weight:800;font-size:11px}.pri-data-quality{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:9px 0}.pri-data-quality>div{border:1px solid #dde9eb;border-radius:10px;padding:8px;background:#fbfefe}.pri-footnote{font-size:11px;color:#5c6f76;margin-top:12px;border-top:1px dashed #ccdadd;padding-top:9px}
+@media(max-width:1000px){.pri-score-dashboard{grid-template-columns:repeat(2,1fr)}.pri-quick-card{grid-template-columns:1fr}.pri-subtype-grid{grid-template-columns:1fr}.pri-q-row{grid-template-columns:1fr}.pri-feature-row{grid-template-columns:1fr}.pri-subtype-card2{grid-template-columns:1fr}.pri-data-quality{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.pri-score-dashboard{grid-template-columns:1fr 1fr}.pri-section-head{display:block}.pri-actionbar{display:grid;grid-template-columns:1fr 1fr}.pri-actionbar button{width:100%;min-height:44px}.pri-report-preview{padding:10px}.pri-report-preview table{font-size:11px}.pri-score-card b{font-size:20px}}
+@media print{body.pri-print-mode>*{display:none!important}body.pri-print-mode #lifestyleSection{display:block!important;position:static!important}body.pri-print-mode #lifestyleSection>*{display:none!important}body.pri-print-mode #lifestyleSection .lifestyle-workspace{display:block!important;border:none!important;box-shadow:none!important}body.pri-print-mode #lifestyleSection .lifestyle-workspace>*{display:none!important}body.pri-print-mode #lifestyleSection .pti-panel[data-pti-panel="research"]{display:block!important}body.pri-print-mode #lifestyleSection .pti-panel[data-pti-panel="research"]>*{display:none!important}body.pri-print-mode #priResearchReport{display:block!important;border:none!important;margin:0!important;padding:0!important}body.pri-print-mode #priResearchReport *{visibility:visible!important}.pri-report-preview table{page-break-inside:auto}.pri-report-preview tr{page-break-inside:avoid}.pri-actionbar{display:none!important}}
 </style>
 
 </head>
@@ -562,8 +571,8 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
     <div class="brand-lockup">
       <img class="brand-logo" src="./icon-192.png" alt="Mahamaya Clinic">
       <div class="brand-copy">
-        <h1>Mahamaya Clinic <span class="version-badge">V3.20</span></h1>
-        <p>Prakriti + Trayopastambha Intelligence • Smart Investigations • SLAIE Core v1.0 • Build 2026.08.14-R7</p>
+        <h1>Mahamaya Clinic <span class="version-badge">V3.30</span></h1>
+        <p>Research Prakriti Phenotyping • Trayopastambha • Smart Investigations • SLAIE Core v1.0 • Build 2026.08.14-R8</p>
       </div>
     </div>
     <div class="header-meta">
@@ -588,7 +597,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 </nav>
 
 <div class="system-strip no-print">
-  <div id="status" class="status">App loaded successfully. V3.20 Prakriti + Trayopastambha Intelligence + Smart Investigations + SLAIE ready.</div>
+  <div id="status" class="status">App loaded successfully. V3.30 Research Prakriti Phenotyping + Trayopastambha + Smart Investigations + SLAIE ready.</div>
   <div class="actions">
     <span id="activeRoleBadge" class="role-badge">Locked</span>
     <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -908,7 +917,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
       <h2>Prakriti & Trayopastambha Lifestyle Intelligence</h2>
       <div class="section-kicker">Sharirika + Manasika Prakriti • Ahara • Nidra • Brahmacharya/Sexual Health • Activity • Explainable clinical learning</div>
     </div>
-    <span class="evidence-badge">V3.20 • Structured history</span>
+    <span class="evidence-badge">V3.30 • Structured history</span>
   </div>
   <div class="notice clinical-note"><b>Use in the right sequence:</b> This is a structured history module after HPI/vitals and before physical examination. For acute/fast OPD, use <b>Skip detailed lifestyle for this visit</b>; it will not block urgent care. Classical Ayurveda fields and modern clinical fields are kept visibly separate.</div>
   <div class="pti-caution"><b>Scoring safety:</b> 0–3 trait scores and 0–10 lifestyle snapshots are clinician/patient documentation aids created for this app; they are <b>not validated diagnostic scales</b>. They must not be used alone to label personality, diagnose disease, or predict prognosis.</div>
@@ -917,6 +926,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
     <button type="button" class="active" data-pti-view="overview">📋 Overview</button>
     <button type="button" data-pti-view="deha">🧬 Sharirika Prakriti</button>
     <button type="button" data-pti-view="manas">🧠 Manasika Prakriti</button>
+    <button type="button" data-pti-view="research">🔬 Prakriti Research</button>
     <button type="button" data-pti-view="ahara">🍲 Ahara</button>
     <button type="button" data-pti-view="nidra">🌙 Nidra</button>
     <button type="button" data-pti-view="brahmacharya">🔐 Brahmacharya & Sexual Health</button>
@@ -959,6 +969,11 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
       <div class="small">For each domain choose the closest predominance. This helps documentation; it does not automatically validate Prakriti.</div>
       <div id="ptiDehaTraits"></div>
       <label>Clinician notes / conflicting traits</label><textarea id="ptiDehaNotes"></textarea>
+      <div class="pri-quick-card" id="priDehaQuick">
+        <div><b>🔬 Research phenotyping</b><small>Use the structured questionnaire to convert multidomain observations into transparent Vata/Pitta/Kapha support scores.</small></div>
+        <div class="pri-mini-scores"><span>V <b id="priQuickVata">—</b></span><span>P <b id="priQuickPitta">—</b></span><span>K <b id="priQuickKapha">—</b></span></div>
+        <button type="button" class="secondary" data-pti-view-jump="research">Open Research Patrak →</button>
+      </div>
     </div>
   </div>
 
@@ -972,6 +987,16 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
         <div><label>Classical subtype (optional)</label><select id="ptiManasSubtype"><option value="">Not selected</option></select></div>
       </div>
       <div id="ptiManasSubtypeMeaning" class="pti-info">Select a subtype only when clinically/educationally useful.</div>
+      <div class="pri-subtype-lab">
+        <div class="pri-section-head"><div><h4>16 Classical Manasika Prakriti Subtypes</h4><small>Charaka/Sushruta core grouping: Sattvika 7 • Rajasika 6 • Tamasika 3. Select a group to avoid a long scroll.</small></div><span class="evidence-badge">Archetype ≠ diagnosis</span></div>
+        <div class="pri-segment" id="priSubtypeFilters">
+          <button type="button" class="active" data-pri-subgroup="Sattvika">Sattvika • 7</button>
+          <button type="button" data-pri-subgroup="Rajasika">Rajasika • 6</button>
+          <button type="button" data-pri-subgroup="Tamasika">Tamasika • 3</button>
+        </div>
+        <div id="priSubtypeCards" class="pri-subtype-grid"></div>
+        <div id="priSubtypeFeatureEditor" class="pri-feature-editor"><div class="small">Choose a subtype card to review and score its classical features.</div></div>
+      </div>
 
       <h4>Mental/behavioural tendencies — structured 0–3 documentation</h4>
       <div class="small">Ayurveda commonly describes Rajas and Tamas as Manasa dosha; Kama, Krodha, Lobha, Moha, Mada and Matsarya are recorded here as behavioural/mental tendencies, not mislabeled as six independent Manasa doshas.</div>
@@ -982,6 +1007,76 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
         <div><label>Spiritual/Bhakti relevance to care</label><select id="ptiBhakti"><option value="">Not discussed</option><option>Important supportive resource</option><option>Occasional practice</option><option>Not personally relevant</option><option>Prefer not to discuss</option></select></div>
       </div>
       <label>Behaviour / coping / social context notes</label><textarea id="ptiManasNotes"></textarea>
+    </div>
+  </div>
+
+
+  <div class="pti-panel" data-pti-panel="research">
+    <div class="pti-card pri-research-workspace">
+      <div class="pri-section-head">
+        <div><h3>Prakriti Parikshan Research Patrak</h3><div class="section-kicker">MPRPI-P1 • multidomain phenotyping • transparent dimensional scoring • clinician confirmation</div></div>
+        <span class="evidence-badge">Prototype v1.0 • Not externally validated</span>
+      </div>
+      <div class="pti-caution"><b>Research integrity:</b> Prakriti is a constitutional framework, so the app reports <b>trait-support / dominance</b>, not disease “severity”. 1+/2+/3+ grades below are custom research-support grades. They must be validated before publication, screening, prognosis or autonomous clinical decisions.</div>
+      <div class="grid3">
+        <div><label>Use context</label><select id="priMode"><option>Clinical phenotyping</option><option>Research phenotyping</option><option>Clinical + research</option></select></div>
+        <div><label>Assessment source</label><select id="priSource"><option>Clinician interview + observation</option><option>Patient self-report + clinician review</option><option>Mixed / prior records</option></select></div>
+        <div><label>Study / cohort tag (optional)</label><input id="priStudyTag" placeholder="e.g. OPD-2026 / Gridhrasi cohort"></div>
+      </div>
+      <div class="pri-score-dashboard">
+        <div class="pri-score-card vata"><small>Vata trait support*</small><b id="priVataScore">—</b><span id="priVataGrade">Not scored</span></div>
+        <div class="pri-score-card pitta"><small>Pitta trait support*</small><b id="priPittaScore">—</b><span id="priPittaGrade">Not scored</span></div>
+        <div class="pri-score-card kapha"><small>Kapha trait support*</small><b id="priKaphaScore">—</b><span id="priKaphaGrade">Not scored</span></div>
+        <div class="pri-score-card neutral"><small>Completeness</small><b id="priCompleteness">0%</b><span id="priConfidence">Insufficient</span></div>
+      </div>
+      <div id="priPatternSuggestion" class="pti-info">Complete the checklist to generate a prototype dimensional phenotype suggestion.</div>
+
+      <details class="pri-details" open>
+        <summary>🧬 A. Sharirika Prakriti — structured multidomain questionnaire</summary>
+        <div class="small">Options are intentionally shown without Vata/Pitta/Kapha labels to reduce response-cue bias. Choose the closest longstanding trait, not a temporary disease-state change.</div>
+        <div id="priDehaQuestionnaire"></div>
+      </details>
+
+      <details class="pri-details">
+        <summary>🧠 B. Triguna research checklist — Sattva / Rajas / Tamas</summary>
+        <div class="small">Each item: 0 not characteristic • 1+ occasional/weak • 2+ frequent/moderate • 3+ consistent/strong. This is a prototype dimensional score, not a psychiatric scale.</div>
+        <div class="pri-triguna-summary">
+          <span>Sattva <b id="priSattvaScore">—</b></span><span>Rajas <b id="priRajasScore">—</b></span><span>Tamas <b id="priTamasScore">—</b></span><span>Answered <b id="priManasCompleteness">0%</b></span>
+        </div>
+        <div id="priTrigunaQuestionnaire"></div>
+      </details>
+
+      <details class="pri-details">
+        <summary>🎯 C. Classical subtype grading — 16 archetypes</summary>
+        <div class="small">Quick-grade all archetypes or open a subtype in the Manasika tab for feature-level scoring. Historical labels are not moral, intelligence or psychiatric labels.</div>
+        <div class="pri-segment" id="priResearchSubtypeFilters">
+          <button type="button" class="active" data-pri-rgroup="Sattvika">Sattvika • 7</button>
+          <button type="button" data-pri-rgroup="Rajasika">Rajasika • 6</button>
+          <button type="button" data-pri-rgroup="Tamasika">Tamasika • 3</button>
+        </div>
+        <div id="priResearchSubtypeGrid" class="pri-subtype-grid"></div>
+      </details>
+
+      <details class="pri-details">
+        <summary>📊 D. Research metadata & clinician conclusion</summary>
+        <div class="grid3">
+          <div><label>Clinician-confirmed Deha Prakriti</label><select id="priClinicianDeha"><option value="">Not concluded</option></select></div>
+          <div><label>Clinician-confirmed Manas pattern</label><select id="priClinicianManas"><option value="">Not concluded</option><option>Sattvika predominant</option><option>Rajasika predominant</option><option>Tamasika predominant</option><option>Mixed / context-dependent</option></select></div>
+          <div><label>Clinician confidence</label><select id="priClinicianConfidence"><option value="">Not set</option><option>Low</option><option>Moderate</option><option>High</option></select></div>
+        </div>
+        <label>Research / clinician notes</label><textarea id="priResearchNotes" placeholder="Discordant traits, disease-state effects, seasonal effects, medications, observer uncertainty, repeat-assessment plan…"></textarea>
+        <label class="pti-check"><input type="checkbox" id="priIncludeIdentityExport"> Include patient-identifying fields in downloaded research JSON (default OFF)</label>
+      </details>
+
+      <div class="pri-actionbar">
+        <button type="button" id="priCalculateBtn" class="primary">🧮 Calculate Scores</button>
+        <button type="button" id="priApplyBtn" class="secondary">✓ Apply clinician conclusions</button>
+        <button type="button" id="priGenerateReportBtn" class="secondary">📄 Generate Patrak</button>
+        <button type="button" id="priPrintBtn" class="secondary">🖨 Print / Save PDF</button>
+        <button type="button" id="priWhatsAppBtn" class="secondary">💬 WhatsApp Summary</button>
+        <button type="button" id="priExportBtn" class="secondary">⬇ Research JSON</button>
+      </div>
+      <div id="priResearchReport" class="pri-report-preview"><div class="small">Generate Patrak to create a printable/shareable scorecard.</div></div>
     </div>
   </div>
 
@@ -1157,7 +1252,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
       <h2>General Examination — Clinical Intelligence Workspace</h2>
       <div class="section-kicker">Fast general examination • focused oedema/gait/pain characterization • explainable next-step suggestions</div>
     </div>
-    <span class="evidence-badge">V3.20 • Clinician verified</span>
+    <span class="evidence-badge">V3.30 • Clinician verified</span>
   </div>
 
   <div class="notice clinical-note"><b>Clinical safety:</b> Findings and grades must be observed/entered by the clinician. The interpretation below provides pattern-based decision support and learning prompts; it does not confirm a diagnosis or replace emergency assessment, specialist judgment, validated pathways, or the original report/examination.</div>
@@ -12515,7 +12610,7 @@ window.MahamayaBridge={
   esc:(x)=>esc(x)
 };
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.20 Prakriti + Trayopastambha Intelligence + Smart Investigations + SLAIE ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.30 Research Prakriti Phenotyping + Trayopastambha + Smart Investigations + SLAIE ready.');
 })();
 </script>
 
@@ -13210,7 +13305,7 @@ renderBaseRows();bind();installBidirectionalNavigation();setTimeout(()=>open((ty
       .catch(err=>{
         console.error(err);
         const p=byId('sxSystemPanel');
-        if(p)p.innerHTML='<div class="notice red"><b>Structured examination master could not load.</b><br>Refresh once after V3.20 files are fully published. Free notes remain available below.</div>';
+        if(p)p.innerHTML='<div class="notice red"><b>Structured examination master could not load.</b><br>Refresh once after V3.30 files are fully published. Free notes remain available below.</div>';
         throw err;
       });
     return loadPromise;
@@ -13827,8 +13922,8 @@ renderBaseRows();bind();installBidirectionalNavigation();setTimeout(()=>open((ty
       state.master=await r.json();
     }catch(err){
       console.error('Lifestyle master load failed',err);
-      state.master={version:'Prakriti & Trayopastambha Master v1.0',build:'2026.08.14-R7',deha_prakriti:[],deha_domains:[],manas_triguna:[],manas_subtypes:[],mental_tendencies:[],ahara:{diet_types:[],meal_sources:[],meals:[],six_rasa:[],guna_pairs:[],mahabhuta:[],ashta_ahara_vidhi:[],ahara_vidhi_rules:[],dvadasha_ashana:[],gita_food:[],spiritual:[]},nidra:{quality:[],classical:[],dream_frequency:[],dream_types:[],red_flags:[]},brahmacharya:{orientation:[],relationship:[],ashrama:[],ashtanga_maithuna:[],modern_5p:[],functions:[],concerns:[]},activity:{types:[],spiritual:[]}};
-      const box=byId('ptiOverviewSummary');if(box)box.innerHTML='<div class="pti-danger"><b>Structured lifestyle master could not load.</b> Publish/refresh the V3.20 JSON file. Free-text clinical workflow remains usable.</div>';
+      state.master={version:'Prakriti & Trayopastambha Master v1.0',build:'2026.08.14-R8',deha_prakriti:[],deha_domains:[],manas_triguna:[],manas_subtypes:[],mental_tendencies:[],ahara:{diet_types:[],meal_sources:[],meals:[],six_rasa:[],guna_pairs:[],mahabhuta:[],ashta_ahara_vidhi:[],ahara_vidhi_rules:[],dvadasha_ashana:[],gita_food:[],spiritual:[]},nidra:{quality:[],classical:[],dream_frequency:[],dream_types:[],red_flags:[]},brahmacharya:{orientation:[],relationship:[],ashrama:[],ashtanga_maithuna:[],modern_5p:[],functions:[],concerns:[]},activity:{types:[],spiritual:[]}};
+      const box=byId('ptiOverviewSummary');if(box)box.innerHTML='<div class="pti-danger"><b>Structured lifestyle master could not load.</b> Publish/refresh the V3.30 JSON file. Free-text clinical workflow remains usable.</div>';
     }
     renderBase();
     return state.master;
@@ -13944,14 +14039,15 @@ renderBaseRows();bind();installBidirectionalNavigation();setTimeout(()=>open((ty
   function collect(){
     const m=state.master||{};
     const o={
-      version:m.version||'Prakriti & Trayopastambha Master v1.0',build:m.build||'2026.08.14-R7',
+      version:m.version||'Prakriti & Trayopastambha Master v1.0',build:m.build||'2026.08.14-R8',
       status:safeVal('ptiStatus'),source:safeVal('ptiSource'),confidence:safeVal('ptiConfidence'),goals:safeVal('ptiGoals'),
       deha:{type:safeVal('ptiDehaType'),confidence:safeVal('ptiDehaConfidence'),since:safeVal('ptiDehaSince'),notes:safeVal('ptiDehaNotes'),domains:{}},
       manas:{primary:safeVal('ptiManasPrimary'),subtype:safeVal('ptiManasSubtype'),triguna:{},tendencies:{},trust:safeVal('ptiTrust'),stressReg:safeVal('ptiStressReg'),bhakti:safeVal('ptiBhakti'),notes:safeVal('ptiManasNotes')},
       ahara:{dietType:safeVal('ptiDietType'),mealSource:safeVal('ptiMealSource'),agniContext:safeVal('ptiAgniContext'),meals:[],water:safeVal('ptiWater'),waterMeals:safeVal('ptiWaterMeals'),lateEating:safeVal('ptiLateEating'),rasa:{},gunaPairs:{},mahabhuta:arrChecked('.pti-mahabhuta','key'),ashta:{},rules:{},dvadasha:safeVal('ptiDvadasha'),gitaFood:safeVal('ptiGitaFood'),mealSpiritual:safeVal('ptiMealSpiritual'),spiritual:arrChecked('.pti-meal-spiritual','key'),notes:safeVal('ptiAharaNotes')},
       nidra:{bedtime:safeVal('ptiBedtime'),wakeTime:safeVal('ptiWakeTime'),hours:safeVal('ptiSleepHours'),latency:safeVal('ptiSleepLatency'),awakenings:safeVal('ptiAwakenings'),quality:safeVal('ptiSleepQuality'),nap:safeVal('ptiNap'),classical:safeVal('ptiNidraClassical'),restorative:safeVal('ptiRestorative'),flags:arrChecked('.pti-sleep-flag','key'),dreamFrequency:safeVal('ptiDreamFrequency'),dreamType:safeVal('ptiDreamType'),dreamImpact:safeVal('ptiDreamImpact'),notes:safeVal('ptiNidraNotes')},
       sensitive:{consent:checked('ptiSensitiveConsent'),includeSummary:checked('ptiIncludeSensitiveSummary'),ageAtAssessment:getPatientAge(),orientation:safeVal('ptiBrahmaOrientation'),ashrama:safeVal('ptiAshrama'),relationship:safeVal('ptiRelationship'),brahmaScore:safeVal('ptiBrahmaScore'),sexFrequency:safeVal('ptiSexFrequency'),pregnancyContext:safeVal('ptiPregnancyContext'),maithuna:{},fiveP:{},functions:{},concerns:arrChecked('.pti-sex-concern','key'),pornFrequency:safeVal('ptiPornFrequency'),pornControl:safeVal('ptiPornControl'),pornImpact:safeVal('ptiPornImpact'),fertilityIntent:safeVal('ptiFertilityIntent'),tryingMonths:safeVal('ptiTryingMonths'),eggAge:safeVal('ptiEggAge'),cycleConcern:safeVal('ptiCycleConcern'),semenStatus:safeVal('ptiSemenStatus'),fertilityHistory:safeVal('ptiFertilityHistory'),notes:safeVal('ptiSexNotes')},
-      activity:{moderateMin:safeVal('ptiModerateMin'),vigorousMin:safeVal('ptiVigorousMin'),strengthDays:safeVal('ptiStrengthDays'),sittingHours:safeVal('ptiSittingHours'),walking:safeVal('ptiWalking'),exerciseLimit:safeVal('ptiExerciseLimit'),types:arrChecked('.pti-activity','key'),spiritual:arrChecked('.pti-spiritual','key'),yogaFreq:safeVal('ptiYogaFreq'),meditationFreq:safeVal('ptiMeditationFreq'),pranayamaFreq:safeVal('ptiPranayamaFreq'),notes:safeVal('ptiActivityNotes')}
+      activity:{moderateMin:safeVal('ptiModerateMin'),vigorousMin:safeVal('ptiVigorousMin'),strengthDays:safeVal('ptiStrengthDays'),sittingHours:safeVal('ptiSittingHours'),walking:safeVal('ptiWalking'),exerciseLimit:safeVal('ptiExerciseLimit'),types:arrChecked('.pti-activity','key'),spiritual:arrChecked('.pti-spiritual','key'),yogaFreq:safeVal('ptiYogaFreq'),meditationFreq:safeVal('ptiMeditationFreq'),pranayamaFreq:safeVal('ptiPranayamaFreq'),notes:safeVal('ptiActivityNotes')},
+      research:window.MAHAMAYA_PRAKRITI_RESEARCH?.collect?.()||{}
     };
     qsa('[data-deha-domain]').forEach(e=>o.deha.domains[e.dataset.dehaDomain]=e.value);
     qsa('[data-triguna]').forEach(e=>o.manas.triguna[e.dataset.triguna]=e.value);
@@ -13987,6 +14083,7 @@ renderBaseRows();bind();installBidirectionalNavigation();setTimeout(()=>open((ty
     qsa('[data-maithuna]').forEach(e=>e.value=o.sensitive?.maithuna?.[e.dataset.maithuna]??'');qsa('[data-fivep]').forEach(e=>e.value=o.sensitive?.fiveP?.[e.dataset.fivep]??'');qsa('[data-sex-function]').forEach(e=>e.value=o.sensitive?.functions?.[e.dataset.sexFunction]??'');restoreChecks('.pti-sex-concern',o.sensitive?.concerns);
     safeSet('ptiModerateMin',o.activity?.moderateMin);safeSet('ptiVigorousMin',o.activity?.vigorousMin);safeSet('ptiStrengthDays',o.activity?.strengthDays);safeSet('ptiSittingHours',o.activity?.sittingHours);safeSet('ptiWalking',o.activity?.walking);safeSet('ptiExerciseLimit',o.activity?.exerciseLimit);safeSet('ptiYogaFreq',o.activity?.yogaFreq);safeSet('ptiMeditationFreq',o.activity?.meditationFreq);safeSet('ptiPranayamaFreq',o.activity?.pranayamaFreq);safeSet('ptiActivityNotes',o.activity?.notes);restoreChecks('.pti-activity',o.activity?.types);restoreChecks('.pti-spiritual',o.activity?.spiritual);
     state.lastInterpretation=o.interpretation||state.lastInterpretation;
+    window.MAHAMAYA_PRAKRITI_RESEARCH?.restore?.(o.research||{});
     updateSubtypeMeaning();updateSensitiveGate();updateKPIs(o);renderInterpretation(state.lastInterpretation);updateSelectedCards();
   }
 
@@ -14102,6 +14199,49 @@ renderBaseRows();bind();installBidirectionalNavigation();setTimeout(()=>open((ty
   loadMaster().then(()=>{if(new URLSearchParams(location.search).get('action')==='lifestyle')setTimeout(()=>byId('tabLifestyle')?.click(),700)}).catch(()=>{});
 })();
 
+</script>
+
+
+<script id="v330-prakriti-research">
+(()=>{
+  const $=id=>document.getElementById(id), qa=(s,r=document)=>[...r.querySelectorAll(s)], esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const state={master:null,rendered:false,subgroup:'Sattvika',rgroup:'Sattvika',activeSubtype:'',restoring:false,lastScores:null};
+  const gradeOptions=()=>'<option value="">Not assessed</option><option value="0">0 • Not observed / no support</option><option value="1">1+ • Occasional / weak</option><option value="2">2+ • Frequent / moderate</option><option value="3">3+ • Consistent / strong</option>';
+  function num(v){const n=Number(v);return v!==''&&Number.isFinite(n)?n:null}
+  function supportGrade(p){if(p===null||!Number.isFinite(p))return 'Not scored';if(p<20)return '0 • Minimal support*';if(p<33)return '1+ • Low support*';if(p<45)return '2+ • Moderate support*';return '3+ • Strong support*'}
+  function getMaster(){return window.MAHAMAYA_LIFESTYLE_ENGINE?.state?.master||state.master}
+  async function ensureMaster(){let m=getMaster();if(m?.research){state.master=m;return m}try{const r=await fetch('./ayurveda-lifestyle-master-v1.json',{cache:'no-store'});m=await r.json();state.master=m;return m}catch(e){console.warn('Prakriti research master load failed',e);return null}}
+  function dehaOptionOrder(q,i){const a=[...q.options],shift=i%3;return a.slice(shift).concat(a.slice(0,shift))}
+  function renderDeha(m){const box=$('priDehaQuestionnaire');if(!box)return;box.innerHTML=(m.research?.deha_questionnaire||[]).map((q,i)=>`<div class="pri-q-row"><div><div class="pri-domain">${esc(q.domain)}</div><label>${i+1}. ${esc(q.question)}</label></div><select data-pri-deha="${esc(q.id)}"><option value="">Not assessed</option>${dehaOptionOrder(q,i).map(o=>`<option value="${esc(o.value)}">${esc(o.text)}</option>`).join('')}<option value="mixed">Mixed / unclear / disease-state confounded</option></select></div>`).join('')}
+  function renderTriguna(m){const box=$('priTrigunaQuestionnaire');if(!box)return;const groups=[['sattva','Sattva-supporting traits'],['rajas','Rajas-supporting traits'],['tamas','Tamas-supporting traits']];box.innerHTML=groups.map(([g,title])=>`<div class="pri-group-block"><h4 style="padding:10px 12px;margin:0">${title}</h4>${(m.research?.triguna_questionnaire||[]).filter(q=>q.group===g).map(q=>`<div class="pri-q-row"><div><div class="pri-domain">${esc(q.domain)}</div><label>${esc(q.question)}</label><small>${esc(q.text)}</small></div><select data-pri-triguna="${esc(q.id)}" data-pri-group="${g}">${gradeOptions()}</select></div>`).join('')}</div>`).join('')}
+  function subtypeCard(x,quickKey='data-pri-subgrade'){const sel=state.activeSubtype===x.id?' selected':'';return `<div class="pri-subtype-card2${sel}" data-pri-subtype-card="${esc(x.id)}"><div><b>${esc(x.name)}</b><small>${esc(x.short)}</small><small>${(x.features||[]).length} feature descriptors • ${esc(x.group)}</small></div><div><select ${quickKey}="${esc(x.id)}" aria-label="${esc(x.name)} support grade">${gradeOptions()}</select><button type="button" class="secondary" data-pri-open-subtype="${esc(x.id)}" style="margin-top:6px;width:100%">Features</button></div></div>`}
+  function renderSubtypeCards(){const m=getMaster();if(!m)return;const box=$('priSubtypeCards');if(box)box.innerHTML=(m.manas_subtypes||[]).filter(x=>x.group===state.subgroup).map(x=>subtypeCard(x)).join('');const rbox=$('priResearchSubtypeGrid');if(rbox)rbox.innerHTML=(m.manas_subtypes||[]).filter(x=>x.group===state.rgroup).map(x=>subtypeCard(x,'data-pri-rsubgrade')).join('');syncSubtypeGrades()}
+  function renderSubtypeEditor(id){const m=getMaster(),x=m?.manas_subtypes?.find(s=>s.id===id),box=$('priSubtypeFeatureEditor');if(!x||!box)return;state.activeSubtype=id;const existing=collect().subtypes?.[id]?.features||{};box.innerHTML=`<div class="pri-section-head"><div><h4>${esc(x.group)} — ${esc(x.name)}</h4><small>${esc(x.short)}</small></div><span class="pri-grade-pill" id="priSubtypeFeatureScore">Feature support: —</span></div><div class="pti-caution"><b>Historical archetype:</b> ${esc(x.source||'Classical Ayurveda description.')} Use neutrally; do not infer psychiatric disease, intelligence, moral worth or social fitness.</div>${(x.features||[]).map((f,i)=>`<div class="pri-feature-row"><div>${i+1}. ${esc(f)}</div><select data-pri-subfeature="${esc(id)}" data-pri-feature-index="${i}">${gradeOptions()}</select></div>`).join('')}`;qa(`[data-pri-subfeature="${CSS.escape(id)}"]`).forEach(e=>{const v=existing[e.dataset.priFeatureIndex];if(v!==undefined)e.value=String(v)});updateSubtypeFeatureScore();renderSubtypeCards();const ps=$('ptiManasSubtype');if(ps){ps.value=id;ps.dispatchEvent(new Event('change',{bubbles:true}))}}
+  function syncSubtypeGrades(){const saved=(current?.lifestyle?.research?.subtypes)||{};qa('[data-pri-subgrade],[data-pri-rsubgrade]').forEach(e=>{const v=saved[e.dataset.priSubgrade||e.dataset.priRsubgrade]?.overall;if(v!==undefined&&v!==null)e.value=String(v)})}
+  function renderBase(m){if(state.rendered||!m?.research)return;renderDeha(m);renderTriguna(m);renderSubtypeCards();const cd=$('priClinicianDeha');if(cd)cd.innerHTML='<option value="">Not concluded</option>'+(m.deha_prakriti||[]).map(x=>`<option value="${esc(x.id)}">${esc(x.name)}</option>`).join('');bind();state.rendered=true;restore(current?.lifestyle?.research||{});calculate()}
+  function collect(){const m=getMaster(),out={instrument:m?.research?.instrument_code||'MPRPI-P1',version:m?.research?.version||'1.0-prototype',build:'2026.08.14-R8',mode:$('priMode')?.value||'',source:$('priSource')?.value||'',studyTag:$('priStudyTag')?.value||'',deha:{responses:{}},triguna:{responses:{}},subtypes:{},clinician:{deha:$('priClinicianDeha')?.value||'',manas:$('priClinicianManas')?.value||'',confidence:$('priClinicianConfidence')?.value||''},notes:$('priResearchNotes')?.value||'',includeIdentityExport:!!$('priIncludeIdentityExport')?.checked,scores:state.lastScores||null};qa('[data-pri-deha]').forEach(e=>out.deha.responses[e.dataset.priDeha]=e.value);qa('[data-pri-triguna]').forEach(e=>out.triguna.responses[e.dataset.priTriguna]=e.value);const prior=current?.lifestyle?.research?.subtypes||{};(m?.manas_subtypes||[]).forEach(x=>out.subtypes[x.id]={overall:prior[x.id]?.overall??'',features:{...(prior[x.id]?.features||{})}});qa('[data-pri-subgrade]').forEach(e=>{out.subtypes[e.dataset.priSubgrade]??={overall:'',features:{}};out.subtypes[e.dataset.priSubgrade].overall=e.value});qa('[data-pri-rsubgrade]').forEach(e=>{out.subtypes[e.dataset.priRsubgrade]??={overall:'',features:{}};out.subtypes[e.dataset.priRsubgrade].overall=e.value});qa('[data-pri-subfeature]').forEach(e=>{const id=e.dataset.priSubfeature;out.subtypes[id]??={overall:'',features:{}};out.subtypes[id].features[e.dataset.priFeatureIndex]=e.value});return out}
+  function restore(o={}){if(!state.rendered){setTimeout(()=>restore(o),180);return}state.restoring=true;if($('priMode'))$('priMode').value=o.mode||'Clinical phenotyping';if($('priSource'))$('priSource').value=o.source||'Clinician interview + observation';if($('priStudyTag'))$('priStudyTag').value=o.studyTag||'';qa('[data-pri-deha]').forEach(e=>e.value=o.deha?.responses?.[e.dataset.priDeha]||'');qa('[data-pri-triguna]').forEach(e=>e.value=o.triguna?.responses?.[e.dataset.priTriguna]??'');if($('priClinicianDeha'))$('priClinicianDeha').value=o.clinician?.deha||'';if($('priClinicianManas'))$('priClinicianManas').value=o.clinician?.manas||'';if($('priClinicianConfidence'))$('priClinicianConfidence').value=o.clinician?.confidence||'';if($('priResearchNotes'))$('priResearchNotes').value=o.notes||'';if($('priIncludeIdentityExport'))$('priIncludeIdentityExport').checked=!!o.includeIdentityExport;state.lastScores=o.scores||null;current.lifestyle=current.lifestyle||{};current.lifestyle.research=o;state.restoring=false;renderSubtypeCards();if(state.activeSubtype)renderSubtypeEditor(state.activeSubtype);calculate(false)}
+  function scoreDeha(){const vals=qa('[data-pri-deha]').map(e=>e.value).filter(v=>['vata','pitta','kapha'].includes(v)),ans=vals.length,tot=qa('[data-pri-deha]').length,c={vata:0,pitta:0,kapha:0};vals.forEach(v=>c[v]++);const pct=k=>ans?Math.round(c[k]*1000/ans)/10:null;return {answered:ans,total:tot,completeness:tot?Math.round(ans*100/tot):0,vata:pct('vata'),pitta:pct('pitta'),kapha:pct('kapha'),counts:c}}
+  function scoreTriguna(){const out={};['sattva','rajas','tamas'].forEach(g=>{const es=qa(`[data-pri-group="${g}"]`),vs=es.map(e=>num(e.value)).filter(v=>v!==null),sum=vs.reduce((a,b)=>a+b,0);out[g]={answered:vs.length,total:es.length,percent:vs.length?Math.round(sum*1000/(vs.length*3))/10:null,mean:vs.length?Math.round(sum*100/vs.length)/100:null}});const a=Object.values(out).reduce((x,y)=>x+y.answered,0),t=Object.values(out).reduce((x,y)=>x+y.total,0);out.completeness=t?Math.round(a*100/t):0;return out}
+  function phenotype(d){if(d.answered<12)return 'Insufficient data — answer at least 12 longstanding-trait items before using the prototype pattern suggestion.';const arr=[['vata','Vata'],['pitta','Pitta'],['kapha','Kapha']].map(([k,n])=>({k,n,p:d[k]||0})).sort((a,b)=>b.p-a.p);if(arr[0].p-arr[2].p<=8)return `Sama / relatively balanced-like dimensional pattern* (${arr.map(x=>x.n+' '+x.p+'%').join(', ')})`;if(arr[0].p-arr[1].p<=8 && arr[1].p>=28)return `${arr[0].n}–${arr[1].n} dual-dominant dimensional pattern*`;return `${arr[0].n}-predominant dimensional pattern*`;}
+  function manasPattern(t){const arr=['sattva','rajas','tamas'].map(k=>({k,p:t[k].percent??-1})).filter(x=>x.p>=0).sort((a,b)=>b.p-a.p);if(!arr.length)return 'Not scored';if(t.completeness<50)return 'Insufficient Manas data';if(arr.length>1&&arr[0].p-arr[1].p<10)return `Mixed ${arr[0].k}/${arr[1].k} support*`;return `${arr[0].k[0].toUpperCase()+arr[0].k.slice(1)}-predominant support*`}
+  function subtypeFeatureScore(id){const es=qa(`[data-pri-subfeature="${CSS.escape(id)}"]`),vs=es.map(e=>num(e.value)).filter(v=>v!==null);if(!vs.length)return null;return Math.round(vs.reduce((a,b)=>a+b,0)*1000/(vs.length*3))/10}
+  function updateSubtypeFeatureScore(){if(!state.activeSubtype)return;const p=subtypeFeatureScore(state.activeSubtype),b=$('priSubtypeFeatureScore');if(b)b.textContent=p===null?'Feature support: —':`Feature support: ${p}% • ${supportGrade(p)}`}
+  function calculate(render=true){const d=scoreDeha(),t=scoreTriguna(),scores={generatedAt:new Date().toISOString(),deha:d,triguna:t,phenotype:phenotype(d),manasPattern:manasPattern(t),prototype:true};state.lastScores=scores;const put=(id,v)=>{if($(id))$(id).textContent=v};put('priVataScore',d.vata===null?'—':d.vata+'%');put('priPittaScore',d.pitta===null?'—':d.pitta+'%');put('priKaphaScore',d.kapha===null?'—':d.kapha+'%');put('priVataGrade',supportGrade(d.vata));put('priPittaGrade',supportGrade(d.pitta));put('priKaphaGrade',supportGrade(d.kapha));put('priCompleteness',d.completeness+'%');put('priConfidence',d.completeness>=80?'High data completeness':d.completeness>=50?'Moderate data completeness':'Low / incomplete');put('priQuickVata',d.vata===null?'—':d.vata+'%');put('priQuickPitta',d.pitta===null?'—':d.pitta+'%');put('priQuickKapha',d.kapha===null?'—':d.kapha+'%');put('priSattvaScore',t.sattva.percent===null?'—':t.sattva.percent+'%');put('priRajasScore',t.rajas.percent===null?'—':t.rajas.percent+'%');put('priTamasScore',t.tamas.percent===null?'—':t.tamas.percent+'%');put('priManasCompleteness',t.completeness+'%');if($('priPatternSuggestion'))$('priPatternSuggestion').innerHTML=`<b>Prototype phenotype:</b> ${esc(scores.phenotype)}<br><b>Triguna:</b> ${esc(scores.manasPattern)}<br><span class="small">*Unweighted prototype algorithm for structured documentation/research development; clinician conclusion and future validation remain mandatory.</span>`;updateSubtypeFeatureScore();if(!state.restoring&&typeof current!=='undefined'){current.lifestyle=current.lifestyle||{};current.lifestyle.research=collect()}return scores}
+  function bestDehaId(d){if(d.answered<12)return '';const arr=[['vata',d.vata||0],['pitta',d.pitta||0],['kapha',d.kapha||0]].sort((a,b)=>b[1]-a[1]);if(arr[0][1]-arr[2][1]<=8)return 'sama';if(arr[0][1]-arr[1][1]<=8&&arr[1][1]>=28){const s=new Set([arr[0][0],arr[1][0]]);if(s.has('vata')&&s.has('pitta'))return 'vata_pitta';if(s.has('vata')&&s.has('kapha'))return 'vata_kapha';return 'pitta_kapha'}return arr[0][0]}
+  function applyConclusions(){const sc=calculate(),did=$('priClinicianDeha')?.value||bestDehaId(sc.deha),man=$('priClinicianManas')?.value||({'sattva':'Sattvika predominant','rajas':'Rajasika predominant','tamas':'Tamasika predominant'}[[['sattva',sc.triguna.sattva.percent??-1],['rajas',sc.triguna.rajas.percent??-1],['tamas',sc.triguna.tamas.percent??-1]].sort((a,b)=>b[1]-a[1])[0][0]]||'');if(did){if($('priClinicianDeha'))$('priClinicianDeha').value=did;if($('ptiDehaType')){$('ptiDehaType').value=did;$('ptiDehaType').dispatchEvent(new Event('change',{bubbles:true}))}}if(man){if($('priClinicianManas'))$('priClinicianManas').value=man;if($('ptiManasPrimary'))$('ptiManasPrimary').value=man}if(typeof status==='function')status('Prototype score reviewed/applied to clinician conclusion fields. Please verify before saving.')}
+  function subtypeRows(){const m=getMaster(),r=collect();return (m?.manas_subtypes||[]).map(x=>{const o=r.subtypes?.[x.id]||{},fg=subtypeFeatureScore(x.id),q=num(o.overall),p=fg!==null?fg:(q!==null?q*100/3:null);return {group:x.group,name:x.name,grade:q===null?'Not assessed':q+'+',support:p===null?'—':Math.round(p*10)/10+'%'}})}
+  function reportHtml(){const m=getMaster(),r=collect(),sc=calculate(false),d=(m?.deha_prakriti||[]).find(x=>x.id===r.clinician.deha),sub=(m?.manas_subtypes||[]).find(x=>x.id===($('ptiManasSubtype')?.value||'')),patient=(typeof current!=='undefined'&&current?.patient)||{},uhid=(typeof current!=='undefined'&&current?.uhid)||'',rows=subtypeRows().filter(x=>x.grade!=='Not assessed'),now=new Date();return `<div class="pri-report-head"><div><h2>Prakriti Parikshan Patrak</h2><div>Mahamaya Clinic • ${esc(m?.research?.instrument_name||'MPRPI-P1')}</div></div><div><b>${esc(now.toLocaleDateString())}</b><br><small>${esc(m?.research?.status||'Research prototype')}</small></div></div><div class="pri-data-quality"><div><b>Patient</b><br>${esc(patient.name||'Not selected')}<br><small>UHID: ${esc(uhid||'—')}</small></div><div><b>Assessment</b><br>${esc(r.mode||'—')}<br><small>${esc(r.source||'—')}</small></div><div><b>Data completeness</b><br>Deha ${sc.deha.completeness}% • Manas ${sc.triguna.completeness}%<br><small>Study tag: ${esc(r.studyTag||'—')}</small></div></div><h3>Sharirika / Deha dimensional scores*</h3><table><tr><th>Dimension</th><th>Score</th><th>Prototype support grade*</th></tr><tr><td>Vata</td><td>${sc.deha.vata??'—'}%</td><td>${esc(supportGrade(sc.deha.vata))}</td></tr><tr><td>Pitta</td><td>${sc.deha.pitta??'—'}%</td><td>${esc(supportGrade(sc.deha.pitta))}</td></tr><tr><td>Kapha</td><td>${sc.deha.kapha??'—'}%</td><td>${esc(supportGrade(sc.deha.kapha))}</td></tr></table><p><b>Prototype dimensional pattern:</b> ${esc(sc.phenotype)}</p><p><b>Clinician conclusion:</b> ${esc(d?.name||'Not concluded')} • Confidence: ${esc(r.clinician.confidence||'Not set')}</p><h3>Manasika Prakriti / Triguna*</h3><table><tr><th>Sattva</th><th>Rajas</th><th>Tamas</th><th>Prototype pattern</th></tr><tr><td>${sc.triguna.sattva.percent??'—'}%</td><td>${sc.triguna.rajas.percent??'—'}%</td><td>${sc.triguna.tamas.percent??'—'}%</td><td>${esc(sc.manasPattern)}</td></tr></table><p><b>Clinician conclusion:</b> ${esc(r.clinician.manas||'Not concluded')} ${sub?`• Selected classical archetype: ${esc(sub.group+' — '+sub.name)}`:''}</p>${rows.length?`<h3>Classical archetype support grades*</h3><table><tr><th>Group</th><th>Subtype</th><th>Grade</th><th>Support</th></tr>${rows.map(x=>`<tr><td>${esc(x.group)}</td><td>${esc(x.name)}</td><td>${esc(x.grade)}</td><td>${esc(x.support)}</td></tr>`).join('')}</table>`:''}<h3>Research / clinician notes</h3><div style="white-space:pre-wrap">${esc(r.notes||'—')}</div><div class="pri-footnote"><b>*Research prototype:</b> Scores are transparent unweighted documentation indices created for this app. They are not externally validated diagnostic/prognostic scales, do not represent disease severity, and should not replace classical clinician assessment or validated psychometric/medical instruments. Instrument: ${esc(r.instrument)} ${esc(r.version)} • Build ${esc(r.build)}.</div>`}
+  function generateReport(){const box=$('priResearchReport');if(box)box.innerHTML=reportHtml();return box?.innerText||''}
+  function printReport(){generateReport();document.body.classList.add('pri-print-mode');setTimeout(()=>{window.print();setTimeout(()=>document.body.classList.remove('pri-print-mode'),500)},80)}
+  function summaryText(){const r=collect(),sc=calculate(false),m=getMaster(),d=m?.deha_prakriti?.find(x=>x.id===r.clinician.deha);return `Mahamaya Clinic — Prakriti Parikshan Patrak\nDeha scores*: Vata ${sc.deha.vata??'—'}%, Pitta ${sc.deha.pitta??'—'}%, Kapha ${sc.deha.kapha??'—'}%\nPrototype pattern*: ${sc.phenotype}\nClinician Deha conclusion: ${d?.name||'Not concluded'}\nTriguna*: Sattva ${sc.triguna.sattva.percent??'—'}%, Rajas ${sc.triguna.rajas.percent??'—'}%, Tamas ${sc.triguna.tamas.percent??'—'}%\nClinician Manas conclusion: ${r.clinician.manas||'Not concluded'}\n*Prototype non-validated research/documentation scores; not disease severity or diagnosis.`}
+  async function whatsapp(){const text=summaryText();if(navigator.share){try{await navigator.share({title:'Prakriti Parikshan Patrak',text});return}catch(_e){}}window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank','noopener')}
+  function exportJson(){const r=collect(),sc=calculate(false),data={instrument:r.instrument,version:r.version,build:r.build,exportedAt:new Date().toISOString(),mode:r.mode,source:r.source,studyTag:r.studyTag,deha:r.deha,triguna:r.triguna,subtypes:r.subtypes,clinician:r.clinician,notes:r.notes,scores:sc};if(r.includeIdentityExport&&typeof current!=='undefined'){data.identity={uhid:current.uhid||'',name:current.patient?.name||'',age:current.patient?.age||'',sex:current.patient?.sex||''}}else if(typeof current!=='undefined')data.subject_id=current.uhid||'';const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`MPRPI_${(current?.uhid||'subject').replace(/[^A-Za-z0-9_-]/g,'_')}_${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+  function bind(){qa('[data-pri-subgroup]').forEach(b=>b.addEventListener('click',()=>{state.subgroup=b.dataset.priSubgroup;qa('[data-pri-subgroup]').forEach(x=>x.classList.toggle('active',x===b));renderSubtypeCards()}));qa('[data-pri-rgroup]').forEach(b=>b.addEventListener('click',()=>{state.rgroup=b.dataset.priRgroup;qa('[data-pri-rgroup]').forEach(x=>x.classList.toggle('active',x===b));renderSubtypeCards()}));document.addEventListener('click',e=>{const b=e.target.closest('[data-pri-open-subtype]');if(b){renderSubtypeEditor(b.dataset.priOpenSubtype);$('[data-pti-view="manas"]')?.click()}});document.addEventListener('change',e=>{if(e.target.matches('[data-pri-deha],[data-pri-triguna],[data-pri-subgrade],[data-pri-rsubgrade],[data-pri-subfeature]')){const id=e.target.dataset.priSubgrade||e.target.dataset.priRsubgrade;if(id&&typeof current!=='undefined'){current.lifestyle=current.lifestyle||{};current.lifestyle.research=current.lifestyle.research||{};current.lifestyle.research.subtypes=current.lifestyle.research.subtypes||{};current.lifestyle.research.subtypes[id]=current.lifestyle.research.subtypes[id]||{features:{}};current.lifestyle.research.subtypes[id].overall=e.target.value}calculate()}});$('priCalculateBtn')?.addEventListener('click',()=>{calculate();if(typeof status==='function')status('Prakriti research prototype scores calculated. Review clinician conclusion before saving.')});$('priApplyBtn')?.addEventListener('click',applyConclusions);$('priGenerateReportBtn')?.addEventListener('click',generateReport);$('priPrintBtn')?.addEventListener('click',printReport);$('priWhatsAppBtn')?.addEventListener('click',whatsapp);$('priExportBtn')?.addEventListener('click',exportJson);$('ptiManasSubtype')?.addEventListener('change',e=>{if(e.target.value)renderSubtypeEditor(e.target.value)})}
+  async function init(){const m=await ensureMaster();if(!m?.research)return;renderBase(m)}
+  window.MAHAMAYA_PRAKRITI_RESEARCH={init,collect,restore,calculate,generateReport,state};
+  init();
+})();
 </script>
 
 <script id="v310-investigation-picker">
