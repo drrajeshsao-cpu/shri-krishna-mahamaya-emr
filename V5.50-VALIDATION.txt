@@ -1,0 +1,56 @@
+Mahamaya Clinic EMR V5.50 — Premium Adaptive Clinical Workspace
+Build: 2026.08.15-R27
+
+RELEASE SCOPE
+- UI/UX, responsive layout, navigation acceleration and non-auth performance hardening only.
+- V5.41C clinical/therapeutic datasets preserved.
+- No new autonomous diagnosis/prescribing behavior introduced by this release.
+
+STATIC / STRUCTURE
+- index.html bytes: 1042963
+- premium-responsive-v1.css bytes: 14293
+- premium-shell-v1.js bytes: 6676
+- Static DOM IDs: 1416 actual / 1416 unique / duplicate IDs: 0 — PASS
+- JSON files parsed: 30 — PASS
+- External JavaScript syntax: 7/7 PASS
+- Inline JavaScript syntax: 10/10 PASS
+- Premium CSS linked after existing inline styles: PASS
+- Premium shell linked after existing app scripts: PASS
+- Quick Command target modules present: PASS
+- PWA core asset references missing: 0 — PASS
+
+LOGIN / FIREBASE NON-REGRESSION
+- unlockApp: byte-for-byte unchanged vs V5.41C (SHA fragment e843377d54d17861) — PASS
+- lockApp: byte-for-byte unchanged vs V5.41C (SHA fragment 98bcc2cbe4f579a1) — PASS
+- restoreSession: byte-for-byte unchanged vs V5.41C (SHA fragment 37396cbc8f44a399) — PASS
+- savePins: byte-for-byte unchanged vs V5.41C (SHA fragment 85e3ba126c285337) — PASS
+- SKMC_ROLE_BRIDGE: byte-for-byte unchanged vs V5.41C (SHA fragment 05ce4d20763f01c4) — PASS
+- PIN fields/selectors retained: PASS
+- Firebase/role bridge markers retained: PASS
+- V5.50 does not change credentials, PIN validation, Firebase sign-in, logout, roles, cloud-save or authorization logic.
+
+RESPONSIVE DESIGN COVERAGE
+- Narrow phone <=360 px: defined
+- Standard phone <=430 px: defined
+- Large phone <768 px: defined
+- Tablet 768–1023 px: defined
+- Laptop/desktop 1024–1399 px: defined
+- Wide desktop >=1400 px: defined
+- Low-height landscape optimization: defined
+- Safe-area/notch/home-indicator handling: defined
+- Reduced-motion and increased-contrast support: defined
+
+PERFORMANCE / PWA
+- No new external web-font dependency.
+- Premium shell is vanilla JavaScript with no framework dependency.
+- Non-brand images receive lazy loading / async decoding where supported.
+- Premium CSS + JS added to existing service-worker core cache.
+- Existing navigation fetch strategy retained to avoid changing login/update behavior.
+
+RUNTIME LIMITATION
+- Chromium navigation to localhost/file URLs is administrator-blocked in this execution environment (ERR_BLOCKED_BY_ADMINISTRATOR), so this report does NOT claim full browser/device regression.
+- After GitHub Pages publish, verify real Android/mobile PWA, tablet, laptop and desktop: login/unlock, patient search, New Visit, Fast Flow, Save/Previous/Next, prescription/PDF, Firebase save/reopen/cross-device sync, PWA install/update and offline recovery.
+
+RESULT
+STATIC / SYNTAX / AUTH-PRESERVATION VALIDATION: PASS
+REAL-HARDWARE / LIVE-GITHUB REGRESSION: REQUIRED AFTER PUBLISH
