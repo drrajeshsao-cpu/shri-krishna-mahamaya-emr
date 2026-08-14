@@ -1,0 +1,43 @@
+Mahamaya Clinic EMR V5.00 — Modern Therapeutics Atlas Validation
+Build: 2026.08.14-R20
+Engine: MTLPI v2.0
+
+DATA COVERAGE
+- Disease / clinical pathways: 238 — PASS
+- Drug groups / pharmacologic classes: 177 — PASS
+- Generic medicine / formulation records: 371 — PASS
+- Evidence/regulatory/guideline source families: 27 — PASS
+- Duplicate class IDs: 0 — PASS
+- Duplicate drug IDs: 0 — PASS
+- Duplicate condition IDs: 0 — PASS
+- Broken class→drug references: 0 — PASS
+- Broken condition→class/drug references: 0 — PASS
+
+TYPE 2 DIABETES COVERAGE SMOKE
+- Major pharmacologic groups: 11 — PASS
+- Indexed generic/formulation links: 26 — PASS
+- Includes: Biguanide, SGLT2 inhibitor, GLP-1 RA, dual GIP/GLP-1 RA, DPP-4 inhibitor, Sulfonylurea, TZD, alpha-glucosidase inhibitor, Meglitinide, Basal insulin, Prandial insulin — PASS
+
+UI / CODE
+- Version marker V5.00: PASS
+- Build marker 2026.08.14-R20: PASS
+- MTLPI v2.0 marker: PASS
+- Modern Therapeutics Atlas marker: PASS
+- System/specialty filter marker: PASS
+- Search Atlas button marker: PASS
+- Static DOM IDs: 1379
+- Duplicate static DOM IDs: 0 — PASS
+- therapeutics-intelligence-engine.js syntax: PASS
+- Inline JavaScript syntax: 10/10 PASS
+- Service worker cache: mahamaya-emr-v5.00-20260814-r20 — PASS
+- Mission SHA-256 integrity: 20/20 PASS
+
+SCIENTIFIC BOUNDARIES
+- V5.00 is a coverage + pharmacology research release, not an autonomous prescribing system.
+- Disease→class linkage does not imply every indexed member of that class is approved, appropriate or guideline-preferred for that disease.
+- Adult dose fields are learning/reference snapshots and require current label/guideline + patient-specific verification.
+- Detailed renal/hepatic/pregnancy/pediatric/elderly/interaction/QT/bleeding-duration safety enrichment is intentionally deferred to the next dedicated safety phase.
+- Pharma/manufacturer promotional pages are not used to rank medicines; manufacturer-specific claims must be checked against regulator-approved product information.
+
+LIMITATION
+Static/source-level validation completed. A full live GitHub Pages regression on the user's deployed Firebase-authenticated environment was not performed here. After publishing, test disease search, system filter, drug-group expansion, monograph opening, patient-context mapping, diagnosis gate, Draft Rx load and mobile responsiveness before treating V5.00 as stable.

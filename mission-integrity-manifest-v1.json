@@ -1,23 +1,23 @@
 {
   "schema": "MAHAMAYA-INTEGRITY-MANIFEST-V1",
-  "app_version": "4.30",
-  "build": "2026.08.14-R19",
+  "app_version": "5.00",
+  "build": "2026.08.14-R20",
   "generated_at": "2026-08-14",
   "algorithm": "SHA-256",
   "files": [
     {
       "path": "index.html",
-      "sha256": "7ccb55b1218ee1a168274e6c8332c327656f1239d02c799823b7d8ed103da789",
-      "bytes": 1013534
+      "sha256": "ff7a90c82504fb8edba4eb07c2bee91a931fcce35b631bd372966942922aa819",
+      "bytes": 1021265
     },
     {
       "path": "manifest.webmanifest",
-      "sha256": "3b287242a5b9ef4e5b76329d6733316d5be059ea386bdd086f69ff2b9bfa845b",
-      "bytes": 4516
+      "sha256": "899e743ca4651b0f5c2e45fd6cce81628eb4f19542d7c9a6c6b1e7be4228b920",
+      "bytes": 4533
     },
     {
       "path": "service-worker.js",
-      "sha256": "332107f4fd8b0f7c9d4637238b10dda6c1af5a70cc3407be6c83287488795bb8",
+      "sha256": "f1d43f9e2d21e873313b1ac09610bef14ec972ee3140c1efcff440d1567af49b",
       "bytes": 2035
     },
     {
@@ -57,13 +57,13 @@
     },
     {
       "path": "therapeutics-intelligence-master-v1.json",
-      "sha256": "8601b0f1f16f97703eb2dee29b27a08782d2874d710dec1d33b51af0cdc19327",
-      "bytes": 120093
+      "sha256": "c4c979c4553b349aeaa236b8e3a103b12d53fe208674c7bfb58de8203af085a3",
+      "bytes": 2130514
     },
     {
       "path": "therapeutics-intelligence-engine.js",
-      "sha256": "f2f4259a6032fd5fcec02b6499523dff3b6f1e36dd5a0a22b2298c1843365586",
-      "bytes": 25067
+      "sha256": "8da20334586e31c915509aa898ac1428949e68950c7615a7c73025908fafd194",
+      "bytes": 17697
     },
     {
       "path": "ayurveda-therapeutics-master-v1.json",
@@ -94,7 +94,17 @@
       "path": "mission-assurance-engine.js",
       "sha256": "439d899598f35c193fcfa3ce5e1f7ea6dbc433d12511b5d0f3372920d954f636",
       "bytes": 19215
+    },
+    {
+      "path": "V5.00-MODERN-THERAPEUTICS-ATLAS-ARCHITECTURE.md",
+      "sha256": "23c1f430a7af4d842e21e1780d98985cd5e962a9079c8cf6aeddbc79fb44bfb2",
+      "bytes": 3700
+    },
+    {
+      "path": "V5.00-UPDATE-NOTES-HINDI.md",
+      "sha256": "90ec06077e84e464bc1e2dbc67c475279e0e62606d14d2e8ca99332cb5c9bfb8",
+      "bytes": 1772
     }
   ],
-  "note": "Build-time hashes support deployment-corruption/configuration checks for V4.30 critical assets. They do not replace signed releases, secure CI/CD, code signing, independent clinical validation, Ayurveda expert/pharmacology review or original-source verification."
+  "note": "Build-time SHA-256 checks for V5.00 critical assets. They support deployment-corruption/configuration checks but do not replace signed releases, secure CI/CD, independent clinical validation, pharmacology review, current-label verification, local antibiograms or patient-specific safety review."
 }
