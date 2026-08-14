@@ -1,0 +1,3523 @@
+{
+  "schema": "MAHAMAYA-THERAPEUTICS-INTELLIGENCE-V1",
+  "version": "1.0",
+  "app_version": "3.70",
+  "build": "2026.08.14-R12",
+  "name": "Mahamaya Therapeutics Learning & Prescription Intelligence Engine (MTLPI)",
+  "mode": "Educational clinician decision support; no autonomous prescribing.",
+  "design_principles": [
+    "Complaint alone does not generate a drug-of-choice prescription.",
+    "Specific therapy candidates appear after clinician diagnosis/context selection or explicit learning search.",
+    "Generic-first; brands are search aliases/examples only and never ranked by quality.",
+    "Candidate cards show indications, key contraindications/interactions, renal/hepatic/pregnancy cautions, ADRs, monitoring and provenance.",
+    "Load-to-draft only fills existing prescription fields; clinician must review, add medicine and run safety screening.",
+    "Pediatric, pregnancy, severe renal/hepatic disease and emergency contexts trigger conservative gating.",
+    "Antibiotics require diagnosis/indication + stewardship review; symptom-only antibiotic suggestions are blocked."
+  ],
+  "priority_legend": {
+    "green": "Usual first-line/preferred candidate in the specified diagnosed context if eligible.",
+    "blue": "Alternative/adjunct depending on phenotype.",
+    "amber": "Conditional/specialist/monitoring-intensive; context strongly matters.",
+    "red": "Patient-specific avoid/contraindication alert triggered."
+  },
+  "sources": [
+    {
+      "id": "WHO_EML_2025",
+      "name": "WHO Model List of Essential Medicines 2025",
+      "url": "https://www.who.int/groups/expert-committee-on-selection-and-use-of-essential-medicines/essential-medicines-lists",
+      "scope": "essential-medicine selection"
+    },
+    {
+      "id": "WHO_AWARE",
+      "name": "WHO AWaRe antibiotic book",
+      "url": "https://www.who.int/publications/i/item/9789240062382",
+      "scope": "antibiotic choice/dose/route/duration + stewardship"
+    },
+    {
+      "id": "WHO_MED_SAFETY",
+      "name": "WHO Medication Without Harm",
+      "url": "https://www.who.int/initiatives/medication-without-harm",
+      "scope": "medication-safety design"
+    },
+    {
+      "id": "DAILYMED",
+      "name": "DailyMed / FDA prescribing information",
+      "url": "https://dailymed.nlm.nih.gov/",
+      "scope": "label indications, dosage, contraindications, warnings, interactions"
+    },
+    {
+      "id": "RXNORM",
+      "name": "NLM RxNorm",
+      "url": "https://www.nlm.nih.gov/research/umls/rxnorm/index.html",
+      "scope": "normalized generic/brand drug terminology"
+    },
+    {
+      "id": "CDSCO",
+      "name": "CDSCO India",
+      "url": "https://cdsco.gov.in/",
+      "scope": "Indian regulation and prescribing information"
+    },
+    {
+      "id": "NLEM_2022",
+      "name": "National List of Essential Medicines India 2022",
+      "url": "https://cdsco.gov.in/opencms/resources/UploadCDSCOWeb/2018/UploadConsumer/nlem2022.pdf",
+      "scope": "India essential-medicine context"
+    },
+    {
+      "id": "PVPI",
+      "name": "Pharmacovigilance Programme of India",
+      "url": "https://www.ipc.gov.in/mandates/pvpi/pv_home.html",
+      "scope": "ADR/pharmacovigilance"
+    },
+    {
+      "id": "NICE_BNF",
+      "name": "NICE / BNF medicines guidance",
+      "url": "https://bnf.nice.org.uk/medicines-guidance/guidance-on-prescribing/",
+      "scope": "prescribing safety and medicine use"
+    },
+    {
+      "id": "NICE",
+      "name": "NICE Guidance",
+      "url": "https://www.nice.org.uk/guidance",
+      "scope": "condition-specific clinical guidance"
+    },
+    {
+      "id": "GINA_2026",
+      "name": "GINA 2026 Asthma Strategy",
+      "url": "https://ginasthma.org/2026-gina-strategy-report/",
+      "scope": "asthma diagnosis/treatment"
+    },
+    {
+      "id": "GOLD_2026",
+      "name": "GOLD 2026 COPD Strategy",
+      "url": "https://goldcopd.org/2026-gold-report/",
+      "scope": "COPD diagnosis/treatment"
+    },
+    {
+      "id": "ADA_2026",
+      "name": "ADA Standards of Care 2026",
+      "url": "https://professional.diabetes.org/standards-of-care",
+      "scope": "diabetes management"
+    },
+    {
+      "id": "KDIGO_2024",
+      "name": "KDIGO 2024 CKD Guideline",
+      "url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/",
+      "scope": "CKD and kidney-related medication safety"
+    },
+    {
+      "id": "ACC",
+      "name": "American College of Cardiology Guidelines",
+      "url": "https://www.acc.org/guidelines",
+      "scope": "cardiovascular therapy"
+    },
+    {
+      "id": "AHA",
+      "name": "American Heart Association",
+      "url": "https://www.heart.org/",
+      "scope": "cardiovascular guidance/patient safety"
+    },
+    {
+      "id": "CDC_STI",
+      "name": "CDC STI Treatment Guidelines",
+      "url": "https://www.cdc.gov/std/treatment-guidelines/default.htm",
+      "scope": "STI diagnosis/treatment"
+    },
+    {
+      "id": "IDSA",
+      "name": "Infectious Diseases Society of America Guidelines",
+      "url": "https://www.idsociety.org/practice-guideline/practice-guidelines/",
+      "scope": "infectious-disease treatment"
+    },
+    {
+      "id": "ACG",
+      "name": "American College of Gastroenterology Guidelines",
+      "url": "https://gi.org/guidelines/",
+      "scope": "gastroenterology treatment"
+    },
+    {
+      "id": "AAN",
+      "name": "American Academy of Neurology Guidelines",
+      "url": "https://www.aan.com/Guidelines/Home/ByTopic",
+      "scope": "neurology treatment"
+    }
+  ],
+  "drugs": [
+    {
+      "id": "paracetamol",
+      "generic": "Paracetamol (Acetaminophen)",
+      "class": "Analgesic/antipyretic",
+      "common_form": "Tablet/syrup",
+      "route": "Oral",
+      "dose_example": "500–1000 mg per dose every 4–6 h PRN is common in adult products; keep within current product-label maximum.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Pain",
+        "Fever"
+      ],
+      "key_contraindications": [
+        "Severe active hepatic disease / overdose risk"
+      ],
+      "key_interactions": [
+        "Alcohol/hepatotoxic medicines; duplicate combination products"
+      ],
+      "common_adrs": [
+        "Nausea; rash; hepatotoxicity in overdose"
+      ],
+      "renal": "Usually no routine adjustment; severe impairment may require longer interval.",
+      "hepatic": "Use lower total exposure/avoid in severe hepatic impairment.",
+      "pregnancy_lactation": "Commonly used when indicated; verify context.",
+      "monitoring": "Total daily dose; liver risk; duplicate products",
+      "brand_examples_india": [
+        "Dolo 650",
+        "Crocin"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "WHO_EML_2025",
+        "DAILYMED",
+        "NLEM_2022"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "ibuprofen",
+      "generic": "Ibuprofen",
+      "class": "NSAID",
+      "common_form": "Tablet/suspension",
+      "route": "Oral",
+      "dose_example": "200–400 mg every 4–6 h PRN is a common adult short-course range; higher prescription doses are indication-specific.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Inflammatory pain",
+        "Dysmenorrhea",
+        "Fever"
+      ],
+      "key_contraindications": [
+        "Active GI bleed/ulcer; severe renal failure; NSAID hypersensitivity; late pregnancy"
+      ],
+      "key_interactions": [
+        "Anticoagulants/antiplatelets; other NSAIDs; ACEi/ARB + diuretic; lithium"
+      ],
+      "common_adrs": [
+        "Dyspepsia; GI bleeding; renal injury; edema/BP rise; bronchospasm"
+      ],
+      "renal": "Avoid/reassess in AKI/advanced CKD.",
+      "hepatic": "Caution significant hepatic disease.",
+      "pregnancy_lactation": "Avoid later pregnancy; verify trimester-specific guidance.",
+      "monitoring": "BP; renal function; GI/bleeding risk",
+      "brand_examples_india": [
+        "Brufen"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "WHO_EML_2025",
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "naproxen",
+      "generic": "Naproxen",
+      "class": "NSAID",
+      "common_form": "Tablet",
+      "route": "Oral",
+      "dose_example": "250–500 mg twice daily is a common adult prescription range for selected indications; use lowest effective dose/shortest duration.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Inflammatory pain",
+        "Dysmenorrhea",
+        "Acute gout in selected patients"
+      ],
+      "key_contraindications": [
+        "Active GI bleed/ulcer; severe renal impairment; NSAID hypersensitivity; late pregnancy"
+      ],
+      "key_interactions": [
+        "Anticoagulants; antiplatelets; other NSAIDs; ACEi/ARB + diuretic; lithium"
+      ],
+      "common_adrs": [
+        "Dyspepsia; GI bleed; renal injury; edema/BP elevation"
+      ],
+      "renal": "Avoid/reassess in AKI/advanced CKD.",
+      "hepatic": "Caution hepatic disease.",
+      "pregnancy_lactation": "Avoid later pregnancy.",
+      "monitoring": "Renal function; BP; GI/bleeding risk",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "diclofenac_topical",
+      "generic": "Diclofenac topical",
+      "class": "Topical NSAID",
+      "common_form": "Gel",
+      "route": "Topical",
+      "dose_example": "Apply according to product strength/site instructions; frequency is formulation-specific.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Localized osteoarthritis/soft-tissue pain"
+      ],
+      "key_contraindications": [
+        "NSAID hypersensitivity; broken/infected skin; product-specific restrictions"
+      ],
+      "key_interactions": [
+        "Other NSAIDs/anticoagulants still require review"
+      ],
+      "common_adrs": [
+        "Local irritation; rare systemic NSAID effects"
+      ],
+      "renal": "Lower systemic exposure but caution severe renal disease.",
+      "hepatic": "Caution severe hepatic disease.",
+      "pregnancy_lactation": "Avoid later pregnancy; verify label.",
+      "monitoring": "Skin reaction; total NSAID exposure",
+      "brand_examples_india": [
+        "Voveran Emulgel"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "cetirizine",
+      "generic": "Cetirizine",
+      "class": "2nd-generation H1 antihistamine",
+      "common_form": "Tablet/syrup",
+      "route": "Oral",
+      "dose_example": "10 mg once daily is a common adult dose.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Allergic rhinitis",
+        "Urticaria"
+      ],
+      "key_contraindications": [
+        "Hypersensitivity; renal dose review"
+      ],
+      "key_interactions": [
+        "Alcohol/CNS depressants may increase sedation"
+      ],
+      "common_adrs": [
+        "Somnolence; dry mouth; fatigue"
+      ],
+      "renal": "Dose reduction may be required.",
+      "hepatic": "Verify severe disease.",
+      "pregnancy_lactation": "Verify pregnancy/lactation context.",
+      "monitoring": "Sedation; renal function",
+      "brand_examples_india": [
+        "Cetzine"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "fexofenadine",
+      "generic": "Fexofenadine",
+      "class": "2nd-generation H1 antihistamine",
+      "common_form": "Tablet",
+      "route": "Oral",
+      "dose_example": "120–180 mg once daily is used in adults depending on indication/product.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Allergic rhinitis",
+        "Urticaria"
+      ],
+      "key_contraindications": [
+        "Hypersensitivity"
+      ],
+      "key_interactions": [
+        "Al/Mg antacids and fruit juice can reduce absorption"
+      ],
+      "common_adrs": [
+        "Headache; nausea; dizziness"
+      ],
+      "renal": "Lower starting dose may be appropriate.",
+      "hepatic": "No major common adjustment.",
+      "pregnancy_lactation": "Verify pregnancy/lactation context.",
+      "monitoring": "Renal function if impaired",
+      "brand_examples_india": [
+        "Allegra"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "fluticasone_nasal",
+      "generic": "Fluticasone intranasal",
+      "class": "Intranasal corticosteroid",
+      "common_form": "Nasal spray",
+      "route": "Intranasal",
+      "dose_example": "Many adult products use 1–2 sprays/nostril once daily; verify product strength.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Allergic rhinitis"
+      ],
+      "key_contraindications": [
+        "Hypersensitivity; recent nasal surgery/ulcer caution"
+      ],
+      "key_interactions": [
+        "Strong CYP3A4 inhibitors may increase systemic exposure"
+      ],
+      "common_adrs": [
+        "Epistaxis; nasal irritation; headache"
+      ],
+      "renal": "No routine adjustment.",
+      "hepatic": "Caution severe hepatic impairment.",
+      "pregnancy_lactation": "Verify pregnancy/lactation context.",
+      "monitoring": "Nasal mucosa; symptom control",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "salbutamol",
+      "generic": "Salbutamol (Albuterol) inhaled",
+      "class": "SABA bronchodilator",
+      "common_form": "MDI/nebulization",
+      "route": "Inhalation",
+      "dose_example": "Device-specific rescue dosing; verify inhaler strength and current asthma/COPD plan.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Acute bronchospasm relief"
+      ],
+      "key_contraindications": [
+        "Hypersensitivity; caution significant tachyarrhythmia"
+      ],
+      "key_interactions": [
+        "Other sympathomimetics; non-selective beta-blockers; hypokalaemia-producing drugs"
+      ],
+      "common_adrs": [
+        "Tremor; tachycardia; palpitations; hypokalaemia"
+      ],
+      "renal": "No typical adjustment.",
+      "hepatic": "No typical adjustment.",
+      "pregnancy_lactation": "Verify pregnancy context.",
+      "monitoring": "HR; response; potassium with repeated/high dose",
+      "brand_examples_india": [
+        "Asthalin"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "GINA_2026",
+        "GOLD_2026",
+        "DAILYMED"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "budesonide_formoterol",
+      "generic": "Budesonide + Formoterol",
+      "class": "ICS/LABA",
+      "common_form": "Inhaler",
+      "route": "Inhalation",
+      "dose_example": "Strength/device/strategy specific; use validated ICS-formoterol track and inhaler-specific limits.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Asthma ICS-containing strategy",
+        "COPD maintenance in selected phenotypes"
+      ],
+      "key_contraindications": [
+        "Hypersensitivity; not substitute for emergency stabilization"
+      ],
+      "key_interactions": [
+        "Strong CYP3A4 inhibitors; beta-blockers; other sympathomimetics"
+      ],
+      "common_adrs": [
+        "Oral candidiasis; dysphonia; tremor; palpitations"
+      ],
+      "renal": "No usual adjustment.",
+      "hepatic": "Caution severe hepatic impairment.",
+      "pregnancy_lactation": "Verify pregnancy/lactation context.",
+      "monitoring": "Technique; oral rinse; exacerbations; HR/K if high exposure",
+      "brand_examples_india": [
+        "Foracort"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "GINA_2026",
+        "GOLD_2026",
+        "DAILYMED"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "budesonide_inhaled",
+      "generic": "Budesonide inhaled",
+      "class": "ICS",
+      "common_form": "Inhaler/respules",
+      "route": "Inhalation",
+      "dose_example": "Dose is age/device/severity specific; verify current asthma plan/product label.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Asthma controller"
+      ],
+      "key_contraindications": [
+        "Hypersensitivity; active severe infection requires review"
+      ],
+      "key_interactions": [
+        "Strong CYP3A4 inhibitors"
+      ],
+      "common_adrs": [
+        "Oral candidiasis; dysphonia; cough"
+      ],
+      "renal": "No usual adjustment.",
+      "hepatic": "Caution hepatic impairment.",
+      "pregnancy_lactation": "Verify pregnancy/lactation context.",
+      "monitoring": "Technique; oral rinse; exacerbations",
+      "brand_examples_india": [
+        "Budecort"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "GINA_2026",
+        "DAILYMED"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "tiotropium",
+      "generic": "Tiotropium",
+      "class": "LAMA",
+      "common_form": "Inhaler",
+      "route": "Inhalation",
+      "dose_example": "Device-specific once-daily maintenance dosing; verify device strength.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "COPD maintenance",
+        "Add-on asthma in selected patients"
+      ],
+      "key_contraindications": [
+        "Hypersensitivity to tiotropium/ipratropium-like agents"
+      ],
+      "key_interactions": [
+        "Other anticholinergics"
+      ],
+      "common_adrs": [
+        "Dry mouth; urinary retention; glaucoma symptoms if eye exposure"
+      ],
+      "renal": "Caution moderate-severe renal impairment.",
+      "hepatic": "No major common adjustment.",
+      "pregnancy_lactation": "Verify pregnancy/lactation context.",
+      "monitoring": "Urinary/glaucoma symptoms; technique",
+      "brand_examples_india": [
+        "Tiova"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "GOLD_2026",
+        "GINA_2026",
+        "DAILYMED"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "ipratropium",
+      "generic": "Ipratropium inhaled",
+      "class": "SAMA",
+      "common_form": "Inhaler/nebulization",
+      "route": "Inhalation",
+      "dose_example": "Device-specific; commonly used in COPD and as adjunct in acute severe asthma protocols.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Bronchospasm in COPD",
+        "Adjunct acute severe asthma"
+      ],
+      "key_contraindications": [
+        "Hypersensitivity"
+      ],
+      "key_interactions": [
+        "Other anticholinergics"
+      ],
+      "common_adrs": [
+        "Dry mouth; urinary retention; blurred vision/glaucoma if eye exposure"
+      ],
+      "renal": "No common adjustment.",
+      "hepatic": "No common adjustment.",
+      "pregnancy_lactation": "Verify pregnancy/lactation context.",
+      "monitoring": "Response; anticholinergic effects",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "GOLD_2026",
+        "GINA_2026",
+        "DAILYMED"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "pantoprazole",
+      "generic": "Pantoprazole",
+      "class": "PPI",
+      "common_form": "Tablet/injection",
+      "route": "Oral/IV",
+      "dose_example": "40 mg once daily is a common adult regimen for several acid-peptic indications; duration depends on diagnosis.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "GERD",
+        "Erosive esophagitis",
+        "Acid-peptic disorders"
+      ],
+      "key_contraindications": [
+        "PPI hypersensitivity; product-specific restrictions"
+      ],
+      "key_interactions": [
+        "Some antiretrovirals/pH-dependent drugs; high-dose methotrexate caution"
+      ],
+      "common_adrs": [
+        "Headache; diarrhea; long-term Mg/B12/fracture/infection associations"
+      ],
+      "renal": "No usual adjustment.",
+      "hepatic": "Adjust/reduce frequency may be needed severe hepatic impairment.",
+      "pregnancy_lactation": "Verify pregnancy/lactation context.",
+      "monitoring": "Need/duration; Mg/B12 if prolonged; alarm symptoms",
+      "brand_examples_india": [
+        "Pantocid"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF",
+        "ACG"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "ondansetron",
+      "generic": "Ondansetron",
+      "class": "5-HT3 antagonist",
+      "common_form": "Tablet/ODT/injection",
+      "route": "Oral/IV",
+      "dose_example": "4–8 mg per dose is common in adults depending on indication/route; follow label and QT-risk context.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Nausea/vomiting in selected causes"
+      ],
+      "key_contraindications": [
+        "Concomitant apomorphine; hypersensitivity"
+      ],
+      "key_interactions": [
+        "QT-prolonging drugs; serotonergic medicines"
+      ],
+      "common_adrs": [
+        "Headache; constipation; QT prolongation"
+      ],
+      "renal": "No major renal adjustment.",
+      "hepatic": "Daily dose may need limitation severe hepatic impairment.",
+      "pregnancy_lactation": "Verify pregnancy/lactation context.",
+      "monitoring": "QT/electrolytes; bowel function",
+      "brand_examples_india": [
+        "Ondem",
+        "Emeset"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "ors",
+      "generic": "Oral Rehydration Salts (ORS)",
+      "class": "Oral rehydration",
+      "common_form": "Sachet solution",
+      "route": "Oral",
+      "dose_example": "Use correctly prepared WHO-standard ORS; amount depends on losses/dehydration severity/age.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Diarrhea/vomiting dehydration when oral rehydration is safe"
+      ],
+      "key_contraindications": [
+        "Shock/severe dehydration needing IV; unsafe oral intake; obstruction"
+      ],
+      "key_interactions": [
+        "Incorrect concentration can be dangerous"
+      ],
+      "common_adrs": [
+        "Vomiting if too rapid; electrolyte disturbance if incorrectly prepared"
+      ],
+      "renal": "Individualize in severe renal failure/fluid restriction.",
+      "hepatic": "No specific adjustment.",
+      "pregnancy_lactation": "Generally appropriate when indicated.",
+      "monitoring": "Hydration; urine output; ongoing losses",
+      "brand_examples_india": [
+        "Electral"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "WHO_EML_2025",
+        "NLEM_2022"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "peg3350",
+      "generic": "Polyethylene glycol 3350",
+      "class": "Osmotic laxative",
+      "common_form": "Powder",
+      "route": "Oral",
+      "dose_example": "17 g once daily is a common adult product regimen; follow product instructions.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Constipation"
+      ],
+      "key_contraindications": [
+        "Known/suspected bowel obstruction; severe unexplained abdominal pain"
+      ],
+      "key_interactions": [
+        "May alter timing of oral medicines if diarrhea occurs"
+      ],
+      "common_adrs": [
+        "Bloating; diarrhea; cramps"
+      ],
+      "renal": "Usually minimal systemic absorption; assess fluids/electrolytes in advanced disease.",
+      "hepatic": "No typical adjustment.",
+      "pregnancy_lactation": "Verify pregnancy/lactation.",
+      "monitoring": "Bowel response; hydration",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "lactulose",
+      "generic": "Lactulose",
+      "class": "Osmotic laxative",
+      "common_form": "Solution",
+      "route": "Oral",
+      "dose_example": "15–30 mL daily or divided is a common adult constipation starting range; titrate to response.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Constipation",
+        "Hepatic encephalopathy under separate protocol"
+      ],
+      "key_contraindications": [
+        "Bowel obstruction; product-specific restrictions"
+      ],
+      "key_interactions": [
+        "Electrolyte disturbance if excessive diarrhea"
+      ],
+      "common_adrs": [
+        "Bloating; cramps; diarrhea"
+      ],
+      "renal": "No usual adjustment.",
+      "hepatic": "Hepatic-encephalopathy regimen differs.",
+      "pregnancy_lactation": "Verify pregnancy/lactation.",
+      "monitoring": "Bowel frequency; electrolytes if prolonged/high dose",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "psyllium",
+      "generic": "Psyllium (Ispaghula husk)",
+      "class": "Bulk-forming laxative",
+      "common_form": "Powder",
+      "route": "Oral",
+      "dose_example": "Product-specific; take with adequate water once to several times daily.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Constipation",
+        "Fiber supplementation"
+      ],
+      "key_contraindications": [
+        "Obstruction/stricture; swallowing difficulty; inadequate fluid"
+      ],
+      "key_interactions": [
+        "May reduce absorption of some oral medicines—separate administration"
+      ],
+      "common_adrs": [
+        "Bloating; gas; obstruction if insufficient fluid"
+      ],
+      "renal": "Fluid plan may need adjustment in renal/cardiac restriction.",
+      "hepatic": "No common adjustment.",
+      "pregnancy_lactation": "Verify context.",
+      "monitoring": "Hydration; swallowing/obstruction risk",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "loperamide",
+      "generic": "Loperamide",
+      "class": "Peripheral opioid antidiarrheal",
+      "common_form": "Capsule/tablet",
+      "route": "Oral",
+      "dose_example": "Common adult acute-diarrhea regimens start with 4 mg then 2 mg after loose stools within label max.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Acute non-bloody diarrhea in selected adults"
+      ],
+      "key_contraindications": [
+        "Bloody diarrhea/dysentery; acute colitis; invasive bacterial infection; product age limits"
+      ],
+      "key_interactions": [
+        "CYP/P-gp inhibitors at high doses; QT risk with misuse/overdose"
+      ],
+      "common_adrs": [
+        "Constipation; cramps; serious arrhythmia in overdose"
+      ],
+      "renal": "No routine adjustment but assess dehydration/renal illness.",
+      "hepatic": "Caution severe hepatic impairment.",
+      "pregnancy_lactation": "Verify pregnancy/lactation.",
+      "monitoring": "Red flags; hydration; stool pattern",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "sumatriptan",
+      "generic": "Sumatriptan",
+      "class": "Triptan",
+      "common_form": "Tablet/nasal/injection",
+      "route": "Oral/Nasal/SC",
+      "dose_example": "Oral 25–100 mg at migraine onset is label-dependent; repeat interval/max depends on product.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Acute migraine"
+      ],
+      "key_contraindications": [
+        "Ischemic CAD/vasospasm; stroke/TIA; uncontrolled HTN; specific migraine subtypes per label"
+      ],
+      "key_interactions": [
+        "Ergot/triptan interval restrictions; serotonergic drugs; MAO-A inhibitors"
+      ],
+      "common_adrs": [
+        "Paresthesia; pressure/tightness; dizziness; rare ischemic events"
+      ],
+      "renal": "Product-specific.",
+      "hepatic": "Severe hepatic impairment restrictions.",
+      "pregnancy_lactation": "Verify pregnancy/lactation; specialist review if needed.",
+      "monitoring": "CV risk; use frequency; medication-overuse headache",
+      "brand_examples_india": [
+        "Suminat"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "AAN"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "duloxetine",
+      "generic": "Duloxetine",
+      "class": "SNRI",
+      "common_form": "Capsule",
+      "route": "Oral",
+      "dose_example": "30 mg daily then 60 mg daily is a common neuropathic-pain titration pattern; indication-dependent.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Neuropathic pain",
+        "Chronic musculoskeletal pain",
+        "Depression/anxiety when diagnosed"
+      ],
+      "key_contraindications": [
+        "MAOI use; severe liver disease; narrow-angle glaucoma risk"
+      ],
+      "key_interactions": [
+        "MAOIs; serotonergic drugs; alcohol/hepatotoxic exposure"
+      ],
+      "common_adrs": [
+        "Nausea; dry mouth; somnolence; BP rise; withdrawal if abrupt"
+      ],
+      "renal": "Avoid severe renal impairment per label.",
+      "hepatic": "Avoid substantial hepatic impairment/chronic liver disease.",
+      "pregnancy_lactation": "Verify pregnancy/lactation.",
+      "monitoring": "BP; mood; liver risk; withdrawal plan",
+      "brand_examples_india": [
+        "Duzela"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "pregabalin",
+      "generic": "Pregabalin",
+      "class": "Gabapentinoid",
+      "common_form": "Capsule/tablet",
+      "route": "Oral",
+      "dose_example": "Often 25–75 mg once/twice daily initially depending on indication and renal function; titrate.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Neuropathic pain"
+      ],
+      "key_contraindications": [
+        "Hypersensitivity; caution edema/HF/sedation/respiratory risk"
+      ],
+      "key_interactions": [
+        "Opioids/CNS depressants"
+      ],
+      "common_adrs": [
+        "Dizziness; somnolence; edema; weight gain"
+      ],
+      "renal": "Mandatory renal dose adjustment.",
+      "hepatic": "No major hepatic metabolism.",
+      "pregnancy_lactation": "Verify pregnancy/lactation.",
+      "monitoring": "eGFR/CrCl; sedation/falls; edema; misuse risk",
+      "brand_examples_india": [
+        "Maxgalin"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "gabapentin",
+      "generic": "Gabapentin",
+      "class": "Gabapentinoid",
+      "common_form": "Capsule/tablet",
+      "route": "Oral",
+      "dose_example": "Common neuropathic-pain starts are low (e.g., 100–300 mg at night/1–3 times daily) then titrate; renal adjustment mandatory.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Neuropathic pain"
+      ],
+      "key_contraindications": [
+        "Hypersensitivity; caution sedation/respiratory compromise"
+      ],
+      "key_interactions": [
+        "Opioids/CNS depressants; antacids can reduce absorption"
+      ],
+      "common_adrs": [
+        "Dizziness; somnolence; ataxia; edema"
+      ],
+      "renal": "Mandatory renal dose adjustment.",
+      "hepatic": "No major hepatic metabolism.",
+      "pregnancy_lactation": "Verify pregnancy/lactation.",
+      "monitoring": "Renal function; sedation/falls; respiratory risk",
+      "brand_examples_india": [
+        "Gabapin"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "amlodipine",
+      "generic": "Amlodipine",
+      "class": "DHP calcium-channel blocker",
+      "common_form": "Tablet",
+      "route": "Oral",
+      "dose_example": "5 mg once daily is a common adult start; 2.5 mg may suit frail/older patients; 10 mg is a common maximum.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Hypertension",
+        "Angina"
+      ],
+      "key_contraindications": [
+        "Hypersensitivity; caution severe hypotension"
+      ],
+      "key_interactions": [
+        "CYP3A4 modifiers"
+      ],
+      "common_adrs": [
+        "Ankle edema; flushing; headache; palpitations"
+      ],
+      "renal": "No routine adjustment.",
+      "hepatic": "Start lower/titrate slowly in hepatic impairment.",
+      "pregnancy_lactation": "Verify pregnancy; alternatives may be preferred.",
+      "monitoring": "BP; edema",
+      "brand_examples_india": [
+        "Amlopres"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "ACC",
+        "AHA",
+        "NLEM_2022"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "telmisartan",
+      "generic": "Telmisartan",
+      "class": "ARB",
+      "common_form": "Tablet",
+      "route": "Oral",
+      "dose_example": "20–40 mg once daily is a common adult hypertension starting range; titrate.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Hypertension",
+        "Selected cardiorenal indications"
+      ],
+      "key_contraindications": [
+        "Pregnancy; aliskiren with diabetes; hypersensitivity"
+      ],
+      "key_interactions": [
+        "Potassium-raising drugs; NSAIDs; lithium; dual RAAS blockade"
+      ],
+      "common_adrs": [
+        "Hyperkalemia; creatinine change; dizziness"
+      ],
+      "renal": "Monitor eGFR/creatinine and K.",
+      "hepatic": "Caution hepatic/biliary disease.",
+      "pregnancy_lactation": "Contraindicated in pregnancy.",
+      "monitoring": "BP; creatinine/eGFR; K",
+      "brand_examples_india": [
+        "Telma"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "ACC",
+        "AHA",
+        "KDIGO_2024"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "ramipril",
+      "generic": "Ramipril",
+      "class": "ACE inhibitor",
+      "common_form": "Tablet/capsule",
+      "route": "Oral",
+      "dose_example": "2.5–5 mg once daily is a common start depending on indication/volume status; titrate.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Hypertension",
+        "HFrEF/post-MI/cardiorenal indications in selected patients"
+      ],
+      "key_contraindications": [
+        "Pregnancy; prior ACEi angioedema; sacubitril/valsartan restricted interval"
+      ],
+      "key_interactions": [
+        "Potassium-raising drugs; NSAIDs; lithium"
+      ],
+      "common_adrs": [
+        "Cough; hyperkalemia; creatinine rise; angioedema"
+      ],
+      "renal": "Lower start/monitor renal function and K.",
+      "hepatic": "Caution hepatic impairment.",
+      "pregnancy_lactation": "Contraindicated in pregnancy.",
+      "monitoring": "BP; creatinine/eGFR; K; cough/angioedema",
+      "brand_examples_india": [
+        "Cardace"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "ACC",
+        "AHA",
+        "KDIGO_2024"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "chlorthalidone",
+      "generic": "Chlorthalidone",
+      "class": "Thiazide-like diuretic",
+      "common_form": "Tablet",
+      "route": "Oral",
+      "dose_example": "12.5–25 mg once daily is a common adult hypertension range.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Hypertension"
+      ],
+      "key_contraindications": [
+        "Anuria; product-specific hypersensitivity"
+      ],
+      "key_interactions": [
+        "Lithium; digoxin via electrolytes; NSAIDs"
+      ],
+      "common_adrs": [
+        "Hyponatremia; hypokalemia; hyperuricemia; glucose changes"
+      ],
+      "renal": "Monitor renal function/electrolytes.",
+      "hepatic": "Caution hepatic disease/electrolyte shifts.",
+      "pregnancy_lactation": "Verify pregnancy.",
+      "monitoring": "Na/K/creatinine; uric acid; BP",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "ACC",
+        "AHA"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "spironolactone",
+      "generic": "Spironolactone",
+      "class": "MRA",
+      "common_form": "Tablet",
+      "route": "Oral",
+      "dose_example": "25 mg once daily is a common start for several adult indications; eligibility depends on potassium/kidney function.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Resistant hypertension",
+        "HFrEF",
+        "Selected edema/ascites"
+      ],
+      "key_contraindications": [
+        "Hyperkalemia; anuria/acute renal insufficiency; Addison disease"
+      ],
+      "key_interactions": [
+        "ACEi/ARB; K supplements; trimethoprim; NSAIDs"
+      ],
+      "common_adrs": [
+        "Hyperkalemia; gynecomastia; renal change"
+      ],
+      "renal": "Only with kidney/K eligibility and close monitoring.",
+      "hepatic": "Context-specific in liver disease.",
+      "pregnancy_lactation": "Verify pregnancy/lactation.",
+      "monitoring": "K/creatinine after start/titration",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "ACC",
+        "KDIGO_2024"
+      ],
+      "notes": "",
+      "high_alert": true
+    },
+    {
+      "id": "metformin",
+      "generic": "Metformin",
+      "class": "Biguanide",
+      "common_form": "Tablet",
+      "route": "Oral",
+      "dose_example": "500 mg once/twice daily with meals is a common adult start; titrate to tolerance/response.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Type 2 diabetes"
+      ],
+      "key_contraindications": [
+        "eGFR <30; metabolic acidosis; acute hypoxic/critical illness contexts"
+      ],
+      "key_interactions": [
+        "Iodinated contrast in selected renal-risk settings; alcohol excess"
+      ],
+      "common_adrs": [
+        "GI upset; B12 deficiency; rare lactic acidosis"
+      ],
+      "renal": "Do not use eGFR <30; other thresholds require review.",
+      "hepatic": "Caution significant hepatic impairment.",
+      "pregnancy_lactation": "Verify pregnancy context.",
+      "monitoring": "eGFR; B12 long-term; glycemia",
+      "brand_examples_india": [
+        "Glycomet"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "ADA_2026",
+        "KDIGO_2024",
+        "NLEM_2022"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "empagliflozin",
+      "generic": "Empagliflozin",
+      "class": "SGLT2 inhibitor",
+      "common_form": "Tablet",
+      "route": "Oral",
+      "dose_example": "10 mg once daily is a common adult start; eGFR thresholds differ by indication.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Type 2 diabetes",
+        "CKD/HF cardiorenal protection in eligible patients"
+      ],
+      "key_contraindications": [
+        "Dialysis; product-specific eGFR limits"
+      ],
+      "key_interactions": [
+        "Diuretics/volume depletion; insulin/sulfonylureas; fasting/acute illness ketoacidosis risk"
+      ],
+      "common_adrs": [
+        "Genital mycotic infection; volume depletion; rare euglycemic DKA"
+      ],
+      "renal": "Eligibility depends on eGFR/indication.",
+      "hepatic": "No usual major adjustment.",
+      "pregnancy_lactation": "Avoid pregnancy; verify lactation.",
+      "monitoring": "eGFR; volume; infection; sick-day/ketone rules",
+      "brand_examples_india": [
+        "Jardiance"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "ADA_2026",
+        "KDIGO_2024"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "dapagliflozin",
+      "generic": "Dapagliflozin",
+      "class": "SGLT2 inhibitor",
+      "common_form": "Tablet",
+      "route": "Oral",
+      "dose_example": "10 mg once daily is commonly used for cardiorenal indications; glycemic thresholds depend on eGFR.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Type 2 diabetes",
+        "CKD/HF in eligible patients"
+      ],
+      "key_contraindications": [
+        "Dialysis; product-specific eGFR limits"
+      ],
+      "key_interactions": [
+        "Diuretics/volume depletion; insulin/sulfonylureas; acute illness/fasting"
+      ],
+      "common_adrs": [
+        "Genital mycotic infection; volume depletion; rare euglycemic DKA"
+      ],
+      "renal": "Use eGFR/indication-specific thresholds.",
+      "hepatic": "No usual major adjustment.",
+      "pregnancy_lactation": "Avoid pregnancy; verify lactation.",
+      "monitoring": "eGFR; volume; infection; sick-day rules",
+      "brand_examples_india": [
+        "Forxiga"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "ADA_2026",
+        "KDIGO_2024"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "atorvastatin",
+      "generic": "Atorvastatin",
+      "class": "Statin",
+      "common_form": "Tablet",
+      "route": "Oral",
+      "dose_example": "10–20 mg daily is common moderate-intensity; 40–80 mg high-intensity when indicated.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Dyslipidemia",
+        "ASCVD risk reduction"
+      ],
+      "key_contraindications": [
+        "Active severe liver disease; pregnancy per current guidance"
+      ],
+      "key_interactions": [
+        "Strong CYP3A4 inhibitors; some antivirals/macrolides; interacting lipid drugs"
+      ],
+      "common_adrs": [
+        "Myalgia; transaminase elevation; rare rhabdomyolysis"
+      ],
+      "renal": "No usual adjustment.",
+      "hepatic": "Avoid active severe liver disease.",
+      "pregnancy_lactation": "Avoid pregnancy; verify lactation.",
+      "monitoring": "Lipids; muscle symptoms; liver tests when indicated",
+      "brand_examples_india": [
+        "Atorva"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "ACC",
+        "AHA",
+        "NLEM_2022"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "rosuvastatin",
+      "generic": "Rosuvastatin",
+      "class": "Statin",
+      "common_form": "Tablet",
+      "route": "Oral",
+      "dose_example": "5–10 mg daily common moderate-intensity; 20–40 mg high-intensity when indicated.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Dyslipidemia",
+        "ASCVD risk reduction"
+      ],
+      "key_contraindications": [
+        "Active severe liver disease; pregnancy"
+      ],
+      "key_interactions": [
+        "Cyclosporine; some antivirals; gemfibrozil; antacids timing"
+      ],
+      "common_adrs": [
+        "Myalgia; transaminase elevation; rare rhabdomyolysis"
+      ],
+      "renal": "Lower start/max in severe renal impairment.",
+      "hepatic": "Avoid active severe liver disease.",
+      "pregnancy_lactation": "Avoid pregnancy.",
+      "monitoring": "Lipids; muscle symptoms; renal/hepatic context",
+      "brand_examples_india": [
+        "Rosuvas"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "ACC",
+        "AHA"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "levothyroxine",
+      "generic": "Levothyroxine",
+      "class": "Thyroid hormone",
+      "common_form": "Tablet",
+      "route": "Oral",
+      "dose_example": "Individualized by age, weight, cardiac status, pregnancy and TSH; no fixed auto-dose from symptoms.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Confirmed hypothyroidism"
+      ],
+      "key_contraindications": [
+        "Untreated adrenal insufficiency; acute MI/thyrotoxicosis contexts require specialist care"
+      ],
+      "key_interactions": [
+        "Iron/calcium/antacids reduce absorption; many medicines affect thyroid levels"
+      ],
+      "common_adrs": [
+        "Over-replacement: palpitations, tremor, bone loss"
+      ],
+      "renal": "No direct routine adjustment.",
+      "hepatic": "No direct routine adjustment.",
+      "pregnancy_lactation": "Pregnancy often needs dose change—TSH-guided.",
+      "monitoring": "TSH/free T4; adherence/timing",
+      "brand_examples_india": [
+        "Thyronorm"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "ferrous_sulfate",
+      "generic": "Ferrous sulfate (elemental iron)",
+      "class": "Oral iron",
+      "common_form": "Tablet/syrup",
+      "route": "Oral",
+      "dose_example": "Common replacement supplies ~40–100 mg elemental iron daily or alternate days depending tolerance/protocol.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Confirmed iron deficiency"
+      ],
+      "key_contraindications": [
+        "Iron overload; anemia without iron-deficiency confirmation"
+      ],
+      "key_interactions": [
+        "Separate from levothyroxine, tetracyclines, quinolones; antacids reduce absorption"
+      ],
+      "common_adrs": [
+        "Nausea; constipation; dark stool"
+      ],
+      "renal": "No routine adjustment; investigate CKD/blood loss.",
+      "hepatic": "No routine adjustment.",
+      "pregnancy_lactation": "Often used when indicated; verify regimen.",
+      "monitoring": "Hb/ferritin/iron indices; response/cause",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "WHO_EML_2025",
+        "NLEM_2022",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "cholecalciferol",
+      "generic": "Cholecalciferol (Vitamin D3)",
+      "class": "Vitamin D",
+      "common_form": "Tablet/capsule/sachet",
+      "route": "Oral",
+      "dose_example": "Replacement depends on 25-OH vitamin D, calcium, renal status and malabsorption; no automatic high-dose loading regimen.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Vitamin D deficiency"
+      ],
+      "key_contraindications": [
+        "Hypercalcemia; vitamin D toxicity; selected granulomatous disease"
+      ],
+      "key_interactions": [
+        "Thiazides may raise hypercalcemia risk; digoxin risk if hypercalcemia"
+      ],
+      "common_adrs": [
+        "Hypercalcemia; nephrolithiasis with excess"
+      ],
+      "renal": "CKD-MBD may require specialist plan.",
+      "hepatic": "No routine adjustment.",
+      "pregnancy_lactation": "Verify pregnancy dose/context.",
+      "monitoring": "25-OH D; calcium; renal stone risk",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "NICE_BNF",
+        "KDIGO_2024"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "amoxicillin",
+      "generic": "Amoxicillin",
+      "class": "Aminopenicillin",
+      "common_form": "Capsule/tablet/suspension",
+      "route": "Oral",
+      "dose_example": "Indication-specific; use condition card/local guideline.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Susceptible bacterial infections"
+      ],
+      "key_contraindications": [
+        "Serious penicillin allergy"
+      ],
+      "key_interactions": [
+        "Warfarin; methotrexate; allopurinol rash risk"
+      ],
+      "common_adrs": [
+        "Rash; diarrhea; allergy"
+      ],
+      "renal": "Dose/interval adjustment may be required.",
+      "hepatic": "No major common adjustment.",
+      "pregnancy_lactation": "Generally usable when indicated; verify.",
+      "monitoring": "Allergy; renal function; response",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "WHO_AWARE",
+        "DAILYMED",
+        "NLEM_2022"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "amox_clav",
+      "generic": "Amoxicillin + Clavulanate",
+      "class": "Beta-lactam/BLI",
+      "common_form": "Tablet/suspension/injection",
+      "route": "Oral/IV",
+      "dose_example": "Indication/formulation-specific; use condition card.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Selected bacterial infections"
+      ],
+      "key_contraindications": [
+        "Serious penicillin allergy; prior drug-related cholestatic jaundice/hepatic dysfunction"
+      ],
+      "key_interactions": [
+        "Warfarin; methotrexate; allopurinol"
+      ],
+      "common_adrs": [
+        "Diarrhea; rash; allergy; cholestatic injury"
+      ],
+      "renal": "Adjust by renal function/formulation.",
+      "hepatic": "Caution hepatic history.",
+      "pregnancy_lactation": "Verify pregnancy/lactation.",
+      "monitoring": "Allergy; liver symptoms; renal function",
+      "brand_examples_india": [
+        "Augmentin"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "WHO_AWARE",
+        "DAILYMED"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "azithromycin",
+      "generic": "Azithromycin",
+      "class": "Macrolide",
+      "common_form": "Tablet/suspension",
+      "route": "Oral",
+      "dose_example": "Indication-specific; common adult regimens vary by infection.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Selected bacterial infections"
+      ],
+      "key_contraindications": [
+        "Macrolide hypersensitivity; significant QT-risk contexts"
+      ],
+      "key_interactions": [
+        "QT-prolonging drugs; digoxin/warfarin interactions possible"
+      ],
+      "common_adrs": [
+        "GI upset; QT prolongation; liver injury"
+      ],
+      "renal": "No routine mild/moderate adjustment.",
+      "hepatic": "Avoid severe hepatic disease/caution.",
+      "pregnancy_lactation": "Verify pregnancy/lactation.",
+      "monitoring": "QT/liver risk; stewardship",
+      "brand_examples_india": [
+        "Azithral"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "WHO_AWARE",
+        "DAILYMED"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "doxycycline",
+      "generic": "Doxycycline",
+      "class": "Tetracycline",
+      "common_form": "Capsule/tablet",
+      "route": "Oral",
+      "dose_example": "100 mg twice daily is a common adult regimen for several infections; exact duration is diagnosis-specific.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Selected bacterial/rickettsial infections",
+        "Acne and selected conditions"
+      ],
+      "key_contraindications": [
+        "Tetracycline hypersensitivity; pregnancy/young children usually avoid unless guideline-specific exception"
+      ],
+      "key_interactions": [
+        "Antacids/iron/calcium reduce absorption; retinoids; warfarin"
+      ],
+      "common_adrs": [
+        "GI upset; esophagitis; photosensitivity"
+      ],
+      "renal": "No usual adjustment.",
+      "hepatic": "Caution severe hepatic impairment.",
+      "pregnancy_lactation": "Generally avoid pregnancy; verify exceptions.",
+      "monitoring": "Water/upright administration; photosensitivity; indication",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "WHO_AWARE",
+        "DAILYMED"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "nitrofurantoin",
+      "generic": "Nitrofurantoin",
+      "class": "Urinary antibacterial",
+      "common_form": "Capsule/tablet",
+      "route": "Oral",
+      "dose_example": "Common lower-UTI regimens are formulation-specific; see cystitis pathway.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Lower uncomplicated UTI in appropriate patients"
+      ],
+      "key_contraindications": [
+        "Renal function below current threshold; pyelonephritis; near-term pregnancy/neonates; prior hepatic reaction"
+      ],
+      "key_interactions": [
+        "Probenecid; selected antacids"
+      ],
+      "common_adrs": [
+        "Nausea; rare pulmonary/hepatic toxicity; neuropathy"
+      ],
+      "renal": "Renal threshold mandatory.",
+      "hepatic": "Avoid prior drug-related hepatic injury.",
+      "pregnancy_lactation": "Avoid near term; verify pregnancy/lactation.",
+      "monitoring": "Renal function; pulmonary/liver symptoms if prolonged",
+      "brand_examples_india": [
+        "Niftas"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "WHO_AWARE",
+        "DAILYMED"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "tmp_smx",
+      "generic": "Trimethoprim + Sulfamethoxazole",
+      "class": "Antifolate combination",
+      "common_form": "Tablet/suspension",
+      "route": "Oral",
+      "dose_example": "Indication-specific; susceptibility/local resistance matters.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Selected susceptible infections"
+      ],
+      "key_contraindications": [
+        "Sulfonamide/trimethoprim allergy; severe renal/hepatic disease without monitoring; selected pregnancy/neonatal contexts"
+      ],
+      "key_interactions": [
+        "Warfarin; ACEi/ARB/spironolactone hyperkalemia; methotrexate; phenytoin"
+      ],
+      "common_adrs": [
+        "Rash/SJS; hyperkalemia; cytopenias; renal effects"
+      ],
+      "renal": "Adjust renal impairment.",
+      "hepatic": "Avoid severe hepatic impairment.",
+      "pregnancy_lactation": "Avoid selected pregnancy periods; verify.",
+      "monitoring": "K/creatinine; CBC if prolonged; allergy",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "WHO_AWARE",
+        "DAILYMED"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "clotrimazole_topical",
+      "generic": "Clotrimazole topical",
+      "class": "Azole antifungal",
+      "common_form": "Cream/lotion",
+      "route": "Topical",
+      "dose_example": "Apply thin layer 2–3 times daily depending product/site; duration depends on diagnosis.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Tinea/cutaneous candidiasis"
+      ],
+      "key_contraindications": [
+        "Hypersensitivity"
+      ],
+      "key_interactions": [
+        "Minimal systemic interactions topically"
+      ],
+      "common_adrs": [
+        "Local irritation/burning"
+      ],
+      "renal": "No adjustment.",
+      "hepatic": "No adjustment.",
+      "pregnancy_lactation": "Low systemic exposure; verify pregnancy context.",
+      "monitoring": "Clinical response",
+      "brand_examples_india": [
+        "Candid"
+      ],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "terbinafine_topical",
+      "generic": "Terbinafine topical",
+      "class": "Allylamine antifungal",
+      "common_form": "Cream/gel",
+      "route": "Topical",
+      "dose_example": "Often once/twice daily for 1–2 weeks depending site/product.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Tinea corporis/cruris/pedis"
+      ],
+      "key_contraindications": [
+        "Hypersensitivity"
+      ],
+      "key_interactions": [
+        "Minimal systemic interactions"
+      ],
+      "common_adrs": [
+        "Local irritation"
+      ],
+      "renal": "No adjustment.",
+      "hepatic": "No adjustment.",
+      "pregnancy_lactation": "Verify pregnancy.",
+      "monitoring": "Clinical response",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "DAILYMED",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    },
+    {
+      "id": "permethrin_5",
+      "generic": "Permethrin 5%",
+      "class": "Topical scabicide",
+      "common_form": "Cream",
+      "route": "Topical",
+      "dose_example": "Apply for label-specified contact time, usually overnight; repeat timing per guideline.",
+      "dose_note": "Adult educational example only; verify indication-specific dose, current product label/guideline, age/weight, renal/hepatic function and pregnancy/lactation before prescribing.",
+      "indications": [
+        "Scabies"
+      ],
+      "key_contraindications": [
+        "Hypersensitivity to pyrethroids/pyrethrins/excipients"
+      ],
+      "key_interactions": [
+        "Minimal systemic interactions"
+      ],
+      "common_adrs": [
+        "Burning/itching/irritation"
+      ],
+      "renal": "No adjustment.",
+      "hepatic": "No adjustment.",
+      "pregnancy_lactation": "Commonly used when indicated; verify pregnancy/infant context.",
+      "monitoring": "Treat contacts/environment; persistent itch",
+      "brand_examples_india": [],
+      "brand_note": "Search aliases only—not a brand/manufacturer quality ranking or recommendation. Verify current pack/composition/manufacturer.",
+      "sources": [
+        "WHO_EML_2025",
+        "NICE_BNF"
+      ],
+      "notes": "",
+      "high_alert": false
+    }
+  ],
+  "conditions": [
+    {
+      "id": "acute_pain_fever",
+      "name": "Acute pain / fever (cause assessed)",
+      "system": "General",
+      "aliases": [
+        "fever",
+        "body ache",
+        "pain",
+        "myalgia"
+      ],
+      "diagnostic_note": "Treat the cause; symptomatic medicine choice depends on age, organ function and red flags.",
+      "red_flags": [
+        "Sepsis/shock",
+        "Meningism",
+        "Severe dehydration",
+        "Acute abdomen",
+        "Chest pain/neurologic deficit",
+        "Persistent unexplained fever"
+      ],
+      "next_examination": [
+        "Vitals",
+        "Hydration",
+        "Source-focused exam"
+      ],
+      "suggested_investigations": [
+        "Cause-directed tests rather than routine broad panels"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "paracetamol",
+          "role": "Common symptomatic option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "Mild–moderate pain/fever without contraindication",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "ibuprofen",
+          "role": "Anti-inflammatory alternative",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "Inflammatory pain with low GI/renal/bleeding risk",
+          "avoid_or_caution": "CKD/AKI, ulcer/bleeding, anticoagulants, NSAID-sensitive asthma, later pregnancy",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Hydration/rest when appropriate"
+      ],
+      "sources": [
+        "WHO_EML_2025",
+        "NICE_BNF"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "allergic_rhinitis",
+      "name": "Allergic rhinitis",
+      "system": "ENT/Allergy",
+      "aliases": [
+        "sneezing",
+        "runny nose",
+        "nasal itching",
+        "allergic rhinitis"
+      ],
+      "diagnostic_note": "Clinical diagnosis after excluding infection/structural red flags.",
+      "red_flags": [
+        "Unilateral obstruction/bleeding",
+        "Severe facial pain/fever",
+        "Anaphylaxis"
+      ],
+      "next_examination": [
+        "Nasal/eye exam",
+        "Chest if wheeze"
+      ],
+      "suggested_investigations": [
+        "Usually none; allergy testing if it changes management"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "fluticasone_nasal",
+          "role": "Preferred controller for persistent symptoms",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "cetirizine",
+          "role": "Oral antihistamine option",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "fexofenadine",
+          "role": "Less-sedating option",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Trigger avoidance",
+        "Saline irrigation"
+      ],
+      "sources": [
+        "NICE",
+        "DAILYMED"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "asthma",
+      "name": "Asthma — confirmed / high clinical probability",
+      "system": "Respiratory",
+      "aliases": [
+        "asthma",
+        "recurrent wheeze",
+        "variable breathlessness"
+      ],
+      "diagnostic_note": "Confirm variable expiratory airflow limitation where feasible. GINA 2026 uses ICS-containing treatment rather than SABA-only long-term care.",
+      "red_flags": [
+        "Severe breathlessness",
+        "Silent chest",
+        "Cyanosis",
+        "Altered consciousness",
+        "Low SpO₂",
+        "Markedly reduced PEF"
+      ],
+      "next_examination": [
+        "SpO₂/RR",
+        "Wheeze/air entry",
+        "PEF",
+        "Inhaler technique"
+      ],
+      "suggested_investigations": [
+        "Spirometry with bronchodilator response",
+        "Eosinophils/FeNO selected cases"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "budesonide_formoterol",
+          "role": "Preferred ICS-formoterol strategy in eligible patients",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "Exact regimen is inhaler/strength/GINA-track specific.",
+          "sources": []
+        },
+        {
+          "drug_id": "budesonide_inhaled",
+          "role": "ICS controller option",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "salbutamol",
+          "role": "Reliever option—not sole long-term controller",
+          "priority": "amber",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Trigger control",
+        "Written action plan",
+        "Inhaler technique"
+      ],
+      "sources": [
+        "GINA_2026"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "copd",
+      "name": "COPD — confirmed",
+      "system": "Respiratory",
+      "aliases": [
+        "copd",
+        "chronic bronchitis",
+        "emphysema"
+      ],
+      "diagnostic_note": "Diagnosis requires post-bronchodilator spirometry. Maintenance treatment depends on symptoms/exacerbations/eosinophils/comorbidity.",
+      "red_flags": [
+        "Acute respiratory failure",
+        "Severe exacerbation",
+        "New chest pain",
+        "Hemoptysis"
+      ],
+      "next_examination": [
+        "SpO₂/RR",
+        "Chest exam",
+        "Exacerbation history"
+      ],
+      "suggested_investigations": [
+        "Spirometry",
+        "Eosinophils",
+        "CXR if indicated"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "tiotropium",
+          "role": "LAMA maintenance option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "budesonide_formoterol",
+          "role": "ICS/LABA only in selected phenotypes",
+          "priority": "amber",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "salbutamol",
+          "role": "Rescue option",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Smoking cessation",
+        "Vaccines",
+        "Pulmonary rehabilitation"
+      ],
+      "sources": [
+        "GOLD_2026"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "gerd",
+      "name": "GERD",
+      "system": "GI",
+      "aliases": [
+        "acid reflux",
+        "heartburn",
+        "gerd",
+        "reflux"
+      ],
+      "diagnostic_note": "Typical heartburn/regurgitation can support empiric therapy; alarm features require investigation.",
+      "red_flags": [
+        "Dysphagia/odynophagia",
+        "GI bleed",
+        "Weight loss",
+        "Persistent vomiting",
+        "Anemia",
+        "Chest pain needing cardiac exclusion"
+      ],
+      "next_examination": [
+        "Abdominal exam",
+        "Cardiopulmonary if chest symptoms"
+      ],
+      "suggested_investigations": [
+        "H. pylori testing/endoscopy depending phenotype/alarm features"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "pantoprazole",
+          "role": "PPI option",
+          "priority": "green",
+          "regimen_example": "40 mg once daily is a common adult example; duration diagnosis-specific.",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Meal timing/weight/trigger review",
+        "Head-of-bed elevation for nocturnal reflux"
+      ],
+      "sources": [
+        "ACG",
+        "NICE",
+        "DAILYMED"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "nausea_vomiting",
+      "name": "Nausea / vomiting — cause assessed",
+      "system": "GI",
+      "aliases": [
+        "nausea",
+        "vomiting",
+        "emesis"
+      ],
+      "diagnostic_note": "Antiemetic choice depends on cause, QT risk, pregnancy, obstruction and neurologic/abdominal red flags.",
+      "red_flags": [
+        "Hematemesis",
+        "Severe dehydration/shock",
+        "Peritonism",
+        "Severe headache/neurologic deficit",
+        "Obstruction",
+        "Hyperemesis"
+      ],
+      "next_examination": [
+        "Hydration",
+        "Abdominal/neuro exam",
+        "Orthostatic vitals"
+      ],
+      "suggested_investigations": [
+        "Electrolytes/renal",
+        "Pregnancy test",
+        "Cause-directed imaging/tests"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "ondansetron",
+          "role": "Antiemetic option",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "ors",
+          "role": "Rehydration support",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Small frequent fluids",
+        "Treat cause"
+      ],
+      "sources": [
+        "DAILYMED",
+        "NICE"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "constipation",
+      "name": "Constipation — uncomplicated",
+      "system": "GI",
+      "aliases": [
+        "constipation",
+        "hard stool",
+        "straining"
+      ],
+      "diagnostic_note": "Exclude obstruction, severe secondary causes and medication contributors.",
+      "red_flags": [
+        "Obstruction symptoms",
+        "Severe pain/distension",
+        "Vomiting",
+        "Rectal bleeding",
+        "Weight loss/new high-risk onset"
+      ],
+      "next_examination": [
+        "Abdominal/rectal exam as indicated",
+        "Medication review"
+      ],
+      "suggested_investigations": [
+        "CBC/TSH/calcium/colonoscopy only when indicated"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "psyllium",
+          "role": "Fiber/bulk option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "peg3350",
+          "role": "Osmotic option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "lactulose",
+          "role": "Osmotic alternative",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Fluids/fiber/activity/bowel routine"
+      ],
+      "sources": [
+        "NICE_BNF",
+        "DAILYMED"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "acute_diarrhea",
+      "name": "Acute non-bloody diarrhea",
+      "system": "GI/Infectious",
+      "aliases": [
+        "diarrhea",
+        "loose stools"
+      ],
+      "diagnostic_note": "Most uncomplicated watery diarrhea needs rehydration rather than antibiotics.",
+      "red_flags": [
+        "Blood in stool",
+        "High fever/toxicity",
+        "Severe dehydration",
+        "Persistent course",
+        "Immunocompromise",
+        "Severe pain"
+      ],
+      "next_examination": [
+        "Hydration",
+        "Abdominal exam"
+      ],
+      "suggested_investigations": [
+        "Stool testing only when severity/risk/duration indicates"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "ors",
+          "role": "First-line supportive therapy",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "loperamide",
+          "role": "Selected adult symptomatic option",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "Dysentery, high fever/invasive infection, severe colitis",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Continue nutrition",
+        "Infection-control advice"
+      ],
+      "sources": [
+        "WHO_EML_2025",
+        "NICE_BNF"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "migraine",
+      "name": "Migraine — clinician diagnosed",
+      "system": "Neurology",
+      "aliases": [
+        "migraine",
+        "throbbing headache",
+        "headache with aura"
+      ],
+      "diagnostic_note": "Confirm migraine phenotype and exclude secondary headache red flags before triptan use.",
+      "red_flags": [
+        "Thunderclap",
+        "Focal deficit",
+        "Meningism/fever",
+        "Papilledema",
+        "Pregnancy/postpartum severe headache",
+        "New cancer/immunocompromise"
+      ],
+      "next_examination": [
+        "Neuro exam",
+        "BP",
+        "Fundoscopy if indicated"
+      ],
+      "suggested_investigations": [
+        "Imaging only for red flags/atypical features"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "paracetamol",
+          "role": "Simple analgesic option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "ibuprofen",
+          "role": "NSAID option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "sumatriptan",
+          "role": "Migraine-specific option",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "CAD/stroke/uncontrolled HTN",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Hydration/regular sleep/meals",
+        "Headache diary",
+        "Avoid medication overuse"
+      ],
+      "sources": [
+        "AAN",
+        "NICE",
+        "DAILYMED"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "neuropathic_pain",
+      "name": "Neuropathic pain — diagnosed/localized",
+      "system": "Neurology/MSK",
+      "aliases": [
+        "neuropathic pain",
+        "burning pain",
+        "electric pain",
+        "allodynia",
+        "radicular pain"
+      ],
+      "diagnostic_note": "Confirm neuropathic mechanism and treat underlying cause; selection depends on comorbidity, renal function and sedation/fall risk.",
+      "red_flags": [
+        "Progressive motor deficit",
+        "Cauda equina",
+        "Cord compression",
+        "Cancer/infection red flags"
+      ],
+      "next_examination": [
+        "Motor/reflex/sensory localization",
+        "Gait"
+      ],
+      "suggested_investigations": [
+        "Cause-directed glucose/B12/TSH/imaging/NCS-EMG"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "duloxetine",
+          "role": "First-line-class option in many settings",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "pregabalin",
+          "role": "Renal-dose-dependent option",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "gabapentin",
+          "role": "Alternative",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Rehabilitation/cause-specific management"
+      ],
+      "sources": [
+        "NICE",
+        "DAILYMED"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "hypertension",
+      "name": "Hypertension — confirmed",
+      "system": "Cardiovascular",
+      "aliases": [
+        "hypertension",
+        "high blood pressure"
+      ],
+      "diagnostic_note": "Confirm with repeated standardized measurements/home or ambulatory monitoring when appropriate.",
+      "red_flags": [
+        "Hypertensive emergency with acute target-organ injury"
+      ],
+      "next_examination": [
+        "Standard BP",
+        "CV/renal exam"
+      ],
+      "suggested_investigations": [
+        "Creatinine/eGFR",
+        "Electrolytes",
+        "Urinalysis/UACR",
+        "Glucose/HbA1c",
+        "Lipids",
+        "ECG"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "amlodipine",
+          "role": "Common first-line-class option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "telmisartan",
+          "role": "ARB option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "Pregnancy",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "ramipril",
+          "role": "ACEi option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "Pregnancy/angioedema",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "chlorthalidone",
+          "role": "Thiazide-like option",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "spironolactone",
+          "role": "Resistant-HTN add-on",
+          "priority": "amber",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "Hyperkalemia/advanced renal dysfunction",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Salt reduction",
+        "Weight/activity",
+        "Alcohol/tobacco review"
+      ],
+      "sources": [
+        "ACC",
+        "AHA",
+        "KDIGO_2024"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "type2_diabetes",
+      "name": "Type 2 diabetes — confirmed",
+      "system": "Endocrine",
+      "aliases": [
+        "type 2 diabetes",
+        "diabetes mellitus",
+        "t2dm"
+      ],
+      "diagnostic_note": "Individualize by HbA1c, ASCVD/HF/CKD, weight, hypoglycemia risk, cost and patient preference.",
+      "red_flags": [
+        "DKA/HHS",
+        "Severe hypoglycemia",
+        "Acute infection/dehydration"
+      ],
+      "next_examination": [
+        "Weight/BP/feet"
+      ],
+      "suggested_investigations": [
+        "HbA1c",
+        "eGFR/UACR",
+        "Lipids",
+        "Eye/foot screening"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "metformin",
+          "role": "Common foundational option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "empagliflozin",
+          "role": "Cardiorenal-benefit option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "dapagliflozin",
+          "role": "Cardiorenal-benefit option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Nutrition/activity",
+        "Hypoglycemia education",
+        "Sick-day rules"
+      ],
+      "sources": [
+        "ADA_2026",
+        "KDIGO_2024"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "dyslipidemia",
+      "name": "Dyslipidemia / ASCVD risk",
+      "system": "Cardiovascular/Metabolic",
+      "aliases": [
+        "high cholesterol",
+        "dyslipidemia",
+        "hyperlipidemia"
+      ],
+      "diagnostic_note": "Statin intensity is driven by ASCVD status/LDL-C/total risk rather than symptom.",
+      "red_flags": [
+        "Acute liver failure",
+        "Pregnancy",
+        "Severe unexplained muscle symptoms"
+      ],
+      "next_examination": [
+        "CV risk assessment"
+      ],
+      "suggested_investigations": [
+        "Lipid profile",
+        "ALT baseline when appropriate"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "atorvastatin",
+          "role": "Moderate/high-intensity statin option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "rosuvastatin",
+          "role": "Moderate/high-intensity statin option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Diet/activity/tobacco cessation"
+      ],
+      "sources": [
+        "ACC",
+        "AHA",
+        "DAILYMED"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "hypothyroidism",
+      "name": "Primary hypothyroidism — confirmed",
+      "system": "Endocrine",
+      "aliases": [
+        "hypothyroidism",
+        "high tsh"
+      ],
+      "diagnostic_note": "Do not dose from symptoms alone; TSH/free T4 plus age/weight/cardiac/pregnancy context determine therapy.",
+      "red_flags": [
+        "Myxedema coma",
+        "Severe cardiac disease/new symptoms"
+      ],
+      "next_examination": [
+        "Thyroid exam",
+        "Pulse",
+        "Edema/reflexes"
+      ],
+      "suggested_investigations": [
+        "TSH/free T4",
+        "Antibodies if indicated"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "levothyroxine",
+          "role": "Replacement therapy",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "No fixed auto-dose: clinician calculation required.",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Consistent empty-stomach administration; separate from iron/calcium"
+      ],
+      "sources": [
+        "NICE_BNF",
+        "DAILYMED"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "iron_deficiency",
+      "name": "Iron deficiency / iron-deficiency anemia — confirmed",
+      "system": "Hematology",
+      "aliases": [
+        "iron deficiency",
+        "low ferritin",
+        "iron deficiency anemia"
+      ],
+      "diagnostic_note": "Confirm deficiency and investigate cause rather than treating Hb alone.",
+      "red_flags": [
+        "Active bleeding/hemodynamic instability",
+        "Severe symptomatic anemia"
+      ],
+      "next_examination": [
+        "Pallor",
+        "Bleeding-source exam as indicated"
+      ],
+      "suggested_investigations": [
+        "CBC indices",
+        "Ferritin/iron studies",
+        "Source evaluation"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "ferrous_sulfate",
+          "role": "Oral elemental iron replacement",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Dietary iron counseling",
+        "Investigate source"
+      ],
+      "sources": [
+        "WHO_EML_2025",
+        "NICE_BNF"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "vitamin_d_deficiency",
+      "name": "Vitamin D deficiency — lab confirmed",
+      "system": "Metabolic/Bone",
+      "aliases": [
+        "vitamin d deficiency",
+        "low vitamin d"
+      ],
+      "diagnostic_note": "Dose depends on 25-OH D, calcium, renal status and malabsorption risk.",
+      "red_flags": [
+        "Hypercalcemia symptoms",
+        "Advanced CKD/CKD-MBD",
+        "Granulomatous disease"
+      ],
+      "next_examination": [
+        "Bone/muscle exam if symptomatic"
+      ],
+      "suggested_investigations": [
+        "25-OH D",
+        "Calcium ± phosphate/PTH"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "cholecalciferol",
+          "role": "Replacement option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "No automatic high-dose loading regimen.",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Diet/sun-exposure counseling"
+      ],
+      "sources": [
+        "KDIGO_2024",
+        "NICE_BNF"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "uncomplicated_cystitis",
+      "name": "Acute uncomplicated cystitis — appropriate patient",
+      "system": "Renal/Urology/Infectious",
+      "aliases": [
+        "cystitis",
+        "uncomplicated uti",
+        "dysuria frequency"
+      ],
+      "diagnostic_note": "Use only when lower UTI is appropriate and pyelonephritis/complicated UTI/pregnancy are excluded.",
+      "red_flags": [
+        "Fever/flank pain/sepsis",
+        "Pregnancy",
+        "Male/structural disease",
+        "Recurrent complicated infection"
+      ],
+      "next_examination": [
+        "Vitals",
+        "CVA tenderness",
+        "Abdomen"
+      ],
+      "suggested_investigations": [
+        "Urinalysis",
+        "Culture when indicated"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "nitrofurantoin",
+          "role": "Common lower-UTI option",
+          "priority": "green",
+          "regimen_example": "100 mg modified-release twice daily for 5 days is used in many adult guidelines/products; verify local formulation/renal threshold.",
+          "when_to_consider": "",
+          "avoid_or_caution": "Pyelonephritis, low eGFR, near-term pregnancy",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "tmp_smx",
+          "role": "Alternative only where susceptibility supports",
+          "priority": "amber",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "Sulfa allergy, hyperkalemia-prone combinations, pregnancy-specific risks",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Hydration",
+        "Safety-net fever/flank pain"
+      ],
+      "sources": [
+        "WHO_AWARE",
+        "NICE",
+        "DAILYMED"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "bacterial_sinusitis",
+      "name": "Acute bacterial rhinosinusitis — diagnosed",
+      "system": "ENT/Infectious",
+      "aliases": [
+        "bacterial sinusitis",
+        "purulent sinusitis"
+      ],
+      "diagnostic_note": "Differentiate from viral URI; antibiotics only for bacterial phenotype (persistent/severe/double-worsening).",
+      "red_flags": [
+        "Orbital signs",
+        "Severe frontal swelling",
+        "Neurologic signs",
+        "Immunocompromise"
+      ],
+      "next_examination": [
+        "Nasal/oropharyngeal/eye exam"
+      ],
+      "suggested_investigations": [
+        "Usually no imaging uncomplicated; CT for complication/alternative diagnosis"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "amox_clav",
+          "role": "Common first-line antibiotic option",
+          "priority": "green",
+          "regimen_example": "Adult regimens commonly use 500/125 mg TDS or 875/125 mg BD; verify local guideline/product.",
+          "when_to_consider": "",
+          "avoid_or_caution": "Serious beta-lactam allergy",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "doxycycline",
+          "role": "Alternative in selected non-pregnant adults",
+          "priority": "blue",
+          "regimen_example": "100 mg twice daily is common; duration guideline-specific.",
+          "when_to_consider": "",
+          "avoid_or_caution": "Pregnancy",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Saline irrigation",
+        "Analgesia"
+      ],
+      "sources": [
+        "WHO_AWARE",
+        "IDSA",
+        "NICE"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "cap_outpatient",
+      "name": "Community-acquired pneumonia — outpatient candidate",
+      "system": "Respiratory/Infectious",
+      "aliases": [
+        "community acquired pneumonia",
+        "cap",
+        "pneumonia"
+      ],
+      "diagnostic_note": "Assess severity/comorbidity and local resistance before outpatient therapy.",
+      "red_flags": [
+        "Hypoxemia",
+        "Hypotension",
+        "Confusion",
+        "Severe tachypnea",
+        "Sepsis",
+        "Unable to take oral meds"
+      ],
+      "next_examination": [
+        "Vitals/SpO₂",
+        "Chest exam",
+        "Severity assessment"
+      ],
+      "suggested_investigations": [
+        "CXR in many adults",
+        "Pathogen tests by severity/context"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "amoxicillin",
+          "role": "Narrow-spectrum option in selected low-risk CAP",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "Exact high-dose regimen/duration should follow current local CAP guideline.",
+          "sources": []
+        },
+        {
+          "drug_id": "doxycycline",
+          "role": "Alternative in selected adults",
+          "priority": "blue",
+          "regimen_example": "100 mg twice daily is common.",
+          "when_to_consider": "",
+          "avoid_or_caution": "Pregnancy",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "azithromycin",
+          "role": "Conditional macrolide option",
+          "priority": "amber",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "QT risk; use only when local guideline/resistance supports",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Hydration",
+        "Close follow-up/deterioration advice"
+      ],
+      "sources": [
+        "WHO_AWARE",
+        "IDSA"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "tinea",
+      "name": "Tinea corporis/cruris/pedis — diagnosed",
+      "system": "Dermatology",
+      "aliases": [
+        "ringworm",
+        "tinea",
+        "fungal skin infection"
+      ],
+      "diagnostic_note": "Confirm morphology/site and exclude steroid-modified tinea/alternative dermatosis.",
+      "red_flags": [
+        "Extensive immunocompromised infection",
+        "Scalp/nail disease needing systemic strategy"
+      ],
+      "next_examination": [
+        "Skin/nails/scalp"
+      ],
+      "suggested_investigations": [
+        "KOH/culture if uncertain/refractory"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "terbinafine_topical",
+          "role": "Topical first-line option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "clotrimazole_topical",
+          "role": "Topical azole alternative",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Keep dry",
+        "Avoid steroid-only creams"
+      ],
+      "sources": [
+        "NICE_BNF",
+        "DAILYMED"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "scabies",
+      "name": "Scabies — diagnosed",
+      "system": "Dermatology/Infectious",
+      "aliases": [
+        "scabies",
+        "night itching",
+        "burrows"
+      ],
+      "diagnostic_note": "Treat patient and close contacts; post-scabetic itch may persist after eradication.",
+      "red_flags": [
+        "Crusted scabies",
+        "Secondary bacterial infection",
+        "Immunocompromise"
+      ],
+      "next_examination": [
+        "Skin distribution",
+        "Contacts"
+      ],
+      "suggested_investigations": [
+        "Usually clinical; dermoscopy/microscopy if uncertain"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "permethrin_5",
+          "role": "First-line topical option in many guidelines",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Treat contacts/environment"
+      ],
+      "sources": [
+        "WHO_EML_2025",
+        "NICE_BNF"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "urticaria",
+      "name": "Urticaria — assessed",
+      "system": "Dermatology/Allergy",
+      "aliases": [
+        "hives",
+        "urticaria"
+      ],
+      "diagnostic_note": "Screen anaphylaxis/angioedema first.",
+      "red_flags": [
+        "Airway/tongue swelling",
+        "Hypotension",
+        "Respiratory compromise"
+      ],
+      "next_examination": [
+        "Airway/vitals",
+        "Skin"
+      ],
+      "suggested_investigations": [
+        "Usually no broad routine tests for acute uncomplicated urticaria"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "cetirizine",
+          "role": "Second-generation antihistamine",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "fexofenadine",
+          "role": "Less-sedating option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Trigger review",
+        "Emergency plan if anaphylaxis history"
+      ],
+      "sources": [
+        "NICE_BNF",
+        "DAILYMED"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "dysmenorrhea",
+      "name": "Primary dysmenorrhea — assessed",
+      "system": "Gynecology",
+      "aliases": [
+        "period pain",
+        "dysmenorrhea",
+        "menstrual cramps"
+      ],
+      "diagnostic_note": "Exclude pregnancy and secondary causes when new/severe/atypical or associated with infertility/abnormal bleeding.",
+      "red_flags": [
+        "Pregnancy/ectopic concern",
+        "Hemodynamic instability",
+        "Severe acute pelvic pain",
+        "Fever"
+      ],
+      "next_examination": [
+        "Abdominal/pelvic exam when indicated"
+      ],
+      "suggested_investigations": [
+        "Pregnancy test/USG by context"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "ibuprofen",
+          "role": "NSAID option",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "naproxen",
+          "role": "NSAID alternative",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "paracetamol",
+          "role": "Analgesic alternative",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Heat",
+        "Activity as tolerated"
+      ],
+      "sources": [
+        "NICE_BNF",
+        "DAILYMED"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    },
+    {
+      "id": "heart_failure",
+      "name": "Heart failure — confirmed",
+      "system": "Cardiovascular",
+      "aliases": [
+        "heart failure",
+        "hfrEF",
+        "hfpef"
+      ],
+      "diagnostic_note": "Requires EF phenotype, congestion, BP, renal function, potassium and comorbidity. No one-click complete regimen.",
+      "red_flags": [
+        "Acute pulmonary edema",
+        "Shock",
+        "Syncope",
+        "Severe hypoxemia",
+        "ACS"
+      ],
+      "next_examination": [
+        "Volume status",
+        "JVP/edema",
+        "Lungs",
+        "Perfusion"
+      ],
+      "suggested_investigations": [
+        "ECG",
+        "BNP/NT-proBNP",
+        "Echo",
+        "Renal/electrolytes"
+      ],
+      "therapy_candidates": [
+        {
+          "drug_id": "empagliflozin",
+          "role": "Evidence-based class option in eligible HF",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "dapagliflozin",
+          "role": "Evidence-based class option in eligible HF",
+          "priority": "green",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "ramipril",
+          "role": "RAAS option in selected HFrEF",
+          "priority": "blue",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "",
+          "notes": "",
+          "sources": []
+        },
+        {
+          "drug_id": "spironolactone",
+          "role": "MRA selected HFrEF/resistant state",
+          "priority": "amber",
+          "regimen_example": "",
+          "when_to_consider": "",
+          "avoid_or_caution": "Hyperkalemia/advanced renal dysfunction",
+          "notes": "",
+          "sources": []
+        }
+      ],
+      "non_drug": [
+        "Daily weight/salt/fluid plan individualized"
+      ],
+      "sources": [
+        "ACC",
+        "AHA",
+        "KDIGO_2024"
+      ],
+      "safety_boundary": "Educational candidate options only after clinician diagnosis/context review; not autonomous prescribing."
+    }
+  ],
+  "complaint_maps": [
+    {
+      "keywords": [
+        "cough",
+        "productive cough",
+        "dry cough",
+        "nocturnal cough"
+      ],
+      "system": "Respiratory",
+      "ddx": [
+        "Viral/post-infectious cough",
+        "Asthma/eosinophilic airway disease",
+        "Upper-airway cough syndrome",
+        "GERD",
+        "ACE-inhibitor cough",
+        "COPD/chronic bronchitis",
+        "Pneumonia",
+        "Tuberculosis",
+        "Bronchiectasis",
+        "Pertussis"
+      ],
+      "red_flags": [
+        "Hemoptysis",
+        "Hypoxemia/severe dyspnea",
+        "Weight loss/night sweats/prolonged fever",
+        "Chest pain/syncope",
+        "Immunocompromise"
+      ],
+      "next_exam": [
+        "SpO₂/RR",
+        "Chest auscultation",
+        "ENT/postnasal exam",
+        "Medication/exposure review"
+      ],
+      "investigations": [
+        "CXR if persistent/red flags",
+        "Spirometry ± bronchodilator if asthma/COPD suspected",
+        "CBC/eosinophils/FeNO selected cases",
+        "TB molecular testing when indicated"
+      ]
+    },
+    {
+      "keywords": [
+        "breathlessness",
+        "dyspnea",
+        "shortness of breath"
+      ],
+      "system": "Respiratory/Cardiovascular",
+      "ddx": [
+        "Asthma/COPD",
+        "Pneumonia",
+        "Heart failure",
+        "Pulmonary embolism",
+        "Anemia",
+        "Metabolic acidosis",
+        "Anxiety/hyperventilation"
+      ],
+      "red_flags": [
+        "Rest dyspnea",
+        "Low SpO₂",
+        "Chest pain",
+        "Hypotension",
+        "Cyanosis",
+        "Unilateral leg swelling"
+      ],
+      "next_exam": [
+        "Vitals/SpO₂",
+        "Chest/CVS",
+        "JVP/edema",
+        "Peak flow"
+      ],
+      "investigations": [
+        "ECG",
+        "CXR",
+        "CBC",
+        "BNP/troponin/D-dimer as indicated",
+        "Spirometry when stable"
+      ]
+    },
+    {
+      "keywords": [
+        "chest pain"
+      ],
+      "system": "Cardiovascular/Respiratory",
+      "ddx": [
+        "ACS",
+        "Musculoskeletal",
+        "GERD",
+        "Pleurisy/pneumonia",
+        "Pulmonary embolism",
+        "Aortic syndrome",
+        "Pericarditis"
+      ],
+      "red_flags": [
+        "Exertional/pressure pain",
+        "Radiation/diaphoresis",
+        "Syncope",
+        "Dyspnea",
+        "Hypotension",
+        "New neurologic deficit"
+      ],
+      "next_exam": [
+        "Vitals",
+        "CV/resp exam",
+        "Chest wall palpation"
+      ],
+      "investigations": [
+        "ECG urgently if ACS possible",
+        "Troponin",
+        "CXR",
+        "PE/aortic pathway as indicated"
+      ]
+    },
+    {
+      "keywords": [
+        "headache",
+        "migraine"
+      ],
+      "system": "Neurology",
+      "ddx": [
+        "Migraine",
+        "Tension headache",
+        "Medication overuse",
+        "Secondary intracranial causes"
+      ],
+      "red_flags": [
+        "Thunderclap",
+        "Focal deficit",
+        "Meningism",
+        "Papilledema",
+        "Pregnancy/postpartum severe headache"
+      ],
+      "next_exam": [
+        "Neuro exam",
+        "BP",
+        "Fundoscopy if indicated"
+      ],
+      "investigations": [
+        "Imaging/LP only by red flags/phenotype"
+      ]
+    },
+    {
+      "keywords": [
+        "abdominal pain",
+        "stomach pain"
+      ],
+      "system": "GI/Surgery",
+      "ddx": [
+        "Gastritis/GERD",
+        "Biliary disease",
+        "Pancreatitis",
+        "Appendicitis",
+        "Renal colic",
+        "UTI",
+        "IBS/colitis",
+        "Gynecologic causes"
+      ],
+      "red_flags": [
+        "Peritonism",
+        "Shock",
+        "GI bleed",
+        "Persistent vomiting",
+        "Pregnancy/ectopic concern"
+      ],
+      "next_exam": [
+        "Abdominal exam",
+        "CVA tenderness",
+        "Pelvic context"
+      ],
+      "investigations": [
+        "CBC/CMP/lipase/urinalysis/pregnancy test/USG/CT as indicated"
+      ]
+    },
+    {
+      "keywords": [
+        "low back pain",
+        "back pain",
+        "sciatica"
+      ],
+      "system": "MSK/Neurology",
+      "ddx": [
+        "Mechanical LBP",
+        "Radiculopathy",
+        "Stenosis",
+        "Fracture",
+        "Spondyloarthritis",
+        "Infection/malignancy",
+        "Visceral referral"
+      ],
+      "red_flags": [
+        "Cauda equina",
+        "Progressive motor deficit",
+        "Fever/immunocompromise",
+        "Cancer/weight loss",
+        "Major trauma/osteoporosis"
+      ],
+      "next_exam": [
+        "Lower-limb neuro",
+        "SLR/slump",
+        "Gait",
+        "Spine/SI/hip"
+      ],
+      "investigations": [
+        "MRI for neurologic/red flags",
+        "X-ray selected structural/trauma indications"
+      ]
+    },
+    {
+      "keywords": [
+        "dysuria",
+        "urinary burning",
+        "frequency"
+      ],
+      "system": "Renal/Urology",
+      "ddx": [
+        "Cystitis",
+        "Urethritis/STI",
+        "Pyelonephritis",
+        "Prostatitis",
+        "Vaginitis",
+        "Stone"
+      ],
+      "red_flags": [
+        "Fever/flank pain",
+        "Pregnancy",
+        "Male systemic illness",
+        "Retention",
+        "Sepsis"
+      ],
+      "next_exam": [
+        "Vitals",
+        "CVA tenderness",
+        "Abdominal/pelvic context"
+      ],
+      "investigations": [
+        "Urinalysis",
+        "Culture when indicated",
+        "STI NAAT when risk",
+        "Pregnancy test when relevant"
+      ]
+    },
+    {
+      "keywords": [
+        "swelling",
+        "edema",
+        "pedal edema"
+      ],
+      "system": "Cardio/Renal/Hepatic",
+      "ddx": [
+        "Venous edema",
+        "Heart failure",
+        "Renal protein loss/CKD",
+        "Cirrhosis/hypoalbuminemia",
+        "Lymphedema",
+        "DVT if unilateral",
+        "Drug-induced edema"
+      ],
+      "red_flags": [
+        "Unilateral painful warm leg",
+        "Dyspnea/chest pain",
+        "Rapid generalized edema",
+        "Oliguria"
+      ],
+      "next_exam": [
+        "Pitting/nonpitting/distribution",
+        "JVP/CVS/lungs",
+        "Ascites/liver signs"
+      ],
+      "investigations": [
+        "Urinalysis/UACR",
+        "Creatinine/eGFR/electrolytes",
+        "LFT/albumin",
+        "BNP/echo",
+        "Venous Doppler if DVT concern"
+      ]
+    },
+    {
+      "keywords": [
+        "palpitations"
+      ],
+      "system": "Cardiovascular",
+      "ddx": [
+        "Sinus tachycardia",
+        "SVT/AF/ectopy",
+        "Thyroid disease",
+        "Anemia",
+        "Stimulants/anxiety",
+        "Electrolyte disturbance"
+      ],
+      "red_flags": [
+        "Syncope",
+        "Chest pain",
+        "Family sudden death",
+        "Sustained tachyarrhythmia",
+        "Hypotension"
+      ],
+      "next_exam": [
+        "Pulse/rhythm",
+        "BP",
+        "Cardiac/thyroid"
+      ],
+      "investigations": [
+        "ECG",
+        "CBC/TSH/electrolytes",
+        "Holter/event monitor"
+      ]
+    },
+    {
+      "keywords": [
+        "dizziness",
+        "vertigo"
+      ],
+      "system": "Neurology/ENT/Cardiovascular",
+      "ddx": [
+        "BPPV/vestibular neuritis",
+        "Orthostatic hypotension",
+        "Arrhythmia",
+        "Anemia",
+        "Hypoglycemia",
+        "Posterior circulation stroke"
+      ],
+      "red_flags": [
+        "Focal neurologic signs",
+        "New severe gait inability",
+        "Chest pain/syncope",
+        "Persistent severe headache"
+      ],
+      "next_exam": [
+        "Orthostatic vitals",
+        "Neuro/eye movements",
+        "Gait",
+        "Dix-Hallpike if appropriate"
+      ],
+      "investigations": [
+        "Glucose/ECG/CBC by context",
+        "Neuroimaging if central red flags"
+      ]
+    }
+  ],
+  "brand_companies_note": "Brand aliases only help recognition/search. No manufacturer/brand is endorsed or quality-ranked."
+}

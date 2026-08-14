@@ -1,24 +1,24 @@
 {
   "schema": "MAHAMAYA-INTEGRITY-MANIFEST-V1",
-  "app_version": "3.60",
-  "build": "2026.08.14-R11",
+  "app_version": "3.70",
+  "build": "2026.08.14-R12",
   "generated_at": "2026-08-14",
   "algorithm": "SHA-256",
   "files": [
     {
       "path": "index.html",
-      "sha256": "1488bd1758bbb9b40752a61b5e17e46595a91f713d4174e3020fcd6afa537069",
-      "bytes": 982510
+      "sha256": "da4b90e1c0adfc8ccfb38cfd87465b30f2cf5ed8919082053489d9765a716eba",
+      "bytes": 992677
     },
     {
       "path": "manifest.webmanifest",
-      "sha256": "bdf48ad37fe9e737dadbe6be58f130603564f5568cad7558f4faf6c257a2083e",
-      "bytes": 3736
+      "sha256": "0c7d40e1499485b24d871c8abfe58aedc8933760b78fdf901935132aaa262d99",
+      "bytes": 4123
     },
     {
       "path": "service-worker.js",
-      "sha256": "64b603793268609483af5d8eb808851513e11b2d0de3b28568b8972cf7178a60",
-      "bytes": 1788
+      "sha256": "ec4172a3f5defdb1af177bbd43efa441d0c24ef4531a551ded8a7f3508a67890",
+      "bytes": 1877
     },
     {
       "path": "clinical-terminology-master.json",
@@ -56,15 +56,25 @@
       "bytes": 12723
     },
     {
+      "path": "therapeutics-intelligence-master-v1.json",
+      "sha256": "10dcbd9b08bc51e051b4ae5bef5c6b211b8cde12f94683971e959ee46d4e6b93",
+      "bytes": 120092
+    },
+    {
+      "path": "therapeutics-intelligence-engine.js",
+      "sha256": "f2f4259a6032fd5fcec02b6499523dff3b6f1e36dd5a0a22b2298c1843365586",
+      "bytes": 25067
+    },
+    {
       "path": "mission-assurance-master-v1.json",
-      "sha256": "30eae6a1ee3973a824de8e561fe6aaadab1f42ee74ee9d5d08829dcb529f4db7",
-      "bytes": 3121
+      "sha256": "da5589a4573398c96b920e33311873a29a7c7153b3d2e3f7b1322cfae2cb3496",
+      "bytes": 3872
     },
     {
       "path": "mission-assurance-engine.js",
-      "sha256": "cb84b38c5a65b39905221940d59f0a382dfb72c16554122b96a1a817c208ca80",
+      "sha256": "476618450b0e4edb3b9e0657962bf64bf3d1f40fa7dd35afdd3f7c38ea3d3cab",
       "bytes": 19215
     }
   ],
-  "note": "Build-time hashes support deployment-corruption/configuration checks. They do not replace signed releases, secure CI/CD, code signing or independent verification."
+  "note": "Build-time hashes support deployment-corruption/configuration checks. They do not replace signed releases, secure CI/CD, code signing, independent clinical validation or independent verification."
 }

@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<title>Mahamaya Clinic EMR | Mission Assurance Research System V3.60</title>
+<title>Mahamaya Clinic EMR | Therapeutics Learning Intelligence V3.70</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -573,7 +573,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 
 
 <style id="v360-mission-css">
-/* V3.60 — Mission Assurance / research-quality control. Publicly inspired by NASA software assurance, ISRO reliability/quality, CCRAS research rigor and ABDM interoperability/privacy principles; no institutional affiliation implied. */
+/* V3.70 — Mission Assurance / research-quality control. Publicly inspired by NASA software assurance, ISRO reliability/quality, CCRAS research rigor and ABDM interoperability/privacy principles; no institutional affiliation implied. */
 .mission-card{border:1px solid #b9d7dc;background:linear-gradient(180deg,#fbfeff,#f4fafb);position:relative;overflow:hidden}
 .mission-card:before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:#0b6f78}
 .mission-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}.mission-head h2,.mission-head h3{margin:0}.mission-sub{font-size:12px;color:#607985;margin-top:3px}
@@ -582,6 +582,24 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 .mission-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}.mission-panel{border:1px solid var(--line);background:#fff;border-radius:12px;padding:13px}.mission-panel h4{margin:0 0 8px}.mission-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.mission-check{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:9px;background:#fbfdfe}.mission-check input{margin-top:3px}.mission-check small{display:block;color:#6b8089;margin-top:2px}.mission-list{display:grid;gap:7px}.mission-row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed #dbe6e9;padding:6px 0}.mission-row:last-child{border-bottom:none}.mission-row span{color:#607985}.mission-row b{text-align:right}.mission-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.mission-note{font-size:11px;color:#6b7e86;margin-top:10px}.mission-integrity-list{max-height:240px;overflow:auto;border:1px solid var(--line);border-radius:10px;padding:8px;background:#fbfdfe}.mission-integrity-item{display:grid;grid-template-columns:1fr auto;gap:8px;padding:6px;border-bottom:1px dashed #dbe6e9;font-size:12px}.mission-integrity-item:last-child{border-bottom:none}.mission-code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;overflow-wrap:anywhere}.mission-banner{margin:0 0 12px;border-radius:12px;padding:10px 12px;border:1px solid #e5c76d;background:#fff8dc;font-size:12px}.mission-banner strong{color:#6c4f09}
 @media(max-width:1000px){.mission-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.mission-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.mission-kpis{grid-template-columns:1fr 1fr}.mission-checks{grid-template-columns:1fr}.mission-kpi{padding:9px}.mission-actions button{flex:1 1 45%}}
+</style>
+
+<style id="v370-therapeutics-css">
+/* V3.70 — clinician-learning therapeutics intelligence. Generic-first, diagnosis-gated, non-autonomous. */
+.ti-card{border:1px solid #b9dadd;background:linear-gradient(180deg,#fbfeff,#f5fbfc);overflow:visible;position:relative}
+.ti-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:#0b6f78;border-radius:14px 0 0 14px}
+.ti-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap}.ti-head h2{margin:0;color:#075f68}.ti-sub{font-size:12px;color:#637d85;margin-top:4px;line-height:1.4}
+.ti-boundary{margin:10px 0;border:1px solid #e5c76d;border-left:5px solid #d6a02f;background:#fff8df;border-radius:11px;padding:9px 11px;font-size:12px;line-height:1.45}.ti-boundary b{color:#6c4f09}
+.ti-snapshot{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:10px 0}.ti-snapshot>div{border:1px solid #d5e5e8;background:#fff;border-radius:11px;padding:9px 11px}.ti-snapshot small{display:block;color:#6a8189;margin-bottom:3px}.ti-snapshot b{display:block;color:#155d66;overflow-wrap:anywhere}
+.ti-search-row-grid{display:grid;grid-template-columns:minmax(280px,1fr) auto auto;gap:8px;align-items:end}.ti-search-wrap{position:relative}.ti-search-results{position:absolute;left:0;right:0;top:calc(100% + 5px);z-index:90;max-height:360px;overflow:auto;background:#fff;border:1px solid #b9d3d8;border-radius:12px;box-shadow:0 14px 34px rgba(9,74,82,.18);padding:5px}.ti-search-row{width:100%;display:flex;justify-content:space-between;gap:10px;align-items:center;text-align:left;background:#fff;color:#1d4f58;border:0;border-bottom:1px solid #edf2f3;border-radius:8px;padding:9px 10px;cursor:pointer}.ti-search-row:hover,.ti-search-row:focus{background:#eef8f9}.ti-search-row span:first-child{min-width:0}.ti-search-row b{display:block}.ti-search-row small{display:block;color:#6d8188;margin-top:2px;white-space:normal}.ti-kind{font-size:9px;letter-spacing:.06em;font-weight:900;border-radius:999px;padding:4px 7px;background:#eef4f5;color:#58727a;flex:none}
+.ti-tabs{display:flex;gap:7px;overflow-x:auto;padding:8px 0 4px;scrollbar-width:thin}.ti-tabs button{white-space:nowrap;border:1px solid #c9dde1;background:#f3f8f9;color:#155e67;border-radius:999px;padding:8px 12px;font-weight:850}.ti-tabs button.active{background:#0b6f78;color:#fff;border-color:#0b6f78}.ti-pane{padding:10px 0}.ti-context-head{display:flex;align-items:center;gap:10px;border-bottom:1px solid #e3edef;padding-bottom:9px;margin-bottom:9px}.ti-pill{display:inline-flex;border:1px solid;border-radius:999px;padding:5px 8px;font-weight:850;font-size:10px;white-space:nowrap}.ti-pill.green{background:#eef9f2;border-color:#a8d7ba;color:#17693b}.ti-pill.blue{background:#edf7fa;border-color:#b5d8df;color:#0d6672}.ti-pill.amber{background:#fff8e4;border-color:#e3ca80;color:#785510}.ti-pill.red{background:#fff0ef;border-color:#e1aaa5;color:#9b2d25}
+.ti-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.ti-mini-card,.ti-condition-card{border:1px solid #d7e5e8;border-radius:11px;background:#fff;padding:10px}.ti-condition-card{margin:9px 0}.ti-condition-card h4,.ti-mini-card h5,.ti-columns h5{margin:0 0 5px;color:#165e67}.ti-condition-card p{margin:6px 0 9px}.ti-columns ul,.ti-mon-grid ul{margin:4px 0;padding-left:18px}.ti-columns li,.ti-mon-grid li{margin:3px 0;line-height:1.35}
+.ti-alert,.ti-gate{border-radius:10px;padding:9px 10px;margin:8px 0;font-size:11px;line-height:1.4;border:1px solid}.ti-alert.red,.ti-gate.red{background:#fff1ef;border-color:#e2aaa5;color:#8d2e27}.ti-alert.amber,.ti-gate.amber{background:#fff8e7;border-color:#e4ce89;color:#715314}.ti-alert.blue{background:#eff8fb;border-color:#badbe1;color:#155f6b}.ti-gate.green{background:#eef9f2;border-color:#add8be;color:#21683d}
+.ti-legend{display:flex;gap:11px;flex-wrap:wrap;font-size:10px;color:#61777e;margin-bottom:9px}.ti-legend .green{color:#247648}.ti-legend .blue{color:#176b8a}.ti-legend .amber{color:#906717}.ti-legend .red{color:#a43830}.ti-drug-card{border:1px solid #d8e5e7;border-left:5px solid #6b8f98;border-radius:12px;background:#fff;padding:11px;margin:8px 0}.ti-drug-card.green{border-left-color:#2f8b59}.ti-drug-card.blue{border-left-color:#2f7f9f}.ti-drug-card.amber{border-left-color:#d6a02f}.ti-drug-card.red{border-left-color:#b83b33;background:#fffafa}.ti-drug-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.ti-drug-top>div{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;align-items:center}.ti-drug-top small{grid-column:2;color:#6b8188}.ti-rank{width:25px;height:25px;border-radius:50%;background:#e8f4f5;color:#0b6f78;display:grid;place-items:center;font-weight:900;grid-row:1/3}.ti-dose{margin:8px 0;padding:8px 9px;border-radius:9px;background:#f3f8f9}.ti-card-actions{display:flex;gap:7px;flex-wrap:wrap;margin:9px 0 6px}.ti-card-actions button:disabled{opacity:.45;cursor:not-allowed}
+.ti-monograph{border:1px solid #d7e5e8;border-radius:12px;background:#fff;padding:12px}.ti-monograph-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.ti-monograph-head h4{margin:0;color:#0b5f68}.ti-monograph-head small{color:#667d85}.ti-mon-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:9px 0}.ti-mon-grid>div,.ti-organ-grid>div{border:1px solid #e0eaec;border-radius:9px;padding:9px;background:#fbfdfd}.ti-mon-grid h5{margin:0 0 5px;color:#195f68}.ti-organ-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.ti-organ-grid b,.ti-organ-grid span{display:block}.ti-organ-grid span{margin-top:3px;color:#526c74}.ti-brand{margin:9px 0;padding:9px;border:1px dashed #c9dadd;border-radius:9px}.ti-brand small{display:block;color:#6a7e85;margin-top:4px}.ti-sources{font-size:11px;line-height:1.55}.ti-sources a{color:#086c78}.ti-source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.ti-source-card{display:block;border:1px solid #d6e5e8;border-radius:10px;padding:10px;background:#fff;text-decoration:none;color:#155e67}.ti-source-card small{display:block;color:#6a7f86;margin-top:3px}.ti-empty{border:1px dashed #cbdde0;border-radius:11px;padding:18px;text-align:center;background:#fbfdfd;color:#60767e}.ti-footer-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;padding-top:9px;border-top:1px solid #e2ebed}
+.ti-normal-rx-separator{display:flex;align-items:center;gap:9px;margin:2px 0 12px;color:#617980;font-size:11px;font-weight:850}.ti-normal-rx-separator:before,.ti-normal-rx-separator:after{content:"";height:1px;background:#dce7e9;flex:1}
+@media(max-width:980px){.ti-columns{grid-template-columns:1fr 1fr}.ti-search-row-grid{grid-template-columns:1fr auto}.ti-search-row-grid>button:last-child{grid-column:2}.ti-source-grid{grid-template-columns:1fr}.ti-mon-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.ti-snapshot,.ti-columns,.ti-mon-grid,.ti-organ-grid,.ti-search-row-grid{grid-template-columns:1fr}.ti-search-row-grid>button:last-child{grid-column:auto}.ti-search-results{position:fixed;left:8px;right:8px;top:25vh;max-height:52vh}.ti-card{padding:10px}.ti-head{display:block}.ti-head .ti-pill{margin-top:8px}.ti-tabs button{min-height:40px}.ti-card-actions button,.ti-footer-actions button{flex:1 1 145px;min-height:44px}.ti-drug-top{display:block}.ti-drug-top>.ti-pill{margin-top:6px}.ti-monograph{padding:9px}}
 </style>
 </head>
 <body>
@@ -609,8 +627,8 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
     <div class="brand-lockup">
       <img class="brand-logo" src="./icon-192.png" alt="Mahamaya Clinic">
       <div class="brand-copy">
-        <h1>Mahamaya Clinic <span class="version-badge">V3.60</span></h1>
-        <p>Mission Assurance • Research-grade Traceability • Expanded Complaints • Research Prakriti • SLAIE • Build 2026.08.14-R11</p>
+        <h1>Mahamaya Clinic <span class="version-badge">V3.70</span></h1>
+        <p>Therapeutics Learning • Mission Assurance • Expanded Complaints • Research Prakriti • SLAIE • Build 2026.08.14-R12</p>
       </div>
     </div>
     <div class="header-meta">
@@ -635,7 +653,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 </nav>
 
 <div class="system-strip no-print">
-  <div id="status" class="status">App loaded successfully. V3.60 Mission Assurance + Research Traceability + Expanded Complaints + Research Prakriti + Smart Investigations + SLAIE ready.</div>
+  <div id="status" class="status">App loaded successfully. V3.70 Therapeutics Learning + Mission Assurance + Expanded Complaints + Research Prakriti + Smart Investigations + SLAIE ready.</div>
   <div class="actions">
     <span id="activeRoleBadge" class="role-badge">Locked</span>
     <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -4826,6 +4844,47 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 <section id="prescriptionSection" class="hidden">
 <div class="card rx-context-card"><div class="section-head"><div><h2>Plan & Prescription</h2><div class="section-kicker">Diagnosis is documented in Assessment & Dx; review it here before prescribing</div></div><button type="button" id="openAssessmentFromRx" class="secondary">🧠 Edit Diagnosis</button></div><div id="rxDiagnosisSummary" class="assessment-context"></div></div>
 
+<div class="card ti-card" id="therapeuticsLearningCard">
+  <div class="ti-head">
+    <div>
+      <h2>🧠 Therapeutics Learning & Prescription Intelligence — MTLPI v1.0</h2>
+      <div class="ti-sub">Complaint/Dx context → DDx & next steps → diagnosis-gated medicine candidates → concise drug monograph → draft Rx → existing Safety Screening</div>
+    </div>
+    <span id="tiCatalogCount" class="ti-pill blue">Loading therapeutic catalog…</span>
+  </div>
+  <div class="ti-boundary"><b>Clinician-learning CDS only:</b> complaint ≠ diagnosis. Symptom-only mode does not generate a broad “drug of choice” list. Therapy candidates require a diagnosis context; exact dose, frequency, duration, formulation, contraindications, interactions and current label/guideline must be verified before prescribing. Brand names are aliases/examples, not rankings.</div>
+  <div class="ti-snapshot">
+    <div><small>Current complaint</small><b id="tiCurrentComplaint">—</b></div>
+    <div><small>Recorded diagnosis</small><b id="tiCurrentDiagnosis">—</b></div>
+  </div>
+  <div class="ti-search-row-grid">
+    <div class="ti-search-wrap">
+      <label>Search diagnosis, generic medicine or brand alias</label>
+      <input id="tiSearch" autocomplete="off" placeholder="e.g. asthma, migraine, metformin, Asthalin…">
+      <div id="tiSearchResults" class="ti-search-results hidden"></div>
+    </div>
+    <button type="button" id="tiUseCurrentBtn" class="primary">Use current encounter</button>
+    <button type="button" id="tiRefreshBtn" class="secondary">↻ Refresh</button>
+  </div>
+  <div class="ti-tabs" role="tablist" aria-label="Therapeutics learning workspace">
+    <button type="button" class="active" data-ti-tab="context">1 • Context / DDx</button>
+    <button type="button" data-ti-tab="therapy">2 • Therapy Candidates</button>
+    <button type="button" data-ti-tab="drug">3 • Drug Monograph</button>
+    <button type="button" data-ti-tab="sources">4 • Evidence Sources</button>
+  </div>
+  <div id="tiContextPane" class="ti-pane"></div>
+  <div id="tiTherapyPane" class="ti-pane hidden"></div>
+  <div id="tiDrugPane" class="ti-pane hidden"></div>
+  <div id="tiSourcesPane" class="ti-pane hidden"></div>
+  <div class="ti-footer-actions">
+    <button type="button" id="tiAddDxBtn" class="secondary">＋ Add selected condition to Provisional Dx</button>
+    <button type="button" id="tiAddInvBtn" class="secondary">＋ Add suggested investigations</button>
+  </div>
+</div>
+
+<div class="ti-normal-rx-separator">Standard Prescription — clinician controlled</div>
+
+
 <div class="card">
 <h2>Add Medicine</h2>
 <div class="grid3">
@@ -5426,7 +5485,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&
 function status(msg,error=false){$('status').textContent=msg;$('status').style.background=error?'#fff0ef':'#f3faf6';$('status').style.borderColor=error?'#d88':'#9bcdb0'}
 function key(id){return PREFIX+id}
 function blank(){return{id:makeId(),uhid:makeUHID(),patientGroupId:'',parentVisitId:'',followup:{progressNotes:'',newComplaints:'',compliance:'',status:'',outcome:'',nextFollowupDate:'',previousPain:''},visitDate:today(),visitType:'New',patient:{name:'',age:'',sex:'',mobile:'',height:'',weight:'',bmi:'',address:''},complaint:{primary:'',items:[],duration:'',severity:'',onset:'',progression:'',character:'',site:'',laterality:'',associated:'',aggravating:'',relieving:'',redFlags:[],notes:'',intelligence:{}},clinical:{chiefComplaints:'',duration:'',onset:'',hpi:'',pastHistory:'',currentMedicines:'',allergy:'',familyHistory:'',bp:'',pulse:'',spo2:'',temp:'',rr:'',pain:'',clinicalNotes:''},lifestyle:{status:'',source:'',confidence:'',goals:'',version:'Prakriti & Trayopastambha Master v1.0'},exam:{findings:{},build:'',nutrition:'',gait:'',examNotes:''},systemic:{cvsNotes:'',rsNotes:'',abdNotes:'',cnsNotes:'',systemicNotes:'',structured:{version:'Systemic Exam Master v1.0',systemStatus:{},values:{},notes:{}},interpretation:{generatedAt:'',meaning:[],bedside:[],investigations:[],differentials:[],urgent:[],summary:''}},investigations:{previous:[],advised:[]},slaie:{reports:[],working:null},ayurveda:{prakriti:'',vikriti:'',ama:'',dosha:[],subtypes:[],subtypeAssessments:{},gunas:[],agni:'',koshtha:'',rogamarga:'',ashtavidha:{},dashavidha:{},srotas:[],srotodushti:'',sadhya:'',shatkriya:'',dushya:'',sthana:'',samprapti:'',notes:''},prescription:{provisionalDiagnosis:'',differentialDiagnosis:'',finalDiagnosis:'',diagnosisTerms:[],medicines:[],pathya:'',apathya:'',lifestyleAdvice:'',precautionAdvice:'',followupDate:'',followupNote:'',emergencyContact:'8770143788, 7489818673',notes:''},safety:{pregnancy:'Not applicable / No',lactation:'No / Not applicable',egfr:'',renal:'Normal / Unknown',hepatic:'Normal / Unknown',bleeding:'No known high risk',respiratory:'None / Unknown',uti:'No active/recurrent infection',dehydration:'No / Unknown',allergies:'',comorbidities:'',lastScreenedAt:'',alerts:[]},cbc:{date:'',group:'Adult Male',hb:'',rbc:'',pcv:'',mcv:'',mch:'',mchc:'',rdw:'',retic:'',tlc:'',neut:'',lymph:'',mono:'',eos:'',baso:'',anc:'',aec:'',platelet:'',esr:'',smear:'',labFlag:'No critical flag reported',labNotes:'',interpretation:[],nextSteps:[],summary:''},labProfiles:{mode:'diabetes',values:{},results:[],summary:''},updatedAt:new Date().toISOString()}}
-function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!Array.isArray(r.complaint.items))r.complaint.items=[];if(!r.complaint.intelligence)r.complaint.intelligence={};if(!r.lifestyle)r.lifestyle=b.lifestyle;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.systemic.structured)r.systemic.structured=b.systemic.structured;if(!r.systemic.structured.systemStatus)r.systemic.structured.systemStatus={};if(!r.systemic.structured.values)r.systemic.structured.values={};if(!r.systemic.structured.notes)r.systemic.structured.notes={};if(!r.systemic.interpretation)r.systemic.interpretation=b.systemic.interpretation;if(!r.investigations)r.investigations=b.investigations;if(!r.slaie)r.slaie=b.slaie;if(!Array.isArray(r.slaie.reports))r.slaie.reports=[];if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!Array.isArray(r.prescription.diagnosisTerms))r.prescription.diagnosisTerms=[];if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;if(!r.labProfiles)r.labProfiles=b.labProfiles;return r}
+function ensureSchema(r){const b=blank();if(!r.complaint)r.complaint=b.complaint;if(!Array.isArray(r.complaint.items))r.complaint.items=[];if(!r.complaint.intelligence)r.complaint.intelligence={};if(!r.lifestyle)r.lifestyle=b.lifestyle;if(!r.exam)r.exam=b.exam;if(!r.systemic)r.systemic=b.systemic;if(!r.systemic.structured)r.systemic.structured=b.systemic.structured;if(!r.systemic.structured.systemStatus)r.systemic.structured.systemStatus={};if(!r.systemic.structured.values)r.systemic.structured.values={};if(!r.systemic.structured.notes)r.systemic.structured.notes={};if(!r.systemic.interpretation)r.systemic.interpretation=b.systemic.interpretation;if(!r.investigations)r.investigations=b.investigations;if(!r.slaie)r.slaie=b.slaie;if(!Array.isArray(r.slaie.reports))r.slaie.reports=[];if(!r.ayurveda)r.ayurveda=b.ayurveda;if(!r.prescription)r.prescription=b.prescription;if(!Array.isArray(r.prescription.diagnosisTerms))r.prescription.diagnosisTerms=[];if(!r.therapeuticsLearning)r.therapeuticsLearning={};if(!r.patientGroupId)r.patientGroupId=r.uhid||r.id;if(!r.followup)r.followup=b.followup;if(!r.safety)r.safety=b.safety;if(!r.cbc)r.cbc=b.cbc;if(!r.labProfiles)r.labProfiles=b.labProfiles;return r}
 async function save(r){
   r.updatedAt=new Date().toISOString();
 
@@ -12367,7 +12426,7 @@ function showSLAIE(){hideAll();$('slaieSection').classList.remove('hidden');setA
 function showCBC(){hideAll();$('cbcSection').classList.remove('hidden');setActive('tabCBC');populateCBC()}
 function showLabProfiles(){hideAll();$('labProfilesSection').classList.remove('hidden');setActive('tabLabProfiles');populateLabProfiles()}
 function showAyurveda(){hideAll();$('ayurvedaSection').classList.remove('hidden');setActive('tabAyurveda')}
-function showPrescription(){hideAll();$('prescriptionSection').classList.remove('hidden');setActive('tabPrescription');renderMedicines();renderRxDiagnosisSummary()}
+function showPrescription(){hideAll();$('prescriptionSection').classList.remove('hidden');setActive('tabPrescription');renderMedicines();renderRxDiagnosisSummary();setTimeout(()=>window.MAHAMAYA_THERAPEUTICS_ENGINE?.refresh?.(),0)}
 function showSafety(){hideAll();$('safetySection').classList.remove('hidden');setActive('tabSafety');populateSafetyProfile()}
 function showPreview(){hideAll();$('previewSection').classList.remove('hidden');setActive('tabPreview');renderPreview()}
 async function showRecords(){
@@ -12656,7 +12715,7 @@ window.MahamayaBridge={
   esc:(x)=>esc(x)
 };
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.60 Mission Assurance + Research Traceability + Expanded Complaints + Research Prakriti + Smart Investigations + SLAIE ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.70 Therapeutics Learning + Mission Assurance + Expanded Complaints + Research Prakriti + Smart Investigations + SLAIE ready.');
 })();
 </script>
 
@@ -14342,6 +14401,7 @@ renderBaseRows();bind();installBidirectionalNavigation();setTimeout(()=>open((ty
 </script>
 
 <script src="./complaint-intelligence-engine.js"></script>
+<script src="./therapeutics-intelligence-engine.js"></script>
 <script src="./mission-assurance-engine.js"></script>
 <script src="./install-pwa.js"></script>
 </body>

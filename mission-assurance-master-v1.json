@@ -1,8 +1,8 @@
 {
   "name": "Mahamaya Mission Assurance Master",
   "version": "1.0",
-  "app_version": "3.60",
-  "build": "2026.08.14-R11",
+  "app_version": "3.70",
+  "build": "2026.08.14-R12",
   "disclaimer": "Publicly inspired by published quality/research principles; not affiliated with or certified by NASA, ISRO, CCRAS, RAV, NHA/ABDM, WHO or HL7.",
   "pillars": [
     {
@@ -52,6 +52,20 @@
         "provenance",
         "de-identification-first export"
       ]
+    },
+    {
+      "id": "medication_learning_safety",
+      "title": "Medication Learning Safety & Evidence Provenance",
+      "inspiration": "WHO essential-medicine/AWaRe principles, authoritative prescribing information, RxNorm normalization, specialty guidelines and pharmacovigilance",
+      "controls": [
+        "generic-first display",
+        "symptom-only therapy block",
+        "recorded-diagnosis gate",
+        "patient-context safety gate",
+        "source provenance",
+        "draft-only transfer to prescription",
+        "mandatory downstream safety review"
+      ]
     }
   ],
   "release_gate_checks": [
@@ -82,6 +96,10 @@
     {
       "id": "external_security",
       "label": "External security review completed before production claim"
+    },
+    {
+      "id": "therapeutics_review",
+      "label": "Therapeutics catalog, dose examples and safety rules clinician/pharmacist-reviewed for this release"
     },
     {
       "id": "release_notes",

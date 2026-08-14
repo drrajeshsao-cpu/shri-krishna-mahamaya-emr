@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Mahamaya Clinic EMR — Mission Assurance Research System V3.60",
-  "short_name": "Mahamaya EMR V3.60",
-  "description": "Clinical and Ayurveda EMR with mission-assurance quality controls, configuration integrity verification, research provenance, expanded complaint phenotyping, Smart Investigations and SLAIE.",
+  "name": "Mahamaya Clinic EMR — Therapeutics Learning Intelligence V3.70",
+  "short_name": "Mahamaya EMR V3.70",
+  "description": "Clinical + Ayurveda EMR with diagnosis-gated therapeutics learning, concise medicine monographs, safety-linked draft prescription, mission assurance, expanded complaint phenotyping, Smart Investigations and SLAIE.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -51,6 +51,19 @@
       "short_name": "Complaint",
       "description": "Open adaptive complaint phenotyping",
       "url": "./?action=complaint",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Therapeutics Learning",
+      "short_name": "Therapeutics",
+      "description": "Diagnosis-gated medicine learning and draft-prescription intelligence",
+      "url": "./?action=therapeutics",
       "icons": [
         {
           "src": "./icon-192.png",
@@ -161,5 +174,5 @@
       ]
     }
   ],
-  "version": "3.60"
+  "version": "3.70"
 }
