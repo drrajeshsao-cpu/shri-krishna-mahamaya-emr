@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4M",
-  "app_version": "5.40M",
-  "build": "2026.08.14-R25M",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40M ENT • Ophthalmology Lab",
+  "version": "2.4N",
+  "app_version": "5.40N",
+  "build": "2026.08.14-R25N",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40N Endocrinology • Hormone • Metabolic Lab",
   "counts": {
-    "labs": 19,
-    "classes": 561,
-    "drug_profiles": 1388
+    "labs": 20,
+    "classes": 594,
+    "drug_profiles": 1443
   },
-  "global_boundary": "Research/learning pharmacology only. V5.40G adds a dedicated Antifungal • Antiviral • Antiparasitic Intelligence Lab while retaining all earlier specialized labs. Exact organism/species, disease site/severity, resistance/susceptibility, renal/hepatic function, pregnancy, age/weight, G6PD status, interactions and current guideline/regulatory label must be verified. HIV/HBV/HCV, invasive fungal disease, severe malaria and complex tissue parasitoses remain regimen- and specialist-controlled.",
+  "global_boundary": "Research/learning pharmacology only. V5.40N adds a dedicated Endocrinology • Hormone • Metabolic Intelligence Lab while retaining all earlier specialized labs. Endocrine pharmacotherapy requires diagnosis-specific biochemical confirmation and monitoring. Adrenal crisis is an emergency; catecholamine-secreting tumors require sequencing safeguards; pituitary/adrenal tumor therapy, PTH replacement and complex hormone replacement are specialist-controlled. Exact indication, product, formulation, dose/titration, age, organ function, pregnancy/fertility plans, contraindications, interactions and current guideline/regulatory label must be verified.",
   "labs": [
     {
       "id": "hypertension",
@@ -41838,6 +41838,1572 @@
         {
           "id": "DAILYMED",
           "label": "NIH DailyMed — current FDA-submitted product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "endocrine_hormone_metabolic",
+      "title": "Endocrinology • Hormone • Metabolic Intelligence Lab",
+      "icon": "🧬",
+      "badge": "V5.40N",
+      "eyebrow": "ADRENAL • PITUITARY • GONADAL • OBESITY • PARATHYROID",
+      "subtitle": "Specialist-oriented endocrine pharmacology: adrenal replacement/crisis, cortisol excess, primary aldosteronism, prolactinoma, acromegaly, hypopituitarism, AVP deficiency, male hypogonadism/fertility, obesity pharmacotherapy and parathyroid disorders.",
+      "scientific_boundary": "Research/learning CDS only. Endocrine therapy is diagnosis-dependent and often requires biochemical confirmation, imaging, specialist follow-up and dynamic monitoring. Adrenal crisis must be treated emergently; catecholamine-secreting tumors require sequencing safeguards; testosterone is not for nonspecific age-related enhancement and suppresses fertility; obesity medicines must follow current product eligibility/contraindications; pituitary/adrenal tumor drugs and PTH replacement are specialist-controlled. Exact product, formulation, dose, titration, organ function, pregnancy/reproductive plans, interactions and current label/guideline must be verified.",
+      "classification_notes": [
+        "Diabetes and thyroid pharmacology remain in their dedicated existing labs; this module fills the major remaining endocrine gaps.",
+        "Adrenal replacement is separated from cortisol-lowering therapy to avoid indication confusion.",
+        "Pituitary hormone excess (prolactinoma/acromegaly/Cushing disease) is separated from hormone-deficiency replacement.",
+        "Weight-management medicines are chronic-disease therapies, not cosmetic or automatic prescriptions.",
+        "Endocrine emergencies and tumor-directed therapies are protocol/specialist controlled."
+      ],
+      "lens_groups": [
+        {
+          "group": "Adrenal",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Endocrine"
+            },
+            {
+              "id": "adrenal_insuff",
+              "label": "Adrenal Insufficiency"
+            },
+            {
+              "id": "adrenal_crisis",
+              "label": "Adrenal Crisis"
+            },
+            {
+              "id": "glucocorticoid_withdrawal",
+              "label": "Steroid Withdrawal / HPA"
+            },
+            {
+              "id": "primary_aldosteronism",
+              "label": "Primary Aldosteronism"
+            },
+            {
+              "id": "cushings",
+              "label": "Cushing Syndrome"
+            },
+            {
+              "id": "pheo",
+              "label": "Pheochromocytoma / PPGL"
+            }
+          ]
+        },
+        {
+          "group": "Pituitary / Neuroendocrine",
+          "items": [
+            {
+              "id": "hyperprolactinemia",
+              "label": "Hyperprolactinemia / Prolactinoma"
+            },
+            {
+              "id": "acromegaly",
+              "label": "Acromegaly"
+            },
+            {
+              "id": "hypopituitarism",
+              "label": "Hypopituitarism"
+            },
+            {
+              "id": "gh_deficiency",
+              "label": "GH Deficiency"
+            },
+            {
+              "id": "avp_deficiency",
+              "label": "AVP Deficiency / Central DI"
+            }
+          ]
+        },
+        {
+          "group": "Gonadal / Reproductive Endocrine",
+          "items": [
+            {
+              "id": "male_hypogonadism",
+              "label": "Male Hypogonadism"
+            },
+            {
+              "id": "fertility",
+              "label": "Male Fertility / Gonadotropins"
+            },
+            {
+              "id": "precocious_puberty",
+              "label": "Central Precocious Puberty"
+            }
+          ]
+        },
+        {
+          "group": "Metabolic / Parathyroid",
+          "items": [
+            {
+              "id": "obesity",
+              "label": "Obesity Pharmacotherapy"
+            },
+            {
+              "id": "genetic_obesity",
+              "label": "Genetic Obesity"
+            },
+            {
+              "id": "hypoparathyroidism",
+              "label": "Hypoparathyroidism"
+            },
+            {
+              "id": "hyperparathyroidism",
+              "label": "Hyperparathyroidism"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "endo_gc_replacement",
+          "name": "Physiologic glucocorticoid replacement",
+          "mechanism": "Replaces deficient cortisol activity",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "adrenal_insuff",
+            "hypopituitarism"
+          ],
+          "role_note": "Core chronic replacement in confirmed adrenal insufficiency; sick-day education and emergency planning are essential.",
+          "drug_ids": [
+            "endo_hydrocortisone",
+            "endo_cortisone_acetate",
+            "endo_prednisolone_replacement"
+          ]
+        },
+        {
+          "id": "endo_mc_replacement",
+          "name": "Mineralocorticoid replacement",
+          "mechanism": "Replaces aldosterone effect",
+          "target": "Mineralocorticoid receptor",
+          "tags": [
+            "adrenal_insuff"
+          ],
+          "role_note": "For primary adrenal insufficiency with mineralocorticoid deficiency.",
+          "drug_ids": [
+            "endo_fludrocortisone"
+          ]
+        },
+        {
+          "id": "endo_adrenal_crisis",
+          "name": "Adrenal-crisis emergency glucocorticoid",
+          "mechanism": "Rapidly restores glucocorticoid activity",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "adrenal_crisis",
+            "emergency"
+          ],
+          "role_note": "Emergency treatment must not wait for confirmatory testing when adrenal crisis is strongly suspected.",
+          "drug_ids": [
+            "endo_hydrocortisone_inj"
+          ]
+        },
+        {
+          "id": "endo_hpa_withdrawal",
+          "name": "Glucocorticoid withdrawal / HPA-axis recovery support",
+          "mechanism": "Gradual dose reduction permits HPA-axis recovery after chronic exogenous glucocorticoid exposure",
+          "target": "HPA axis",
+          "tags": [
+            "glucocorticoid_withdrawal"
+          ],
+          "role_note": "Not a fixed drug regimen; taper depends on underlying disease, exposure, symptoms and testing context.",
+          "drug_ids": [
+            "endo_gc_taper_hydrocortisone",
+            "endo_gc_taper_prednisone"
+          ]
+        },
+        {
+          "id": "endo_cushing_steroidogenesis_azole",
+          "name": "Cortisol synthesis inhibitors — azole related",
+          "mechanism": "Inhibits adrenal steroidogenic enzymes",
+          "target": "Adrenal steroidogenesis",
+          "tags": [
+            "cushings"
+          ],
+          "role_note": "Specialist medical therapy when surgery is not curative/possible or as bridge.",
+          "drug_ids": [
+            "endo_ketoconazole_cushing",
+            "endo_levoketoconazole"
+          ]
+        },
+        {
+          "id": "endo_cushing_steroidogenesis_nonazole",
+          "name": "Cortisol synthesis inhibitors — non-azole",
+          "mechanism": "Inhibits adrenal cortisol-synthesis enzymes",
+          "target": "11β-hydroxylase / steroidogenesis",
+          "tags": [
+            "cushings"
+          ],
+          "role_note": "Specialist cortisol-lowering therapy.",
+          "drug_ids": [
+            "endo_metyrapone",
+            "endo_osilodrostat"
+          ]
+        },
+        {
+          "id": "endo_cushing_pituitary",
+          "name": "Pituitary-directed therapy for Cushing disease",
+          "mechanism": "Reduces ACTH secretion from corticotroph tumor",
+          "target": "Somatostatin/dopamine signaling",
+          "tags": [
+            "cushings"
+          ],
+          "role_note": "Specialist pituitary-directed therapy; not a substitute for etiologic evaluation.",
+          "drug_ids": [
+            "endo_pasireotide_cushing",
+            "endo_cabergoline_cushing"
+          ]
+        },
+        {
+          "id": "endo_gr_antagonist",
+          "name": "Glucocorticoid-receptor antagonism",
+          "mechanism": "Blocks cortisol action rather than lowering cortisol concentration",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "cushings"
+          ],
+          "role_note": "Selected endogenous Cushing syndrome with hyperglycemia; specialist monitoring.",
+          "drug_ids": [
+            "endo_mifepristone_cushing"
+          ]
+        },
+        {
+          "id": "endo_adrenolytic",
+          "name": "Adrenolytic therapy",
+          "mechanism": "Adrenocortical cytotoxic/adrenolytic action",
+          "target": "Adrenal cortex",
+          "tags": [
+            "cushings"
+          ],
+          "role_note": "Specialist therapy particularly in adrenocortical carcinoma contexts.",
+          "drug_ids": [
+            "endo_mitotane"
+          ]
+        },
+        {
+          "id": "endo_pa_mra",
+          "name": "Primary aldosteronism — mineralocorticoid receptor antagonists",
+          "mechanism": "Blocks aldosterone effect",
+          "target": "Mineralocorticoid receptor",
+          "tags": [
+            "primary_aldosteronism"
+          ],
+          "role_note": "Medical therapy for bilateral disease or when surgery is not chosen/appropriate.",
+          "drug_ids": [
+            "endo_spironolactone_pa",
+            "endo_eplerenone_pa"
+          ]
+        },
+        {
+          "id": "endo_pa_enac",
+          "name": "Primary aldosteronism — ENaC blockade",
+          "mechanism": "Blocks epithelial sodium channel downstream of aldosterone",
+          "target": "ENaC",
+          "tags": [
+            "primary_aldosteronism"
+          ],
+          "role_note": "Alternative when MRA is not tolerated/appropriate.",
+          "drug_ids": [
+            "endo_amiloride_pa"
+          ]
+        },
+        {
+          "id": "endo_pheo_alpha",
+          "name": "Pheochromocytoma/paraganglioma — alpha blockade",
+          "mechanism": "Blocks catecholamine-mediated alpha-adrenergic vasoconstriction",
+          "target": "Alpha adrenergic receptors",
+          "tags": [
+            "pheo"
+          ],
+          "role_note": "Preoperative/symptom control under specialist supervision; beta-blockade must never precede adequate alpha blockade in catecholamine-secreting disease.",
+          "drug_ids": [
+            "endo_phenoxybenzamine",
+            "endo_doxazosin_pheo",
+            "endo_prazosin_pheo"
+          ]
+        },
+        {
+          "id": "endo_pheo_synthesis",
+          "name": "Catecholamine synthesis inhibition",
+          "mechanism": "Inhibits tyrosine hydroxylase",
+          "target": "Catecholamine synthesis",
+          "tags": [
+            "pheo"
+          ],
+          "role_note": "Adjunct for severe catecholamine excess or selected metastatic/inoperable disease.",
+          "drug_ids": [
+            "endo_metyrosine"
+          ]
+        },
+        {
+          "id": "endo_prolactinoma_da",
+          "name": "Dopamine agonists for prolactinoma",
+          "mechanism": "D2 receptor agonism suppresses prolactin secretion and often shrinks tumor",
+          "target": "Dopamine D2 receptor",
+          "tags": [
+            "hyperprolactinemia"
+          ],
+          "role_note": "First-line pharmacologic pathway for most symptomatic prolactinomas after cause evaluation.",
+          "drug_ids": [
+            "endo_cabergoline_prl",
+            "endo_bromocriptine_prl"
+          ]
+        },
+        {
+          "id": "endo_acro_srl1",
+          "name": "Acromegaly — first-generation somatostatin receptor ligands",
+          "mechanism": "Suppresses GH secretion via somatostatin receptors",
+          "target": "SSTR2 predominant",
+          "tags": [
+            "acromegaly"
+          ],
+          "role_note": "Medical therapy when surgery is not curative/appropriate and in selected primary medical therapy settings.",
+          "drug_ids": [
+            "endo_octreotide_lar",
+            "endo_lanreotide"
+          ]
+        },
+        {
+          "id": "endo_acro_srl2",
+          "name": "Acromegaly — broader somatostatin receptor ligand",
+          "mechanism": "Suppresses GH through broader SSTR binding",
+          "target": "Somatostatin receptors",
+          "tags": [
+            "acromegaly"
+          ],
+          "role_note": "Specialist option in selected inadequately controlled disease.",
+          "drug_ids": [
+            "endo_pasireotide_lar"
+          ]
+        },
+        {
+          "id": "endo_acro_ghra",
+          "name": "Growth-hormone receptor antagonist",
+          "mechanism": "Blocks peripheral GH receptor signaling and lowers IGF-1",
+          "target": "GH receptor",
+          "tags": [
+            "acromegaly"
+          ],
+          "role_note": "Specialist option when biochemical control is inadequate.",
+          "drug_ids": [
+            "endo_pegvisomant"
+          ]
+        },
+        {
+          "id": "endo_acro_da",
+          "name": "Acromegaly — dopamine agonist adjunct",
+          "mechanism": "D2 agonism may reduce GH secretion in selected tumors",
+          "target": "Dopamine D2 receptor",
+          "tags": [
+            "acromegaly"
+          ],
+          "role_note": "Oral adjunct in mild disease or combination therapy; specialist selected.",
+          "drug_ids": [
+            "endo_cabergoline_acro"
+          ]
+        },
+        {
+          "id": "endo_gh_replacement",
+          "name": "Growth-hormone replacement",
+          "mechanism": "Replaces deficient GH signaling",
+          "target": "GH receptor/IGF-1 axis",
+          "tags": [
+            "gh_deficiency",
+            "hypopituitarism"
+          ],
+          "role_note": "For rigorously confirmed GH deficiency; specialist titration.",
+          "drug_ids": [
+            "endo_somatropin"
+          ]
+        },
+        {
+          "id": "endo_avp_replacement",
+          "name": "Arginine vasopressin deficiency (central DI) replacement",
+          "mechanism": "V2 receptor agonism increases renal water reabsorption",
+          "target": "Vasopressin V2 receptor",
+          "tags": [
+            "avp_deficiency",
+            "hypopituitarism"
+          ],
+          "role_note": "Desmopressin replacement for confirmed central AVP deficiency; avoid over-replacement.",
+          "drug_ids": [
+            "endo_desmopressin_oral",
+            "endo_desmopressin_nasal",
+            "endo_desmopressin_inj"
+          ]
+        },
+        {
+          "id": "endo_testosterone",
+          "name": "Testosterone replacement for confirmed male hypogonadism",
+          "mechanism": "Restores androgen action",
+          "target": "Androgen receptor",
+          "tags": [
+            "male_hypogonadism"
+          ],
+          "role_note": "Only for men with compatible symptoms/signs plus consistently low testosterone after etiologic evaluation; not for age-related enhancement.",
+          "drug_ids": [
+            "endo_testo_gel",
+            "endo_testo_cyp",
+            "endo_testo_enan",
+            "endo_testo_undec"
+          ]
+        },
+        {
+          "id": "endo_male_fertility_gonadotropin",
+          "name": "Gonadotropins for hypogonadotropic male infertility",
+          "mechanism": "LH/hCG and FSH activity stimulates intratesticular testosterone and spermatogenesis",
+          "target": "LH receptor / FSH receptor",
+          "tags": [
+            "male_hypogonadism",
+            "fertility"
+          ],
+          "role_note": "Specialist fertility-directed treatment; testosterone replacement is inappropriate when fertility is the goal.",
+          "drug_ids": [
+            "endo_hcg_male",
+            "endo_fsh_male",
+            "endo_hmg_male"
+          ]
+        },
+        {
+          "id": "endo_obesity_glp1",
+          "name": "Obesity pharmacotherapy — GLP-1 receptor agonists",
+          "mechanism": "Enhances satiety and slows gastric emptying through GLP-1 signaling",
+          "target": "GLP-1 receptor",
+          "tags": [
+            "obesity"
+          ],
+          "role_note": "Chronic weight-management pharmacotherapy only when label criteria and contraindications are met; lifestyle support remains foundational.",
+          "drug_ids": [
+            "endo_liraglutide_ob",
+            "endo_semaglutide_ob"
+          ]
+        },
+        {
+          "id": "endo_obesity_gip_glp1",
+          "name": "Obesity pharmacotherapy — dual GIP/GLP-1 agonist",
+          "mechanism": "Dual incretin receptor agonism increases satiety and supports weight reduction",
+          "target": "GIP + GLP-1 receptors",
+          "tags": [
+            "obesity"
+          ],
+          "role_note": "Chronic weight-management therapy for indicated patients.",
+          "drug_ids": [
+            "endo_tirzepatide_ob"
+          ]
+        },
+        {
+          "id": "endo_obesity_lipase",
+          "name": "Obesity pharmacotherapy — intestinal lipase inhibition",
+          "mechanism": "Reduces absorption of dietary fat",
+          "target": "Gastric/pancreatic lipases",
+          "tags": [
+            "obesity"
+          ],
+          "role_note": "Non-incretin weight-management option.",
+          "drug_ids": [
+            "endo_orlistat"
+          ]
+        },
+        {
+          "id": "endo_obesity_combo_phent_top",
+          "name": "Obesity pharmacotherapy — phentermine/topiramate ER",
+          "mechanism": "Sympathomimetic appetite suppression plus topiramate-related satiety effects",
+          "target": "Central appetite pathways",
+          "tags": [
+            "obesity"
+          ],
+          "role_note": "Selected chronic weight-management option with reproductive/cardiovascular safeguards.",
+          "drug_ids": [
+            "endo_phent_top"
+          ]
+        },
+        {
+          "id": "endo_obesity_combo_nal_bup",
+          "name": "Obesity pharmacotherapy — naltrexone/bupropion ER",
+          "mechanism": "Modulates hypothalamic appetite and reward pathways",
+          "target": "POMC/reward pathways",
+          "tags": [
+            "obesity"
+          ],
+          "role_note": "Selected chronic weight-management option.",
+          "drug_ids": [
+            "endo_nal_bup"
+          ]
+        },
+        {
+          "id": "endo_obesity_sympath",
+          "name": "Obesity pharmacotherapy — short-term sympathomimetic",
+          "mechanism": "Increases norepinephrine signaling and suppresses appetite",
+          "target": "Adrenergic pathways",
+          "tags": [
+            "obesity"
+          ],
+          "role_note": "Short-term product-label context only; not suitable for many cardiovascular-risk patients.",
+          "drug_ids": [
+            "endo_phentermine"
+          ]
+        },
+        {
+          "id": "endo_obesity_mc4",
+          "name": "Genetic obesity — MC4 receptor agonism",
+          "mechanism": "Activates melanocortin-4 receptor signaling",
+          "target": "MC4 receptor",
+          "tags": [
+            "genetic_obesity"
+          ],
+          "role_note": "Only for specific genetically confirmed obesity syndromes under specialist care.",
+          "drug_ids": [
+            "endo_setmelanotide"
+          ]
+        },
+        {
+          "id": "endo_hypopara_conventional",
+          "name": "Chronic hypoparathyroidism — conventional replacement",
+          "mechanism": "Replaces calcium and active vitamin-D effect",
+          "target": "Calcium balance / vitamin-D receptor",
+          "tags": [
+            "hypoparathyroidism"
+          ],
+          "role_note": "Conventional therapy aims for symptom control while avoiding hypercalciuria/hypercalcemia.",
+          "drug_ids": [
+            "endo_calcium_hypopara",
+            "endo_calcitriol_hypopara"
+          ]
+        },
+        {
+          "id": "endo_hypopara_pth",
+          "name": "Chronic hypoparathyroidism — PTH replacement",
+          "mechanism": "Restores parathyroid-hormone signaling",
+          "target": "PTH1 receptor",
+          "tags": [
+            "hypoparathyroidism"
+          ],
+          "role_note": "Specialist PTH-replacement option for selected adults not adequately controlled with conventional therapy.",
+          "drug_ids": [
+            "endo_palopegteriparatide"
+          ]
+        },
+        {
+          "id": "endo_hyperpara_calcimimetic",
+          "name": "Hyperparathyroidism — calcimimetic",
+          "mechanism": "Activates calcium-sensing receptor to reduce PTH secretion",
+          "target": "Calcium-sensing receptor",
+          "tags": [
+            "hyperparathyroidism"
+          ],
+          "role_note": "Selected primary/secondary hyperparathyroid contexts; etiology and surgery candidacy remain central.",
+          "drug_ids": [
+            "endo_cinacalcet_hyperpara"
+          ]
+        },
+        {
+          "id": "endo_cpp_gnrh",
+          "name": "Central precocious puberty — long-acting GnRH agonists",
+          "mechanism": "Continuous GnRH-receptor stimulation suppresses pituitary gonadotropin secretion",
+          "target": "GnRH receptor",
+          "tags": [
+            "precocious_puberty"
+          ],
+          "role_note": "Pediatric endocrinology specialist therapy after confirmation of central precocious puberty.",
+          "drug_ids": [
+            "endo_leuprolide_cpp",
+            "endo_histrelin_cpp",
+            "endo_triptorelin_cpp"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "endo_hydrocortisone",
+          "generic": "Hydrocortisone",
+          "class_id": "endo_gc_replacement",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "adrenal_insuff",
+            "hypopituitarism"
+          ],
+          "role": "Preferred physiologic replacement option in many patients.",
+          "monitoring_pearl": "Teach sick-day rules; monitor symptoms, BP, weight, glucose and over/under-replacement.",
+          "source_refs": [
+            "ENDO_ADRENAL_2016",
+            "ENDO_HYPOPIT",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_cortisone_acetate",
+          "generic": "Cortisone acetate",
+          "class_id": "endo_gc_replacement",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "adrenal_insuff"
+          ],
+          "role": "Alternative glucocorticoid replacement where available.",
+          "monitoring_pearl": "Requires conversion to active cortisol; verify availability and equivalent replacement strategy.",
+          "source_refs": [
+            "ENDO_ADRENAL_2016",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_prednisolone_replacement",
+          "generic": "Prednisolone (replacement context)",
+          "class_id": "endo_gc_replacement",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "adrenal_insuff"
+          ],
+          "role": "Longer-acting alternative in selected patients.",
+          "monitoring_pearl": "Avoid chronic supraphysiologic exposure; review metabolic/bone risk.",
+          "source_refs": [
+            "ENDO_ADRENAL_2016",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_fludrocortisone",
+          "generic": "Fludrocortisone",
+          "class_id": "endo_mc_replacement",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "adrenal_insuff"
+          ],
+          "role": "Mineralocorticoid replacement.",
+          "monitoring_pearl": "Monitor BP, edema, sodium, potassium and renin-guided adequacy where appropriate.",
+          "source_refs": [
+            "ENDO_ADRENAL_2016",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_hydrocortisone_inj",
+          "generic": "Hydrocortisone sodium succinate",
+          "class_id": "endo_adrenal_crisis",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "adrenal_crisis",
+            "emergency"
+          ],
+          "role": "Emergency glucocorticoid for adrenal crisis.",
+          "monitoring_pearl": "Immediate resuscitation, isotonic fluid/glucose as indicated and cause treatment; hospital pathway.",
+          "source_refs": [
+            "ENDO_ADRENAL_2016",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_gc_taper_hydrocortisone",
+          "generic": "Hydrocortisone (HPA-recovery context)",
+          "class_id": "endo_hpa_withdrawal",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "glucocorticoid_withdrawal"
+          ],
+          "role": "Short-acting glucocorticoid may be used in selected taper/recovery strategies.",
+          "monitoring_pearl": "Watch for adrenal-insufficiency symptoms and avoid abrupt withdrawal after suppressive therapy.",
+          "source_refs": [
+            "ENDO_GIAI_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_gc_taper_prednisone",
+          "generic": "Prednisone/Prednisolone (taper context)",
+          "class_id": "endo_hpa_withdrawal",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "glucocorticoid_withdrawal"
+          ],
+          "role": "Common systemic glucocorticoid requiring individualized taper when HPA suppression is possible.",
+          "monitoring_pearl": "Taper is indication- and exposure-specific; screen for adrenal insufficiency when clinically indicated.",
+          "source_refs": [
+            "ENDO_GIAI_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_ketoconazole_cushing",
+          "generic": "Ketoconazole (Cushing context)",
+          "class_id": "endo_cushing_steroidogenesis_azole",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "cushings"
+          ],
+          "role": "Reduces cortisol synthesis; specialist use.",
+          "monitoring_pearl": "Major hepatic and interaction risk; monitor liver tests, cortisol and QT/drug interactions.",
+          "source_refs": [
+            "ENDO_CUSHING_2015",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_levoketoconazole",
+          "generic": "Levoketoconazole",
+          "class_id": "endo_cushing_steroidogenesis_azole",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "cushings"
+          ],
+          "role": "Cortisol-lowering therapy for selected endogenous Cushing syndrome.",
+          "monitoring_pearl": "Hepatotoxicity/QT and adrenal-insufficiency risk require label-based monitoring.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_metyrapone",
+          "generic": "Metyrapone",
+          "class_id": "endo_cushing_steroidogenesis_nonazole",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "cushings"
+          ],
+          "role": "Rapid cortisol-synthesis inhibition in selected patients.",
+          "monitoring_pearl": "Monitor cortisol, potassium, BP, androgen/mineralocorticoid effects and adrenal insufficiency.",
+          "source_refs": [
+            "ENDO_CUSHING_2015",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_osilodrostat",
+          "generic": "Osilodrostat",
+          "class_id": "endo_cushing_steroidogenesis_nonazole",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "cushings"
+          ],
+          "role": "11β-hydroxylase inhibitor for selected Cushing disease.",
+          "monitoring_pearl": "Monitor hypocortisolism, QT/electrolytes and steroid-precursor effects.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_pasireotide_cushing",
+          "generic": "Pasireotide",
+          "class_id": "endo_cushing_pituitary",
+          "form": "Injection",
+          "route": "SC/IM depot",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "cushings"
+          ],
+          "role": "Somatostatin analogue used in selected Cushing disease.",
+          "monitoring_pearl": "Hyperglycemia is important; monitor glucose, liver tests, gallbladder, QT and adrenal insufficiency.",
+          "source_refs": [
+            "ENDO_CUSHING_2015",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_cabergoline_cushing",
+          "generic": "Cabergoline (Cushing disease context)",
+          "class_id": "endo_cushing_pituitary",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "cushings"
+          ],
+          "role": "Dopamine agonist sometimes used off-label in selected Cushing disease.",
+          "monitoring_pearl": "Specialist-only off-label context; monitor response and adverse effects.",
+          "source_refs": [
+            "ENDO_CUSHING_2015",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_mifepristone_cushing",
+          "generic": "Mifepristone (Cushing context)",
+          "class_id": "endo_gr_antagonist",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "cushings"
+          ],
+          "role": "Glucocorticoid receptor antagonist in selected endogenous Cushing syndrome.",
+          "monitoring_pearl": "Cortisol levels do not reflect effect; monitor clinical status, potassium, endometrium and pregnancy contraindication.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_mitotane",
+          "generic": "Mitotane",
+          "class_id": "endo_adrenolytic",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "cushings"
+          ],
+          "role": "Adrenolytic medicine used mainly for adrenocortical carcinoma.",
+          "monitoring_pearl": "Complex interactions, neurotoxicity and adrenal insufficiency; specialist serum-level/clinical monitoring.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_spironolactone_pa",
+          "generic": "Spironolactone",
+          "class_id": "endo_pa_mra",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "primary_aldosteronism"
+          ],
+          "role": "Common MRA for primary aldosteronism.",
+          "monitoring_pearl": "Monitor potassium, renal function, BP and endocrine adverse effects.",
+          "source_refs": [
+            "ENDO_PA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_eplerenone_pa",
+          "generic": "Eplerenone",
+          "class_id": "endo_pa_mra",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "primary_aldosteronism"
+          ],
+          "role": "More selective MRA alternative.",
+          "monitoring_pearl": "Monitor potassium, renal function, BP and CYP3A interactions.",
+          "source_refs": [
+            "ENDO_PA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_amiloride_pa",
+          "generic": "Amiloride",
+          "class_id": "endo_pa_enac",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "primary_aldosteronism"
+          ],
+          "role": "ENaC blocker sometimes used when MRA not tolerated.",
+          "monitoring_pearl": "Hyperkalemia/renal-function monitoring is mandatory.",
+          "source_refs": [
+            "ENDO_PA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_phenoxybenzamine",
+          "generic": "Phenoxybenzamine",
+          "class_id": "endo_pheo_alpha",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "pheo"
+          ],
+          "role": "Nonselective irreversible alpha blocker for catecholamine excess.",
+          "monitoring_pearl": "Monitor orthostasis, BP and volume status; specialist perioperative protocol.",
+          "source_refs": [
+            "ENDO_CPG",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_doxazosin_pheo",
+          "generic": "Doxazosin (PPGL context)",
+          "class_id": "endo_pheo_alpha",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "pheo"
+          ],
+          "role": "Selective alpha-1 blocker used in some PPGL protocols.",
+          "monitoring_pearl": "Titrate to BP/orthostasis under specialist care; volume expansion often needed.",
+          "source_refs": [
+            "ENDO_CPG",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_prazosin_pheo",
+          "generic": "Prazosin (PPGL context)",
+          "class_id": "endo_pheo_alpha",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "pheo"
+          ],
+          "role": "Shorter-acting alpha-1 blocker in selected protocols.",
+          "monitoring_pearl": "First-dose hypotension and perioperative planning require specialist oversight.",
+          "source_refs": [
+            "ENDO_CPG",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_metyrosine",
+          "generic": "Metyrosine",
+          "class_id": "endo_pheo_synthesis",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "pheo"
+          ],
+          "role": "Reduces catecholamine synthesis.",
+          "monitoring_pearl": "Sedation, extrapyramidal effects and crystalluria; specialist hydration/monitoring.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_cabergoline_prl",
+          "generic": "Cabergoline",
+          "class_id": "endo_prolactinoma_da",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "hyperprolactinemia"
+          ],
+          "role": "Preferred dopamine agonist in many prolactinoma patients because of efficacy/tolerability.",
+          "monitoring_pearl": "Monitor prolactin, symptoms, tumor response and adverse effects; pregnancy planning requires individualized review.",
+          "source_refs": [
+            "ENDO_HYPERPRL",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_bromocriptine_prl",
+          "generic": "Bromocriptine",
+          "class_id": "endo_prolactinoma_da",
+          "form": "Tablet/Capsule",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "hyperprolactinemia"
+          ],
+          "role": "Alternative dopamine agonist with long clinical experience.",
+          "monitoring_pearl": "Monitor prolactin, orthostasis, nausea and pregnancy context.",
+          "source_refs": [
+            "ENDO_HYPERPRL",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_octreotide_lar",
+          "generic": "Octreotide LAR",
+          "class_id": "endo_acro_srl1",
+          "form": "Depot injection",
+          "route": "IM",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "acromegaly"
+          ],
+          "role": "Long-acting somatostatin analogue for acromegaly.",
+          "monitoring_pearl": "Monitor IGF-1/GH, glucose, gallbladder, thyroid and conduction effects.",
+          "source_refs": [
+            "ENDO_ACRO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_lanreotide",
+          "generic": "Lanreotide",
+          "class_id": "endo_acro_srl1",
+          "form": "Depot injection",
+          "route": "Deep SC",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "acromegaly"
+          ],
+          "role": "Long-acting somatostatin analogue.",
+          "monitoring_pearl": "Monitor IGF-1/GH, glucose and gallbladder effects.",
+          "source_refs": [
+            "ENDO_ACRO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_pasireotide_lar",
+          "generic": "Pasireotide LAR",
+          "class_id": "endo_acro_srl2",
+          "form": "Depot injection",
+          "route": "IM",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "acromegaly"
+          ],
+          "role": "Second-generation somatostatin analogue.",
+          "monitoring_pearl": "High hyperglycemia risk; monitor glucose, liver, gallbladder and QT.",
+          "source_refs": [
+            "ENDO_ACRO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_pegvisomant",
+          "generic": "Pegvisomant",
+          "class_id": "endo_acro_ghra",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "acromegaly"
+          ],
+          "role": "GH receptor antagonist that normalizes IGF-1 in many patients.",
+          "monitoring_pearl": "Monitor IGF-1, liver tests and pituitary tumor imaging as indicated.",
+          "source_refs": [
+            "ENDO_ACRO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_cabergoline_acro",
+          "generic": "Cabergoline (acromegaly context)",
+          "class_id": "endo_acro_da",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "acromegaly"
+          ],
+          "role": "Off-label adjunct particularly in mild biochemical activity/mixed tumors.",
+          "monitoring_pearl": "Monitor IGF-1/GH response and adverse effects.",
+          "source_refs": [
+            "ENDO_ACRO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_somatropin",
+          "generic": "Somatropin",
+          "class_id": "endo_gh_replacement",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "gh_deficiency",
+            "hypopituitarism"
+          ],
+          "role": "Recombinant human GH replacement.",
+          "monitoring_pearl": "Monitor IGF-1, glucose, edema, intracranial-hypertension symptoms and contraindications.",
+          "source_refs": [
+            "ENDO_HYPOPIT",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_desmopressin_oral",
+          "generic": "Desmopressin — oral formulation",
+          "class_id": "endo_avp_replacement",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "avp_deficiency"
+          ],
+          "role": "AVP replacement for central DI.",
+          "monitoring_pearl": "Hyponatremia/water intoxication risk; monitor sodium and teach planned aquaresis strategy.",
+          "source_refs": [
+            "ENDO_HYPOPIT",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_desmopressin_nasal",
+          "generic": "Desmopressin — nasal formulation",
+          "class_id": "endo_avp_replacement",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "avp_deficiency"
+          ],
+          "role": "Alternative AVP replacement formulation.",
+          "monitoring_pearl": "Absorption can vary with nasal disease; monitor sodium and fluid intake.",
+          "source_refs": [
+            "ENDO_HYPOPIT",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_desmopressin_inj",
+          "generic": "Desmopressin — injectable formulation",
+          "class_id": "endo_avp_replacement",
+          "form": "Injection",
+          "route": "IV/SC",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "avp_deficiency"
+          ],
+          "role": "Specialist/inpatient formulation for selected situations.",
+          "monitoring_pearl": "High-alert sodium/fluid monitoring.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_testo_gel",
+          "generic": "Testosterone transdermal gel",
+          "class_id": "endo_testosterone",
+          "form": "Gel",
+          "route": "Transdermal",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "male_hypogonadism"
+          ],
+          "role": "Steady transdermal testosterone replacement.",
+          "monitoring_pearl": "Monitor testosterone, hematocrit, prostate context and transfer risk; avoid when near-term fertility desired.",
+          "source_refs": [
+            "ENDO_TESTO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_testo_cyp",
+          "generic": "Testosterone cypionate",
+          "class_id": "endo_testosterone",
+          "form": "Injection",
+          "route": "IM/SC per product/practice",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "male_hypogonadism"
+          ],
+          "role": "Injectable testosterone ester.",
+          "monitoring_pearl": "Monitor peaks/troughs as relevant, hematocrit and adverse effects; suppresses spermatogenesis.",
+          "source_refs": [
+            "ENDO_TESTO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_testo_enan",
+          "generic": "Testosterone enanthate",
+          "class_id": "endo_testosterone",
+          "form": "Injection",
+          "route": "IM/SC depending product",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "male_hypogonadism"
+          ],
+          "role": "Injectable testosterone ester.",
+          "monitoring_pearl": "Same fertility/erythrocytosis monitoring principles; verify product-specific route.",
+          "source_refs": [
+            "ENDO_TESTO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_testo_undec",
+          "generic": "Testosterone undecanoate",
+          "class_id": "endo_testosterone",
+          "form": "Injection/Capsule depending product/market",
+          "route": "Oral or IM product-specific",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "male_hypogonadism"
+          ],
+          "role": "Long-acting/oral product-specific testosterone replacement.",
+          "monitoring_pearl": "Products are not interchangeable; verify label, monitoring and boxed-warning requirements where applicable.",
+          "source_refs": [
+            "ENDO_TESTO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_hcg_male",
+          "generic": "Human chorionic gonadotropin (hCG)",
+          "class_id": "endo_male_fertility_gonadotropin",
+          "form": "Injection",
+          "route": "SC/IM",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "male_hypogonadism",
+            "fertility"
+          ],
+          "role": "LH-like stimulation in selected hypogonadotropic hypogonadism.",
+          "monitoring_pearl": "Monitor testosterone, testicular response, estradiol/gynecomastia and semen parameters.",
+          "source_refs": [
+            "ENDO_TESTO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_fsh_male",
+          "generic": "Follitropin alfa/beta (FSH)",
+          "class_id": "endo_male_fertility_gonadotropin",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "fertility"
+          ],
+          "role": "FSH stimulation for selected persistent spermatogenic deficiency after hCG priming.",
+          "monitoring_pearl": "Specialist semen/hormonal monitoring.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_hmg_male",
+          "generic": "Menotropins (hMG)",
+          "class_id": "endo_male_fertility_gonadotropin",
+          "form": "Injection",
+          "route": "SC/IM",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "fertility"
+          ],
+          "role": "FSH/LH activity in selected fertility protocols.",
+          "monitoring_pearl": "Specialist protocol and reproductive monitoring.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_liraglutide_ob",
+          "generic": "Liraglutide (obesity indication)",
+          "class_id": "endo_obesity_glp1",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "obesity"
+          ],
+          "role": "GLP-1 RA approved in product-specific chronic weight-management contexts.",
+          "monitoring_pearl": "GI effects, gallbladder/pancreatitis warnings, pregnancy and label-specific thyroid-tumor contraindications.",
+          "source_refs": [
+            "ENDO_OBESITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_semaglutide_ob",
+          "generic": "Semaglutide (obesity indication)",
+          "class_id": "endo_obesity_glp1",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "obesity"
+          ],
+          "role": "Once-weekly GLP-1 RA for chronic weight management in indicated patients.",
+          "monitoring_pearl": "Verify obesity-specific product/dose schedule; monitor GI tolerance, gallbladder/pancreatitis warnings and pregnancy.",
+          "source_refs": [
+            "FDA_WEIGHT_SEMA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_tirzepatide_ob",
+          "generic": "Tirzepatide (obesity indication)",
+          "class_id": "endo_obesity_gip_glp1",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "obesity"
+          ],
+          "role": "Dual GIP/GLP-1 agonist approved for chronic weight management.",
+          "monitoring_pearl": "Verify product-specific escalation; GI, gallbladder/pancreatitis and pregnancy precautions; review interacting oral medicines.",
+          "source_refs": [
+            "FDA_WEIGHT_TIRZ",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_orlistat",
+          "generic": "Orlistat",
+          "class_id": "endo_obesity_lipase",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "obesity"
+          ],
+          "role": "Reduces dietary fat absorption.",
+          "monitoring_pearl": "GI adverse effects; fat-soluble vitamin supplementation/timing and drug interactions require review.",
+          "source_refs": [
+            "ENDO_OBESITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_phent_top",
+          "generic": "Phentermine/topiramate ER",
+          "class_id": "endo_obesity_combo_phent_top",
+          "form": "ER capsule",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "obesity"
+          ],
+          "role": "Combination chronic weight-management therapy.",
+          "monitoring_pearl": "Teratogenic risk requires pregnancy prevention/testing; monitor HR/BP, mood/cognition and taper topiramate component appropriately.",
+          "source_refs": [
+            "ENDO_OBESITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_nal_bup",
+          "generic": "Naltrexone/bupropion ER",
+          "class_id": "endo_obesity_combo_nal_bup",
+          "form": "ER tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "obesity"
+          ],
+          "role": "Combination chronic weight-management medicine.",
+          "monitoring_pearl": "Contraindicated with uncontrolled hypertension, seizure disorder and chronic opioid use; review neuropsychiatric risk.",
+          "source_refs": [
+            "ENDO_OBESITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_phentermine",
+          "generic": "Phentermine",
+          "class_id": "endo_obesity_sympath",
+          "form": "Tablet/Capsule",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "obesity"
+          ],
+          "role": "Sympathomimetic appetite suppressant in short-term label context.",
+          "monitoring_pearl": "Monitor BP/HR; avoid in significant cardiovascular disease, hyperthyroidism, glaucoma, pregnancy and MAOI exposure.",
+          "source_refs": [
+            "ENDO_OBESITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_setmelanotide",
+          "generic": "Setmelanotide",
+          "class_id": "endo_obesity_mc4",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "genetic_obesity"
+          ],
+          "role": "Precision therapy for selected confirmed genetic obesity indications.",
+          "monitoring_pearl": "Requires genetic/label eligibility; monitor skin pigmentation, mood and sexual adverse effects.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_calcium_hypopara",
+          "generic": "Calcium salts (hypoparathyroidism context)",
+          "class_id": "endo_hypopara_conventional",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "hypoparathyroidism"
+          ],
+          "role": "Elemental calcium replacement as part of individualized regimen.",
+          "monitoring_pearl": "Monitor serum/urine calcium, renal function and stone/nephrocalcinosis risk.",
+          "source_refs": [
+            "ENDO_CPG",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_calcitriol_hypopara",
+          "generic": "Calcitriol",
+          "class_id": "endo_hypopara_conventional",
+          "form": "Capsule/Solution",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "hypoparathyroidism"
+          ],
+          "role": "Active vitamin-D analogue to support calcium absorption.",
+          "monitoring_pearl": "Monitor calcium/phosphate and urinary calcium; narrow therapeutic balance.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_palopegteriparatide",
+          "generic": "Palopegteriparatide",
+          "class_id": "endo_hypopara_pth",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "hypoparathyroidism"
+          ],
+          "role": "Long-acting PTH replacement for approved chronic hypoparathyroidism context.",
+          "monitoring_pearl": "Requires calcium/vitamin-D transition plan and frequent biochemical monitoring during titration.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_cinacalcet_hyperpara",
+          "generic": "Cinacalcet",
+          "class_id": "endo_hyperpara_calcimimetic",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "hyperparathyroidism"
+          ],
+          "role": "Calcimimetic that lowers PTH and serum calcium in selected indications.",
+          "monitoring_pearl": "Monitor calcium, PTH and QT/seizure risk from hypocalcemia; indication-specific use.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_leuprolide_cpp",
+          "generic": "Leuprolide depot",
+          "class_id": "endo_cpp_gnrh",
+          "form": "Depot injection",
+          "route": "IM/SC product-specific",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "precocious_puberty"
+          ],
+          "role": "Long-acting GnRH agonist for central precocious puberty.",
+          "monitoring_pearl": "Monitor growth velocity, pubertal signs, bone age and biochemical suppression per specialist protocol.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_histrelin_cpp",
+          "generic": "Histrelin implant",
+          "class_id": "endo_cpp_gnrh",
+          "form": "Implant",
+          "route": "SC implant",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "precocious_puberty"
+          ],
+          "role": "Long-acting GnRH agonist implant.",
+          "monitoring_pearl": "Implant placement/removal and pubertal suppression monitoring require specialist care.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "endo_triptorelin_cpp",
+          "generic": "Triptorelin depot",
+          "class_id": "endo_cpp_gnrh",
+          "form": "Depot injection",
+          "route": "IM",
+          "dose_example": "Product-/indication-specific learning snapshot only; verify current label/guideline and patient factors.",
+          "tags": [
+            "precocious_puberty"
+          ],
+          "role": "Long-acting GnRH agonist.",
+          "monitoring_pearl": "Monitor clinical/biochemical suppression and growth trajectory.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "ENDO_CPG",
+          "label": "Endocrine Society — Clinical Practice Guidelines library",
+          "url": "https://www.endocrine.org/clinical-practice-guidelines"
+        },
+        {
+          "id": "ENDO_ADRENAL_2016",
+          "label": "Endocrine Society — Primary Adrenal Insufficiency CPG",
+          "url": "https://www.endocrine.org/clinical-practice-guidelines/primary-adrenal-insufficiency"
+        },
+        {
+          "id": "ENDO_GIAI_2024",
+          "label": "ESE/Endocrine Society — Glucocorticoid-Induced Adrenal Insufficiency 2024",
+          "url": "https://www.endocrine.org/clinical-practice-guidelines/glucocorticoid-induced-adrenal-insufficiency"
+        },
+        {
+          "id": "ENDO_PA_2025",
+          "label": "Endocrine Society — Primary Aldosteronism CPG 2025",
+          "url": "https://www.endocrine.org/clinical-practice-guidelines/primary-aldosteronism-2"
+        },
+        {
+          "id": "ENDO_CUSHING_2015",
+          "label": "Endocrine Society — Treatment of Cushing Syndrome CPG",
+          "url": "https://www.endocrine.org/clinical-practice-guidelines/treatment-of-cushing-syndrome"
+        },
+        {
+          "id": "ENDO_HYPERPRL",
+          "label": "Endocrine Society — Diagnosis and Treatment of Hyperprolactinemia",
+          "url": "https://www.endocrine.org/clinical-practice-guidelines/hyperprolactinemia"
+        },
+        {
+          "id": "ENDO_ACRO",
+          "label": "Endocrine Society — Acromegaly CPG",
+          "url": "https://www.endocrine.org/clinical-practice-guidelines/acromegaly"
+        },
+        {
+          "id": "ENDO_HYPOPIT",
+          "label": "Endocrine Society — Hormone Replacement in Hypopituitarism",
+          "url": "https://www.endocrine.org/clinical-practice-guidelines/hormone-replacement-in-hypopituitarism"
+        },
+        {
+          "id": "ENDO_TESTO",
+          "label": "Endocrine Society — Testosterone Therapy for Hypogonadism",
+          "url": "https://www.endocrine.org/clinical-practice-guidelines/testosterone-therapy"
+        },
+        {
+          "id": "ENDO_OBESITY",
+          "label": "Endocrine Society — Pharmacological Management of Obesity",
+          "url": "https://www.endocrine.org/clinical-practice-guidelines/pharmacological-management-of-obesity"
+        },
+        {
+          "id": "FDA_WEIGHT_TIRZ",
+          "label": "FDA — Tirzepatide chronic weight-management approval",
+          "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-new-medication-chronic-weight-management"
+        },
+        {
+          "id": "FDA_WEIGHT_SEMA",
+          "label": "FDA — Semaglutide/Wegovy cardiovascular-risk indication update",
+          "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-treatment-reduce-risk-serious-heart-problems-specifically-adults-obesity-or"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "DailyMed — current US prescribing labels and formulations",
           "url": "https://dailymed.nlm.nih.gov/dailymed/"
         }
       ]
