@@ -1,0 +1,41 @@
+V5.41C ORAL MEDICATION • CRUSHING • DYSPHAGIA • ENTERAL/NG TUBE • MODIFIED-RELEASE ADMINISTRATION SAFETY — STATIC VALIDATION
+Build: 2026.08.15-R26C
+
+PASS — app version marker
+PASS — dataset version MTLPI 2.5C
+PASS — build marker
+PASS — new oral/enteral safety lab exists
+PASS — class count (44)
+PASS — profile count (88)
+PASS — all class→profile refs resolve
+PASS — all new source refs resolve
+PASS — Oral/Enteral visible launcher button
+PASS — V5.41B Medication Reconciliation visible launcher button usability fix
+PASS — crushing/dysphagia/NG/PEG/PEJ/modified-release search terms
+PASS — therapeutics engine JavaScript syntax
+PASS — service worker JavaScript syntax
+PASS — service worker cache marker
+PASS — manifest internal version corrected to 5.41C
+PASS — no duplicate true static DOM IDs
+
+New lab: 44 classes • 88 profiles
+Cumulative: 35 labs • 1185 classes • 2625 profiles
+Broken class→profile refs: 0
+Broken new source refs: 0
+Duplicate true static DOM IDs: 0
+
+SAFETY BOUNDARY
+- No product is automatically declared safe to crush/open/split or administer through NG/PEG/PEJ/GJ/NJ access.
+- No universal dilution, feed-hold, flush-volume or dose-replacement rule is generated.
+- Modified-release, enteric/gastro-resistant, multiparticulate and hazardous products require exact product-specific verification.
+- Tube terminal location, tube characteristics, patient fluid restrictions, swallow safety and feed interactions must be reviewed.
+- Current product labeling/pharmacy references and local enteral-medication policy remain required.
+
+NOTE: Static/source validation does not replace live browser/mobile/tablet/PWA/Firebase testing after GitHub Pages deployment.
+
+ADDITIONAL TECHNICAL CHECKS
+PASS — integrity manifest recomputed for 116 tracked files
+PASS — local HTTP smoke: index.html 200
+PASS — local HTTP smoke: chronic-pharmacology-intelligence-v1.json 200
+PASS — local HTTP smoke: therapeutics-intelligence-engine.js 200
+PASS — local HTTP smoke: manifest.webmanifest 200

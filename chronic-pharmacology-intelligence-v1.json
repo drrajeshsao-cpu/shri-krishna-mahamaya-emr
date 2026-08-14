@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.5B",
-  "app_version": "V5.41B",
-  "build": "2026.08.15-R26B",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.41B Medication Reconciliation • LASA • Dispensing • Storage • Barcode • Medication Error Prevention",
+  "version": "2.5C",
+  "app_version": "V5.41C",
+  "build": "2026.08.15-R26C",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.41C Oral Medication • Crushing • Dysphagia • Enteral/NG Tube • Modified-Release Administration Safety",
   "counts": {
-    "labs": 34,
-    "classes": 1141,
-    "drug_profiles": 2537
+    "labs": 35,
+    "classes": 1185,
+    "drug_profiles": 2625
   },
-  "global_boundary": "Research/learning medication-safety CDS only. Medication reconciliation, LASA, dispensing/storage and barcode workflows do not replace pharmacist/clinician judgment, current product labeling, institution-approved medication policy or direct patient verification. No automatic start/stop/restart/substitution/dispensing/administration authorization is generated. Barcode, EHR and ADC status are safety aids—not proof of clinical appropriateness.",
+  "global_boundary": "Research/learning medication-administration safety CDS only. V5.41C does not automatically declare any oral dosage form safe to crush/open/split, authorize enteral-tube administration, or generate universal feed-hold/dilution/flush instructions. Verify the exact product/brand, current labeling/pharmacist reference, swallow safety, tube type/location/bore, patient fluid restrictions, interactions and local enteral policy before action.",
   "labs": [
     {
       "id": "hypertension",
@@ -77558,6 +77558,2598 @@
           "id": "ISMP_ADC_GUIDELINE",
           "label": "ISMP — Guidelines for the Safe Use of Automated Dispensing Cabinets",
           "url": "https://www.ismp.org/resources/guidelines-safe-use-automated-dispensing-cabinets"
+        }
+      ]
+    },
+    {
+      "id": "oral_enteral_administration_safety",
+      "title": "Oral Medication • Crushing • Dysphagia • Enteral/NG Tube • Modified-Release Administration Safety Intelligence Lab",
+      "icon": "💊",
+      "badge": "V5.41C",
+      "eyebrow": "SWALLOW SAFETY • DO-NOT-CRUSH • FORMULATION • NG/PEG/PEJ • FEED INTERACTIONS • FLUSHING • TUBE PATENCY • OFF-LABEL DOCUMENTATION",
+      "subtitle": "Clinician/pharmacy medication-administration workspace linking dysphagia screening, dosage-form integrity, enteral-tube selection, feed interactions, flushing, clog prevention and traceable off-label manipulation decisions.",
+      "scientific_boundary": "Medication-administration safety decision support only. The lab does not declare a tablet/capsule safe to crush/open/split, does not authorize enteral-tube delivery, and does not generate universal feed-hold, dilution or flush instructions. Verify the exact product/brand and current labeling or pharmacist-approved reference, swallow safety, tube type/terminal location/bore, patient fluid limits, interactions and local enteral policy. Modified-release, enteric-coated, hazardous and route-critical products require especially careful product-specific verification.",
+      "classification_notes": {
+        "Dysphagia ≠ crush everything": "A swallowing problem should trigger formulation/route review; crushing can create dose dumping, loss of coating, occupational exposure, poor taste or aspiration problems.",
+        "Modified-release ≠ immediate-release": "MR/SR/CR/XL/LA/ER products may depend on intact release technology; manipulation can alter exposure.",
+        "Enteric-coated ≠ ordinary film coating": "Gastro-resistant/enteric coating may be essential to stability, site of release or mucosal protection.",
+        "Liquid ≠ automatically tube-safe": "Viscosity, osmolality, excipients, granules and tube dimensions can still cause intolerance or blockage.",
+        "Gastric ≠ jejunal delivery": "Tube terminal location changes the GI environment and can alter whether a product is suitable or absorbed as intended.",
+        "Feed hold ≠ universal rule": "Only hold or separate feeds when a medicine-specific interaction warrants it; unnecessary interruptions reduce nutrition delivery.",
+        "Off-label ≠ unsafe by definition": "Some manipulations are clinically appropriate off-label when supported by pharmacy/product evidence, documented and monitored."
+      },
+      "lens_groups": [
+        {
+          "group": "Swallow & oral route",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Oral/Enteral"
+            },
+            {
+              "id": "dysphagia",
+              "label": "Dysphagia"
+            },
+            {
+              "id": "aspiration",
+              "label": "Aspiration Risk"
+            },
+            {
+              "id": "oral",
+              "label": "Oral Route"
+            },
+            {
+              "id": "pharmacy",
+              "label": "Pharmacy Review"
+            }
+          ]
+        },
+        {
+          "group": "Dosage-form integrity",
+          "items": [
+            {
+              "id": "crushing",
+              "label": "Crush/Open"
+            },
+            {
+              "id": "modified_release",
+              "label": "MR/ER"
+            },
+            {
+              "id": "enteric_coated",
+              "label": "Enteric/DR"
+            },
+            {
+              "id": "capsule",
+              "label": "Capsules/Beads"
+            },
+            {
+              "id": "hazardous",
+              "label": "Hazardous"
+            }
+          ]
+        },
+        {
+          "group": "Enteral device",
+          "items": [
+            {
+              "id": "tube",
+              "label": "NG/PEG/PEJ"
+            },
+            {
+              "id": "gastric",
+              "label": "Gastric"
+            },
+            {
+              "id": "jejunal",
+              "label": "Jejunal"
+            },
+            {
+              "id": "patency",
+              "label": "Position/Patency"
+            },
+            {
+              "id": "syringe",
+              "label": "Enteral Syringe"
+            }
+          ]
+        },
+        {
+          "group": "Administration sequence",
+          "items": [
+            {
+              "id": "separate_medicines",
+              "label": "Separate Medicines"
+            },
+            {
+              "id": "flush",
+              "label": "Flush"
+            },
+            {
+              "id": "fluid_restriction",
+              "label": "Fluid Restriction"
+            },
+            {
+              "id": "tube_clog",
+              "label": "Clog Prevention"
+            },
+            {
+              "id": "dose",
+              "label": "Dose Delivery"
+            }
+          ]
+        },
+        {
+          "group": "Feeds & documentation",
+          "items": [
+            {
+              "id": "feed",
+              "label": "Feed Interaction"
+            },
+            {
+              "id": "phenytoin",
+              "label": "Phenytoin"
+            },
+            {
+              "id": "warfarin",
+              "label": "Warfarin"
+            },
+            {
+              "id": "levothyroxine",
+              "label": "Levothyroxine"
+            },
+            {
+              "id": "off_label",
+              "label": "Off-label / Document"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "oe_route_screen",
+          "name": "Oral-route suitability screen",
+          "mechanism": "Route and swallow-safety verification",
+          "target": "Oral intake • dysphagia • aspiration risk",
+          "tags": [
+            "oral",
+            "screening",
+            "dysphagia"
+          ],
+          "role_note": "Before manipulating a dosage form, confirm that oral administration is clinically appropriate and that swallowing is safe enough for the planned formulation.",
+          "drug_ids": [
+            "oe_route_screen_review",
+            "oe_route_screen_action"
+          ]
+        },
+        {
+          "id": "oe_dysphagia_screen",
+          "name": "Dysphagia medication screen",
+          "mechanism": "Identify swallowing difficulty before administration",
+          "target": "Tablets • capsules • liquids • textures",
+          "tags": [
+            "dysphagia",
+            "oral",
+            "screening"
+          ],
+          "role_note": "Ask about coughing/choking, pills sticking, prolonged swallow, recurrent aspiration/pneumonia and ability to manage the proposed texture; escalate suspected unsafe swallow for clinical assessment.",
+          "drug_ids": [
+            "oe_dysphagia_screen_review",
+            "oe_dysphagia_screen_action"
+          ]
+        },
+        {
+          "id": "oe_aspiration_risk",
+          "name": "Aspiration-risk medication administration",
+          "mechanism": "Reduce aspiration risk during medicine delivery",
+          "target": "Neurologic disease • frailty • reduced consciousness • dysphagia",
+          "tags": [
+            "aspiration",
+            "dysphagia",
+            "high_risk"
+          ],
+          "role_note": "Do not solve an unsafe swallow simply by crushing tablets into food. Confirm swallow plan, posture/texture strategy and route with the responsible clinical team.",
+          "drug_ids": [
+            "oe_aspiration_risk_review",
+            "oe_aspiration_risk_action"
+          ]
+        },
+        {
+          "id": "oe_swallow_referral",
+          "name": "Swallow-specialist / pharmacist escalation",
+          "mechanism": "Multidisciplinary formulation and route decision",
+          "target": "SLT/swallow team • pharmacist • prescriber",
+          "tags": [
+            "dysphagia",
+            "escalation",
+            "pharmacy"
+          ],
+          "role_note": "Complex dysphagia, recurrent choking, aspiration concerns or multiple unsuitable formulations should trigger coordinated prescriber/pharmacist and swallow-team review rather than repeated ad-hoc crushing.",
+          "drug_ids": [
+            "oe_swallow_referral_review",
+            "oe_swallow_referral_action"
+          ]
+        },
+        {
+          "id": "oe_formulation_review",
+          "name": "Dosage-form suitability review",
+          "mechanism": "Match formulation to patient and administration route",
+          "target": "Tablet • capsule • liquid • dispersible • alternative route",
+          "tags": [
+            "formulation",
+            "oral",
+            "review"
+          ],
+          "role_note": "Check the exact brand/product and release/coating characteristics because apparently similar formulations may have different administration instructions.",
+          "drug_ids": [
+            "oe_formulation_review_review",
+            "oe_formulation_review_action"
+          ]
+        },
+        {
+          "id": "oe_immediate_release",
+          "name": "Immediate-release tablet manipulation review",
+          "mechanism": "Assess whether crushing/dispersing is pharmaceutically acceptable",
+          "target": "Immediate-release tablets",
+          "tags": [
+            "formulation",
+            "crushing",
+            "tablet"
+          ],
+          "role_note": "Immediate-release does not automatically mean crushable. Verify product-specific labeling/excipients, hazardous handling, taste and mucosal effects before manipulation.",
+          "drug_ids": [
+            "oe_immediate_release_review",
+            "oe_immediate_release_action"
+          ]
+        },
+        {
+          "id": "oe_scored_tablet",
+          "name": "Scored-tablet splitting review",
+          "mechanism": "Verify that a score line supports intended dose manipulation",
+          "target": "Scored tablets • dose division",
+          "tags": [
+            "tablet",
+            "splitting",
+            "dose"
+          ],
+          "role_note": "A visible score line is not sufficient by itself to prove equal-dose subdivision for every product. Verify current product information before splitting for dose accuracy.",
+          "drug_ids": [
+            "oe_scored_tablet_review",
+            "oe_scored_tablet_action"
+          ]
+        },
+        {
+          "id": "oe_modified_release",
+          "name": "Modified-release / extended-release protection",
+          "mechanism": "Prevent dose dumping or loss of controlled-release behavior",
+          "target": "MR • SR • CR • XL • LA • ER products",
+          "tags": [
+            "modified_release",
+            "do_not_crush",
+            "high_risk"
+          ],
+          "role_note": "Modified-release tablets are usually unsuitable for crushing because release characteristics may be destroyed; verify exact formulation and approved alternatives.",
+          "drug_ids": [
+            "oe_modified_release_review",
+            "oe_modified_release_action"
+          ]
+        },
+        {
+          "id": "oe_enteric_delayed_release",
+          "name": "Enteric-coated / delayed-release protection",
+          "mechanism": "Preserve site-specific or acid-protective coating",
+          "target": "EC • DR • gastro-resistant products",
+          "tags": [
+            "enteric_coated",
+            "do_not_crush",
+            "formulation"
+          ],
+          "role_note": "Enteric/gastro-resistant coatings may protect the drug or stomach and are generally not to be crushed unless the exact product instructions explicitly allow an alternative method.",
+          "drug_ids": [
+            "oe_enteric_delayed_release_review",
+            "oe_enteric_delayed_release_action"
+          ]
+        },
+        {
+          "id": "oe_sublingual_buccal",
+          "name": "Sublingual / buccal route integrity",
+          "mechanism": "Preserve intended transmucosal absorption",
+          "target": "Sublingual • buccal medicines",
+          "tags": [
+            "sublingual",
+            "buccal",
+            "route"
+          ],
+          "role_note": "Do not convert sublingual/buccal products to swallowed/crushed administration without product-specific confirmation; route may be essential to effect and kinetics.",
+          "drug_ids": [
+            "oe_sublingual_buccal_review",
+            "oe_sublingual_buccal_action"
+          ]
+        },
+        {
+          "id": "oe_orodispersible",
+          "name": "Orodispersible / dispersible formulation review",
+          "mechanism": "Use formulation-specific dispersion instructions",
+          "target": "ODT • dispersible tablets",
+          "tags": [
+            "dispersible",
+            "oral",
+            "formulation"
+          ],
+          "role_note": "Dispersible or orodispersible products can improve administration but are not automatically suitable for enteral tubes; check residual particles, tube size and product instructions.",
+          "drug_ids": [
+            "oe_orodispersible_review",
+            "oe_orodispersible_action"
+          ]
+        },
+        {
+          "id": "oe_effervescent",
+          "name": "Effervescent formulation review",
+          "mechanism": "Assess sodium/gas/sediment and complete dispersion",
+          "target": "Effervescent tablets",
+          "tags": [
+            "effervescent",
+            "formulation",
+            "tube"
+          ],
+          "role_note": "Ensure complete dispersion and consider sodium load or gas/sediment issues; suitability for a feeding tube should be confirmed rather than assumed.",
+          "drug_ids": [
+            "oe_effervescent_review",
+            "oe_effervescent_action"
+          ]
+        },
+        {
+          "id": "oe_chewable",
+          "name": "Chewable formulation review",
+          "mechanism": "Confirm whether chewing is required and swallowing is safe",
+          "target": "Chewable tablets",
+          "tags": [
+            "chewable",
+            "oral",
+            "formulation"
+          ],
+          "role_note": "Chewable formulations may not be equivalent when swallowed whole or crushed; verify instructions and patient ability to chew/swallow safely.",
+          "drug_ids": [
+            "oe_chewable_review",
+            "oe_chewable_action"
+          ]
+        },
+        {
+          "id": "oe_hard_capsule",
+          "name": "Hard-capsule opening review",
+          "mechanism": "Determine whether capsule shell may be opened",
+          "target": "Hard gelatin/HPMC capsules",
+          "tags": [
+            "capsule",
+            "opening",
+            "formulation"
+          ],
+          "role_note": "Some capsules can be opened, but contents may be modified-release, enteric-coated, hazardous or irritating. Verify exact product before opening.",
+          "drug_ids": [
+            "oe_hard_capsule_review",
+            "oe_hard_capsule_action"
+          ]
+        },
+        {
+          "id": "oe_softgel",
+          "name": "Soft-gel capsule integrity",
+          "mechanism": "Avoid inappropriate puncture/opening of liquid-filled capsules",
+          "target": "Soft gelatin capsules",
+          "tags": [
+            "softgel",
+            "capsule",
+            "do_not_manipulate"
+          ],
+          "role_note": "Soft-gel contents and shell design may be integral to delivery; do not puncture or squeeze into food/tubes unless product-specific information supports it.",
+          "drug_ids": [
+            "oe_softgel_review",
+            "oe_softgel_action"
+          ]
+        },
+        {
+          "id": "oe_beads_pellets",
+          "name": "Multiparticulate beads / pellets protection",
+          "mechanism": "Preserve coated particles and assess tube passage",
+          "target": "Granules • beads • pellets",
+          "tags": [
+            "pellets",
+            "modified_release",
+            "tube"
+          ],
+          "role_note": "Capsules containing coated beads/pellets may sometimes be opened, but the particles generally must not be crushed/chewed and may obstruct small-bore tubes; verify product and tube requirements.",
+          "drug_ids": [
+            "oe_beads_pellets_review",
+            "oe_beads_pellets_action"
+          ]
+        },
+        {
+          "id": "oe_hazardous_crushing",
+          "name": "Hazardous-drug manipulation exposure",
+          "mechanism": "Protect staff/caregiver from aerosol or contact exposure",
+          "target": "Cytotoxic • teratogenic • sensitizing medicines",
+          "tags": [
+            "hazardous",
+            "crushing",
+            "occupational_safety"
+          ],
+          "role_note": "Do not crush/open hazardous medicines casually. Use institution-approved hazardous-drug handling procedures and seek a safer formulation/route where possible.",
+          "drug_ids": [
+            "oe_hazardous_crushing_review",
+            "oe_hazardous_crushing_action"
+          ]
+        },
+        {
+          "id": "oe_hormone_special_handling",
+          "name": "Hormone / reproductive-hazard manipulation review",
+          "mechanism": "Reduce exposure during tablet manipulation",
+          "target": "Hormonal/teratogenic products",
+          "tags": [
+            "hazardous",
+            "hormone",
+            "handling"
+          ],
+          "role_note": "If a product has reproductive or occupational handling warnings, manipulation requires product-specific risk assessment and protective procedures.",
+          "drug_ids": [
+            "oe_hormone_special_handling_review",
+            "oe_hormone_special_handling_action"
+          ]
+        },
+        {
+          "id": "oe_mucosal_irritant",
+          "name": "Mucosal-irritant crushed-drug review",
+          "mechanism": "Avoid oral/oesophageal exposure injury",
+          "target": "Irritant medicines",
+          "tags": [
+            "irritant",
+            "crushing",
+            "oral"
+          ],
+          "role_note": "Crushing can expose oral/oesophageal mucosa to irritating drug powder and worsen tolerability; confirm an alternative formulation or route.",
+          "drug_ids": [
+            "oe_mucosal_irritant_review",
+            "oe_mucosal_irritant_action"
+          ]
+        },
+        {
+          "id": "oe_taste_palatable",
+          "name": "Taste / palatability administration review",
+          "mechanism": "Prevent refusal, incomplete dosing and unsafe food mixing",
+          "target": "Bitter/unpleasant medicines",
+          "tags": [
+            "palatability",
+            "adherence",
+            "oral"
+          ],
+          "role_note": "Taste can drive refusal or incomplete dosing. Do not hide a medicine in a large food volume; use an appropriate small vehicle only when compatible and clinically suitable.",
+          "drug_ids": [
+            "oe_taste_palatable_review",
+            "oe_taste_palatable_action"
+          ]
+        },
+        {
+          "id": "oe_liquid_formulation",
+          "name": "Liquid formulation suitability",
+          "mechanism": "Assess concentration, excipients and tube suitability",
+          "target": "Solutions • suspensions • syrups",
+          "tags": [
+            "liquid",
+            "formulation",
+            "tube"
+          ],
+          "role_note": "Liquid formulations may help dysphagia but can still be unsuitable because of concentration, viscosity, osmolality, sorbitol/sugar or tube-blocking characteristics.",
+          "drug_ids": [
+            "oe_liquid_formulation_review",
+            "oe_liquid_formulation_action"
+          ]
+        },
+        {
+          "id": "oe_high_osmolality_liquid",
+          "name": "High-osmolality liquid review",
+          "mechanism": "Reduce GI intolerance risk",
+          "target": "Concentrated liquids • enteral administration",
+          "tags": [
+            "liquid",
+            "osmolality",
+            "gi_tolerance"
+          ],
+          "role_note": "Concentrated/high-osmolality liquids may worsen GI intolerance when delivered enterally; verify formulation and dilution guidance where applicable.",
+          "drug_ids": [
+            "oe_high_osmolality_liquid_review",
+            "oe_high_osmolality_liquid_action"
+          ]
+        },
+        {
+          "id": "oe_high_viscosity_liquid",
+          "name": "High-viscosity liquid review",
+          "mechanism": "Reduce resistance and tube occlusion risk",
+          "target": "Viscous suspensions/syrups",
+          "tags": [
+            "liquid",
+            "viscosity",
+            "tube_clog"
+          ],
+          "role_note": "Even liquids can obstruct small-bore tubes if highly viscous; evaluate formulation-specific dilution/flush guidance and tube characteristics.",
+          "drug_ids": [
+            "oe_high_viscosity_liquid_review",
+            "oe_high_viscosity_liquid_action"
+          ]
+        },
+        {
+          "id": "oe_excipient_load",
+          "name": "Sorbitol / sugar / alcohol excipient review",
+          "mechanism": "Recognize formulation excipient effects",
+          "target": "Liquid excipients • GI intolerance • glycemic load",
+          "tags": [
+            "excipient",
+            "liquid",
+            "sorbitol"
+          ],
+          "role_note": "Review clinically relevant excipients when changing from tablets to liquids; high sorbitol or other excipient loads can alter tolerance and adherence.",
+          "drug_ids": [
+            "oe_excipient_load_review",
+            "oe_excipient_load_action"
+          ]
+        },
+        {
+          "id": "oe_sodium_load",
+          "name": "Sodium-containing formulation review",
+          "mechanism": "Recognize sodium burden from alternative formulations",
+          "target": "Effervescent/soluble formulations",
+          "tags": [
+            "sodium",
+            "effervescent",
+            "comorbidity"
+          ],
+          "role_note": "When switching to effervescent/soluble products, consider sodium content in patients where sodium restriction matters and verify product labeling.",
+          "drug_ids": [
+            "oe_sodium_load_review",
+            "oe_sodium_load_action"
+          ]
+        },
+        {
+          "id": "oe_tube_identity",
+          "name": "Enteral-tube identity verification",
+          "mechanism": "Confirm device type before medication administration",
+          "target": "NG • OG • PEG • PEJ • GJ • jejunal extension",
+          "tags": [
+            "tube",
+            "identity",
+            "enteral"
+          ],
+          "role_note": "Before administering medication, confirm the exact enteral device, terminal location and intended port; gastric and jejunal delivery are not interchangeable.",
+          "drug_ids": [
+            "oe_tube_identity_review",
+            "oe_tube_identity_action"
+          ]
+        },
+        {
+          "id": "oe_gastric_tube",
+          "name": "Gastric-terminating tube medication review",
+          "mechanism": "Match dosage form to gastric tube delivery",
+          "target": "NG/PEG/gastrostomy ending in stomach",
+          "tags": [
+            "tube",
+            "gastric",
+            "enteral"
+          ],
+          "role_note": "Use product-specific enteral instructions and consider tube size/material; gastric access does not make every oral dosage form suitable for tube delivery.",
+          "drug_ids": [
+            "oe_gastric_tube_review",
+            "oe_gastric_tube_action"
+          ]
+        },
+        {
+          "id": "oe_jejunal_tube",
+          "name": "Post-pyloric / jejunal medication review",
+          "mechanism": "Account for bypass of stomach and altered absorption",
+          "target": "NJ/PEJ/jejunal limb",
+          "tags": [
+            "tube",
+            "jejunal",
+            "absorption"
+          ],
+          "role_note": "Jejunal delivery may alter dissolution/absorption or bypass a required gastric phase. Verify each medicine rather than assuming gastric-tube instructions apply.",
+          "drug_ids": [
+            "oe_jejunal_tube_review",
+            "oe_jejunal_tube_action"
+          ]
+        },
+        {
+          "id": "oe_tube_bore_material",
+          "name": "Tube bore / material compatibility review",
+          "mechanism": "Assess particle passage and adsorption/occlusion risk",
+          "target": "French size • material • connectors",
+          "tags": [
+            "tube",
+            "bore",
+            "material"
+          ],
+          "role_note": "Tube diameter and material can affect passage and recovery of granules/suspensions. Use product-specific enteral guidance and the correct enteral connection system.",
+          "drug_ids": [
+            "oe_tube_bore_material_review",
+            "oe_tube_bore_material_action"
+          ]
+        },
+        {
+          "id": "oe_tube_position_patency",
+          "name": "Tube position and patency pre-check",
+          "mechanism": "Avoid administration into malpositioned/blocked device",
+          "target": "Position • patency • correct port",
+          "tags": [
+            "tube",
+            "patency",
+            "safety"
+          ],
+          "role_note": "Confirm tube position/patency per local protocol before medication delivery and stop if displacement or blockage is suspected.",
+          "drug_ids": [
+            "oe_tube_position_patency_review",
+            "oe_tube_position_patency_action"
+          ]
+        },
+        {
+          "id": "oe_prepare_separately",
+          "name": "Prepare each medicine separately",
+          "mechanism": "Avoid physical/chemical incompatibility and dose uncertainty",
+          "target": "Multiple medicines via one tube",
+          "tags": [
+            "tube",
+            "separate_medicines",
+            "compatibility"
+          ],
+          "role_note": "Prepare and administer medicines separately rather than crushing/mixing multiple drugs together; this supports dose delivery and reduces incompatibility/clogging risk.",
+          "drug_ids": [
+            "oe_prepare_separately_review",
+            "oe_prepare_separately_action"
+          ]
+        },
+        {
+          "id": "oe_pre_flush",
+          "name": "Pre-administration tube flush",
+          "mechanism": "Clear feed/residue before medicine delivery",
+          "target": "Enteral tube medication sequence",
+          "tags": [
+            "tube",
+            "flush",
+            "administration"
+          ],
+          "role_note": "Use the locally appropriate water type and flush strategy before medicines, adjusted for patient age/fluid restriction and tube location; follow institutional enteral policy.",
+          "drug_ids": [
+            "oe_pre_flush_review",
+            "oe_pre_flush_action"
+          ]
+        },
+        {
+          "id": "oe_between_flush",
+          "name": "Between-medicine flush",
+          "mechanism": "Separate sequential medicines in the tube",
+          "target": "Multiple enteral medicines",
+          "tags": [
+            "tube",
+            "flush",
+            "separate_medicines"
+          ],
+          "role_note": "Flush between separately prepared medicines according to local enteral policy to clear the tube and reduce mixing/occlusion risk.",
+          "drug_ids": [
+            "oe_between_flush_review",
+            "oe_between_flush_action"
+          ]
+        },
+        {
+          "id": "oe_post_flush",
+          "name": "Post-administration tube flush",
+          "mechanism": "Clear residual medicine and maintain patency",
+          "target": "After final enteral medicine",
+          "tags": [
+            "tube",
+            "flush",
+            "patency"
+          ],
+          "role_note": "Complete the medication sequence with the appropriate post-administration flush per local policy, considering fluid restriction and pediatric needs.",
+          "drug_ids": [
+            "oe_post_flush_review",
+            "oe_post_flush_action"
+          ]
+        },
+        {
+          "id": "oe_fluid_restriction",
+          "name": "Fluid-restricted / pediatric flush planning",
+          "mechanism": "Balance tube patency with total fluid allowance",
+          "target": "Heart/renal failure • pediatrics • restricted fluids",
+          "tags": [
+            "tube",
+            "fluid_restriction",
+            "pediatrics"
+          ],
+          "role_note": "Standard adult flush volumes may be inappropriate in fluid-restricted or pediatric patients; individualize the total water plan with the clinical/dietetic/pharmacy team.",
+          "drug_ids": [
+            "oe_fluid_restriction_review",
+            "oe_fluid_restriction_action"
+          ]
+        },
+        {
+          "id": "oe_enteral_syringe",
+          "name": "Enteral syringe / connector safety",
+          "mechanism": "Prevent wrong-route connection and dose loss",
+          "target": "ENFit/enteral syringes • adapters",
+          "tags": [
+            "tube",
+            "syringe",
+            "wrong_route"
+          ],
+          "role_note": "Use enteral-designated syringes/connectors and appropriate adapters; account for device dead space and avoid IV syringes for enteral administration.",
+          "drug_ids": [
+            "oe_enteral_syringe_review",
+            "oe_enteral_syringe_action"
+          ]
+        },
+        {
+          "id": "oe_feed_interaction",
+          "name": "Medicine–enteral feed interaction review",
+          "mechanism": "Identify absorption/response changes caused by feeds",
+          "target": "Continuous/intermittent feeds • drug timing",
+          "tags": [
+            "feed",
+            "interaction",
+            "enteral"
+          ],
+          "role_note": "Do not routinely stop feeds for every medicine. Identify product-specific feed interactions and use the shortest evidence-based interruption needed, balancing nutrition delivery.",
+          "drug_ids": [
+            "oe_feed_interaction_review",
+            "oe_feed_interaction_action"
+          ]
+        },
+        {
+          "id": "oe_phenytoin_feed",
+          "name": "Phenytoin–enteral feed management review",
+          "mechanism": "Avoid reduced/variable exposure with feeds",
+          "target": "Phenytoin • enteral nutrition",
+          "tags": [
+            "feed",
+            "phenytoin",
+            "tdm"
+          ],
+          "role_note": "Phenytoin with enteral feeding requires a product/patient-specific plan and clinical level/response monitoring; do not apply a universal timing rule without current local guidance.",
+          "drug_ids": [
+            "oe_phenytoin_feed_review",
+            "oe_phenytoin_feed_action"
+          ]
+        },
+        {
+          "id": "oe_quinolone_feed",
+          "name": "Fluoroquinolone–enteral feed interaction review",
+          "mechanism": "Manage cation-related absorption reduction",
+          "target": "Ciprofloxacin/levofloxacin-class • feeds/minerals",
+          "tags": [
+            "feed",
+            "fluoroquinolone",
+            "interaction"
+          ],
+          "role_note": "Enteral feeds/minerals may reduce absorption of some fluoroquinolones. Verify the exact agent, route, indication and current interaction guidance before changing feed timing.",
+          "drug_ids": [
+            "oe_quinolone_feed_review",
+            "oe_quinolone_feed_action"
+          ]
+        },
+        {
+          "id": "oe_warfarin_feed",
+          "name": "Warfarin–enteral nutrition review",
+          "mechanism": "Maintain anticoagulation consistency during feed changes",
+          "target": "Warfarin • vitamin K exposure • feeds",
+          "tags": [
+            "feed",
+            "warfarin",
+            "anticoagulation"
+          ],
+          "role_note": "Major changes in enteral nutrition can affect anticoagulation management. Coordinate feed changes with INR monitoring and the anticoagulation plan rather than making unsupervised holds.",
+          "drug_ids": [
+            "oe_warfarin_feed_review",
+            "oe_warfarin_feed_action"
+          ]
+        },
+        {
+          "id": "oe_levothyroxine_feed",
+          "name": "Levothyroxine–enteral feed review",
+          "mechanism": "Manage absorption consistency",
+          "target": "Levothyroxine • enteral feeds",
+          "tags": [
+            "feed",
+            "levothyroxine",
+            "interaction"
+          ],
+          "role_note": "Enteral feeding can complicate levothyroxine absorption. Use consistent, locally approved administration/monitoring practice and reassess thyroid tests when clinically indicated.",
+          "drug_ids": [
+            "oe_levothyroxine_feed_review",
+            "oe_levothyroxine_feed_action"
+          ]
+        },
+        {
+          "id": "oe_tube_clog",
+          "name": "Medication-related tube blockage prevention",
+          "mechanism": "Reduce occlusion from formulation/preparation",
+          "target": "Granules • viscous liquids • mixed medicines",
+          "tags": [
+            "tube_clog",
+            "prevention",
+            "enteral"
+          ],
+          "role_note": "Review formulation choice, preparation and flushing if blockage risk is high. Prevention is preferred to repeated unclogging; do not force a blocked tube.",
+          "drug_ids": [
+            "oe_tube_clog_review",
+            "oe_tube_clog_action"
+          ]
+        },
+        {
+          "id": "oe_dose_recovery",
+          "name": "Incomplete dose / spillage / retained-residue response",
+          "mechanism": "Avoid unplanned redosing after uncertain delivery",
+          "target": "Spill • residual drug • tube loss • vomiting",
+          "tags": [
+            "dose",
+            "uncertain_delivery",
+            "safety"
+          ],
+          "role_note": "If delivery is incomplete or uncertain, do not automatically repeat the dose. Estimate what happened, assess drug therapeutic index and seek prescriber/pharmacist advice for high-risk medicines.",
+          "drug_ids": [
+            "oe_dose_recovery_review",
+            "oe_dose_recovery_action"
+          ]
+        },
+        {
+          "id": "oe_offlabel_document",
+          "name": "Off-label manipulation / tube-administration documentation",
+          "mechanism": "Make formulation manipulation and rationale traceable",
+          "target": "Crushing/opening • unlicensed tube administration",
+          "tags": [
+            "off_label",
+            "documentation",
+            "pharmacy"
+          ],
+          "role_note": "When manipulation or enteral administration is outside product labeling, document the clinical rationale, verified method/source and monitoring plan according to local policy.",
+          "drug_ids": [
+            "oe_offlabel_document_review",
+            "oe_offlabel_document_action"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "oe_route_screen_review",
+          "generic": "Oral-route suitability screen — formulation / safety review card",
+          "class_id": "oe_route_screen",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "oral",
+            "screening",
+            "dysphagia",
+            "review"
+          ],
+          "role": "Before manipulating a dosage form, confirm that oral administration is clinically appropriate and that swallowing is safe enough for the planned formulation.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_route_screen_action",
+          "generic": "Oral-route suitability screen — administration / closure card",
+          "class_id": "oe_route_screen",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "oral",
+            "screening",
+            "dysphagia",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_dysphagia_screen_review",
+          "generic": "Dysphagia medication screen — formulation / safety review card",
+          "class_id": "oe_dysphagia_screen",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "dysphagia",
+            "oral",
+            "screening",
+            "review"
+          ],
+          "role": "Ask about coughing/choking, pills sticking, prolonged swallow, recurrent aspiration/pneumonia and ability to manage the proposed texture; escalate suspected unsafe swallow for clinical assessment.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_dysphagia_screen_action",
+          "generic": "Dysphagia medication screen — administration / closure card",
+          "class_id": "oe_dysphagia_screen",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "dysphagia",
+            "oral",
+            "screening",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_aspiration_risk_review",
+          "generic": "Aspiration-risk medication administration — formulation / safety review card",
+          "class_id": "oe_aspiration_risk",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "aspiration",
+            "dysphagia",
+            "high_risk",
+            "review"
+          ],
+          "role": "Do not solve an unsafe swallow simply by crushing tablets into food. Confirm swallow plan, posture/texture strategy and route with the responsible clinical team.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_aspiration_risk_action",
+          "generic": "Aspiration-risk medication administration — administration / closure card",
+          "class_id": "oe_aspiration_risk",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "aspiration",
+            "dysphagia",
+            "high_risk",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_swallow_referral_review",
+          "generic": "Swallow-specialist / pharmacist escalation — formulation / safety review card",
+          "class_id": "oe_swallow_referral",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "dysphagia",
+            "escalation",
+            "pharmacy",
+            "review"
+          ],
+          "role": "Complex dysphagia, recurrent choking, aspiration concerns or multiple unsuitable formulations should trigger coordinated prescriber/pharmacist and swallow-team review rather than repeated ad-hoc crushing.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_swallow_referral_action",
+          "generic": "Swallow-specialist / pharmacist escalation — administration / closure card",
+          "class_id": "oe_swallow_referral",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "dysphagia",
+            "escalation",
+            "pharmacy",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_formulation_review_review",
+          "generic": "Dosage-form suitability review — formulation / safety review card",
+          "class_id": "oe_formulation_review",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "formulation",
+            "oral",
+            "review",
+            "review"
+          ],
+          "role": "Check the exact brand/product and release/coating characteristics because apparently similar formulations may have different administration instructions.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN",
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_formulation_review_action",
+          "generic": "Dosage-form suitability review — administration / closure card",
+          "class_id": "oe_formulation_review",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "formulation",
+            "oral",
+            "review",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN",
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_immediate_release_review",
+          "generic": "Immediate-release tablet manipulation review — formulation / safety review card",
+          "class_id": "oe_immediate_release",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "formulation",
+            "crushing",
+            "tablet",
+            "review"
+          ],
+          "role": "Immediate-release does not automatically mean crushable. Verify product-specific labeling/excipients, hazardous handling, taste and mucosal effects before manipulation.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_immediate_release_action",
+          "generic": "Immediate-release tablet manipulation review — administration / closure card",
+          "class_id": "oe_immediate_release",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "formulation",
+            "crushing",
+            "tablet",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_scored_tablet_review",
+          "generic": "Scored-tablet splitting review — formulation / safety review card",
+          "class_id": "oe_scored_tablet",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "tablet",
+            "splitting",
+            "dose",
+            "review"
+          ],
+          "role": "A visible score line is not sufficient by itself to prove equal-dose subdivision for every product. Verify current product information before splitting for dose accuracy.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_scored_tablet_action",
+          "generic": "Scored-tablet splitting review — administration / closure card",
+          "class_id": "oe_scored_tablet",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "tablet",
+            "splitting",
+            "dose",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_modified_release_review",
+          "generic": "Modified-release / extended-release protection — formulation / safety review card",
+          "class_id": "oe_modified_release",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "modified_release",
+            "do_not_crush",
+            "high_risk",
+            "review"
+          ],
+          "role": "Modified-release tablets are usually unsuitable for crushing because release characteristics may be destroyed; verify exact formulation and approved alternatives.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_modified_release_action",
+          "generic": "Modified-release / extended-release protection — administration / closure card",
+          "class_id": "oe_modified_release",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "modified_release",
+            "do_not_crush",
+            "high_risk",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_enteric_delayed_release_review",
+          "generic": "Enteric-coated / delayed-release protection — formulation / safety review card",
+          "class_id": "oe_enteric_delayed_release",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "enteric_coated",
+            "do_not_crush",
+            "formulation",
+            "review"
+          ],
+          "role": "Enteric/gastro-resistant coatings may protect the drug or stomach and are generally not to be crushed unless the exact product instructions explicitly allow an alternative method.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_enteric_delayed_release_action",
+          "generic": "Enteric-coated / delayed-release protection — administration / closure card",
+          "class_id": "oe_enteric_delayed_release",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "enteric_coated",
+            "do_not_crush",
+            "formulation",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_sublingual_buccal_review",
+          "generic": "Sublingual / buccal route integrity — formulation / safety review card",
+          "class_id": "oe_sublingual_buccal",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "sublingual",
+            "buccal",
+            "route",
+            "review"
+          ],
+          "role": "Do not convert sublingual/buccal products to swallowed/crushed administration without product-specific confirmation; route may be essential to effect and kinetics.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_sublingual_buccal_action",
+          "generic": "Sublingual / buccal route integrity — administration / closure card",
+          "class_id": "oe_sublingual_buccal",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "sublingual",
+            "buccal",
+            "route",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_orodispersible_review",
+          "generic": "Orodispersible / dispersible formulation review — formulation / safety review card",
+          "class_id": "oe_orodispersible",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "dispersible",
+            "oral",
+            "formulation",
+            "review"
+          ],
+          "role": "Dispersible or orodispersible products can improve administration but are not automatically suitable for enteral tubes; check residual particles, tube size and product instructions.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_ENTERAL_CHOOSE",
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_orodispersible_action",
+          "generic": "Orodispersible / dispersible formulation review — administration / closure card",
+          "class_id": "oe_orodispersible",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "dispersible",
+            "oral",
+            "formulation",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_ENTERAL_CHOOSE",
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_effervescent_review",
+          "generic": "Effervescent formulation review — formulation / safety review card",
+          "class_id": "oe_effervescent",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "effervescent",
+            "formulation",
+            "tube",
+            "review"
+          ],
+          "role": "Ensure complete dispersion and consider sodium load or gas/sediment issues; suitability for a feeding tube should be confirmed rather than assumed.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_ENTERAL_CHOOSE"
+          ]
+        },
+        {
+          "id": "oe_effervescent_action",
+          "generic": "Effervescent formulation review — administration / closure card",
+          "class_id": "oe_effervescent",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "effervescent",
+            "formulation",
+            "tube",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_ENTERAL_CHOOSE"
+          ]
+        },
+        {
+          "id": "oe_chewable_review",
+          "generic": "Chewable formulation review — formulation / safety review card",
+          "class_id": "oe_chewable",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "chewable",
+            "oral",
+            "formulation",
+            "review"
+          ],
+          "role": "Chewable formulations may not be equivalent when swallowed whole or crushed; verify instructions and patient ability to chew/swallow safely.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_chewable_action",
+          "generic": "Chewable formulation review — administration / closure card",
+          "class_id": "oe_chewable",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "chewable",
+            "oral",
+            "formulation",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_hard_capsule_review",
+          "generic": "Hard-capsule opening review — formulation / safety review card",
+          "class_id": "oe_hard_capsule",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "capsule",
+            "opening",
+            "formulation",
+            "review"
+          ],
+          "role": "Some capsules can be opened, but contents may be modified-release, enteric-coated, hazardous or irritating. Verify exact product before opening.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_hard_capsule_action",
+          "generic": "Hard-capsule opening review — administration / closure card",
+          "class_id": "oe_hard_capsule",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "capsule",
+            "opening",
+            "formulation",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_softgel_review",
+          "generic": "Soft-gel capsule integrity — formulation / safety review card",
+          "class_id": "oe_softgel",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "softgel",
+            "capsule",
+            "do_not_manipulate",
+            "review"
+          ],
+          "role": "Soft-gel contents and shell design may be integral to delivery; do not puncture or squeeze into food/tubes unless product-specific information supports it.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_softgel_action",
+          "generic": "Soft-gel capsule integrity — administration / closure card",
+          "class_id": "oe_softgel",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "softgel",
+            "capsule",
+            "do_not_manipulate",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_beads_pellets_review",
+          "generic": "Multiparticulate beads / pellets protection — formulation / safety review card",
+          "class_id": "oe_beads_pellets",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "pellets",
+            "modified_release",
+            "tube",
+            "review"
+          ],
+          "role": "Capsules containing coated beads/pellets may sometimes be opened, but the particles generally must not be crushed/chewed and may obstruct small-bore tubes; verify product and tube requirements.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN",
+            "FDA_ENTERAL_TUBE"
+          ]
+        },
+        {
+          "id": "oe_beads_pellets_action",
+          "generic": "Multiparticulate beads / pellets protection — administration / closure card",
+          "class_id": "oe_beads_pellets",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "pellets",
+            "modified_release",
+            "tube",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN",
+            "FDA_ENTERAL_TUBE"
+          ]
+        },
+        {
+          "id": "oe_hazardous_crushing_review",
+          "generic": "Hazardous-drug manipulation exposure — formulation / safety review card",
+          "class_id": "oe_hazardous_crushing",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "hazardous",
+            "crushing",
+            "occupational_safety",
+            "review"
+          ],
+          "role": "Do not crush/open hazardous medicines casually. Use institution-approved hazardous-drug handling procedures and seek a safer formulation/route where possible.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_hazardous_crushing_action",
+          "generic": "Hazardous-drug manipulation exposure — administration / closure card",
+          "class_id": "oe_hazardous_crushing",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "hazardous",
+            "crushing",
+            "occupational_safety",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_hormone_special_handling_review",
+          "generic": "Hormone / reproductive-hazard manipulation review — formulation / safety review card",
+          "class_id": "oe_hormone_special_handling",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "hazardous",
+            "hormone",
+            "handling",
+            "review"
+          ],
+          "role": "If a product has reproductive or occupational handling warnings, manipulation requires product-specific risk assessment and protective procedures.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_hormone_special_handling_action",
+          "generic": "Hormone / reproductive-hazard manipulation review — administration / closure card",
+          "class_id": "oe_hormone_special_handling",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "hazardous",
+            "hormone",
+            "handling",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_mucosal_irritant_review",
+          "generic": "Mucosal-irritant crushed-drug review — formulation / safety review card",
+          "class_id": "oe_mucosal_irritant",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "irritant",
+            "crushing",
+            "oral",
+            "review"
+          ],
+          "role": "Crushing can expose oral/oesophageal mucosa to irritating drug powder and worsen tolerability; confirm an alternative formulation or route.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_mucosal_irritant_action",
+          "generic": "Mucosal-irritant crushed-drug review — administration / closure card",
+          "class_id": "oe_mucosal_irritant",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "irritant",
+            "crushing",
+            "oral",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN"
+          ]
+        },
+        {
+          "id": "oe_taste_palatable_review",
+          "generic": "Taste / palatability administration review — formulation / safety review card",
+          "class_id": "oe_taste_palatable",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "palatability",
+            "adherence",
+            "oral",
+            "review"
+          ],
+          "role": "Taste can drive refusal or incomplete dosing. Do not hide a medicine in a large food volume; use an appropriate small vehicle only when compatible and clinically suitable.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN",
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_taste_palatable_action",
+          "generic": "Taste / palatability administration review — administration / closure card",
+          "class_id": "oe_taste_palatable",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "palatability",
+            "adherence",
+            "oral",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN",
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_liquid_formulation_review",
+          "generic": "Liquid formulation suitability — formulation / safety review card",
+          "class_id": "oe_liquid_formulation",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "liquid",
+            "formulation",
+            "tube",
+            "review"
+          ],
+          "role": "Liquid formulations may help dysphagia but can still be unsuitable because of concentration, viscosity, osmolality, sorbitol/sugar or tube-blocking characteristics.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_ENTERAL_CHOOSE"
+          ]
+        },
+        {
+          "id": "oe_liquid_formulation_action",
+          "generic": "Liquid formulation suitability — administration / closure card",
+          "class_id": "oe_liquid_formulation",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "liquid",
+            "formulation",
+            "tube",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_ENTERAL_CHOOSE"
+          ]
+        },
+        {
+          "id": "oe_high_osmolality_liquid_review",
+          "generic": "High-osmolality liquid review — formulation / safety review card",
+          "class_id": "oe_high_osmolality_liquid",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "liquid",
+            "osmolality",
+            "gi_tolerance",
+            "review"
+          ],
+          "role": "Concentrated/high-osmolality liquids may worsen GI intolerance when delivered enterally; verify formulation and dilution guidance where applicable.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_ENTERAL_CHOOSE",
+            "ASPEN_KLANG_2023"
+          ]
+        },
+        {
+          "id": "oe_high_osmolality_liquid_action",
+          "generic": "High-osmolality liquid review — administration / closure card",
+          "class_id": "oe_high_osmolality_liquid",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "liquid",
+            "osmolality",
+            "gi_tolerance",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_ENTERAL_CHOOSE",
+            "ASPEN_KLANG_2023"
+          ]
+        },
+        {
+          "id": "oe_high_viscosity_liquid_review",
+          "generic": "High-viscosity liquid review — formulation / safety review card",
+          "class_id": "oe_high_viscosity_liquid",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "liquid",
+            "viscosity",
+            "tube_clog",
+            "review"
+          ],
+          "role": "Even liquids can obstruct small-bore tubes if highly viscous; evaluate formulation-specific dilution/flush guidance and tube characteristics.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_ENTERAL_CHOOSE"
+          ]
+        },
+        {
+          "id": "oe_high_viscosity_liquid_action",
+          "generic": "High-viscosity liquid review — administration / closure card",
+          "class_id": "oe_high_viscosity_liquid",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "liquid",
+            "viscosity",
+            "tube_clog",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_ENTERAL_CHOOSE"
+          ]
+        },
+        {
+          "id": "oe_excipient_load_review",
+          "generic": "Sorbitol / sugar / alcohol excipient review — formulation / safety review card",
+          "class_id": "oe_excipient_load",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "excipient",
+            "liquid",
+            "sorbitol",
+            "review"
+          ],
+          "role": "Review clinically relevant excipients when changing from tablets to liquids; high sorbitol or other excipient loads can alter tolerance and adherence.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_ENTERAL_CHOOSE"
+          ]
+        },
+        {
+          "id": "oe_excipient_load_action",
+          "generic": "Sorbitol / sugar / alcohol excipient review — administration / closure card",
+          "class_id": "oe_excipient_load",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "excipient",
+            "liquid",
+            "sorbitol",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_ENTERAL_CHOOSE"
+          ]
+        },
+        {
+          "id": "oe_sodium_load_review",
+          "generic": "Sodium-containing formulation review — formulation / safety review card",
+          "class_id": "oe_sodium_load",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "sodium",
+            "effervescent",
+            "comorbidity",
+            "review"
+          ],
+          "role": "When switching to effervescent/soluble products, consider sodium content in patients where sodium restriction matters and verify product labeling.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_sodium_load_action",
+          "generic": "Sodium-containing formulation review — administration / closure card",
+          "class_id": "oe_sodium_load",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "sodium",
+            "effervescent",
+            "comorbidity",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_SWALLOW_FORMULATION"
+          ]
+        },
+        {
+          "id": "oe_tube_identity_review",
+          "generic": "Enteral-tube identity verification — formulation / safety review card",
+          "class_id": "oe_tube_identity",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "tube",
+            "identity",
+            "enteral",
+            "review"
+          ],
+          "role": "Before administering medication, confirm the exact enteral device, terminal location and intended port; gastric and jejunal delivery are not interchangeable.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_TUBE_TYPES"
+          ]
+        },
+        {
+          "id": "oe_tube_identity_action",
+          "generic": "Enteral-tube identity verification — administration / closure card",
+          "class_id": "oe_tube_identity",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "tube",
+            "identity",
+            "enteral",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_TUBE_TYPES"
+          ]
+        },
+        {
+          "id": "oe_gastric_tube_review",
+          "generic": "Gastric-terminating tube medication review — formulation / safety review card",
+          "class_id": "oe_gastric_tube",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "tube",
+            "gastric",
+            "enteral",
+            "review"
+          ],
+          "role": "Use product-specific enteral instructions and consider tube size/material; gastric access does not make every oral dosage form suitable for tube delivery.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_TUBE_TYPES",
+            "FDA_ENTERAL_TUBE"
+          ]
+        },
+        {
+          "id": "oe_gastric_tube_action",
+          "generic": "Gastric-terminating tube medication review — administration / closure card",
+          "class_id": "oe_gastric_tube",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "tube",
+            "gastric",
+            "enteral",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_TUBE_TYPES",
+            "FDA_ENTERAL_TUBE"
+          ]
+        },
+        {
+          "id": "oe_jejunal_tube_review",
+          "generic": "Post-pyloric / jejunal medication review — formulation / safety review card",
+          "class_id": "oe_jejunal_tube",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "tube",
+            "jejunal",
+            "absorption",
+            "review"
+          ],
+          "role": "Jejunal delivery may alter dissolution/absorption or bypass a required gastric phase. Verify each medicine rather than assuming gastric-tube instructions apply.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_TUBE_TYPES",
+            "SPS_ENTERAL_CHOOSE"
+          ]
+        },
+        {
+          "id": "oe_jejunal_tube_action",
+          "generic": "Post-pyloric / jejunal medication review — administration / closure card",
+          "class_id": "oe_jejunal_tube",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "tube",
+            "jejunal",
+            "absorption",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_TUBE_TYPES",
+            "SPS_ENTERAL_CHOOSE"
+          ]
+        },
+        {
+          "id": "oe_tube_bore_material_review",
+          "generic": "Tube bore / material compatibility review — formulation / safety review card",
+          "class_id": "oe_tube_bore_material",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "tube",
+            "bore",
+            "material",
+            "review"
+          ],
+          "role": "Tube diameter and material can affect passage and recovery of granules/suspensions. Use product-specific enteral guidance and the correct enteral connection system.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_TUBE_TYPES",
+            "FDA_ENTERAL_TUBE"
+          ]
+        },
+        {
+          "id": "oe_tube_bore_material_action",
+          "generic": "Tube bore / material compatibility review — administration / closure card",
+          "class_id": "oe_tube_bore_material",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "tube",
+            "bore",
+            "material",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_TUBE_TYPES",
+            "FDA_ENTERAL_TUBE"
+          ]
+        },
+        {
+          "id": "oe_tube_position_patency_review",
+          "generic": "Tube position and patency pre-check — formulation / safety review card",
+          "class_id": "oe_tube_position_patency",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "tube",
+            "patency",
+            "safety",
+            "review"
+          ],
+          "role": "Confirm tube position/patency per local protocol before medication delivery and stop if displacement or blockage is suspected.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_tube_position_patency_action",
+          "generic": "Tube position and patency pre-check — administration / closure card",
+          "class_id": "oe_tube_position_patency",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "tube",
+            "patency",
+            "safety",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_prepare_separately_review",
+          "generic": "Prepare each medicine separately — formulation / safety review card",
+          "class_id": "oe_prepare_separately",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "tube",
+            "separate_medicines",
+            "compatibility",
+            "review"
+          ],
+          "role": "Prepare and administer medicines separately rather than crushing/mixing multiple drugs together; this supports dose delivery and reduces incompatibility/clogging risk.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_prepare_separately_action",
+          "generic": "Prepare each medicine separately — administration / closure card",
+          "class_id": "oe_prepare_separately",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "tube",
+            "separate_medicines",
+            "compatibility",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_pre_flush_review",
+          "generic": "Pre-administration tube flush — formulation / safety review card",
+          "class_id": "oe_pre_flush",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "tube",
+            "flush",
+            "administration",
+            "review"
+          ],
+          "role": "Use the locally appropriate water type and flush strategy before medicines, adjusted for patient age/fluid restriction and tube location; follow institutional enteral policy.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_pre_flush_action",
+          "generic": "Pre-administration tube flush — administration / closure card",
+          "class_id": "oe_pre_flush",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "tube",
+            "flush",
+            "administration",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_between_flush_review",
+          "generic": "Between-medicine flush — formulation / safety review card",
+          "class_id": "oe_between_flush",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "tube",
+            "flush",
+            "separate_medicines",
+            "review"
+          ],
+          "role": "Flush between separately prepared medicines according to local enteral policy to clear the tube and reduce mixing/occlusion risk.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_between_flush_action",
+          "generic": "Between-medicine flush — administration / closure card",
+          "class_id": "oe_between_flush",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "tube",
+            "flush",
+            "separate_medicines",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_post_flush_review",
+          "generic": "Post-administration tube flush — formulation / safety review card",
+          "class_id": "oe_post_flush",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "tube",
+            "flush",
+            "patency",
+            "review"
+          ],
+          "role": "Complete the medication sequence with the appropriate post-administration flush per local policy, considering fluid restriction and pediatric needs.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_post_flush_action",
+          "generic": "Post-administration tube flush — administration / closure card",
+          "class_id": "oe_post_flush",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "tube",
+            "flush",
+            "patency",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_fluid_restriction_review",
+          "generic": "Fluid-restricted / pediatric flush planning — formulation / safety review card",
+          "class_id": "oe_fluid_restriction",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "tube",
+            "fluid_restriction",
+            "pediatrics",
+            "review"
+          ],
+          "role": "Standard adult flush volumes may be inappropriate in fluid-restricted or pediatric patients; individualize the total water plan with the clinical/dietetic/pharmacy team.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_fluid_restriction_action",
+          "generic": "Fluid-restricted / pediatric flush planning — administration / closure card",
+          "class_id": "oe_fluid_restriction",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "tube",
+            "fluid_restriction",
+            "pediatrics",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_enteral_syringe_review",
+          "generic": "Enteral syringe / connector safety — formulation / safety review card",
+          "class_id": "oe_enteral_syringe",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "tube",
+            "syringe",
+            "wrong_route",
+            "review"
+          ],
+          "role": "Use enteral-designated syringes/connectors and appropriate adapters; account for device dead space and avoid IV syringes for enteral administration.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_enteral_syringe_action",
+          "generic": "Enteral syringe / connector safety — administration / closure card",
+          "class_id": "oe_enteral_syringe",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "tube",
+            "syringe",
+            "wrong_route",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_feed_interaction_review",
+          "generic": "Medicine–enteral feed interaction review — formulation / safety review card",
+          "class_id": "oe_feed_interaction",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "feed",
+            "interaction",
+            "enteral",
+            "review"
+          ],
+          "role": "Do not routinely stop feeds for every medicine. Identify product-specific feed interactions and use the shortest evidence-based interruption needed, balancing nutrition delivery.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_FEED_INTERACTIONS"
+          ]
+        },
+        {
+          "id": "oe_feed_interaction_action",
+          "generic": "Medicine–enteral feed interaction review — administration / closure card",
+          "class_id": "oe_feed_interaction",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "feed",
+            "interaction",
+            "enteral",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_FEED_INTERACTIONS"
+          ]
+        },
+        {
+          "id": "oe_phenytoin_feed_review",
+          "generic": "Phenytoin–enteral feed management review — formulation / safety review card",
+          "class_id": "oe_phenytoin_feed",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "feed",
+            "phenytoin",
+            "tdm",
+            "review"
+          ],
+          "role": "Phenytoin with enteral feeding requires a product/patient-specific plan and clinical level/response monitoring; do not apply a universal timing rule without current local guidance.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_FEED_INTERACTIONS"
+          ]
+        },
+        {
+          "id": "oe_phenytoin_feed_action",
+          "generic": "Phenytoin–enteral feed management review — administration / closure card",
+          "class_id": "oe_phenytoin_feed",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "feed",
+            "phenytoin",
+            "tdm",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_FEED_INTERACTIONS"
+          ]
+        },
+        {
+          "id": "oe_quinolone_feed_review",
+          "generic": "Fluoroquinolone–enteral feed interaction review — formulation / safety review card",
+          "class_id": "oe_quinolone_feed",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "feed",
+            "fluoroquinolone",
+            "interaction",
+            "review"
+          ],
+          "role": "Enteral feeds/minerals may reduce absorption of some fluoroquinolones. Verify the exact agent, route, indication and current interaction guidance before changing feed timing.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_FEED_INTERACTIONS"
+          ]
+        },
+        {
+          "id": "oe_quinolone_feed_action",
+          "generic": "Fluoroquinolone–enteral feed interaction review — administration / closure card",
+          "class_id": "oe_quinolone_feed",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "feed",
+            "fluoroquinolone",
+            "interaction",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_FEED_INTERACTIONS"
+          ]
+        },
+        {
+          "id": "oe_warfarin_feed_review",
+          "generic": "Warfarin–enteral nutrition review — formulation / safety review card",
+          "class_id": "oe_warfarin_feed",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "feed",
+            "warfarin",
+            "anticoagulation",
+            "review"
+          ],
+          "role": "Major changes in enteral nutrition can affect anticoagulation management. Coordinate feed changes with INR monitoring and the anticoagulation plan rather than making unsupervised holds.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_FEED_INTERACTIONS"
+          ]
+        },
+        {
+          "id": "oe_warfarin_feed_action",
+          "generic": "Warfarin–enteral nutrition review — administration / closure card",
+          "class_id": "oe_warfarin_feed",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "feed",
+            "warfarin",
+            "anticoagulation",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_FEED_INTERACTIONS"
+          ]
+        },
+        {
+          "id": "oe_levothyroxine_feed_review",
+          "generic": "Levothyroxine–enteral feed review — formulation / safety review card",
+          "class_id": "oe_levothyroxine_feed",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "feed",
+            "levothyroxine",
+            "interaction",
+            "review"
+          ],
+          "role": "Enteral feeding can complicate levothyroxine absorption. Use consistent, locally approved administration/monitoring practice and reassess thyroid tests when clinically indicated.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_FEED_INTERACTIONS"
+          ]
+        },
+        {
+          "id": "oe_levothyroxine_feed_action",
+          "generic": "Levothyroxine–enteral feed review — administration / closure card",
+          "class_id": "oe_levothyroxine_feed",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "feed",
+            "levothyroxine",
+            "interaction",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_FEED_INTERACTIONS"
+          ]
+        },
+        {
+          "id": "oe_tube_clog_review",
+          "generic": "Medication-related tube blockage prevention — formulation / safety review card",
+          "class_id": "oe_tube_clog",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "tube_clog",
+            "prevention",
+            "enteral",
+            "review"
+          ],
+          "role": "Review formulation choice, preparation and flushing if blockage risk is high. Prevention is preferred to repeated unclogging; do not force a blocked tube.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_TUBE_BLOCKAGE",
+            "SPS_ENTERAL_CHOOSE"
+          ]
+        },
+        {
+          "id": "oe_tube_clog_action",
+          "generic": "Medication-related tube blockage prevention — administration / closure card",
+          "class_id": "oe_tube_clog",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "tube_clog",
+            "prevention",
+            "enteral",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_TUBE_BLOCKAGE",
+            "SPS_ENTERAL_CHOOSE"
+          ]
+        },
+        {
+          "id": "oe_dose_recovery_review",
+          "generic": "Incomplete dose / spillage / retained-residue response — formulation / safety review card",
+          "class_id": "oe_dose_recovery",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "dose",
+            "uncertain_delivery",
+            "safety",
+            "review"
+          ],
+          "role": "If delivery is incomplete or uncertain, do not automatically repeat the dose. Estimate what happened, assess drug therapeutic index and seek prescriber/pharmacist advice for high-risk medicines.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_dose_recovery_action",
+          "generic": "Incomplete dose / spillage / retained-residue response — administration / closure card",
+          "class_id": "oe_dose_recovery",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "dose",
+            "uncertain_delivery",
+            "safety",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_ENTERAL_ADMIN"
+          ]
+        },
+        {
+          "id": "oe_offlabel_document_review",
+          "generic": "Off-label manipulation / tube-administration documentation — formulation / safety review card",
+          "class_id": "oe_offlabel_document",
+          "form": "Oral/enteral medication-safety review card",
+          "route": "Oral / swallowing-difficulty / enteral-tube context",
+          "dose_example": "Safety decision-support only. Do not crush, open, split, disperse, substitute dosage form, stop feeds or administer through an enteral tube from this card alone. Verify the exact product/brand, release/coating characteristics, tube type/location, current labeling/pharmacy reference, patient swallow status and local policy.",
+          "tags": [
+            "off_label",
+            "documentation",
+            "pharmacy",
+            "review"
+          ],
+          "role": "When manipulation or enteral administration is outside product labeling, document the clinical rationale, verified method/source and monitoring plan according to local policy.",
+          "monitoring_pearl": "If the formulation or route is uncertain, pause non-urgent manipulation and verify with a pharmacist/current product source. Escalate aspiration, wrong-route, hazardous-drug exposure, tube displacement/occlusion or high-risk missed-dose concerns promptly.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN",
+            "FDA_ENTERAL_TUBE"
+          ]
+        },
+        {
+          "id": "oe_offlabel_document_action",
+          "generic": "Off-label manipulation / tube-administration documentation — administration / closure card",
+          "class_id": "oe_offlabel_document",
+          "form": "Administration verification & documentation card",
+          "route": "Clinician/pharmacist-reviewed administration plan",
+          "dose_example": "Use the verified product-specific administration method. For enteral tubes, confirm tube identity/location/patency, prepare medicines separately, use the appropriate enteral equipment and locally approved flushing/feed-interaction plan. Do not invent a universal crush/dilution/flush/hold time.",
+          "tags": [
+            "off_label",
+            "documentation",
+            "pharmacy",
+            "administration"
+          ],
+          "role": "Close the loop by documenting the chosen formulation/route, any manipulation, feed timing, tube details and monitoring or follow-up needed.",
+          "monitoring_pearl": "After administration, confirm clinically relevant dose delivery/tolerance, tube patency and any planned feed restart. For narrow-therapeutic-index or absorption-sensitive drugs, follow the appropriate clinical/TDM response plan.",
+          "source_refs": [
+            "SPS_CRUSH_OPEN",
+            "FDA_ENTERAL_TUBE"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SPS_CRUSH_OPEN",
+          "label": "NHS Specialist Pharmacy Service — Checking if tablets can be crushed or capsules opened",
+          "url": "https://www.sps.nhs.uk/articles/checking-if-tablets-can-be-crushed-or-capsules-opened/"
+        },
+        {
+          "id": "SPS_SWALLOW_FORMULATION",
+          "label": "NHS Specialist Pharmacy Service — Swallowing difficulties / formulation selection",
+          "url": "https://www.sps.nhs.uk/home/guidance/swallowing-difficulties/"
+        },
+        {
+          "id": "SPS_ENTERAL_CHOOSE",
+          "label": "NHS Specialist Pharmacy Service — Choosing medicines for enteral tube administration",
+          "url": "https://www.sps.nhs.uk/articles/choosing-medicines-for-enteral-tube-administration/"
+        },
+        {
+          "id": "SPS_ENTERAL_ADMIN",
+          "label": "NHS Specialist Pharmacy Service — Administering a medicine through an enteral feeding tube",
+          "url": "https://www.sps.nhs.uk/articles/administering-a-medicine-through-an-enteral-feeding-tube/"
+        },
+        {
+          "id": "SPS_FEED_INTERACTIONS",
+          "label": "NHS Specialist Pharmacy Service — Managing interactions between medicines and enteral feeds",
+          "url": "https://www.sps.nhs.uk/articles/managing-interactions-between-medicines-and-enteral-feeds/"
+        },
+        {
+          "id": "SPS_TUBE_TYPES",
+          "label": "NHS Specialist Pharmacy Service — Knowing the types of enteral tube",
+          "url": "https://www.sps.nhs.uk/articles/knowing-the-types-of-enteral-tube/"
+        },
+        {
+          "id": "SPS_TUBE_BLOCKAGE",
+          "label": "NHS Specialist Pharmacy Service — Preventing and managing enteral feeding tube blockages",
+          "url": "https://www.sps.nhs.uk/articles/preventing-and-managing-enteral-feeding-tube-blockages/"
+        },
+        {
+          "id": "FDA_ENTERAL_TUBE",
+          "label": "US FDA — Oral Drug Products Administered Via Enteral Feeding Tube: In Vitro Testing and Labeling Recommendations",
+          "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/oral-drug-products-administered-enteral-feeding-tube-in-vitro-testing-and-labeling-recommendations"
+        },
+        {
+          "id": "ASPEN_KLANG_2023",
+          "label": "Journal of Parenteral and Enteral Nutrition — Developing guidance for feeding tube administration of oral medications (2023)",
+          "url": "https://aspenjournals.onlinelibrary.wiley.com/doi/10.1002/jpen.2490"
         }
       ]
     }
