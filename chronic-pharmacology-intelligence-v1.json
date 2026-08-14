@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4Z",
-  "app_version": "V5.40Z",
-  "build": "2026.08.15-R25Z",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40Z Anesthesia • Perioperative • Procedural Sedation • Analgesia Safety",
+  "version": "2.5A",
+  "app_version": "V5.41A",
+  "build": "2026.08.15-R26A",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.41A IV Medication Administration • Infusion • Compatibility • High-Alert Injection Safety",
   "counts": {
-    "labs": 32,
-    "classes": 1053,
-    "drug_profiles": 2361
+    "labs": 33,
+    "classes": 1097,
+    "drug_profiles": 2449
   },
-  "global_boundary": "Research/learning medication-safety and perioperative CDS only. Anesthesia/sedation workflows do not replace a qualified anesthesia professional or current facility protocols. No automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, airway technique, neuraxial-antithrombotic timing, medication stop/restart, crisis dosing or discharge clearance is generated.",
+  "global_boundary": "Research/learning medication-safety CDS only. IV/injectable workflows do not replace pharmacist verification, current manufacturer labeling, institution-approved injectable compatibility references, nursing/medical administration policy or device instructions. No automatic IV dose, dilution, concentration, infusion/IV-push rate, compatibility, line assignment, extravasation antidote, pump setting or high-alert override is generated.",
   "labs": [
     {
       "id": "hypertension",
@@ -72195,6 +72195,2691 @@
           "id": "MHAUS_MH",
           "label": "Malignant Hyperthermia Association of the United States — Managing an MH Crisis",
           "url": "https://www.mhaus.org/healthcare-professionals/managing-a-crisis/"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "NIH DailyMed — current prescribing information repository",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "iv_infusion_injection_safety",
+      "title": "IV Medication Administration • Infusion • Compatibility • High-Alert Injection Safety Intelligence Lab",
+      "icon": "💧",
+      "badge": "V5.41A",
+      "eyebrow": "IV ORDER • PREPARATION • DILUTION • COMPATIBILITY • PUMP/DERS • LINE/LUMEN • VESICANT • EXTRAVASATION • HIGH-ALERT • ASEPSIS • HANDOFF",
+      "subtitle": "Clinician/pharmacy-reviewed injectable-medication safety workspace linking exact-product verification, preparation, infusion-device programming, line/compatibility checks, high-alert safeguards, vascular-access monitoring and safe handoffs.",
+      "scientific_boundary": "Medication-administration safety CDS only. This lab does not calculate or authorize an IV dose, concentration, diluent, infusion rate, IV-push rate, Y-site/admixture compatibility, stability/beyond-use time, line assignment, extravasation antidote, smart-pump setting or high-alert override. Verify the exact product/order, manufacturer labeling, pharmacy/institutional injectable reference, current compatibility source, vascular access, pump/device, patient organ function and monitoring plan before administration. Suspected wrong drug/concentration/rate, extravasation, severe reaction or clinical deterioration requires immediate stop/assessment and local emergency escalation.",
+      "classification_notes": {
+        "Compatibility is condition-specific": "Compatibility can change with exact drug, formulation, concentration, diluent, pH, temperature, contact time and Y-site/admixture conditions; no class-level inference is treated as proof.",
+        "High-alert means higher consequence": "High-alert medicines are not necessarily more error-prone, but errors can cause greater harm and therefore need additional system safeguards.",
+        "A smart pump is a barrier, not authorization": "Drug-library limits can reduce programming errors but do not validate the order, bag/syringe concentration, route or clinical appropriateness.",
+        "Injection safety includes infection prevention": "Aseptic preparation, single-patient needle/syringe use and vial practices are core medication-safety requirements.",
+        "Extravasation is agent-specific": "Stop-and-assess actions and antidotes vary by agent; this atlas never auto-generates antidote dose or flush instructions.",
+        "Transitions are high risk": "Handoffs, transport, pump changes, bag/syringe changes and infusion interruptions require re-verification of the entire order-to-patient chain."
+      },
+      "lens_groups": [
+        {
+          "group": "Verify & prepare",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All IV Safety"
+            },
+            {
+              "id": "verification",
+              "label": "Order/Product Verify"
+            },
+            {
+              "id": "reconstitution",
+              "label": "Reconstitution/Dilution"
+            },
+            {
+              "id": "concentration",
+              "label": "Concentration"
+            },
+            {
+              "id": "labeling",
+              "label": "Labeling"
+            }
+          ]
+        },
+        {
+          "group": "Pump & delivery",
+          "items": [
+            {
+              "id": "pump",
+              "label": "Pump / DERS"
+            },
+            {
+              "id": "rate",
+              "label": "Rate / IV Push"
+            },
+            {
+              "id": "line",
+              "label": "Line / Lumen"
+            },
+            {
+              "id": "flush",
+              "label": "Flush / Dead Space"
+            }
+          ]
+        },
+        {
+          "group": "Compatibility & access",
+          "items": [
+            {
+              "id": "compatibility",
+              "label": "Compatibility / Y-site"
+            },
+            {
+              "id": "access",
+              "label": "Peripheral vs Central"
+            },
+            {
+              "id": "vesicant",
+              "label": "Vesicant"
+            },
+            {
+              "id": "extravasation",
+              "label": "Extravasation"
+            }
+          ]
+        },
+        {
+          "group": "High-alert medicines",
+          "items": [
+            {
+              "id": "high_alert",
+              "label": "High-Alert"
+            },
+            {
+              "id": "electrolyte",
+              "label": "Electrolytes"
+            },
+            {
+              "id": "insulin",
+              "label": "Insulin"
+            },
+            {
+              "id": "anticoagulant",
+              "label": "Heparin/Thrombolytic"
+            },
+            {
+              "id": "vasopressor",
+              "label": "Vasoactive"
+            },
+            {
+              "id": "opioid",
+              "label": "Opioid/PCA"
+            }
+          ]
+        },
+        {
+          "group": "Special infusions",
+          "items": [
+            {
+              "id": "oncology",
+              "label": "Antineoplastic"
+            },
+            {
+              "id": "antibiotic",
+              "label": "Antimicrobials"
+            },
+            {
+              "id": "nutrition",
+              "label": "PN"
+            },
+            {
+              "id": "transfusion",
+              "label": "Blood Components"
+            },
+            {
+              "id": "contrast",
+              "label": "Contrast"
+            }
+          ]
+        },
+        {
+          "group": "Infection prevention & transitions",
+          "items": [
+            {
+              "id": "aseptic",
+              "label": "Safe Injection/Asepsis"
+            },
+            {
+              "id": "handoff",
+              "label": "Handoff/Transfer"
+            },
+            {
+              "id": "monitoring",
+              "label": "Monitoring"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "iv_order_verification",
+          "name": "IV order / product / route / concentration verification",
+          "mechanism": "Closed-loop verification of patient, medicine, indication, formulation, route, concentration and administration plan before preparation",
+          "target": "Order • product • route • concentration",
+          "tags": [
+            "verification",
+            "order",
+            "route",
+            "concentration"
+          ],
+          "role_note": "Confirm exact product and route; do not infer interchangeability among formulations or concentrations.",
+          "drug_ids": [
+            "iv_order_verification_review",
+            "iv_order_verification_monitor"
+          ]
+        },
+        {
+          "id": "iv_high_alert_doublecheck",
+          "name": "High-alert injectable independent-check workflow",
+          "mechanism": "System safeguard for medicines where administration errors can cause severe harm",
+          "target": "High-alert medicines • independent check",
+          "tags": [
+            "high_alert",
+            "double_check",
+            "safety"
+          ],
+          "role_note": "Use organization-defined safeguards; independent double-checks should be targeted and genuinely independent rather than ceremonial.",
+          "drug_ids": [
+            "iv_high_alert_doublecheck_review",
+            "iv_high_alert_doublecheck_monitor"
+          ]
+        },
+        {
+          "id": "iv_weight_based_review",
+          "name": "Weight/BSA-based infusion calculation review",
+          "mechanism": "Verification of current measured/appropriate dosing weight, units and calculation basis before administration",
+          "target": "Weight • BSA • units",
+          "tags": [
+            "weight",
+            "calculation",
+            "high_alert"
+          ],
+          "role_note": "Verify current weight, age, renal/hepatic context, units and maximum/ceiling rules from the current protocol/label.",
+          "drug_ids": [
+            "iv_weight_based_review_review",
+            "iv_weight_based_review_monitor"
+          ]
+        },
+        {
+          "id": "iv_smart_pump_ders",
+          "name": "Smart-pump / dose-error-reduction system use",
+          "mechanism": "Use of pump drug libraries and programmed limits to reduce preventable infusion programming errors",
+          "target": "Smart pump • DERS",
+          "tags": [
+            "pump",
+            "ders",
+            "programming"
+          ],
+          "role_note": "Use the correct drug library/care area and investigate overrides; the pump does not replace order/product verification.",
+          "drug_ids": [
+            "iv_smart_pump_ders_review",
+            "iv_smart_pump_ders_monitor"
+          ]
+        },
+        {
+          "id": "iv_pump_programming",
+          "name": "Infusion-pump programming & settings verification",
+          "mechanism": "Structured verification of rate, dose mode, concentration, volume-to-be-infused and channel",
+          "target": "Pump settings • rate • VTBI",
+          "tags": [
+            "pump",
+            "rate",
+            "programming"
+          ],
+          "role_note": "Trace order-to-bag-to-line-to-pump and verify settings at initiation and clinically relevant transitions.",
+          "drug_ids": [
+            "iv_pump_programming_review",
+            "iv_pump_programming_monitor"
+          ]
+        },
+        {
+          "id": "iv_line_trace",
+          "name": "Line tracing / channel-to-patient verification",
+          "mechanism": "Physical tracing of each infusion from container/syringe through tubing and lumen to the patient",
+          "target": "Line • lumen • channel",
+          "tags": [
+            "line",
+            "lumen",
+            "pump"
+          ],
+          "role_note": "Trace each line before starting, changing, reconnecting or handing over a high-risk infusion.",
+          "drug_ids": [
+            "iv_line_trace_review",
+            "iv_line_trace_monitor"
+          ]
+        },
+        {
+          "id": "iv_syringe_pump",
+          "name": "Syringe-pump microinfusion safety",
+          "mechanism": "Low-volume infusion safeguards for neonatal/pediatric and potent vasoactive/sedative medicines",
+          "target": "Syringe pump • low volume",
+          "tags": [
+            "syringe_pump",
+            "pediatric",
+            "high_alert"
+          ],
+          "role_note": "Account for dead space, minimum deliverable rates, occlusion delay and concentration standardization; verify local device policy.",
+          "drug_ids": [
+            "iv_syringe_pump_review",
+            "iv_syringe_pump_monitor"
+          ]
+        },
+        {
+          "id": "iv_rate_verification",
+          "name": "Infusion-rate verification",
+          "mechanism": "Product-specific review of administration rate and rate-related adverse-event risk",
+          "target": "Rate • infusion duration",
+          "tags": [
+            "rate",
+            "monitoring"
+          ],
+          "role_note": "Never derive an infusion rate from class memory alone; verify current label/protocol and patient-specific tolerability.",
+          "drug_ids": [
+            "iv_rate_verification_review",
+            "iv_rate_verification_monitor"
+          ]
+        },
+        {
+          "id": "iv_push_safety",
+          "name": "IV push / bolus administration safety",
+          "mechanism": "Product-specific verification of whether IV push is permitted and the required preparation/administration safeguards",
+          "target": "IV push • bolus",
+          "tags": [
+            "iv_push",
+            "bolus",
+            "rate"
+          ],
+          "role_note": "Verify whether IV push is permitted, concentration, site, administration rate and monitoring from current product/institutional guidance.",
+          "drug_ids": [
+            "iv_push_safety_review",
+            "iv_push_safety_monitor"
+          ]
+        },
+        {
+          "id": "iv_reconstitution_dilution",
+          "name": "Reconstitution & dilution verification",
+          "mechanism": "Exact-product preparation workflow for diluent, final concentration, stability and container/device requirements",
+          "target": "Diluent • concentration • stability",
+          "tags": [
+            "reconstitution",
+            "dilution",
+            "compatibility"
+          ],
+          "role_note": "Use current manufacturer labeling/pharmacy reference; never guess diluent, final concentration or beyond-use/stability.",
+          "drug_ids": [
+            "iv_reconstitution_dilution_review",
+            "iv_reconstitution_dilution_monitor"
+          ]
+        },
+        {
+          "id": "iv_standard_concentration",
+          "name": "Standardized concentration strategy",
+          "mechanism": "Use of organization-approved standard concentrations to reduce calculation and pump-programming variation",
+          "target": "Standard concentration",
+          "tags": [
+            "concentration",
+            "standardization",
+            "pump"
+          ],
+          "role_note": "Prefer approved standard concentrations where available; deviations require clear labeling and deliberate verification.",
+          "drug_ids": [
+            "iv_standard_concentration_review",
+            "iv_standard_concentration_monitor"
+          ]
+        },
+        {
+          "id": "iv_y_site_compatibility",
+          "name": "Y-site compatibility verification",
+          "mechanism": "Point-of-administration compatibility review based on exact drugs, concentrations, diluents and contact conditions",
+          "target": "Y-site • compatibility",
+          "tags": [
+            "compatibility",
+            "y_site",
+            "line"
+          ],
+          "role_note": "Do not infer compatibility from drug class or visual appearance. Verify exact conditions in a current institution-approved compatibility source.",
+          "drug_ids": [
+            "iv_y_site_compatibility_review",
+            "iv_y_site_compatibility_monitor"
+          ]
+        },
+        {
+          "id": "iv_solution_compatibility",
+          "name": "Solution / admixture compatibility verification",
+          "mechanism": "Compatibility/stability review before mixing medicines in the same bag, syringe or line segment",
+          "target": "Admixture • solution",
+          "tags": [
+            "compatibility",
+            "admixture",
+            "dilution"
+          ],
+          "role_note": "Do not mix unless compatibility and stability are explicitly verified for the exact preparation.",
+          "drug_ids": [
+            "iv_solution_compatibility_review",
+            "iv_solution_compatibility_monitor"
+          ]
+        },
+        {
+          "id": "iv_precipitate_response",
+          "name": "Visible incompatibility / precipitate / discoloration response",
+          "mechanism": "Stop-and-assess workflow for visible precipitation, haze, crystals, color change or unexpected particulate matter",
+          "target": "Particulate • precipitation",
+          "tags": [
+            "compatibility",
+            "precipitate",
+            "red_flag"
+          ],
+          "role_note": "Do not administer a visibly abnormal preparation; quarantine/replace and seek pharmacy/product guidance.",
+          "drug_ids": [
+            "iv_precipitate_response_review",
+            "iv_precipitate_response_monitor"
+          ]
+        },
+        {
+          "id": "iv_dedicated_line",
+          "name": "Dedicated-line requirement review",
+          "mechanism": "Identification of medicines that require or strongly favor a dedicated lumen/line",
+          "target": "Dedicated line • lumen",
+          "tags": [
+            "dedicated_line",
+            "compatibility",
+            "high_alert"
+          ],
+          "role_note": "Use a dedicated line when required by product/protocol or when incompatibility/bolus risk makes shared access unsafe.",
+          "drug_ids": [
+            "iv_dedicated_line_review",
+            "iv_dedicated_line_monitor"
+          ]
+        },
+        {
+          "id": "iv_multilumen_management",
+          "name": "Multi-lumen catheter infusion mapping",
+          "mechanism": "Assignment and labeling of infusions across lumens to reduce incompatibility and accidental interruption",
+          "target": "Multi-lumen • central line",
+          "tags": [
+            "lumen",
+            "compatibility",
+            "line"
+          ],
+          "role_note": "Map and label lumen use; reassess when adding, stopping or transferring critical infusions.",
+          "drug_ids": [
+            "iv_multilumen_management_review",
+            "iv_multilumen_management_monitor"
+          ]
+        },
+        {
+          "id": "iv_vesicant_identification",
+          "name": "Vesicant / tissue-injury risk identification",
+          "mechanism": "Recognition of medicines capable of severe tissue injury if extravasated",
+          "target": "Vesicant • tissue injury",
+          "tags": [
+            "vesicant",
+            "extravasation",
+            "high_alert"
+          ],
+          "role_note": "Verify vesicant classification and preferred access/site from current product and oncology/institutional policy.",
+          "drug_ids": [
+            "iv_vesicant_identification_review",
+            "iv_vesicant_identification_monitor"
+          ]
+        },
+        {
+          "id": "iv_extravasation_recognition",
+          "name": "Extravasation early recognition",
+          "mechanism": "Prompt recognition of pain, swelling, blanching, erythema, resistance, leakage or loss of blood return depending on context",
+          "target": "Extravasation • site assessment",
+          "tags": [
+            "extravasation",
+            "monitoring",
+            "red_flag"
+          ],
+          "role_note": "Stop the infusion when extravasation is suspected and follow the agent-specific local protocol; do not flush reflexively.",
+          "drug_ids": [
+            "iv_extravasation_recognition_review",
+            "iv_extravasation_recognition_monitor"
+          ]
+        },
+        {
+          "id": "iv_extravasation_management",
+          "name": "Extravasation response pathway",
+          "mechanism": "Agent-specific escalation, aspiration/device handling, limb measures and antidote/surgical consultation workflow",
+          "target": "Extravasation • antidote",
+          "tags": [
+            "extravasation",
+            "antidote",
+            "escalation"
+          ],
+          "role_note": "Management is agent-specific. Use the current extravasation policy/product guidance; app does not calculate antidote doses.",
+          "drug_ids": [
+            "iv_extravasation_management_review",
+            "iv_extravasation_management_monitor"
+          ]
+        },
+        {
+          "id": "iv_phlebitis_irritant",
+          "name": "Irritant / phlebitis / infiltration surveillance",
+          "mechanism": "Peripheral-site surveillance for pain, erythema, swelling, cord, leakage or loss of function",
+          "target": "Peripheral IV site",
+          "tags": [
+            "phlebitis",
+            "irritant",
+            "monitoring"
+          ],
+          "role_note": "Reassess site and access suitability; persistent pain or tissue change requires stopping/re-siting/escalation as appropriate.",
+          "drug_ids": [
+            "iv_phlebitis_irritant_review",
+            "iv_phlebitis_irritant_monitor"
+          ]
+        },
+        {
+          "id": "iv_peripheral_vs_central",
+          "name": "Peripheral vs central access suitability",
+          "mechanism": "Route/device selection review based on therapy characteristics, duration, tissue injury risk and patient access",
+          "target": "Vascular access",
+          "tags": [
+            "access",
+            "central",
+            "peripheral"
+          ],
+          "role_note": "Use local vascular-access standards and product-specific requirements; do not assign central/peripheral suitability from osmolarity alone.",
+          "drug_ids": [
+            "iv_peripheral_vs_central_review",
+            "iv_peripheral_vs_central_monitor"
+          ]
+        },
+        {
+          "id": "iv_concentrated_electrolytes",
+          "name": "Concentrated injectable electrolyte safeguards",
+          "mechanism": "High-alert handling of concentrated potassium, hypertonic sodium and other concentrated electrolytes",
+          "target": "Concentrated electrolytes",
+          "tags": [
+            "electrolyte",
+            "high_alert",
+            "concentrate"
+          ],
+          "role_note": "Use restricted storage/preparation, standardized concentrations and pump safeguards per institutional policy; no app-generated mixing instructions.",
+          "drug_ids": [
+            "iv_concentrated_electrolytes_review",
+            "iv_concentrated_electrolytes_monitor"
+          ]
+        },
+        {
+          "id": "iv_potassium_safety",
+          "name": "IV potassium administration safety",
+          "mechanism": "High-alert review of indication, renal function, concentration, access, pump and ECG/lab monitoring needs",
+          "target": "Potassium • K+",
+          "tags": [
+            "potassium",
+            "electrolyte",
+            "high_alert"
+          ],
+          "role_note": "Verify current potassium, renal function, urine output where relevant, exact concentration/rate and monitoring protocol before administration.",
+          "drug_ids": [
+            "iv_potassium_safety_review",
+            "iv_potassium_safety_monitor"
+          ]
+        },
+        {
+          "id": "iv_hypertonic_saline",
+          "name": "Hypertonic sodium solution safety",
+          "mechanism": "High-risk sodium-correction and concentration review with neurologic and laboratory monitoring",
+          "target": "Hypertonic saline • sodium",
+          "tags": [
+            "sodium",
+            "hypertonic",
+            "high_alert"
+          ],
+          "role_note": "Use indication-specific protocol and serial sodium monitoring; avoid app-derived correction targets or rates.",
+          "drug_ids": [
+            "iv_hypertonic_saline_review",
+            "iv_hypertonic_saline_monitor"
+          ]
+        },
+        {
+          "id": "iv_insulin_infusion",
+          "name": "IV insulin infusion safety",
+          "mechanism": "High-alert insulin infusion workflow integrating concentration, pump, glucose/potassium monitoring and transition planning",
+          "target": "Insulin • glucose",
+          "tags": [
+            "insulin",
+            "high_alert",
+            "pump"
+          ],
+          "role_note": "Use a validated institutional protocol with frequent glucose and electrolyte monitoring; verify transition timing to subcutaneous therapy.",
+          "drug_ids": [
+            "iv_insulin_infusion_review",
+            "iv_insulin_infusion_monitor"
+          ]
+        },
+        {
+          "id": "iv_heparin_infusion",
+          "name": "Unfractionated heparin infusion safety",
+          "mechanism": "High-alert anticoagulant workflow with indication-specific protocol, weight/unit verification and laboratory monitoring",
+          "target": "Heparin • anticoagulation",
+          "tags": [
+            "heparin",
+            "anticoagulant",
+            "high_alert"
+          ],
+          "role_note": "Use the indication-specific protocol; verify units, weight basis, baseline bleeding risk and monitoring assay strategy.",
+          "drug_ids": [
+            "iv_heparin_infusion_review",
+            "iv_heparin_infusion_monitor"
+          ]
+        },
+        {
+          "id": "iv_vasoactive_infusion",
+          "name": "Vasoactive infusion safety",
+          "mechanism": "High-alert vasopressor/inotrope administration with concentration, dedicated-line, pump and perfusion monitoring",
+          "target": "Vasopressor • inotrope",
+          "tags": [
+            "vasopressor",
+            "high_alert",
+            "pump"
+          ],
+          "role_note": "Use standardized concentration and protocol; titrate only within authorized clinical targets with continuous/appropriate monitoring.",
+          "drug_ids": [
+            "iv_vasoactive_infusion_review",
+            "iv_vasoactive_infusion_monitor"
+          ]
+        },
+        {
+          "id": "iv_opioid_pca",
+          "name": "IV opioid / PCA safety",
+          "mechanism": "High-alert opioid infusion/PCA safeguards including respiratory-risk review, pump settings and rescue readiness",
+          "target": "Opioid • PCA",
+          "tags": [
+            "opioid",
+            "pca",
+            "high_alert"
+          ],
+          "role_note": "Verify opioid tolerance, concurrent sedatives, OSA/respiratory risk, PCA settings and monitoring; avoid inappropriate proxy activation.",
+          "drug_ids": [
+            "iv_opioid_pca_review",
+            "iv_opioid_pca_monitor"
+          ]
+        },
+        {
+          "id": "iv_sedative_infusion",
+          "name": "IV sedative/anesthetic infusion safety",
+          "mechanism": "High-alert sedation infusion workflow linking depth targets, airway rescue and physiologic monitoring",
+          "target": "Sedation • anesthetic",
+          "tags": [
+            "sedation",
+            "high_alert",
+            "pump"
+          ],
+          "role_note": "Sedation is a continuum; use credentialed staff, monitoring and rescue capability appropriate to intended and deeper-than-intended sedation.",
+          "drug_ids": [
+            "iv_sedative_infusion_review",
+            "iv_sedative_infusion_monitor"
+          ]
+        },
+        {
+          "id": "iv_neuromuscular_blocker",
+          "name": "Neuromuscular-blocking agent safeguards",
+          "mechanism": "Highest-risk medication controls to prevent accidental administration to non-ventilated patients",
+          "target": "Neuromuscular blocker",
+          "tags": [
+            "nmb",
+            "high_alert",
+            "paralytic"
+          ],
+          "role_note": "Require unmistakable labeling/storage separation, ventilation/airway readiness and sedation/analgesia context; paralysis is not sedation.",
+          "drug_ids": [
+            "iv_neuromuscular_blocker_review",
+            "iv_neuromuscular_blocker_monitor"
+          ]
+        },
+        {
+          "id": "iv_antineoplastic",
+          "name": "IV antineoplastic / hazardous-drug infusion safety",
+          "mechanism": "Protocol, independent verification, hazardous-drug and extravasation safeguards for injectable cancer therapy",
+          "target": "Antineoplastic • hazardous drug",
+          "tags": [
+            "oncology",
+            "high_alert",
+            "vesicant"
+          ],
+          "role_note": "Use oncology protocol, trained staff, independent verification and agent-specific extravasation/hazardous-drug procedures.",
+          "drug_ids": [
+            "iv_antineoplastic_review",
+            "iv_antineoplastic_monitor"
+          ]
+        },
+        {
+          "id": "iv_thrombolytic",
+          "name": "IV thrombolytic / fibrinolytic safety",
+          "mechanism": "High-alert verification of indication, contraindication screen, weight/dose basis and bleeding monitoring",
+          "target": "Thrombolytic",
+          "tags": [
+            "thrombolytic",
+            "high_alert",
+            "bleeding"
+          ],
+          "role_note": "Use the indication-specific current protocol; do not generalize dose or eligibility criteria between agents/indications.",
+          "drug_ids": [
+            "iv_thrombolytic_review",
+            "iv_thrombolytic_monitor"
+          ]
+        },
+        {
+          "id": "iv_parenteral_nutrition",
+          "name": "Parenteral nutrition infusion safety",
+          "mechanism": "Complex admixture verification, line/filter, glucose/electrolyte and catheter-infection safeguards",
+          "target": "Parenteral nutrition",
+          "tags": [
+            "pn",
+            "nutrition",
+            "compatibility"
+          ],
+          "role_note": "Use pharmacy-compounded/verified formulations and current institutional PN protocols; monitor metabolic and line complications.",
+          "drug_ids": [
+            "iv_parenteral_nutrition_review",
+            "iv_parenteral_nutrition_monitor"
+          ]
+        },
+        {
+          "id": "iv_vancomycin",
+          "name": "IV vancomycin administration & monitoring safety",
+          "mechanism": "Infusion-reaction, renal/TDM and administration review for IV vancomycin",
+          "target": "Vancomycin",
+          "tags": [
+            "vancomycin",
+            "tdm",
+            "rate"
+          ],
+          "role_note": "Verify indication, product concentration/rate, renal function and current TDM strategy; distinguish infusion reaction from IgE-mediated allergy.",
+          "drug_ids": [
+            "iv_vancomycin_review",
+            "iv_vancomycin_monitor"
+          ]
+        },
+        {
+          "id": "iv_aminoglycoside",
+          "name": "IV aminoglycoside administration & TDM safety",
+          "mechanism": "Exposure, renal/ototoxicity and drug-level monitoring safeguards",
+          "target": "Aminoglycoside",
+          "tags": [
+            "aminoglycoside",
+            "tdm",
+            "renal"
+          ],
+          "role_note": "Use indication-specific dosing/TDM protocol with renal function review; exact level timing and targets are protocol-specific.",
+          "drug_ids": [
+            "iv_aminoglycoside_review",
+            "iv_aminoglycoside_monitor"
+          ]
+        },
+        {
+          "id": "iv_beta_lactam_prolonged",
+          "name": "Extended/prolonged β-lactam infusion verification",
+          "mechanism": "Stability, concentration, line-compatibility and protocol review for prolonged antibiotic infusion",
+          "target": "β-lactam • extended infusion",
+          "tags": [
+            "antibiotic",
+            "extended_infusion",
+            "stability"
+          ],
+          "role_note": "Verify agent-specific stability, diluent, temperature, concentration and line compatibility before prolonged infusion.",
+          "drug_ids": [
+            "iv_beta_lactam_prolonged_review",
+            "iv_beta_lactam_prolonged_monitor"
+          ]
+        },
+        {
+          "id": "iv_amphotericin",
+          "name": "IV amphotericin formulation safety",
+          "mechanism": "Formulation-specific administration safeguards and prevention of potentially dangerous formulation substitution",
+          "target": "Amphotericin formulations",
+          "tags": [
+            "antifungal",
+            "formulation",
+            "high_alert"
+          ],
+          "role_note": "Verify exact amphotericin formulation and product-specific preparation/administration; formulations are not mg-for-mg interchangeable.",
+          "drug_ids": [
+            "iv_amphotericin_review",
+            "iv_amphotericin_monitor"
+          ]
+        },
+        {
+          "id": "iv_iron",
+          "name": "IV iron infusion reaction preparedness",
+          "mechanism": "Product-specific administration and hypersensitivity monitoring workflow for parenteral iron",
+          "target": "IV iron",
+          "tags": [
+            "iron",
+            "hypersensitivity",
+            "monitoring"
+          ],
+          "role_note": "Verify product-specific administration requirements and have reaction recognition/resuscitation capability; avoid automatic cross-product assumptions.",
+          "drug_ids": [
+            "iv_iron_review",
+            "iv_iron_monitor"
+          ]
+        },
+        {
+          "id": "iv_blood_product_line",
+          "name": "Medication / blood-component co-administration review",
+          "mechanism": "Line, solution and co-administration safeguards around blood components",
+          "target": "Blood component • line",
+          "tags": [
+            "transfusion",
+            "compatibility",
+            "line"
+          ],
+          "role_note": "Follow transfusion-service policy; do not add medicines to blood components or co-infuse without explicit compatibility/policy support.",
+          "drug_ids": [
+            "iv_blood_product_line_review",
+            "iv_blood_product_line_monitor"
+          ]
+        },
+        {
+          "id": "iv_contrast_injector",
+          "name": "IV contrast power-injector safety",
+          "mechanism": "Access patency, injector settings, contrast reaction and extravasation preparedness",
+          "target": "Contrast • power injector",
+          "tags": [
+            "contrast",
+            "extravasation",
+            "injector"
+          ],
+          "role_note": "Use radiology protocol and device-rated access; monitor for extravasation and acute reactions according to current contrast policy.",
+          "drug_ids": [
+            "iv_contrast_injector_review",
+            "iv_contrast_injector_monitor"
+          ]
+        },
+        {
+          "id": "iv_labeling_syringe",
+          "name": "Prepared syringe/bag/tubing labeling",
+          "mechanism": "Standardized labeling of prepared injectable medicines and infusion lines to prevent selection and swap errors",
+          "target": "Label • syringe • bag • tubing",
+          "tags": [
+            "labeling",
+            "lasa",
+            "syringe"
+          ],
+          "role_note": "Label immediately when a prepared injectable leaves the preparer’s hand or when multiple preparations are present; include required identifiers per policy.",
+          "drug_ids": [
+            "iv_labeling_syringe_review",
+            "iv_labeling_syringe_monitor"
+          ]
+        },
+        {
+          "id": "iv_aseptic_injection",
+          "name": "Safe injection / vial / aseptic practice",
+          "mechanism": "Standard Precautions for injectable preparation and administration to prevent transmission and contamination",
+          "target": "Asepsis • vial • syringe",
+          "tags": [
+            "aseptic",
+            "injection_safety",
+            "cdc"
+          ],
+          "role_note": "Use a new sterile needle and syringe for each patient and follow single-dose/multidose vial rules and aseptic technique.",
+          "drug_ids": [
+            "iv_aseptic_injection_review",
+            "iv_aseptic_injection_monitor"
+          ]
+        },
+        {
+          "id": "iv_flush_deadspace",
+          "name": "Flush, tubing dead-space & residual-dose awareness",
+          "mechanism": "Recognition that tubing volume, carrier changes and flushes can alter timing/amount of delivered drug",
+          "target": "Dead space • flush",
+          "tags": [
+            "flush",
+            "dead_space",
+            "line"
+          ],
+          "role_note": "Account for line volume and medication-specific flushing requirements; avoid unintended bolus from rapid carrier/flush changes.",
+          "drug_ids": [
+            "iv_flush_deadspace_review",
+            "iv_flush_deadspace_monitor"
+          ]
+        },
+        {
+          "id": "iv_handoff_interruption",
+          "name": "Infusion handoff / interruption / transfer safety",
+          "mechanism": "Structured reassessment during shift handoff, transport, pump/channel change, interruption or restart",
+          "target": "Handoff • interruption",
+          "tags": [
+            "handoff",
+            "transition",
+            "pump"
+          ],
+          "role_note": "At every transition verify patient, medicine, concentration, rate, remaining volume, line/lumen, monitoring and restart plan.",
+          "drug_ids": [
+            "iv_handoff_interruption_review",
+            "iv_handoff_interruption_monitor"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "iv_order_verification_review",
+          "generic": "IV order / product / route / concentration verification — preparation / verification card",
+          "class_id": "iv_order_verification",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "verification",
+            "order",
+            "route",
+            "concentration",
+            "review"
+          ],
+          "role": "Confirm exact product and route; do not infer interchangeability among formulations or concentrations.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_order_verification_monitor",
+          "generic": "IV order / product / route / concentration verification — administration / monitoring card",
+          "class_id": "iv_order_verification",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "verification",
+            "order",
+            "route",
+            "concentration",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_high_alert_doublecheck_review",
+          "generic": "High-alert injectable independent-check workflow — preparation / verification card",
+          "class_id": "iv_high_alert_doublecheck",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "high_alert",
+            "double_check",
+            "safety",
+            "review"
+          ],
+          "role": "Use organization-defined safeguards; independent double-checks should be targeted and genuinely independent rather than ceremonial.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "ISMP_BEST_PRACTICES",
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_high_alert_doublecheck_monitor",
+          "generic": "High-alert injectable independent-check workflow — administration / monitoring card",
+          "class_id": "iv_high_alert_doublecheck",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "high_alert",
+            "double_check",
+            "safety",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "ISMP_BEST_PRACTICES",
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_weight_based_review_review",
+          "generic": "Weight/BSA-based infusion calculation review — preparation / verification card",
+          "class_id": "iv_weight_based_review",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "weight",
+            "calculation",
+            "high_alert",
+            "review"
+          ],
+          "role": "Verify current weight, age, renal/hepatic context, units and maximum/ceiling rules from the current protocol/label.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_weight_based_review_monitor",
+          "generic": "Weight/BSA-based infusion calculation review — administration / monitoring card",
+          "class_id": "iv_weight_based_review",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "weight",
+            "calculation",
+            "high_alert",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_smart_pump_ders_review",
+          "generic": "Smart-pump / dose-error-reduction system use — preparation / verification card",
+          "class_id": "iv_smart_pump_ders",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "pump",
+            "ders",
+            "programming",
+            "review"
+          ],
+          "role": "Use the correct drug library/care area and investigate overrides; the pump does not replace order/product verification.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_smart_pump_ders_monitor",
+          "generic": "Smart-pump / dose-error-reduction system use — administration / monitoring card",
+          "class_id": "iv_smart_pump_ders",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "pump",
+            "ders",
+            "programming",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_pump_programming_review",
+          "generic": "Infusion-pump programming & settings verification — preparation / verification card",
+          "class_id": "iv_pump_programming",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "pump",
+            "rate",
+            "programming",
+            "review"
+          ],
+          "role": "Trace order-to-bag-to-line-to-pump and verify settings at initiation and clinically relevant transitions.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_pump_programming_monitor",
+          "generic": "Infusion-pump programming & settings verification — administration / monitoring card",
+          "class_id": "iv_pump_programming",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "pump",
+            "rate",
+            "programming",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_line_trace_review",
+          "generic": "Line tracing / channel-to-patient verification — preparation / verification card",
+          "class_id": "iv_line_trace",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "line",
+            "lumen",
+            "pump",
+            "review"
+          ],
+          "role": "Trace each line before starting, changing, reconnecting or handing over a high-risk infusion.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "FDA_INFUSION_PUMP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_line_trace_monitor",
+          "generic": "Line tracing / channel-to-patient verification — administration / monitoring card",
+          "class_id": "iv_line_trace",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "line",
+            "lumen",
+            "pump",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "FDA_INFUSION_PUMP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_syringe_pump_review",
+          "generic": "Syringe-pump microinfusion safety — preparation / verification card",
+          "class_id": "iv_syringe_pump",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "syringe_pump",
+            "pediatric",
+            "high_alert",
+            "review"
+          ],
+          "role": "Account for dead space, minimum deliverable rates, occlusion delay and concentration standardization; verify local device policy.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_syringe_pump_monitor",
+          "generic": "Syringe-pump microinfusion safety — administration / monitoring card",
+          "class_id": "iv_syringe_pump",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "syringe_pump",
+            "pediatric",
+            "high_alert",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_rate_verification_review",
+          "generic": "Infusion-rate verification — preparation / verification card",
+          "class_id": "iv_rate_verification",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "rate",
+            "monitoring",
+            "review"
+          ],
+          "role": "Never derive an infusion rate from class memory alone; verify current label/protocol and patient-specific tolerability.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_rate_verification_monitor",
+          "generic": "Infusion-rate verification — administration / monitoring card",
+          "class_id": "iv_rate_verification",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "rate",
+            "monitoring",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_push_safety_review",
+          "generic": "IV push / bolus administration safety — preparation / verification card",
+          "class_id": "iv_push_safety",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "iv_push",
+            "bolus",
+            "rate",
+            "review"
+          ],
+          "role": "Verify whether IV push is permitted, concentration, site, administration rate and monitoring from current product/institutional guidance.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_push_safety_monitor",
+          "generic": "IV push / bolus administration safety — administration / monitoring card",
+          "class_id": "iv_push_safety",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "iv_push",
+            "bolus",
+            "rate",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_reconstitution_dilution_review",
+          "generic": "Reconstitution & dilution verification — preparation / verification card",
+          "class_id": "iv_reconstitution_dilution",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "reconstitution",
+            "dilution",
+            "compatibility",
+            "review"
+          ],
+          "role": "Use current manufacturer labeling/pharmacy reference; never guess diluent, final concentration or beyond-use/stability.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_reconstitution_dilution_monitor",
+          "generic": "Reconstitution & dilution verification — administration / monitoring card",
+          "class_id": "iv_reconstitution_dilution",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "reconstitution",
+            "dilution",
+            "compatibility",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_standard_concentration_review",
+          "generic": "Standardized concentration strategy — preparation / verification card",
+          "class_id": "iv_standard_concentration",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "concentration",
+            "standardization",
+            "pump",
+            "review"
+          ],
+          "role": "Prefer approved standard concentrations where available; deviations require clear labeling and deliberate verification.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "FDA_INFUSION_PUMP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_standard_concentration_monitor",
+          "generic": "Standardized concentration strategy — administration / monitoring card",
+          "class_id": "iv_standard_concentration",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "concentration",
+            "standardization",
+            "pump",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "FDA_INFUSION_PUMP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_y_site_compatibility_review",
+          "generic": "Y-site compatibility verification — preparation / verification card",
+          "class_id": "iv_y_site_compatibility",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "compatibility",
+            "y_site",
+            "line",
+            "review"
+          ],
+          "role": "Do not infer compatibility from drug class or visual appearance. Verify exact conditions in a current institution-approved compatibility source.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_y_site_compatibility_monitor",
+          "generic": "Y-site compatibility verification — administration / monitoring card",
+          "class_id": "iv_y_site_compatibility",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "compatibility",
+            "y_site",
+            "line",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_solution_compatibility_review",
+          "generic": "Solution / admixture compatibility verification — preparation / verification card",
+          "class_id": "iv_solution_compatibility",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "compatibility",
+            "admixture",
+            "dilution",
+            "review"
+          ],
+          "role": "Do not mix unless compatibility and stability are explicitly verified for the exact preparation.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_solution_compatibility_monitor",
+          "generic": "Solution / admixture compatibility verification — administration / monitoring card",
+          "class_id": "iv_solution_compatibility",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "compatibility",
+            "admixture",
+            "dilution",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_precipitate_response_review",
+          "generic": "Visible incompatibility / precipitate / discoloration response — preparation / verification card",
+          "class_id": "iv_precipitate_response",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "compatibility",
+            "precipitate",
+            "red_flag",
+            "review"
+          ],
+          "role": "Do not administer a visibly abnormal preparation; quarantine/replace and seek pharmacy/product guidance.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_precipitate_response_monitor",
+          "generic": "Visible incompatibility / precipitate / discoloration response — administration / monitoring card",
+          "class_id": "iv_precipitate_response",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "compatibility",
+            "precipitate",
+            "red_flag",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_dedicated_line_review",
+          "generic": "Dedicated-line requirement review — preparation / verification card",
+          "class_id": "iv_dedicated_line",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "dedicated_line",
+            "compatibility",
+            "high_alert",
+            "review"
+          ],
+          "role": "Use a dedicated line when required by product/protocol or when incompatibility/bolus risk makes shared access unsafe.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_dedicated_line_monitor",
+          "generic": "Dedicated-line requirement review — administration / monitoring card",
+          "class_id": "iv_dedicated_line",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "dedicated_line",
+            "compatibility",
+            "high_alert",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_multilumen_management_review",
+          "generic": "Multi-lumen catheter infusion mapping — preparation / verification card",
+          "class_id": "iv_multilumen_management",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "lumen",
+            "compatibility",
+            "line",
+            "review"
+          ],
+          "role": "Map and label lumen use; reassess when adding, stopping or transferring critical infusions.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_multilumen_management_monitor",
+          "generic": "Multi-lumen catheter infusion mapping — administration / monitoring card",
+          "class_id": "iv_multilumen_management",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "lumen",
+            "compatibility",
+            "line",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_vesicant_identification_review",
+          "generic": "Vesicant / tissue-injury risk identification — preparation / verification card",
+          "class_id": "iv_vesicant_identification",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "vesicant",
+            "extravasation",
+            "high_alert",
+            "review"
+          ],
+          "role": "Verify vesicant classification and preferred access/site from current product and oncology/institutional policy.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_vesicant_identification_monitor",
+          "generic": "Vesicant / tissue-injury risk identification — administration / monitoring card",
+          "class_id": "iv_vesicant_identification",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "vesicant",
+            "extravasation",
+            "high_alert",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_extravasation_recognition_review",
+          "generic": "Extravasation early recognition — preparation / verification card",
+          "class_id": "iv_extravasation_recognition",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "extravasation",
+            "monitoring",
+            "red_flag",
+            "review"
+          ],
+          "role": "Stop the infusion when extravasation is suspected and follow the agent-specific local protocol; do not flush reflexively.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_extravasation_recognition_monitor",
+          "generic": "Extravasation early recognition — administration / monitoring card",
+          "class_id": "iv_extravasation_recognition",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "extravasation",
+            "monitoring",
+            "red_flag",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_extravasation_management_review",
+          "generic": "Extravasation response pathway — preparation / verification card",
+          "class_id": "iv_extravasation_management",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "extravasation",
+            "antidote",
+            "escalation",
+            "review"
+          ],
+          "role": "Management is agent-specific. Use the current extravasation policy/product guidance; app does not calculate antidote doses.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_extravasation_management_monitor",
+          "generic": "Extravasation response pathway — administration / monitoring card",
+          "class_id": "iv_extravasation_management",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "extravasation",
+            "antidote",
+            "escalation",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_phlebitis_irritant_review",
+          "generic": "Irritant / phlebitis / infiltration surveillance — preparation / verification card",
+          "class_id": "iv_phlebitis_irritant",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "phlebitis",
+            "irritant",
+            "monitoring",
+            "review"
+          ],
+          "role": "Reassess site and access suitability; persistent pain or tissue change requires stopping/re-siting/escalation as appropriate.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_phlebitis_irritant_monitor",
+          "generic": "Irritant / phlebitis / infiltration surveillance — administration / monitoring card",
+          "class_id": "iv_phlebitis_irritant",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "phlebitis",
+            "irritant",
+            "monitoring",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_peripheral_vs_central_review",
+          "generic": "Peripheral vs central access suitability — preparation / verification card",
+          "class_id": "iv_peripheral_vs_central",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "access",
+            "central",
+            "peripheral",
+            "review"
+          ],
+          "role": "Use local vascular-access standards and product-specific requirements; do not assign central/peripheral suitability from osmolarity alone.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_peripheral_vs_central_monitor",
+          "generic": "Peripheral vs central access suitability — administration / monitoring card",
+          "class_id": "iv_peripheral_vs_central",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "access",
+            "central",
+            "peripheral",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_concentrated_electrolytes_review",
+          "generic": "Concentrated injectable electrolyte safeguards — preparation / verification card",
+          "class_id": "iv_concentrated_electrolytes",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "electrolyte",
+            "high_alert",
+            "concentrate",
+            "review"
+          ],
+          "role": "Use restricted storage/preparation, standardized concentrations and pump safeguards per institutional policy; no app-generated mixing instructions.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_concentrated_electrolytes_monitor",
+          "generic": "Concentrated injectable electrolyte safeguards — administration / monitoring card",
+          "class_id": "iv_concentrated_electrolytes",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "electrolyte",
+            "high_alert",
+            "concentrate",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_potassium_safety_review",
+          "generic": "IV potassium administration safety — preparation / verification card",
+          "class_id": "iv_potassium_safety",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "potassium",
+            "electrolyte",
+            "high_alert",
+            "review"
+          ],
+          "role": "Verify current potassium, renal function, urine output where relevant, exact concentration/rate and monitoring protocol before administration.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_potassium_safety_monitor",
+          "generic": "IV potassium administration safety — administration / monitoring card",
+          "class_id": "iv_potassium_safety",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "potassium",
+            "electrolyte",
+            "high_alert",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_hypertonic_saline_review",
+          "generic": "Hypertonic sodium solution safety — preparation / verification card",
+          "class_id": "iv_hypertonic_saline",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "sodium",
+            "hypertonic",
+            "high_alert",
+            "review"
+          ],
+          "role": "Use indication-specific protocol and serial sodium monitoring; avoid app-derived correction targets or rates.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_hypertonic_saline_monitor",
+          "generic": "Hypertonic sodium solution safety — administration / monitoring card",
+          "class_id": "iv_hypertonic_saline",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "sodium",
+            "hypertonic",
+            "high_alert",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_insulin_infusion_review",
+          "generic": "IV insulin infusion safety — preparation / verification card",
+          "class_id": "iv_insulin_infusion",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "insulin",
+            "high_alert",
+            "pump",
+            "review"
+          ],
+          "role": "Use a validated institutional protocol with frequent glucose and electrolyte monitoring; verify transition timing to subcutaneous therapy.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_insulin_infusion_monitor",
+          "generic": "IV insulin infusion safety — administration / monitoring card",
+          "class_id": "iv_insulin_infusion",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "insulin",
+            "high_alert",
+            "pump",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_heparin_infusion_review",
+          "generic": "Unfractionated heparin infusion safety — preparation / verification card",
+          "class_id": "iv_heparin_infusion",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "heparin",
+            "anticoagulant",
+            "high_alert",
+            "review"
+          ],
+          "role": "Use the indication-specific protocol; verify units, weight basis, baseline bleeding risk and monitoring assay strategy.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_heparin_infusion_monitor",
+          "generic": "Unfractionated heparin infusion safety — administration / monitoring card",
+          "class_id": "iv_heparin_infusion",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "heparin",
+            "anticoagulant",
+            "high_alert",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_vasoactive_infusion_review",
+          "generic": "Vasoactive infusion safety — preparation / verification card",
+          "class_id": "iv_vasoactive_infusion",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "vasopressor",
+            "high_alert",
+            "pump",
+            "review"
+          ],
+          "role": "Use standardized concentration and protocol; titrate only within authorized clinical targets with continuous/appropriate monitoring.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_vasoactive_infusion_monitor",
+          "generic": "Vasoactive infusion safety — administration / monitoring card",
+          "class_id": "iv_vasoactive_infusion",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "vasopressor",
+            "high_alert",
+            "pump",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_opioid_pca_review",
+          "generic": "IV opioid / PCA safety — preparation / verification card",
+          "class_id": "iv_opioid_pca",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "opioid",
+            "pca",
+            "high_alert",
+            "review"
+          ],
+          "role": "Verify opioid tolerance, concurrent sedatives, OSA/respiratory risk, PCA settings and monitoring; avoid inappropriate proxy activation.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_opioid_pca_monitor",
+          "generic": "IV opioid / PCA safety — administration / monitoring card",
+          "class_id": "iv_opioid_pca",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "opioid",
+            "pca",
+            "high_alert",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_sedative_infusion_review",
+          "generic": "IV sedative/anesthetic infusion safety — preparation / verification card",
+          "class_id": "iv_sedative_infusion",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "sedation",
+            "high_alert",
+            "pump",
+            "review"
+          ],
+          "role": "Sedation is a continuum; use credentialed staff, monitoring and rescue capability appropriate to intended and deeper-than-intended sedation.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_sedative_infusion_monitor",
+          "generic": "IV sedative/anesthetic infusion safety — administration / monitoring card",
+          "class_id": "iv_sedative_infusion",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "sedation",
+            "high_alert",
+            "pump",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_neuromuscular_blocker_review",
+          "generic": "Neuromuscular-blocking agent safeguards — preparation / verification card",
+          "class_id": "iv_neuromuscular_blocker",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "nmb",
+            "high_alert",
+            "paralytic",
+            "review"
+          ],
+          "role": "Require unmistakable labeling/storage separation, ventilation/airway readiness and sedation/analgesia context; paralysis is not sedation.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_neuromuscular_blocker_monitor",
+          "generic": "Neuromuscular-blocking agent safeguards — administration / monitoring card",
+          "class_id": "iv_neuromuscular_blocker",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "nmb",
+            "high_alert",
+            "paralytic",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_antineoplastic_review",
+          "generic": "IV antineoplastic / hazardous-drug infusion safety — preparation / verification card",
+          "class_id": "iv_antineoplastic",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "oncology",
+            "high_alert",
+            "vesicant",
+            "review"
+          ],
+          "role": "Use oncology protocol, trained staff, independent verification and agent-specific extravasation/hazardous-drug procedures.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_antineoplastic_monitor",
+          "generic": "IV antineoplastic / hazardous-drug infusion safety — administration / monitoring card",
+          "class_id": "iv_antineoplastic",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "oncology",
+            "high_alert",
+            "vesicant",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_thrombolytic_review",
+          "generic": "IV thrombolytic / fibrinolytic safety — preparation / verification card",
+          "class_id": "iv_thrombolytic",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "thrombolytic",
+            "high_alert",
+            "bleeding",
+            "review"
+          ],
+          "role": "Use the indication-specific current protocol; do not generalize dose or eligibility criteria between agents/indications.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_thrombolytic_monitor",
+          "generic": "IV thrombolytic / fibrinolytic safety — administration / monitoring card",
+          "class_id": "iv_thrombolytic",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "thrombolytic",
+            "high_alert",
+            "bleeding",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_parenteral_nutrition_review",
+          "generic": "Parenteral nutrition infusion safety — preparation / verification card",
+          "class_id": "iv_parenteral_nutrition",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "pn",
+            "nutrition",
+            "compatibility",
+            "review"
+          ],
+          "role": "Use pharmacy-compounded/verified formulations and current institutional PN protocols; monitor metabolic and line complications.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_parenteral_nutrition_monitor",
+          "generic": "Parenteral nutrition infusion safety — administration / monitoring card",
+          "class_id": "iv_parenteral_nutrition",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "pn",
+            "nutrition",
+            "compatibility",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_vancomycin_review",
+          "generic": "IV vancomycin administration & monitoring safety — preparation / verification card",
+          "class_id": "iv_vancomycin",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "vancomycin",
+            "tdm",
+            "rate",
+            "review"
+          ],
+          "role": "Verify indication, product concentration/rate, renal function and current TDM strategy; distinguish infusion reaction from IgE-mediated allergy.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_vancomycin_monitor",
+          "generic": "IV vancomycin administration & monitoring safety — administration / monitoring card",
+          "class_id": "iv_vancomycin",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "vancomycin",
+            "tdm",
+            "rate",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_aminoglycoside_review",
+          "generic": "IV aminoglycoside administration & TDM safety — preparation / verification card",
+          "class_id": "iv_aminoglycoside",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "aminoglycoside",
+            "tdm",
+            "renal",
+            "review"
+          ],
+          "role": "Use indication-specific dosing/TDM protocol with renal function review; exact level timing and targets are protocol-specific.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_aminoglycoside_monitor",
+          "generic": "IV aminoglycoside administration & TDM safety — administration / monitoring card",
+          "class_id": "iv_aminoglycoside",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "aminoglycoside",
+            "tdm",
+            "renal",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_beta_lactam_prolonged_review",
+          "generic": "Extended/prolonged β-lactam infusion verification — preparation / verification card",
+          "class_id": "iv_beta_lactam_prolonged",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "antibiotic",
+            "extended_infusion",
+            "stability",
+            "review"
+          ],
+          "role": "Verify agent-specific stability, diluent, temperature, concentration and line compatibility before prolonged infusion.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_beta_lactam_prolonged_monitor",
+          "generic": "Extended/prolonged β-lactam infusion verification — administration / monitoring card",
+          "class_id": "iv_beta_lactam_prolonged",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "antibiotic",
+            "extended_infusion",
+            "stability",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_amphotericin_review",
+          "generic": "IV amphotericin formulation safety — preparation / verification card",
+          "class_id": "iv_amphotericin",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "antifungal",
+            "formulation",
+            "high_alert",
+            "review"
+          ],
+          "role": "Verify exact amphotericin formulation and product-specific preparation/administration; formulations are not mg-for-mg interchangeable.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_amphotericin_monitor",
+          "generic": "IV amphotericin formulation safety — administration / monitoring card",
+          "class_id": "iv_amphotericin",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "antifungal",
+            "formulation",
+            "high_alert",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_iron_review",
+          "generic": "IV iron infusion reaction preparedness — preparation / verification card",
+          "class_id": "iv_iron",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "iron",
+            "hypersensitivity",
+            "monitoring",
+            "review"
+          ],
+          "role": "Verify product-specific administration requirements and have reaction recognition/resuscitation capability; avoid automatic cross-product assumptions.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_iron_monitor",
+          "generic": "IV iron infusion reaction preparedness — administration / monitoring card",
+          "class_id": "iv_iron",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "iron",
+            "hypersensitivity",
+            "monitoring",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_blood_product_line_review",
+          "generic": "Medication / blood-component co-administration review — preparation / verification card",
+          "class_id": "iv_blood_product_line",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "transfusion",
+            "compatibility",
+            "line",
+            "review"
+          ],
+          "role": "Follow transfusion-service policy; do not add medicines to blood components or co-infuse without explicit compatibility/policy support.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_blood_product_line_monitor",
+          "generic": "Medication / blood-component co-administration review — administration / monitoring card",
+          "class_id": "iv_blood_product_line",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "transfusion",
+            "compatibility",
+            "line",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_contrast_injector_review",
+          "generic": "IV contrast power-injector safety — preparation / verification card",
+          "class_id": "iv_contrast_injector",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "contrast",
+            "extravasation",
+            "injector",
+            "review"
+          ],
+          "role": "Use radiology protocol and device-rated access; monitor for extravasation and acute reactions according to current contrast policy.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_contrast_injector_monitor",
+          "generic": "IV contrast power-injector safety — administration / monitoring card",
+          "class_id": "iv_contrast_injector",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "contrast",
+            "extravasation",
+            "injector",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_labeling_syringe_review",
+          "generic": "Prepared syringe/bag/tubing labeling — preparation / verification card",
+          "class_id": "iv_labeling_syringe",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "labeling",
+            "lasa",
+            "syringe",
+            "review"
+          ],
+          "role": "Label immediately when a prepared injectable leaves the preparer’s hand or when multiple preparations are present; include required identifiers per policy.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "ISMP_BEST_PRACTICES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_labeling_syringe_monitor",
+          "generic": "Prepared syringe/bag/tubing labeling — administration / monitoring card",
+          "class_id": "iv_labeling_syringe",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "labeling",
+            "lasa",
+            "syringe",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "ISMP_BEST_PRACTICES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_aseptic_injection_review",
+          "generic": "Safe injection / vial / aseptic practice — preparation / verification card",
+          "class_id": "iv_aseptic_injection",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "aseptic",
+            "injection_safety",
+            "cdc",
+            "review"
+          ],
+          "role": "Use a new sterile needle and syringe for each patient and follow single-dose/multidose vial rules and aseptic technique.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "CDC_INJECTION_SAFETY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_aseptic_injection_monitor",
+          "generic": "Safe injection / vial / aseptic practice — administration / monitoring card",
+          "class_id": "iv_aseptic_injection",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "aseptic",
+            "injection_safety",
+            "cdc",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "CDC_INJECTION_SAFETY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_flush_deadspace_review",
+          "generic": "Flush, tubing dead-space & residual-dose awareness — preparation / verification card",
+          "class_id": "iv_flush_deadspace",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "flush",
+            "dead_space",
+            "line",
+            "review"
+          ],
+          "role": "Account for line volume and medication-specific flushing requirements; avoid unintended bolus from rapid carrier/flush changes.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_flush_deadspace_monitor",
+          "generic": "Flush, tubing dead-space & residual-dose awareness — administration / monitoring card",
+          "class_id": "iv_flush_deadspace",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "flush",
+            "dead_space",
+            "line",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "WHO_MWH_HIGH_RISK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_handoff_interruption_review",
+          "generic": "Infusion handoff / interruption / transfer safety — preparation / verification card",
+          "class_id": "iv_handoff_interruption",
+          "form": "IV medication safety review card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "handoff",
+            "transition",
+            "pump",
+            "review"
+          ],
+          "role": "At every transition verify patient, medicine, concentration, rate, remaining volume, line/lumen, monitoring and restart plan.",
+          "monitoring_pearl": "Document the verification source and resolve discrepancies before administration. High-alert or unstable-patient situations require the appropriate independent check and escalation.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "iv_handoff_interruption_monitor",
+          "generic": "Infusion handoff / interruption / transfer safety — administration / monitoring card",
+          "class_id": "iv_handoff_interruption",
+          "form": "IV administration monitoring / escalation card",
+          "route": "IV / injectable context",
+          "dose_example": "Safety decision-support only — no automatic dose, dilution, concentration, infusion rate, compatibility, Y-site, stability, line assignment, antidote or pump-programming value. Verify the exact product, current order, manufacturer labeling, pharmacy/institutional injectable reference and patient context before administration.",
+          "tags": [
+            "handoff",
+            "transition",
+            "pump",
+            "monitoring"
+          ],
+          "role": "Reassess patient response, vascular access, line/pump state and the medication-specific monitoring plan; investigate alarms, interruptions, unexpected symptoms or site changes rather than treating the checklist as clearance.",
+          "monitoring_pearl": "Escalate unexpected physiologic change, suspected incompatibility/extravasation, pump discrepancy, line problem or preparation error immediately according to local policy.",
+          "source_refs": [
+            "FDA_INFUSION_PUMP",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "ISMP_HIGH_ALERT_2024",
+          "label": "ISMP — List of High-Alert Medications in Acute Care Settings (2024)",
+          "url": "https://www.ismp.org/tools/highalertmedications/"
+        },
+        {
+          "id": "ISMP_BEST_PRACTICES",
+          "label": "ISMP — Targeted Medication Safety Best Practices for Hospitals",
+          "url": "https://www.ismp.org/guidelines/best-practices-hospitals"
+        },
+        {
+          "id": "CDC_INJECTION_SAFETY",
+          "label": "CDC — Safe Injection Practices to Prevent Transmission of Infections",
+          "url": "https://www.cdc.gov/injection-safety/hcp/clinical-guidance/index.html"
+        },
+        {
+          "id": "FDA_INFUSION_PUMP",
+          "label": "FDA — Infusion Pump Risk Reduction Strategies for Clinicians",
+          "url": "https://www.fda.gov/medical-devices/infusion-pumps/infusion-pump-risk-reduction-strategies-clinicians"
+        },
+        {
+          "id": "FDA_PUMP_PROBLEMS",
+          "label": "FDA — Examples of Reported Infusion Pump Problems",
+          "url": "https://www.fda.gov/medical-devices/infusion-pumps/examples-reported-infusion-pump-problems"
+        },
+        {
+          "id": "WHO_MWH_HIGH_RISK",
+          "label": "WHO — Medication Safety in High-Risk Situations",
+          "url": "https://www.who.int/initiatives/medication-without-harm/medication-safety-in-high-risk-situations"
+        },
+        {
+          "id": "WHO_MED_WITHOUT_HARM",
+          "label": "WHO — Medication Without Harm",
+          "url": "https://www.who.int/initiatives/medication-without-harm"
         },
         {
           "id": "DAILYMED",
