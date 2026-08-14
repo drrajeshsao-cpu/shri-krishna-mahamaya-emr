@@ -1,16 +1,17 @@
 {
   "schema": "MAHAMAYA-MODERN-THERAPEUTICS-ATLAS-V2",
-  "version": "2.3",
-  "app_version": "5.30",
-  "build": "2026.08.14-R24",
-  "name": "Mahamaya Modern Therapeutics Atlas — MTLPI v2.3 + Six Specialized Pharmacology Labs",
+  "version": "2.4A",
+  "app_version": "5.40A",
+  "build": "2026.08.14-R25A",
+  "name": "Mahamaya Modern Therapeutics Atlas — MTLPI v2.4A + Respiratory & Allergy Lab",
   "mode": "Coverage-first research/learning formulary + clinician-gated draft support",
   "design_principles": [
     "Disease → drug group/class → mechanism/target → generic medicine → form/route → adult learning dose snapshot",
     "Research search works without a selected patient",
     "No universal best-drug ranking; guideline position and patient context decide",
     "Generic-first; brand/manufacturer marketing is not used for ranking",
-    "Coverage-first V5.00; detailed special-population safety enrichment is the next phase"
+    "Coverage-first V5.00; detailed special-population safety enrichment is the next phase",
+    "Dedicated high-yield Respiratory & Allergy workspace uses one master scientific layout: class → mechanism/target → generic/formulation → learning-dose snapshot → monitoring → primary source verification."
   ],
   "priority_legend": {
     "green": "Core class to review",
@@ -306,6 +307,42 @@
       "name": "ASRA Local Anesthetic Systemic Toxicity Checklist",
       "scope": "Local-anesthetic systemic toxicity preparedness",
       "url": "https://asra.com/news-publications/asra-updates/blog-landing/guidelines/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity"
+    },
+    {
+      "id": "GINA_2026",
+      "name": "GINA Global Strategy 2026",
+      "scope": "Asthma diagnosis, management and pharmacotherapy",
+      "url": "https://ginasthma.org/2026-gina-strategy-report/"
+    },
+    {
+      "id": "GOLD_2026",
+      "name": "GOLD COPD Report 2026",
+      "scope": "COPD diagnosis, management and pharmacotherapy",
+      "url": "https://goldcopd.org/2026-gold-report-and-pocket-guide/"
+    },
+    {
+      "id": "ICMR_PULM_STW",
+      "name": "ICMR Standard Treatment Workflows — Pulmonology",
+      "scope": "Indian asthma, COPD and respiratory standard treatment workflows",
+      "url": "https://www.icmr.gov.in/standard-treatment-workflows-stws"
+    },
+    {
+      "id": "JTF_RHINITIS_2020",
+      "name": "Rhinitis 2020 Practice Parameter Update",
+      "scope": "Allergic/nonallergic rhinitis pharmacotherapy and immunotherapy",
+      "url": "https://www.jacionline.org/article/S0091-6749(20)31023-X/fulltext"
+    },
+    {
+      "id": "JTF_ANAPHYLAXIS_2023",
+      "name": "2023 Anaphylaxis Practice Parameter Update",
+      "scope": "Anaphylaxis diagnosis, risk reduction and management",
+      "url": "https://www.annallergy.org/article/S1081-1206(23)01304-2/fulltext"
+    },
+    {
+      "id": "ASCIA_ANAPHYLAXIS_2026",
+      "name": "ASCIA 2026 Acute Management of Anaphylaxis",
+      "scope": "Emergency IM adrenaline/anaphylaxis operational guidance",
+      "url": "https://www.allergy.org.au/hp/anaphylaxis/acute-management-guidelines"
     }
   ],
   "drug_classes": [
@@ -56600,5 +56637,5 @@
     }
   ],
   "brand_companies_note": "V5.00 is generic-first. Manufacturer/pharma promotional pages are not evidence-ranking sources. When manufacturer information is needed, use regulator-approved prescribing information / SmPC / package insert and verify current version.",
-  "coverage_note": "MTLPI v2.2 coverage: 238 disease pathways, 198 core drug groups and 443 core generic records, plus dedicated Antibiotic Intelligence and common chronic pharmacology labs for antihypertensive, antidiabetic and thyroid medicines. Classification and dose snapshots are educational; verify patient-specific indication, current guideline/label, organ function, interactions and monitoring before prescribing."
+  "coverage_note": "MTLPI v2.4A coverage retains 238 disease pathways, 198 core drug groups and 443 core generic records, plus dedicated Antibiotic/BP/Diabetes/Thyroid/Acid-Peptic/Pain-Muscle laboratories and a new Respiratory & Allergy Lab with 24 classes and 71 detailed profiles. Educational classification/dose snapshots require patient-specific verification."
 }

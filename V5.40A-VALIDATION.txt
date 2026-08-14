@@ -1,0 +1,52 @@
+Mahamaya Clinic EMR V5.40A — Respiratory & Allergy Intelligence Lab Validation
+Build: 2026.08.14-R25A
+MTLPI: v2.4A • RESP-ALLERGY v1.0
+
+- chronic-pharmacology-intelligence-v1.json: PASS
+- therapeutics-intelligence-master-v1.json: PASS
+- manifest.webmanifest: PASS
+- Respiratory lab present: PASS
+- Split release contains exactly 6 chronic/high-use labs: PASS — ['hypertension', 'diabetes', 'thyroid', 'acid_peptic', 'pain_muscle', 'resp_allergy']
+- No later Part-B/C labs exposed in chronic dataset: PASS
+- Chronic class count: PASS — {'labs': 6, 'classes': 118, 'drug_profiles': 367}
+- Chronic profile count: PASS — {'labs': 6, 'classes': 118, 'drug_profiles': 367}
+- RESP classes: PASS — 24
+- RESP profiles: PASS — 71
+- RESP sources: PASS — 7
+- RESP duplicate class IDs: PASS
+- RESP duplicate drug IDs: PASS
+- RESP duplicate source IDs: PASS
+- RESP class→drug references: PASS — []
+- RESP drug→source references: PASS — []
+- Asthma lens smoke: PASS — 12
+- Allergy/rhinitis lens smoke: PASS — 9
+- Anaphylaxis smoke: PASS — ['Epinephrine / Adrenaline IM']
+- Marker V5.40A: PASS
+- Marker Build R25A: PASS
+- Marker MTLPI v2.4A: PASS
+- Respiratory launch button: PASS
+- No CV launch button in Part A: PASS
+- No Neuro launch button in Part A: PASS
+- No Bone/Rheum launch button in Part A: PASS
+- Duplicate static DOM IDs: PASS — 1394 literal IDs; template-generated IDs excluded; duplicates=[]
+- complaint-intelligence-engine.js syntax: PASS
+- therapeutics-intelligence-engine.js syntax: PASS
+- ayurveda-therapeutics-engine.js syntax: PASS
+- mission-assurance-engine.js syntax: PASS
+- install-pwa.js syntax: PASS
+- service-worker.js syntax: PASS
+- Inline JavaScript syntax: PASS — 10/10; []
+- Service-worker cache R25A: PASS
+- Manifest V5.40A: PASS
+- Manifest Respiratory shortcut: PASS
+- Mission SHA-256 integrity: PASS — 22/22 PASS
+- GINA 2026 source: PASS
+- GOLD 2026 source: PASS
+- ICMR Pulmonology STW source: PASS
+- JTFPP rhinitis source: PASS
+- JTFPP anaphylaxis source: PASS
+- ASCIA 2026 anaphylaxis source: PASS
+
+SUMMARY: 44/44 checks PASS.
+
+LIMITATION: Static/source-level and JavaScript syntax validation only. It does not replace live GitHub Pages regression, inhaler/device-specific label verification, specialist review, patient-specific prescribing checks, security testing or regulatory review.

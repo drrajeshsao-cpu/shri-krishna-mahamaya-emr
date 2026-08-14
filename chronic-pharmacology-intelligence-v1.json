@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya.common_chronic_pharmacology.v1",
-  "version": "1.1",
-  "app_version": "V5.30",
-  "build": "2026.08.14-R24",
-  "name": "High-Use Pharmacology Intelligence Labs — Chronic + GI Acid-Peptic + Pain/Muscle",
+  "version": "1.3A",
+  "app_version": "V5.40A",
+  "build": "2026.08.14-R25A",
+  "name": "High-Use Pharmacology Intelligence Labs — Chronic + GI/Pain + Respiratory/Allergy",
   "counts": {
-    "labs": 5,
-    "classes": 94,
-    "drug_profiles": 296
+    "labs": 6,
+    "classes": 118,
+    "drug_profiles": 367
   },
-  "global_boundary": "Research/learning classification atlas only. Typical adult dose snapshots are educational references, not patient-specific prescriptions. Verify diagnosis, formulation, current approved label/guideline, age/weight, renal/hepatic function, pregnancy/lactation, contraindications, interactions, monitoring and procedure-specific safety before prescribing or administering.",
+  "global_boundary": "Research/learning pharmacology only. Class tags and typical adult dose snapshots are not patient-specific prescribing instructions. Verify diagnosis, indication, formulation/route/device, current label/guideline, age/weight, renal/hepatic function, pregnancy/lactation, contraindications, interactions, monitoring and emergency/specialist requirements before prescribing. Asthma and COPD algorithms are not interchangeable.",
   "labs": [
     {
       "id": "hypertension",
@@ -8320,6 +8320,2376 @@
           "id": "DAILYMED",
           "label": "DailyMed — current FDA-submitted product labeling",
           "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "resp_allergy",
+      "title": "Respiratory & Allergy Intelligence Lab",
+      "icon": "🫁",
+      "badge": "RESP-ALLERGY v1.0",
+      "eyebrow": "AIRWAY • ALLERGY • INHALER PHARMACOLOGY",
+      "subtitle": "Asthma, COPD, allergic rhinitis, cough/mucus, severe-airway biologics and anaphylaxis pharmacology organized by mechanism and clinical context.",
+      "scientific_boundary": "Airway drugs are device-, phenotype-, severity- and diagnosis-dependent. Asthma controller therapy should include inhaled corticosteroid-containing treatment; bronchodilator monotherapy rules differ between asthma and COPD. Anaphylaxis requires prompt IM epinephrine; antihistamines and corticosteroids are adjuncts, not substitutes. Verify current inhaler strength/device technique, age, pregnancy, renal/hepatic context and regulatory label.",
+      "classification_notes": {
+        "Controller_vs_relief": "Separate anti-inflammatory control from bronchodilator symptom relief; combination products are not interchangeable by puff count.",
+        "Asthma_vs_COPD": "LABA/LAMA use and ICS indications differ between asthma and COPD; never infer one disease algorithm from the other.",
+        "Inhaler_science": "Particle delivery, inspiratory flow, spacer use, device technique and adherence can determine effectiveness as much as molecule choice.",
+        "Allergy_anaphylaxis": "Rhinitis therapy is symptom-domain based; systemic anaphylaxis is an emergency and IM epinephrine is the core first-line drug."
+      },
+      "lens_groups": [
+        {
+          "group": "Airway pharmacology",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All respiratory/allergy classes"
+            },
+            {
+              "id": "bronchodilator",
+              "label": "Bronchodilators"
+            },
+            {
+              "id": "anti_inflammatory",
+              "label": "Anti-inflammatory controllers"
+            },
+            {
+              "id": "inhaler",
+              "label": "Inhaled therapy"
+            },
+            {
+              "id": "oral",
+              "label": "Oral/systemic therapy"
+            },
+            {
+              "id": "biologic",
+              "label": "Severe-asthma biologics"
+            }
+          ]
+        },
+        {
+          "group": "Clinical context",
+          "items": [
+            {
+              "id": "asthma",
+              "label": "Asthma"
+            },
+            {
+              "id": "copd",
+              "label": "COPD"
+            },
+            {
+              "id": "allergic_rhinitis",
+              "label": "Allergic rhinitis"
+            },
+            {
+              "id": "anaphylaxis",
+              "label": "Anaphylaxis"
+            },
+            {
+              "id": "cough_mucus",
+              "label": "Cough / mucus"
+            },
+            {
+              "id": "acute_exacerbation",
+              "label": "Acute exacerbation"
+            }
+          ]
+        },
+        {
+          "group": "Mechanism",
+          "items": [
+            {
+              "id": "beta2",
+              "label": "β2 agonists"
+            },
+            {
+              "id": "antimuscarinic",
+              "label": "Antimuscarinics"
+            },
+            {
+              "id": "corticosteroid",
+              "label": "Corticosteroids"
+            },
+            {
+              "id": "leukotriene",
+              "label": "Leukotriene pathway"
+            },
+            {
+              "id": "histamine",
+              "label": "Histamine pathway"
+            },
+            {
+              "id": "type2",
+              "label": "Type-2 biologic targets"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "saba",
+          "name": "Short-acting β2 agonists (SABA)",
+          "mechanism": "Rapid β2-receptor stimulation increases airway smooth-muscle cAMP and bronchodilation",
+          "target": "β2 adrenergic receptor",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "copd",
+            "acute_exacerbation",
+            "beta2"
+          ],
+          "role_note": "Fast relievers for bronchospasm; in asthma, SABA-only treatment is not the preferred modern controller strategy.",
+          "drug_ids": [
+            "resp_salbutamol",
+            "resp_levalbuterol",
+            "resp_terbutaline"
+          ]
+        },
+        {
+          "id": "laba",
+          "name": "Long-acting β2 agonists (LABA)",
+          "mechanism": "Prolonged β2 stimulation maintains bronchodilation",
+          "target": "β2 adrenergic receptor",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "copd",
+            "beta2"
+          ],
+          "role_note": "Maintenance bronchodilators. In asthma LABA should be paired with ICS; in COPD LABA may be used within bronchodilator-centered regimens.",
+          "drug_ids": [
+            "resp_formoterol",
+            "resp_salmeterol",
+            "resp_indacaterol",
+            "resp_olodaterol",
+            "resp_vilanterol"
+          ]
+        },
+        {
+          "id": "sama",
+          "name": "Short-acting muscarinic antagonist (SAMA)",
+          "mechanism": "Blocks airway M3 muscarinic signaling and vagal bronchoconstriction",
+          "target": "Muscarinic M3 receptor",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "antimuscarinic",
+            "inhaler",
+            "copd",
+            "acute_exacerbation"
+          ],
+          "role_note": "Short-acting anticholinergic bronchodilation; often paired with SABA in acute COPD/asthma exacerbation settings.",
+          "drug_ids": [
+            "resp_ipratropium"
+          ]
+        },
+        {
+          "id": "lama",
+          "name": "Long-acting muscarinic antagonists (LAMA)",
+          "mechanism": "Sustained M3 antagonism reduces cholinergic bronchoconstriction",
+          "target": "Muscarinic M3 receptor",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "antimuscarinic",
+            "inhaler",
+            "copd",
+            "asthma"
+          ],
+          "role_note": "Core COPD maintenance class; tiotropium is also an add-on option in selected asthma contexts.",
+          "drug_ids": [
+            "resp_tiotropium",
+            "resp_umeclidinium",
+            "resp_glycopyrronium",
+            "resp_aclidinium",
+            "resp_revefenacin"
+          ]
+        },
+        {
+          "id": "ics",
+          "name": "Inhaled corticosteroids (ICS)",
+          "mechanism": "Glucocorticoid-receptor activation suppresses airway inflammatory gene expression",
+          "target": "Intracellular glucocorticoid receptor",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "inhaler",
+            "asthma",
+            "copd"
+          ],
+          "role_note": "Foundation of asthma anti-inflammatory treatment; COPD use is phenotype/exacerbation-context dependent and generally combined with long-acting bronchodilators.",
+          "drug_ids": [
+            "resp_budesonide",
+            "resp_beclometasone",
+            "resp_fluticasone_prop",
+            "resp_fluticasone_furoate",
+            "resp_mometasone_ics",
+            "resp_ciclesonide"
+          ]
+        },
+        {
+          "id": "ics_formoterol",
+          "name": "ICS–formoterol reliever / MART combinations",
+          "mechanism": "Combines airway anti-inflammatory corticosteroid with rapid-onset LABA bronchodilation",
+          "target": "Glucocorticoid receptor + β2 receptor",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "beta2",
+            "corticosteroid"
+          ],
+          "role_note": "Central modern asthma concept for selected products: same ICS-formoterol inhaler may be used as maintenance-and-reliever therapy (MART) or anti-inflammatory reliever according to step and product.",
+          "drug_ids": [
+            "resp_bud_form",
+            "resp_beclo_form"
+          ]
+        },
+        {
+          "id": "ics_laba",
+          "name": "Other ICS/LABA fixed combinations",
+          "mechanism": "Fixed anti-inflammatory controller plus long-acting bronchodilator",
+          "target": "Glucocorticoid receptor + β2 receptor",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "copd"
+          ],
+          "role_note": "Maintenance combinations; non-formoterol LABA products are not used as rapid reliever inhalers.",
+          "drug_ids": [
+            "resp_flut_salm",
+            "resp_flut_vil",
+            "resp_mom_form"
+          ]
+        },
+        {
+          "id": "triple_inhaler",
+          "name": "ICS/LABA/LAMA triple inhalers",
+          "mechanism": "Combines anti-inflammatory ICS with dual long-acting bronchodilation",
+          "target": "Glucocorticoid receptor + β2 receptor + M3 receptor",
+          "tags": [
+            "overview",
+            "inhaler",
+            "anti_inflammatory",
+            "bronchodilator",
+            "copd",
+            "asthma"
+          ],
+          "role_note": "Escalation option in COPD and selected asthma products/contexts; phenotype and exacerbation history matter.",
+          "drug_ids": [
+            "resp_ff_umec_vil",
+            "resp_bud_gly_form"
+          ]
+        },
+        {
+          "id": "ltra",
+          "name": "Leukotriene receptor antagonists (LTRA)",
+          "mechanism": "Blocks cysteinyl-leukotriene receptor signaling",
+          "target": "CysLT1 receptor",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "oral",
+            "asthma",
+            "allergic_rhinitis",
+            "leukotriene"
+          ],
+          "role_note": "Oral alternative/add-on in selected asthma/allergic rhinitis contexts; generally less effective than ICS for airway inflammation.",
+          "drug_ids": [
+            "resp_montelukast",
+            "resp_zafirlukast"
+          ]
+        },
+        {
+          "id": "methylxanthine",
+          "name": "Methylxanthines",
+          "mechanism": "Nonselective phosphodiesterase inhibition and adenosine antagonism increase bronchodilatory signaling",
+          "target": "PDE/adenosine pathways",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "oral",
+            "asthma",
+            "copd"
+          ],
+          "role_note": "Older narrow-therapeutic-index bronchodilator class; generally not preferred when safer inhaled options are available.",
+          "drug_ids": [
+            "resp_theophylline",
+            "resp_aminophylline"
+          ]
+        },
+        {
+          "id": "pde4",
+          "name": "PDE-4 pathway modifiers",
+          "mechanism": "Raises intracellular cAMP in inflammatory/airway cells via phosphodiesterase inhibition",
+          "target": "PDE4 / PDE3-PDE4",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "copd",
+            "oral"
+          ],
+          "role_note": "Selected COPD add-on therapy in exacerbation-prone/chronic-bronchitis phenotypes; newer inhaled PDE3/4 option may be used for maintenance bronchodilation.",
+          "drug_ids": [
+            "resp_roflumilast",
+            "resp_ensifentrine"
+          ]
+        },
+        {
+          "id": "systemic_steroid_resp",
+          "name": "Systemic corticosteroids for airway exacerbations",
+          "mechanism": "Systemic glucocorticoid anti-inflammatory effects",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "oral",
+            "acute_exacerbation",
+            "asthma",
+            "copd"
+          ],
+          "role_note": "Short courses may be used for significant exacerbations; chronic systemic steroid exposure has substantial harm.",
+          "drug_ids": [
+            "resp_prednisolone",
+            "resp_methylpred"
+          ]
+        },
+        {
+          "id": "mucolytic",
+          "name": "Mucolytics / expectorants",
+          "mechanism": "Reduce mucus viscosity or facilitate secretion clearance",
+          "target": "Mucus disulfide bonds / secretion rheology",
+          "tags": [
+            "overview",
+            "cough_mucus",
+            "oral",
+            "copd"
+          ],
+          "role_note": "Adjuncts for selected productive-cough/chronic-bronchitis contexts; they do not replace diagnosis-specific treatment.",
+          "drug_ids": [
+            "resp_nac",
+            "resp_carbocisteine",
+            "resp_ambroxol",
+            "resp_bromhexine",
+            "resp_guaifenesin"
+          ]
+        },
+        {
+          "id": "antitussive",
+          "name": "Antitussives",
+          "mechanism": "Suppress central cough reflex or peripheral cough receptors",
+          "target": "Medullary cough center / airway sensory pathways",
+          "tags": [
+            "overview",
+            "cough_mucus",
+            "oral"
+          ],
+          "role_note": "Symptom suppression only after red flags and underlying cause are considered; avoid masking serious disease.",
+          "drug_ids": [
+            "resp_dextromethorphan",
+            "resp_benzonatate"
+          ]
+        },
+        {
+          "id": "h1_first",
+          "name": "First-generation H1 antihistamines",
+          "mechanism": "Inverse agonism at H1 receptors with substantial CNS penetration",
+          "target": "Histamine H1 receptor",
+          "tags": [
+            "overview",
+            "histamine",
+            "allergic_rhinitis",
+            "oral"
+          ],
+          "role_note": "Effective antihistamines but sedation/anticholinergic burden limits routine daytime use.",
+          "drug_ids": [
+            "resp_chlorpheniramine",
+            "resp_diphenhydramine",
+            "resp_hydroxyzine"
+          ]
+        },
+        {
+          "id": "h1_second",
+          "name": "Second-generation H1 antihistamines",
+          "mechanism": "Peripheral-selective H1 inverse agonism with less CNS penetration",
+          "target": "Histamine H1 receptor",
+          "tags": [
+            "overview",
+            "histamine",
+            "allergic_rhinitis",
+            "oral"
+          ],
+          "role_note": "Preferred oral antihistamine family for many allergic rhinitis/urticaria contexts because of lower sedation burden.",
+          "drug_ids": [
+            "resp_cetirizine",
+            "resp_levocetirizine",
+            "resp_loratadine",
+            "resp_desloratadine",
+            "resp_fexofenadine",
+            "resp_bilastine"
+          ]
+        },
+        {
+          "id": "intranasal_antihistamine",
+          "name": "Intranasal H1 antihistamines",
+          "mechanism": "Local nasal H1 blockade",
+          "target": "Nasal histamine H1 receptor",
+          "tags": [
+            "overview",
+            "histamine",
+            "allergic_rhinitis",
+            "inhaler"
+          ],
+          "role_note": "Rapid local symptom control, especially sneezing/rhinorrhea; can be combined with intranasal steroid in selected products.",
+          "drug_ids": [
+            "resp_azelastine",
+            "resp_olopatadine_nasal"
+          ]
+        },
+        {
+          "id": "intranasal_steroid",
+          "name": "Intranasal corticosteroids",
+          "mechanism": "Local glucocorticoid suppression of nasal inflammation",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "allergic_rhinitis"
+          ],
+          "role_note": "Most effective monotherapy family for persistent allergic-rhinitis nasal symptoms when used correctly.",
+          "drug_ids": [
+            "resp_fluticasone_nasal",
+            "resp_mometasone_nasal",
+            "resp_budesonide_nasal",
+            "resp_triamcinolone_nasal"
+          ]
+        },
+        {
+          "id": "decongestant_oral",
+          "name": "Oral sympathomimetic decongestants",
+          "mechanism": "α-adrenergic vasoconstriction reduces nasal mucosal edema",
+          "target": "Adrenergic receptors",
+          "tags": [
+            "overview",
+            "allergic_rhinitis",
+            "oral"
+          ],
+          "role_note": "Short-term symptomatic congestion relief; cardiovascular/urinary/insomnia risk limits use.",
+          "drug_ids": [
+            "resp_pseudoephedrine",
+            "resp_phenylephrine_oral"
+          ]
+        },
+        {
+          "id": "decongestant_topical",
+          "name": "Topical nasal decongestants",
+          "mechanism": "Local α-adrenergic vasoconstriction",
+          "target": "Nasal α-adrenergic receptors",
+          "tags": [
+            "overview",
+            "allergic_rhinitis"
+          ],
+          "role_note": "Rapid short-term congestion relief; prolonged continuous use can cause rebound congestion (rhinitis medicamentosa).",
+          "drug_ids": [
+            "resp_oxymetazoline",
+            "resp_xylometazoline"
+          ]
+        },
+        {
+          "id": "mast_stabilizer",
+          "name": "Mast-cell stabilizer",
+          "mechanism": "Stabilizes mast cells and reduces mediator release",
+          "target": "Mast-cell activation pathways",
+          "tags": [
+            "overview",
+            "allergic_rhinitis",
+            "anti_inflammatory"
+          ],
+          "role_note": "Very safe preventive local therapy but requires regular use and is generally less potent than intranasal corticosteroids.",
+          "drug_ids": [
+            "resp_cromolyn_nasal"
+          ]
+        },
+        {
+          "id": "biologic_asthma",
+          "name": "Severe-asthma biologics",
+          "mechanism": "Target IgE or Type-2 cytokine signaling to reduce exacerbation biology",
+          "target": "IgE / IL-5 / IL-5R / IL-4Rα / TSLP",
+          "tags": [
+            "overview",
+            "biologic",
+            "type2",
+            "asthma",
+            "anti_inflammatory"
+          ],
+          "role_note": "Specialist phenotype-driven add-on therapy after diagnosis, adherence, inhaler technique and comorbidities are optimized.",
+          "drug_ids": [
+            "resp_omalizumab",
+            "resp_mepolizumab",
+            "resp_reslizumab",
+            "resp_benralizumab",
+            "resp_dupilumab",
+            "resp_tezepelumab"
+          ]
+        },
+        {
+          "id": "epinephrine_anaphylaxis",
+          "name": "Epinephrine / adrenaline for anaphylaxis",
+          "mechanism": "α1 vasoconstriction + β1 cardiac support + β2 bronchodilation/mast-cell effects",
+          "target": "α/β adrenergic receptors",
+          "tags": [
+            "overview",
+            "anaphylaxis",
+            "acute_exacerbation"
+          ],
+          "role_note": "First-line emergency pharmacotherapy for anaphylaxis; give IM in the anterolateral thigh and repeat based on response/protocol.",
+          "drug_ids": [
+            "resp_epinephrine_im"
+          ]
+        },
+        {
+          "id": "allergen_immunotherapy",
+          "name": "Allergen immunotherapy (SCIT / SLIT)",
+          "mechanism": "Repeated standardized allergen exposure induces immune tolerance",
+          "target": "Allergen-specific immune modulation",
+          "tags": [
+            "overview",
+            "allergic_rhinitis",
+            "asthma",
+            "anti_inflammatory"
+          ],
+          "role_note": "Disease-modifying allergy treatment for selected sensitizations; requires diagnostic confirmation and specialist protocol.",
+          "drug_ids": [
+            "resp_scit",
+            "resp_slit"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "resp_salbutamol",
+          "generic": "Salbutamol / Albuterol",
+          "class_id": "saba",
+          "form": "MDI/DPI/nebulizer",
+          "route": "Inhaled",
+          "dose_example": "Common adult reliever: 1–2 inhalations as needed; acute regimens are severity/device specific.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "copd",
+            "acute_exacerbation",
+            "beta2"
+          ],
+          "role": "Rapid bronchodilator reliever.",
+          "monitoring_pearl": "Tremor, tachycardia, potassium with high-dose nebulization; reassess frequent use.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_levalbuterol",
+          "generic": "Levalbuterol",
+          "class_id": "saba",
+          "form": "MDI/nebulizer",
+          "route": "Inhaled",
+          "dose_example": "Common adult nebulized regimen: 0.63–1.25 mg every 6–8 h when prescribed; device/indication specific.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "copd",
+            "acute_exacerbation",
+            "beta2"
+          ],
+          "role": "R-enantiomer SABA option.",
+          "monitoring_pearl": "Heart rate, tremor, paradoxical bronchospasm.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_terbutaline",
+          "generic": "Terbutaline",
+          "class_id": "saba",
+          "form": "Tablet/injection (availability varies)",
+          "route": "Oral/SC",
+          "dose_example": "Systemic dosing is indication- and region-specific; verify current product label.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "copd",
+            "acute_exacerbation",
+            "beta2",
+            "oral"
+          ],
+          "role": "Systemic β2 agonist; less preferred than inhaled route for routine airway relief.",
+          "monitoring_pearl": "Tachycardia, tremor, potassium/glucose; avoid routine substitution for inhaled therapy.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_formoterol",
+          "generic": "Formoterol",
+          "class_id": "laba",
+          "form": "DPI/MDI; combination inhalers",
+          "route": "Inhaled",
+          "dose_example": "Common maintenance component: 12 mcg twice daily as monotherapy product where indicated; combination/MART dosing is product specific.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "copd",
+            "beta2"
+          ],
+          "role": "Rapid-onset LABA used in maintenance and selected ICS-formoterol reliever strategies.",
+          "monitoring_pearl": "Do not use LABA monotherapy in asthma; monitor palpitations/tremor.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_salmeterol",
+          "generic": "Salmeterol",
+          "class_id": "laba",
+          "form": "DPI",
+          "route": "Inhaled",
+          "dose_example": "Common adult maintenance: 50 mcg twice daily; verify product/indication.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "copd",
+            "beta2"
+          ],
+          "role": "Long-onset LABA maintenance bronchodilator.",
+          "monitoring_pearl": "Not for acute relief; pair with ICS in asthma.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_indacaterol",
+          "generic": "Indacaterol",
+          "class_id": "laba",
+          "form": "DPI",
+          "route": "Inhaled",
+          "dose_example": "Once-daily product strengths vary by country/device; verify label.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "copd",
+            "beta2"
+          ],
+          "role": "Ultra-LABA for COPD maintenance.",
+          "monitoring_pearl": "Not rescue therapy; technique and cardiovascular symptoms.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_olodaterol",
+          "generic": "Olodaterol",
+          "class_id": "laba",
+          "form": "Soft-mist inhaler",
+          "route": "Inhaled",
+          "dose_example": "Common adult COPD maintenance: 5 mcg once daily via device-specific actuations.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "copd",
+            "beta2"
+          ],
+          "role": "Once-daily LABA for COPD.",
+          "monitoring_pearl": "Not rescue therapy; device technique.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_vilanterol",
+          "generic": "Vilanterol",
+          "class_id": "laba",
+          "form": "Combination DPI",
+          "route": "Inhaled",
+          "dose_example": "Used only in fixed combinations; strength and once-daily regimen are product specific.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "copd",
+            "beta2"
+          ],
+          "role": "Ultra-LABA component of ICS/LABA or LABA/LAMA/triple products.",
+          "monitoring_pearl": "Do not prescribe as a standalone asthma LABA.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_ipratropium",
+          "generic": "Ipratropium bromide",
+          "class_id": "sama",
+          "form": "MDI/nebulizer",
+          "route": "Inhaled",
+          "dose_example": "Common adult inhaler maintenance/acute use is product and setting specific; nebulized 0.5 mg is a common acute dose.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "antimuscarinic",
+            "inhaler",
+            "copd",
+            "acute_exacerbation"
+          ],
+          "role": "Short-acting antimuscarinic bronchodilator.",
+          "monitoring_pearl": "Dry mouth; avoid ocular exposure from nebulized mask in glaucoma risk.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_tiotropium",
+          "generic": "Tiotropium",
+          "class_id": "lama",
+          "form": "DPI/soft-mist inhaler",
+          "route": "Inhaled",
+          "dose_example": "Once-daily device-specific dosing; verify HandiHaler vs Respimat strength/indication.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "antimuscarinic",
+            "inhaler",
+            "copd",
+            "asthma"
+          ],
+          "role": "Long-acting antimuscarinic; COPD core, selected asthma add-on.",
+          "monitoring_pearl": "Dry mouth, urinary retention, glaucoma caution; device-specific dosing.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_umeclidinium",
+          "generic": "Umeclidinium",
+          "class_id": "lama",
+          "form": "DPI",
+          "route": "Inhaled",
+          "dose_example": "Common adult COPD maintenance: 62.5 mcg once daily.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "antimuscarinic",
+            "inhaler",
+            "copd",
+            "asthma"
+          ],
+          "role": "Once-daily LAMA.",
+          "monitoring_pearl": "Anticholinergic adverse effects and inhaler technique.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_glycopyrronium",
+          "generic": "Glycopyrronium / Glycopyrrolate",
+          "class_id": "lama",
+          "form": "DPI/nebulized formulations",
+          "route": "Inhaled",
+          "dose_example": "Product-dependent once/twice-daily dosing; verify formulation.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "antimuscarinic",
+            "inhaler",
+            "copd",
+            "asthma"
+          ],
+          "role": "LAMA available alone and in combinations.",
+          "monitoring_pearl": "Dry mouth, urinary retention; do not equate inhaled and systemic dosing.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_aclidinium",
+          "generic": "Aclidinium",
+          "class_id": "lama",
+          "form": "DPI",
+          "route": "Inhaled",
+          "dose_example": "Common adult COPD maintenance: 400 mcg twice daily.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "antimuscarinic",
+            "inhaler",
+            "copd",
+            "asthma"
+          ],
+          "role": "Twice-daily LAMA.",
+          "monitoring_pearl": "Anticholinergic effects; inhaler technique.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_revefenacin",
+          "generic": "Revefenacin",
+          "class_id": "lama",
+          "form": "Nebulizer solution",
+          "route": "Inhaled",
+          "dose_example": "Common adult COPD maintenance: 175 mcg nebulized once daily.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "antimuscarinic",
+            "inhaler",
+            "copd",
+            "asthma"
+          ],
+          "role": "Nebulized once-daily LAMA option.",
+          "monitoring_pearl": "Anticholinergic effects; useful when handheld inhaler technique is difficult.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_budesonide",
+          "generic": "Budesonide",
+          "class_id": "ics",
+          "form": "DPI/nebulizer",
+          "route": "Inhaled",
+          "dose_example": "Adult maintenance strengths vary; common total daily ranges are product/severity specific.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "inhaler",
+            "asthma",
+            "copd"
+          ],
+          "role": "ICS with extensive asthma use; also in combinations.",
+          "monitoring_pearl": "Rinse mouth; oral candidiasis/dysphonia; assess cumulative steroid exposure.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_beclometasone",
+          "generic": "Beclometasone dipropionate",
+          "class_id": "ics",
+          "form": "MDI/DPI",
+          "route": "Inhaled",
+          "dose_example": "Device-specific microgram dosing; extrafine and conventional products are not dose-equivalent.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "inhaler",
+            "asthma",
+            "copd"
+          ],
+          "role": "ICS controller.",
+          "monitoring_pearl": "Rinse mouth; device/particle-size equivalence matters.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_fluticasone_prop",
+          "generic": "Fluticasone propionate",
+          "class_id": "ics",
+          "form": "MDI/DPI",
+          "route": "Inhaled",
+          "dose_example": "Twice-daily strengths vary by severity/device; verify label.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "inhaler",
+            "asthma",
+            "copd"
+          ],
+          "role": "Potent ICS used alone or in combinations.",
+          "monitoring_pearl": "Local candidiasis/dysphonia; systemic exposure at high doses.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_fluticasone_furoate",
+          "generic": "Fluticasone furoate",
+          "class_id": "ics",
+          "form": "DPI",
+          "route": "Inhaled",
+          "dose_example": "Common adult once-daily strengths 100 or 200 mcg depending indication/product.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "inhaler",
+            "asthma",
+            "copd"
+          ],
+          "role": "Once-daily ICS component.",
+          "monitoring_pearl": "Rinse mouth; not interchangeable mcg-for-mcg with fluticasone propionate.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_mometasone_ics",
+          "generic": "Mometasone furoate",
+          "class_id": "ics",
+          "form": "DPI/MDI",
+          "route": "Inhaled",
+          "dose_example": "Once/twice-daily product-specific dosing; verify device.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "inhaler",
+            "asthma",
+            "copd"
+          ],
+          "role": "ICS controller and combination component.",
+          "monitoring_pearl": "Local steroid effects; technique.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_ciclesonide",
+          "generic": "Ciclesonide",
+          "class_id": "ics",
+          "form": "MDI",
+          "route": "Inhaled",
+          "dose_example": "Common adult once/twice-daily microgram doses vary by market.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "inhaler",
+            "asthma",
+            "copd"
+          ],
+          "role": "Prodrug ICS activated in lung tissue.",
+          "monitoring_pearl": "Rinse mouth; verify device strength.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_bud_form",
+          "generic": "Budesonide + Formoterol",
+          "class_id": "ics_formoterol",
+          "form": "DPI/MDI",
+          "route": "Inhaled",
+          "dose_example": "Maintenance/reliever puff limits are strength- and guideline-specific; verify the exact inhaler and GINA step.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "beta2",
+            "corticosteroid"
+          ],
+          "role": "Widely used ICS-formoterol combination for maintenance and selected reliever strategies.",
+          "monitoring_pearl": "Track total daily inhalations; confirm exact strength and maximum inhalations.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_beclo_form",
+          "generic": "Beclometasone + Formoterol",
+          "class_id": "ics_formoterol",
+          "form": "MDI/DPI",
+          "route": "Inhaled",
+          "dose_example": "MART/maintenance dosing is product-specific; verify label and local guideline.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "beta2",
+            "corticosteroid"
+          ],
+          "role": "ICS-formoterol combination with MART use in selected regions/products.",
+          "monitoring_pearl": "Device/strength-specific maximum daily use.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_flut_salm",
+          "generic": "Fluticasone + Salmeterol",
+          "class_id": "ics_laba",
+          "form": "DPI/MDI",
+          "route": "Inhaled",
+          "dose_example": "Common maintenance: 1 inhalation twice daily; strength varies.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "copd"
+          ],
+          "role": "ICS/LABA maintenance combination.",
+          "monitoring_pearl": "Not rescue therapy; rinse mouth.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_flut_vil",
+          "generic": "Fluticasone furoate + Vilanterol",
+          "class_id": "ics_laba",
+          "form": "DPI",
+          "route": "Inhaled",
+          "dose_example": "Common maintenance: 1 inhalation once daily; strength/indication specific.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "copd"
+          ],
+          "role": "Once-daily ICS/LABA maintenance.",
+          "monitoring_pearl": "Not acute relief; rinse mouth.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_mom_form",
+          "generic": "Mometasone + Formoterol",
+          "class_id": "ics_laba",
+          "form": "MDI",
+          "route": "Inhaled",
+          "dose_example": "Common maintenance: 2 inhalations twice daily; exact strength varies.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "bronchodilator",
+            "inhaler",
+            "asthma",
+            "copd"
+          ],
+          "role": "ICS/LABA maintenance.",
+          "monitoring_pearl": "Rinse mouth; confirm whether product is approved for reliever use locally (often not).",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_ff_umec_vil",
+          "generic": "Fluticasone furoate + Umeclidinium + Vilanterol",
+          "class_id": "triple_inhaler",
+          "form": "DPI",
+          "route": "Inhaled",
+          "dose_example": "Common COPD maintenance: 1 inhalation once daily; asthma indication varies by market.",
+          "tags": [
+            "overview",
+            "inhaler",
+            "anti_inflammatory",
+            "bronchodilator",
+            "copd",
+            "asthma"
+          ],
+          "role": "Once-daily single-inhaler triple therapy.",
+          "monitoring_pearl": "ICS pneumonia/oral-thrush considerations in COPD; anticholinergic and LABA effects.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_bud_gly_form",
+          "generic": "Budesonide + Glycopyrrolate + Formoterol",
+          "class_id": "triple_inhaler",
+          "form": "MDI",
+          "route": "Inhaled",
+          "dose_example": "Common COPD maintenance: 2 inhalations twice daily; verify exact strength.",
+          "tags": [
+            "overview",
+            "inhaler",
+            "anti_inflammatory",
+            "bronchodilator",
+            "copd",
+            "asthma"
+          ],
+          "role": "Triple maintenance inhaler for COPD.",
+          "monitoring_pearl": "Not rescue therapy; rinse mouth and monitor anticholinergic/LABA effects.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_montelukast",
+          "generic": "Montelukast",
+          "class_id": "ltra",
+          "form": "Tablet/chewable/granules",
+          "route": "Oral",
+          "dose_example": "Common adult dose: 10 mg once daily.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "oral",
+            "asthma",
+            "allergic_rhinitis",
+            "leukotriene"
+          ],
+          "role": "LTRA used in asthma/allergic rhinitis and exercise-related bronchoconstriction contexts.",
+          "monitoring_pearl": "Neuropsychiatric warning; reassess benefit.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_zafirlukast",
+          "generic": "Zafirlukast",
+          "class_id": "ltra",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult dose: 20 mg twice daily on an empty stomach.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "oral",
+            "asthma",
+            "allergic_rhinitis",
+            "leukotriene"
+          ],
+          "role": "LTRA alternative.",
+          "monitoring_pearl": "Liver injury and drug interactions; food affects absorption.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_theophylline",
+          "generic": "Theophylline",
+          "class_id": "methylxanthine",
+          "form": "ER tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Dose must be individualized to serum concentration, age, smoking, interactions and hepatic/cardiac status; do not use a fixed universal dose.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "oral",
+            "asthma",
+            "copd"
+          ],
+          "role": "Narrow-therapeutic-index oral bronchodilator.",
+          "monitoring_pearl": "Serum level, arrhythmia/seizure toxicity, CYP interactions.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_aminophylline",
+          "generic": "Aminophylline",
+          "class_id": "methylxanthine",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Loading/infusion requires weight, prior theophylline exposure and serum-level calculation; specialist/acute-care verification required.",
+          "tags": [
+            "overview",
+            "bronchodilator",
+            "oral",
+            "asthma",
+            "copd",
+            "acute_exacerbation"
+          ],
+          "role": "IV methylxanthine; limited role in modern acute airway care.",
+          "monitoring_pearl": "Continuous ECG/levels; high interaction/toxicity burden.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_roflumilast",
+          "generic": "Roflumilast",
+          "class_id": "pde4",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult dose: 500 mcg once daily; some labels use 250 mcg lead-in.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "copd",
+            "oral"
+          ],
+          "role": "PDE4 inhibitor for selected severe COPD with chronic bronchitis/exacerbations.",
+          "monitoring_pearl": "Weight loss, GI effects, mood symptoms; not a rescue bronchodilator.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_ensifentrine",
+          "generic": "Ensifentrine",
+          "class_id": "pde4",
+          "form": "Nebulizer suspension",
+          "route": "Inhaled",
+          "dose_example": "Common adult COPD maintenance: 3 mg nebulized twice daily where approved.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "copd",
+            "oral",
+            "inhaler"
+          ],
+          "role": "Inhaled dual PDE3/4 inhibitor for COPD maintenance.",
+          "monitoring_pearl": "Not rescue therapy; verify current local approval and label.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_prednisolone",
+          "generic": "Prednisolone",
+          "class_id": "systemic_steroid_resp",
+          "form": "Tablet/liquid",
+          "route": "Oral",
+          "dose_example": "Common adult exacerbation courses often use 40–50 mg daily for a short course; exact duration differs by asthma/COPD guideline.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "oral",
+            "acute_exacerbation",
+            "asthma",
+            "copd"
+          ],
+          "role": "Systemic corticosteroid for moderate/severe exacerbation.",
+          "monitoring_pearl": "Glucose, mood, BP, infection; cumulative steroid burden.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_methylpred",
+          "generic": "Methylprednisolone",
+          "class_id": "systemic_steroid_resp",
+          "form": "Tablet/injection",
+          "route": "Oral/IV",
+          "dose_example": "Acute-care dose is severity/route specific; verify protocol and equivalent glucocorticoid dose.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "oral",
+            "acute_exacerbation",
+            "asthma",
+            "copd"
+          ],
+          "role": "Systemic steroid option when oral/IV treatment is indicated.",
+          "monitoring_pearl": "Hyperglycemia, infection, psychiatric effects; IV is not automatically superior to oral.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_nac",
+          "generic": "N-acetylcysteine",
+          "class_id": "mucolytic",
+          "form": "Effervescent/oral solution",
+          "route": "Oral",
+          "dose_example": "Common mucolytic adult regimens: 600 mg once or twice daily depending product/indication.",
+          "tags": [
+            "overview",
+            "cough_mucus",
+            "oral",
+            "copd"
+          ],
+          "role": "Mucolytic and glutathione precursor.",
+          "monitoring_pearl": "GI effects; distinguish mucolytic use from acetaminophen-overdose protocols.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_carbocisteine",
+          "generic": "Carbocisteine",
+          "class_id": "mucolytic",
+          "form": "Capsule/syrup",
+          "route": "Oral",
+          "dose_example": "Common adult initial total daily dose about 2.25 g divided, then reduced as response occurs; product-specific.",
+          "tags": [
+            "overview",
+            "cough_mucus",
+            "oral",
+            "copd"
+          ],
+          "role": "Mucoregulator used in some COPD/chronic sputum settings.",
+          "monitoring_pearl": "GI effects; verify local availability.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_ambroxol",
+          "generic": "Ambroxol",
+          "class_id": "mucolytic",
+          "form": "Tablet/syrup",
+          "route": "Oral",
+          "dose_example": "Common adult oral regimens vary by formulation (often 30 mg 2–3 times daily).",
+          "tags": [
+            "overview",
+            "cough_mucus",
+            "oral",
+            "copd"
+          ],
+          "role": "Mucolytic/expectorant used widely outside U.S.",
+          "monitoring_pearl": "Verify local label; rare severe skin reactions reported.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_bromhexine",
+          "generic": "Bromhexine",
+          "class_id": "mucolytic",
+          "form": "Tablet/syrup",
+          "route": "Oral",
+          "dose_example": "Common adult dose: 8–16 mg three times daily depending product.",
+          "tags": [
+            "overview",
+            "cough_mucus",
+            "oral",
+            "copd"
+          ],
+          "role": "Mucolytic/expectorant.",
+          "monitoring_pearl": "GI effects; local label.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_guaifenesin",
+          "generic": "Guaifenesin",
+          "class_id": "mucolytic",
+          "form": "IR/ER tablet/syrup",
+          "route": "Oral",
+          "dose_example": "Common adult ER: 600–1200 mg every 12 h, max product-specific.",
+          "tags": [
+            "overview",
+            "cough_mucus",
+            "oral",
+            "copd"
+          ],
+          "role": "Expectorant for symptomatic mucus clearance.",
+          "monitoring_pearl": "Hydration and product combination ingredients.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_dextromethorphan",
+          "generic": "Dextromethorphan",
+          "class_id": "antitussive",
+          "form": "Syrup/capsule/lozenge",
+          "route": "Oral",
+          "dose_example": "Common adult IR: 10–20 mg every 4 h or 30 mg every 6–8 h; max 120 mg/day in many labels.",
+          "tags": [
+            "overview",
+            "cough_mucus",
+            "oral"
+          ],
+          "role": "Central non-opioid antitussive.",
+          "monitoring_pearl": "Serotonergic interactions, misuse, combination-product duplication.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_benzonatate",
+          "generic": "Benzonatate",
+          "class_id": "antitussive",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Common adult dose: 100–200 mg three times daily as needed; swallow whole.",
+          "tags": [
+            "overview",
+            "cough_mucus",
+            "oral"
+          ],
+          "role": "Peripheral anesthetic-like cough suppressant.",
+          "monitoring_pearl": "Fatal toxicity risk in children; do not chew/crush due oropharyngeal anesthesia.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_chlorpheniramine",
+          "generic": "Chlorpheniramine",
+          "class_id": "h1_first",
+          "form": "Tablet/syrup",
+          "route": "Oral",
+          "dose_example": "Common adult IR: 4 mg every 4–6 h; daily maximum product-specific.",
+          "tags": [
+            "overview",
+            "histamine",
+            "allergic_rhinitis",
+            "oral"
+          ],
+          "role": "Sedating H1 antihistamine.",
+          "monitoring_pearl": "Sedation, anticholinergic effects, driving/alcohol.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_diphenhydramine",
+          "generic": "Diphenhydramine",
+          "class_id": "h1_first",
+          "form": "Tablet/capsule/liquid/injection",
+          "route": "Oral/IV/IM",
+          "dose_example": "Common adult allergy dose: 25–50 mg every 4–6 h; route/maximum varies.",
+          "tags": [
+            "overview",
+            "histamine",
+            "allergic_rhinitis",
+            "oral"
+          ],
+          "role": "Strongly sedating H1 antihistamine.",
+          "monitoring_pearl": "Anticholinergic burden, falls/delirium in older adults; not first-line anaphylaxis treatment.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_hydroxyzine",
+          "generic": "Hydroxyzine",
+          "class_id": "h1_first",
+          "form": "Tablet/syrup",
+          "route": "Oral",
+          "dose_example": "Common pruritus/anxiety doses vary; use lowest effective dose.",
+          "tags": [
+            "overview",
+            "histamine",
+            "allergic_rhinitis",
+            "oral"
+          ],
+          "role": "Sedating H1 antihistamine with anxiolytic properties.",
+          "monitoring_pearl": "Sedation and QT risk; anticholinergic burden.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_cetirizine",
+          "generic": "Cetirizine",
+          "class_id": "h1_second",
+          "form": "Tablet/solution",
+          "route": "Oral",
+          "dose_example": "Common adult dose: 10 mg once daily.",
+          "tags": [
+            "overview",
+            "histamine",
+            "allergic_rhinitis",
+            "oral"
+          ],
+          "role": "Second-generation H1 antihistamine.",
+          "monitoring_pearl": "Some sedation; renal dose adjustment.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_levocetirizine",
+          "generic": "Levocetirizine",
+          "class_id": "h1_second",
+          "form": "Tablet/solution",
+          "route": "Oral",
+          "dose_example": "Common adult dose: 5 mg once daily.",
+          "tags": [
+            "overview",
+            "histamine",
+            "allergic_rhinitis",
+            "oral"
+          ],
+          "role": "Active enantiomer H1 antihistamine.",
+          "monitoring_pearl": "Renal adjustment; somnolence in some patients.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_loratadine",
+          "generic": "Loratadine",
+          "class_id": "h1_second",
+          "form": "Tablet/syrup",
+          "route": "Oral",
+          "dose_example": "Common adult dose: 10 mg once daily.",
+          "tags": [
+            "overview",
+            "histamine",
+            "allergic_rhinitis",
+            "oral"
+          ],
+          "role": "Low-sedation H1 antihistamine.",
+          "monitoring_pearl": "Hepatic impairment may require adjustment.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_desloratadine",
+          "generic": "Desloratadine",
+          "class_id": "h1_second",
+          "form": "Tablet/solution",
+          "route": "Oral",
+          "dose_example": "Common adult dose: 5 mg once daily.",
+          "tags": [
+            "overview",
+            "histamine",
+            "allergic_rhinitis",
+            "oral"
+          ],
+          "role": "Active metabolite H1 antihistamine.",
+          "monitoring_pearl": "Generally low sedation; renal/hepatic context.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_fexofenadine",
+          "generic": "Fexofenadine",
+          "class_id": "h1_second",
+          "form": "Tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Common adult allergic-rhinitis dose: 120 or 180 mg once daily depending indication/market.",
+          "tags": [
+            "overview",
+            "histamine",
+            "allergic_rhinitis",
+            "oral"
+          ],
+          "role": "Low CNS penetration H1 antihistamine.",
+          "monitoring_pearl": "Fruit juice/antacid absorption interactions; renal adjustment.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_bilastine",
+          "generic": "Bilastine",
+          "class_id": "h1_second",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult dose: 20 mg once daily, usually fasting per label.",
+          "tags": [
+            "overview",
+            "histamine",
+            "allergic_rhinitis",
+            "oral"
+          ],
+          "role": "Non-sedating H1 antihistamine in many countries.",
+          "monitoring_pearl": "Food/fruit juice reduce absorption; verify local approval.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_azelastine",
+          "generic": "Azelastine",
+          "class_id": "intranasal_antihistamine",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Common adult use: 1–2 sprays per nostril twice daily depending product.",
+          "tags": [
+            "overview",
+            "histamine",
+            "allergic_rhinitis",
+            "inhaler"
+          ],
+          "role": "Rapid intranasal antihistamine.",
+          "monitoring_pearl": "Bitter taste, somnolence in some patients; spray technique.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_olopatadine_nasal",
+          "generic": "Olopatadine",
+          "class_id": "intranasal_antihistamine",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Common adult use: 2 sprays per nostril twice daily depending product.",
+          "tags": [
+            "overview",
+            "histamine",
+            "allergic_rhinitis",
+            "inhaler"
+          ],
+          "role": "Intranasal H1 antihistamine.",
+          "monitoring_pearl": "Epistaxis, bitter taste; technique.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_fluticasone_nasal",
+          "generic": "Fluticasone propionate/furoate",
+          "class_id": "intranasal_steroid",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Common adult start: 1–2 sprays per nostril once daily depending product.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "allergic_rhinitis"
+          ],
+          "role": "Intranasal steroid controller.",
+          "monitoring_pearl": "Epistaxis; aim away from septum; use regularly.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_mometasone_nasal",
+          "generic": "Mometasone",
+          "class_id": "intranasal_steroid",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Common adult allergic-rhinitis dose: 2 sprays per nostril once daily.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "allergic_rhinitis"
+          ],
+          "role": "Intranasal steroid.",
+          "monitoring_pearl": "Epistaxis/local irritation; technique.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_budesonide_nasal",
+          "generic": "Budesonide",
+          "class_id": "intranasal_steroid",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Common adult dose: 1–2 sprays per nostril once daily, product dependent.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "allergic_rhinitis"
+          ],
+          "role": "Intranasal steroid.",
+          "monitoring_pearl": "Local irritation/epistaxis.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_triamcinolone_nasal",
+          "generic": "Triamcinolone",
+          "class_id": "intranasal_steroid",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Common adult dose: 2 sprays per nostril once daily, reduce after control.",
+          "tags": [
+            "overview",
+            "anti_inflammatory",
+            "corticosteroid",
+            "allergic_rhinitis"
+          ],
+          "role": "Intranasal steroid.",
+          "monitoring_pearl": "Local irritation/epistaxis.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_pseudoephedrine",
+          "generic": "Pseudoephedrine",
+          "class_id": "decongestant_oral",
+          "form": "IR/ER tablet",
+          "route": "Oral",
+          "dose_example": "Common adult IR: 60 mg every 4–6 h; ER products vary; follow local maximum.",
+          "tags": [
+            "overview",
+            "allergic_rhinitis",
+            "oral"
+          ],
+          "role": "Systemic nasal decongestant.",
+          "monitoring_pearl": "BP, tachycardia, insomnia, urinary retention; avoid uncontrolled hypertension.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_phenylephrine_oral",
+          "generic": "Phenylephrine oral",
+          "class_id": "decongestant_oral",
+          "form": "Tablet/liquid",
+          "route": "Oral",
+          "dose_example": "OTC strengths vary; clinical effectiveness of oral formulation is limited/controversial and regulatory status varies.",
+          "tags": [
+            "overview",
+            "allergic_rhinitis",
+            "oral"
+          ],
+          "role": "Systemic α1 decongestant in some OTC products.",
+          "monitoring_pearl": "BP/heart rate; verify local regulatory status and effectiveness guidance.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_oxymetazoline",
+          "generic": "Oxymetazoline",
+          "class_id": "decongestant_topical",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Common adult use: 2–3 sprays per nostril every 10–12 h for short duration; follow label.",
+          "tags": [
+            "overview",
+            "allergic_rhinitis"
+          ],
+          "role": "Longer-acting topical nasal decongestant.",
+          "monitoring_pearl": "Limit consecutive days; rebound congestion and systemic sympathomimetic effects.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_xylometazoline",
+          "generic": "Xylometazoline",
+          "class_id": "decongestant_topical",
+          "form": "Nasal spray/drops",
+          "route": "Intranasal",
+          "dose_example": "Common adult formulations: 0.1%, 1 spray per nostril up to 2–3 times/day for short duration.",
+          "tags": [
+            "overview",
+            "allergic_rhinitis"
+          ],
+          "role": "Topical nasal decongestant used widely outside U.S.",
+          "monitoring_pearl": "Limit duration; rebound congestion.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_cromolyn_nasal",
+          "generic": "Cromolyn sodium",
+          "class_id": "mast_stabilizer",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Common adult use: 1 spray per nostril 3–4 times daily; regular preventive use.",
+          "tags": [
+            "overview",
+            "allergic_rhinitis",
+            "anti_inflammatory"
+          ],
+          "role": "Nasal mast-cell stabilizer.",
+          "monitoring_pearl": "Frequent dosing; best before exposure; minimal systemic absorption.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_omalizumab",
+          "generic": "Omalizumab",
+          "class_id": "biologic_asthma",
+          "form": "Prefilled syringe/vial",
+          "route": "SC",
+          "dose_example": "Dose and interval are determined by indication, pretreatment IgE and body weight; use dosing table.",
+          "tags": [
+            "overview",
+            "biologic",
+            "type2",
+            "asthma",
+            "anti_inflammatory"
+          ],
+          "role": "Anti-IgE biologic for allergic asthma and other indications.",
+          "monitoring_pearl": "Anaphylaxis observation/education; IgE/weight eligibility.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_mepolizumab",
+          "generic": "Mepolizumab",
+          "class_id": "biologic_asthma",
+          "form": "Prefilled syringe/autoinjector",
+          "route": "SC",
+          "dose_example": "Common adult severe-asthma dose: 100 mg SC every 4 weeks.",
+          "tags": [
+            "overview",
+            "biologic",
+            "type2",
+            "asthma",
+            "anti_inflammatory"
+          ],
+          "role": "Anti-IL-5 biologic for eosinophilic asthma.",
+          "monitoring_pearl": "Eosinophilic phenotype; hypersensitivity and helminth context.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_reslizumab",
+          "generic": "Reslizumab",
+          "class_id": "biologic_asthma",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "Common adult severe-asthma dose: 3 mg/kg IV every 4 weeks.",
+          "tags": [
+            "overview",
+            "biologic",
+            "type2",
+            "asthma",
+            "anti_inflammatory"
+          ],
+          "role": "Anti-IL-5 IV biologic.",
+          "monitoring_pearl": "Anaphylaxis risk; weight-based infusion.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_benralizumab",
+          "generic": "Benralizumab",
+          "class_id": "biologic_asthma",
+          "form": "Prefilled syringe/autoinjector",
+          "route": "SC",
+          "dose_example": "Common adult severe-asthma dose: 30 mg every 4 weeks for first 3 doses, then every 8 weeks.",
+          "tags": [
+            "overview",
+            "biologic",
+            "type2",
+            "asthma",
+            "anti_inflammatory"
+          ],
+          "role": "Anti-IL-5 receptor biologic with eosinophil depletion.",
+          "monitoring_pearl": "Phenotype, hypersensitivity; do not abruptly stop steroids.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_dupilumab",
+          "generic": "Dupilumab",
+          "class_id": "biologic_asthma",
+          "form": "Prefilled syringe/pen",
+          "route": "SC",
+          "dose_example": "Loading and maintenance depend on asthma/other indication; commonly every 2 weeks after loading.",
+          "tags": [
+            "overview",
+            "biologic",
+            "type2",
+            "asthma",
+            "anti_inflammatory"
+          ],
+          "role": "IL-4Rα blockade affecting IL-4/IL-13 signaling.",
+          "monitoring_pearl": "Eosinophilia, conjunctivitis; steroid taper needs supervision.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_tezepelumab",
+          "generic": "Tezepelumab",
+          "class_id": "biologic_asthma",
+          "form": "Prefilled syringe/pen",
+          "route": "SC",
+          "dose_example": "Common adult severe-asthma dose: 210 mg SC every 4 weeks.",
+          "tags": [
+            "overview",
+            "biologic",
+            "type2",
+            "asthma",
+            "anti_inflammatory"
+          ],
+          "role": "Anti-TSLP biologic across broader severe-asthma phenotypes.",
+          "monitoring_pearl": "Hypersensitivity; phenotype/response reassessment.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_epinephrine_im",
+          "generic": "Epinephrine / Adrenaline IM",
+          "class_id": "epinephrine_anaphylaxis",
+          "form": "1 mg/mL injection / autoinjector",
+          "route": "IM",
+          "dose_example": "Adult anaphylaxis: 0.3–0.5 mg IM of 1 mg/mL solution, repeat every 5–15 min as needed per protocol; autoinjector strengths vary.",
+          "tags": [
+            "overview",
+            "anaphylaxis",
+            "acute_exacerbation"
+          ],
+          "role": "Immediate first-line anaphylaxis drug.",
+          "monitoring_pearl": "Airway, BP, oxygen, repeat dosing; IV bolus requires expert resuscitation context.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED",
+            "ASCIA_ANAPHYLAXIS_2026"
+          ]
+        },
+        {
+          "id": "resp_scit",
+          "generic": "Subcutaneous allergen immunotherapy (SCIT)",
+          "class_id": "allergen_immunotherapy",
+          "form": "Standardized allergen extract",
+          "route": "SC",
+          "dose_example": "Build-up and maintenance schedules are allergen/product-specific; no universal dose.",
+          "tags": [
+            "overview",
+            "allergic_rhinitis",
+            "asthma",
+            "anti_inflammatory"
+          ],
+          "role": "Specialist disease-modifying therapy for selected allergic disease.",
+          "monitoring_pearl": "Systemic reaction/anaphylaxis risk; post-injection observation.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "resp_slit",
+          "generic": "Sublingual allergen immunotherapy (SLIT)",
+          "class_id": "allergen_immunotherapy",
+          "form": "Tablet/drops (product-specific)",
+          "route": "Sublingual",
+          "dose_example": "Daily product-specific dosing after supervised first dose for approved tablets.",
+          "tags": [
+            "overview",
+            "allergic_rhinitis",
+            "asthma",
+            "anti_inflammatory"
+          ],
+          "role": "Home maintenance immunotherapy after supervised initiation for selected allergens.",
+          "monitoring_pearl": "Oral reactions; anaphylaxis education; eosinophilic esophagitis contraindication for some products.",
+          "source_refs": [
+            "GINA_2026",
+            "GOLD_2026",
+            "ICMR_PULM_STW",
+            "AAAAI_ANAPHYLAXIS",
+            "AAAAI_RHINITIS",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "GINA_2026",
+          "label": "GINA 2026 Global Strategy for Asthma Management and Prevention",
+          "url": "https://ginasthma.org/2026-gina-strategy-report/"
+        },
+        {
+          "id": "GOLD_2026",
+          "label": "GOLD 2026 COPD Report & Pocket Guide",
+          "url": "https://goldcopd.org/2026-gold-report-and-pocket-guide/"
+        },
+        {
+          "id": "ICMR_PULM_STW",
+          "label": "ICMR Standard Treatment Workflows — Pulmonology",
+          "url": "https://www.icmr.gov.in/standard-treatment-workflows-stws"
+        },
+        {
+          "id": "AAAAI_ANAPHYLAXIS",
+          "label": "JTFPP 2023 Anaphylaxis Practice Parameter Update (AAAAI/ACAAI)",
+          "url": "https://www.annallergy.org/article/S1081-1206(23)01304-2/fulltext"
+        },
+        {
+          "id": "AAAAI_RHINITIS",
+          "label": "Rhinitis 2020 Practice Parameter Update (AAAAI/ACAAI JTFPP)",
+          "url": "https://www.jacionline.org/article/S0091-6749(20)31023-X/fulltext"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "DailyMed current prescribing labels",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        },
+        {
+          "id": "ASCIA_ANAPHYLAXIS_2026",
+          "label": "ASCIA 2026 Acute Management of Anaphylaxis",
+          "url": "https://www.allergy.org.au/hp/anaphylaxis/acute-management-guidelines"
         }
       ]
     }
