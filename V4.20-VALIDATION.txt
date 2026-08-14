@@ -1,0 +1,40 @@
+Mahamaya Clinic EMR V4.20 — Ayurveda Personalization & Selection Navigator Validation
+Build: 2026.08.14-R18
+MATLI: v1.4
+
+- manifest.webmanifest: PASS
+- ayurveda-therapeutics-master-v1.json: PASS
+- ayurveda-formulary-index-v1.json: PASS
+- ayurveda-safety-selection-v1.json: PASS
+- mission-assurance-master-v1.json: PASS
+- mission-integrity-manifest-v1.json: PASS
+- Static literal DOM IDs: 1380
+- Duplicate static literal DOM IDs: 0 — PASS
+- Marker V4.20: PASS
+- Marker MATLI v1.4: PASS
+- Marker Build 2026.08.14-R18: PASS
+- Marker ati-context-link: PASS
+- Marker data-ati-context-jump: PASS
+- Marker openContextAssessment: PASS
+- Marker personalizationChecklistHtml: PASS
+- Marker verificationChecklistHtml: PASS
+- Marker comparePanelHtml: PASS
+- Marker toggleCompare: PASS
+- Marker data-ati-compare: PASS
+- complaint-intelligence-engine.js syntax: PASS
+- therapeutics-intelligence-engine.js syntax: PASS
+- ayurveda-therapeutics-engine.js syntax: PASS
+- mission-assurance-engine.js syntax: PASS
+- install-pwa.js syntax: PASS
+- service-worker.js syntax: PASS
+- Inline JavaScript syntax: 10/10 PASS
+- MATLI curated monographs: 188
+- AFI discovery records: 640
+- Ayurveda contexts: 39
+- Selection-framework domains: 12 — PASS
+- Search smoke kasa: 112 AFI indication-text hit(s) — PASS
+- Kasa + Rasa/Rasayoga class smoke: 25 hit(s) — PASS
+- Mission SHA-256 integrity: 18/18 PASS
+- Mission app/build alignment: PASS
+
+LIMITATION: Static/source-level validation only. Local Chromium interaction testing was blocked by the execution environment administrator. Live GitHub Pages regression is still required after publish, especially context-card navigation, mobile layout, compare workflow, cache refresh, Firebase session behaviour and patient save/restore.

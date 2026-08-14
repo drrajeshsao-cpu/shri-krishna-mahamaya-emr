@@ -1,10 +1,10 @@
 {
   "schema": "mahamaya-ayurveda-safety-selection-v1",
-  "version": "1.0",
-  "app_version": "4.10",
-  "build": "2026.08.14-R17",
+  "version": "1.1",
+  "app_version": "4.20",
+  "build": "2026.08.14-R18",
   "last_evidence_refresh": "2026-08-14",
-  "name": "MATLI v1.3 Clinical Safety & Selection Matrix",
+  "name": "MATLI v1.4 Clinical Safety, Personalization & Selection Matrix",
   "boundary": "This engine is a clinician/research decision-support layer. Missing safety data never means safe. It does not replace the applicable official monograph, STG/CPG, licensed product label, pharmacovigilance review or patient-specific clinical judgment.",
   "selection_policy": {
     "drug_of_choice": "Do not label a formulation as Drug of Choice / first-line / preferred unless an explicit authoritative guideline or protocol supports that wording.",
@@ -242,5 +242,71 @@
         "WHO pharmacovigilance resources"
       ]
     }
-  ]
+  ],
+  "selection_framework": {
+    "name": "Ayurveda individualized medicine-selection verification framework",
+    "boundary": "These domains organize clinician review. They do not prove that a formulation is suitable for a patient unless formulation-specific source evidence is available.",
+    "domains": [
+      {
+        "id": "roga",
+        "label": "Roga / diagnosis & avastha",
+        "verify": "Confirm diagnosis, stage/avastha, severity, red flags and important differentials."
+      },
+      {
+        "id": "prakriti",
+        "label": "Prakriti",
+        "verify": "Document constitutional context when clinically relevant; do not infer drug suitability from Prakriti alone."
+      },
+      {
+        "id": "vikriti",
+        "label": "Vikriti / dominant Dosha",
+        "verify": "Confirm current pathological Dosha pattern and subtype/state where relevant."
+      },
+      {
+        "id": "agni_ama",
+        "label": "Agni + Ama/Nirama",
+        "verify": "Review digestive/metabolic state because Matra, Anupana, Kala and formulation tolerance may differ."
+      },
+      {
+        "id": "koshtha",
+        "label": "Koshtha",
+        "verify": "Document bowel constitution/tendency when it changes selection, dose or adjuvant."
+      },
+      {
+        "id": "bala",
+        "label": "Rogi Bala + Roga Bala",
+        "verify": "Review disease burden, reserve, frailty and treatment intensity."
+      },
+      {
+        "id": "satmya_vaya",
+        "label": "Satmya + Vaya",
+        "verify": "Review age, habituation/tolerance, diet and special-population limitations."
+      },
+      {
+        "id": "desha_kala",
+        "label": "Desha + Kala / season",
+        "verify": "Use only when the classical/clinical context materially affects selection."
+      },
+      {
+        "id": "co_meds",
+        "label": "Concurrent medicines & comorbidity",
+        "verify": "Check herb–drug/Ayurveda–modern interactions, organ function and duplicate ingredients."
+      },
+      {
+        "id": "quality",
+        "label": "Identity, quality & source",
+        "verify": "Verify exact formulation version, ingredients/process, licensed manufacturer, batch/expiry and API/AFI/official monograph where applicable."
+      },
+      {
+        "id": "administration",
+        "label": "Matra + Anupana + Aushadha Sevana Kala",
+        "verify": "Verify exact dose, frequency, route, Anupana, meal timing/Kala and age-specific instructions from a source."
+      },
+      {
+        "id": "duration",
+        "label": "Duration + monitoring + stop criteria",
+        "verify": "Define review interval, maximum duration if known, response/ADR monitoring and stop/escalation criteria."
+      }
+    ]
+  }
 }
