@@ -1,13 +1,13 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4J",
-  "app_version": "5.40J",
-  "build": "2026.08.14-R25J",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40J Women’s Health • Gynecology Pharmacology Lab",
+  "version": "2.4K",
+  "app_version": "5.40K",
+  "build": "2026.08.14-R25K",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40K Emergency • Crash-Cart • Antidote Lab",
   "counts": {
-    "labs": 16,
-    "classes": 456,
-    "drug_profiles": 1192
+    "labs": 17,
+    "classes": 494,
+    "drug_profiles": 1250
   },
   "global_boundary": "Research/learning pharmacology only. V5.40G adds a dedicated Antifungal • Antiviral • Antiparasitic Intelligence Lab while retaining all earlier specialized labs. Exact organism/species, disease site/severity, resistance/susceptibility, renal/hepatic function, pregnancy, age/weight, G6PD status, interactions and current guideline/regulatory label must be verified. HIV/HBV/HCV, invasive fungal disease, severe malaria and complex tissue parasitoses remain regimen- and specialist-controlled.",
   "labs": [
@@ -35934,6 +35934,1841 @@
           "id": "WHO_PPH_2025",
           "label": "WHO — Consolidated guidelines for prevention, diagnosis and treatment of postpartum haemorrhage, 2025",
           "url": "https://www.who.int/publications/i/item/9789240115637"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "NIH DailyMed — current FDA-submitted product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "emergency_antidote",
+      "title": "Emergency • Crash-Cart • Antidote Intelligence Lab",
+      "icon": "🚨",
+      "badge": "EMERG-TOX v1.0",
+      "eyebrow": "EMERGENCY • RESUSCITATION • TOXICOLOGY • ANTIDOTE WORKSPACE",
+      "subtitle": "Emergency syndrome → immediate priorities → drug/antidote class → mechanism → protocol dose snapshot → monitoring → escalation/source verification",
+      "scientific_boundary": "High-risk clinician/research learning CDS only. This workspace does not replace ACLS/ALS, emergency department, ICU, poison-centre, toxicology, obstetric or institutional protocols. Resuscitation priorities (airway, breathing, circulation, CPR/defibrillation when indicated, decontamination/source control where appropriate, monitoring and rapid escalation) take precedence over drug browsing. Antidote selection depends on confirmed/suspected toxin, exposure timing/dose, ECG, acid-base/electrolytes, organ function and local availability. No automatic emergency prescription is generated.",
+      "classification_notes": [
+        "Cardiac arrest drugs are adjuncts to high-quality CPR and defibrillation; calcium, bicarbonate and magnesium are not routine arrest drugs and belong only to selected circumstances.",
+        "Anaphylaxis is separated from routine allergy treatment: intramuscular epinephrine/adrenaline is the core first-line medicine; antihistamines and corticosteroids do not replace it.",
+        "Toxicology cards are syndrome/antidote maps, not self-treatment advice. Poison-centre/medical-toxicology support should be used early for serious, unknown or mixed exposures.",
+        "Anticoagulant reversal is indication- and agent-specific; reversal may carry thrombotic risk and should be coupled to bleeding severity, timing, renal function and procedural need.",
+        "Electrolyte rescue drugs (hypertonic saline, IV potassium/calcium/magnesium, insulin-dextrose) are high-alert medicines requiring monitored protocols.",
+        "Envenomation antivenom is indication-, geography-, species/syndrome- and product-specific; antivenom dosing is never inferred from a generic class card."
+      ],
+      "lens_groups": [
+        {
+          "group": "Resuscitation / rhythm",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Emergency/Antidotes"
+            },
+            {
+              "id": "cardiac_arrest",
+              "label": "Cardiac arrest"
+            },
+            {
+              "id": "refractory_vf_pvt",
+              "label": "VF/pVT refractory"
+            },
+            {
+              "id": "bradycardia",
+              "label": "Symptomatic bradycardia"
+            },
+            {
+              "id": "svt",
+              "label": "Regular SVT"
+            },
+            {
+              "id": "wide_complex",
+              "label": "Stable wide-complex VT"
+            },
+            {
+              "id": "torsades",
+              "label": "Torsades / long-QT VT"
+            }
+          ]
+        },
+        {
+          "group": "Airway / allergy / seizure",
+          "items": [
+            {
+              "id": "anaphylaxis",
+              "label": "Anaphylaxis"
+            },
+            {
+              "id": "bronchospasm",
+              "label": "Severe bronchospasm"
+            },
+            {
+              "id": "status_epilepticus",
+              "label": "Status seizure rescue"
+            },
+            {
+              "id": "adrenal_crisis",
+              "label": "Adrenal crisis"
+            }
+          ]
+        },
+        {
+          "group": "Metabolic / electrolyte",
+          "items": [
+            {
+              "id": "hypoglycemia",
+              "label": "Severe hypoglycemia"
+            },
+            {
+              "id": "hyperkalemia",
+              "label": "Hyperkalemia"
+            },
+            {
+              "id": "hyponatremia",
+              "label": "Severe hyponatremia"
+            },
+            {
+              "id": "hypocalcemia",
+              "label": "Severe hypocalcemia"
+            }
+          ]
+        },
+        {
+          "group": "Toxicology / antidotes",
+          "items": [
+            {
+              "id": "opioid",
+              "label": "Opioid overdose"
+            },
+            {
+              "id": "benzodiazepine",
+              "label": "Benzodiazepine toxicity"
+            },
+            {
+              "id": "acetaminophen",
+              "label": "Acetaminophen toxicity"
+            },
+            {
+              "id": "organophosphate",
+              "label": "Organophosphate/carbamate"
+            },
+            {
+              "id": "toxic_alcohol",
+              "label": "Methanol / ethylene glycol"
+            },
+            {
+              "id": "cyanide",
+              "label": "Cyanide"
+            },
+            {
+              "id": "methemoglobinemia",
+              "label": "Methemoglobinemia"
+            },
+            {
+              "id": "digoxin",
+              "label": "Digoxin toxicity"
+            },
+            {
+              "id": "iron_toxicity",
+              "label": "Iron toxicity"
+            },
+            {
+              "id": "sodium_channel",
+              "label": "TCA / sodium-channel block"
+            },
+            {
+              "id": "beta_blocker_tox",
+              "label": "β-blocker toxicity"
+            },
+            {
+              "id": "ccb_tox",
+              "label": "CCB toxicity"
+            },
+            {
+              "id": "last",
+              "label": "Local-anesthetic toxicity"
+            }
+          ]
+        },
+        {
+          "group": "Bleeding / reversal",
+          "items": [
+            {
+              "id": "warfarin_reversal",
+              "label": "Warfarin reversal"
+            },
+            {
+              "id": "dabigatran_reversal",
+              "label": "Dabigatran reversal"
+            },
+            {
+              "id": "factorxa_reversal",
+              "label": "Factor-Xa reversal"
+            },
+            {
+              "id": "heparin_reversal",
+              "label": "Heparin reversal"
+            },
+            {
+              "id": "massive_bleeding",
+              "label": "Major bleeding support"
+            }
+          ]
+        },
+        {
+          "group": "India-relevant envenomation / syndromes",
+          "items": [
+            {
+              "id": "snakebite",
+              "label": "Snake envenomation"
+            },
+            {
+              "id": "malignant_hyperthermia",
+              "label": "Malignant hyperthermia"
+            },
+            {
+              "id": "serotonin_syndrome",
+              "label": "Serotonin syndrome"
+            },
+            {
+              "id": "nms",
+              "label": "Neuroleptic malignant syndrome"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "er_arrest_vasopressor",
+          "name": "Cardiac-arrest vasopressor",
+          "mechanism": "α/β adrenergic vasoconstriction and cardiac stimulation during resuscitation",
+          "target": "Adrenergic receptors",
+          "tags": [
+            "cardiac_arrest",
+            "refractory_vf_pvt",
+            "emergency"
+          ],
+          "role_note": "Adjunct to high-quality CPR/defibrillation according to ACLS; not a substitute for shock/CPR.",
+          "drug_ids": [
+            "er_epinephrine_arrest"
+          ]
+        },
+        {
+          "id": "er_refractory_vf_pvt",
+          "name": "Antiarrhythmics for shock-refractory VF/pVT",
+          "mechanism": "Suppress ventricular arrhythmia through multichannel or sodium-channel effects",
+          "target": "Cardiac ion channels",
+          "tags": [
+            "cardiac_arrest",
+            "refractory_vf_pvt",
+            "emergency"
+          ],
+          "role_note": "Amiodarone or lidocaine may be considered after defibrillation-resistant VF/pVT.",
+          "drug_ids": [
+            "er_amiodarone_arrest",
+            "er_lidocaine_arrest"
+          ]
+        },
+        {
+          "id": "er_bradycardia",
+          "name": "Symptomatic bradycardia pharmacotherapy",
+          "mechanism": "Antimuscarinic and adrenergic chronotropic support",
+          "target": "M2 muscarinic / adrenergic receptors",
+          "tags": [
+            "bradycardia",
+            "emergency"
+          ],
+          "role_note": "Used only when bradycardia is producing cardiopulmonary compromise; pacing may be required.",
+          "drug_ids": [
+            "er_atropine_brady",
+            "er_dopamine_brady",
+            "er_epinephrine_brady"
+          ]
+        },
+        {
+          "id": "er_svt",
+          "name": "Regular narrow-complex tachycardia drug",
+          "mechanism": "Transient AV-nodal block",
+          "target": "A1 adenosine receptors / AV node",
+          "tags": [
+            "svt",
+            "emergency"
+          ],
+          "role_note": "For regular narrow-complex tachycardia after vagal maneuvers when appropriate.",
+          "drug_ids": [
+            "er_adenosine"
+          ]
+        },
+        {
+          "id": "er_wide_complex",
+          "name": "Stable wide-QRS tachycardia antiarrhythmic infusions",
+          "mechanism": "Suppress re-entry/ventricular arrhythmia via sodium or multichannel blockade",
+          "target": "Cardiac ion channels",
+          "tags": [
+            "wide_complex",
+            "emergency"
+          ],
+          "role_note": "For stable wide-complex tachycardia with expert consultation; unstable patients need synchronized cardioversion.",
+          "drug_ids": [
+            "er_procainamide_wct",
+            "er_amiodarone_wct"
+          ]
+        },
+        {
+          "id": "er_torsades",
+          "name": "Torsades / prolonged-QT polymorphic VT therapy",
+          "mechanism": "Magnesium stabilizes myocardial electrophysiology; remove QT-prolonging causes",
+          "target": "Cardiac repolarization / magnesium-dependent currents",
+          "tags": [
+            "torsades",
+            "emergency"
+          ],
+          "role_note": "Use for torsades associated with prolonged QT; defibrillate immediately when unstable/pulseless.",
+          "drug_ids": [
+            "er_magnesium_torsades"
+          ]
+        },
+        {
+          "id": "er_anaphylaxis",
+          "name": "Anaphylaxis first-line adrenergic therapy",
+          "mechanism": "α1 vasoconstriction + β1 cardiac support + β2 bronchodilation/mast-cell mediator reduction",
+          "target": "Adrenergic receptors",
+          "tags": [
+            "anaphylaxis",
+            "emergency"
+          ],
+          "role_note": "IM epinephrine/adrenaline is the core first-line medicine; airway/oxygen/fluids/escalation are parallel priorities.",
+          "drug_ids": [
+            "er_epinephrine_im_anaphylaxis"
+          ]
+        },
+        {
+          "id": "er_bronchospasm",
+          "name": "Emergency bronchodilator adjuncts",
+          "mechanism": "β2 agonism ± antimuscarinic bronchodilation",
+          "target": "β2 receptors / muscarinic receptors",
+          "tags": [
+            "bronchospasm",
+            "anaphylaxis",
+            "emergency"
+          ],
+          "role_note": "Adjunct for severe bronchospasm; does not replace epinephrine in anaphylaxis.",
+          "drug_ids": [
+            "er_salbutamol_neb",
+            "er_ipratropium_neb"
+          ]
+        },
+        {
+          "id": "er_status_benzo",
+          "name": "Convulsive status epilepticus — benzodiazepine rescue",
+          "mechanism": "Enhances GABA-A inhibition",
+          "target": "GABA-A receptor",
+          "tags": [
+            "status_epilepticus",
+            "emergency"
+          ],
+          "role_note": "Rapid first-line antiseizure rescue; airway/oxygen/glucose assessment occur simultaneously.",
+          "drug_ids": [
+            "er_lorazepam_status",
+            "er_midazolam_status",
+            "er_diazepam_status"
+          ]
+        },
+        {
+          "id": "er_status_secondline",
+          "name": "Established status epilepticus — second-line antiseizure loading",
+          "mechanism": "Sodium-channel modulation or SV2A/GABA-related antiseizure activity",
+          "target": "Neuronal ion channels / SV2A / GABA",
+          "tags": [
+            "status_epilepticus",
+            "emergency"
+          ],
+          "role_note": "Used after adequate benzodiazepine treatment if seizures persist; protocol/weight based.",
+          "drug_ids": [
+            "er_levetiracetam_load",
+            "er_fosphenytoin_load",
+            "er_valproate_load"
+          ]
+        },
+        {
+          "id": "er_hypoglycemia",
+          "name": "Severe hypoglycemia rescue",
+          "mechanism": "Provides glucose directly or mobilizes hepatic glycogen",
+          "target": "Blood glucose / hepatic glycogenolysis",
+          "tags": [
+            "hypoglycemia",
+            "emergency"
+          ],
+          "role_note": "Rapid glucose restoration plus cause identification; recurrent hypoglycemia needs observation/infusion.",
+          "drug_ids": [
+            "er_dextrose_iv",
+            "er_glucagon"
+          ]
+        },
+        {
+          "id": "er_hyperkalemia_calcium",
+          "name": "Hyperkalemia — cardiac membrane stabilization",
+          "mechanism": "Raises myocardial threshold potential without lowering serum potassium",
+          "target": "Cardiac myocyte membrane excitability",
+          "tags": [
+            "hyperkalemia",
+            "emergency"
+          ],
+          "role_note": "IV calcium is for ECG toxicity/severe hyperkalemia contexts; it does not remove potassium.",
+          "drug_ids": [
+            "er_calcium_gluconate_hk",
+            "er_calcium_chloride_hk"
+          ]
+        },
+        {
+          "id": "er_hyperkalemia_shift",
+          "name": "Hyperkalemia — intracellular potassium shift",
+          "mechanism": "Insulin stimulates Na/K ATPase; β2 agonism also shifts potassium intracellularly",
+          "target": "Na/K ATPase / β2 receptors",
+          "tags": [
+            "hyperkalemia",
+            "emergency"
+          ],
+          "role_note": "Temporizing potassium shift while definitive removal/cause treatment is arranged.",
+          "drug_ids": [
+            "er_insulin_dextrose_hk",
+            "er_albuterol_hk"
+          ]
+        },
+        {
+          "id": "er_hypertonic_saline",
+          "name": "Severe symptomatic hyponatremia rescue",
+          "mechanism": "Raises extracellular sodium/osmolality",
+          "target": "Serum sodium/osmolality",
+          "tags": [
+            "hyponatremia",
+            "emergency"
+          ],
+          "role_note": "Hypertonic saline is protocol-controlled for severe neurologic symptoms; avoid overcorrection.",
+          "drug_ids": [
+            "er_saline3"
+          ]
+        },
+        {
+          "id": "er_hypocalcemia",
+          "name": "Severe symptomatic hypocalcemia",
+          "mechanism": "Provides ionized calcium",
+          "target": "Extracellular calcium / cardiac-neuromuscular excitability",
+          "tags": [
+            "hypocalcemia",
+            "emergency"
+          ],
+          "role_note": "IV calcium for severe symptoms/ECG effects; correct magnesium and cause.",
+          "drug_ids": [
+            "er_calcium_gluconate_hypocal"
+          ]
+        },
+        {
+          "id": "er_adrenal_crisis",
+          "name": "Adrenal crisis emergency glucocorticoid",
+          "mechanism": "Replaces deficient glucocorticoid and supports vascular responsiveness",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "adrenal_crisis",
+            "emergency"
+          ],
+          "role_note": "Immediate steroid plus isotonic fluid/glucose/electrolyte management; do not delay for confirmatory testing.",
+          "drug_ids": [
+            "er_hydrocortisone_crisis"
+          ]
+        },
+        {
+          "id": "er_opioid_antagonist",
+          "name": "Opioid overdose reversal",
+          "mechanism": "Competitive opioid-receptor antagonism",
+          "target": "μ-opioid receptor",
+          "tags": [
+            "opioid",
+            "emergency"
+          ],
+          "role_note": "Restore ventilation and oxygenation; naloxone may require repeat dosing/infusion and does not replace airway/CPR.",
+          "drug_ids": [
+            "er_naloxone"
+          ]
+        },
+        {
+          "id": "er_benzo_antagonist",
+          "name": "Selective benzodiazepine reversal",
+          "mechanism": "Competitive antagonism at benzodiazepine site on GABA-A receptor",
+          "target": "GABA-A benzodiazepine site",
+          "tags": [
+            "benzodiazepine",
+            "emergency"
+          ],
+          "role_note": "Flumazenil is a narrow-use antidote; it can precipitate seizures/withdrawal and is often inappropriate in mixed/unknown overdoses.",
+          "drug_ids": [
+            "er_flumazenil"
+          ]
+        },
+        {
+          "id": "er_apap_antidote",
+          "name": "Acetaminophen / paracetamol antidote",
+          "mechanism": "Replenishes glutathione and detoxifies reactive metabolite NAPQI",
+          "target": "Glutathione pathway / hepatic detoxification",
+          "tags": [
+            "acetaminophen",
+            "emergency"
+          ],
+          "role_note": "N-acetylcysteine is time-sensitive; duration may be extended based on APAP level, liver tests and clinical course.",
+          "drug_ids": [
+            "er_nac"
+          ]
+        },
+        {
+          "id": "er_organophosphate",
+          "name": "Organophosphate/carbamate antidotal therapy",
+          "mechanism": "Atropine blocks muscarinic excess; oxime reactivates acetylcholinesterase in organophosphate poisoning",
+          "target": "Muscarinic receptors / acetylcholinesterase",
+          "tags": [
+            "organophosphate",
+            "emergency"
+          ],
+          "role_note": "Treat cholinergic toxidrome with airway/oxygen/suction/decontamination plus atropinization; oxime use depends on agent/timing/protocol.",
+          "drug_ids": [
+            "er_atropine_op",
+            "er_pralidoxime"
+          ]
+        },
+        {
+          "id": "er_toxic_alcohol",
+          "name": "Toxic alcohol antidote",
+          "mechanism": "Inhibits alcohol dehydrogenase to prevent toxic metabolite formation",
+          "target": "Alcohol dehydrogenase",
+          "tags": [
+            "toxic_alcohol",
+            "emergency"
+          ],
+          "role_note": "Fomepizole is a core antidote for methanol/ethylene glycol poisoning; dialysis/folate or thiamine/pyridoxine adjuncts may also be required.",
+          "drug_ids": [
+            "er_fomepizole"
+          ]
+        },
+        {
+          "id": "er_cyanide",
+          "name": "Cyanide antidotes",
+          "mechanism": "Binds cyanide or enhances sulfur-dependent detoxification",
+          "target": "Cyanide / mitochondrial cytochrome oxidase pathway",
+          "tags": [
+            "cyanide",
+            "emergency"
+          ],
+          "role_note": "Severe suspected cyanide poisoning requires immediate supportive resuscitation plus antidote when indicated.",
+          "drug_ids": [
+            "er_hydroxocobalamin",
+            "er_sodium_thiosulfate"
+          ]
+        },
+        {
+          "id": "er_methemoglobinemia",
+          "name": "Methemoglobinemia antidotal therapy",
+          "mechanism": "Accelerates reduction of methemoglobin to functional hemoglobin",
+          "target": "NADPH-dependent methemoglobin reductase pathway",
+          "tags": [
+            "methemoglobinemia",
+            "emergency"
+          ],
+          "role_note": "Treat significant symptomatic methemoglobinemia after removing oxidant exposure; G6PD status matters.",
+          "drug_ids": [
+            "er_methylene_blue"
+          ]
+        },
+        {
+          "id": "er_digoxin",
+          "name": "Digoxin toxicity antidote",
+          "mechanism": "Binds free digoxin/digitalis glycosides",
+          "target": "Digoxin molecules",
+          "tags": [
+            "digoxin",
+            "emergency"
+          ],
+          "role_note": "Digoxin immune Fab for life-threatening digitalis toxicity; dose depends on known amount/level or empiric emergency protocol.",
+          "drug_ids": [
+            "er_digoxin_fab"
+          ]
+        },
+        {
+          "id": "er_iron",
+          "name": "Iron poisoning chelation",
+          "mechanism": "Chelates ferric iron to form ferrioxamine",
+          "target": "Free iron",
+          "tags": [
+            "iron_toxicity",
+            "emergency"
+          ],
+          "role_note": "Deferoxamine is used for significant systemic iron toxicity; whole-bowel irrigation and supportive care may also be needed.",
+          "drug_ids": [
+            "er_deferoxamine"
+          ]
+        },
+        {
+          "id": "er_sodium_channel",
+          "name": "TCA / sodium-channel blocker cardiotoxicity therapy",
+          "mechanism": "Sodium load and alkalinization counter fast sodium-channel blockade",
+          "target": "Cardiac fast sodium channels / serum pH",
+          "tags": [
+            "sodium_channel",
+            "emergency"
+          ],
+          "role_note": "Sodium bicarbonate is used when QRS widening, ventricular dysrhythmia, hypotension or severe sodium-channel toxicity is present; not routine for all poisonings.",
+          "drug_ids": [
+            "er_bicarbonate_tca"
+          ]
+        },
+        {
+          "id": "er_beta_blocker_tox",
+          "name": "β-blocker poisoning rescue pharmacology",
+          "mechanism": "Supports cardiac output via cAMP-independent and metabolic/inotropic pathways",
+          "target": "β-receptor blockade downstream pathways",
+          "tags": [
+            "beta_blocker_tox",
+            "emergency"
+          ],
+          "role_note": "Severe β-blocker poisoning may require glucagon, high-dose insulin euglycemia therapy, vasopressors and advanced support under toxicology/ICU guidance.",
+          "drug_ids": [
+            "er_glucagon_bb",
+            "er_hiet_bb"
+          ]
+        },
+        {
+          "id": "er_ccb_tox",
+          "name": "Calcium-channel blocker poisoning rescue pharmacology",
+          "mechanism": "Raises extracellular calcium and supports myocardial carbohydrate utilization/inotropy",
+          "target": "L-type calcium-channel blockade downstream pathways",
+          "tags": [
+            "ccb_tox",
+            "emergency"
+          ],
+          "role_note": "Severe CCB poisoning often requires IV calcium, high-dose insulin, vasopressors and advanced support.",
+          "drug_ids": [
+            "er_calcium_ccb",
+            "er_hiet_ccb"
+          ]
+        },
+        {
+          "id": "er_last",
+          "name": "Local anesthetic systemic toxicity (LAST) rescue",
+          "mechanism": "Lipid emulsion acts as lipid sink/shuttle and metabolic support; modified resuscitation strategy is required",
+          "target": "Circulating lipophilic local anesthetic / myocardium",
+          "tags": [
+            "last",
+            "emergency"
+          ],
+          "role_note": "ASRA checklist-driven emergency; airway/seizure management and lipid emulsion are core elements.",
+          "drug_ids": [
+            "er_lipid_emulsion"
+          ]
+        },
+        {
+          "id": "er_warfarin_reversal",
+          "name": "Warfarin/VKA major-bleeding reversal",
+          "mechanism": "Replaces vitamin-K-dependent clotting factors and restores hepatic factor synthesis",
+          "target": "Factors II, VII, IX, X / vitamin K cycle",
+          "tags": [
+            "warfarin_reversal",
+            "massive_bleeding",
+            "emergency"
+          ],
+          "role_note": "Life-threatening bleeding commonly requires IV vitamin K plus 4-factor PCC per protocol; balance thrombosis risk.",
+          "drug_ids": [
+            "er_vitk_warfarin",
+            "er_4fpcc"
+          ]
+        },
+        {
+          "id": "er_dabigatran_reversal",
+          "name": "Dabigatran-specific reversal",
+          "mechanism": "Monoclonal antibody fragment binds dabigatran",
+          "target": "Dabigatran",
+          "tags": [
+            "dabigatran_reversal",
+            "massive_bleeding",
+            "emergency"
+          ],
+          "role_note": "Idarucizumab is specific reversal for dabigatran in life-threatening/uncontrolled bleeding or urgent procedures.",
+          "drug_ids": [
+            "er_idarucizumab"
+          ]
+        },
+        {
+          "id": "er_factorxa_reversal",
+          "name": "Factor-Xa inhibitor reversal",
+          "mechanism": "Decoy factor-Xa binding or nonspecific factor replacement",
+          "target": "Apixaban/rivaroxaban/FXa pathway",
+          "tags": [
+            "factorxa_reversal",
+            "massive_bleeding",
+            "emergency"
+          ],
+          "role_note": "Agent/timing/severity-specific reversal; andexanet availability and PCC alternatives vary by institution.",
+          "drug_ids": [
+            "er_andexanet",
+            "er_pcc_xa"
+          ]
+        },
+        {
+          "id": "er_heparin_reversal",
+          "name": "Heparin reversal",
+          "mechanism": "Cationic protein complexes with unfractionated heparin; partially reverses LMWH",
+          "target": "Heparin molecules",
+          "tags": [
+            "heparin_reversal",
+            "massive_bleeding",
+            "emergency"
+          ],
+          "role_note": "Protamine dose depends on heparin type, amount and time since administration.",
+          "drug_ids": [
+            "er_protamine"
+          ]
+        },
+        {
+          "id": "er_antifibrinolytic",
+          "name": "Emergency antifibrinolytic support",
+          "mechanism": "Blocks plasminogen activation/fibrinolysis",
+          "target": "Plasminogen/plasmin",
+          "tags": [
+            "massive_bleeding",
+            "emergency"
+          ],
+          "role_note": "Tranexamic acid is context-specific (eg, trauma/PPH) and should follow indication-specific time windows/protocols.",
+          "drug_ids": [
+            "er_tranexamic_emergency"
+          ]
+        },
+        {
+          "id": "er_malignant_hyperthermia",
+          "name": "Malignant hyperthermia antidote",
+          "mechanism": "Reduces pathologic sarcoplasmic-reticulum calcium release",
+          "target": "Ryanodine receptor (RyR1) / skeletal muscle calcium release",
+          "tags": [
+            "malignant_hyperthermia",
+            "emergency"
+          ],
+          "role_note": "Dantrolene plus immediate cessation of triggering agents, cooling and critical-care management.",
+          "drug_ids": [
+            "er_dantrolene"
+          ]
+        },
+        {
+          "id": "er_serotonin",
+          "name": "Serotonin syndrome pharmacologic adjuncts",
+          "mechanism": "Sedation reduces neuromuscular/autonomic activity; cyproheptadine antagonizes serotonin receptors",
+          "target": "GABA-A / 5-HT2 receptors",
+          "tags": [
+            "serotonin_syndrome",
+            "emergency"
+          ],
+          "role_note": "Stop serotonergic agents and provide supportive cooling/fluids; benzodiazepines are core symptomatic therapy; cyproheptadine is an oral/NG adjunct.",
+          "drug_ids": [
+            "er_benzo_serotonin",
+            "er_cyproheptadine"
+          ]
+        },
+        {
+          "id": "er_nms",
+          "name": "Neuroleptic malignant syndrome adjunct pharmacology",
+          "mechanism": "Dopamine agonism and/or skeletal-muscle calcium-release inhibition may reduce syndrome severity",
+          "target": "Dopamine receptors / RyR1",
+          "tags": [
+            "nms",
+            "emergency"
+          ],
+          "role_note": "Stop dopamine antagonist, supportive ICU care, cooling/fluids; bromocriptine/dantrolene are specialist adjuncts, evidence is limited.",
+          "drug_ids": [
+            "er_bromocriptine_nms",
+            "er_dantrolene_nms"
+          ]
+        },
+        {
+          "id": "er_snakebite",
+          "name": "Snake envenomation antivenom",
+          "mechanism": "Polyclonal antibodies neutralize circulating venom toxins",
+          "target": "Venom toxins",
+          "tags": [
+            "snakebite",
+            "emergency"
+          ],
+          "role_note": "Antivenom is indicated for clinical/systemic envenoming per regional protocol; product/species/geography and syndrome matter.",
+          "drug_ids": [
+            "er_polyvalent_asv"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "er_epinephrine_arrest",
+          "generic": "Epinephrine / Adrenaline — cardiac arrest",
+          "class_id": "er_arrest_vasopressor",
+          "form": "Injection",
+          "route": "IV/IO",
+          "dose_example": "Adult ACLS snapshot: 1 mg IV/IO every 3–5 min during cardiac arrest.",
+          "tags": [
+            "cardiac_arrest",
+            "emergency"
+          ],
+          "role": "ACLS vasopressor for cardiac arrest.",
+          "monitoring_pearl": "Use the cardiac-arrest algorithm; verify concentration to prevent dosing errors.",
+          "source_refs": [
+            "AHA_ALS_2025",
+            "AHA_ALGORITHMS_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_amiodarone_arrest",
+          "generic": "Amiodarone — VF/pVT arrest",
+          "class_id": "er_refractory_vf_pvt",
+          "form": "Injection",
+          "route": "IV/IO",
+          "dose_example": "Adult ACLS: first 300 mg bolus; second 150 mg if needed.",
+          "tags": [
+            "cardiac_arrest",
+            "refractory_vf_pvt"
+          ],
+          "role": "Antiarrhythmic option for shock-refractory VF/pVT.",
+          "monitoring_pearl": "Do not delay CPR/defibrillation; verify arrest vs pulse-containing VT regimen.",
+          "source_refs": [
+            "AHA_ALS_2025",
+            "AHA_ALGORITHMS_2025"
+          ]
+        },
+        {
+          "id": "er_lidocaine_arrest",
+          "generic": "Lidocaine — VF/pVT arrest",
+          "class_id": "er_refractory_vf_pvt",
+          "form": "Injection",
+          "route": "IV/IO",
+          "dose_example": "Adult ACLS: 1–1.5 mg/kg first dose; 0.5–0.75 mg/kg second dose.",
+          "tags": [
+            "cardiac_arrest",
+            "refractory_vf_pvt"
+          ],
+          "role": "Alternative antiarrhythmic option for shock-refractory VF/pVT.",
+          "monitoring_pearl": "Distinguish resuscitation dose from local-anesthetic dosing; monitor after ROSC.",
+          "source_refs": [
+            "AHA_ALS_2025",
+            "AHA_ALGORITHMS_2025"
+          ]
+        },
+        {
+          "id": "er_atropine_brady",
+          "generic": "Atropine — symptomatic bradycardia",
+          "class_id": "er_bradycardia",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Adult ACLS: 1 mg IV; repeat every 3–5 min; maximum 3 mg.",
+          "tags": [
+            "bradycardia"
+          ],
+          "role": "Initial pharmacologic option in symptomatic bradycardia.",
+          "monitoring_pearl": "Assess causes such as ischemia, hypoxia, hyperkalemia, β-blocker/CCB/digoxin toxicity; pacing may supersede drugs.",
+          "source_refs": [
+            "AHA_ALGORITHMS_2025"
+          ]
+        },
+        {
+          "id": "er_dopamine_brady",
+          "generic": "Dopamine infusion — bradycardia support",
+          "class_id": "er_bradycardia",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "Adult ACLS: 5–20 mcg/kg/min; titrate to response.",
+          "tags": [
+            "bradycardia",
+            "emergency"
+          ],
+          "role": "Infusion option if atropine ineffective while preparing pacing/escalation.",
+          "monitoring_pearl": "Continuous ECG/BP monitoring; titrate and avoid treating an unrecognized toxicologic cause blindly.",
+          "source_refs": [
+            "AHA_ALGORITHMS_2025"
+          ]
+        },
+        {
+          "id": "er_epinephrine_brady",
+          "generic": "Epinephrine infusion — bradycardia support",
+          "class_id": "er_bradycardia",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "Adult ACLS: 2–10 mcg/min; titrate to response.",
+          "tags": [
+            "bradycardia",
+            "emergency"
+          ],
+          "role": "Infusion option for persistent symptomatic bradycardia.",
+          "monitoring_pearl": "Continuous ECG/BP; concentration/pump verification is essential.",
+          "source_refs": [
+            "AHA_ALGORITHMS_2025"
+          ]
+        },
+        {
+          "id": "er_adenosine",
+          "generic": "Adenosine",
+          "class_id": "er_svt",
+          "form": "Injection",
+          "route": "Rapid IV",
+          "dose_example": "Adult ACLS: 6 mg rapid IV push + flush; if required 12 mg second dose.",
+          "tags": [
+            "svt"
+          ],
+          "role": "Acute termination/diagnostic AV-nodal blockade for regular SVT.",
+          "monitoring_pearl": "Avoid blind use in irregular/polymorphic wide-complex rhythms; continuous ECG and resuscitation readiness.",
+          "source_refs": [
+            "AHA_ALGORITHMS_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_procainamide_wct",
+          "generic": "Procainamide — stable wide-QRS tachycardia",
+          "class_id": "er_wide_complex",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "ACLS: 20–50 mg/min until suppression, hypotension, QRS >50% wider, or max 17 mg/kg; maintenance 1–4 mg/min.",
+          "tags": [
+            "wide_complex"
+          ],
+          "role": "Antiarrhythmic infusion option for stable wide-QRS tachycardia.",
+          "monitoring_pearl": "Avoid with prolonged QT or CHF per AHA algorithm; continuous ECG/BP.",
+          "source_refs": [
+            "AHA_ALGORITHMS_2025"
+          ]
+        },
+        {
+          "id": "er_amiodarone_wct",
+          "generic": "Amiodarone — stable wide-QRS tachycardia",
+          "class_id": "er_wide_complex",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "ACLS: 150 mg over 10 min; repeat if VT recurs, then maintenance infusion per protocol.",
+          "tags": [
+            "wide_complex"
+          ],
+          "role": "Antiarrhythmic infusion option for stable wide-QRS tachycardia.",
+          "monitoring_pearl": "Continuous ECG/BP; distinguish from arrest bolus regimen.",
+          "source_refs": [
+            "AHA_ALGORITHMS_2025"
+          ]
+        },
+        {
+          "id": "er_magnesium_torsades",
+          "generic": "Magnesium sulfate — torsades",
+          "class_id": "er_torsades",
+          "form": "Injection",
+          "route": "IV/IO",
+          "dose_example": "Use current ACLS/institutional torsades protocol; dose/infusion depends on pulse/arrest context.",
+          "tags": [
+            "torsades",
+            "emergency"
+          ],
+          "role": "Magnesium therapy for torsades/long-QT polymorphic VT.",
+          "monitoring_pearl": "Check K/Mg, QT-prolonging drugs and renal function; do not use routine magnesium for all cardiac arrest.",
+          "source_refs": [
+            "AHA_ALS_2025",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "er_epinephrine_im_anaphylaxis",
+          "generic": "Epinephrine / Adrenaline — anaphylaxis",
+          "class_id": "er_anaphylaxis",
+          "form": "Injection",
+          "route": "IM anterolateral thigh",
+          "dose_example": "Adult emergency learning snapshot: 500 micrograms IM (0.5 mL of 1 mg/mL) may be repeated at ~5-min intervals if needed under guideline protocol.",
+          "tags": [
+            "anaphylaxis",
+            "emergency"
+          ],
+          "role": "First-line medicine for anaphylaxis.",
+          "monitoring_pearl": "Confirm formulation/concentration; IV bolus adrenaline is not routine anaphylaxis treatment outside expert resuscitation settings.",
+          "source_refs": [
+            "RCUK_ANAPHYLAXIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_salbutamol_neb",
+          "generic": "Salbutamol / Albuterol — nebulized rescue",
+          "class_id": "er_bronchospasm",
+          "form": "Nebulizer solution",
+          "route": "Inhaled",
+          "dose_example": "Use severe-asthma/anaphylaxis institutional protocol; repeated/continuous nebulization may be required.",
+          "tags": [
+            "bronchospasm"
+          ],
+          "role": "Rapid β2 bronchodilator.",
+          "monitoring_pearl": "Monitor HR, tremor, potassium and response; escalate respiratory support when failing.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_ipratropium_neb",
+          "generic": "Ipratropium — nebulized adjunct",
+          "class_id": "er_bronchospasm",
+          "form": "Nebulizer solution",
+          "route": "Inhaled",
+          "dose_example": "Use severe-asthma/COPD emergency protocol, usually combined with SABA.",
+          "tags": [
+            "bronchospasm"
+          ],
+          "role": "Antimuscarinic bronchodilator adjunct.",
+          "monitoring_pearl": "Monitor response; not a substitute for systemic emergency management.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_lorazepam_status",
+          "generic": "Lorazepam",
+          "class_id": "er_status_benzo",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use current status-epilepticus protocol; weight-based IV dosing with repeat limit.",
+          "tags": [
+            "status_epilepticus",
+            "emergency"
+          ],
+          "role": "Benzodiazepine seizure rescue.",
+          "monitoring_pearl": "Respiratory depression risk; monitor airway/ventilation and prepare second-line antiseizure therapy.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_midazolam_status",
+          "generic": "Midazolam",
+          "class_id": "er_status_benzo",
+          "form": "Injection/intranasal/buccal forms",
+          "route": "IM/IN/buccal/IV depending setting",
+          "dose_example": "Use route- and setting-specific rescue protocol; weight/age dependent.",
+          "tags": [
+            "status_epilepticus",
+            "emergency"
+          ],
+          "role": "Benzodiazepine seizure rescue.",
+          "monitoring_pearl": "Respiratory depression risk; monitor airway/ventilation and prepare second-line antiseizure therapy.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_diazepam_status",
+          "generic": "Diazepam",
+          "class_id": "er_status_benzo",
+          "form": "Injection/rectal gel",
+          "route": "IV/Rectal",
+          "dose_example": "Use route-specific status/rescue protocol; weight/age dependent.",
+          "tags": [
+            "status_epilepticus",
+            "emergency"
+          ],
+          "role": "Benzodiazepine seizure rescue.",
+          "monitoring_pearl": "Respiratory depression risk; monitor airway/ventilation and prepare second-line antiseizure therapy.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_levetiracetam_load",
+          "generic": "Levetiracetam IV",
+          "class_id": "er_status_secondline",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Weight-based status-epilepticus loading protocol; verify contraindications and maximum dose.",
+          "tags": [
+            "status_epilepticus",
+            "emergency"
+          ],
+          "role": "Second-line antiseizure loading option.",
+          "monitoring_pearl": "Continuous monitoring; selection depends on comorbidity, pregnancy potential, cardiac/hepatic status and interactions.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_fosphenytoin_load",
+          "generic": "Fosphenytoin IV",
+          "class_id": "er_status_secondline",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Weight-based status-epilepticus loading protocol; verify contraindications and maximum dose.",
+          "tags": [
+            "status_epilepticus",
+            "emergency"
+          ],
+          "role": "Second-line antiseizure loading option.",
+          "monitoring_pearl": "Continuous monitoring; selection depends on comorbidity, pregnancy potential, cardiac/hepatic status and interactions.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_valproate_load",
+          "generic": "Valproate sodium IV",
+          "class_id": "er_status_secondline",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Weight-based status-epilepticus loading protocol; verify contraindications and maximum dose.",
+          "tags": [
+            "status_epilepticus",
+            "emergency"
+          ],
+          "role": "Second-line antiseizure loading option.",
+          "monitoring_pearl": "Continuous monitoring; selection depends on comorbidity, pregnancy potential, cardiac/hepatic status and interactions.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_dextrose_iv",
+          "generic": "Dextrose IV — severe hypoglycemia",
+          "class_id": "er_hypoglycemia",
+          "form": "IV glucose solutions",
+          "route": "IV",
+          "dose_example": "Use local protocol based on available concentration; titrate to consciousness/glucose and recheck frequently.",
+          "tags": [
+            "hypoglycemia",
+            "emergency"
+          ],
+          "role": "Immediate glucose replacement when IV access is available.",
+          "monitoring_pearl": "Avoid extravasation with hypertonic solutions; repeat glucose checks and treat underlying cause.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_glucagon",
+          "generic": "Glucagon",
+          "class_id": "er_hypoglycemia",
+          "form": "Injection/nasal product",
+          "route": "IM/SC/IN/IV depending product",
+          "dose_example": "Use product-specific rescue dose; repeat glucose and provide carbohydrate once awake.",
+          "tags": [
+            "hypoglycemia",
+            "emergency"
+          ],
+          "role": "Severe hypoglycemia rescue when IV access is unavailable or delayed.",
+          "monitoring_pearl": "May be less effective with depleted glycogen stores; nausea/vomiting/aspiration precautions.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_calcium_gluconate_hk",
+          "generic": "Calcium gluconate IV",
+          "class_id": "er_hyperkalemia_calcium",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use monitored hyperkalemia protocol; formulation and elemental calcium differ.",
+          "tags": [
+            "hyperkalemia",
+            "emergency"
+          ],
+          "role": "Membrane stabilization for severe hyperkalemia with ECG toxicity.",
+          "monitoring_pearl": "Continuous ECG; verify line/extravasation risk and calcium formulation.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_calcium_chloride_hk",
+          "generic": "Calcium chloride IV",
+          "class_id": "er_hyperkalemia_calcium",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use monitored hyperkalemia protocol; formulation and elemental calcium differ.",
+          "tags": [
+            "hyperkalemia",
+            "emergency"
+          ],
+          "role": "Membrane stabilization for severe hyperkalemia with ECG toxicity.",
+          "monitoring_pearl": "Continuous ECG; verify line/extravasation risk and calcium formulation.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_insulin_dextrose_hk",
+          "generic": "Regular insulin + dextrose — hyperkalemia",
+          "class_id": "er_hyperkalemia_shift",
+          "form": "Injection + IV glucose",
+          "route": "IV",
+          "dose_example": "Use local monitored hyperkalemia protocol with glucose checks; dosing must account for baseline glucose and hypoglycemia risk.",
+          "tags": [
+            "hyperkalemia",
+            "emergency"
+          ],
+          "role": "Rapid intracellular potassium shift.",
+          "monitoring_pearl": "Serial glucose and potassium are mandatory; hypoglycemia can be delayed.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_albuterol_hk",
+          "generic": "High-dose nebulized albuterol/salbutamol — hyperkalemia adjunct",
+          "class_id": "er_hyperkalemia_shift",
+          "form": "Nebulizer solution",
+          "route": "Inhaled",
+          "dose_example": "Use institutional hyperkalemia protocol; dose is higher than routine bronchodilator rescue.",
+          "tags": [
+            "hyperkalemia",
+            "emergency"
+          ],
+          "role": "Adjunct intracellular potassium shift.",
+          "monitoring_pearl": "Tachycardia/tremor; response is variable and should not be sole therapy in severe cases.",
+          "source_refs": [
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "er_saline3",
+          "generic": "Sodium chloride 3%",
+          "class_id": "er_hypertonic_saline",
+          "form": "Hypertonic saline",
+          "route": "IV",
+          "dose_example": "Use current severe-symptomatic-hyponatremia bolus/infusion protocol with frequent sodium checks; correction targets are patient-specific.",
+          "tags": [
+            "hyponatremia",
+            "emergency"
+          ],
+          "role": "Emergency hypertonic sodium therapy.",
+          "monitoring_pearl": "Frequent sodium monitoring; assess chronicity, ODS risk and cause.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_calcium_gluconate_hypocal",
+          "generic": "Calcium gluconate IV — symptomatic hypocalcemia",
+          "class_id": "er_hypocalcemia",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use monitored protocol based on symptoms, ionized calcium and ECG.",
+          "tags": [
+            "hypocalcemia",
+            "emergency"
+          ],
+          "role": "Acute calcium replacement.",
+          "monitoring_pearl": "ECG and calcium monitoring; avoid rapid infusion and account for digoxin/toxin context.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_hydrocortisone_crisis",
+          "generic": "Hydrocortisone — adrenal crisis",
+          "class_id": "er_adrenal_crisis",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Use adrenal-crisis protocol; adult emergency treatment commonly begins with 100 mg hydrocortisone IV/IM then ongoing replacement.",
+          "tags": [
+            "adrenal_crisis",
+            "emergency"
+          ],
+          "role": "Emergency glucocorticoid replacement.",
+          "monitoring_pearl": "Draw cortisol/ACTH first only if this does not delay treatment; monitor BP, glucose, sodium/potassium and precipitant.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_naloxone",
+          "generic": "Naloxone",
+          "class_id": "er_opioid_antagonist",
+          "form": "Nasal spray/injection",
+          "route": "IN/IM/SC/IV depending product",
+          "dose_example": "Use product/protocol-specific dose; repeat if respiratory depression persists or recurs.",
+          "tags": [
+            "opioid",
+            "emergency"
+          ],
+          "role": "Opioid-overdose reversal.",
+          "monitoring_pearl": "Ventilation/CPR and emergency activation should not be delayed; observe for recurrent respiratory depression, especially long-acting opioids.",
+          "source_refs": [
+            "CDC_NALOXONE_2025",
+            "AHA_SPECIAL_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_flumazenil",
+          "generic": "Flumazenil",
+          "class_id": "er_benzo_antagonist",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use only under toxicology/emergency protocol; titrated doses are label-specific.",
+          "tags": [
+            "benzodiazepine",
+            "emergency"
+          ],
+          "role": "Reversal in carefully selected benzodiazepine sedation/toxicity contexts.",
+          "monitoring_pearl": "Avoid routine use in chronic benzodiazepine dependence, seizure risk or mixed proconvulsant overdose.",
+          "source_refs": [
+            "DAILYMED",
+            "AIIMS_NPIC"
+          ]
+        },
+        {
+          "id": "er_nac",
+          "generic": "N-acetylcysteine / Acetylcysteine",
+          "class_id": "er_apap_antidote",
+          "form": "IV/oral formulations",
+          "route": "IV/Oral",
+          "dose_example": "Use current poison-centre/ACMT protocol based on timing, level and ingestion pattern; do not stop solely because a nominal infusion duration is complete.",
+          "tags": [
+            "acetaminophen",
+            "emergency"
+          ],
+          "role": "Antidote for potentially toxic acetaminophen exposure.",
+          "monitoring_pearl": "Follow APAP concentration, AST/ALT, INR, renal/metabolic status and ACMT stopping criteria; consult toxicology for massive/late/complex ingestions.",
+          "source_refs": [
+            "ACMT_APAP_2026",
+            "DAILYMED",
+            "AIIMS_NPIC"
+          ]
+        },
+        {
+          "id": "er_atropine_op",
+          "generic": "Atropine — organophosphate/carbamate poisoning",
+          "class_id": "er_organophosphate",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Rapid titration to drying of bronchial secretions and adequate ventilation/hemodynamics per toxicology protocol; large cumulative doses may be required.",
+          "tags": [
+            "organophosphate",
+            "emergency"
+          ],
+          "role": "Muscarinic antidote for cholinergic toxicity.",
+          "monitoring_pearl": "Treat clinical endpoints, not pupil size; aggressive airway secretion management and monitoring are essential.",
+          "source_refs": [
+            "AIIMS_NPIC",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_pralidoxime",
+          "generic": "Pralidoxime (2-PAM)",
+          "class_id": "er_organophosphate",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Use poison-centre/institutional protocol; weight/agent/timing and infusion strategy are context-specific.",
+          "tags": [
+            "organophosphate",
+            "emergency"
+          ],
+          "role": "Oxime reactivator used in organophosphate poisoning.",
+          "monitoring_pearl": "Give with atropine/supportive care; consult toxicology for agent-specific evidence.",
+          "source_refs": [
+            "AIIMS_NPIC",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_fomepizole",
+          "generic": "Fomepizole",
+          "class_id": "er_toxic_alcohol",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use toxicology protocol; loading/maintenance doses and dialysis adjustment are label-specific.",
+          "tags": [
+            "toxic_alcohol",
+            "emergency"
+          ],
+          "role": "Alcohol-dehydrogenase inhibitor antidote.",
+          "monitoring_pearl": "Check osmolar/anion gap, pH, renal/visual findings and levels when available; early toxicology/nephrology consultation.",
+          "source_refs": [
+            "ACMT_TOX_FAQ",
+            "DAILYMED",
+            "AIIMS_NPIC"
+          ]
+        },
+        {
+          "id": "er_hydroxocobalamin",
+          "generic": "Hydroxocobalamin — cyanide antidote",
+          "class_id": "er_cyanide",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use product-specific emergency protocol; dose may need repeat in severe poisoning.",
+          "tags": [
+            "cyanide",
+            "emergency"
+          ],
+          "role": "Direct cyanide-binding antidote.",
+          "monitoring_pearl": "Can discolor skin/urine and interfere with some lab/dialysis optical systems; do not delay resuscitation.",
+          "source_refs": [
+            "DAILYMED",
+            "AIIMS_NPIC"
+          ]
+        },
+        {
+          "id": "er_sodium_thiosulfate",
+          "generic": "Sodium thiosulfate — cyanide adjunct",
+          "class_id": "er_cyanide",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use toxicology protocol as adjunct/alternative depending antidote strategy.",
+          "tags": [
+            "cyanide",
+            "emergency"
+          ],
+          "role": "Sulfur donor supporting cyanide detoxification.",
+          "monitoring_pearl": "Monitor hemodynamics/metabolic status and combine only per protocol.",
+          "source_refs": [
+            "DAILYMED",
+            "AIIMS_NPIC"
+          ]
+        },
+        {
+          "id": "er_methylene_blue",
+          "generic": "Methylene blue",
+          "class_id": "er_methemoglobinemia",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use weight-based toxicology protocol; repeat criteria depend on symptoms/methemoglobin level.",
+          "tags": [
+            "methemoglobinemia",
+            "emergency"
+          ],
+          "role": "Primary antidote for clinically significant acquired methemoglobinemia in appropriate patients.",
+          "monitoring_pearl": "Caution/avoid in G6PD deficiency; serotonergic interaction risk; co-oximetry required.",
+          "source_refs": [
+            "DAILYMED",
+            "AIIMS_NPIC"
+          ]
+        },
+        {
+          "id": "er_digoxin_fab",
+          "generic": "Digoxin immune Fab",
+          "class_id": "er_digoxin",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Dose is calculated from ingested amount/serum level or empiric life-threatening-toxicity protocol; verify product.",
+          "tags": [
+            "digoxin",
+            "emergency"
+          ],
+          "role": "Specific antibody-fragment antidote.",
+          "monitoring_pearl": "After Fab, routine digoxin assays can be misleading; monitor potassium, rhythm, HF/AF recurrence and renal function.",
+          "source_refs": [
+            "DAILYMED",
+            "AIIMS_NPIC"
+          ]
+        },
+        {
+          "id": "er_deferoxamine",
+          "generic": "Deferoxamine",
+          "class_id": "er_iron",
+          "form": "Injection/infusion",
+          "route": "IV/IM",
+          "dose_example": "Use toxicology protocol based on shock/acidosis, iron concentration and clinical severity.",
+          "tags": [
+            "iron_toxicity",
+            "emergency"
+          ],
+          "role": "Parenteral iron chelator for severe acute iron poisoning.",
+          "monitoring_pearl": "Monitor BP, acid-base, renal/hepatic status and pulmonary toxicity with prolonged/high-dose therapy.",
+          "source_refs": [
+            "DAILYMED",
+            "AIIMS_NPIC"
+          ]
+        },
+        {
+          "id": "er_bicarbonate_tca",
+          "generic": "Sodium bicarbonate — TCA/sodium-channel blockade",
+          "class_id": "er_sodium_channel",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use ECG- and pH-guided toxicology bolus/infusion protocol; serial blood gas/electrolytes required.",
+          "tags": [
+            "sodium_channel",
+            "emergency"
+          ],
+          "role": "Core therapy for significant sodium-channel blocker cardiotoxicity.",
+          "monitoring_pearl": "Monitor QRS, pH, sodium and potassium; avoid excessive alkalemia/hypernatremia.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "AIIMS_NPIC",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_glucagon_bb",
+          "generic": "Glucagon — β-blocker toxicity adjunct",
+          "class_id": "er_beta_blocker_tox",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Use toxicology protocol; bolus and infusion doses are high and agent/severity dependent.",
+          "tags": [
+            "beta_blocker_tox",
+            "emergency"
+          ],
+          "role": "Adjunct in severe β-blocker poisoning.",
+          "monitoring_pearl": "Vomiting, hyperglycemia and supply limitations; airway protection and hemodynamic monitoring.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "AIIMS_NPIC",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_hiet_bb",
+          "generic": "High-dose insulin euglycemia therapy — β-blocker toxicity",
+          "class_id": "er_beta_blocker_tox",
+          "form": "Regular insulin + concentrated dextrose + potassium monitoring",
+          "route": "IV",
+          "dose_example": "Specialist toxicology/ICU protocol only; weight-based high-dose insulin with glucose/electrolyte titration.",
+          "tags": [
+            "beta_blocker_tox",
+            "emergency"
+          ],
+          "role": "Metabolic/inotropic rescue therapy in severe cardiogenic shock from β-blocker toxicity.",
+          "monitoring_pearl": "Requires frequent glucose, potassium, hemodynamics and infusion-pump checks.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "AIIMS_NPIC"
+          ]
+        },
+        {
+          "id": "er_calcium_ccb",
+          "generic": "IV calcium — CCB toxicity",
+          "class_id": "er_ccb_tox",
+          "form": "Calcium chloride/gluconate injection",
+          "route": "IV",
+          "dose_example": "Toxicology protocol; repeated bolus/infusion guided by hemodynamics, ECG and ionized calcium.",
+          "tags": [
+            "ccb_tox",
+            "emergency"
+          ],
+          "role": "Overcomes calcium-channel blockade partially and supports contractility.",
+          "monitoring_pearl": "Monitor ionized calcium, ECG and extravasation; formulation matters.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "AIIMS_NPIC",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_hiet_ccb",
+          "generic": "High-dose insulin euglycemia therapy — CCB toxicity",
+          "class_id": "er_ccb_tox",
+          "form": "Regular insulin + dextrose",
+          "route": "IV",
+          "dose_example": "Specialist toxicology/ICU protocol only; weight-based high-dose insulin with glucose/electrolyte titration.",
+          "tags": [
+            "ccb_tox",
+            "emergency"
+          ],
+          "role": "Major rescue therapy for CCB cardiogenic shock.",
+          "monitoring_pearl": "Frequent glucose/potassium/hemodynamics; treatment may require prolonged infusion.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "AIIMS_NPIC"
+          ]
+        },
+        {
+          "id": "er_lipid_emulsion",
+          "generic": "20% lipid emulsion — LAST rescue",
+          "class_id": "er_last",
+          "form": "20% IV lipid emulsion",
+          "route": "IV",
+          "dose_example": "Use ASRA LAST checklist weight-based bolus/infusion; maximum cumulative dose and modified epinephrine strategy must be followed.",
+          "tags": [
+            "last",
+            "emergency"
+          ],
+          "role": "Rescue therapy for severe local-anesthetic systemic toxicity.",
+          "monitoring_pearl": "Use ASRA checklist; avoid large epinephrine doses and avoid vasopressin/calcium-channel blockers/β-blockers in LAST algorithm.",
+          "source_refs": [
+            "ASRA_LAST_2020"
+          ]
+        },
+        {
+          "id": "er_vitk_warfarin",
+          "generic": "Vitamin K1 (phytonadione) — VKA reversal",
+          "class_id": "er_warfarin_reversal",
+          "form": "Injection/tablet",
+          "route": "IV/Oral depending urgency",
+          "dose_example": "Use bleeding/INR-specific reversal protocol; life-threatening bleeding generally uses IV route plus factor replacement.",
+          "tags": [
+            "warfarin_reversal",
+            "emergency"
+          ],
+          "role": "Restores vitamin-K-dependent clotting-factor synthesis.",
+          "monitoring_pearl": "Effect is not immediate; combine with PCC when rapid reversal is required.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_4fpcc",
+          "generic": "4-factor prothrombin complex concentrate (4F-PCC)",
+          "class_id": "er_warfarin_reversal",
+          "form": "Concentrate",
+          "route": "IV",
+          "dose_example": "Dose is product- and INR/weight-based; follow institutional major-bleeding protocol.",
+          "tags": [
+            "warfarin_reversal",
+            "massive_bleeding",
+            "emergency"
+          ],
+          "role": "Rapid replacement of vitamin-K-dependent factors.",
+          "monitoring_pearl": "Thrombotic risk; verify product, INR, weight and indication.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_idarucizumab",
+          "generic": "Idarucizumab",
+          "class_id": "er_dabigatran_reversal",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use product-label emergency regimen; confirm recent dabigatran exposure and renal function when possible.",
+          "tags": [
+            "dabigatran_reversal",
+            "emergency"
+          ],
+          "role": "Specific dabigatran reversal agent.",
+          "monitoring_pearl": "Re-anticoagulation timing and thrombotic risk require reassessment after hemostasis.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_andexanet",
+          "generic": "Andexanet alfa",
+          "class_id": "er_factorxa_reversal",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Product-label bolus + infusion regimen depends on FXa inhibitor, last dose and timing.",
+          "tags": [
+            "factorxa_reversal",
+            "emergency"
+          ],
+          "role": "Specific reversal option for selected apixaban/rivaroxaban major bleeding contexts.",
+          "monitoring_pearl": "Thrombotic risk; restart anticoagulation when medically appropriate.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_pcc_xa",
+          "generic": "4F-PCC — nonspecific FXa reversal support",
+          "class_id": "er_factorxa_reversal",
+          "form": "Concentrate",
+          "route": "IV",
+          "dose_example": "Institutional major-bleeding protocol when specific reversal is unavailable/inappropriate.",
+          "tags": [
+            "factorxa_reversal",
+            "emergency"
+          ],
+          "role": "Nonspecific prohemostatic reversal strategy.",
+          "monitoring_pearl": "Thrombosis risk; involve hematology/emergency/critical care.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_protamine",
+          "generic": "Protamine sulfate",
+          "class_id": "er_heparin_reversal",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use heparin/LMWH-specific reversal protocol; slow IV administration and dose cap are label-specific.",
+          "tags": [
+            "heparin_reversal",
+            "emergency"
+          ],
+          "role": "Heparin neutralization.",
+          "monitoring_pearl": "Hypotension/anaphylactoid reactions; monitor coagulation and avoid overdose-associated anticoagulant effect.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_tranexamic_emergency",
+          "generic": "Tranexamic acid — emergency bleeding contexts",
+          "class_id": "er_antifibrinolytic",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use indication-specific trauma/PPH/bleeding protocol; do not copy oral HMB dosing.",
+          "tags": [
+            "massive_bleeding",
+            "emergency"
+          ],
+          "role": "Antifibrinolytic adjunct in selected major bleeding pathways.",
+          "monitoring_pearl": "Assess thrombosis/seizure/renal context; does not replace source control or blood-component resuscitation.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_dantrolene",
+          "generic": "Dantrolene — malignant hyperthermia",
+          "class_id": "er_malignant_hyperthermia",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use malignant-hyperthermia protocol with rapid weight-based repeated dosing and adequate stock availability.",
+          "tags": [
+            "malignant_hyperthermia",
+            "emergency"
+          ],
+          "role": "Specific skeletal-muscle rescue medicine.",
+          "monitoring_pearl": "Continuous temperature, CO2, K, CK, acid-base and organ monitoring; recurrence can occur.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_benzo_serotonin",
+          "generic": "Benzodiazepine sedation — serotonin syndrome",
+          "class_id": "er_serotonin",
+          "form": "Injection/tablet depending drug",
+          "route": "IV/PO/IM depending setting",
+          "dose_example": "Titrate per emergency sedation protocol; avoid physical struggle/hyperthermia escalation.",
+          "tags": [
+            "serotonin_syndrome",
+            "emergency"
+          ],
+          "role": "Controls agitation/tremor and helps reduce muscle activity.",
+          "monitoring_pearl": "Airway/respiratory monitoring; severe hyperthermia requires aggressive supportive management.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_cyproheptadine",
+          "generic": "Cyproheptadine — serotonin syndrome adjunct",
+          "class_id": "er_serotonin",
+          "form": "Tablet/syrup",
+          "route": "Oral/NG",
+          "dose_example": "Use toxicology protocol; oral/NG only and dosing is severity/protocol dependent.",
+          "tags": [
+            "serotonin_syndrome",
+            "emergency"
+          ],
+          "role": "5-HT antagonist adjunct in moderate/severe serotonin toxicity.",
+          "monitoring_pearl": "Not a substitute for supportive care, sedation and temperature control.",
+          "source_refs": [
+            "AIIMS_NPIC",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_bromocriptine_nms",
+          "generic": "Bromocriptine — NMS adjunct",
+          "class_id": "er_nms",
+          "form": "Tablet/capsule",
+          "route": "Oral/NG",
+          "dose_example": "Specialist protocol; titration is clinical-response dependent.",
+          "tags": [
+            "nms",
+            "emergency"
+          ],
+          "role": "Dopamine-agonist adjunct.",
+          "monitoring_pearl": "Monitor BP, mental status and complications; not a stand-alone antidote.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_dantrolene_nms",
+          "generic": "Dantrolene — NMS adjunct",
+          "class_id": "er_nms",
+          "form": "Injection/capsule",
+          "route": "IV/Oral depending setting",
+          "dose_example": "Specialist protocol; use in selected severe rigidity/hyperthermia cases.",
+          "tags": [
+            "nms",
+            "emergency"
+          ],
+          "role": "Muscle-relaxant adjunct.",
+          "monitoring_pearl": "Monitor liver/muscle/respiratory status; evidence and practice vary.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "er_polyvalent_asv",
+          "generic": "Polyvalent snake antivenom — India/South Asia context",
+          "class_id": "er_snakebite",
+          "form": "Antivenom vial",
+          "route": "IV infusion",
+          "dose_example": "Use current national/regional product-specific snakebite protocol; dose is based on envenomation/product, not patient body weight.",
+          "tags": [
+            "snakebite",
+            "emergency"
+          ],
+          "role": "Neutralizes venom in clinically significant envenomation when matched to relevant species/product.",
+          "monitoring_pearl": "Resuscitation readiness for antivenom reactions; monitor neurotoxicity, coagulopathy, renal injury and local tissue effects.",
+          "source_refs": [
+            "WHO_SNAKEBITE",
+            "AIIMS_NPIC"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "AHA_ALS_2025",
+          "label": "American Heart Association — 2025 Adult Advanced Life Support / ACLS algorithms",
+          "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support"
+        },
+        {
+          "id": "AHA_SPECIAL_2025",
+          "label": "American Heart Association — 2025 Adult & Pediatric Special Circumstances of Resuscitation",
+          "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-and-pediatric-special-circumstances-of-resuscitation"
+        },
+        {
+          "id": "AHA_ALGORITHMS_2025",
+          "label": "American Heart Association — 2025 CPR/ECC Algorithms",
+          "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/algorithms"
+        },
+        {
+          "id": "RCUK_ANAPHYLAXIS",
+          "label": "Resuscitation Council UK — Emergency Treatment of Anaphylaxis",
+          "url": "https://www.resus.org.uk/library/additional-guidance/guidance-anaphylaxis/emergency-treatment-anaphylactic-reactions"
+        },
+        {
+          "id": "CDC_NALOXONE_2025",
+          "label": "CDC — Lifesaving Naloxone",
+          "url": "https://www.cdc.gov/stop-overdose/caring/naloxone.html"
+        },
+        {
+          "id": "ACMT_APAP_2026",
+          "label": "American College of Medical Toxicology — IV Acetylcysteine Therapy after Acetaminophen Overdose (2026 update)",
+          "url": "https://www.acmt.net/news/acmt-practice-statement-duration-of-intravenous-acetylcysteine-therapy-following-acetaminophen-overdose-2026-update/"
+        },
+        {
+          "id": "ACMT_TOX_FAQ",
+          "label": "American College of Medical Toxicology — Toxicology FAQs",
+          "url": "https://www.acmt.net/toxicology-faqs/"
+        },
+        {
+          "id": "ASRA_LAST_2020",
+          "label": "ASRA Pain Medicine — Local Anesthetic Systemic Toxicity Checklist",
+          "url": "https://asra.com/news-publications/asra-updates/blog-landing/guidelines/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity"
+        },
+        {
+          "id": "AIIMS_NPIC",
+          "label": "AIIMS New Delhi — National Poisons Information Centre",
+          "url": "https://aiims.edu/index.php?id=167&lang=en&option=com_content&view=article"
+        },
+        {
+          "id": "WHO_SNAKEBITE",
+          "label": "WHO — Snakebite envenoming / antivenom guidance",
+          "url": "https://www.who.int/health-topics/snakebite"
         },
         {
           "id": "DAILYMED",
