@@ -1,8 +1,8 @@
 {
   "name": "Mahamaya Mission Assurance Master",
   "version": "1.0",
-  "app_version": "3.70",
-  "build": "2026.08.14-R12",
+  "app_version": "3.80",
+  "build": "2026.08.14-R13",
   "disclaimer": "Publicly inspired by published quality/research principles; not affiliated with or certified by NASA, ISRO, CCRAS, RAV, NHA/ABDM, WHO or HL7.",
   "pillars": [
     {
@@ -66,6 +66,21 @@
         "draft-only transfer to prescription",
         "mandatory downstream safety review"
       ]
+    },
+    {
+      "id": "ayurveda_therapeutics_safety",
+      "title": "Ayurveda Therapeutics Evidence, Quality & Pharmacovigilance",
+      "inspiration": "PCIM&H API/AFI, Ministry of Ayush/NLEAM, CCRAS research/guidelines, Ayush Suraksha and WHO TCIM safety principles",
+      "controls": [
+        "classical-name canonicalization",
+        "diagnosis/context gate",
+        "Prakriti/Vikriti/Agni/Ama snapshot",
+        "dose-verification gate",
+        "high-caution Rasa/Bhasma/Kshara gate",
+        "licensed-product/quality provenance",
+        "pharmacovigilance source links",
+        "draft-only transfer to prescription"
+      ]
     }
   ],
   "release_gate_checks": [
@@ -100,6 +115,10 @@
     {
       "id": "therapeutics_review",
       "label": "Therapeutics catalog, dose examples and safety rules clinician/pharmacist-reviewed for this release"
+    },
+    {
+      "id": "ayurveda_therapeutics_review",
+      "label": "Ayurveda therapeutics catalog, condition mappings, dose/anupana verification policy and safety gates reviewed by qualified Ayurveda clinician/pharmacology expert"
     },
     {
       "id": "release_notes",
