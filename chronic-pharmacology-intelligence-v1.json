@@ -1,13 +1,13 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4I",
-  "app_version": "5.40I",
-  "build": "2026.08.14-R25I",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40I Fluids • Electrolytes • Nutrition Lab",
+  "version": "2.4J",
+  "app_version": "5.40J",
+  "build": "2026.08.14-R25J",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40J Women’s Health • Gynecology Pharmacology Lab",
   "counts": {
-    "labs": 15,
-    "classes": 427,
-    "drug_profiles": 1123
+    "labs": 16,
+    "classes": 456,
+    "drug_profiles": 1192
   },
   "global_boundary": "Research/learning pharmacology only. V5.40G adds a dedicated Antifungal • Antiviral • Antiparasitic Intelligence Lab while retaining all earlier specialized labs. Exact organism/species, disease site/severity, resistance/susceptibility, renal/hepatic function, pregnancy, age/weight, G6PD status, interactions and current guideline/regulatory label must be verified. HIV/HBV/HCV, invasive fungal disease, severe malaria and complex tissue parasitoses remain regimen- and specialist-controlled.",
   "labs": [
@@ -33853,6 +33853,2087 @@
           "id": "ASPEN_EN",
           "label": "ASPEN Enteral Nutrition essential resources",
           "url": "https://nutritioncare.org/clinical-resources/enteral-nutrition/en-essential-resources/"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "NIH DailyMed — current FDA-submitted product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "womens_health_gyne",
+      "title": "Women’s Health • Gynecology Pharmacology Intelligence Lab",
+      "icon": "👩",
+      "badge": "WH-GYNE v1.0",
+      "eyebrow": "WOMEN’S HEALTH • GYNECOLOGY • REPRODUCTIVE PHARMACOLOGY WORKSPACE",
+      "subtitle": "Clinical question → reproductive/gyne context → drug class → mechanism/target → formulation/route → learning dose → monitoring → source verification",
+      "scientific_boundary": "Research/learning CDS only. Contraception, abnormal uterine bleeding, PCOS, endometriosis, fertility treatment, menopause therapy and obstetric-emergency medicines require diagnosis, pregnancy status/intention, age, VTE/cardiovascular risk, migraine history, smoking, blood pressure, liver disease, cancer history, uterine pathology and concurrent medicines to be assessed. CDC MEC categories and current local/regulatory labeling must be checked before hormonal contraception. Fertility drugs and postpartum-haemorrhage medicines are specialist/emergency protocol therapies and are never auto-prescribed from a class card. No medicine is labelled “best” without a context-specific guideline recommendation.",
+      "classification_notes": [
+        "Contraceptive efficacy, medical eligibility and patient preference are separate questions; a method can be highly effective yet medically inappropriate in a specific condition.",
+        "Heavy menstrual bleeding is a symptom, not a final diagnosis. Structural causes, pregnancy, anemia and bleeding disorders must be considered before simply suppressing bleeding.",
+        "PCOS treatment is goal-specific: cycle/endometrial protection, hyperandrogenism/metabolic risk and fertility are different therapeutic pathways.",
+        "Endometriosis pain suppression and infertility management are distinct; ovarian suppression does not itself improve fertility while actively suppressing ovulation.",
+        "Menopausal hormone therapy is individualized by symptoms, age/time since menopause, uterus status and thrombotic/cardiovascular/breast-cancer risk; local vaginal therapy is pharmacologically different from systemic therapy.",
+        "Ovulation induction, gonadotropins and PPH uterotonics require monitoring/protocol control; they are presented as specialist/emergency learning pathways, not routine OPD prescriptions."
+      ],
+      "lens_groups": [
+        {
+          "group": "Contraception & family planning",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Women’s Health"
+            },
+            {
+              "id": "contraception",
+              "label": "Contraception overview"
+            },
+            {
+              "id": "combined_hormonal",
+              "label": "Combined hormonal"
+            },
+            {
+              "id": "progestin_only",
+              "label": "Progestin-only"
+            },
+            {
+              "id": "larc",
+              "label": "LARC / IUD / implant"
+            },
+            {
+              "id": "emergency_contraception",
+              "label": "Emergency contraception"
+            },
+            {
+              "id": "mec_safety",
+              "label": "CDC MEC safety"
+            }
+          ]
+        },
+        {
+          "group": "Menstrual / PCOS",
+          "items": [
+            {
+              "id": "hmb",
+              "label": "Heavy menstrual bleeding"
+            },
+            {
+              "id": "aub",
+              "label": "AUB / cycle control"
+            },
+            {
+              "id": "dysmenorrhea",
+              "label": "Dysmenorrhea"
+            },
+            {
+              "id": "fibroid",
+              "label": "Fibroid symptom control"
+            },
+            {
+              "id": "pcos",
+              "label": "PCOS"
+            },
+            {
+              "id": "hyperandrogenism",
+              "label": "Hirsutism / androgen symptoms"
+            }
+          ]
+        },
+        {
+          "group": "Endometriosis & fertility",
+          "items": [
+            {
+              "id": "endometriosis",
+              "label": "Endometriosis"
+            },
+            {
+              "id": "ovulation_induction",
+              "label": "Ovulation induction"
+            },
+            {
+              "id": "fertility_specialist",
+              "label": "Gonadotropins / ART"
+            },
+            {
+              "id": "luteal_support",
+              "label": "Luteal support"
+            },
+            {
+              "id": "ohss",
+              "label": "OHSS risk"
+            }
+          ]
+        },
+        {
+          "group": "Menopause & midlife",
+          "items": [
+            {
+              "id": "menopause",
+              "label": "Menopause / VMS"
+            },
+            {
+              "id": "systemic_ht",
+              "label": "Systemic hormone therapy"
+            },
+            {
+              "id": "nonhormonal_vms",
+              "label": "Nonhormonal VMS"
+            },
+            {
+              "id": "gsm",
+              "label": "Genitourinary syndrome"
+            },
+            {
+              "id": "uterus_protection",
+              "label": "Endometrial protection"
+            }
+          ]
+        },
+        {
+          "group": "Pregnancy / emergency learning",
+          "items": [
+            {
+              "id": "nvp",
+              "label": "Nausea/vomiting pregnancy"
+            },
+            {
+              "id": "pph",
+              "label": "Postpartum haemorrhage"
+            },
+            {
+              "id": "uterotonic",
+              "label": "Uterotonics"
+            },
+            {
+              "id": "emergency",
+              "label": "Emergency / monitored setting"
+            }
+          ]
+        },
+        {
+          "group": "Safety & monitoring",
+          "items": [
+            {
+              "id": "pregnancy_check",
+              "label": "Pregnancy status"
+            },
+            {
+              "id": "vte_risk",
+              "label": "VTE / CV risk"
+            },
+            {
+              "id": "bp_migraine",
+              "label": "BP / migraine / smoking"
+            },
+            {
+              "id": "liver_monitor",
+              "label": "Liver monitoring"
+            },
+            {
+              "id": "cancer_history",
+              "label": "Hormone-sensitive cancer"
+            },
+            {
+              "id": "specialist",
+              "label": "Specialist / protocol-controlled"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "wh_combined_hormonal",
+          "name": "Combined hormonal contraceptives (estrogen + progestin)",
+          "mechanism": "Suppress ovulation through hypothalamic-pituitary feedback; progestin also thickens cervical mucus and alters endometrium",
+          "target": "GnRH/LH/FSH axis + cervical mucus/endometrium",
+          "tags": [
+            "contraception",
+            "combined_hormonal",
+            "aub",
+            "dysmenorrhea",
+            "pcos",
+            "endometriosis",
+            "vte_risk",
+            "bp_migraine"
+          ],
+          "role_note": "Effective cycle control/contraception option when estrogen is medically eligible; requires CDC MEC-style risk screening.",
+          "drug_ids": [
+            "wh_ee_levonorgestrel",
+            "wh_ee_norethindrone",
+            "wh_ee_drospirenone",
+            "wh_contraceptive_patch",
+            "wh_contraceptive_ring"
+          ]
+        },
+        {
+          "id": "wh_pop",
+          "name": "Progestin-only oral contraceptives",
+          "mechanism": "Primarily thicken cervical mucus; some formulations reliably suppress ovulation",
+          "target": "Progesterone receptors in cervix/endometrium/ovary",
+          "tags": [
+            "contraception",
+            "progestin_only",
+            "aub",
+            "larc"
+          ],
+          "role_note": "Estrogen-free oral contraception; timing rules and missed-pill instructions differ by formulation.",
+          "drug_ids": [
+            "wh_norethindrone_pop",
+            "wh_drospirenone_pop"
+          ]
+        },
+        {
+          "id": "wh_dmpa",
+          "name": "Depot progestin injectable contraception",
+          "mechanism": "Sustained progestin suppresses ovulation, thickens cervical mucus and causes endometrial atrophy",
+          "target": "Progesterone receptors + hypothalamic-pituitary-ovarian axis",
+          "tags": [
+            "contraception",
+            "progestin_only",
+            "aub"
+          ],
+          "role_note": "Long-acting injectable contraception; return to fertility and bone-density considerations differ from pills/implants.",
+          "drug_ids": [
+            "wh_dmpa_im",
+            "wh_dmpa_sc"
+          ]
+        },
+        {
+          "id": "wh_implant",
+          "name": "Progestin contraceptive implant",
+          "mechanism": "Continuous progestin suppresses ovulation and thickens cervical mucus",
+          "target": "Progesterone receptors + ovarian axis",
+          "tags": [
+            "contraception",
+            "progestin_only",
+            "larc"
+          ],
+          "role_note": "Highly effective reversible contraception requiring insertion/removal procedure and interaction review.",
+          "drug_ids": [
+            "wh_etonogestrel_implant"
+          ]
+        },
+        {
+          "id": "wh_lng_ius",
+          "name": "Levonorgestrel-releasing intrauterine systems",
+          "mechanism": "Local endometrial progestin causes endometrial suppression and thickens cervical mucus",
+          "target": "Endometrium + cervical mucus",
+          "tags": [
+            "contraception",
+            "larc",
+            "hmb",
+            "aub",
+            "dysmenorrhea",
+            "fibroid"
+          ],
+          "role_note": "Long-acting contraception and major non-surgical option for heavy menstrual bleeding when anatomically suitable.",
+          "drug_ids": [
+            "wh_lng_ius_52",
+            "wh_lng_ius_low"
+          ]
+        },
+        {
+          "id": "wh_copper_iud",
+          "name": "Copper intrauterine device (non-hormonal contraceptive device)",
+          "mechanism": "Copper ions impair sperm function/fertilization; no systemic hormone",
+          "target": "Intrauterine copper-mediated spermicidal environment",
+          "tags": [
+            "contraception",
+            "larc",
+            "emergency_contraception"
+          ],
+          "role_note": "Non-drug LARC and highly effective emergency-contraception option; may increase menstrual bleeding/cramping in some users.",
+          "drug_ids": [
+            "wh_copper_iud_device"
+          ]
+        },
+        {
+          "id": "wh_emergency_contraception",
+          "name": "Emergency contraceptive pharmacotherapy",
+          "mechanism": "Delays or inhibits ovulation; does not terminate an established pregnancy",
+          "target": "Ovulation timing / progesterone receptor depending agent",
+          "tags": [
+            "emergency_contraception",
+            "contraception"
+          ],
+          "role_note": "Time-sensitive pregnancy-prevention options after unprotected intercourse; method choice depends on timing, BMI/context, interactions and ongoing contraception plan.",
+          "drug_ids": [
+            "wh_levonorgestrel_ec",
+            "wh_ulipristal_ec"
+          ]
+        },
+        {
+          "id": "wh_hmb_antifibrinolytic",
+          "name": "Antifibrinolytic therapy for heavy menstrual bleeding",
+          "mechanism": "Blocks plasminogen activation and reduces fibrin breakdown",
+          "target": "Plasminogen/plasmin system",
+          "tags": [
+            "hmb",
+            "aub",
+            "fibroid"
+          ],
+          "role_note": "Non-hormonal episodic treatment option for HMB when thrombosis risk/contraindications are considered.",
+          "drug_ids": [
+            "wh_tranexamic_hmb"
+          ]
+        },
+        {
+          "id": "wh_hmb_nsaid",
+          "name": "NSAIDs for dysmenorrhea / HMB",
+          "mechanism": "COX inhibition reduces prostaglandin synthesis, decreasing uterine contractions and menstrual blood loss",
+          "target": "Cyclooxygenase-1/2 → prostaglandins",
+          "tags": [
+            "hmb",
+            "dysmenorrhea",
+            "aub"
+          ],
+          "role_note": "Useful for painful heavy periods in selected patients; not appropriate with renal/GI/bleeding contraindications.",
+          "drug_ids": [
+            "wh_mefenamic_acid",
+            "wh_naproxen_dys"
+          ]
+        },
+        {
+          "id": "wh_oral_progestins_aub",
+          "name": "Oral progestins for AUB / cycle control",
+          "mechanism": "Progestational endometrial transformation and withdrawal stabilization",
+          "target": "Endometrial progesterone receptors",
+          "tags": [
+            "aub",
+            "hmb",
+            "pcos",
+            "uterus_protection"
+          ],
+          "role_note": "Used for cyclic endometrial protection or bleeding control depending cause; regimen varies by indication.",
+          "drug_ids": [
+            "wh_norethisterone_aub",
+            "wh_medroxyprogesterone_aub"
+          ]
+        },
+        {
+          "id": "wh_pcos_metformin",
+          "name": "Insulin sensitizer in PCOS",
+          "mechanism": "Reduces hepatic glucose production and improves insulin sensitivity",
+          "target": "AMPK/metabolic pathways; hepatic glucose output",
+          "tags": [
+            "pcos",
+            "hyperandrogenism"
+          ],
+          "role_note": "Metabolic/insulin-resistance therapy in appropriate PCOS patients; not a substitute for fertility-specific treatment when pregnancy is desired.",
+          "drug_ids": [
+            "wh_metformin_pcos"
+          ]
+        },
+        {
+          "id": "wh_antiandrogen",
+          "name": "Antiandrogen therapy for hirsutism/androgen symptoms",
+          "mechanism": "Reduces androgen receptor signaling or androgen conversion",
+          "target": "Androgen receptor / 5-alpha reductase depending agent",
+          "tags": [
+            "pcos",
+            "hyperandrogenism",
+            "specialist"
+          ],
+          "role_note": "Adjunct for persistent hirsutism when reliable contraception is used; teratogenic fetal risk requires pregnancy prevention.",
+          "drug_ids": [
+            "wh_spironolactone_hirsutism",
+            "wh_finasteride_hirsutism"
+          ]
+        },
+        {
+          "id": "wh_letrozole_oi",
+          "name": "Aromatase inhibitor for ovulation induction",
+          "mechanism": "Temporarily lowers estrogen synthesis, increasing endogenous FSH drive",
+          "target": "Aromatase (CYP19A1)",
+          "tags": [
+            "pcos",
+            "ovulation_induction",
+            "fertility_specialist"
+          ],
+          "role_note": "Guideline-preferred first-line pharmacologic ovulation induction for anovulatory infertility due to PCOS when no other infertility factor is present; off-label status varies by country.",
+          "drug_ids": [
+            "wh_letrozole_oi"
+          ]
+        },
+        {
+          "id": "wh_clomiphene",
+          "name": "Selective estrogen receptor modulator for ovulation induction",
+          "mechanism": "Blocks hypothalamic estrogen feedback, increasing GnRH/FSH/LH release",
+          "target": "Hypothalamic estrogen receptors",
+          "tags": [
+            "ovulation_induction",
+            "fertility_specialist",
+            "pcos"
+          ],
+          "role_note": "Alternative oral ovulation-induction agent; multiple-gestation and cycle-limit considerations require monitoring.",
+          "drug_ids": [
+            "wh_clomiphene_citrate"
+          ]
+        },
+        {
+          "id": "wh_gonadotropins",
+          "name": "Exogenous gonadotropins for ovulation induction / ovarian stimulation",
+          "mechanism": "Directly stimulate follicular development via FSH ± LH activity",
+          "target": "FSH/LH receptors on ovarian follicles",
+          "tags": [
+            "ovulation_induction",
+            "fertility_specialist",
+            "ohss",
+            "specialist"
+          ],
+          "role_note": "Specialist injectable fertility therapy requiring ultrasound/estradiol monitoring and OHSS/multiple-gestation prevention.",
+          "drug_ids": [
+            "wh_follitropin_alfa",
+            "wh_follitropin_beta",
+            "wh_menotropins"
+          ]
+        },
+        {
+          "id": "wh_ovulation_trigger",
+          "name": "Ovulation trigger agents",
+          "mechanism": "Mimic or induce LH surge to trigger final oocyte maturation/ovulation",
+          "target": "LH/hCG receptor or pituitary GnRH receptor",
+          "tags": [
+            "fertility_specialist",
+            "ohss",
+            "specialist"
+          ],
+          "role_note": "Timing-critical fertility protocol component; choice affects OHSS risk and luteal support needs.",
+          "drug_ids": [
+            "wh_hcg_trigger",
+            "wh_choriogonadotropin_alfa",
+            "wh_leuprolide_trigger"
+          ]
+        },
+        {
+          "id": "wh_gnrh_antagonist_art",
+          "name": "GnRH antagonists for ART cycle control",
+          "mechanism": "Immediately block pituitary GnRH receptors to suppress premature LH surge",
+          "target": "Pituitary GnRH receptors",
+          "tags": [
+            "fertility_specialist",
+            "specialist"
+          ],
+          "role_note": "ART stimulation-cycle control; not the same as oral GnRH antagonists used for endometriosis/fibroids.",
+          "drug_ids": [
+            "wh_cetrorelix",
+            "wh_ganirelix"
+          ]
+        },
+        {
+          "id": "wh_luteal_support",
+          "name": "Progesterone luteal-phase support",
+          "mechanism": "Supports secretory endometrium and implantation through progesterone receptor activation",
+          "target": "Endometrial progesterone receptors",
+          "tags": [
+            "luteal_support",
+            "fertility_specialist",
+            "uterus_protection"
+          ],
+          "role_note": "Used in ART/luteal-support protocols; route and dose depend on protocol and product.",
+          "drug_ids": [
+            "wh_progesterone_vaginal",
+            "wh_progesterone_im",
+            "wh_dydrogesterone_luteal"
+          ]
+        },
+        {
+          "id": "wh_endometriosis_progestin",
+          "name": "Progestin therapy for endometriosis",
+          "mechanism": "Suppresses ovulation/endometrial proliferation and promotes decidualization/atrophy of ectopic endometrial tissue",
+          "target": "Progesterone receptors + ovarian/endometrial axis",
+          "tags": [
+            "endometriosis",
+            "dysmenorrhea",
+            "fibroid"
+          ],
+          "role_note": "Common hormonal suppression strategy for endometriosis-associated pain when fertility is not being actively pursued.",
+          "drug_ids": [
+            "wh_dienogest",
+            "wh_norethindrone_endo",
+            "wh_dmpa_endo"
+          ]
+        },
+        {
+          "id": "wh_gnrh_agonist_endo",
+          "name": "GnRH agonists for endometriosis",
+          "mechanism": "Initial stimulation followed by pituitary GnRH receptor downregulation and ovarian estrogen suppression",
+          "target": "Pituitary GnRH receptors",
+          "tags": [
+            "endometriosis",
+            "fibroid",
+            "specialist"
+          ],
+          "role_note": "Second-line/specialist ovarian-suppression therapy; hypoestrogenic effects often require duration limits/add-back planning.",
+          "drug_ids": [
+            "wh_leuprolide_endo",
+            "wh_goserelin_endo"
+          ]
+        },
+        {
+          "id": "wh_gnrh_antagonist_endo",
+          "name": "Oral GnRH antagonists for endometriosis/fibroid symptoms",
+          "mechanism": "Dose-dependently block pituitary GnRH receptors and reduce ovarian estrogen production",
+          "target": "Pituitary GnRH receptors",
+          "tags": [
+            "endometriosis",
+            "fibroid",
+            "specialist"
+          ],
+          "role_note": "Oral ovarian-suppression class; some products are combined with estradiol/progestin add-back and have duration/bone/liver restrictions.",
+          "drug_ids": [
+            "wh_elagolix",
+            "wh_relugolix_combo"
+          ]
+        },
+        {
+          "id": "wh_mht_estrogen",
+          "name": "Systemic menopausal estrogen therapy",
+          "mechanism": "Replaces estrogen and stabilizes thermoregulatory/urogenital tissues",
+          "target": "Estrogen receptors ERα/ERβ",
+          "tags": [
+            "menopause",
+            "systemic_ht",
+            "vte_risk",
+            "cancer_history"
+          ],
+          "role_note": "Most effective pharmacologic therapy for vasomotor symptoms in appropriate patients; uterus status determines need for endometrial protection.",
+          "drug_ids": [
+            "wh_estradiol_oral",
+            "wh_estradiol_patch",
+            "wh_cee_oral"
+          ]
+        },
+        {
+          "id": "wh_mht_progestogen",
+          "name": "Progestogen for endometrial protection with systemic estrogen",
+          "mechanism": "Opposes estrogen-driven endometrial proliferation",
+          "target": "Endometrial progesterone receptors",
+          "tags": [
+            "menopause",
+            "systemic_ht",
+            "uterus_protection"
+          ],
+          "role_note": "Needed with systemic estrogen in most patients with an intact uterus unless an alternative adequate endometrial-protection strategy is used.",
+          "drug_ids": [
+            "wh_micronized_progesterone_mht",
+            "wh_mpa_mht"
+          ]
+        },
+        {
+          "id": "wh_gsm_local",
+          "name": "Local genitourinary syndrome of menopause (GSM) therapy",
+          "mechanism": "Restores local vaginal/urogenital estrogenic signaling or improves dyspareunia via local receptor modulation",
+          "target": "Vaginal epithelium/estrogen or androgen pathways",
+          "tags": [
+            "gsm",
+            "menopause"
+          ],
+          "role_note": "Local therapy for vaginal dryness/dyspareunia/urogenital symptoms; systemic exposure and risk profile differ by formulation.",
+          "drug_ids": [
+            "wh_vaginal_estradiol_tablet",
+            "wh_vaginal_estradiol_cream",
+            "wh_vaginal_estradiol_ring",
+            "wh_prasterone_vaginal",
+            "wh_ospemifene"
+          ]
+        },
+        {
+          "id": "wh_nonhormonal_vms",
+          "name": "Nonhormonal pharmacotherapy for menopausal vasomotor symptoms",
+          "mechanism": "Modulates serotonergic/noradrenergic, GABAergic or neurokinin-B thermoregulatory pathways",
+          "target": "CNS thermoregulatory circuits / NK3 receptor depending agent",
+          "tags": [
+            "menopause",
+            "nonhormonal_vms",
+            "liver_monitor"
+          ],
+          "role_note": "Options when hormone therapy is unsuitable or not preferred; efficacy and adverse-effect profiles differ markedly.",
+          "drug_ids": [
+            "wh_paroxetine_vms",
+            "wh_venlafaxine_vms",
+            "wh_gabapentin_vms",
+            "wh_fezolinetant"
+          ]
+        },
+        {
+          "id": "wh_nvp",
+          "name": "Pharmacotherapy for nausea/vomiting of pregnancy",
+          "mechanism": "Uses antihistaminic, vitamin-cofactor, dopamine or serotonin pathways to reduce nausea/vomiting",
+          "target": "H1, D2, 5-HT3 pathways depending agent",
+          "tags": [
+            "nvp",
+            "pregnancy_check"
+          ],
+          "role_note": "Pregnancy-specific symptom treatment; dehydration, hyperemesis, electrolyte disturbance and alternate diagnoses must be assessed.",
+          "drug_ids": [
+            "wh_pyridoxine_nvp",
+            "wh_doxylamine_pyridoxine",
+            "wh_metoclopramide_nvp",
+            "wh_ondansetron_nvp"
+          ]
+        },
+        {
+          "id": "wh_dopamine_agonist",
+          "name": "Dopamine agonists for hyperprolactinemia",
+          "mechanism": "D2 receptor activation suppresses pituitary prolactin secretion",
+          "target": "Pituitary dopamine D2 receptors",
+          "tags": [
+            "fertility_specialist",
+            "pcos",
+            "specialist"
+          ],
+          "role_note": "Relevant to amenorrhea/galactorrhea/infertility when hyperprolactinemia is confirmed; requires cause evaluation.",
+          "drug_ids": [
+            "wh_cabergoline",
+            "wh_bromocriptine"
+          ]
+        },
+        {
+          "id": "wh_pph_uterotonics",
+          "name": "Uterotonics for postpartum haemorrhage prevention/treatment",
+          "mechanism": "Increase uterine smooth-muscle contraction through oxytocin, prostaglandin or adrenergic pathways",
+          "target": "Myometrial oxytocin/prostaglandin/adrenergic receptors",
+          "tags": [
+            "pph",
+            "uterotonic",
+            "emergency",
+            "specialist"
+          ],
+          "role_note": "Obstetric emergency medicines used within PPH protocols; contraindications differ by agent.",
+          "drug_ids": [
+            "wh_oxytocin_pph",
+            "wh_methylergometrine_pph",
+            "wh_carboprost_pph",
+            "wh_misoprostol_pph",
+            "wh_carbetocin_pph"
+          ]
+        },
+        {
+          "id": "wh_pph_antifibrinolytic",
+          "name": "Tranexamic acid in postpartum haemorrhage",
+          "mechanism": "Inhibits fibrinolysis by blocking plasminogen activation",
+          "target": "Plasminogen/plasmin system",
+          "tags": [
+            "pph",
+            "emergency",
+            "specialist"
+          ],
+          "role_note": "Time-sensitive adjunct in diagnosed PPH within a full emergency protocol; not a uterotonic and does not replace source control/resuscitation.",
+          "drug_ids": [
+            "wh_tranexamic_pph"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "wh_ee_levonorgestrel",
+          "generic": "Ethinyl estradiol + levonorgestrel",
+          "class_id": "wh_combined_hormonal",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Use the product-specific 21/7, 24/4 or extended-cycle schedule; estrogen/progestin dose varies by brand.",
+          "tags": [
+            "contraception",
+            "combined_hormonal",
+            "aub",
+            "dysmenorrhea",
+            "pcos",
+            "endometriosis",
+            "vte_risk"
+          ],
+          "role": "Common combined oral contraceptive.",
+          "monitoring_pearl": "Check pregnancy status, BP, migraine with aura, smoking/age, VTE/thrombophilia, postpartum status, liver disease and breast-cancer history using current MEC guidance.",
+          "source_refs": [
+            "CDC_USMEC_2024",
+            "CDC_USSPR_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_ee_norethindrone",
+          "generic": "Ethinyl estradiol + norethindrone/norethisterone",
+          "class_id": "wh_combined_hormonal",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-specific daily schedule; verify estrogen dose and progestin strength.",
+          "tags": [
+            "contraception",
+            "combined_hormonal",
+            "aub",
+            "dysmenorrhea",
+            "pcos",
+            "endometriosis",
+            "vte_risk"
+          ],
+          "role": "Combined oral contraceptive and cycle-control option.",
+          "monitoring_pearl": "Check pregnancy status, BP, migraine with aura, smoking/age, VTE/thrombophilia, postpartum status, liver disease and breast-cancer history using current MEC guidance.",
+          "source_refs": [
+            "CDC_USMEC_2024",
+            "CDC_USSPR_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_ee_drospirenone",
+          "generic": "Ethinyl estradiol + drospirenone",
+          "class_id": "wh_combined_hormonal",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-specific daily schedule; verify contraindications and potassium-interaction context.",
+          "tags": [
+            "contraception",
+            "combined_hormonal",
+            "aub",
+            "dysmenorrhea",
+            "pcos",
+            "endometriosis",
+            "vte_risk"
+          ],
+          "role": "Combined oral contraceptive; also used for cycle control/androgen symptoms in selected patients.",
+          "monitoring_pearl": "Check pregnancy status, BP, migraine with aura, smoking/age, VTE/thrombophilia, postpartum status, liver disease and breast-cancer history using current MEC guidance.",
+          "source_refs": [
+            "CDC_USMEC_2024",
+            "CDC_USSPR_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_contraceptive_patch",
+          "generic": "Combined estrogen-progestin transdermal patch",
+          "class_id": "wh_combined_hormonal",
+          "form": "Patch",
+          "route": "Transdermal",
+          "dose_example": "Usually changed weekly for 3 weeks followed by a patch-free week; verify the exact product label.",
+          "tags": [
+            "contraception",
+            "combined_hormonal",
+            "aub",
+            "dysmenorrhea",
+            "pcos",
+            "endometriosis",
+            "vte_risk"
+          ],
+          "role": "Non-daily combined hormonal contraception.",
+          "monitoring_pearl": "Check pregnancy status, BP, migraine with aura, smoking/age, VTE/thrombophilia, postpartum status, liver disease and breast-cancer history using current MEC guidance.",
+          "source_refs": [
+            "CDC_USMEC_2024",
+            "CDC_USSPR_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_contraceptive_ring",
+          "generic": "Combined estrogen-progestin vaginal ring",
+          "class_id": "wh_combined_hormonal",
+          "form": "Vaginal ring",
+          "route": "Vaginal",
+          "dose_example": "Product-specific cyclic or extended schedule; verify exact ring and duration.",
+          "tags": [
+            "contraception",
+            "combined_hormonal",
+            "aub",
+            "dysmenorrhea",
+            "pcos",
+            "endometriosis",
+            "vte_risk"
+          ],
+          "role": "Vaginal combined hormonal contraception.",
+          "monitoring_pearl": "Check pregnancy status, BP, migraine with aura, smoking/age, VTE/thrombophilia, postpartum status, liver disease and breast-cancer history using current MEC guidance.",
+          "source_refs": [
+            "CDC_USMEC_2024",
+            "CDC_USSPR_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_norethindrone_pop",
+          "generic": "Norethindrone/norethisterone progestin-only pill",
+          "class_id": "wh_pop",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Daily at the same time; missed-pill window is formulation-specific and must be checked.",
+          "tags": [
+            "contraception",
+            "progestin_only"
+          ],
+          "role": "Traditional progestin-only pill.",
+          "monitoring_pearl": "Review interacting enzyme inducers, bleeding pattern, renal/adrenal/potassium issues where relevant and current MEC.",
+          "source_refs": [
+            "CDC_USMEC_2024",
+            "CDC_USSPR_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_drospirenone_pop",
+          "generic": "Drospirenone-only pill",
+          "class_id": "wh_pop",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-specific 24-active/4-inactive schedule in some markets; use label-specific missed-pill guidance.",
+          "tags": [
+            "contraception",
+            "progestin_only"
+          ],
+          "role": "Ovulation-suppressing estrogen-free pill with a wider dosing window than traditional POPs.",
+          "monitoring_pearl": "Review interacting enzyme inducers, bleeding pattern, renal/adrenal/potassium issues where relevant and current MEC.",
+          "source_refs": [
+            "CDC_USMEC_2024",
+            "CDC_USSPR_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_dmpa_im",
+          "generic": "Depot medroxyprogesterone acetate (DMPA-IM)",
+          "class_id": "wh_dmpa",
+          "form": "Injectable suspension",
+          "route": "IM",
+          "dose_example": "150 mg every 13 weeks is a common labeled regimen; verify product/local guidance and reinjection window.",
+          "tags": [
+            "contraception",
+            "progestin_only"
+          ],
+          "role": "Long-acting injectable progestin contraception.",
+          "monitoring_pearl": "Counsel bleeding changes, weight/metabolic context, bone-density considerations and delayed return to ovulation; use CDC SPR for timing.",
+          "source_refs": [
+            "CDC_USMEC_2024",
+            "CDC_USSPR_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_dmpa_sc",
+          "generic": "Depot medroxyprogesterone acetate (DMPA-SC)",
+          "class_id": "wh_dmpa",
+          "form": "Prefilled injection",
+          "route": "SC",
+          "dose_example": "104 mg every 12–14 weeks is a common product regimen; verify label and local availability.",
+          "tags": [
+            "contraception",
+            "progestin_only"
+          ],
+          "role": "Subcutaneous depot progestin contraception.",
+          "monitoring_pearl": "Same class counseling; self-administration availability depends on local system/product.",
+          "source_refs": [
+            "CDC_USMEC_2024",
+            "CDC_USSPR_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_etonogestrel_implant",
+          "generic": "Etonogestrel implant",
+          "class_id": "wh_implant",
+          "form": "Single-rod subdermal implant",
+          "route": "Subdermal",
+          "dose_example": "One implant; approved duration varies by jurisdiction/product labeling—verify current local label.",
+          "tags": [
+            "contraception",
+            "progestin_only",
+            "larc"
+          ],
+          "role": "Long-acting reversible progestin contraception.",
+          "monitoring_pearl": "Check interacting enzyme inducers, pregnancy exclusion and bleeding-pattern counseling; insertion/removal requires trained procedure.",
+          "source_refs": [
+            "CDC_USMEC_2024",
+            "CDC_USSPR_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_lng_ius_52",
+          "generic": "Levonorgestrel IUS 52 mg class",
+          "class_id": "wh_lng_ius",
+          "form": "Intrauterine system",
+          "route": "Intrauterine",
+          "dose_example": "Single device; contraceptive/HMB duration depends on exact product label and indication.",
+          "tags": [
+            "contraception",
+            "larc",
+            "hmb",
+            "aub"
+          ],
+          "role": "High-dose LNG-IUS class used for contraception and HMB.",
+          "monitoring_pearl": "Exclude pregnancy and assess uterine cavity, infection risk and unexplained bleeding; insertion requires trained procedure.",
+          "source_refs": [
+            "CDC_USMEC_2024",
+            "CDC_USSPR_2024",
+            "NICE_HMB_NG88",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_lng_ius_low",
+          "generic": "Lower-dose levonorgestrel IUS class",
+          "class_id": "wh_lng_ius",
+          "form": "Intrauterine system",
+          "route": "Intrauterine",
+          "dose_example": "Single device; duration is product-specific.",
+          "tags": [
+            "contraception",
+            "larc",
+            "hmb",
+            "aub"
+          ],
+          "role": "Lower-dose LNG-IUS contraception class.",
+          "monitoring_pearl": "Exclude pregnancy and assess uterine cavity, infection risk and unexplained bleeding; insertion requires trained procedure.",
+          "source_refs": [
+            "CDC_USMEC_2024",
+            "CDC_USSPR_2024",
+            "NICE_HMB_NG88",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_copper_iud_device",
+          "generic": "Copper IUD (device class)",
+          "class_id": "wh_copper_iud",
+          "form": "Intrauterine device",
+          "route": "Intrauterine",
+          "dose_example": "Single device; approved duration varies by product/jurisdiction.",
+          "tags": [
+            "contraception",
+            "larc",
+            "emergency_contraception"
+          ],
+          "role": "Non-hormonal long-acting contraception and EC option when eligible.",
+          "monitoring_pearl": "Assess pregnancy, uterine anatomy, infection risk, bleeding profile and insertion suitability; this is a device, not a systemic medicine.",
+          "source_refs": [
+            "CDC_USMEC_2024",
+            "CDC_USSPR_2024"
+          ]
+        },
+        {
+          "id": "wh_levonorgestrel_ec",
+          "generic": "Levonorgestrel emergency contraception",
+          "class_id": "wh_emergency_contraception",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common regimen: 1.5 mg once as soon as possible after intercourse; follow current local label/SPR.",
+          "tags": [
+            "emergency_contraception",
+            "contraception"
+          ],
+          "role": "Progestin emergency contraceptive pill.",
+          "monitoring_pearl": "Use CDC SPR for timing, repeat dosing/vomiting, interaction with ongoing hormonal contraception and pregnancy testing/follow-up.",
+          "source_refs": [
+            "CDC_USSPR_2024",
+            "CDC_USMEC_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_ulipristal_ec",
+          "generic": "Ulipristal acetate",
+          "class_id": "wh_emergency_contraception",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "30 mg once within the labeled emergency-contraception window; timing of restarting hormonal contraception is important.",
+          "tags": [
+            "emergency_contraception",
+            "contraception"
+          ],
+          "role": "Selective progesterone-receptor modulator EC pill.",
+          "monitoring_pearl": "Use CDC SPR for timing, repeat dosing/vomiting, interaction with ongoing hormonal contraception and pregnancy testing/follow-up.",
+          "source_refs": [
+            "CDC_USSPR_2024",
+            "CDC_USMEC_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_tranexamic_hmb",
+          "generic": "Tranexamic acid — HMB regimen",
+          "class_id": "wh_hmb_antifibrinolytic",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Use only during menstrual bleeding; exact dose and maximum days per cycle are product/local-guideline specific.",
+          "tags": [
+            "hmb",
+            "aub",
+            "fibroid",
+            "vte_risk"
+          ],
+          "role": "Reduces menstrual blood loss without suppressing ovulation.",
+          "monitoring_pearl": "Review thrombosis history/risk, renal function and concurrent estrogen therapy; exact regimen must be verified.",
+          "source_refs": [
+            "NICE_HMB_NG88",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_mefenamic_acid",
+          "generic": "Mefenamic acid",
+          "class_id": "wh_hmb_nsaid",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Use product-specific short-course menstrual regimen; avoid chronic unsupervised use.",
+          "tags": [
+            "hmb",
+            "dysmenorrhea"
+          ],
+          "role": "NSAID commonly used for dysmenorrhea/HMB.",
+          "monitoring_pearl": "Check pregnancy context, renal function, GI ulcer/bleeding, anticoagulants and cardiovascular risk.",
+          "source_refs": [
+            "NICE_HMB_NG88",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_naproxen_dys",
+          "generic": "Naproxen",
+          "class_id": "wh_hmb_nsaid",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Short-course dysmenorrhea dosing is label/guideline specific; use lowest effective dose for shortest duration.",
+          "tags": [
+            "hmb",
+            "dysmenorrhea"
+          ],
+          "role": "NSAID for menstrual pain; may also reduce bleeding.",
+          "monitoring_pearl": "Check pregnancy context, renal function, GI ulcer/bleeding, anticoagulants and cardiovascular risk.",
+          "source_refs": [
+            "NICE_HMB_NG88",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_norethisterone_aub",
+          "generic": "Norethisterone / norethindrone acetate",
+          "class_id": "wh_oral_progestins_aub",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Dose and days/cycle vary widely by AUB/endometriosis indication; verify local protocol/label.",
+          "tags": [
+            "aub",
+            "hmb",
+            "pcos",
+            "uterus_protection"
+          ],
+          "role": "Oral progestin for cycle/bleeding suppression.",
+          "monitoring_pearl": "Confirm pregnancy status and cause of abnormal bleeding; evaluate anemia/endometrial risk when indicated.",
+          "source_refs": [
+            "NICE_HMB_NG88",
+            "ASRM_PCOS_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_medroxyprogesterone_aub",
+          "generic": "Medroxyprogesterone acetate — oral",
+          "class_id": "wh_oral_progestins_aub",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cyclic or short-course regimen is diagnosis-specific; verify before use.",
+          "tags": [
+            "aub",
+            "hmb",
+            "pcos",
+            "uterus_protection"
+          ],
+          "role": "Oral progestin for AUB/endometrial protection.",
+          "monitoring_pearl": "Confirm pregnancy status and cause of abnormal bleeding; evaluate anemia/endometrial risk when indicated.",
+          "source_refs": [
+            "NICE_HMB_NG88",
+            "ASRM_PCOS_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_metformin_pcos",
+          "generic": "Metformin — PCOS context",
+          "class_id": "wh_pcos_metformin",
+          "form": "Immediate/extended-release tablets",
+          "route": "Oral",
+          "dose_example": "Start low and titrate according to tolerance and metabolic indication; exact target dose is patient/formulation-specific.",
+          "tags": [
+            "pcos"
+          ],
+          "role": "Improves metabolic parameters and can assist cycle regulation in selected PCOS patients.",
+          "monitoring_pearl": "Check eGFR, GI tolerance, B12 with long-term use and pregnancy/fertility plan.",
+          "source_refs": [
+            "ASRM_PCOS_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_spironolactone_hirsutism",
+          "generic": "Spironolactone — antiandrogen context",
+          "class_id": "wh_antiandrogen",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common clinical ranges vary; dose must be individualized and is not a contraceptive.",
+          "tags": [
+            "pcos",
+            "hyperandrogenism",
+            "pregnancy_check"
+          ],
+          "role": "Androgen-receptor antagonist used off-label for hirsutism/acne.",
+          "monitoring_pearl": "Reliable contraception and pregnancy avoidance are essential; monitor potassium/renal function for spironolactone and use specialist guidance.",
+          "source_refs": [
+            "ASRM_PCOS_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_finasteride_hirsutism",
+          "generic": "Finasteride — selected hirsutism context",
+          "class_id": "wh_antiandrogen",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Specialist/off-label dosing; not for pregnancy exposure.",
+          "tags": [
+            "pcos",
+            "hyperandrogenism",
+            "pregnancy_check"
+          ],
+          "role": "5-alpha-reductase inhibitor used selectively for hirsutism.",
+          "monitoring_pearl": "Reliable contraception and pregnancy avoidance are essential; monitor potassium/renal function for spironolactone and use specialist guidance.",
+          "source_refs": [
+            "ASRM_PCOS_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_letrozole_oi",
+          "generic": "Letrozole — ovulation induction",
+          "class_id": "wh_letrozole_oi",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cycle-day and dose escalation protocols vary; specialist fertility protocol and pregnancy exclusion are required.",
+          "tags": [
+            "pcos",
+            "ovulation_induction",
+            "fertility_specialist"
+          ],
+          "role": "Ovulation induction in selected PCOS-related anovulatory infertility.",
+          "monitoring_pearl": "Confirm infertility evaluation, pregnancy exclusion and ovulation monitoring plan; use reproductive-specialist protocol where appropriate.",
+          "source_refs": [
+            "ASRM_PCOS_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_clomiphene_citrate",
+          "generic": "Clomiphene citrate",
+          "class_id": "wh_clomiphene",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Typically given for 5 days early in a monitored cycle; starting/escalation doses are fertility-protocol specific.",
+          "tags": [
+            "ovulation_induction",
+            "fertility_specialist",
+            "pcos"
+          ],
+          "role": "Oral ovulation induction.",
+          "monitoring_pearl": "Monitor ovulation response, visual symptoms, ovarian enlargement/multiple gestation risk; avoid prolonged unsupervised cycles.",
+          "source_refs": [
+            "ASRM_PCOS_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_follitropin_alfa",
+          "generic": "Follitropin alfa (recombinant FSH)",
+          "class_id": "wh_gonadotropins",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Individualized low-dose step-up or ART protocol; never use a generic fixed dose without monitoring.",
+          "tags": [
+            "ovulation_induction",
+            "fertility_specialist",
+            "ohss",
+            "specialist"
+          ],
+          "role": "Recombinant FSH ovarian stimulation.",
+          "monitoring_pearl": "High-alert fertility therapy: monitor follicle number/size, estradiol where used, OHSS and multiple-gestation risk.",
+          "source_refs": [
+            "ASRM_GONADOTROPINS",
+            "ASRM_OHSS_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_follitropin_beta",
+          "generic": "Follitropin beta",
+          "class_id": "wh_gonadotropins",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Protocol-specific individualized dosing.",
+          "tags": [
+            "ovulation_induction",
+            "fertility_specialist",
+            "ohss",
+            "specialist"
+          ],
+          "role": "Recombinant FSH ovarian stimulation.",
+          "monitoring_pearl": "High-alert fertility therapy: monitor follicle number/size, estradiol where used, OHSS and multiple-gestation risk.",
+          "source_refs": [
+            "ASRM_GONADOTROPINS",
+            "ASRM_OHSS_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_menotropins",
+          "generic": "Menotropins / hMG (FSH + LH activity)",
+          "class_id": "wh_gonadotropins",
+          "form": "Injection",
+          "route": "SC/IM",
+          "dose_example": "Protocol-specific individualized dosing with ultrasound/estradiol monitoring.",
+          "tags": [
+            "ovulation_induction",
+            "fertility_specialist",
+            "ohss",
+            "specialist"
+          ],
+          "role": "Urinary gonadotropin stimulation.",
+          "monitoring_pearl": "High-alert fertility therapy: monitor follicle number/size, estradiol where used, OHSS and multiple-gestation risk.",
+          "source_refs": [
+            "ASRM_GONADOTROPINS",
+            "ASRM_OHSS_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_hcg_trigger",
+          "generic": "Human chorionic gonadotropin (hCG) trigger",
+          "class_id": "wh_ovulation_trigger",
+          "form": "Injection",
+          "route": "SC/IM",
+          "dose_example": "Exact IU dose/timing depends on fertility protocol and product.",
+          "tags": [
+            "fertility_specialist",
+            "ohss",
+            "specialist"
+          ],
+          "role": "LH-like trigger for final oocyte maturation.",
+          "monitoring_pearl": "Use only in monitored fertility cycles; assess OHSS risk and luteal-support plan.",
+          "source_refs": [
+            "ASRM_OHSS_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_choriogonadotropin_alfa",
+          "generic": "Choriogonadotropin alfa",
+          "class_id": "wh_ovulation_trigger",
+          "form": "Prefilled injection",
+          "route": "SC",
+          "dose_example": "Product/protocol-specific single trigger dose.",
+          "tags": [
+            "fertility_specialist",
+            "ohss",
+            "specialist"
+          ],
+          "role": "Recombinant hCG trigger.",
+          "monitoring_pearl": "Use only in monitored fertility cycles; assess OHSS risk and luteal-support plan.",
+          "source_refs": [
+            "ASRM_OHSS_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_leuprolide_trigger",
+          "generic": "GnRH agonist trigger (e.g., leuprolide in antagonist cycles)",
+          "class_id": "wh_ovulation_trigger",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Specialist ART protocol only; dose/timing and luteal rescue are protocol-specific.",
+          "tags": [
+            "fertility_specialist",
+            "ohss",
+            "specialist"
+          ],
+          "role": "OHSS-reduction strategy in selected antagonist cycles.",
+          "monitoring_pearl": "Use only in monitored fertility cycles; assess OHSS risk and luteal-support plan.",
+          "source_refs": [
+            "ASRM_OHSS_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_cetrorelix",
+          "generic": "Cetrorelix",
+          "class_id": "wh_gnrh_antagonist_art",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Daily or protocol-specific dosing during stimulation; exact start day depends on follicular response.",
+          "tags": [
+            "fertility_specialist",
+            "specialist"
+          ],
+          "role": "Prevents premature LH surge in ART.",
+          "monitoring_pearl": "Specialist fertility cycle monitoring required.",
+          "source_refs": [
+            "ASRM_GONADOTROPINS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_ganirelix",
+          "generic": "Ganirelix",
+          "class_id": "wh_gnrh_antagonist_art",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Daily protocol-specific dosing during ovarian stimulation.",
+          "tags": [
+            "fertility_specialist",
+            "specialist"
+          ],
+          "role": "Prevents premature LH surge in ART.",
+          "monitoring_pearl": "Specialist fertility cycle monitoring required.",
+          "source_refs": [
+            "ASRM_GONADOTROPINS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_progesterone_vaginal",
+          "generic": "Micronized progesterone — vaginal",
+          "class_id": "wh_luteal_support",
+          "form": "Capsule/gel/insert",
+          "route": "Vaginal",
+          "dose_example": "ART/luteal-support dose is product/protocol specific; verify exact formulation.",
+          "tags": [
+            "luteal_support",
+            "fertility_specialist"
+          ],
+          "role": "Local progesterone luteal support.",
+          "monitoring_pearl": "Do not interchange routes/strengths without protocol verification; pregnancy support duration is indication-specific.",
+          "source_refs": [
+            "ASRM_GONADOTROPINS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_progesterone_im",
+          "generic": "Progesterone in oil",
+          "class_id": "wh_luteal_support",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Daily dose is fertility-protocol/product specific.",
+          "tags": [
+            "luteal_support",
+            "fertility_specialist"
+          ],
+          "role": "Parenteral luteal support.",
+          "monitoring_pearl": "Do not interchange routes/strengths without protocol verification; pregnancy support duration is indication-specific.",
+          "source_refs": [
+            "ASRM_GONADOTROPINS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_dydrogesterone_luteal",
+          "generic": "Dydrogesterone — selected luteal support contexts",
+          "class_id": "wh_luteal_support",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Regional/product-specific fertility protocol; verify local approval and evidence.",
+          "tags": [
+            "luteal_support",
+            "fertility_specialist"
+          ],
+          "role": "Oral progestogen used in some regions for luteal support.",
+          "monitoring_pearl": "Do not interchange routes/strengths without protocol verification; pregnancy support duration is indication-specific.",
+          "source_refs": [
+            "ASRM_GONADOTROPINS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_dienogest",
+          "generic": "Dienogest",
+          "class_id": "wh_endometriosis_progestin",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common regional regimen is once daily; exact dose/availability must follow local label.",
+          "tags": [
+            "endometriosis",
+            "dysmenorrhea"
+          ],
+          "role": "Progestin specifically used for endometriosis in many countries.",
+          "monitoring_pearl": "Counsel bleeding pattern, bone-density considerations for prolonged hypoestrogenic/depot exposure and fertility goals.",
+          "source_refs": [
+            "ESHRE_ENDO_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_norethindrone_endo",
+          "generic": "Norethindrone acetate / norethisterone — endometriosis",
+          "class_id": "wh_endometriosis_progestin",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Dose is indication/product specific; often continuous rather than cyclic.",
+          "tags": [
+            "endometriosis",
+            "dysmenorrhea"
+          ],
+          "role": "Oral progestin suppression for endometriosis.",
+          "monitoring_pearl": "Counsel bleeding pattern, bone-density considerations for prolonged hypoestrogenic/depot exposure and fertility goals.",
+          "source_refs": [
+            "ESHRE_ENDO_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_dmpa_endo",
+          "generic": "Depot medroxyprogesterone — endometriosis context",
+          "class_id": "wh_endometriosis_progestin",
+          "form": "Injection",
+          "route": "IM/SC",
+          "dose_example": "Product-specific interval regimen.",
+          "tags": [
+            "endometriosis",
+            "dysmenorrhea"
+          ],
+          "role": "Long-acting progestin suppression option.",
+          "monitoring_pearl": "Counsel bleeding pattern, bone-density considerations for prolonged hypoestrogenic/depot exposure and fertility goals.",
+          "source_refs": [
+            "ESHRE_ENDO_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_leuprolide_endo",
+          "generic": "Leuprolide acetate",
+          "class_id": "wh_gnrh_agonist_endo",
+          "form": "Depot injection",
+          "route": "IM/SC",
+          "dose_example": "Monthly/3-month depot regimens vary by product and indication; verify add-back and duration.",
+          "tags": [
+            "endometriosis",
+            "fibroid",
+            "specialist"
+          ],
+          "role": "GnRH agonist ovarian suppression.",
+          "monitoring_pearl": "Monitor vasomotor symptoms, bone health and treatment duration; consider guideline-supported add-back therapy.",
+          "source_refs": [
+            "ESHRE_ENDO_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_goserelin_endo",
+          "generic": "Goserelin",
+          "class_id": "wh_gnrh_agonist_endo",
+          "form": "Implant/depot injection",
+          "route": "SC",
+          "dose_example": "Depot interval is product-specific.",
+          "tags": [
+            "endometriosis",
+            "fibroid",
+            "specialist"
+          ],
+          "role": "GnRH agonist ovarian suppression.",
+          "monitoring_pearl": "Monitor vasomotor symptoms, bone health and treatment duration; consider guideline-supported add-back therapy.",
+          "source_refs": [
+            "ESHRE_ENDO_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_elagolix",
+          "generic": "Elagolix",
+          "class_id": "wh_gnrh_antagonist_endo",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Dose and maximum duration depend on indication, dose, liver function and product label.",
+          "tags": [
+            "endometriosis",
+            "fibroid",
+            "specialist",
+            "vte_risk"
+          ],
+          "role": "Oral GnRH antagonist for endometriosis pain.",
+          "monitoring_pearl": "Check pregnancy, bone health, hepatic function and estrogen/progestin contraindications for combination products.",
+          "source_refs": [
+            "ESHRE_ENDO_2022",
+            "NICE_HMB_NG88",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_relugolix_combo",
+          "generic": "Relugolix + estradiol + norethindrone acetate combination",
+          "class_id": "wh_gnrh_antagonist_endo",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Fixed daily combination; indication/duration and contraindications are label-specific.",
+          "tags": [
+            "endometriosis",
+            "fibroid",
+            "specialist",
+            "vte_risk"
+          ],
+          "role": "GnRH antagonist with add-back for fibroid bleeding/endometriosis pain in approved markets.",
+          "monitoring_pearl": "Check pregnancy, bone health, hepatic function and estrogen/progestin contraindications for combination products.",
+          "source_refs": [
+            "ESHRE_ENDO_2022",
+            "NICE_HMB_NG88",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_estradiol_oral",
+          "generic": "17β-estradiol — oral systemic",
+          "class_id": "wh_mht_estrogen",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Use the lowest effective product-specific dose; titrate by symptom response and risk profile.",
+          "tags": [
+            "menopause",
+            "systemic_ht",
+            "vte_risk",
+            "cancer_history"
+          ],
+          "role": "Systemic estrogen for menopausal symptoms.",
+          "monitoring_pearl": "Assess uterus, VTE/stroke/CV risk, unexplained bleeding, liver disease and hormone-sensitive cancer history; periodic individualized review.",
+          "source_refs": [
+            "NICE_MENOPAUSE_NG23",
+            "TMS_HT_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_estradiol_patch",
+          "generic": "17β-estradiol — transdermal",
+          "class_id": "wh_mht_estrogen",
+          "form": "Patch/gel/spray",
+          "route": "Transdermal",
+          "dose_example": "Product-specific patch/gel strength and replacement schedule.",
+          "tags": [
+            "menopause",
+            "systemic_ht",
+            "vte_risk",
+            "cancer_history"
+          ],
+          "role": "Transdermal systemic estrogen; route may have different thrombotic/metabolic considerations from oral therapy.",
+          "monitoring_pearl": "Assess uterus, VTE/stroke/CV risk, unexplained bleeding, liver disease and hormone-sensitive cancer history; periodic individualized review.",
+          "source_refs": [
+            "NICE_MENOPAUSE_NG23",
+            "TMS_HT_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_cee_oral",
+          "generic": "Conjugated estrogens",
+          "class_id": "wh_mht_estrogen",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-specific low-to-standard dose; individualize.",
+          "tags": [
+            "menopause",
+            "systemic_ht",
+            "vte_risk",
+            "cancer_history"
+          ],
+          "role": "Systemic estrogen option.",
+          "monitoring_pearl": "Assess uterus, VTE/stroke/CV risk, unexplained bleeding, liver disease and hormone-sensitive cancer history; periodic individualized review.",
+          "source_refs": [
+            "NICE_MENOPAUSE_NG23",
+            "TMS_HT_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_micronized_progesterone_mht",
+          "generic": "Micronized progesterone",
+          "class_id": "wh_mht_progestogen",
+          "form": "Capsule",
+          "route": "Oral/Vaginal depending product",
+          "dose_example": "Continuous or cyclic regimen depends on estrogen regimen and product; verify exact schedule.",
+          "tags": [
+            "menopause",
+            "systemic_ht",
+            "uterus_protection"
+          ],
+          "role": "Endometrial protection component of MHT.",
+          "monitoring_pearl": "Investigate unscheduled bleeding appropriately; do not omit progestogen protection when required.",
+          "source_refs": [
+            "NICE_MENOPAUSE_NG23",
+            "TMS_HT_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_mpa_mht",
+          "generic": "Medroxyprogesterone acetate — MHT",
+          "class_id": "wh_mht_progestogen",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Continuous/cyclic dosing varies with estrogen regimen.",
+          "tags": [
+            "menopause",
+            "systemic_ht",
+            "uterus_protection"
+          ],
+          "role": "Synthetic progestin for endometrial protection.",
+          "monitoring_pearl": "Investigate unscheduled bleeding appropriately; do not omit progestogen protection when required.",
+          "source_refs": [
+            "NICE_MENOPAUSE_NG23",
+            "TMS_HT_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_vaginal_estradiol_tablet",
+          "generic": "Low-dose vaginal estradiol tablet/insert",
+          "class_id": "wh_gsm_local",
+          "form": "Vaginal insert",
+          "route": "Vaginal",
+          "dose_example": "Loading then maintenance schedules are product-specific.",
+          "tags": [
+            "gsm",
+            "menopause"
+          ],
+          "role": "Local estrogen for GSM.",
+          "monitoring_pearl": "Assess unexplained bleeding and cancer history; low-dose local estrogen is not pharmacologically equivalent to systemic MHT.",
+          "source_refs": [
+            "NICE_MENOPAUSE_NG23",
+            "TMS_HT_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_vaginal_estradiol_cream",
+          "generic": "Vaginal estrogen cream",
+          "class_id": "wh_gsm_local",
+          "form": "Cream",
+          "route": "Vaginal",
+          "dose_example": "Product-specific gram/dose schedule; avoid guessing from concentration alone.",
+          "tags": [
+            "gsm",
+            "menopause"
+          ],
+          "role": "Local estrogen for GSM.",
+          "monitoring_pearl": "Assess unexplained bleeding and cancer history; low-dose local estrogen is not pharmacologically equivalent to systemic MHT.",
+          "source_refs": [
+            "NICE_MENOPAUSE_NG23",
+            "TMS_HT_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_vaginal_estradiol_ring",
+          "generic": "Low-dose vaginal estradiol ring",
+          "class_id": "wh_gsm_local",
+          "form": "Ring",
+          "route": "Vaginal",
+          "dose_example": "Long-acting ring replaced at product-defined interval.",
+          "tags": [
+            "gsm",
+            "menopause"
+          ],
+          "role": "Local estrogen delivery for GSM.",
+          "monitoring_pearl": "Assess unexplained bleeding and cancer history; low-dose local estrogen is not pharmacologically equivalent to systemic MHT.",
+          "source_refs": [
+            "NICE_MENOPAUSE_NG23",
+            "TMS_HT_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_prasterone_vaginal",
+          "generic": "Prasterone (DHEA) vaginal insert",
+          "class_id": "wh_gsm_local",
+          "form": "Insert",
+          "route": "Vaginal",
+          "dose_example": "Product-specific once-daily regimen where approved.",
+          "tags": [
+            "gsm",
+            "menopause"
+          ],
+          "role": "Local androgen precursor therapy for dyspareunia/GSM.",
+          "monitoring_pearl": "Assess unexplained bleeding and cancer history; low-dose local estrogen is not pharmacologically equivalent to systemic MHT.",
+          "source_refs": [
+            "NICE_MENOPAUSE_NG23",
+            "TMS_HT_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_ospemifene",
+          "generic": "Ospemifene",
+          "class_id": "wh_gsm_local",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-specific once-daily regimen where approved.",
+          "tags": [
+            "gsm",
+            "menopause"
+          ],
+          "role": "Selective estrogen-receptor modulator for moderate/severe dyspareunia/vaginal dryness in selected patients.",
+          "monitoring_pearl": "Assess unexplained bleeding and cancer history; low-dose local estrogen is not pharmacologically equivalent to systemic MHT.",
+          "source_refs": [
+            "NICE_MENOPAUSE_NG23",
+            "TMS_HT_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_paroxetine_vms",
+          "generic": "Paroxetine — low-dose VMS formulation",
+          "class_id": "wh_nonhormonal_vms",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Use the menopause-specific product/dose where available; standard antidepressant doses are not interchangeable.",
+          "tags": [
+            "menopause",
+            "nonhormonal_vms",
+            "menopause"
+          ],
+          "role": "SSRI option for vasomotor symptoms.",
+          "monitoring_pearl": "Review psychiatric/drug-interaction context for SSRIs/SNRIs, renal function for gabapentin and current hepatic monitoring/contraindications for fezolinetant.",
+          "source_refs": [
+            "TMS_NONHT_2023",
+            "NICE_MENOPAUSE_NG23",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_venlafaxine_vms",
+          "generic": "Venlafaxine",
+          "class_id": "wh_nonhormonal_vms",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Low-to-moderate daily doses are commonly used off-label; titrate and verify interactions.",
+          "tags": [
+            "menopause",
+            "nonhormonal_vms",
+            "menopause"
+          ],
+          "role": "SNRI option for VMS.",
+          "monitoring_pearl": "Review psychiatric/drug-interaction context for SSRIs/SNRIs, renal function for gabapentin and current hepatic monitoring/contraindications for fezolinetant.",
+          "source_refs": [
+            "TMS_NONHT_2023",
+            "NICE_MENOPAUSE_NG23",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_gabapentin_vms",
+          "generic": "Gabapentin",
+          "class_id": "wh_nonhormonal_vms",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Often titrated, with nighttime dosing useful when sedation is desired; renal adjustment required.",
+          "tags": [
+            "menopause",
+            "nonhormonal_vms",
+            "menopause"
+          ],
+          "role": "Nonhormonal VMS option with CNS effects.",
+          "monitoring_pearl": "Review psychiatric/drug-interaction context for SSRIs/SNRIs, renal function for gabapentin and current hepatic monitoring/contraindications for fezolinetant.",
+          "source_refs": [
+            "TMS_NONHT_2023",
+            "NICE_MENOPAUSE_NG23",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_fezolinetant",
+          "generic": "Fezolinetant",
+          "class_id": "wh_nonhormonal_vms",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Use current labeled once-daily dose and required liver-monitoring schedule; verify latest label.",
+          "tags": [
+            "menopause",
+            "nonhormonal_vms",
+            "liver_monitor"
+          ],
+          "role": "NK3 receptor antagonist for moderate-to-severe VMS.",
+          "monitoring_pearl": "Review psychiatric/drug-interaction context for SSRIs/SNRIs, renal function for gabapentin and current hepatic monitoring/contraindications for fezolinetant.",
+          "source_refs": [
+            "TMS_NONHT_2023",
+            "NICE_MENOPAUSE_NG23",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_pyridoxine_nvp",
+          "generic": "Pyridoxine (vitamin B6)",
+          "class_id": "wh_nvp",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Pregnancy NVP dosing is protocol/product specific and often divided through the day.",
+          "tags": [
+            "nvp",
+            "pregnancy_check"
+          ],
+          "role": "Common first-step NVP option.",
+          "monitoring_pearl": "Assess hydration, weight loss, ketones/electrolytes and QT/extrapyramidal risks where relevant; severe hyperemesis may require hospital care.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_doxylamine_pyridoxine",
+          "generic": "Doxylamine + pyridoxine",
+          "class_id": "wh_nvp",
+          "form": "Delayed-release tablet",
+          "route": "Oral",
+          "dose_example": "Use the product-specific titration schedule.",
+          "tags": [
+            "nvp",
+            "pregnancy_check"
+          ],
+          "role": "Combination antihistamine/B6 therapy for NVP.",
+          "monitoring_pearl": "Assess hydration, weight loss, ketones/electrolytes and QT/extrapyramidal risks where relevant; severe hyperemesis may require hospital care.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_metoclopramide_nvp",
+          "generic": "Metoclopramide",
+          "class_id": "wh_nvp",
+          "form": "Tablet/injection",
+          "route": "Oral/IV/IM",
+          "dose_example": "Use pregnancy protocol/label dose and shortest appropriate duration.",
+          "tags": [
+            "nvp",
+            "pregnancy_check"
+          ],
+          "role": "D2 antagonist/prokinetic antiemetic.",
+          "monitoring_pearl": "Assess hydration, weight loss, ketones/electrolytes and QT/extrapyramidal risks where relevant; severe hyperemesis may require hospital care.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_ondansetron_nvp",
+          "generic": "Ondansetron",
+          "class_id": "wh_nvp",
+          "form": "Tablet/ODT/injection",
+          "route": "Oral/IV",
+          "dose_example": "Use guideline/product-specific regimen after individualized benefit-risk assessment.",
+          "tags": [
+            "nvp",
+            "pregnancy_check"
+          ],
+          "role": "5-HT3 antagonist antiemetic used in selected NVP/hyperemesis contexts.",
+          "monitoring_pearl": "Assess hydration, weight loss, ketones/electrolytes and QT/extrapyramidal risks where relevant; severe hyperemesis may require hospital care.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_cabergoline",
+          "generic": "Cabergoline",
+          "class_id": "wh_dopamine_agonist",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Low-dose intermittent titration based on prolactin response; exact regimen individualized.",
+          "tags": [
+            "fertility_specialist",
+            "specialist"
+          ],
+          "role": "Long-acting dopamine agonist.",
+          "monitoring_pearl": "Confirm prolactin elevation, medication causes, thyroid status and pituitary-imaging indication; monitor BP/tolerance and pregnancy plan.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_bromocriptine",
+          "generic": "Bromocriptine",
+          "class_id": "wh_dopamine_agonist",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Start low and titrate to prolactin response/tolerance.",
+          "tags": [
+            "fertility_specialist",
+            "specialist"
+          ],
+          "role": "Dopamine agonist with long reproductive-endocrine experience.",
+          "monitoring_pearl": "Confirm prolactin elevation, medication causes, thyroid status and pituitary-imaging indication; monitor BP/tolerance and pregnancy plan.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_oxytocin_pph",
+          "generic": "Oxytocin",
+          "class_id": "wh_pph_uterotonics",
+          "form": "Injection/infusion",
+          "route": "IV/IM",
+          "dose_example": "WHO recommends 10 IU IM/IV for PPH prevention for all births; treatment dosing/infusion is protocol-specific.",
+          "tags": [
+            "pph",
+            "uterotonic",
+            "emergency",
+            "specialist"
+          ],
+          "role": "First-line uterotonic framework for PPH prevention/treatment.",
+          "monitoring_pearl": "Emergency-only: monitor bleeding, vitals, uterine tone and contraindications; PPH management also requires rapid diagnosis, resuscitation and escalation.",
+          "source_refs": [
+            "WHO_PPH_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_methylergometrine_pph",
+          "generic": "Methylergometrine / methylergonovine",
+          "class_id": "wh_pph_uterotonics",
+          "form": "Injection/tablet",
+          "route": "IM/IV/Oral depending protocol",
+          "dose_example": "Emergency obstetric protocol only; exact dose/route product-specific.",
+          "tags": [
+            "pph",
+            "uterotonic",
+            "emergency",
+            "specialist"
+          ],
+          "role": "Ergot uterotonic; avoid/use caution in hypertension/preeclampsia.",
+          "monitoring_pearl": "Emergency-only: monitor bleeding, vitals, uterine tone and contraindications; PPH management also requires rapid diagnosis, resuscitation and escalation.",
+          "source_refs": [
+            "WHO_PPH_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_carboprost_pph",
+          "generic": "Carboprost tromethamine",
+          "class_id": "wh_pph_uterotonics",
+          "form": "Injection",
+          "route": "IM/intramyometrial by specialist protocol",
+          "dose_example": "Emergency obstetric protocol; repeated-dose limits are label-specific.",
+          "tags": [
+            "pph",
+            "uterotonic",
+            "emergency",
+            "specialist"
+          ],
+          "role": "PGF2α uterotonic; bronchospasm risk is clinically important.",
+          "monitoring_pearl": "Emergency-only: monitor bleeding, vitals, uterine tone and contraindications; PPH management also requires rapid diagnosis, resuscitation and escalation.",
+          "source_refs": [
+            "WHO_PPH_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_misoprostol_pph",
+          "generic": "Misoprostol",
+          "class_id": "wh_pph_uterotonics",
+          "form": "Tablet",
+          "route": "Oral/sublingual/rectal depending protocol",
+          "dose_example": "PPH prevention/treatment dose and route are protocol-specific.",
+          "tags": [
+            "pph",
+            "uterotonic",
+            "emergency",
+            "specialist"
+          ],
+          "role": "PGE1 uterotonic used in defined obstetric protocols.",
+          "monitoring_pearl": "Emergency-only: monitor bleeding, vitals, uterine tone and contraindications; PPH management also requires rapid diagnosis, resuscitation and escalation.",
+          "source_refs": [
+            "WHO_PPH_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_carbetocin_pph",
+          "generic": "Carbetocin",
+          "class_id": "wh_pph_uterotonics",
+          "form": "Injection",
+          "route": "IV/IM depending product/protocol",
+          "dose_example": "Single-dose prevention regimen is product/guideline specific and context-dependent.",
+          "tags": [
+            "pph",
+            "uterotonic",
+            "emergency",
+            "specialist"
+          ],
+          "role": "Long-acting oxytocin analogue used for PPH prevention in selected settings.",
+          "monitoring_pearl": "Emergency-only: monitor bleeding, vitals, uterine tone and contraindications; PPH management also requires rapid diagnosis, resuscitation and escalation.",
+          "source_refs": [
+            "WHO_PPH_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "wh_tranexamic_pph",
+          "generic": "Tranexamic acid — PPH emergency use",
+          "class_id": "wh_pph_antifibrinolytic",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Use WHO/current institutional PPH protocol for dose, timing and repeat criteria; do not infer from HMB oral dosing.",
+          "tags": [
+            "pph",
+            "emergency",
+            "specialist"
+          ],
+          "role": "Antifibrinolytic adjunct for postpartum haemorrhage.",
+          "monitoring_pearl": "Emergency use requires bleeding assessment, thrombosis context, renal function and concurrent PPH bundle.",
+          "source_refs": [
+            "WHO_PPH_2025",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "CDC_USMEC_2024",
+          "label": "CDC — U.S. Medical Eligibility Criteria for Contraceptive Use, 2024",
+          "url": "https://www.cdc.gov/contraception/hcp/usmec/index.html"
+        },
+        {
+          "id": "CDC_USSPR_2024",
+          "label": "CDC — U.S. Selected Practice Recommendations for Contraceptive Use, 2024",
+          "url": "https://www.cdc.gov/contraception/hcp/usspr/index.html"
+        },
+        {
+          "id": "NICE_HMB_NG88",
+          "label": "NICE NG88 — Heavy menstrual bleeding: assessment and management",
+          "url": "https://www.nice.org.uk/guidance/ng88"
+        },
+        {
+          "id": "ASRM_PCOS_2023",
+          "label": "ASRM / International Guideline — PCOS assessment and management, 2023",
+          "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/recommendations-from-the-2023-international-evidence-based-guideline-for-the-assessment-and-management-of-polycystic-ovary-syndrome/"
+        },
+        {
+          "id": "ESHRE_ENDO_2022",
+          "label": "ESHRE Guideline — Endometriosis, 2022",
+          "url": "https://www.eshre.eu/guideline/endometriosis"
+        },
+        {
+          "id": "NICE_MENOPAUSE_NG23",
+          "label": "NICE NG23 — Menopause: identification and management",
+          "url": "https://www.nice.org.uk/guidance/ng23"
+        },
+        {
+          "id": "TMS_HT_2022",
+          "label": "The Menopause Society — 2022 Hormone Therapy Position Statement",
+          "url": "https://menopause.org/wp-content/uploads/professional/nams-2022-hormone-therapy-position-statement.pdf"
+        },
+        {
+          "id": "TMS_NONHT_2023",
+          "label": "The Menopause Society — 2023 Nonhormone Therapy Position Statement",
+          "url": "https://menopause.org/wp-content/uploads/professional/2023-nonhormone-therapy-position-statement.pdf"
+        },
+        {
+          "id": "ASRM_GONADOTROPINS",
+          "label": "ASRM — Exogenous gonadotropins for ovulation induction",
+          "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/use-of-exogenous-gonadotropins-for-ovulation-induction-in-anovulatory-women-a-committee-opinion-2020/"
+        },
+        {
+          "id": "ASRM_OHSS_2023",
+          "label": "ASRM — Prevention and treatment of ovarian hyperstimulation syndrome, 2023",
+          "url": "https://www.asrm.org/practice-guidance/practice-committee-documents/prevention-of-moderate-and-severe-ovarian-hyperstimulation-syndrome-a-guideline-2023/"
+        },
+        {
+          "id": "WHO_PPH_2025",
+          "label": "WHO — Consolidated guidelines for prevention, diagnosis and treatment of postpartum haemorrhage, 2025",
+          "url": "https://www.who.int/publications/i/item/9789240115637"
         },
         {
           "id": "DAILYMED",
