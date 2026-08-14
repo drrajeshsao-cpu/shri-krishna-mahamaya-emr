@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4O",
-  "app_version": "5.40O",
-  "build": "2026.08.14-R25O",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40O Oncology • Cancer Pharmacology • Supportive Care Lab",
+  "version": "2.4P",
+  "app_version": "5.40P",
+  "build": "2026.08.14-R25P",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40P Vaccines • Immunization • Preventive Medicine Lab",
   "counts": {
-    "labs": 21,
-    "classes": 630,
-    "drug_profiles": 1548
+    "labs": 22,
+    "classes": 661,
+    "drug_profiles": 1603
   },
-  "global_boundary": "Research/learning pharmacology only. V5.40O adds a dedicated Oncology • Cancer Pharmacology • Supportive Care Intelligence Lab while retaining all earlier specialized labs. It is not a chemotherapy regimen generator or dose calculator. Cancer treatment selection depends on tumor type, stage, histology, biomarkers, prior therapy, performance status, organ function and current protocol. Exact regimen, dose, cycle, premedication, hazardous-drug handling, interactions, pregnancy/fertility issues, supportive care and toxicity management must be verified with current oncology protocol, specialist team and product label. Regulatory indications and accelerated approvals/withdrawals can change.",
+  "global_boundary": "Research/learning pharmacology only. V5.40P adds Vaccines • Immunization • Preventive Medicine while retaining all earlier specialized labs. Vaccination is schedule-, age-, product-, history-, exposure-, pregnancy-, immunocompromise-, geography- and programme-dependent. India UIP/U-WIN is the primary public-programme reference; WHO/current national/product guidance is required for catch-up, adult, high-risk, travel and post-exposure decisions. Do not auto-create schedules, restart interrupted series, or assume globally listed vaccines are routinely indicated/available in India. Live-vaccine eligibility, passive immunization, cold chain and AEFI readiness require explicit verification.",
   "labs": [
     {
       "id": "hypertension",
@@ -46139,6 +46139,1914 @@
           "id": "DAILYMED",
           "label": "DailyMed — Current Prescribing Labels and Formulations",
           "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "vaccines_immunization",
+      "title": "Vaccines • Immunization • Preventive Medicine Intelligence Lab",
+      "icon": "💉",
+      "badge": "V5.40P",
+      "eyebrow": "INDIA UIP • LIFE-COURSE IMMUNIZATION • CATCH-UP • PREGNANCY • HIGH-RISK • TRAVEL • PEP • VACCINE SAFETY",
+      "subtitle": "Research-oriented immunization workspace combining India programme context with WHO life-course/catch-up guidance, high-risk vaccination, travel/post-exposure prevention and vaccine-safety gates.",
+      "scientific_boundary": "Research/learning CDS only — not an automatic vaccination order-set. Vaccine eligibility, age, product, route, dose volume, interval, catch-up logic, pregnancy, immunocompromise, prior doses, exposure category, travel destination, outbreak policy and national programme can change. Use India National Immunization Schedule/U-WIN for UIP delivery and current WHO/national/product guidance for other indications. Do not infer that every globally listed vaccine is routinely recommended or available in India. Live vaccines, passive immunoglobulins, rabies PEP, pregnancy vaccination and immunocompromised patients require explicit verification. Cold-chain integrity and AEFI readiness are mandatory operational safeguards.",
+      "classification_notes": {
+        "India programme first": "Use U-WIN/National Immunization Schedule as the primary public-programme reference in India; private/adult/travel recommendations must be clearly distinguished.",
+        "Catch-up principle": "Interrupted/delayed series should be managed using current catch-up guidance; do not automatically restart a series because an interval was prolonged.",
+        "Live-vaccine gate": "Pregnancy and significant immunocompromise can change eligibility for many live vaccines; verify the exact product and current guidance.",
+        "Post-exposure gate": "Rabies, tetanus, hepatitis B and varicella post-exposure prevention depends on exposure type, prior immunization and sometimes passive immunization; these are protocol-driven decisions.",
+        "Programme versus individual": "WHO summary tables support policy decisions and global life-course planning; local/national schedules determine what is actually recommended and delivered.",
+        "Operational safety": "Correct storage/cold chain, route, preparation, observation, anaphylaxis preparedness and AEFI reporting are part of safe vaccination, not optional add-ons."
+      },
+      "lens_groups": [
+        {
+          "group": "India / Life course",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Immunization"
+            },
+            {
+              "id": "uip",
+              "label": "India UIP"
+            },
+            {
+              "id": "newborn",
+              "label": "Birth / Newborn"
+            },
+            {
+              "id": "infant",
+              "label": "Infant"
+            },
+            {
+              "id": "child",
+              "label": "Child"
+            },
+            {
+              "id": "adolescent",
+              "label": "Adolescent"
+            },
+            {
+              "id": "adult",
+              "label": "Adult"
+            },
+            {
+              "id": "older_adult",
+              "label": "Older Adult"
+            }
+          ]
+        },
+        {
+          "group": "Special populations",
+          "items": [
+            {
+              "id": "pregnancy",
+              "label": "Pregnancy"
+            },
+            {
+              "id": "healthcare_worker",
+              "label": "Healthcare Worker"
+            },
+            {
+              "id": "immunocompromised",
+              "label": "Immunocompromised"
+            },
+            {
+              "id": "high_risk",
+              "label": "High Risk"
+            },
+            {
+              "id": "travel",
+              "label": "Travel"
+            },
+            {
+              "id": "endemic_area",
+              "label": "Endemic Area"
+            }
+          ]
+        },
+        {
+          "group": "Safety / exposure",
+          "items": [
+            {
+              "id": "post_exposure",
+              "label": "Post-Exposure"
+            },
+            {
+              "id": "pre_exposure",
+              "label": "Pre-Exposure"
+            },
+            {
+              "id": "live_vaccine",
+              "label": "Live Vaccines"
+            },
+            {
+              "id": "non_live",
+              "label": "Non-live"
+            },
+            {
+              "id": "immunoglobulin",
+              "label": "Passive Immunization"
+            },
+            {
+              "id": "urgent",
+              "label": "Urgent PEP"
+            }
+          ]
+        },
+        {
+          "group": "Key antigens",
+          "items": [
+            {
+              "id": "tuberculosis",
+              "label": "BCG / TB"
+            },
+            {
+              "id": "polio",
+              "label": "Polio"
+            },
+            {
+              "id": "cancer_prevention",
+              "label": "HPV / Cancer Prevention"
+            },
+            {
+              "id": "seasonal",
+              "label": "Influenza"
+            },
+            {
+              "id": "outbreak",
+              "label": "Outbreak Vaccines"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "vax_bcg",
+          "name": "BCG vaccine",
+          "mechanism": "Live attenuated Mycobacterium bovis induces cellular immunity",
+          "target": "Tuberculosis prevention",
+          "tags": [
+            "uip",
+            "newborn",
+            "child",
+            "live_vaccine",
+            "tuberculosis"
+          ],
+          "role_note": "Programme vaccine used for prevention of severe forms of childhood tuberculosis; timing and technique are programme specific.",
+          "drug_ids": [
+            "vax_bcg_profile"
+          ]
+        },
+        {
+          "id": "vax_hepb",
+          "name": "Hepatitis B vaccine",
+          "mechanism": "Recombinant HBsAg induces anti-HBs immunity",
+          "target": "Hepatitis B virus",
+          "tags": [
+            "uip",
+            "newborn",
+            "child",
+            "adult",
+            "healthcare_worker",
+            "non_live"
+          ],
+          "role_note": "Pre-exposure and routine immunization against hepatitis B; birth-dose and later schedules are programme/history dependent.",
+          "drug_ids": [
+            "vax_hepb_mono"
+          ]
+        },
+        {
+          "id": "vax_polio",
+          "name": "Polio vaccines",
+          "mechanism": "Mucosal live-attenuated or systemic inactivated poliovirus immunity",
+          "target": "Poliovirus",
+          "tags": [
+            "uip",
+            "infant",
+            "child",
+            "polio"
+          ],
+          "role_note": "Polio prevention using programme-specific OPV/IPV combinations.",
+          "drug_ids": [
+            "vax_opv",
+            "vax_ipv"
+          ]
+        },
+        {
+          "id": "vax_dtp",
+          "name": "Diphtheria • Tetanus • Pertussis-containing vaccines",
+          "mechanism": "Toxoid plus pertussis antigen immunity",
+          "target": "Diphtheria toxin, tetanus toxin, Bordetella pertussis",
+          "tags": [
+            "uip",
+            "infant",
+            "child",
+            "booster",
+            "toxoid"
+          ],
+          "role_note": "Primary-series and booster protection against diphtheria, tetanus and pertussis; combination products vary.",
+          "drug_ids": [
+            "vax_dtp",
+            "vax_pentavalent"
+          ]
+        },
+        {
+          "id": "vax_hib",
+          "name": "Haemophilus influenzae type b conjugate vaccine",
+          "mechanism": "Conjugate antigen induces T-cell-dependent immunity",
+          "target": "Hib capsular polysaccharide",
+          "tags": [
+            "uip",
+            "infant",
+            "child",
+            "conjugate",
+            "non_live"
+          ],
+          "role_note": "Prevention of invasive Hib disease, usually delivered in combination schedules.",
+          "drug_ids": [
+            "vax_hib_profile"
+          ]
+        },
+        {
+          "id": "vax_rotavirus",
+          "name": "Rotavirus vaccines",
+          "mechanism": "Live oral vaccine induces intestinal immunity",
+          "target": "Rotavirus",
+          "tags": [
+            "uip",
+            "infant",
+            "oral",
+            "live_vaccine"
+          ],
+          "role_note": "Infant gastroenteritis prevention with strict age/window and product-specific schedule considerations.",
+          "drug_ids": [
+            "vax_rota_mono",
+            "vax_rota_multi"
+          ]
+        },
+        {
+          "id": "vax_pneumococcal",
+          "name": "Pneumococcal vaccines",
+          "mechanism": "Conjugate or polysaccharide capsular-antigen immunity",
+          "target": "Streptococcus pneumoniae",
+          "tags": [
+            "uip",
+            "infant",
+            "adult",
+            "older_adult",
+            "high_risk",
+            "conjugate"
+          ],
+          "role_note": "Age- and risk-based pneumococcal prevention; product valency and sequencing vary by programme.",
+          "drug_ids": [
+            "vax_pcv_child",
+            "vax_pcv_adult",
+            "vax_ppsv23"
+          ]
+        },
+        {
+          "id": "vax_mr_mmr",
+          "name": "Measles • Rubella / MMR vaccines",
+          "mechanism": "Live attenuated viral immunity",
+          "target": "Measles, rubella ± mumps viruses",
+          "tags": [
+            "uip",
+            "child",
+            "adolescent",
+            "adult",
+            "live_vaccine"
+          ],
+          "role_note": "Routine and catch-up prevention of measles/rubella; MMR adds mumps protection.",
+          "drug_ids": [
+            "vax_mr",
+            "vax_mmr"
+          ]
+        },
+        {
+          "id": "vax_je",
+          "name": "Japanese encephalitis vaccines",
+          "mechanism": "Live attenuated or inactivated JE viral antigen immunity",
+          "target": "Japanese encephalitis virus",
+          "tags": [
+            "uip",
+            "child",
+            "endemic_area",
+            "travel"
+          ],
+          "role_note": "Programme/endemic-area and travel-related JE prevention.",
+          "drug_ids": [
+            "vax_je_live",
+            "vax_je_inactivated"
+          ]
+        },
+        {
+          "id": "vax_td_tdap",
+          "name": "Td / Tdap vaccines",
+          "mechanism": "Diphtheria and tetanus toxoids ± acellular pertussis antigens",
+          "target": "Tetanus/diphtheria toxins ± pertussis",
+          "tags": [
+            "uip",
+            "adolescent",
+            "adult",
+            "pregnancy",
+            "wound",
+            "toxoid"
+          ],
+          "role_note": "Adolescent/adult boosters, pregnancy and wound-management vaccination depending schedule/history.",
+          "drug_ids": [
+            "vax_td",
+            "vax_tdap"
+          ]
+        },
+        {
+          "id": "vax_hpv",
+          "name": "Human papillomavirus vaccines",
+          "mechanism": "Virus-like particle vaccines induce neutralizing antibodies",
+          "target": "Oncogenic HPV types",
+          "tags": [
+            "adolescent",
+            "young_adult",
+            "cancer_prevention",
+            "non_live"
+          ],
+          "role_note": "Primary prevention of HPV-related cancers; schedule depends age, immune status and national programme.",
+          "drug_ids": [
+            "vax_hpv_bivalent",
+            "vax_hpv_quadrivalent",
+            "vax_hpv_9valent"
+          ]
+        },
+        {
+          "id": "vax_influenza",
+          "name": "Influenza vaccines",
+          "mechanism": "Seasonal strain-specific humoral immunity",
+          "target": "Influenza virus haemagglutinin/antigens",
+          "tags": [
+            "adult",
+            "child",
+            "pregnancy",
+            "older_adult",
+            "healthcare_worker",
+            "seasonal"
+          ],
+          "role_note": "Seasonal influenza prevention using age/product-appropriate vaccine.",
+          "drug_ids": [
+            "vax_iiv",
+            "vax_riv",
+            "vax_laiv"
+          ]
+        },
+        {
+          "id": "vax_covid",
+          "name": "COVID-19 vaccines",
+          "mechanism": "Platform-specific induction of immunity to SARS-CoV-2 antigens",
+          "target": "SARS-CoV-2 spike/viral antigens",
+          "tags": [
+            "adult",
+            "child",
+            "pregnancy",
+            "older_adult",
+            "high_risk"
+          ],
+          "role_note": "Risk- and programme-based COVID-19 vaccination; recommendations evolve with circulating variants and national policy.",
+          "drug_ids": [
+            "vax_covid_mrna",
+            "vax_covid_protein",
+            "vax_covid_other"
+          ]
+        },
+        {
+          "id": "vax_varicella",
+          "name": "Varicella vaccine",
+          "mechanism": "Live attenuated varicella-zoster virus immunity",
+          "target": "Varicella-zoster virus",
+          "tags": [
+            "child",
+            "adolescent",
+            "adult",
+            "live_vaccine"
+          ],
+          "role_note": "Prevention of primary varicella in susceptible eligible people.",
+          "drug_ids": [
+            "vax_varicella_profile"
+          ]
+        },
+        {
+          "id": "vax_zoster",
+          "name": "Recombinant zoster vaccine",
+          "mechanism": "Recombinant VZV glycoprotein/adjuvanted immunity",
+          "target": "Varicella-zoster virus reactivation",
+          "tags": [
+            "older_adult",
+            "immunocompromised",
+            "non_live"
+          ],
+          "role_note": "Prevention of herpes zoster and complications in age/risk groups where recommended.",
+          "drug_ids": [
+            "vax_rzv"
+          ]
+        },
+        {
+          "id": "vax_hepa",
+          "name": "Hepatitis A vaccines",
+          "mechanism": "Active immunity to hepatitis A virus",
+          "target": "Hepatitis A virus",
+          "tags": [
+            "child",
+            "adult",
+            "travel",
+            "high_risk"
+          ],
+          "role_note": "Hepatitis A prevention for routine/private, risk-based or travel indications depending setting.",
+          "drug_ids": [
+            "vax_hepa_inactivated",
+            "vax_hepa_live"
+          ]
+        },
+        {
+          "id": "vax_menacwy",
+          "name": "Meningococcal ACWY conjugate vaccines",
+          "mechanism": "Conjugate capsular-antigen immunity",
+          "target": "Neisseria meningitidis A,C,W,Y",
+          "tags": [
+            "adolescent",
+            "travel",
+            "asplenia",
+            "high_risk",
+            "conjugate"
+          ],
+          "role_note": "Risk-, travel-, outbreak- and schedule-based meningococcal ACWY prevention.",
+          "drug_ids": [
+            "vax_menacwy_profile"
+          ]
+        },
+        {
+          "id": "vax_menb",
+          "name": "Meningococcal B vaccines",
+          "mechanism": "Protein-based immunity to meningococcal B antigens",
+          "target": "Neisseria meningitidis B",
+          "tags": [
+            "adolescent",
+            "asplenia",
+            "high_risk"
+          ],
+          "role_note": "Risk- and country-specific meningococcal B prevention.",
+          "drug_ids": [
+            "vax_menb_profile"
+          ]
+        },
+        {
+          "id": "vax_typhoid",
+          "name": "Typhoid vaccines",
+          "mechanism": "Capsular conjugate, polysaccharide or live oral immunity",
+          "target": "Salmonella Typhi",
+          "tags": [
+            "child",
+            "travel",
+            "endemic_area"
+          ],
+          "role_note": "Typhoid prevention using product- and age-specific strategies; not a substitute for safe water/food.",
+          "drug_ids": [
+            "vax_tcv",
+            "vax_vi",
+            "vax_ty21a"
+          ]
+        },
+        {
+          "id": "vax_rabies",
+          "name": "Rabies vaccines — PrEP / PEP",
+          "mechanism": "Inactivated rabies virus vaccine induces neutralizing antibodies",
+          "target": "Rabies virus",
+          "tags": [
+            "post_exposure",
+            "pre_exposure",
+            "travel",
+            "occupational",
+            "urgent"
+          ],
+          "role_note": "Rabies pre-exposure and post-exposure active immunization; PEP is time-critical and exposure-category/history dependent.",
+          "drug_ids": [
+            "vax_rabies_prep",
+            "vax_rabies_pep"
+          ]
+        },
+        {
+          "id": "immuno_rabies_passive",
+          "name": "Rabies passive immunization",
+          "mechanism": "Immediate neutralizing antibody around exposure site",
+          "target": "Rabies virus",
+          "tags": [
+            "post_exposure",
+            "urgent",
+            "immunoglobulin"
+          ],
+          "role_note": "Passive component of PEP for indicated exposures in previously unvaccinated persons; must be infiltrated/administered per current protocol.",
+          "drug_ids": [
+            "immuno_hrig",
+            "immuno_erig",
+            "immuno_rabies_mab"
+          ]
+        },
+        {
+          "id": "immuno_tig",
+          "name": "Tetanus immune globulin",
+          "mechanism": "Passive antitoxin immunity",
+          "target": "Tetanus toxin",
+          "tags": [
+            "wound",
+            "post_exposure",
+            "immunoglobulin",
+            "urgent"
+          ],
+          "role_note": "Passive tetanus prophylaxis for selected wounds in patients with inadequate/unknown immunization, alongside active vaccination when indicated.",
+          "drug_ids": [
+            "immuno_tig_profile"
+          ]
+        },
+        {
+          "id": "vax_rsv",
+          "name": "RSV vaccines",
+          "mechanism": "Prefusion-F/protein-based active immunity",
+          "target": "Respiratory syncytial virus",
+          "tags": [
+            "older_adult",
+            "pregnancy",
+            "maternal",
+            "non_live"
+          ],
+          "role_note": "Active RSV prevention in older adults and/or pregnancy depending product and national policy.",
+          "drug_ids": [
+            "vax_rsv_adult",
+            "vax_rsv_maternal"
+          ]
+        },
+        {
+          "id": "immuno_rsv_passive",
+          "name": "RSV monoclonal-antibody prevention",
+          "mechanism": "Long-acting or periodic neutralizing antibody to RSV F protein",
+          "target": "Respiratory syncytial virus",
+          "tags": [
+            "infant",
+            "high_risk",
+            "monoclonal_antibody",
+            "passive_immunity"
+          ],
+          "role_note": "Passive RSV prevention for infants/selected high-risk children where indicated.",
+          "drug_ids": [
+            "immuno_nirsevimab",
+            "immuno_palivizumab"
+          ]
+        },
+        {
+          "id": "vax_mpox",
+          "name": "Mpox vaccine",
+          "mechanism": "Orthopoxvirus vaccine-induced cross-protective immunity",
+          "target": "Mpox/orthopox viruses",
+          "tags": [
+            "high_risk",
+            "outbreak",
+            "travel"
+          ],
+          "role_note": "Risk- and outbreak-based mpox vaccination; not universal routine immunization.",
+          "drug_ids": [
+            "vax_mpox_profile"
+          ]
+        },
+        {
+          "id": "vax_yellow_fever",
+          "name": "Yellow fever vaccine",
+          "mechanism": "Live attenuated 17D-derived immunity",
+          "target": "Yellow fever virus",
+          "tags": [
+            "travel",
+            "live_vaccine",
+            "international_certificate"
+          ],
+          "role_note": "Travel/endemic-area yellow fever prevention and international certificate requirements where applicable.",
+          "drug_ids": [
+            "vax_yf17d"
+          ]
+        },
+        {
+          "id": "vax_cholera",
+          "name": "Oral cholera vaccines",
+          "mechanism": "Oral killed whole-cell antigen induces intestinal immunity",
+          "target": "Vibrio cholerae",
+          "tags": [
+            "travel",
+            "outbreak",
+            "oral"
+          ],
+          "role_note": "Public-health/travel cholera prevention in defined settings; sanitation and safe water remain essential.",
+          "drug_ids": [
+            "vax_ocv"
+          ]
+        },
+        {
+          "id": "vax_dengue",
+          "name": "Dengue vaccines",
+          "mechanism": "Live/chimeric or attenuated tetravalent dengue immunity",
+          "target": "Dengue virus serotypes",
+          "tags": [
+            "selected_programme",
+            "endemic_area",
+            "live_vaccine"
+          ],
+          "role_note": "Dengue vaccination is product-, age-, serostatus- and country-policy specific; inappropriate use can be harmful.",
+          "drug_ids": [
+            "vax_dengue_cyd",
+            "vax_dengue_tak003"
+          ]
+        },
+        {
+          "id": "vax_malaria",
+          "name": "Malaria vaccines",
+          "mechanism": "Pre-erythrocytic Plasmodium falciparum circumsporozoite-protein immunity",
+          "target": "Plasmodium falciparum",
+          "tags": [
+            "child",
+            "endemic_area",
+            "programme_vaccine"
+          ],
+          "role_note": "WHO-recommended malaria vaccines for children in malaria-endemic programme settings; not a travel substitute for chemoprophylaxis.",
+          "drug_ids": [
+            "vax_rts_s",
+            "vax_r21"
+          ]
+        },
+        {
+          "id": "immuno_vzig",
+          "name": "Varicella-zoster immune globulin",
+          "mechanism": "Passive anti-VZV antibodies",
+          "target": "Varicella-zoster virus",
+          "tags": [
+            "post_exposure",
+            "immunocompromised",
+            "pregnancy",
+            "immunoglobulin"
+          ],
+          "role_note": "Post-exposure passive protection for selected susceptible high-risk people when vaccination is contraindicated/inadequate.",
+          "drug_ids": [
+            "immuno_vzig_profile"
+          ]
+        },
+        {
+          "id": "immuno_hbig",
+          "name": "Hepatitis B immune globulin",
+          "mechanism": "Passive anti-HBs antibodies",
+          "target": "Hepatitis B virus",
+          "tags": [
+            "post_exposure",
+            "perinatal",
+            "immunoglobulin"
+          ],
+          "role_note": "Passive hepatitis B protection in selected perinatal/post-exposure scenarios together with active vaccine when indicated.",
+          "drug_ids": [
+            "immuno_hbig_profile"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "vax_bcg_profile",
+          "generic": "BCG vaccine",
+          "class_id": "vax_bcg",
+          "form": "Lyophilized vaccine",
+          "route": "Intradermal",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "newborn",
+            "child",
+            "live_vaccine",
+            "tuberculosis"
+          ],
+          "role": "Routine childhood TB-prevention vaccine in programmes where indicated.",
+          "monitoring_pearl": "Use correct intradermal technique; verify scar expectations, contraindications and immunocompromise status.",
+          "source_refs": [
+            "INDIA_UWIN",
+            "INDIA_RI_HANDBOOK",
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_hepb_mono",
+          "generic": "Recombinant hepatitis B vaccine",
+          "class_id": "vax_hepb",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "newborn",
+            "child",
+            "adult",
+            "healthcare_worker",
+            "non_live"
+          ],
+          "role": "Routine/pre-exposure active immunization against hepatitis B.",
+          "monitoring_pearl": "Check prior doses, serologic-risk context when relevant, and post-exposure/perinatal need for HBIG.",
+          "source_refs": [
+            "INDIA_UWIN",
+            "INDIA_RI_HANDBOOK",
+            "WHO_ROUTINE_2025",
+            "WHO_HCW_2025"
+          ]
+        },
+        {
+          "id": "vax_opv",
+          "generic": "Oral poliovirus vaccine (OPV)",
+          "class_id": "vax_polio",
+          "form": "Oral drops",
+          "route": "Oral",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "infant",
+            "child",
+            "polio",
+            "live_vaccine"
+          ],
+          "role": "Programme polio vaccine providing intestinal/mucosal immunity.",
+          "monitoring_pearl": "Verify current programme formulation and campaign/routine schedule; special precautions apply in severe immunodeficiency/household context.",
+          "source_refs": [
+            "INDIA_UWIN",
+            "INDIA_RI_HANDBOOK",
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_ipv",
+          "generic": "Inactivated poliovirus vaccine (IPV/fIPV)",
+          "class_id": "vax_polio",
+          "form": "Injection",
+          "route": "IM/ID",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "infant",
+            "child",
+            "polio",
+            "non_live"
+          ],
+          "role": "Inactivated polio vaccine used in primary/routine and catch-up strategies.",
+          "monitoring_pearl": "Verify full-dose vs fractional-dose programme route and current schedule.",
+          "source_refs": [
+            "INDIA_UWIN",
+            "INDIA_RI_HANDBOOK",
+            "WHO_ROUTINE_2025"
+          ]
+        },
+        {
+          "id": "vax_dtp",
+          "generic": "DTP/DTwP-containing vaccine",
+          "class_id": "vax_dtp",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "infant",
+            "child",
+            "booster",
+            "toxoid"
+          ],
+          "role": "Routine childhood DTP-containing immunization.",
+          "monitoring_pearl": "Confirm age-appropriate formulation and previous series before booster/catch-up decisions.",
+          "source_refs": [
+            "INDIA_UWIN",
+            "INDIA_RI_HANDBOOK",
+            "WHO_ROUTINE_2025"
+          ]
+        },
+        {
+          "id": "vax_pentavalent",
+          "generic": "Pentavalent DTP-HepB-Hib vaccine",
+          "class_id": "vax_dtp",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "infant",
+            "child",
+            "booster",
+            "toxoid",
+            "combination_vaccine"
+          ],
+          "role": "Combination infant vaccine used to reduce injection burden in routine programmes.",
+          "monitoring_pearl": "Component timing and eligibility must follow national programme schedule.",
+          "source_refs": [
+            "INDIA_UWIN",
+            "INDIA_RI_HANDBOOK"
+          ]
+        },
+        {
+          "id": "vax_hib_profile",
+          "generic": "Hib conjugate vaccine",
+          "class_id": "vax_hib",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "infant",
+            "child",
+            "conjugate",
+            "non_live"
+          ],
+          "role": "Routine infant/child prevention of invasive Hib disease.",
+          "monitoring_pearl": "Catch-up need depends strongly on age and risk status; verify current schedule.",
+          "source_refs": [
+            "INDIA_UWIN",
+            "WHO_ROUTINE_2025"
+          ]
+        },
+        {
+          "id": "vax_rota_mono",
+          "generic": "Live oral rotavirus vaccine — monovalent type",
+          "class_id": "vax_rotavirus",
+          "form": "Oral liquid",
+          "route": "Oral",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "infant",
+            "oral",
+            "live_vaccine"
+          ],
+          "role": "Infant rotavirus prevention.",
+          "monitoring_pearl": "Observe product-specific age limits, dose count and contraindications such as severe combined immunodeficiency/intussusception history.",
+          "source_refs": [
+            "INDIA_UWIN",
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_rota_multi",
+          "generic": "Live oral rotavirus vaccine — multivalent type",
+          "class_id": "vax_rotavirus",
+          "form": "Oral liquid",
+          "route": "Oral",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "infant",
+            "oral",
+            "live_vaccine"
+          ],
+          "role": "Infant rotavirus prevention using multivalent products where programme/formulary uses them.",
+          "monitoring_pearl": "Do not interchange schedule assumptions across products without verification.",
+          "source_refs": [
+            "INDIA_UWIN",
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_pcv_child",
+          "generic": "Pneumococcal conjugate vaccine — paediatric programme formulation",
+          "class_id": "vax_pneumococcal",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "infant",
+            "adult",
+            "older_adult",
+            "high_risk",
+            "conjugate",
+            "child",
+            "conjugate"
+          ],
+          "role": "Routine infant/child pneumococcal prevention where included in UIP.",
+          "monitoring_pearl": "Verify current national valency/formulation and primary/booster timing.",
+          "source_refs": [
+            "INDIA_UWIN",
+            "WHO_PCV_2025"
+          ]
+        },
+        {
+          "id": "vax_pcv_adult",
+          "generic": "Higher-valency pneumococcal conjugate vaccine",
+          "class_id": "vax_pneumococcal",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "infant",
+            "adult",
+            "older_adult",
+            "high_risk",
+            "conjugate",
+            "adult",
+            "older_adult",
+            "high_risk",
+            "conjugate"
+          ],
+          "role": "Adult/high-risk pneumococcal prevention in settings/guidelines using higher-valency PCVs.",
+          "monitoring_pearl": "Adult recommendations vary by country, prior PCV/PPSV history, age and risk condition.",
+          "source_refs": [
+            "WHO_ROUTINE_2025",
+            "CDC_ADULT_CURRENT"
+          ]
+        },
+        {
+          "id": "vax_ppsv23",
+          "generic": "Pneumococcal polysaccharide vaccine (PPSV23)",
+          "class_id": "vax_pneumococcal",
+          "form": "Injection",
+          "route": "IM/SC",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "infant",
+            "adult",
+            "older_adult",
+            "high_risk",
+            "conjugate",
+            "adult",
+            "high_risk",
+            "polysaccharide"
+          ],
+          "role": "Risk- and age-based adult pneumococcal option in schedules that use PPSV23.",
+          "monitoring_pearl": "Sequence relative to PCV is guideline-specific; verify current national/local adult schedule.",
+          "source_refs": [
+            "CDC_ADULT_CURRENT",
+            "WHO_ROUTINE_2025"
+          ]
+        },
+        {
+          "id": "vax_mr",
+          "generic": "Measles-Rubella (MR) vaccine",
+          "class_id": "vax_mr_mmr",
+          "form": "Injection",
+          "route": "SC/IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "child",
+            "adolescent",
+            "adult",
+            "live_vaccine",
+            "uip"
+          ],
+          "role": "India programme measles-rubella immunization.",
+          "monitoring_pearl": "Live-vaccine pregnancy and severe-immunocompromise precautions require verification.",
+          "source_refs": [
+            "INDIA_UWIN",
+            "INDIA_RI_HANDBOOK",
+            "WHO_ROUTINE_2025"
+          ]
+        },
+        {
+          "id": "vax_mmr",
+          "generic": "Measles-Mumps-Rubella (MMR) vaccine",
+          "class_id": "vax_mr_mmr",
+          "form": "Injection",
+          "route": "SC/IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "child",
+            "adolescent",
+            "adult",
+            "live_vaccine"
+          ],
+          "role": "MMR immunization in schedules/private practice where indicated.",
+          "monitoring_pearl": "Check evidence of immunity, pregnancy and immunocompromise before administration.",
+          "source_refs": [
+            "WHO_ROUTINE_2025",
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_je_live",
+          "generic": "Live attenuated JE vaccine",
+          "class_id": "vax_je",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "child",
+            "endemic_area",
+            "travel",
+            "live_vaccine"
+          ],
+          "role": "JE prevention in endemic/programme settings using live attenuated vaccine.",
+          "monitoring_pearl": "Eligibility is geography/programme specific; apply live-vaccine precautions.",
+          "source_refs": [
+            "INDIA_UWIN",
+            "INDIA_RI_HANDBOOK",
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_je_inactivated",
+          "generic": "Inactivated JE vaccine",
+          "class_id": "vax_je",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "child",
+            "endemic_area",
+            "travel",
+            "non_live",
+            "travel"
+          ],
+          "role": "JE prevention in programme or travel contexts using inactivated product.",
+          "monitoring_pearl": "Verify destination risk, age, series and booster need from current travel/product guidance.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_td",
+          "generic": "Tetanus-diphtheria (Td) vaccine",
+          "class_id": "vax_td_tdap",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "adolescent",
+            "adult",
+            "pregnancy",
+            "wound",
+            "toxoid"
+          ],
+          "role": "Routine booster and wound-management active immunization according to history.",
+          "monitoring_pearl": "Wound prophylaxis depends wound type and prior doses; TIG may also be indicated.",
+          "source_refs": [
+            "INDIA_UWIN",
+            "INDIA_RI_HANDBOOK",
+            "WHO_ROUTINE_2025"
+          ]
+        },
+        {
+          "id": "vax_tdap",
+          "generic": "Tdap vaccine",
+          "class_id": "vax_td_tdap",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "uip",
+            "adolescent",
+            "adult",
+            "pregnancy",
+            "wound",
+            "toxoid",
+            "pregnancy",
+            "adult"
+          ],
+          "role": "Pertussis-containing booster used in adult/pregnancy schedules where recommended.",
+          "monitoring_pearl": "Pregnancy timing and national adult recommendations vary; verify current guideline.",
+          "source_refs": [
+            "WHO_ROUTINE_2025",
+            "CDC_ADULT_CURRENT"
+          ]
+        },
+        {
+          "id": "vax_hpv_bivalent",
+          "generic": "Bivalent HPV vaccine",
+          "class_id": "vax_hpv",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "adolescent",
+            "young_adult",
+            "cancer_prevention",
+            "non_live"
+          ],
+          "role": "HPV cancer-prevention vaccine targeting key oncogenic types.",
+          "monitoring_pearl": "Best preventive value is before exposure; schedule varies by age and immunocompromise.",
+          "source_refs": [
+            "WHO_HPV",
+            "WHO_ROUTINE_2025"
+          ]
+        },
+        {
+          "id": "vax_hpv_quadrivalent",
+          "generic": "Quadrivalent HPV vaccine",
+          "class_id": "vax_hpv",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "adolescent",
+            "young_adult",
+            "cancer_prevention",
+            "non_live"
+          ],
+          "role": "HPV vaccine covering oncogenic and wart-associated types.",
+          "monitoring_pearl": "Verify age/licensure and national programme schedule.",
+          "source_refs": [
+            "WHO_HPV",
+            "WHO_ROUTINE_2025"
+          ]
+        },
+        {
+          "id": "vax_hpv_9valent",
+          "generic": "9-valent HPV vaccine",
+          "class_id": "vax_hpv",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "adolescent",
+            "young_adult",
+            "cancer_prevention",
+            "non_live"
+          ],
+          "role": "Broader-valency HPV prevention where available/indicated.",
+          "monitoring_pearl": "Use current product label and local/national schedule; not therapeutic for established HPV disease.",
+          "source_refs": [
+            "WHO_HPV",
+            "CDC_ADULT_CURRENT"
+          ]
+        },
+        {
+          "id": "vax_iiv",
+          "generic": "Inactivated influenza vaccine (IIV)",
+          "class_id": "vax_influenza",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "adult",
+            "child",
+            "pregnancy",
+            "older_adult",
+            "healthcare_worker",
+            "seasonal",
+            "non_live"
+          ],
+          "role": "Seasonal influenza prevention across eligible age/risk groups.",
+          "monitoring_pearl": "Use season-current formulation and age-appropriate product; egg allergy guidance is product/guideline specific.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS",
+            "WHO_HCW_2025",
+            "CDC_ADULT_CURRENT"
+          ]
+        },
+        {
+          "id": "vax_riv",
+          "generic": "Recombinant influenza vaccine (RIV)",
+          "class_id": "vax_influenza",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "adult",
+            "child",
+            "pregnancy",
+            "older_adult",
+            "healthcare_worker",
+            "seasonal",
+            "non_live",
+            "adult"
+          ],
+          "role": "Non-egg recombinant seasonal influenza option where available.",
+          "monitoring_pearl": "Age eligibility and preference in older adults vary by guideline/product.",
+          "source_refs": [
+            "CDC_ADULT_CURRENT"
+          ]
+        },
+        {
+          "id": "vax_laiv",
+          "generic": "Live attenuated influenza vaccine (LAIV)",
+          "class_id": "vax_influenza",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "adult",
+            "child",
+            "pregnancy",
+            "older_adult",
+            "healthcare_worker",
+            "seasonal",
+            "live_vaccine"
+          ],
+          "role": "Needle-free live influenza vaccine for selected eligible people.",
+          "monitoring_pearl": "Not appropriate for many pregnancy/immunocompromise situations; verify age and contraindications.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS",
+            "CDC_ADULT_CURRENT"
+          ]
+        },
+        {
+          "id": "vax_covid_mrna",
+          "generic": "COVID-19 mRNA vaccine",
+          "class_id": "vax_covid",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "adult",
+            "child",
+            "pregnancy",
+            "older_adult",
+            "high_risk",
+            "mrna",
+            "non_live"
+          ],
+          "role": "Updated-strain COVID-19 vaccination in programmes using mRNA products.",
+          "monitoring_pearl": "Current product, target population, interval and additional-dose recommendations change; verify latest national/WHO guidance.",
+          "source_refs": [
+            "WHO_COVID_2026",
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_covid_protein",
+          "generic": "COVID-19 protein-subunit vaccine",
+          "class_id": "vax_covid",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "adult",
+            "child",
+            "pregnancy",
+            "older_adult",
+            "high_risk",
+            "protein_subunit",
+            "non_live"
+          ],
+          "role": "Protein-subunit COVID-19 vaccination where approved/available.",
+          "monitoring_pearl": "Verify current strain formulation and local approval/recommendation.",
+          "source_refs": [
+            "WHO_COVID_2026"
+          ]
+        },
+        {
+          "id": "vax_covid_other",
+          "generic": "COVID-19 non-mRNA platforms (inactivated/viral-vector, programme specific)",
+          "class_id": "vax_covid",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "adult",
+            "child",
+            "pregnancy",
+            "older_adult",
+            "high_risk",
+            "platform_specific"
+          ],
+          "role": "Other COVID-19 vaccine platforms used according to national authorization and WHO policy.",
+          "monitoring_pearl": "Do not assume interchangeability, age eligibility or booster schedule across products.",
+          "source_refs": [
+            "WHO_COVID_2026",
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_varicella_profile",
+          "generic": "Live attenuated varicella vaccine",
+          "class_id": "vax_varicella",
+          "form": "Injection",
+          "route": "SC/IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "child",
+            "adolescent",
+            "adult",
+            "live_vaccine"
+          ],
+          "role": "Primary varicella prevention in susceptible persons per national/local schedule.",
+          "monitoring_pearl": "Pregnancy and significant immunocompromise are major live-vaccine safety considerations; post-exposure timing may matter.",
+          "source_refs": [
+            "WHO_VARICELLA_2025",
+            "WHO_ROUTINE_2025"
+          ]
+        },
+        {
+          "id": "vax_rzv",
+          "generic": "Recombinant zoster vaccine (RZV)",
+          "class_id": "vax_zoster",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "older_adult",
+            "immunocompromised",
+            "non_live"
+          ],
+          "role": "Non-live zoster prevention for eligible older/high-risk adults.",
+          "monitoring_pearl": "Age, immunocompromise and prior-zoster/prior-vaccine timing are guideline specific.",
+          "source_refs": [
+            "WHO_VARICELLA_2025",
+            "CDC_ADULT_CURRENT"
+          ]
+        },
+        {
+          "id": "vax_hepa_inactivated",
+          "generic": "Inactivated hepatitis A vaccine",
+          "class_id": "vax_hepa",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "child",
+            "adult",
+            "travel",
+            "high_risk",
+            "non_live"
+          ],
+          "role": "Hepatitis A active immunization for eligible children/adults/travellers.",
+          "monitoring_pearl": "Series and combined-vaccine schedules are product specific.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS",
+            "CDC_ADULT_CURRENT"
+          ]
+        },
+        {
+          "id": "vax_hepa_live",
+          "generic": "Live attenuated hepatitis A vaccine",
+          "class_id": "vax_hepa",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "child",
+            "adult",
+            "travel",
+            "high_risk",
+            "live_vaccine"
+          ],
+          "role": "Live hepatitis A vaccine used in some countries/products.",
+          "monitoring_pearl": "Apply live-vaccine pregnancy/immunocompromise precautions and product-specific schedule.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_menacwy_profile",
+          "generic": "Meningococcal ACWY conjugate vaccine",
+          "class_id": "vax_menacwy",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "adolescent",
+            "travel",
+            "asplenia",
+            "high_risk",
+            "conjugate"
+          ],
+          "role": "Prevention of invasive meningococcal A/C/W/Y disease in eligible risk/travel groups.",
+          "monitoring_pearl": "Booster needs depend ongoing risk, age and product.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS",
+            "WHO_HCW_2025",
+            "CDC_ADULT_CURRENT"
+          ]
+        },
+        {
+          "id": "vax_menb_profile",
+          "generic": "Meningococcal B vaccine",
+          "class_id": "vax_menb",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "adolescent",
+            "asplenia",
+            "high_risk"
+          ],
+          "role": "Prevention of invasive meningococcal B disease where indicated.",
+          "monitoring_pearl": "Products are not automatically interchangeable; series/booster recommendations vary.",
+          "source_refs": [
+            "CDC_ADULT_CURRENT",
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_tcv",
+          "generic": "Typhoid conjugate vaccine (TCV)",
+          "class_id": "vax_typhoid",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "child",
+            "travel",
+            "endemic_area",
+            "conjugate"
+          ],
+          "role": "Preferred programme/travel typhoid option in many settings because of longer-lasting immunity and younger-age use.",
+          "monitoring_pearl": "Verify local programme indication and current WHO recommendations.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_vi",
+          "generic": "Vi polysaccharide typhoid vaccine",
+          "class_id": "vax_typhoid",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "child",
+            "travel",
+            "endemic_area",
+            "polysaccharide"
+          ],
+          "role": "Injectable Vi typhoid prevention for eligible ages/travel contexts.",
+          "monitoring_pearl": "Booster interval and age eligibility are product/guideline specific.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_ty21a",
+          "generic": "Live oral typhoid vaccine (Ty21a)",
+          "class_id": "vax_typhoid",
+          "form": "Capsules",
+          "route": "Oral",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "child",
+            "travel",
+            "endemic_area",
+            "live_vaccine",
+            "travel"
+          ],
+          "role": "Oral live typhoid prevention in eligible travellers/settings.",
+          "monitoring_pearl": "Age, antibiotic interaction, pregnancy and immunocompromise restrictions require verification.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_rabies_prep",
+          "generic": "Cell-culture rabies vaccine — pre-exposure prophylaxis",
+          "class_id": "vax_rabies",
+          "form": "Injection",
+          "route": "IM/ID",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "post_exposure",
+            "pre_exposure",
+            "travel",
+            "occupational",
+            "urgent",
+            "pre_exposure"
+          ],
+          "role": "PrEP for selected occupational/travel risk groups.",
+          "monitoring_pearl": "Current PrEP schedule and need for titre/boosters depend risk category and national guidance.",
+          "source_refs": [
+            "NCDC_RABIES_2019",
+            "WHO_RABIES"
+          ]
+        },
+        {
+          "id": "vax_rabies_pep",
+          "generic": "Cell-culture rabies vaccine — post-exposure prophylaxis",
+          "class_id": "vax_rabies",
+          "form": "Injection",
+          "route": "IM/ID",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "post_exposure",
+            "pre_exposure",
+            "travel",
+            "occupational",
+            "urgent",
+            "post_exposure",
+            "urgent"
+          ],
+          "role": "Active vaccine component of rabies PEP after qualifying exposure.",
+          "monitoring_pearl": "Immediate wound washing is essential; previous vaccination changes regimen; Category III exposure may require passive immunization.",
+          "source_refs": [
+            "NCDC_RABIES_2019",
+            "WHO_RABIES"
+          ]
+        },
+        {
+          "id": "immuno_hrig",
+          "generic": "Human rabies immunoglobulin (HRIG)",
+          "class_id": "immuno_rabies_passive",
+          "form": "Injection",
+          "route": "Local infiltration ± IM remainder",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "post_exposure",
+            "urgent",
+            "immunoglobulin",
+            "human_ig"
+          ],
+          "role": "Passive rabies antibody for indicated PEP.",
+          "monitoring_pearl": "Dose is weight-based and wound infiltration technique matters; do not exceed or delay beyond guideline window.",
+          "source_refs": [
+            "NCDC_RABIES_2019",
+            "WHO_RABIES"
+          ]
+        },
+        {
+          "id": "immuno_erig",
+          "generic": "Equine rabies immunoglobulin (ERIG)",
+          "class_id": "immuno_rabies_passive",
+          "form": "Injection",
+          "route": "Local infiltration ± IM remainder",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "post_exposure",
+            "urgent",
+            "immunoglobulin",
+            "equine_ig"
+          ],
+          "role": "Alternative passive rabies antibody product in indicated PEP.",
+          "monitoring_pearl": "Product-specific testing/administration and anaphylaxis preparedness require current national guidance.",
+          "source_refs": [
+            "NCDC_RABIES_2019",
+            "WHO_RABIES"
+          ]
+        },
+        {
+          "id": "immuno_rabies_mab",
+          "generic": "Rabies monoclonal antibody product",
+          "class_id": "immuno_rabies_passive",
+          "form": "Injection",
+          "route": "Local infiltration",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "post_exposure",
+            "urgent",
+            "immunoglobulin",
+            "monoclonal_antibody"
+          ],
+          "role": "Passive rabies-neutralizing monoclonal option where nationally approved/available.",
+          "monitoring_pearl": "Use only product-specific approved dosing/indication and ensure wound infiltration per national protocol.",
+          "source_refs": [
+            "NCDC_RABIES_2019",
+            "WHO_RABIES"
+          ]
+        },
+        {
+          "id": "immuno_tig_profile",
+          "generic": "Tetanus immune globulin (TIG)",
+          "class_id": "immuno_tig",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "wound",
+            "post_exposure",
+            "immunoglobulin",
+            "urgent"
+          ],
+          "role": "Passive tetanus protection in selected wound scenarios.",
+          "monitoring_pearl": "Need depends wound classification and immunization history; use current wound-prophylaxis protocol.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS",
+            "CDC_ADULT_CURRENT"
+          ]
+        },
+        {
+          "id": "vax_rsv_adult",
+          "generic": "RSV vaccine — older-adult formulation",
+          "class_id": "vax_rsv",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "older_adult",
+            "pregnancy",
+            "maternal",
+            "non_live",
+            "older_adult"
+          ],
+          "role": "Prevention of RSV lower respiratory tract disease in eligible older adults.",
+          "monitoring_pearl": "Age/risk eligibility and revaccination policy are evolving; verify current national/product guidance.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS",
+            "CDC_ADULT_CURRENT"
+          ]
+        },
+        {
+          "id": "vax_rsv_maternal",
+          "generic": "RSV vaccine — maternal pregnancy indication",
+          "class_id": "vax_rsv",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "older_adult",
+            "pregnancy",
+            "maternal",
+            "non_live",
+            "pregnancy",
+            "maternal"
+          ],
+          "role": "Maternal vaccination to protect young infants where recommended/product approved.",
+          "monitoring_pearl": "Gestational window and seasonality are product/country specific.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS",
+            "CDC_ADULT_CURRENT"
+          ]
+        },
+        {
+          "id": "immuno_nirsevimab",
+          "generic": "Nirsevimab",
+          "class_id": "immuno_rsv_passive",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "infant",
+            "high_risk",
+            "monoclonal_antibody",
+            "passive_immunity",
+            "infant",
+            "long_acting"
+          ],
+          "role": "Long-acting infant RSV preventive monoclonal antibody in programmes where recommended.",
+          "monitoring_pearl": "Eligibility, maternal-vaccine interaction and seasonal timing are guideline-specific.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "immuno_palivizumab",
+          "generic": "Palivizumab",
+          "class_id": "immuno_rsv_passive",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "infant",
+            "high_risk",
+            "monoclonal_antibody",
+            "passive_immunity",
+            "high_risk",
+            "pediatric"
+          ],
+          "role": "Older monthly RSV monoclonal prophylaxis for selected high-risk children.",
+          "monitoring_pearl": "Reserved for defined high-risk paediatric groups; verify current local criteria.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_mpox_profile",
+          "generic": "Non-replicating/attenuated orthopox mpox vaccine",
+          "class_id": "vax_mpox",
+          "form": "Injection",
+          "route": "SC/ID",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "high_risk",
+            "outbreak",
+            "travel",
+            "outbreak"
+          ],
+          "role": "Pre-/post-exposure mpox prevention for eligible risk groups under public-health guidance.",
+          "monitoring_pearl": "Route, dose count and PEP timing are product/public-health specific.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_yf17d",
+          "generic": "Yellow fever 17D vaccine",
+          "class_id": "vax_yellow_fever",
+          "form": "Injection",
+          "route": "SC/IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "travel",
+            "live_vaccine",
+            "international_certificate"
+          ],
+          "role": "Yellow fever prevention for eligible travellers/residents of risk areas.",
+          "monitoring_pearl": "Check destination/transit requirements, contraindications, authorised centre/certificate rules and timing before travel.",
+          "source_refs": [
+            "WHO_YELLOW_FEVER",
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_ocv",
+          "generic": "Oral cholera vaccine (OCV)",
+          "class_id": "vax_cholera",
+          "form": "Oral suspension",
+          "route": "Oral",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "travel",
+            "outbreak",
+            "oral"
+          ],
+          "role": "Cholera prevention in endemic/outbreak/travel contexts according to public-health guidance.",
+          "monitoring_pearl": "Product, age, dose count and outbreak strategy vary; verify current WHO/national recommendation.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_dengue_cyd",
+          "generic": "CYD-TDV dengue vaccine",
+          "class_id": "vax_dengue",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "selected_programme",
+            "endemic_area",
+            "live_vaccine",
+            "serostatus_sensitive"
+          ],
+          "role": "Dengue vaccine with strict eligibility/serostatus considerations in settings where used.",
+          "monitoring_pearl": "Do not use without confirming current national policy and product-specific prior-infection requirements.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_dengue_tak003",
+          "generic": "TAK-003 dengue vaccine",
+          "class_id": "vax_dengue",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "selected_programme",
+            "endemic_area",
+            "live_vaccine",
+            "programme_specific"
+          ],
+          "role": "Tetravalent dengue vaccine used/considered in selected endemic settings according to national policy.",
+          "monitoring_pearl": "Country approval, age range, epidemiology and programme recommendation must be checked before use.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_rts_s",
+          "generic": "RTS,S/AS01 malaria vaccine",
+          "class_id": "vax_malaria",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "child",
+            "endemic_area",
+            "programme_vaccine"
+          ],
+          "role": "Childhood malaria prevention in endemic programme settings.",
+          "monitoring_pearl": "Use only within current national malaria-immunization programme schedule; continue vector control and case management.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "vax_r21",
+          "generic": "R21/Matrix-M malaria vaccine",
+          "class_id": "vax_malaria",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "child",
+            "endemic_area",
+            "programme_vaccine"
+          ],
+          "role": "Childhood malaria prevention in endemic programme settings.",
+          "monitoring_pearl": "Programme timing is seasonal/epidemiologic in some settings; follow national/WHO implementation guidance.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS"
+          ]
+        },
+        {
+          "id": "immuno_vzig_profile",
+          "generic": "Varicella-zoster immune globulin (VZIG)",
+          "class_id": "immuno_vzig",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "post_exposure",
+            "immunocompromised",
+            "pregnancy",
+            "immunoglobulin"
+          ],
+          "role": "Post-exposure passive immunization for selected high-risk susceptible contacts.",
+          "monitoring_pearl": "Timing and eligibility are exposure-, pregnancy- and immunocompromise-specific; urgent specialist/public-health verification is needed.",
+          "source_refs": [
+            "WHO_VARICELLA_2025"
+          ]
+        },
+        {
+          "id": "immuno_hbig_profile",
+          "generic": "Hepatitis B immune globulin (HBIG)",
+          "class_id": "immuno_hbig",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Schedule, dose/volume, route, interval and age eligibility are vaccine/product/programme specific. Verify the current India National Immunization Schedule/U-WIN, WHO position paper or relevant current guideline and product label; do not auto-derive or restart a series without schedule verification.",
+          "tags": [
+            "post_exposure",
+            "perinatal",
+            "immunoglobulin"
+          ],
+          "role": "Passive hepatitis B prophylaxis in defined perinatal/occupational/sexual exposure settings.",
+          "monitoring_pearl": "Use is time-sensitive and history/serology dependent; follow current exposure-specific protocol.",
+          "source_refs": [
+            "WHO_POSITION_PAPERS",
+            "WHO_HCW_2025"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "INDIA_UWIN",
+          "label": "Government of India MoHFW — U-WIN / National Immunization Schedule context",
+          "url": "https://uwin.mohfw.gov.in/faq"
+        },
+        {
+          "id": "INDIA_RI_HANDBOOK",
+          "label": "Government of India MoHFW — Immunization Handbook for Medical Officers",
+          "url": "https://nccmis.mohfw.gov.in/document/33.Immunization%20Handbook%20for%20Medical%20Officers.pdf"
+        },
+        {
+          "id": "WHO_ROUTINE_2025",
+          "label": "WHO — Routine Immunization Summary Table 1 (December 2025)",
+          "url": "https://www.who.int/publications/m/item/table1-summary-of-who-position-papers-recommendations-for-routine-immunization"
+        },
+        {
+          "id": "WHO_CATCHUP_2025",
+          "label": "WHO — Interrupted or Delayed Routine Immunization Table 3 (December 2025)",
+          "url": "https://www.who.int/publications/m/item/table-3-recommendations-for-interrupted-or-delayed-routine-immunization-summary-of-who-position-papers"
+        },
+        {
+          "id": "WHO_HCW_2025",
+          "label": "WHO — Immunization of Health Care Workers Table 4 (December 2025)",
+          "url": "https://www.who.int/publications/m/item/table-4-summary-of-who-position-papers-immunization-of-health-care-workers"
+        },
+        {
+          "id": "WHO_POSITION_PAPERS",
+          "label": "WHO — Vaccine Position Papers",
+          "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/position-papers"
+        },
+        {
+          "id": "WHO_COVID_2026",
+          "label": "WHO — COVID-19 vaccine position paper (July 2026)",
+          "url": "https://www.who.int/publications/i/item/who-wer101-30-138-156"
+        },
+        {
+          "id": "WHO_VARICELLA_2025",
+          "label": "WHO — Varicella vaccines position paper (November 2025)",
+          "url": "https://www.who.int/publications/i/item/who-wer10047-567-590"
+        },
+        {
+          "id": "WHO_PCV_2025",
+          "label": "WHO — Pneumococcal conjugate vaccines in children position paper (September 2025)",
+          "url": "https://www.who.int/publications/i/item/who-wer10039-411-437"
+        },
+        {
+          "id": "WHO_HPV",
+          "label": "WHO — Human papillomavirus vaccine position paper",
+          "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/policies/position-papers/human-papillomavirus-%28hpv%29"
+        },
+        {
+          "id": "WHO_YELLOW_FEVER",
+          "label": "WHO — Yellow fever vaccine guidance",
+          "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/diseases/yellow-fever"
+        },
+        {
+          "id": "WHO_RABIES",
+          "label": "WHO — Rabies fact sheet / prevention context",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/rabies"
+        },
+        {
+          "id": "NCDC_RABIES_2019",
+          "label": "Government of India NCDC — National Guidelines for Rabies Prophylaxis",
+          "url": "https://ncdc.mohfw.gov.in/uploads/resource/1769332447_National-Guidelines-for-Rabies-Prophylaxis.pdf"
+        },
+        {
+          "id": "WHO_COLD_CHAIN",
+          "label": "WHO — Immunization supply chain / cold-chain guidance",
+          "url": "https://www.who.int/teams/immunization-vaccines-and-biologicals/essential-programme-on-immunization/supply-chain/guidanceandtools"
+        },
+        {
+          "id": "WHO_AEFI",
+          "label": "WHO — Adverse Events Following Immunization (AEFI) safety resources",
+          "url": "https://www.who.int/groups/global-advisory-committee-on-vaccine-safety/topics/aefi"
+        },
+        {
+          "id": "CDC_ADULT_CURRENT",
+          "label": "CDC — Current Adult Immunization Schedule (comparative; U.S.-specific)",
+          "url": "https://www.cdc.gov/vaccines/hcp/imz-schedules/adult-age.html"
         }
       ]
     }
