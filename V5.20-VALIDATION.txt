@@ -1,0 +1,59 @@
+Mahamaya Clinic EMR V5.20 — BP / Diabetes / Thyroid Pharmacology Labs Validation
+Build: 2026.08.14-R23
+Modern Therapeutics Atlas: MTLPI v2.2
+
+DATA COVERAGE
+- Dedicated chronic pharmacology labs: 3 — PASS
+- Antihypertensive Intelligence Lab: 17 classes / 67 drug-formulation profiles — PASS
+- Antidiabetic Intelligence Lab: 18 classes / 69 drug-formulation profiles — PASS
+- Thyroid Drugs Intelligence Lab: 13 classes / 33 drug-formulation profiles — PASS
+- Combined new specialized profiles: 169 — PASS
+- Class IDs / drug IDs / source IDs unique within each lab — PASS
+- Class → drug references: 0 broken — PASS
+- Drug → class references: 0 broken — PASS
+- Drug → source references: 0 broken — PASS
+- Classification/lens buttons return indexed records — PASS
+
+SEARCH / CLASSIFICATION SMOKE TESTS
+- Hypertension: RAAS lens — PASS
+- Hypertension: resistant-hypertension lens — PASS
+- Diabetes: incretin lens — PASS
+- Diabetes: cardiorenal lens — PASS
+- Thyroid: hyperthyroidism lens — PASS
+- Thyroid: thyroid-oncology lens — PASS
+
+UI / ACTION WIRING
+- Antibiotic Lab button: single static ID + engine handler — PASS
+- Antihypertensive Lab button: single static ID + engine handler — PASS
+- Antidiabetic Lab button: single static ID + engine handler — PASS
+- Thyroid Drugs Lab button: single static ID + engine handler — PASS
+- Search Atlas / Use Patient Context buttons retained — PASS
+- Specialized lab lens buttons, local filter, Clear filter and Full Atlas exit handlers present — PASS
+- Static DOM duplicate IDs: 0 — PASS
+
+JAVASCRIPT / RUNTIME SOURCE VALIDATION
+- therapeutics-intelligence-engine.js syntax — PASS
+- complaint-intelligence-engine.js syntax — PASS
+- ayurveda-therapeutics-engine.js syntax — PASS
+- mission-assurance-engine.js syntax — PASS
+- install-pwa.js syntax — PASS
+- service-worker.js syntax — PASS
+- Inline JavaScript syntax: 10/10 PASS
+- Chronic pharmacology JSON loaded by therapeutics engine — PASS
+- Chronic pharmacology JSON cached by service worker — PASS
+
+VERSION / CACHE
+- V5.20 marker — PASS
+- MTLPI v2.2 marker — PASS
+- Build 2026.08.14-R23 marker — PASS
+- Service-worker V5.20/R23 cache key — PASS
+- Stale V5.10 / MTLPI v2.1 labels removed from current core runtime files — PASS
+
+MISSION INTEGRITY
+- Mission SHA-256 integrity tracked files: 23/23 PASS
+
+SCIENTIFIC BOUNDARY
+Classification, mechanism, role/context tags and typical adult dose/formulation snapshots are learning/research aids. They are not automatic Drug-of-Choice rankings and are not patient-specific prescriptions. Verify current guideline/regulatory label, exact indication/formulation, age/weight, pregnancy/lactation, renal/hepatic function, contraindications, interactions, monitoring and local practice before prescribing.
+
+LIMITATION
+This is static/source-level and data-integrity validation. The local browser automation environment blocked navigation with ERR_BLOCKED_BY_ADMINISTRATOR, so a live GitHub Pages/Firebase click-by-click regression is still required after deployment. This validation does not establish clinical efficacy/safety, regulatory approval for every listed context, security certification, or patient-specific prescribing suitability.

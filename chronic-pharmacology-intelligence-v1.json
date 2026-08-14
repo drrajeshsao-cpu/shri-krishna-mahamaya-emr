@@ -1,0 +1,4697 @@
+{
+  "schema": "mahamaya.common_chronic_pharmacology.v1",
+  "version": "1.0",
+  "app_version": "V5.20",
+  "build": "2026.08.14-R23",
+  "name": "High-Use Chronic Pharmacology Intelligence Labs",
+  "counts": {
+    "labs": 3,
+    "classes": 48,
+    "drug_profiles": 169
+  },
+  "global_boundary": "Research/learning classification atlas only. Typical adult dose snapshots are educational references, not patient-specific prescriptions. Verify diagnosis, formulation, current approved label/guideline, age/weight, renal/hepatic function, pregnancy/lactation, contraindications, interactions and monitoring before prescribing.",
+  "labs": [
+    {
+      "id": "hypertension",
+      "title": "Antihypertensive Intelligence Lab",
+      "icon": "🩺",
+      "badge": "BP v1.0",
+      "eyebrow": "CARDIOVASCULAR PHARMACOLOGY / HYPERTENSION RESEARCH WORKSPACE",
+      "subtitle": "Classification → RAAS / CCB / diuretics / sympathetic systems → generics → dose/formulation → compelling-context lens → evidence verification",
+      "scientific_boundary": "This is a pharmacology/research atlas, not an automatic antihypertensive selector. “First-line/core”, CKD, pregnancy, resistant-HTN and emergency tags are learning/context lenses. Actual choice requires confirmed BP phenotype, comorbidities, kidney function/electrolytes, pregnancy status, interactions and the current guideline/label.",
+      "classification_notes": {
+        "first_line": "2025 AHA/ACC identifies ACE inhibitors, ARBs, long-acting dihydropyridine CCBs and thiazide-type diuretics as major classes used to initiate treatment; individualized combinations and comorbidities determine selection.",
+        "raas": "ACEi and ARB are alternative RAAS-blocking strategies; routine dual RAAS blockade is generally avoided because of renal/hyperkalemia risk.",
+        "resistant": "Resistant hypertension requires confirmation of adherence/measurement, secondary-cause review and rational combination therapy; MRA therapy is a key pharmacologic teaching category.",
+        "emergency": "Hypertensive emergency is defined by severe BP elevation with acute target-organ injury; IV agent choice and rate of BP reduction are syndrome-specific and monitored-setting decisions."
+      },
+      "lens_groups": [
+        {
+          "group": "Core pharmacologic families",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All antihypertensive classes"
+            },
+            {
+              "id": "first_line_core",
+              "label": "Core first-line classes"
+            },
+            {
+              "id": "raas",
+              "label": "RAAS blockers"
+            },
+            {
+              "id": "calcium_channel",
+              "label": "Calcium-channel blockers"
+            },
+            {
+              "id": "diuretic",
+              "label": "Diuretics"
+            },
+            {
+              "id": "sympathetic",
+              "label": "Adrenergic / central agents"
+            },
+            {
+              "id": "vasodilator",
+              "label": "Direct vasodilators"
+            },
+            {
+              "id": "emergency",
+              "label": "IV emergency agents"
+            }
+          ]
+        },
+        {
+          "group": "Clinical-context lens",
+          "items": [
+            {
+              "id": "ckd_albuminuria",
+              "label": "CKD / albuminuria context"
+            },
+            {
+              "id": "hfrEF",
+              "label": "HFrEF context"
+            },
+            {
+              "id": "post_mi",
+              "label": "CAD / post-MI context"
+            },
+            {
+              "id": "rate_control",
+              "label": "Tachyarrhythmia / rate-control"
+            },
+            {
+              "id": "resistant_htn",
+              "label": "Resistant hypertension"
+            },
+            {
+              "id": "pregnancy_context",
+              "label": "Pregnancy-context drugs"
+            },
+            {
+              "id": "isolated_systolic",
+              "label": "Older / isolated systolic"
+            },
+            {
+              "id": "bph",
+              "label": "BPH + hypertension"
+            }
+          ]
+        },
+        {
+          "group": "Mechanism / target",
+          "items": [
+            {
+              "id": "ace_inhibitors",
+              "label": "ACE inhibition"
+            },
+            {
+              "id": "arbs",
+              "label": "AT1 blockade"
+            },
+            {
+              "id": "dhp_ccb",
+              "label": "Vascular L-type Ca²⁺"
+            },
+            {
+              "id": "thiazide",
+              "label": "NCC blockade"
+            },
+            {
+              "id": "loop",
+              "label": "NKCC2 blockade"
+            },
+            {
+              "id": "mra",
+              "label": "Aldosterone/MR blockade"
+            },
+            {
+              "id": "beta1",
+              "label": "β1 blockade"
+            },
+            {
+              "id": "central_alpha2",
+              "label": "Central α2"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "ace_inhibitors",
+          "name": "ACE inhibitors (ACEi)",
+          "mechanism": "Reduce angiotensin II formation and bradykinin breakdown",
+          "target": "Angiotensin-converting enzyme",
+          "tags": [
+            "overview",
+            "first_line_core",
+            "raas",
+            "ckd_albuminuria",
+            "hfrEF",
+            "post_mi"
+          ],
+          "role_note": "Core RAAS-blocking class; common foundational option when indicated. ACEi and ARB should not be combined routinely.",
+          "drug_ids": [
+            "bp_captopril",
+            "bp_enalapril",
+            "bp_lisinopril",
+            "bp_ramipril",
+            "bp_perindopril",
+            "bp_benazepril",
+            "bp_fosinopril",
+            "bp_quinapril",
+            "bp_trandolapril"
+          ]
+        },
+        {
+          "id": "arbs",
+          "name": "Angiotensin II receptor blockers (ARB)",
+          "mechanism": "Block angiotensin II signaling at AT1 receptor",
+          "target": "AT1 receptor",
+          "tags": [
+            "overview",
+            "first_line_core",
+            "raas",
+            "ckd_albuminuria",
+            "hfrEF"
+          ],
+          "role_note": "Core RAAS-blocking class; often used when ACEi cough/angioedema context makes ACEi unsuitable.",
+          "drug_ids": [
+            "bp_losartan",
+            "bp_valsartan",
+            "bp_telmisartan",
+            "bp_olmesartan",
+            "bp_irbesartan",
+            "bp_candesartan",
+            "bp_azilsartan",
+            "bp_eprosartan"
+          ]
+        },
+        {
+          "id": "dhp_ccb",
+          "name": "Long-acting dihydropyridine CCBs",
+          "mechanism": "Reduce vascular smooth-muscle calcium entry and arteriolar resistance",
+          "target": "L-type calcium channel",
+          "tags": [
+            "overview",
+            "first_line_core",
+            "calcium_channel",
+            "elderly",
+            "isolated_systolic"
+          ],
+          "role_note": "Core BP-lowering class with strong vasodilator effect; edema is a common class effect.",
+          "drug_ids": [
+            "bp_amlodipine",
+            "bp_nifedipine_er",
+            "bp_felodipine_er",
+            "bp_lercanidipine",
+            "bp_cilnidipine",
+            "bp_isradipine",
+            "bp_nicardipine_oral"
+          ]
+        },
+        {
+          "id": "nondhp_ccb",
+          "name": "Non-dihydropyridine CCBs",
+          "mechanism": "Reduce AV-node conduction and myocardial/vascular calcium entry",
+          "target": "L-type calcium channel",
+          "tags": [
+            "overview",
+            "calcium_channel",
+            "rate_control"
+          ],
+          "role_note": "Useful when rate control is also desired; not interchangeable with DHP-CCBs.",
+          "drug_ids": [
+            "bp_diltiazem_er",
+            "bp_verapamil_er"
+          ]
+        },
+        {
+          "id": "thiazide",
+          "name": "Thiazide / thiazide-like diuretics",
+          "mechanism": "Promote natriuresis at distal convoluted tubule",
+          "target": "Na-Cl cotransporter (NCC)",
+          "tags": [
+            "overview",
+            "first_line_core",
+            "diuretic",
+            "resistant_htn",
+            "isolated_systolic"
+          ],
+          "role_note": "Core hypertension class; chlorthalidone/indapamide are longer acting thiazide-like options.",
+          "drug_ids": [
+            "bp_chlorthalidone",
+            "bp_indapamide",
+            "bp_hydrochlorothiazide",
+            "bp_bendroflumethiazide",
+            "bp_metolazone"
+          ]
+        },
+        {
+          "id": "loop",
+          "name": "Loop diuretics",
+          "mechanism": "Potent natriuresis in thick ascending limb",
+          "target": "Na-K-2Cl cotransporter (NKCC2)",
+          "tags": [
+            "overview",
+            "diuretic",
+            "edema",
+            "heart_failure",
+            "advanced_ckd"
+          ],
+          "role_note": "More useful for volume overload/heart failure/advanced CKD than uncomplicated hypertension.",
+          "drug_ids": [
+            "bp_furosemide",
+            "bp_torsemide",
+            "bp_bumetanide",
+            "bp_ethacrynic_acid"
+          ]
+        },
+        {
+          "id": "mra",
+          "name": "Mineralocorticoid receptor antagonists",
+          "mechanism": "Block aldosterone signaling and sodium retention",
+          "target": "Mineralocorticoid receptor",
+          "tags": [
+            "overview",
+            "diuretic",
+            "resistant_htn",
+            "hfrEF"
+          ],
+          "role_note": "High-yield add-on class in resistant hypertension and selected heart-failure contexts; potassium/renal monitoring is central.",
+          "drug_ids": [
+            "bp_spironolactone",
+            "bp_eplerenone"
+          ]
+        },
+        {
+          "id": "enac",
+          "name": "Epithelial sodium-channel blockers",
+          "mechanism": "Reduce sodium reabsorption in collecting duct",
+          "target": "ENaC",
+          "tags": [
+            "overview",
+            "diuretic",
+            "resistant_htn"
+          ],
+          "role_note": "Potassium-sparing diuretics; usually adjunctive rather than first-line monotherapy.",
+          "drug_ids": [
+            "bp_amiloride",
+            "bp_triamterene"
+          ]
+        },
+        {
+          "id": "beta1",
+          "name": "β1-selective beta blockers",
+          "mechanism": "Reduce heart rate, contractility and renin release",
+          "target": "β1-adrenergic receptor",
+          "tags": [
+            "overview",
+            "sympathetic",
+            "post_mi",
+            "angina",
+            "rate_control",
+            "hfrEF"
+          ],
+          "role_note": "Not universal first-line hypertension therapy, but important with CAD/post-MI, tachyarrhythmia and selected HF contexts.",
+          "drug_ids": [
+            "bp_metoprolol_succinate",
+            "bp_bisoprolol",
+            "bp_atenolol",
+            "bp_nebivolol",
+            "bp_acebutolol"
+          ]
+        },
+        {
+          "id": "mixed_alpha_beta",
+          "name": "Combined α/β blockers",
+          "mechanism": "Reduce sympathetic vascular tone and cardiac adrenergic drive",
+          "target": "α1 + β receptors",
+          "tags": [
+            "overview",
+            "sympathetic",
+            "pregnancy_context",
+            "emergency",
+            "hfrEF"
+          ],
+          "role_note": "Labetalol is important in pregnancy/emergency contexts; carvedilol is a heart-failure/CAD drug with BP effects.",
+          "drug_ids": [
+            "bp_labetalol",
+            "bp_carvedilol"
+          ]
+        },
+        {
+          "id": "nonselective_beta",
+          "name": "Non-selective beta blockers",
+          "mechanism": "Block β1 and β2 adrenergic receptors",
+          "target": "β1/β2 receptors",
+          "tags": [
+            "overview",
+            "sympathetic",
+            "migraine",
+            "thyrotoxicosis"
+          ],
+          "role_note": "Useful for selected compelling indications; bronchospasm risk matters.",
+          "drug_ids": [
+            "bp_propranolol",
+            "bp_nadolol"
+          ]
+        },
+        {
+          "id": "alpha1",
+          "name": "α1-adrenergic blockers",
+          "mechanism": "Reduce peripheral vascular α1-mediated tone",
+          "target": "α1 receptor",
+          "tags": [
+            "overview",
+            "sympathetic",
+            "bph"
+          ],
+          "role_note": "Usually add-on therapy; can help concomitant BPH but orthostatic hypotension is important.",
+          "drug_ids": [
+            "bp_prazosin",
+            "bp_doxazosin",
+            "bp_terazosin"
+          ]
+        },
+        {
+          "id": "central_alpha2",
+          "name": "Central sympatholytics / α2 agonists",
+          "mechanism": "Reduce central sympathetic outflow",
+          "target": "Central α2 receptors",
+          "tags": [
+            "overview",
+            "sympathetic",
+            "pregnancy_context",
+            "resistant_htn"
+          ],
+          "role_note": "Generally later-line; rebound hypertension is important with abrupt clonidine withdrawal.",
+          "drug_ids": [
+            "bp_clonidine",
+            "bp_methyldopa",
+            "bp_guanfacine"
+          ]
+        },
+        {
+          "id": "direct_vasodilator",
+          "name": "Direct arteriolar vasodilators",
+          "mechanism": "Directly relax arteriolar smooth muscle",
+          "target": "Vascular smooth muscle signaling",
+          "tags": [
+            "overview",
+            "vasodilator",
+            "resistant_htn",
+            "pregnancy_context"
+          ],
+          "role_note": "Hydralazine/minoxidil are later-line agents; reflex tachycardia and fluid retention often require companion therapy.",
+          "drug_ids": [
+            "bp_hydralazine",
+            "bp_minoxidil"
+          ]
+        },
+        {
+          "id": "direct_renin",
+          "name": "Direct renin inhibitor",
+          "mechanism": "Suppresses RAAS at renin step",
+          "target": "Renin",
+          "tags": [
+            "overview",
+            "raas"
+          ],
+          "role_note": "Aliskiren is a specialist/alternative RAAS agent; combination restrictions with ACEi/ARB are important in selected populations.",
+          "drug_ids": [
+            "bp_aliskiren"
+          ]
+        },
+        {
+          "id": "arni",
+          "name": "Angiotensin receptor–neprilysin inhibitor (ARNI)",
+          "mechanism": "AT1 blockade plus neprilysin inhibition",
+          "target": "AT1 receptor + neprilysin",
+          "tags": [
+            "overview",
+            "raas",
+            "hfrEF"
+          ],
+          "role_note": "Primarily a heart-failure therapy with BP-lowering effect; not a routine hypertension-first-line class.",
+          "drug_ids": [
+            "bp_sacubitril_valsartan"
+          ]
+        },
+        {
+          "id": "iv_emergency",
+          "name": "IV antihypertensive / hypertensive-emergency agents",
+          "mechanism": "Rapid titratable hemodynamic control in monitored settings",
+          "target": "Multiple vascular/cardiac targets",
+          "tags": [
+            "overview",
+            "emergency",
+            "iv"
+          ],
+          "role_note": "Hospital/ICU category only. Agent choice depends on acute target-organ injury, aortic syndrome, ACS, pregnancy, pulmonary edema, renal function and local protocol.",
+          "drug_ids": [
+            "bp_nicardipine_iv",
+            "bp_clevidipine",
+            "bp_labetalol_iv",
+            "bp_esmolol_iv",
+            "bp_nitroprusside",
+            "bp_nitroglycerin_iv",
+            "bp_hydralazine_iv",
+            "bp_enalaprilat_iv",
+            "bp_fenoldopam"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "bp_captopril",
+          "generic": "Captopril",
+          "class_id": "ace_inhibitors",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult HTN start: 25 mg twice daily; titrate to response.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "Short acting ACEi; useful when rapid oral titration is desired.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium; cough/angioedema teaching point.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_enalapril",
+          "generic": "Enalapril",
+          "class_id": "ace_inhibitors",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult HTN start: 5 mg once daily; usual total 10–40 mg/day.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "Widely used ACEi; enalaprilat is the IV active metabolite.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium; cough/angioedema teaching point.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_lisinopril",
+          "generic": "Lisinopril",
+          "class_id": "ace_inhibitors",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult HTN start: 10 mg once daily; usual 10–40 mg/day.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "Once-daily ACEi with broad cardiovascular use.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium; cough/angioedema teaching point.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_ramipril",
+          "generic": "Ramipril",
+          "class_id": "ace_inhibitors",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Common adult HTN start: 2.5 mg once daily; usual 2.5–10 mg/day.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "Common cardioprotective ACEi in CAD/high-risk contexts.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium; cough/angioedema teaching point.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_perindopril",
+          "generic": "Perindopril",
+          "class_id": "ace_inhibitors",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult HTN start: 4 mg once daily; usual 4–8 mg/day (salt/formulation dependent).",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "Long-acting ACEi; formulation salts vary by market.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium; cough/angioedema teaching point.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_benazepril",
+          "generic": "Benazepril",
+          "class_id": "ace_inhibitors",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult HTN start: 10 mg once daily; usual 10–40 mg/day.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "Long-acting ACEi.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium; cough/angioedema teaching point.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_fosinopril",
+          "generic": "Fosinopril",
+          "class_id": "ace_inhibitors",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult HTN start: 10 mg once daily; usual 10–40 mg/day.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "Mixed renal/hepatic elimination is a pharmacokinetic teaching point.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium; cough/angioedema teaching point.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_quinapril",
+          "generic": "Quinapril",
+          "class_id": "ace_inhibitors",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult HTN start: 10–20 mg/day; titrate per label/response.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "Availability varies by jurisdiction.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium; cough/angioedema teaching point.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_trandolapril",
+          "generic": "Trandolapril",
+          "class_id": "ace_inhibitors",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Common adult HTN start: 1 mg once daily; usual 1–4 mg/day.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "Long-acting ACEi; also studied post-MI/LV dysfunction.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium; cough/angioedema teaching point.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_losartan",
+          "generic": "Losartan",
+          "class_id": "arbs",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "50 mg once daily; common range 25–100 mg/day.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "AT1-selective RAAS blockade; verify indication and renal/potassium context.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_valsartan",
+          "generic": "Valsartan",
+          "class_id": "arbs",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common HTN start 80–160 mg once daily; max commonly 320 mg/day.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "AT1-selective RAAS blockade; verify indication and renal/potassium context.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_telmisartan",
+          "generic": "Telmisartan",
+          "class_id": "arbs",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common HTN start 40 mg once daily; range 20–80 mg/day.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "AT1-selective RAAS blockade; verify indication and renal/potassium context.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_olmesartan",
+          "generic": "Olmesartan medoxomil",
+          "class_id": "arbs",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common HTN start 20 mg once daily; range 20–40 mg/day.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "AT1-selective RAAS blockade; verify indication and renal/potassium context.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_irbesartan",
+          "generic": "Irbesartan",
+          "class_id": "arbs",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common HTN start 150 mg once daily; range 150–300 mg/day.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "AT1-selective RAAS blockade; verify indication and renal/potassium context.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_candesartan",
+          "generic": "Candesartan cilexetil",
+          "class_id": "arbs",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common HTN start 8–16 mg once daily; usual 8–32 mg/day.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "AT1-selective RAAS blockade; verify indication and renal/potassium context.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_azilsartan",
+          "generic": "Azilsartan medoxomil",
+          "class_id": "arbs",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult range 40–80 mg once daily.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "AT1-selective RAAS blockade; verify indication and renal/potassium context.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_eprosartan",
+          "generic": "Eprosartan",
+          "class_id": "arbs",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult dose 600 mg once daily; availability varies.",
+          "tags": [
+            "raas",
+            "oral",
+            "first_line_core",
+            "ckd_albuminuria"
+          ],
+          "role": "AT1-selective RAAS blockade; verify indication and renal/potassium context.",
+          "monitoring_pearl": "BP, creatinine/eGFR and potassium.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_amlodipine",
+          "generic": "Amlodipine",
+          "class_id": "dhp_ccb",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "5 mg once daily is a common adult start; range 2.5–10 mg/day.",
+          "tags": [
+            "calcium_channel",
+            "oral",
+            "first_line_core",
+            "isolated_systolic"
+          ],
+          "role": "Predominantly vascular L-type calcium-channel blockade.",
+          "monitoring_pearl": "BP, ankle edema, flushing/headache; formulation-specific interactions.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_nifedipine_er",
+          "generic": "Nifedipine extended-release",
+          "class_id": "dhp_ccb",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common adult start 30–60 mg once daily; formulation-specific maximum varies.",
+          "tags": [
+            "calcium_channel",
+            "oral",
+            "first_line_core",
+            "isolated_systolic"
+          ],
+          "role": "Predominantly vascular L-type calcium-channel blockade.",
+          "monitoring_pearl": "BP, ankle edema, flushing/headache; formulation-specific interactions.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_felodipine_er",
+          "generic": "Felodipine extended-release",
+          "class_id": "dhp_ccb",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common adult start 5 mg once daily; range 2.5–10 mg/day.",
+          "tags": [
+            "calcium_channel",
+            "oral",
+            "first_line_core",
+            "isolated_systolic"
+          ],
+          "role": "Predominantly vascular L-type calcium-channel blockade.",
+          "monitoring_pearl": "BP, ankle edema, flushing/headache; formulation-specific interactions.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_lercanidipine",
+          "generic": "Lercanidipine",
+          "class_id": "dhp_ccb",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common adult start 10 mg once daily; may increase to 20 mg/day where licensed.",
+          "tags": [
+            "calcium_channel",
+            "oral",
+            "first_line_core",
+            "isolated_systolic"
+          ],
+          "role": "Predominantly vascular L-type calcium-channel blockade.",
+          "monitoring_pearl": "BP, ankle edema, flushing/headache; formulation-specific interactions.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_cilnidipine",
+          "generic": "Cilnidipine",
+          "class_id": "dhp_ccb",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common adult use in some Asian markets: 5–10 mg once daily; verify local label.",
+          "tags": [
+            "calcium_channel",
+            "oral",
+            "first_line_core",
+            "isolated_systolic"
+          ],
+          "role": "Predominantly vascular L-type calcium-channel blockade.",
+          "monitoring_pearl": "BP, ankle edema, flushing/headache; formulation-specific interactions.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_isradipine",
+          "generic": "Isradipine",
+          "class_id": "dhp_ccb",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common adult start 2.5 mg twice daily; titrate per label.",
+          "tags": [
+            "calcium_channel",
+            "oral",
+            "first_line_core",
+            "isolated_systolic"
+          ],
+          "role": "Predominantly vascular L-type calcium-channel blockade.",
+          "monitoring_pearl": "BP, ankle edema, flushing/headache; formulation-specific interactions.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_nicardipine_oral",
+          "generic": "Nicardipine oral",
+          "class_id": "dhp_ccb",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Immediate-release oral dosing is formulation-specific and less commonly used for chronic HTN; verify local label.",
+          "tags": [
+            "calcium_channel",
+            "oral",
+            "first_line_core",
+            "isolated_systolic"
+          ],
+          "role": "Predominantly vascular L-type calcium-channel blockade.",
+          "monitoring_pearl": "BP, ankle edema, flushing/headache; formulation-specific interactions.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_diltiazem_er",
+          "generic": "Diltiazem extended-release",
+          "class_id": "nondhp_ccb",
+          "form": "ER tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common adult HTN/angina start often 120–180 mg once daily; titrate by formulation.",
+          "tags": [
+            "calcium_channel",
+            "rate_control",
+            "oral"
+          ],
+          "role": "Rate-slowing CCB; useful in selected tachyarrhythmia/angina contexts.",
+          "monitoring_pearl": "BP, heart rate, PR interval; avoid inappropriate use in HFrEF/bradycardia.",
+          "source_refs": [
+            "DAILYMED",
+            "AHA_ACC_HTN_2025"
+          ]
+        },
+        {
+          "id": "bp_verapamil_er",
+          "generic": "Verapamil extended-release",
+          "class_id": "nondhp_ccb",
+          "form": "ER tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common adult start often 120–180 mg once daily; total daily dose depends on formulation.",
+          "tags": [
+            "calcium_channel",
+            "rate_control",
+            "oral"
+          ],
+          "role": "Rate-slowing CCB with stronger AV-node effect.",
+          "monitoring_pearl": "BP, HR/ECG, constipation and interaction review.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_chlorthalidone",
+          "generic": "Chlorthalidone",
+          "class_id": "thiazide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "12.5–25 mg once daily is a common HTN range.",
+          "tags": [
+            "diuretic",
+            "oral",
+            "first_line_core"
+          ],
+          "role": "NCC blockade lowers sodium balance and peripheral resistance over time.",
+          "monitoring_pearl": "BP, sodium, potassium, uric acid, renal function and volume status.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_indapamide",
+          "generic": "Indapamide",
+          "class_id": "thiazide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "1.25–2.5 mg once daily is a common HTN range.",
+          "tags": [
+            "diuretic",
+            "oral",
+            "first_line_core"
+          ],
+          "role": "NCC blockade lowers sodium balance and peripheral resistance over time.",
+          "monitoring_pearl": "BP, sodium, potassium, uric acid, renal function and volume status.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_hydrochlorothiazide",
+          "generic": "Hydrochlorothiazide",
+          "class_id": "thiazide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "12.5–25 mg once daily is a common HTN range.",
+          "tags": [
+            "diuretic",
+            "oral",
+            "first_line_core"
+          ],
+          "role": "NCC blockade lowers sodium balance and peripheral resistance over time.",
+          "monitoring_pearl": "BP, sodium, potassium, uric acid, renal function and volume status.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_bendroflumethiazide",
+          "generic": "Bendroflumethiazide",
+          "class_id": "thiazide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common HTN dose 2.5 mg once daily where licensed.",
+          "tags": [
+            "diuretic",
+            "oral",
+            "adjunct"
+          ],
+          "role": "NCC blockade lowers sodium balance and peripheral resistance over time.",
+          "monitoring_pearl": "BP, sodium, potassium, uric acid, renal function and volume status.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_metolazone",
+          "generic": "Metolazone",
+          "class_id": "thiazide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "2.5–5 mg once daily is often used for diuretic-resistant edema; not routine uncomplicated HTN first-line.",
+          "tags": [
+            "diuretic",
+            "oral",
+            "adjunct"
+          ],
+          "role": "NCC blockade lowers sodium balance and peripheral resistance over time.",
+          "monitoring_pearl": "BP, sodium, potassium, uric acid, renal function and volume status.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_furosemide",
+          "generic": "Furosemide",
+          "class_id": "loop",
+          "form": "Tablet/injection",
+          "route": "Oral/IV",
+          "dose_example": "Common adult oral start 20–40 mg; dose/frequency highly volume- and kidney-dependent.",
+          "tags": [
+            "diuretic",
+            "edema",
+            "advanced_ckd",
+            "heart_failure"
+          ],
+          "role": "Potent loop diuresis; BP effect is often secondary to volume management.",
+          "monitoring_pearl": "Volume status, BP, sodium/potassium/magnesium, renal function.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_torsemide",
+          "generic": "Torsemide",
+          "class_id": "loop",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult edema/HTN start 5–10 mg once daily; higher doses for congestion.",
+          "tags": [
+            "diuretic",
+            "edema",
+            "advanced_ckd",
+            "heart_failure"
+          ],
+          "role": "Potent loop diuresis; BP effect is often secondary to volume management.",
+          "monitoring_pearl": "Volume status, BP, sodium/potassium/magnesium, renal function.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_bumetanide",
+          "generic": "Bumetanide",
+          "class_id": "loop",
+          "form": "Tablet/injection",
+          "route": "Oral/IV",
+          "dose_example": "Common adult start 0.5–1 mg once or twice daily; titrate to diuretic response.",
+          "tags": [
+            "diuretic",
+            "edema",
+            "advanced_ckd",
+            "heart_failure"
+          ],
+          "role": "Potent loop diuresis; BP effect is often secondary to volume management.",
+          "monitoring_pearl": "Volume status, BP, sodium/potassium/magnesium, renal function.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_ethacrynic_acid",
+          "generic": "Ethacrynic acid",
+          "class_id": "loop",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult oral start 25–50 mg/day; specialist use, especially when sulfonamide-loop avoidance is needed.",
+          "tags": [
+            "diuretic",
+            "edema",
+            "advanced_ckd",
+            "heart_failure"
+          ],
+          "role": "Potent loop diuresis; BP effect is often secondary to volume management.",
+          "monitoring_pearl": "Volume status, BP, sodium/potassium/magnesium, renal function.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_spironolactone",
+          "generic": "Spironolactone",
+          "class_id": "mra",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common resistant-HTN start 12.5–25 mg once daily; often 25–50 mg/day.",
+          "tags": [
+            "resistant_htn",
+            "diuretic",
+            "hfrEF"
+          ],
+          "role": "Aldosterone blockade; strong resistant-HTN teaching class.",
+          "monitoring_pearl": "Potassium and renal function are mandatory; endocrine adverse effects differ between agents.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_eplerenone",
+          "generic": "Eplerenone",
+          "class_id": "mra",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult start 25–50 mg once daily; may require twice-daily dosing by indication.",
+          "tags": [
+            "resistant_htn",
+            "diuretic",
+            "hfrEF"
+          ],
+          "role": "Aldosterone blockade; strong resistant-HTN teaching class.",
+          "monitoring_pearl": "Potassium and renal function are mandatory; endocrine adverse effects differ between agents.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ESC_HTN_2024",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_amiloride",
+          "generic": "Amiloride",
+          "class_id": "enac",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult dose 5–10 mg/day; often combined with a thiazide/loop.",
+          "tags": [
+            "diuretic",
+            "resistant_htn"
+          ],
+          "role": "Potassium-sparing ENaC blockade.",
+          "monitoring_pearl": "Potassium, renal function and volume status.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_triamterene",
+          "generic": "Triamterene",
+          "class_id": "enac",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Common adult dosing 50–100 mg once or twice daily depending formulation/combo.",
+          "tags": [
+            "diuretic",
+            "resistant_htn"
+          ],
+          "role": "Potassium-sparing ENaC blockade.",
+          "monitoring_pearl": "Potassium and renal function.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_metoprolol_succinate",
+          "generic": "Metoprolol succinate ER",
+          "class_id": "beta1",
+          "form": "Tablet/ER tablet",
+          "route": "Oral",
+          "dose_example": "25–100 mg once daily commonly used initially by indication.",
+          "tags": [
+            "sympathetic",
+            "rate_control",
+            "post_mi",
+            "angina"
+          ],
+          "role": "β1 blockade lowers HR/contractility/renin; compelling indications often determine use.",
+          "monitoring_pearl": "BP, heart rate, conduction, bronchospasm/metabolic masking considerations.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_bisoprolol",
+          "generic": "Bisoprolol",
+          "class_id": "beta1",
+          "form": "Tablet/ER tablet",
+          "route": "Oral",
+          "dose_example": "2.5–5 mg once daily is a common start; usual HTN range 2.5–10 mg/day.",
+          "tags": [
+            "sympathetic",
+            "rate_control",
+            "post_mi",
+            "angina"
+          ],
+          "role": "β1 blockade lowers HR/contractility/renin; compelling indications often determine use.",
+          "monitoring_pearl": "BP, heart rate, conduction, bronchospasm/metabolic masking considerations.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_atenolol",
+          "generic": "Atenolol",
+          "class_id": "beta1",
+          "form": "Tablet/ER tablet",
+          "route": "Oral",
+          "dose_example": "25–50 mg once daily is a common start; usual 25–100 mg/day.",
+          "tags": [
+            "sympathetic",
+            "rate_control",
+            "post_mi",
+            "angina"
+          ],
+          "role": "β1 blockade lowers HR/contractility/renin; compelling indications often determine use.",
+          "monitoring_pearl": "BP, heart rate, conduction, bronchospasm/metabolic masking considerations.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_nebivolol",
+          "generic": "Nebivolol",
+          "class_id": "beta1",
+          "form": "Tablet/ER tablet",
+          "route": "Oral",
+          "dose_example": "5 mg once daily is a common adult start.",
+          "tags": [
+            "sympathetic",
+            "rate_control",
+            "post_mi",
+            "angina"
+          ],
+          "role": "β1 blockade lowers HR/contractility/renin; compelling indications often determine use.",
+          "monitoring_pearl": "BP, heart rate, conduction, bronchospasm/metabolic masking considerations.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_acebutolol",
+          "generic": "Acebutolol",
+          "class_id": "beta1",
+          "form": "Tablet/ER tablet",
+          "route": "Oral",
+          "dose_example": "Common adult start 200 mg twice daily; titrate by response.",
+          "tags": [
+            "sympathetic",
+            "rate_control",
+            "post_mi",
+            "angina"
+          ],
+          "role": "β1 blockade lowers HR/contractility/renin; compelling indications often determine use.",
+          "monitoring_pearl": "BP, heart rate, conduction, bronchospasm/metabolic masking considerations.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_labetalol",
+          "generic": "Labetalol",
+          "class_id": "mixed_alpha_beta",
+          "form": "Tablet/injection",
+          "route": "Oral/IV",
+          "dose_example": "Oral HTN often starts 100 mg twice daily; IV regimens are monitored-setting and protocol-specific.",
+          "tags": [
+            "sympathetic",
+            "pregnancy_context",
+            "emergency"
+          ],
+          "role": "Combined α1/β blockade; important pregnancy and emergency context drug.",
+          "monitoring_pearl": "BP/HR; IV use requires monitored titration.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "ICMR_HTN_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_carvedilol",
+          "generic": "Carvedilol",
+          "class_id": "mixed_alpha_beta",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult start 3.125–6.25 mg twice daily in HF or 6.25–12.5 mg twice daily in HTN; titrate slowly.",
+          "tags": [
+            "sympathetic",
+            "hfrEF",
+            "post_mi"
+          ],
+          "role": "HF/CAD-centered α1/β blocker with BP lowering.",
+          "monitoring_pearl": "BP, HR, volume status and HF response.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_propranolol",
+          "generic": "Propranolol",
+          "class_id": "nonselective_beta",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common adult HTN start 40 mg twice daily; dose depends strongly on indication/formulation.",
+          "tags": [
+            "sympathetic",
+            "thyrotoxicosis",
+            "migraine"
+          ],
+          "role": "Nonselective beta blocker with many non-HTN indications.",
+          "monitoring_pearl": "BP/HR, bronchospasm risk, hypoglycemia masking.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_nadolol",
+          "generic": "Nadolol",
+          "class_id": "nonselective_beta",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult start 40 mg once daily; titrate by indication/renal function.",
+          "tags": [
+            "sympathetic"
+          ],
+          "role": "Long-acting nonselective beta blocker.",
+          "monitoring_pearl": "BP/HR and renal dose review.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_prazosin",
+          "generic": "Prazosin",
+          "class_id": "alpha1",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "1 mg two or three times daily is a common cautious start; first-dose syncope risk.",
+          "tags": [
+            "sympathetic",
+            "bph"
+          ],
+          "role": "α1 blockade lowers vascular tone and can improve BPH symptoms.",
+          "monitoring_pearl": "Orthostatic BP and falls risk.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_doxazosin",
+          "generic": "Doxazosin",
+          "class_id": "alpha1",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "1 mg once daily is a common start; titrate gradually.",
+          "tags": [
+            "sympathetic",
+            "bph"
+          ],
+          "role": "α1 blockade lowers vascular tone and can improve BPH symptoms.",
+          "monitoring_pearl": "Orthostatic BP and falls risk.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_terazosin",
+          "generic": "Terazosin",
+          "class_id": "alpha1",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "1 mg at bedtime is a common start; titrate gradually.",
+          "tags": [
+            "sympathetic",
+            "bph"
+          ],
+          "role": "α1 blockade lowers vascular tone and can improve BPH symptoms.",
+          "monitoring_pearl": "Orthostatic BP and falls risk.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_clonidine",
+          "generic": "Clonidine",
+          "class_id": "central_alpha2",
+          "form": "Tablet/patch",
+          "route": "Oral/transdermal",
+          "dose_example": "Common oral start 0.1 mg twice daily; transdermal systems are weekly and strength-specific.",
+          "tags": [
+            "sympathetic",
+            "resistant_htn"
+          ],
+          "role": "Central sympatholytic; abrupt withdrawal may cause rebound hypertension.",
+          "monitoring_pearl": "BP/HR, sedation, adherence and tapering plan.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_methyldopa",
+          "generic": "Methyldopa",
+          "class_id": "central_alpha2",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult start 250 mg two or three times daily; pregnancy use follows obstetric guidance.",
+          "tags": [
+            "sympathetic",
+            "pregnancy_context"
+          ],
+          "role": "Historic/important pregnancy-context antihypertensive.",
+          "monitoring_pearl": "BP, sedation; long-term liver/CBC monitoring per context.",
+          "source_refs": [
+            "DAILYMED",
+            "AHA_ACC_HTN_2025"
+          ]
+        },
+        {
+          "id": "bp_guanfacine",
+          "generic": "Guanfacine",
+          "class_id": "central_alpha2",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult HTN start historically 1 mg once daily at bedtime; current availability/indication varies.",
+          "tags": [
+            "sympathetic"
+          ],
+          "role": "Long-acting central α2 agonist; more commonly encountered in ADHD care today.",
+          "monitoring_pearl": "BP/HR and sedation.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_hydralazine",
+          "generic": "Hydralazine",
+          "class_id": "direct_vasodilator",
+          "form": "Tablet/injection",
+          "route": "Oral/IV",
+          "dose_example": "Oral HTN often starts 10–25 mg two to four times daily; IV use is protocol-specific.",
+          "tags": [
+            "vasodilator",
+            "resistant_htn",
+            "pregnancy_context",
+            "emergency"
+          ],
+          "role": "Direct arteriolar dilator; often paired with beta blocker/diuretic in chronic use.",
+          "monitoring_pearl": "BP/HR, edema; lupus-like syndrome with prolonged/high exposure.",
+          "source_refs": [
+            "DAILYMED",
+            "AHA_ACC_HTN_2025"
+          ]
+        },
+        {
+          "id": "bp_minoxidil",
+          "generic": "Minoxidil (oral)",
+          "class_id": "direct_vasodilator",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common specialist start 2.5–5 mg once daily; titrate cautiously for refractory HTN.",
+          "tags": [
+            "vasodilator",
+            "resistant_htn"
+          ],
+          "role": "Very potent arteriolar dilator reserved for refractory hypertension.",
+          "monitoring_pearl": "BP, pulse, edema/weight; usually needs loop diuretic + beta blocker.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_aliskiren",
+          "generic": "Aliskiren",
+          "class_id": "direct_renin",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "150 mg once daily is a common adult start; may increase to 300 mg/day.",
+          "tags": [
+            "raas"
+          ],
+          "role": "Direct renin inhibition.",
+          "monitoring_pearl": "BP, renal function, potassium; RAAS-combination restrictions.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_sacubitril_valsartan",
+          "generic": "Sacubitril/valsartan",
+          "class_id": "arni",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "HF dosing is strength- and prior-RAAS-therapy dependent; commonly initiated twice daily. Verify exact product label.",
+          "tags": [
+            "raas",
+            "hfrEF"
+          ],
+          "role": "Primarily HFrEF/selected HF therapy, not routine hypertension monotherapy.",
+          "monitoring_pearl": "BP, potassium, renal function; ACEi washout requirement.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_nicardipine_iv",
+          "generic": "Nicardipine IV",
+          "class_id": "iv_emergency",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Common ICU start 5 mg/hour, titrated in small increments per protocol.",
+          "tags": [
+            "emergency",
+            "iv"
+          ],
+          "role": "Titrated arterial vasodilation. Not for routine outpatient hypertension.",
+          "monitoring_pearl": "Continuous/very frequent BP; agent-specific hemodynamic, renal/metabolic and toxicity monitoring.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_clevidipine",
+          "generic": "Clevidipine",
+          "class_id": "iv_emergency",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Common ICU start 1–2 mg/hour with rapid titration per protocol.",
+          "tags": [
+            "emergency",
+            "iv"
+          ],
+          "role": "Ultra-short DHP vasodilation. Not for routine outpatient hypertension.",
+          "monitoring_pearl": "Continuous/very frequent BP; agent-specific hemodynamic, renal/metabolic and toxicity monitoring.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_labetalol_iv",
+          "generic": "Labetalol IV",
+          "class_id": "iv_emergency",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Example bolus 20 mg IV then repeat/escalate or infusion per monitored protocol.",
+          "tags": [
+            "emergency",
+            "iv"
+          ],
+          "role": "α/β blockade. Not for routine outpatient hypertension.",
+          "monitoring_pearl": "Continuous/very frequent BP; agent-specific hemodynamic, renal/metabolic and toxicity monitoring.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_esmolol_iv",
+          "generic": "Esmolol IV",
+          "class_id": "iv_emergency",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Loading/infusion is weight-based; common maintenance starts around 50 microgram/kg/min.",
+          "tags": [
+            "emergency",
+            "iv"
+          ],
+          "role": "Ultra-short β1 blockade. Not for routine outpatient hypertension.",
+          "monitoring_pearl": "Continuous/very frequent BP; agent-specific hemodynamic, renal/metabolic and toxicity monitoring.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_nitroprusside",
+          "generic": "Sodium nitroprusside",
+          "class_id": "iv_emergency",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Common ICU start ~0.3 microgram/kg/min and titrate; toxicity limits require strict monitoring.",
+          "tags": [
+            "emergency",
+            "iv"
+          ],
+          "role": "NO-mediated arterial/venous dilation. Not for routine outpatient hypertension.",
+          "monitoring_pearl": "Continuous/very frequent BP; agent-specific hemodynamic, renal/metabolic and toxicity monitoring.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_nitroglycerin_iv",
+          "generic": "Nitroglycerin IV",
+          "class_id": "iv_emergency",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Common monitored start 5 microgram/min and titrate; especially useful with ACS/pulmonary edema contexts.",
+          "tags": [
+            "emergency",
+            "iv"
+          ],
+          "role": "Predominantly venodilation at lower doses. Not for routine outpatient hypertension.",
+          "monitoring_pearl": "Continuous/very frequent BP; agent-specific hemodynamic, renal/metabolic and toxicity monitoring.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_hydralazine_iv",
+          "generic": "Hydralazine IV",
+          "class_id": "iv_emergency",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Common bolus examples 5–10 mg IV; repeat per protocol and pregnancy context.",
+          "tags": [
+            "emergency",
+            "iv"
+          ],
+          "role": "Direct arteriolar dilation. Not for routine outpatient hypertension.",
+          "monitoring_pearl": "Continuous/very frequent BP; agent-specific hemodynamic, renal/metabolic and toxicity monitoring.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_enalaprilat_iv",
+          "generic": "Enalaprilat",
+          "class_id": "iv_emergency",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Common adult IV example 1.25 mg every 6 hours; selected settings only.",
+          "tags": [
+            "emergency",
+            "iv"
+          ],
+          "role": "IV ACE inhibition. Not for routine outpatient hypertension.",
+          "monitoring_pearl": "Continuous/very frequent BP; agent-specific hemodynamic, renal/metabolic and toxicity monitoring.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "bp_fenoldopam",
+          "generic": "Fenoldopam",
+          "class_id": "iv_emergency",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Common ICU start 0.1 microgram/kg/min and titrate.",
+          "tags": [
+            "emergency",
+            "iv"
+          ],
+          "role": "D1-receptor agonist vasodilation. Not for routine outpatient hypertension.",
+          "monitoring_pearl": "Continuous/very frequent BP; agent-specific hemodynamic, renal/metabolic and toxicity monitoring.",
+          "source_refs": [
+            "AHA_ACC_HTN_2025",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "AHA_ACC_HTN_2025",
+          "label": "2025 AHA/ACC High Blood Pressure Guideline",
+          "url": "https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline"
+        },
+        {
+          "id": "ESC_HTN_2024",
+          "label": "2024 ESC Elevated BP & Hypertension Guideline",
+          "url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/elevated-blood-pressure-and-hypertension/"
+        },
+        {
+          "id": "ICMR_HTN_STW",
+          "label": "ICMR Standard Treatment Workflow — Hypertension in Adults",
+          "url": "https://www.icmr.gov.in/icmrobject/uploads/STWs/1778941063_hypertensioninadults_final.pdf"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "DailyMed / current product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        },
+        {
+          "id": "NLEM_2022",
+          "label": "India National List of Essential Medicines",
+          "url": "https://www.mohfw.gov.in/"
+        }
+      ]
+    },
+    {
+      "id": "diabetes",
+      "title": "Antidiabetic Intelligence Lab",
+      "icon": "🩸",
+      "badge": "DM v1.0",
+      "eyebrow": "ENDOCRINE / METABOLIC PHARMACOLOGY RESEARCH WORKSPACE",
+      "subtitle": "Classification → glucose physiology target → oral/injectable/insulin families → generics/formulations → cardiorenal/weight lenses → evidence verification",
+      "scientific_boundary": "This lab is a pharmacology and evidence-navigation workspace, not an automatic glucose-lowering regimen generator. Comorbidity lenses (ASCVD, HF, CKD, weight, hypoglycemia) are research prompts; treatment must integrate diabetes type, HbA1c/glucose pattern, symptoms, renal/hepatic function, pregnancy, age/frailty, cost/access and current label/guideline.",
+      "classification_notes": {
+        "physiology": "Drug classes can be understood by dominant physiology: hepatic glucose output/insulin sensitivity, pancreatic insulin secretion, incretin signaling, renal glucose transport, intestinal carbohydrate absorption and exogenous insulin replacement.",
+        "cardiorenal": "Modern T2D therapy is not ranked only by HbA1c. SGLT2 inhibitors and selected GLP-1–based therapies have important cardiorenal/weight roles in appropriate patients.",
+        "insulin": "Insulin is mandatory replacement in type 1 diabetes and may be needed in type 2 diabetes for marked hyperglycemia, catabolic symptoms, acute illness or progressive beta-cell failure.",
+        "hypoglycemia": "Insulin and secretagogues carry greater hypoglycemia risk than metformin, SGLT2 inhibitors, DPP-4 inhibitors, TZDs and GLP-1–based therapies when used without insulin/secretagogue."
+      },
+      "lens_groups": [
+        {
+          "group": "Core classification",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All antidiabetic classes"
+            },
+            {
+              "id": "oral",
+              "label": "Oral medicines"
+            },
+            {
+              "id": "injectable",
+              "label": "Injectables"
+            },
+            {
+              "id": "insulin",
+              "label": "Insulin families"
+            },
+            {
+              "id": "incretin",
+              "label": "Incretin therapies"
+            },
+            {
+              "id": "secretagogue",
+              "label": "Insulin secretagogues"
+            },
+            {
+              "id": "sensitizer",
+              "label": "Insulin sensitizers"
+            },
+            {
+              "id": "renal_glucose",
+              "label": "Renal glucose transport"
+            }
+          ]
+        },
+        {
+          "group": "Clinical-effect lens",
+          "items": [
+            {
+              "id": "cardiorenal",
+              "label": "Cardiorenal evidence"
+            },
+            {
+              "id": "hf_ckd",
+              "label": "HF / CKD context"
+            },
+            {
+              "id": "ascvd",
+              "label": "ASCVD context"
+            },
+            {
+              "id": "weight_loss",
+              "label": "Weight-loss efficacy"
+            },
+            {
+              "id": "low_hypoglycemia",
+              "label": "Lower hypoglycemia risk"
+            },
+            {
+              "id": "postprandial",
+              "label": "Post-prandial focus"
+            },
+            {
+              "id": "low_cost",
+              "label": "Lower-cost legacy options"
+            },
+            {
+              "id": "type1",
+              "label": "Type-1 insulin replacement"
+            }
+          ]
+        },
+        {
+          "group": "Mechanism / target",
+          "items": [
+            {
+              "id": "biguanide",
+              "label": "Hepatic glucose output"
+            },
+            {
+              "id": "sulfonylurea",
+              "label": "KATP / insulin secretion"
+            },
+            {
+              "id": "tzd",
+              "label": "PPAR-γ"
+            },
+            {
+              "id": "dpp4",
+              "label": "DPP-4"
+            },
+            {
+              "id": "sglt2",
+              "label": "SGLT2"
+            },
+            {
+              "id": "glp1",
+              "label": "GLP-1 receptor"
+            },
+            {
+              "id": "gip_glp1",
+              "label": "GIP + GLP-1"
+            },
+            {
+              "id": "alpha_glucosidase",
+              "label": "Intestinal α-glucosidase"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "biguanide",
+          "name": "Biguanide",
+          "mechanism": "Suppresses hepatic glucose production and improves insulin sensitivity",
+          "target": "AMPK-linked hepatic metabolic pathways",
+          "tags": [
+            "overview",
+            "oral",
+            "sensitizer",
+            "low_hypoglycemia",
+            "low_cost"
+          ],
+          "role_note": "Metformin-centered foundational class in many T2D pathways; renal tolerance and GI/B12 issues matter.",
+          "drug_ids": [
+            "dm_metformin_ir",
+            "dm_metformin_xr"
+          ]
+        },
+        {
+          "id": "sulfonylurea",
+          "name": "Sulfonylureas",
+          "mechanism": "Close β-cell KATP channels → insulin release",
+          "target": "SUR1/KATP channel",
+          "tags": [
+            "overview",
+            "oral",
+            "secretagogue",
+            "low_cost",
+            "hypoglycemia_risk"
+          ],
+          "role_note": "Potent, inexpensive insulin secretagogues; hypoglycemia and weight gain are major selection trade-offs.",
+          "drug_ids": [
+            "dm_glimepiride",
+            "dm_gliclazide_mr",
+            "dm_glipizide_ir",
+            "dm_glipizide_er",
+            "dm_glyburide",
+            "dm_chlorpropamide",
+            "dm_tolbutamide"
+          ]
+        },
+        {
+          "id": "meglitinide",
+          "name": "Meglitinides / glinides",
+          "mechanism": "Short-acting KATP-channel closure → meal-time insulin release",
+          "target": "SUR1/KATP channel",
+          "tags": [
+            "overview",
+            "oral",
+            "secretagogue",
+            "postprandial"
+          ],
+          "role_note": "Meal-time secretagogues with shorter action than sulfonylureas.",
+          "drug_ids": [
+            "dm_repaglinide",
+            "dm_nateglinide"
+          ]
+        },
+        {
+          "id": "tzd",
+          "name": "Thiazolidinediones (TZD)",
+          "mechanism": "Increase insulin sensitivity through nuclear transcription effects",
+          "target": "PPAR-γ",
+          "tags": [
+            "overview",
+            "oral",
+            "sensitizer",
+            "low_hypoglycemia"
+          ],
+          "role_note": "Insulin-sensitizing class; edema/HF, fractures and weight effects shape use.",
+          "drug_ids": [
+            "dm_pioglitazone",
+            "dm_rosiglitazone"
+          ]
+        },
+        {
+          "id": "alpha_glucosidase",
+          "name": "α-glucosidase inhibitors",
+          "mechanism": "Delay intestinal carbohydrate digestion/absorption",
+          "target": "Intestinal α-glucosidase",
+          "tags": [
+            "overview",
+            "oral",
+            "postprandial",
+            "low_hypoglycemia"
+          ],
+          "role_note": "Postprandial-focused agents; gastrointestinal adverse effects are common.",
+          "drug_ids": [
+            "dm_acarbose",
+            "dm_voglibose",
+            "dm_miglitol"
+          ]
+        },
+        {
+          "id": "dpp4",
+          "name": "DPP-4 inhibitors (gliptins)",
+          "mechanism": "Prolong endogenous GLP-1/GIP action",
+          "target": "DPP-4 enzyme",
+          "tags": [
+            "overview",
+            "oral",
+            "incretin",
+            "low_hypoglycemia",
+            "weight_neutral"
+          ],
+          "role_note": "Generally weight-neutral, low-hypoglycemia oral incretin enhancers; renal dosing differs by molecule.",
+          "drug_ids": [
+            "dm_sitagliptin",
+            "dm_linagliptin",
+            "dm_saxagliptin",
+            "dm_alogliptin",
+            "dm_vildagliptin",
+            "dm_teneligliptin",
+            "dm_gemigliptin"
+          ]
+        },
+        {
+          "id": "sglt2",
+          "name": "SGLT2 inhibitors",
+          "mechanism": "Increase urinary glucose excretion and alter renal-cardiorenal physiology",
+          "target": "SGLT2 in proximal tubule",
+          "tags": [
+            "overview",
+            "oral",
+            "renal_glucose",
+            "cardiorenal",
+            "hf_ckd",
+            "low_hypoglycemia"
+          ],
+          "role_note": "Glucose-lowering plus important HF/CKD benefits for selected patients; eGFR and acute illness/ketosis precautions matter.",
+          "drug_ids": [
+            "dm_empagliflozin",
+            "dm_dapagliflozin",
+            "dm_canagliflozin",
+            "dm_ertugliflozin",
+            "dm_remogliflozin",
+            "dm_bexagliflozin"
+          ]
+        },
+        {
+          "id": "dual_sglt1_2",
+          "name": "Dual SGLT1/SGLT2 inhibitor",
+          "mechanism": "Reduces intestinal glucose absorption and renal glucose reabsorption",
+          "target": "SGLT1 + SGLT2",
+          "tags": [
+            "overview",
+            "oral",
+            "renal_glucose",
+            "cardiorenal"
+          ],
+          "role_note": "Specialized dual transporter inhibition; regulatory indications vary by country.",
+          "drug_ids": [
+            "dm_sotagliflozin"
+          ]
+        },
+        {
+          "id": "glp1",
+          "name": "GLP-1 receptor agonists",
+          "mechanism": "Enhance glucose-dependent insulin secretion, suppress glucagon, slow gastric emptying and increase satiety",
+          "target": "GLP-1 receptor",
+          "tags": [
+            "overview",
+            "injectable",
+            "oral",
+            "incretin",
+            "weight_loss",
+            "ascvd",
+            "low_hypoglycemia"
+          ],
+          "role_note": "High-efficacy incretin class with substantial weight and cardiometabolic effects depending agent.",
+          "drug_ids": [
+            "dm_exenatide_bid",
+            "dm_exenatide_er",
+            "dm_liraglutide",
+            "dm_dulaglutide",
+            "dm_semaglutide_sc",
+            "dm_semaglutide_oral",
+            "dm_lixisenatide"
+          ]
+        },
+        {
+          "id": "gip_glp1",
+          "name": "Dual GIP/GLP-1 receptor agonist",
+          "mechanism": "Dual incretin-receptor agonism",
+          "target": "GIP + GLP-1 receptors",
+          "tags": [
+            "overview",
+            "injectable",
+            "incretin",
+            "weight_loss",
+            "low_hypoglycemia"
+          ],
+          "role_note": "Very high glycemic and weight efficacy; GI effects and titration are central.",
+          "drug_ids": [
+            "dm_tirzepatide"
+          ]
+        },
+        {
+          "id": "amylin",
+          "name": "Amylin analog",
+          "mechanism": "Slows gastric emptying, suppresses postprandial glucagon and increases satiety",
+          "target": "Amylin receptor pathways",
+          "tags": [
+            "overview",
+            "injectable",
+            "postprandial",
+            "type1_adjunct"
+          ],
+          "role_note": "Adjunct to mealtime insulin in selected patients; insulin-dose coordination is essential.",
+          "drug_ids": [
+            "dm_pramlintide"
+          ]
+        },
+        {
+          "id": "other_oral",
+          "name": "Other oral glucose-lowering agents",
+          "mechanism": "Miscellaneous central/bile-acid/mitochondrial mechanisms",
+          "target": "Multiple targets",
+          "tags": [
+            "overview",
+            "oral",
+            "misc"
+          ],
+          "role_note": "Less commonly used/region-specific oral agents that remain pharmacologically relevant.",
+          "drug_ids": [
+            "dm_colesevelam",
+            "dm_bromocriptine_qr",
+            "dm_imeglimin"
+          ]
+        },
+        {
+          "id": "rapid_insulin",
+          "name": "Rapid / ultra-rapid insulin analogs",
+          "mechanism": "Exogenous insulin replacement with rapid prandial kinetics",
+          "target": "Insulin receptor",
+          "tags": [
+            "overview",
+            "injectable",
+            "insulin",
+            "prandial",
+            "type1"
+          ],
+          "role_note": "Prandial insulin category; dosing is carbohydrate/glucose/insulin-sensitivity dependent rather than a universal fixed dose.",
+          "drug_ids": [
+            "dm_lispro",
+            "dm_aspart",
+            "dm_glulisine",
+            "dm_faster_aspart",
+            "dm_lispro_aabc",
+            "dm_inhaled_insulin"
+          ]
+        },
+        {
+          "id": "short_insulin",
+          "name": "Short-acting human insulin",
+          "mechanism": "Exogenous insulin replacement with slower prandial kinetics than analogs",
+          "target": "Insulin receptor",
+          "tags": [
+            "overview",
+            "injectable",
+            "insulin",
+            "prandial",
+            "type1",
+            "low_cost"
+          ],
+          "role_note": "Regular human insulin; also used IV in specific acute-care protocols.",
+          "drug_ids": [
+            "dm_regular_insulin"
+          ]
+        },
+        {
+          "id": "intermediate_insulin",
+          "name": "Intermediate-acting insulin",
+          "mechanism": "Basal/intermediate insulin replacement",
+          "target": "Insulin receptor",
+          "tags": [
+            "overview",
+            "injectable",
+            "insulin",
+            "basal",
+            "type1",
+            "low_cost"
+          ],
+          "role_note": "NPH has pronounced peak and more hypoglycemia variability than long-acting analogs.",
+          "drug_ids": [
+            "dm_nph"
+          ]
+        },
+        {
+          "id": "basal_insulin",
+          "name": "Long / ultra-long basal insulin analogs",
+          "mechanism": "Relatively peakless basal insulin replacement",
+          "target": "Insulin receptor",
+          "tags": [
+            "overview",
+            "injectable",
+            "insulin",
+            "basal",
+            "type1"
+          ],
+          "role_note": "Basal insulin category for T1D and advanced T2D; titration is individualized.",
+          "drug_ids": [
+            "dm_glargine_u100",
+            "dm_glargine_u300",
+            "dm_degludec",
+            "dm_detemir"
+          ]
+        },
+        {
+          "id": "premix_insulin",
+          "name": "Premixed insulin formulations",
+          "mechanism": "Fixed basal/prandial insulin proportions",
+          "target": "Insulin receptor",
+          "tags": [
+            "overview",
+            "injectable",
+            "insulin",
+            "premix"
+          ],
+          "role_note": "Simplifies injection schedule but reduces flexibility; meal consistency matters.",
+          "drug_ids": [
+            "dm_human_70_30",
+            "dm_aspart_70_30",
+            "dm_lispro_75_25",
+            "dm_lispro_50_50",
+            "dm_degludec_aspart"
+          ]
+        },
+        {
+          "id": "fixed_combo",
+          "name": "Fixed-dose / fixed-ratio diabetes combinations",
+          "mechanism": "Combines complementary pharmacologic pathways",
+          "target": "Multiple targets",
+          "tags": [
+            "overview",
+            "oral",
+            "injectable",
+            "combination"
+          ],
+          "role_note": "Common combination patterns can reduce pill/injection burden; exact strength and suitability are product-specific.",
+          "drug_ids": [
+            "dm_sitagliptin_metformin",
+            "dm_linagliptin_metformin",
+            "dm_vildagliptin_metformin",
+            "dm_empagliflozin_metformin",
+            "dm_dapagliflozin_metformin",
+            "dm_glimepiride_metformin",
+            "dm_empagliflozin_linagliptin",
+            "dm_dapagliflozin_saxagliptin",
+            "dm_insulin_glargine_lixisenatide",
+            "dm_insulin_degludec_liraglutide"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "dm_metformin_ir",
+          "generic": "Metformin immediate-release",
+          "class_id": "biguanide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult start 500 mg once or twice daily with food; titrate gradually.",
+          "tags": [
+            "oral",
+            "sensitizer",
+            "low_hypoglycemia",
+            "low_cost"
+          ],
+          "role": "Foundational T2D medicine in many algorithms.",
+          "monitoring_pearl": "HbA1c/glucose, eGFR; B12 with long-term use.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_metformin_xr",
+          "generic": "Metformin extended-release",
+          "class_id": "biguanide",
+          "form": "ER tablet",
+          "route": "Oral",
+          "dose_example": "Common adult start 500 mg once daily with evening meal; titrate by tolerance/label.",
+          "tags": [
+            "oral",
+            "sensitizer",
+            "low_hypoglycemia"
+          ],
+          "role": "Same pharmacology with slower release and often better GI tolerability.",
+          "monitoring_pearl": "HbA1c/glucose, eGFR; B12 long-term.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_glimepiride",
+          "generic": "Glimepiride",
+          "class_id": "sulfonylurea",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "1–2 mg once daily with breakfast/first meal.",
+          "tags": [
+            "oral",
+            "secretagogue",
+            "low_cost",
+            "hypoglycemia_risk"
+          ],
+          "role": "KATP-dependent insulin secretagogue; effectiveness requires residual β-cell function.",
+          "monitoring_pearl": "Glucose/HbA1c; hypoglycemia and weight.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_gliclazide_mr",
+          "generic": "Gliclazide MR",
+          "class_id": "sulfonylurea",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "30 mg once daily with breakfast is a common start where licensed.",
+          "tags": [
+            "oral",
+            "secretagogue",
+            "low_cost",
+            "hypoglycemia_risk"
+          ],
+          "role": "KATP-dependent insulin secretagogue; effectiveness requires residual β-cell function.",
+          "monitoring_pearl": "Glucose/HbA1c; hypoglycemia and weight.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_glipizide_ir",
+          "generic": "Glipizide immediate-release",
+          "class_id": "sulfonylurea",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "2.5–5 mg once daily ~30 min before breakfast is a common start.",
+          "tags": [
+            "oral",
+            "secretagogue",
+            "low_cost",
+            "hypoglycemia_risk"
+          ],
+          "role": "KATP-dependent insulin secretagogue; effectiveness requires residual β-cell function.",
+          "monitoring_pearl": "Glucose/HbA1c; hypoglycemia and weight.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_glipizide_er",
+          "generic": "Glipizide extended-release",
+          "class_id": "sulfonylurea",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "5 mg once daily with breakfast is a common start.",
+          "tags": [
+            "oral",
+            "secretagogue",
+            "low_cost",
+            "hypoglycemia_risk"
+          ],
+          "role": "KATP-dependent insulin secretagogue; effectiveness requires residual β-cell function.",
+          "monitoring_pearl": "Glucose/HbA1c; hypoglycemia and weight.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_glyburide",
+          "generic": "Glyburide / glibenclamide",
+          "class_id": "sulfonylurea",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "2.5–5 mg once daily with breakfast is a common start; hypoglycemia risk is relatively higher.",
+          "tags": [
+            "oral",
+            "secretagogue",
+            "low_cost",
+            "hypoglycemia_risk"
+          ],
+          "role": "KATP-dependent insulin secretagogue; effectiveness requires residual β-cell function.",
+          "monitoring_pearl": "Glucose/HbA1c; hypoglycemia and weight.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_chlorpropamide",
+          "generic": "Chlorpropamide",
+          "class_id": "sulfonylurea",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Legacy long-acting agent; common historical start 100–250 mg once daily. Verify current availability.",
+          "tags": [
+            "oral",
+            "secretagogue",
+            "low_cost",
+            "hypoglycemia_risk"
+          ],
+          "role": "KATP-dependent insulin secretagogue; effectiveness requires residual β-cell function.",
+          "monitoring_pearl": "Glucose/HbA1c; hypoglycemia and weight.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_tolbutamide",
+          "generic": "Tolbutamide",
+          "class_id": "sulfonylurea",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Legacy short-acting first-generation SU; dosing is divided and availability varies.",
+          "tags": [
+            "oral",
+            "secretagogue",
+            "low_cost",
+            "hypoglycemia_risk"
+          ],
+          "role": "KATP-dependent insulin secretagogue; effectiveness requires residual β-cell function.",
+          "monitoring_pearl": "Glucose/HbA1c; hypoglycemia and weight.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_repaglinide",
+          "generic": "Repaglinide",
+          "class_id": "meglitinide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "0.5–1 mg before each meal is a common start; skip dose if meal skipped.",
+          "tags": [
+            "oral",
+            "secretagogue",
+            "postprandial"
+          ],
+          "role": "Short-acting meal-time secretagogue.",
+          "monitoring_pearl": "Postprandial glucose and hypoglycemia.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_nateglinide",
+          "generic": "Nateglinide",
+          "class_id": "meglitinide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "60–120 mg before meals; use is meal-linked.",
+          "tags": [
+            "oral",
+            "secretagogue",
+            "postprandial"
+          ],
+          "role": "Short-acting meal-time secretagogue.",
+          "monitoring_pearl": "Postprandial glucose and hypoglycemia.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_pioglitazone",
+          "generic": "Pioglitazone",
+          "class_id": "tzd",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "15–30 mg once daily is a common start; max commonly 45 mg/day.",
+          "tags": [
+            "oral",
+            "sensitizer",
+            "low_hypoglycemia"
+          ],
+          "role": "PPAR-γ insulin sensitizer; delayed onset over weeks.",
+          "monitoring_pearl": "Weight/edema, HF symptoms, liver tests where appropriate.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_rosiglitazone",
+          "generic": "Rosiglitazone",
+          "class_id": "tzd",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "4 mg/day once daily or divided; availability/restrictions vary.",
+          "tags": [
+            "oral",
+            "sensitizer",
+            "low_hypoglycemia"
+          ],
+          "role": "PPAR-γ insulin sensitizer; delayed onset over weeks.",
+          "monitoring_pearl": "Weight/edema, HF symptoms, liver tests where appropriate.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_acarbose",
+          "generic": "Acarbose",
+          "class_id": "alpha_glucosidase",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "25 mg three times daily with the first bite of each main meal; titrate slowly.",
+          "tags": [
+            "oral",
+            "postprandial",
+            "low_hypoglycemia"
+          ],
+          "role": "Reduces postprandial glycemic excursion by delaying carbohydrate digestion.",
+          "monitoring_pearl": "Postprandial glucose; GI tolerance.",
+          "source_refs": [
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_voglibose",
+          "generic": "Voglibose",
+          "class_id": "alpha_glucosidase",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common India/Asia use 0.2 mg three times daily immediately before meals; verify local label.",
+          "tags": [
+            "oral",
+            "postprandial",
+            "low_hypoglycemia"
+          ],
+          "role": "Reduces postprandial glycemic excursion by delaying carbohydrate digestion.",
+          "monitoring_pearl": "Postprandial glucose; GI tolerance.",
+          "source_refs": [
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_miglitol",
+          "generic": "Miglitol",
+          "class_id": "alpha_glucosidase",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "25 mg three times daily with first bite of meals; titrate per tolerance.",
+          "tags": [
+            "oral",
+            "postprandial",
+            "low_hypoglycemia"
+          ],
+          "role": "Reduces postprandial glycemic excursion by delaying carbohydrate digestion.",
+          "monitoring_pearl": "Postprandial glucose; GI tolerance.",
+          "source_refs": [
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_sitagliptin",
+          "generic": "Sitagliptin",
+          "class_id": "dpp4",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "100 mg once daily is the standard adult dose with renal adjustment when indicated.",
+          "tags": [
+            "oral",
+            "incretin",
+            "low_hypoglycemia",
+            "weight_neutral"
+          ],
+          "role": "Oral incretin enhancer; class efficacy is moderate and differences include renal clearance/interactions.",
+          "monitoring_pearl": "HbA1c/glucose; renal function for dose selection except selected agents.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_linagliptin",
+          "generic": "Linagliptin",
+          "class_id": "dpp4",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "5 mg once daily; no routine renal dose adjustment.",
+          "tags": [
+            "oral",
+            "incretin",
+            "low_hypoglycemia",
+            "weight_neutral"
+          ],
+          "role": "Oral incretin enhancer; class efficacy is moderate and differences include renal clearance/interactions.",
+          "monitoring_pearl": "HbA1c/glucose; renal function for dose selection except selected agents.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_saxagliptin",
+          "generic": "Saxagliptin",
+          "class_id": "dpp4",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "5 mg once daily; reduce in selected renal/CYP3A contexts.",
+          "tags": [
+            "oral",
+            "incretin",
+            "low_hypoglycemia",
+            "weight_neutral"
+          ],
+          "role": "Oral incretin enhancer; class efficacy is moderate and differences include renal clearance/interactions.",
+          "monitoring_pearl": "HbA1c/glucose; renal function for dose selection except selected agents.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_alogliptin",
+          "generic": "Alogliptin",
+          "class_id": "dpp4",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "25 mg once daily; renal dose adjustment is required.",
+          "tags": [
+            "oral",
+            "incretin",
+            "low_hypoglycemia",
+            "weight_neutral"
+          ],
+          "role": "Oral incretin enhancer; class efficacy is moderate and differences include renal clearance/interactions.",
+          "monitoring_pearl": "HbA1c/glucose; renal function for dose selection except selected agents.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_vildagliptin",
+          "generic": "Vildagliptin",
+          "class_id": "dpp4",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "50 mg once or twice daily depending combination/label.",
+          "tags": [
+            "oral",
+            "incretin",
+            "low_hypoglycemia",
+            "weight_neutral"
+          ],
+          "role": "Oral incretin enhancer; class efficacy is moderate and differences include renal clearance/interactions.",
+          "monitoring_pearl": "HbA1c/glucose; renal function for dose selection except selected agents.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_teneligliptin",
+          "generic": "Teneligliptin",
+          "class_id": "dpp4",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "20 mg once daily is a common India/Asia dose; verify local label.",
+          "tags": [
+            "oral",
+            "incretin",
+            "low_hypoglycemia",
+            "weight_neutral"
+          ],
+          "role": "Oral incretin enhancer; class efficacy is moderate and differences include renal clearance/interactions.",
+          "monitoring_pearl": "HbA1c/glucose; renal function for dose selection except selected agents.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_gemigliptin",
+          "generic": "Gemigliptin",
+          "class_id": "dpp4",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "50 mg once daily where licensed.",
+          "tags": [
+            "oral",
+            "incretin",
+            "low_hypoglycemia",
+            "weight_neutral"
+          ],
+          "role": "Oral incretin enhancer; class efficacy is moderate and differences include renal clearance/interactions.",
+          "monitoring_pearl": "HbA1c/glucose; renal function for dose selection except selected agents.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_empagliflozin",
+          "generic": "Empagliflozin",
+          "class_id": "sglt2",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "10 mg once daily; may increase to 25 mg for glycemic effect where appropriate.",
+          "tags": [
+            "oral",
+            "renal_glucose",
+            "cardiorenal",
+            "hf_ckd",
+            "low_hypoglycemia"
+          ],
+          "role": "SGLT2 blockade; cardiorenal benefits can be partly independent of glucose lowering.",
+          "monitoring_pearl": "eGFR, volume status; genital infection/ketosis sick-day teaching.",
+          "source_refs": [
+            "ADA_2026",
+            "KDIGO_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_dapagliflozin",
+          "generic": "Dapagliflozin",
+          "class_id": "sglt2",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "10 mg once daily for common cardiorenal/T2D indications.",
+          "tags": [
+            "oral",
+            "renal_glucose",
+            "cardiorenal",
+            "hf_ckd",
+            "low_hypoglycemia"
+          ],
+          "role": "SGLT2 blockade; cardiorenal benefits can be partly independent of glucose lowering.",
+          "monitoring_pearl": "eGFR, volume status; genital infection/ketosis sick-day teaching.",
+          "source_refs": [
+            "ADA_2026",
+            "KDIGO_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_canagliflozin",
+          "generic": "Canagliflozin",
+          "class_id": "sglt2",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "100 mg once daily before first meal; may increase per eGFR/label.",
+          "tags": [
+            "oral",
+            "renal_glucose",
+            "cardiorenal",
+            "hf_ckd",
+            "low_hypoglycemia"
+          ],
+          "role": "SGLT2 blockade; cardiorenal benefits can be partly independent of glucose lowering.",
+          "monitoring_pearl": "eGFR, volume status; genital infection/ketosis sick-day teaching.",
+          "source_refs": [
+            "ADA_2026",
+            "KDIGO_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_ertugliflozin",
+          "generic": "Ertugliflozin",
+          "class_id": "sglt2",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "5 mg once daily; may increase to 15 mg/day where appropriate.",
+          "tags": [
+            "oral",
+            "renal_glucose",
+            "cardiorenal",
+            "hf_ckd",
+            "low_hypoglycemia"
+          ],
+          "role": "SGLT2 blockade; cardiorenal benefits can be partly independent of glucose lowering.",
+          "monitoring_pearl": "eGFR, volume status; genital infection/ketosis sick-day teaching.",
+          "source_refs": [
+            "ADA_2026",
+            "KDIGO_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_remogliflozin",
+          "generic": "Remogliflozin etabonate",
+          "class_id": "sglt2",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common India dose 100 mg twice daily; verify local approved label.",
+          "tags": [
+            "oral",
+            "renal_glucose",
+            "cardiorenal",
+            "hf_ckd",
+            "low_hypoglycemia"
+          ],
+          "role": "SGLT2 blockade; cardiorenal benefits can be partly independent of glucose lowering.",
+          "monitoring_pearl": "eGFR, volume status; genital infection/ketosis sick-day teaching.",
+          "source_refs": [
+            "ADA_2026",
+            "KDIGO_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_bexagliflozin",
+          "generic": "Bexagliflozin",
+          "class_id": "sglt2",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "20 mg once daily where approved.",
+          "tags": [
+            "oral",
+            "renal_glucose",
+            "cardiorenal",
+            "hf_ckd",
+            "low_hypoglycemia"
+          ],
+          "role": "SGLT2 blockade; cardiorenal benefits can be partly independent of glucose lowering.",
+          "monitoring_pearl": "eGFR, volume status; genital infection/ketosis sick-day teaching.",
+          "source_refs": [
+            "ADA_2026",
+            "KDIGO_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_sotagliflozin",
+          "generic": "Sotagliflozin",
+          "class_id": "dual_sglt1_2",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common approved adult dose in relevant jurisdictions begins 200 mg once daily; indication/availability varies.",
+          "tags": [
+            "oral",
+            "renal_glucose",
+            "cardiorenal"
+          ],
+          "role": "Dual SGLT1/SGLT2 inhibition; approval is indication- and country-specific.",
+          "monitoring_pearl": "eGFR, volume, ketosis and GI effects.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_exenatide_bid",
+          "generic": "Exenatide twice daily",
+          "class_id": "glp1",
+          "form": "Prefilled pen",
+          "route": "SC",
+          "dose_example": "5 microgram twice daily before meals for at least 1 month, then may increase to 10 microgram BID.",
+          "tags": [
+            "incretin",
+            "weight_loss",
+            "low_hypoglycemia",
+            "ascvd",
+            "injectable"
+          ],
+          "role": "GLP-1 receptor agonist with agent-specific CV/weight evidence and titration.",
+          "monitoring_pearl": "HbA1c/glucose, GI tolerance, weight; retinopathy/pancreas/gallbladder context as applicable.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_exenatide_er",
+          "generic": "Exenatide extended-release",
+          "class_id": "glp1",
+          "form": "Pen/vial",
+          "route": "SC",
+          "dose_example": "2 mg once weekly.",
+          "tags": [
+            "incretin",
+            "weight_loss",
+            "low_hypoglycemia",
+            "ascvd",
+            "injectable"
+          ],
+          "role": "GLP-1 receptor agonist with agent-specific CV/weight evidence and titration.",
+          "monitoring_pearl": "HbA1c/glucose, GI tolerance, weight; retinopathy/pancreas/gallbladder context as applicable.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_liraglutide",
+          "generic": "Liraglutide",
+          "class_id": "glp1",
+          "form": "Prefilled pen",
+          "route": "SC",
+          "dose_example": "0.6 mg once daily initially, then 1.2 mg; may increase to 1.8 mg for diabetes.",
+          "tags": [
+            "incretin",
+            "weight_loss",
+            "low_hypoglycemia",
+            "ascvd",
+            "injectable"
+          ],
+          "role": "GLP-1 receptor agonist with agent-specific CV/weight evidence and titration.",
+          "monitoring_pearl": "HbA1c/glucose, GI tolerance, weight; retinopathy/pancreas/gallbladder context as applicable.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_dulaglutide",
+          "generic": "Dulaglutide",
+          "class_id": "glp1",
+          "form": "Prefilled pen",
+          "route": "SC",
+          "dose_example": "0.75 mg once weekly is a common start; higher strengths are titrated stepwise.",
+          "tags": [
+            "incretin",
+            "weight_loss",
+            "low_hypoglycemia",
+            "ascvd",
+            "injectable"
+          ],
+          "role": "GLP-1 receptor agonist with agent-specific CV/weight evidence and titration.",
+          "monitoring_pearl": "HbA1c/glucose, GI tolerance, weight; retinopathy/pancreas/gallbladder context as applicable.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_semaglutide_sc",
+          "generic": "Semaglutide subcutaneous",
+          "class_id": "glp1",
+          "form": "Prefilled pen",
+          "route": "SC",
+          "dose_example": "0.25 mg once weekly for 4 weeks, then 0.5 mg; further stepwise titration by response/label.",
+          "tags": [
+            "incretin",
+            "weight_loss",
+            "low_hypoglycemia",
+            "ascvd",
+            "injectable"
+          ],
+          "role": "GLP-1 receptor agonist with agent-specific CV/weight evidence and titration.",
+          "monitoring_pearl": "HbA1c/glucose, GI tolerance, weight; retinopathy/pancreas/gallbladder context as applicable.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_semaglutide_oral",
+          "generic": "Semaglutide oral",
+          "class_id": "glp1",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "3 mg once daily for 30 days then 7 mg; may increase to 14 mg. Administration fasting instructions are critical.",
+          "tags": [
+            "incretin",
+            "weight_loss",
+            "low_hypoglycemia",
+            "ascvd",
+            "oral"
+          ],
+          "role": "GLP-1 receptor agonist with agent-specific CV/weight evidence and titration.",
+          "monitoring_pearl": "HbA1c/glucose, GI tolerance, weight; retinopathy/pancreas/gallbladder context as applicable.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_lixisenatide",
+          "generic": "Lixisenatide",
+          "class_id": "glp1",
+          "form": "Prefilled pen",
+          "route": "SC",
+          "dose_example": "10 microgram once daily for 14 days, then 20 microgram once daily.",
+          "tags": [
+            "incretin",
+            "weight_loss",
+            "low_hypoglycemia",
+            "ascvd",
+            "injectable"
+          ],
+          "role": "GLP-1 receptor agonist with agent-specific CV/weight evidence and titration.",
+          "monitoring_pearl": "HbA1c/glucose, GI tolerance, weight; retinopathy/pancreas/gallbladder context as applicable.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_tirzepatide",
+          "generic": "Tirzepatide",
+          "class_id": "gip_glp1",
+          "form": "Prefilled pen",
+          "route": "SC",
+          "dose_example": "2.5 mg once weekly for 4 weeks, then 5 mg; increase in 2.5-mg steps at intervals per label.",
+          "tags": [
+            "incretin",
+            "weight_loss",
+            "low_hypoglycemia",
+            "injectable"
+          ],
+          "role": "Dual GIP/GLP-1 agonist with very high glycemic/weight efficacy.",
+          "monitoring_pearl": "HbA1c/glucose, GI tolerance, weight and agent-specific warnings.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_pramlintide",
+          "generic": "Pramlintide",
+          "class_id": "amylin",
+          "form": "Prefilled pen",
+          "route": "SC",
+          "dose_example": "Meal-time dose is indication/type-specific and requires concurrent prandial-insulin reduction; verify exact protocol.",
+          "tags": [
+            "injectable",
+            "postprandial",
+            "type1_adjunct"
+          ],
+          "role": "Amylin analog used with insulin in selected T1D/T2D patients.",
+          "monitoring_pearl": "Glucose/hypoglycemia; insulin dose coordination.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_colesevelam",
+          "generic": "Colesevelam",
+          "class_id": "other_oral",
+          "form": "Tablet/powder",
+          "route": "Oral",
+          "dose_example": "3.75 g/day as tablets or suspension; may be divided.",
+          "tags": [
+            "oral",
+            "misc"
+          ],
+          "role": "Region-/indication-specific glucose-lowering option; mechanism and regulatory status vary.",
+          "monitoring_pearl": "HbA1c/glucose plus agent-specific monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "ICMR_T2DM_STW"
+          ]
+        },
+        {
+          "id": "dm_bromocriptine_qr",
+          "generic": "Bromocriptine quick-release",
+          "class_id": "other_oral",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "0.8 mg each morning within 2 h of waking; titrate weekly to product-specific maintenance.",
+          "tags": [
+            "oral",
+            "misc"
+          ],
+          "role": "Region-/indication-specific glucose-lowering option; mechanism and regulatory status vary.",
+          "monitoring_pearl": "HbA1c/glucose plus agent-specific monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "ICMR_T2DM_STW"
+          ]
+        },
+        {
+          "id": "dm_imeglimin",
+          "generic": "Imeglimin",
+          "class_id": "other_oral",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common India/Japan dose 1000 mg twice daily where licensed; verify local label.",
+          "tags": [
+            "oral",
+            "misc"
+          ],
+          "role": "Region-/indication-specific glucose-lowering option; mechanism and regulatory status vary.",
+          "monitoring_pearl": "HbA1c/glucose plus agent-specific monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "ICMR_T2DM_STW"
+          ]
+        },
+        {
+          "id": "dm_lispro",
+          "generic": "Insulin lispro",
+          "class_id": "rapid_insulin",
+          "form": "SC injection",
+          "route": "SC",
+          "dose_example": "No universal fixed dose: individualized by carbohydrate intake, glucose, correction factor, total daily insulin and meal timing.",
+          "tags": [
+            "insulin",
+            "prandial",
+            "type1"
+          ],
+          "role": "Rapid prandial insulin/replacement category.",
+          "monitoring_pearl": "Glucose/CGM and hypoglycemia; lung function for inhaled insulin.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_aspart",
+          "generic": "Insulin aspart",
+          "class_id": "rapid_insulin",
+          "form": "SC injection",
+          "route": "SC",
+          "dose_example": "No universal fixed dose: individualized by carbohydrate intake, glucose, correction factor, total daily insulin and meal timing.",
+          "tags": [
+            "insulin",
+            "prandial",
+            "type1"
+          ],
+          "role": "Rapid prandial insulin/replacement category.",
+          "monitoring_pearl": "Glucose/CGM and hypoglycemia; lung function for inhaled insulin.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_glulisine",
+          "generic": "Insulin glulisine",
+          "class_id": "rapid_insulin",
+          "form": "SC injection",
+          "route": "SC",
+          "dose_example": "No universal fixed dose: individualized by carbohydrate intake, glucose, correction factor, total daily insulin and meal timing.",
+          "tags": [
+            "insulin",
+            "prandial",
+            "type1"
+          ],
+          "role": "Rapid prandial insulin/replacement category.",
+          "monitoring_pearl": "Glucose/CGM and hypoglycemia; lung function for inhaled insulin.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_faster_aspart",
+          "generic": "Faster-acting insulin aspart",
+          "class_id": "rapid_insulin",
+          "form": "SC injection",
+          "route": "SC",
+          "dose_example": "No universal fixed dose: individualized by carbohydrate intake, glucose, correction factor, total daily insulin and meal timing.",
+          "tags": [
+            "insulin",
+            "prandial",
+            "type1"
+          ],
+          "role": "Rapid prandial insulin/replacement category.",
+          "monitoring_pearl": "Glucose/CGM and hypoglycemia; lung function for inhaled insulin.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_lispro_aabc",
+          "generic": "Insulin lispro-aabc",
+          "class_id": "rapid_insulin",
+          "form": "SC injection",
+          "route": "SC",
+          "dose_example": "No universal fixed dose: individualized by carbohydrate intake, glucose, correction factor, total daily insulin and meal timing.",
+          "tags": [
+            "insulin",
+            "prandial",
+            "type1"
+          ],
+          "role": "Rapid prandial insulin/replacement category.",
+          "monitoring_pearl": "Glucose/CGM and hypoglycemia; lung function for inhaled insulin.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_inhaled_insulin",
+          "generic": "Inhaled human insulin",
+          "class_id": "rapid_insulin",
+          "form": "Inhalation powder",
+          "route": "Inhaled",
+          "dose_example": "No universal fixed dose: individualized by carbohydrate intake, glucose, correction factor, total daily insulin and meal timing.",
+          "tags": [
+            "insulin",
+            "prandial",
+            "type1"
+          ],
+          "role": "Rapid prandial insulin/replacement category.",
+          "monitoring_pearl": "Glucose/CGM and hypoglycemia; lung function for inhaled insulin.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_regular_insulin",
+          "generic": "Regular human insulin",
+          "class_id": "short_insulin",
+          "form": "Injection",
+          "route": "SC/IV",
+          "dose_example": "Prandial SC dosing is individualized; IV infusion is protocol-driven for acute-care settings.",
+          "tags": [
+            "insulin",
+            "prandial",
+            "type1",
+            "low_cost"
+          ],
+          "role": "Short-acting human insulin; onset slower than rapid analogs.",
+          "monitoring_pearl": "Glucose/CGM, hypoglycemia and potassium in IV protocols.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_nph",
+          "generic": "NPH (isophane) insulin",
+          "class_id": "intermediate_insulin",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Basal initiation in T2D often starts around 10 units/day or 0.1–0.2 units/kg/day, then titrates to fasting glucose.",
+          "tags": [
+            "insulin",
+            "basal",
+            "type1",
+            "low_cost"
+          ],
+          "role": "Intermediate insulin with a distinct peak.",
+          "monitoring_pearl": "Fasting glucose/CGM and nocturnal hypoglycemia.",
+          "source_refs": [
+            "ADA_2026",
+            "ICMR_T2DM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_glargine_u100",
+          "generic": "Insulin glargine U100",
+          "class_id": "basal_insulin",
+          "form": "Injection pen/vial",
+          "route": "SC",
+          "dose_example": "T2D basal initiation often begins at 10 units/day or 0.1–0.2 units/kg/day, with formulation-specific titration.",
+          "tags": [
+            "insulin",
+            "basal",
+            "type1"
+          ],
+          "role": "Long/ultra-long basal insulin; pharmacokinetics differ among formulations.",
+          "monitoring_pearl": "Fasting glucose/CGM, hypoglycemia; dose-concentration verification.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_glargine_u300",
+          "generic": "Insulin glargine U300",
+          "class_id": "basal_insulin",
+          "form": "Injection pen/vial",
+          "route": "SC",
+          "dose_example": "T2D basal initiation often begins at 10 units/day or 0.1–0.2 units/kg/day, with formulation-specific titration.",
+          "tags": [
+            "insulin",
+            "basal",
+            "type1"
+          ],
+          "role": "Long/ultra-long basal insulin; pharmacokinetics differ among formulations.",
+          "monitoring_pearl": "Fasting glucose/CGM, hypoglycemia; dose-concentration verification.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_degludec",
+          "generic": "Insulin degludec",
+          "class_id": "basal_insulin",
+          "form": "Injection pen/vial",
+          "route": "SC",
+          "dose_example": "T2D basal initiation often begins at 10 units/day or 0.1–0.2 units/kg/day, with formulation-specific titration.",
+          "tags": [
+            "insulin",
+            "basal",
+            "type1"
+          ],
+          "role": "Long/ultra-long basal insulin; pharmacokinetics differ among formulations.",
+          "monitoring_pearl": "Fasting glucose/CGM, hypoglycemia; dose-concentration verification.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_detemir",
+          "generic": "Insulin detemir",
+          "class_id": "basal_insulin",
+          "form": "Injection pen/vial",
+          "route": "SC",
+          "dose_example": "T2D basal initiation often begins at 10 units/day or 0.1–0.2 units/kg/day, with formulation-specific titration.",
+          "tags": [
+            "insulin",
+            "basal",
+            "type1"
+          ],
+          "role": "Long/ultra-long basal insulin; pharmacokinetics differ among formulations.",
+          "monitoring_pearl": "Fasting glucose/CGM, hypoglycemia; dose-concentration verification.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_human_70_30",
+          "generic": "Human insulin 70/30 (NPH/regular)",
+          "class_id": "premix_insulin",
+          "form": "Injection pen/vial",
+          "route": "SC",
+          "dose_example": "Dose is individualized; premix initiation/split schedules depend on meals, glucose pattern and prior regimen.",
+          "tags": [
+            "insulin",
+            "premix"
+          ],
+          "role": "Fixed basal/prandial proportion simplifies regimen but requires meal-pattern consistency.",
+          "monitoring_pearl": "SMBG/CGM, hypoglycemia and meal timing.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_aspart_70_30",
+          "generic": "Biphasic insulin aspart 70/30",
+          "class_id": "premix_insulin",
+          "form": "Injection pen/vial",
+          "route": "SC",
+          "dose_example": "Dose is individualized; premix initiation/split schedules depend on meals, glucose pattern and prior regimen.",
+          "tags": [
+            "insulin",
+            "premix"
+          ],
+          "role": "Fixed basal/prandial proportion simplifies regimen but requires meal-pattern consistency.",
+          "monitoring_pearl": "SMBG/CGM, hypoglycemia and meal timing.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_lispro_75_25",
+          "generic": "Insulin lispro mix 75/25",
+          "class_id": "premix_insulin",
+          "form": "Injection pen/vial",
+          "route": "SC",
+          "dose_example": "Dose is individualized; premix initiation/split schedules depend on meals, glucose pattern and prior regimen.",
+          "tags": [
+            "insulin",
+            "premix"
+          ],
+          "role": "Fixed basal/prandial proportion simplifies regimen but requires meal-pattern consistency.",
+          "monitoring_pearl": "SMBG/CGM, hypoglycemia and meal timing.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_lispro_50_50",
+          "generic": "Insulin lispro mix 50/50",
+          "class_id": "premix_insulin",
+          "form": "Injection pen/vial",
+          "route": "SC",
+          "dose_example": "Dose is individualized; premix initiation/split schedules depend on meals, glucose pattern and prior regimen.",
+          "tags": [
+            "insulin",
+            "premix"
+          ],
+          "role": "Fixed basal/prandial proportion simplifies regimen but requires meal-pattern consistency.",
+          "monitoring_pearl": "SMBG/CGM, hypoglycemia and meal timing.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_degludec_aspart",
+          "generic": "Insulin degludec/aspart 70/30",
+          "class_id": "premix_insulin",
+          "form": "Injection pen/vial",
+          "route": "SC",
+          "dose_example": "Dose is individualized; premix initiation/split schedules depend on meals, glucose pattern and prior regimen.",
+          "tags": [
+            "insulin",
+            "premix"
+          ],
+          "role": "Fixed basal/prandial proportion simplifies regimen but requires meal-pattern consistency.",
+          "monitoring_pearl": "SMBG/CGM, hypoglycemia and meal timing.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_sitagliptin_metformin",
+          "generic": "Sitagliptin/metformin",
+          "class_id": "fixed_combo",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Strengths and starting dose depend on component doses, prior therapy and local product label; verify exact formulation.",
+          "tags": [
+            "combination",
+            "oral"
+          ],
+          "role": "Fixed combination designed to reduce treatment burden and combine complementary mechanisms.",
+          "monitoring_pearl": "Component-specific glucose, renal, hypoglycemia and adverse-effect monitoring.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_linagliptin_metformin",
+          "generic": "Linagliptin/metformin",
+          "class_id": "fixed_combo",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Strengths and starting dose depend on component doses, prior therapy and local product label; verify exact formulation.",
+          "tags": [
+            "combination",
+            "oral"
+          ],
+          "role": "Fixed combination designed to reduce treatment burden and combine complementary mechanisms.",
+          "monitoring_pearl": "Component-specific glucose, renal, hypoglycemia and adverse-effect monitoring.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_vildagliptin_metformin",
+          "generic": "Vildagliptin/metformin",
+          "class_id": "fixed_combo",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Strengths and starting dose depend on component doses, prior therapy and local product label; verify exact formulation.",
+          "tags": [
+            "combination",
+            "oral"
+          ],
+          "role": "Fixed combination designed to reduce treatment burden and combine complementary mechanisms.",
+          "monitoring_pearl": "Component-specific glucose, renal, hypoglycemia and adverse-effect monitoring.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_empagliflozin_metformin",
+          "generic": "Empagliflozin/metformin",
+          "class_id": "fixed_combo",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Strengths and starting dose depend on component doses, prior therapy and local product label; verify exact formulation.",
+          "tags": [
+            "combination",
+            "oral"
+          ],
+          "role": "Fixed combination designed to reduce treatment burden and combine complementary mechanisms.",
+          "monitoring_pearl": "Component-specific glucose, renal, hypoglycemia and adverse-effect monitoring.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_dapagliflozin_metformin",
+          "generic": "Dapagliflozin/metformin",
+          "class_id": "fixed_combo",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Strengths and starting dose depend on component doses, prior therapy and local product label; verify exact formulation.",
+          "tags": [
+            "combination",
+            "oral"
+          ],
+          "role": "Fixed combination designed to reduce treatment burden and combine complementary mechanisms.",
+          "monitoring_pearl": "Component-specific glucose, renal, hypoglycemia and adverse-effect monitoring.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_glimepiride_metformin",
+          "generic": "Glimepiride/metformin",
+          "class_id": "fixed_combo",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Strengths and starting dose depend on component doses, prior therapy and local product label; verify exact formulation.",
+          "tags": [
+            "combination",
+            "oral"
+          ],
+          "role": "Fixed combination designed to reduce treatment burden and combine complementary mechanisms.",
+          "monitoring_pearl": "Component-specific glucose, renal, hypoglycemia and adverse-effect monitoring.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_empagliflozin_linagliptin",
+          "generic": "Empagliflozin/linagliptin",
+          "class_id": "fixed_combo",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Strengths and starting dose depend on component doses, prior therapy and local product label; verify exact formulation.",
+          "tags": [
+            "combination",
+            "oral"
+          ],
+          "role": "Fixed combination designed to reduce treatment burden and combine complementary mechanisms.",
+          "monitoring_pearl": "Component-specific glucose, renal, hypoglycemia and adverse-effect monitoring.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_dapagliflozin_saxagliptin",
+          "generic": "Dapagliflozin/saxagliptin",
+          "class_id": "fixed_combo",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Strengths and starting dose depend on component doses, prior therapy and local product label; verify exact formulation.",
+          "tags": [
+            "combination",
+            "oral"
+          ],
+          "role": "Fixed combination designed to reduce treatment burden and combine complementary mechanisms.",
+          "monitoring_pearl": "Component-specific glucose, renal, hypoglycemia and adverse-effect monitoring.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_insulin_glargine_lixisenatide",
+          "generic": "Insulin glargine/lixisenatide",
+          "class_id": "fixed_combo",
+          "form": "Injection pen",
+          "route": "SC",
+          "dose_example": "Strengths and starting dose depend on component doses, prior therapy and local product label; verify exact formulation.",
+          "tags": [
+            "combination",
+            "injectable"
+          ],
+          "role": "Fixed combination designed to reduce treatment burden and combine complementary mechanisms.",
+          "monitoring_pearl": "Component-specific glucose, renal, hypoglycemia and adverse-effect monitoring.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "dm_insulin_degludec_liraglutide",
+          "generic": "Insulin degludec/liraglutide",
+          "class_id": "fixed_combo",
+          "form": "Injection pen",
+          "route": "SC",
+          "dose_example": "Strengths and starting dose depend on component doses, prior therapy and local product label; verify exact formulation.",
+          "tags": [
+            "combination",
+            "injectable"
+          ],
+          "role": "Fixed combination designed to reduce treatment burden and combine complementary mechanisms.",
+          "monitoring_pearl": "Component-specific glucose, renal, hypoglycemia and adverse-effect monitoring.",
+          "source_refs": [
+            "ADA_2026",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "ADA_2026",
+          "label": "ADA Standards of Care in Diabetes—2026: Pharmacologic Approaches",
+          "url": "https://diabetesjournals.org/care/article/49/Supplement_1/S183/163934/9-Pharmacologic-Approaches-to-Glycemic-Treatment"
+        },
+        {
+          "id": "ICMR_T2DM_STW",
+          "label": "ICMR Standard Treatment Workflow — Type 2 Diabetes",
+          "url": "https://www.icmr.gov.in/icmrobject/uploads/STWs/1726567245_diabetes_mellitus_type_2.pdf"
+        },
+        {
+          "id": "ICMR_T2DM_2018",
+          "label": "ICMR Guidelines for Management of Type 2 Diabetes 2018",
+          "url": "https://www.icmr.gov.in/icmrobject/custom_data/pdf/resource-guidelines/ICMR_GuidelinesType2diabetes2018_0.pdf"
+        },
+        {
+          "id": "KDIGO_2024",
+          "label": "KDIGO 2024 CKD Guideline",
+          "url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "DailyMed / current product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        },
+        {
+          "id": "NLEM_2022",
+          "label": "India National List of Essential Medicines",
+          "url": "https://www.mohfw.gov.in/"
+        }
+      ]
+    },
+    {
+      "id": "thyroid",
+      "title": "Thyroid Drugs Intelligence Lab",
+      "icon": "🦋",
+      "badge": "THY v1.0",
+      "eyebrow": "THYROID PHARMACOLOGY / ENDOCRINE RESEARCH WORKSPACE",
+      "subtitle": "Hypothyroid replacement → hyperthyroid synthesis/release blockers → symptom control → thyroid storm → radioiodine → orbitopathy → precision oncology",
+      "scientific_boundary": "This lab separates thyroid pharmacology by disease mechanism. Replacement, antithyroid, thyroid-storm, pregnancy, orbitopathy and oncology therapies are not interchangeable. Exact drug choice/dose must be based on thyroid diagnosis, TSH/free T4/T3 pattern, etiology (Graves/toxic nodule/thyroiditis), pregnancy status, cardiac/liver risk and current ATA/product guidance.",
+      "classification_notes": {
+        "hypothyroid": "Levothyroxine remains standard replacement for primary hypothyroidism; dose is individualized by age, weight, pregnancy, cardiac disease and TSH response.",
+        "hyperthyroid": "Thionamides block new hormone synthesis and are useful in Graves disease; they do not treat hormone leakage from thyroiditis. Beta blockers control symptoms but do not correct hormone production.",
+        "storm": "Thyroid storm is a multimodal emergency: adrenergic control + synthesis blockade + iodide after thionamide + glucocorticoid/supportive care, with syndrome-specific protocol.",
+        "pregnancy": "Pregnancy management is specialized. ATA updated its preconception/pregnancy/postpartum guideline in 2026; antithyroid and levothyroxine decisions should use that current guidance."
+      },
+      "lens_groups": [
+        {
+          "group": "Core thyroid pharmacology",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All thyroid drug groups"
+            },
+            {
+              "id": "hypothyroid",
+              "label": "Hypothyroidism replacement"
+            },
+            {
+              "id": "hyperthyroid",
+              "label": "Hyperthyroidism / Graves"
+            },
+            {
+              "id": "synthesis_blocker",
+              "label": "Thionamide synthesis blockers"
+            },
+            {
+              "id": "symptom_control",
+              "label": "Adrenergic symptom control"
+            },
+            {
+              "id": "release_blocker",
+              "label": "Iodide / release blockade"
+            },
+            {
+              "id": "definitive",
+              "label": "Radioiodine / definitive"
+            },
+            {
+              "id": "thyroid_storm",
+              "label": "Thyroid storm pharmacology"
+            }
+          ]
+        },
+        {
+          "group": "Special situations",
+          "items": [
+            {
+              "id": "pregnancy_context",
+              "label": "Pregnancy context"
+            },
+            {
+              "id": "preop",
+              "label": "Pre-op hyperthyroidism"
+            },
+            {
+              "id": "amiodarone",
+              "label": "Amiodarone-induced context"
+            },
+            {
+              "id": "orbitopathy",
+              "label": "Graves orbitopathy"
+            },
+            {
+              "id": "thyroid_cancer_suppression",
+              "label": "TSH suppression"
+            },
+            {
+              "id": "thyroid_oncology",
+              "label": "Advanced thyroid oncology"
+            }
+          ]
+        },
+        {
+          "group": "Oncology / precision",
+          "items": [
+            {
+              "id": "dtc",
+              "label": "RAI-refractory DTC"
+            },
+            {
+              "id": "mtc",
+              "label": "Medullary thyroid cancer"
+            },
+            {
+              "id": "atc",
+              "label": "Anaplastic thyroid cancer"
+            },
+            {
+              "id": "specialist",
+              "label": "Specialist-only agents"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "t4_replacement",
+          "name": "T4 replacement",
+          "mechanism": "Replaces endogenous thyroxine; peripheral conversion supplies T3",
+          "target": "Thyroid hormone receptors after T4→T3 conversion",
+          "tags": [
+            "overview",
+            "hypothyroid",
+            "replacement",
+            "pregnancy_context",
+            "thyroid_cancer_suppression"
+          ],
+          "role_note": "Levothyroxine is standard replacement therapy for primary hypothyroidism; dose is TSH/clinical-context guided.",
+          "drug_ids": [
+            "th_levothyroxine_tab",
+            "th_levothyroxine_softgel",
+            "th_levothyroxine_liquid"
+          ]
+        },
+        {
+          "id": "t3_replacement",
+          "name": "T3 / combination thyroid hormone",
+          "mechanism": "Provides liothyronine directly or T4/T3 combination",
+          "target": "Thyroid hormone receptors",
+          "tags": [
+            "overview",
+            "hypothyroid",
+            "replacement",
+            "specialist"
+          ],
+          "role_note": "Specialist/selected use rather than routine first-line replacement.",
+          "drug_ids": [
+            "th_liothyronine",
+            "th_lt4_lt3_combo"
+          ]
+        },
+        {
+          "id": "desiccated",
+          "name": "Desiccated thyroid extract",
+          "mechanism": "Animal-derived T4/T3-containing preparation",
+          "target": "Thyroid hormone receptors",
+          "tags": [
+            "overview",
+            "hypothyroid",
+            "replacement",
+            "specialist"
+          ],
+          "role_note": "Not standard first-line therapy; content ratio differs from human physiology and products require careful standardization.",
+          "drug_ids": [
+            "th_dte"
+          ]
+        },
+        {
+          "id": "thionamide",
+          "name": "Thionamide antithyroid drugs",
+          "mechanism": "Inhibit thyroid peroxidase; PTU also reduces peripheral T4→T3 conversion",
+          "target": "Thyroid peroxidase",
+          "tags": [
+            "overview",
+            "hyperthyroid",
+            "synthesis_blocker",
+            "graves",
+            "pregnancy_context",
+            "thyroid_storm"
+          ],
+          "role_note": "Core medication class for Graves hyperthyroidism; methimazole is usually preferred outside specific pregnancy/thyroid-storm contexts.",
+          "drug_ids": [
+            "th_methimazole",
+            "th_carbimazole",
+            "th_ptu"
+          ]
+        },
+        {
+          "id": "beta_symptom",
+          "name": "Beta blockers for thyrotoxicosis",
+          "mechanism": "Control adrenergic symptoms; propranolol at higher doses also reduces T4→T3 conversion",
+          "target": "β-adrenergic receptors",
+          "tags": [
+            "overview",
+            "hyperthyroid",
+            "symptom_control",
+            "graves",
+            "thyroid_storm"
+          ],
+          "role_note": "Symptom-control adjunct; does not treat the underlying hormone overproduction.",
+          "drug_ids": [
+            "th_propranolol",
+            "th_atenolol",
+            "th_metoprolol",
+            "th_esmolol"
+          ]
+        },
+        {
+          "id": "iodide",
+          "name": "Inorganic iodide / hormone-release blockade",
+          "mechanism": "Acute Wolff–Chaikoff effect and inhibition of thyroid hormone release",
+          "target": "Thyroid iodide handling / organification",
+          "tags": [
+            "overview",
+            "hyperthyroid",
+            "release_blocker",
+            "thyroid_storm",
+            "preop"
+          ],
+          "role_note": "Short-term adjunct in thyroid storm/preoperative settings; sequencing after thionamide matters in storm protocols.",
+          "drug_ids": [
+            "th_sski",
+            "th_lugol"
+          ]
+        },
+        {
+          "id": "radioiodine",
+          "name": "Radioactive iodine (I-131)",
+          "mechanism": "Thyroid-selective beta radiation after iodide uptake",
+          "target": "Sodium-iodide symporter uptake → tissue ablation",
+          "tags": [
+            "overview",
+            "hyperthyroid",
+            "definitive",
+            "graves",
+            "toxic_nodule"
+          ],
+          "role_note": "Definitive therapy for selected Graves/toxic nodular disease; contraindications and radiation precautions are essential.",
+          "drug_ids": [
+            "th_rai_i131"
+          ]
+        },
+        {
+          "id": "storm_adjunct",
+          "name": "Thyroid-storm / severe thyrotoxicosis adjuncts",
+          "mechanism": "Reduce peripheral conversion, enterohepatic recycling or hormone release",
+          "target": "Multiple targets",
+          "tags": [
+            "overview",
+            "thyroid_storm",
+            "hyperthyroid",
+            "adjunct"
+          ],
+          "role_note": "ICU-level multimodal therapy; components are adjuncts and sequence/timing are protocol-driven.",
+          "drug_ids": [
+            "th_hydrocortisone",
+            "th_dexamethasone",
+            "th_cholestyramine"
+          ]
+        },
+        {
+          "id": "orbitopathy",
+          "name": "Graves orbitopathy pharmacotherapy",
+          "mechanism": "Immunomodulation / IGF-1R pathway inhibition",
+          "target": "Immune pathways / IGF-1 receptor",
+          "tags": [
+            "overview",
+            "orbitopathy",
+            "graves",
+            "specialist"
+          ],
+          "role_note": "Specialist ophthalmology/endocrinology therapy based on activity/severity and local availability.",
+          "drug_ids": [
+            "th_teprotumumab",
+            "th_methylpred_orbitopathy"
+          ]
+        },
+        {
+          "id": "rare_release",
+          "name": "Rare/specialist hormone-release inhibitors",
+          "mechanism": "Reduce thyroid hormone release/iodide uptake in selected refractory or amiodarone contexts",
+          "target": "Iodide transport/release pathways",
+          "tags": [
+            "overview",
+            "hyperthyroid",
+            "specialist",
+            "amiodarone"
+          ],
+          "role_note": "Rare specialist agents; toxicity and availability limit routine use.",
+          "drug_ids": [
+            "th_lithium",
+            "th_perchlorate"
+          ]
+        },
+        {
+          "id": "dtc_targeted",
+          "name": "RAI-refractory differentiated thyroid cancer targeted therapy",
+          "mechanism": "Inhibit VEGFR/RET and other oncogenic kinases",
+          "target": "Multikinase / RET / NTRK pathways",
+          "tags": [
+            "overview",
+            "thyroid_oncology",
+            "dtc",
+            "specialist"
+          ],
+          "role_note": "Oncology-level systemic therapy for progressive RAI-refractory disease; mutation and toxicity profiles guide selection.",
+          "drug_ids": [
+            "th_lenvatinib",
+            "th_sorafenib",
+            "th_cabozantinib_dtc"
+          ]
+        },
+        {
+          "id": "mtc_targeted",
+          "name": "Medullary thyroid cancer targeted therapy",
+          "mechanism": "Inhibit RET/VEGFR/MET or selective RET signaling",
+          "target": "RET / VEGFR / MET",
+          "tags": [
+            "overview",
+            "thyroid_oncology",
+            "mtc",
+            "specialist"
+          ],
+          "role_note": "Advanced medullary thyroid cancer therapy; RET mutation status increasingly matters.",
+          "drug_ids": [
+            "th_vandetanib",
+            "th_cabozantinib_mtc",
+            "th_selpercatinib",
+            "th_pralsetinib"
+          ]
+        },
+        {
+          "id": "atc_targeted",
+          "name": "Anaplastic thyroid cancer / precision therapy",
+          "mechanism": "Target BRAF/MEK or actionable molecular drivers",
+          "target": "BRAF/MEK / RET / NTRK",
+          "tags": [
+            "overview",
+            "thyroid_oncology",
+            "atc",
+            "specialist"
+          ],
+          "role_note": "Urgent multidisciplinary oncology care; targeted options depend on rapid molecular profiling.",
+          "drug_ids": [
+            "th_dabrafenib_trametinib",
+            "th_larotrectinib",
+            "th_entrectinib"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "th_levothyroxine_tab",
+          "generic": "Levothyroxine (tablet)",
+          "class_id": "t4_replacement",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Healthy younger adults needing full replacement often require ~1.6 microgram/kg/day; start lower in older/cardiac patients and titrate by TSH.",
+          "tags": [
+            "hypothyroid",
+            "replacement",
+            "pregnancy_context",
+            "thyroid_cancer_suppression"
+          ],
+          "role": "Standard of care for hypothyroidism.",
+          "monitoring_pearl": "TSH (and free T4 in selected contexts), adherence/timing; absorption interactions with iron/calcium/antacids.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "ATA_PREG_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_levothyroxine_softgel",
+          "generic": "Levothyroxine soft-gel capsule",
+          "class_id": "t4_replacement",
+          "form": "Soft-gel capsule",
+          "route": "Oral",
+          "dose_example": "Dose is microgram-for-microgram individualized similarly to tablet; formulation changes should be followed by thyroid-function reassessment.",
+          "tags": [
+            "hypothyroid",
+            "replacement"
+          ],
+          "role": "Alternative formulation for selected absorption/excipient issues.",
+          "monitoring_pearl": "TSH after formulation/dose change.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_levothyroxine_liquid",
+          "generic": "Levothyroxine oral solution",
+          "class_id": "t4_replacement",
+          "form": "Oral solution",
+          "route": "Oral",
+          "dose_example": "Individualized microgram dose; verify product concentration and administration instructions.",
+          "tags": [
+            "hypothyroid",
+            "replacement"
+          ],
+          "role": "Liquid formulation may be useful for swallowing/absorption situations.",
+          "monitoring_pearl": "TSH and exact concentration verification.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_liothyronine",
+          "generic": "Liothyronine (T3)",
+          "class_id": "t3_replacement",
+          "form": "Tablet/injection",
+          "route": "Oral/IV",
+          "dose_example": "Label oral starting doses are commonly around 25 microgram/day in adults, much lower in older/cardiac patients; specialist titration is essential.",
+          "tags": [
+            "hypothyroid",
+            "replacement",
+            "specialist"
+          ],
+          "role": "Short-acting T3; not routine monotherapy for primary hypothyroidism.",
+          "monitoring_pearl": "TSH/free T4/T3 as appropriate, HR/arrhythmia and symptoms.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_lt4_lt3_combo",
+          "generic": "Levothyroxine + liothyronine combination (specialist trial)",
+          "class_id": "t3_replacement",
+          "form": "Separate tablets / compounded strategy",
+          "route": "Oral",
+          "dose_example": "No universal fixed ratio/dose; specialist protocols individualize LT4 reduction and small LT3 doses.",
+          "tags": [
+            "hypothyroid",
+            "replacement",
+            "specialist"
+          ],
+          "role": "Selected trial only after confirming diagnosis/adherence and persistent symptoms; not routine standard care.",
+          "monitoring_pearl": "TSH, symptoms, HR; avoid supraphysiologic T3 exposure.",
+          "source_refs": [
+            "ATA_GUIDELINES"
+          ]
+        },
+        {
+          "id": "th_dte",
+          "generic": "Desiccated thyroid extract",
+          "class_id": "desiccated",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product is standardized in mg/grain units; conversion to physiologic LT4-equivalent is not exact. Verify product-specific labeling.",
+          "tags": [
+            "hypothyroid",
+            "replacement",
+            "specialist"
+          ],
+          "role": "Contains fixed T4:T3 ratio; not standard first-line therapy.",
+          "monitoring_pearl": "TSH and symptoms; avoid T3 excess.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_methimazole",
+          "generic": "Methimazole",
+          "class_id": "thionamide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Initial dose depends on free T4/T3 severity; common adult starts range roughly 5–20 mg/day, with higher doses for marked thyrotoxicosis.",
+          "tags": [
+            "hyperthyroid",
+            "synthesis_blocker",
+            "graves"
+          ],
+          "role": "Preferred thionamide for most nonpregnant Graves patients.",
+          "monitoring_pearl": "Free T4/T3 and TSH over time; counsel urgently for fever/sore throat and hepatic symptoms.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_carbimazole",
+          "generic": "Carbimazole",
+          "class_id": "thionamide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult initial total dose 15–40 mg/day in divided doses where licensed; maintenance is much lower and lab-guided.",
+          "tags": [
+            "hyperthyroid",
+            "synthesis_blocker",
+            "graves"
+          ],
+          "role": "Prodrug converted to methimazole; widely used in India/UK and other markets.",
+          "monitoring_pearl": "Thyroid function; agranulocytosis/hepatic symptom counseling.",
+          "source_refs": [
+            "ATA_GUIDELINES"
+          ]
+        },
+        {
+          "id": "th_ptu",
+          "generic": "Propylthiouracil (PTU)",
+          "class_id": "thionamide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult initial 50–150 mg three times daily depending severity; thyroid-storm regimens are higher/protocol-specific.",
+          "tags": [
+            "hyperthyroid",
+            "synthesis_blocker",
+            "graves",
+            "pregnancy_context",
+            "thyroid_storm"
+          ],
+          "role": "Generally reserved for first-trimester pregnancy, thyroid storm or selected intolerance because of serious hepatic risk.",
+          "monitoring_pearl": "Thyroid function; hepatic symptoms/LFT context; agranulocytosis counseling.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "ATA_PREG_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_propranolol",
+          "generic": "Propranolol",
+          "class_id": "beta_symptom",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "20–40 mg every 6–8 h is a common symptom-control range; higher storm dosing is protocol-specific.",
+          "tags": [
+            "hyperthyroid",
+            "symptom_control",
+            "thyroid_storm"
+          ],
+          "role": "Controls tremor, palpitations and tachycardia; propranolol has additional peripheral-conversion effect at higher doses.",
+          "monitoring_pearl": "Heart rate/BP; bronchospasm/conduction context.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_atenolol",
+          "generic": "Atenolol",
+          "class_id": "beta_symptom",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "25–50 mg once daily is a common symptom-control start.",
+          "tags": [
+            "hyperthyroid",
+            "symptom_control",
+            "graves"
+          ],
+          "role": "Controls tremor, palpitations and tachycardia; propranolol has additional peripheral-conversion effect at higher doses.",
+          "monitoring_pearl": "Heart rate/BP; bronchospasm/conduction context.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_metoprolol",
+          "generic": "Metoprolol",
+          "class_id": "beta_symptom",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "25–50 mg twice daily (tartrate) or ER equivalent is commonly used for symptom control.",
+          "tags": [
+            "hyperthyroid",
+            "symptom_control",
+            "graves"
+          ],
+          "role": "Controls tremor, palpitations and tachycardia; propranolol has additional peripheral-conversion effect at higher doses.",
+          "monitoring_pearl": "Heart rate/BP; bronchospasm/conduction context.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_esmolol",
+          "generic": "Esmolol IV",
+          "class_id": "beta_symptom",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "Weight-based ICU infusion; useful when very rapid titration is needed.",
+          "tags": [
+            "hyperthyroid",
+            "symptom_control",
+            "thyroid_storm"
+          ],
+          "role": "Controls tremor, palpitations and tachycardia; propranolol has additional peripheral-conversion effect at higher doses.",
+          "monitoring_pearl": "Heart rate/BP; bronchospasm/conduction context.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_sski",
+          "generic": "Potassium iodide (SSKI)",
+          "class_id": "iodide",
+          "form": "Oral solution",
+          "route": "Oral",
+          "dose_example": "Preparation concentrations vary; dosing is in drops/mg and must be verified from exact product/protocol. In storm, iodide is generally given after thionamide.",
+          "tags": [
+            "hyperthyroid",
+            "release_blocker",
+            "thyroid_storm",
+            "preop"
+          ],
+          "role": "Rapid short-term blockade of hormone release/organification.",
+          "monitoring_pearl": "Thyroid function, iodism/allergy and exact concentration.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_lugol",
+          "generic": "Lugol iodine solution",
+          "class_id": "iodide",
+          "form": "Oral solution",
+          "route": "Oral",
+          "dose_example": "Exact drop concentration varies by preparation; use only with verified protocol/product.",
+          "tags": [
+            "hyperthyroid",
+            "release_blocker",
+            "thyroid_storm",
+            "preop"
+          ],
+          "role": "Short-term iodide strategy; not long-term antithyroid monotherapy.",
+          "monitoring_pearl": "Exact concentration and thyroid function.",
+          "source_refs": [
+            "ATA_GUIDELINES"
+          ]
+        },
+        {
+          "id": "th_rai_i131",
+          "generic": "Radioactive iodine I-131",
+          "class_id": "radioiodine",
+          "form": "Capsule/oral solution",
+          "route": "Oral",
+          "dose_example": "Activity is individualized by indication, gland characteristics and nuclear-medicine protocol; no universal fixed dose.",
+          "tags": [
+            "hyperthyroid",
+            "definitive",
+            "graves",
+            "toxic_nodule"
+          ],
+          "role": "Definitive ablation for selected hyperthyroidism/thyroid cancer indications.",
+          "monitoring_pearl": "Pregnancy exclusion, radiation precautions and follow-up thyroid function.",
+          "source_refs": [
+            "ATA_GUIDELINES"
+          ]
+        },
+        {
+          "id": "th_hydrocortisone",
+          "generic": "Hydrocortisone",
+          "class_id": "storm_adjunct",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "A common thyroid-storm regimen is 100 mg IV every 8 hours; verify ICU protocol.",
+          "tags": [
+            "thyroid_storm",
+            "adjunct"
+          ],
+          "role": "Reduces peripheral T4→T3 conversion and treats possible relative adrenal insufficiency.",
+          "monitoring_pearl": "Glucose, infection, hemodynamics; taper when clinically appropriate.",
+          "source_refs": [
+            "ATA_GUIDELINES"
+          ]
+        },
+        {
+          "id": "th_dexamethasone",
+          "generic": "Dexamethasone",
+          "class_id": "storm_adjunct",
+          "form": "Injection/tablet",
+          "route": "IV/Oral",
+          "dose_example": "A common storm adjunct example is 2 mg every 6 hours; protocol varies.",
+          "tags": [
+            "thyroid_storm",
+            "adjunct"
+          ],
+          "role": "Glucocorticoid adjunct reducing T4→T3 conversion.",
+          "monitoring_pearl": "Glucose/infection and steroid adverse effects.",
+          "source_refs": [
+            "ATA_GUIDELINES"
+          ]
+        },
+        {
+          "id": "th_cholestyramine",
+          "generic": "Cholestyramine",
+          "class_id": "storm_adjunct",
+          "form": "Powder",
+          "route": "Oral",
+          "dose_example": "4 g four times daily is a commonly described severe-thyrotoxicosis adjunct regimen; verify protocol.",
+          "tags": [
+            "thyroid_storm",
+            "adjunct"
+          ],
+          "role": "Interrupts enterohepatic recycling of thyroid hormones.",
+          "monitoring_pearl": "GI tolerance and spacing from other medicines because of absorption interactions.",
+          "source_refs": [
+            "ATA_GUIDELINES"
+          ]
+        },
+        {
+          "id": "th_lithium",
+          "generic": "Lithium carbonate",
+          "class_id": "rare_release",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Specialist dosing is serum-level guided; no thyroid-specific universal fixed dose.",
+          "tags": [
+            "hyperthyroid",
+            "specialist",
+            "amiodarone"
+          ],
+          "role": "Can inhibit thyroid hormone release when conventional therapy is unsuitable.",
+          "monitoring_pearl": "Serum lithium, renal function, sodium and thyroid function.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_perchlorate",
+          "generic": "Potassium/sodium perchlorate",
+          "class_id": "rare_release",
+          "form": "Tablet/solution",
+          "route": "Oral",
+          "dose_example": "Specialist/region-specific dosing only; availability is limited and toxicity constrains use.",
+          "tags": [
+            "hyperthyroid",
+            "specialist",
+            "amiodarone"
+          ],
+          "role": "Blocks iodide uptake; occasionally used in iodine/amiodarone-related thyrotoxicosis in specialist settings.",
+          "monitoring_pearl": "CBC and specialist toxicity monitoring.",
+          "source_refs": [
+            "ATA_GUIDELINES"
+          ]
+        },
+        {
+          "id": "th_teprotumumab",
+          "generic": "Teprotumumab",
+          "class_id": "orbitopathy",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "FDA regimen: 10 mg/kg first infusion then 20 mg/kg every 3 weeks for 7 additional infusions; verify current label/availability.",
+          "tags": [
+            "orbitopathy",
+            "graves",
+            "specialist"
+          ],
+          "role": "IGF-1R antibody for active thyroid eye disease in selected settings.",
+          "monitoring_pearl": "Glucose, hearing-related symptoms, infusion reactions; pregnancy avoidance per label.",
+          "source_refs": [
+            "DAILYMED",
+            "ATA_GUIDELINES"
+          ]
+        },
+        {
+          "id": "th_methylpred_orbitopathy",
+          "generic": "IV methylprednisolone (orbitopathy protocol)",
+          "class_id": "orbitopathy",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Pulse regimens are specialist-protocol specific; cumulative dose limits matter.",
+          "tags": [
+            "orbitopathy",
+            "graves",
+            "specialist"
+          ],
+          "role": "First-line immunosuppressive approach in many moderate-to-severe active orbitopathy protocols.",
+          "monitoring_pearl": "Liver/cardiovascular/glucose/infection risk and cumulative steroid dose.",
+          "source_refs": [
+            "ATA_GUIDELINES"
+          ]
+        },
+        {
+          "id": "th_lenvatinib",
+          "generic": "Lenvatinib",
+          "class_id": "dtc_targeted",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common DTC label dose 24 mg once daily; dose reductions are frequent.",
+          "tags": [
+            "thyroid_oncology",
+            "dtc",
+            "specialist"
+          ],
+          "role": "VEGFR/FGFR/RET multikinase inhibition.",
+          "monitoring_pearl": "BP, proteinuria, hepatic function and agent-specific toxicity; oncology supervision.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_sorafenib",
+          "generic": "Sorafenib",
+          "class_id": "dtc_targeted",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "400 mg twice daily is the standard differentiated-thyroid-cancer label dose.",
+          "tags": [
+            "thyroid_oncology",
+            "dtc",
+            "specialist"
+          ],
+          "role": "RAF/VEGFR multikinase inhibition.",
+          "monitoring_pearl": "BP, proteinuria, hepatic function and agent-specific toxicity; oncology supervision.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_cabozantinib_dtc",
+          "generic": "Cabozantinib (DTC)",
+          "class_id": "dtc_targeted",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common DTC tablet dose 60 mg once daily; verify indication/product-specific label.",
+          "tags": [
+            "thyroid_oncology",
+            "dtc",
+            "specialist"
+          ],
+          "role": "MET/VEGFR/RET multikinase inhibition.",
+          "monitoring_pearl": "BP, proteinuria, hepatic function and agent-specific toxicity; oncology supervision.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_vandetanib",
+          "generic": "Vandetanib",
+          "class_id": "mtc_targeted",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "300 mg once daily is the standard adult label dose for symptomatic/progressive MTC.",
+          "tags": [
+            "thyroid_oncology",
+            "mtc",
+            "specialist"
+          ],
+          "role": "RET/VEGFR/EGFR inhibition.",
+          "monitoring_pearl": "Oncology toxicity/ECG/BP/hepatic monitoring per agent.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_cabozantinib_mtc",
+          "generic": "Cabozantinib (MTC formulation)",
+          "class_id": "mtc_targeted",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Product/formulation-specific dosing differs from DTC; verify exact label.",
+          "tags": [
+            "thyroid_oncology",
+            "mtc",
+            "specialist"
+          ],
+          "role": "MET/RET/VEGFR inhibition.",
+          "monitoring_pearl": "Oncology toxicity/ECG/BP/hepatic monitoring per agent.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_selpercatinib",
+          "generic": "Selpercatinib",
+          "class_id": "mtc_targeted",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Weight-based oral twice-daily dosing; commonly 120 mg BID <50 kg and 160 mg BID ≥50 kg.",
+          "tags": [
+            "thyroid_oncology",
+            "mtc",
+            "specialist"
+          ],
+          "role": "Selective RET inhibition.",
+          "monitoring_pearl": "Oncology toxicity/ECG/BP/hepatic monitoring per agent.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_pralsetinib",
+          "generic": "Pralsetinib",
+          "class_id": "mtc_targeted",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "400 mg once daily on an empty stomach is the common adult label dose.",
+          "tags": [
+            "thyroid_oncology",
+            "mtc",
+            "specialist"
+          ],
+          "role": "Selective RET inhibition.",
+          "monitoring_pearl": "Oncology toxicity/ECG/BP/hepatic monitoring per agent.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_dabrafenib_trametinib",
+          "generic": "Dabrafenib + trametinib",
+          "class_id": "atc_targeted",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "BRAF V600E ATC regimen commonly uses dabrafenib 150 mg twice daily + trametinib 2 mg once daily.",
+          "tags": [
+            "thyroid_oncology",
+            "atc",
+            "specialist"
+          ],
+          "role": "BRAF/MEK combination for BRAF V600E-mutant anaplastic thyroid cancer.",
+          "monitoring_pearl": "Oncology monitoring: fever, cardiac/ocular/skin and laboratory toxicities.",
+          "source_refs": [
+            "ATA_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_larotrectinib",
+          "generic": "Larotrectinib",
+          "class_id": "atc_targeted",
+          "form": "Capsule/oral solution",
+          "route": "Oral",
+          "dose_example": "Adults with body surface area ≥1 m² commonly 100 mg twice daily for NTRK fusion-positive tumors.",
+          "tags": [
+            "thyroid_oncology",
+            "atc",
+            "specialist"
+          ],
+          "role": "TRK inhibitor for NTRK fusion-positive cancers including selected thyroid tumors.",
+          "monitoring_pearl": "Hepatic and neurologic toxicity monitoring.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "th_entrectinib",
+          "generic": "Entrectinib",
+          "class_id": "atc_targeted",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Common adult dose 600 mg once daily for ROS1/NTRK fusion indications; verify exact tumor indication.",
+          "tags": [
+            "thyroid_oncology",
+            "atc",
+            "specialist"
+          ],
+          "role": "TRK/ROS1/ALK inhibitor for selected actionable fusions.",
+          "monitoring_pearl": "Cardiac, neurologic, hepatic and uric-acid monitoring per label.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "ATA_GUIDELINES",
+          "label": "American Thyroid Association Guidelines & Statements",
+          "url": "https://www.thyroid.org/professionals/ata-professional-guidelines/"
+        },
+        {
+          "id": "ATA_PREG_2026",
+          "label": "2026 ATA Thyroid Disease in Preconception, Pregnancy & Postpartum",
+          "url": "https://www.thyroid.org/new-ata-guidelines-for-thyroid-disease-in-preconception-pregnancy-and-postpartum/"
+        },
+        {
+          "id": "ATA_HYPER_2016",
+          "label": "ATA Hyperthyroidism / Thyrotoxicosis Guideline (2016)",
+          "url": "https://www.thyroid.org/professionals/ata-professional-guidelines/"
+        },
+        {
+          "id": "ATA_HYPO_2014",
+          "label": "ATA Hypothyroidism Treatment Guideline (2014)",
+          "url": "https://www.thyroid.org/professionals/ata-professional-guidelines/"
+        },
+        {
+          "id": "ATA_DTC_2025",
+          "label": "ATA 2025 Differentiated Thyroid Cancer Guideline",
+          "url": "https://www.thyroid.org/professionals/ata-professional-guidelines/"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "DailyMed / current product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    }
+  ]
+}

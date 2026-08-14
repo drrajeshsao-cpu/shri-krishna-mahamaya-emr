@@ -1,24 +1,24 @@
 {
   "schema": "MAHAMAYA-INTEGRITY-MANIFEST-V1",
-  "app_version": "5.10",
-  "build": "2026.08.14-R22",
-  "generated_at": "2026-08-14",
+  "app_version": "5.20",
+  "build": "2026.08.14-R23",
+  "generated_at": "2026-08-14T11:34:34.535226+00:00",
   "algorithm": "SHA-256",
   "files": [
     {
       "path": "index.html",
-      "sha256": "9348cf6f23d1f5352b9cba865de3a8582a8fd349cc56f71cb2c398ca7bf783b4",
-      "bytes": 1027491
+      "sha256": "7c33f5373b4dd53040ef2f6c95c0e00cb8234ec78f7a8efb16b1bef9969ef722",
+      "bytes": 1032740
     },
     {
       "path": "manifest.webmanifest",
-      "sha256": "1c36995d55d4a2bf6d13071001462b56984a568d4fe21fa9daa30db3cc408116",
-      "bytes": 4986
+      "sha256": "805fde177d8fe7969ff62df2e11430c8ad5f8dc0f329484bcdbad3f479315c8a",
+      "bytes": 4887
     },
     {
       "path": "service-worker.js",
-      "sha256": "4d3bf1e34fc9816e2fe38d592708349823c3f2dddae77c5783c96085ca333821",
-      "bytes": 2072
+      "sha256": "71f891f593d78bb6c0a2f909ace580b42ddef7d76427ae92b0ac19fcc56fde5f",
+      "bytes": 2119
     },
     {
       "path": "clinical-terminology-master.json",
@@ -57,18 +57,23 @@
     },
     {
       "path": "therapeutics-intelligence-master-v1.json",
-      "sha256": "a540e4545b9d70c5a47a988b88ac3b2d0e1d8712be8172c3e57e370ed7bae5e0",
-      "bytes": 2395024
+      "sha256": "37928e2175097f2cf89a97651a3b274625a0e489a20f197e26d25e4c4a635b95",
+      "bytes": 2397201
     },
     {
       "path": "antibiotic-intelligence-v1.json",
-      "sha256": "5625fc63bb38d1cf9d20b9f00237463d57faf6a050814435d300685e79a3b50f",
-      "bytes": 114559
+      "sha256": "cc09b26aeffefcd41fc84b7d4c26f6a9c87d29740728f3ebb9ec83a0ec0c1f9e",
+      "bytes": 114558
+    },
+    {
+      "path": "chronic-pharmacology-intelligence-v1.json",
+      "sha256": "cd3853561e3185557bf055b57ecaddb043a4d46933b436bcbb87f4372adfbe8c",
+      "bytes": 168546
     },
     {
       "path": "therapeutics-intelligence-engine.js",
-      "sha256": "6d8a9cad0f62d6d67273519cece551ff5df312f5c50c07bfd7de49be941e8e9c",
-      "bytes": 30971
+      "sha256": "485c37e8878e730e078e8d3072b46e35aa30b9ba6debce94228ab0a3c6ab09d8",
+      "bytes": 39750
     },
     {
       "path": "ayurveda-therapeutics-master-v1.json",
@@ -101,21 +106,21 @@
       "bytes": 19215
     },
     {
-      "path": "V5.10-ANTIBIOTIC-INTELLIGENCE-ARCHITECTURE.md",
-      "sha256": "9ddb8bda05f603fa2663d1504cd68ef7a2546482e3cee70592b602043593eb59",
-      "bytes": 1320
+      "path": "V5.20-COMMON-CHRONIC-PHARMACOLOGY-LABS-ARCHITECTURE.md",
+      "sha256": "727cffc61dfb6b5f6d2a4918ed70aad60cc563ac919da8cfd0b9162bd472ccaf",
+      "bytes": 2460
     },
     {
-      "path": "V5.10-UPDATE-NOTES-HINDI.md",
-      "sha256": "29d0f9d0aa52a98068bbef2f7786663b0451c02f2ef1fe7831035c4edf847fcc",
-      "bytes": 988
+      "path": "V5.20-UPDATE-NOTES-HINDI.md",
+      "sha256": "60bbea5dee7165f16c6044225ba85d55f855a22d43622d7e165dae209fe4266b",
+      "bytes": 727
     },
     {
-      "path": "V5.10-VALIDATION.txt",
-      "sha256": "3182991bd6b1865ef076ae140b472acd47f485342969c88e4926ec2476016b50",
-      "bytes": 2243
+      "path": "V5.20-VALIDATION.txt",
+      "sha256": "85b7dccda121666bb5df756e93effa0a3ed6a9552e960c6042c16b3e84c71465",
+      "bytes": 3246
     }
   ],
-  "note": "Build-time SHA-256 checks for V5.10 critical assets. V5.10 adds Antibiotic Intelligence Lab classification, microbiology spectrum, resistant-phenotype, practical pharmacodynamic and WHO AWaRe learning lenses. These checks do not replace culture/AST, local antibiograms, current breakpoints/guidelines, pharmacist/clinician review or patient-specific safety review.",
-  "version": "V5.10"
+  "note": "V5.20 Mission Integrity manifest: 23 tracked runtime/documentation files including Modern Therapeutics Atlas, Antibiotic Intelligence, and dedicated Antihypertensive, Antidiabetic and Thyroid Drugs labs. Hash verification detects file drift; it does not prove clinical correctness or replace live browser/security/regulatory validation.",
+  "version": "5.20"
 }
