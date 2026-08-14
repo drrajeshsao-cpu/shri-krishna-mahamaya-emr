@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4Q",
-  "app_version": "5.40Q",
-  "build": "2026.08.14-R25Q",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40Q TB • Leprosy • Mycobacterial Lab",
+  "version": "2.4R",
+  "app_version": "5.40R",
+  "build": "2026.08.14-R25R",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40R Critical Care / ICU Lab",
   "counts": {
-    "labs": 23,
-    "classes": 692,
-    "drug_profiles": 1656
+    "labs": 24,
+    "classes": 725,
+    "drug_profiles": 1711
   },
-  "global_boundary": "Research/learning pharmacology only. V5.40Q adds Tuberculosis • Leprosy • Mycobacterial Intelligence while retaining all earlier specialized labs. Anti-TB treatment must follow current NTEP/WHO diagnostic, DST, weight/age, disease-site and regimen criteria. DR-TB/NTM therapy is specialist/programme controlled. Leprosy MDT and reaction management require classification, nerve/eye assessment and current WHO/national guidance. No automatic regimen or dosing is generated.",
+  "global_boundary": "Research/learning pharmacology only. V5.40R adds a high-risk Critical Care • ICU • Sepsis • Airway Pharmacology Lab while retaining all earlier specialized labs. No automatic infusion, RSI, sedation, vasopressor or ventilator-linked order is generated. Bedside hemodynamic/airway assessment, institutional ICU protocols and continuous monitoring remain mandatory.",
   "labs": [
     {
       "id": "hypertension",
@@ -49832,6 +49832,1862 @@
           "id": "WHO_LEPROSY_2026",
           "label": "WHO — Leprosy fact sheet (updated January 2026)",
           "url": "https://www.who.int/news-room/fact-sheets/detail/leprosy"
+        }
+      ]
+    },
+    {
+      "id": "critical_care_icu",
+      "title": "Critical Care • ICU • Sepsis • Airway Pharmacology Intelligence Lab",
+      "icon": "🏥",
+      "badge": "V5.40R",
+      "eyebrow": "SHOCK • VASOPRESSORS • INOTROPES • RSI • SEDATION • ANALGESIA • ARDS • SUP • VTE • GLUCOSE • ICU SAFETY",
+      "subtitle": "High-risk ICU pharmacology workspace for shock hemodynamics, airway/RSI drugs, analgesia-sedation-delirium, ARDS paralysis/rescue, stress-ulcer/VTE prophylaxis, glycemic control and selected critical-care adjuncts.",
+      "scientific_boundary": "ICU/critical-care research and learning CDS only. This lab is not an infusion calculator, RSI order set, ventilator protocol, or autonomous treatment engine. Drug choice, concentration, route, access, titration target, compatibility, organ function, hemodynamic phenotype, airway plan, monitoring and local ICU protocol must be verified by trained clinicians at the bedside.",
+      "classification_notes": {
+        "Hemodynamic phenotype first": "Differentiate vasodilatory, cardiogenic, hypovolemic and obstructive physiology before selecting or escalating vasoactive therapy.",
+        "RSI is a bundle": "Preoxygenation, positioning, hemodynamic preparation, sedative-hypnotic induction, NMBA, immediate post-intubation analgesia/sedation and monitoring are inseparable safety steps.",
+        "Paralysis is not sedation": "Neuromuscular blockers cause paralysis but provide no analgesia, amnesia or anxiolysis; awareness prevention is mandatory.",
+        "Light sedation when feasible": "Use validated pain/sedation/delirium assessments and avoid unnecessary deep sedation when the clinical situation permits.",
+        "Protocolized high-alert therapy": "Vasopressors, insulin infusions, NMBAs, concentrated electrolytes and titrated antihypertensive infusions require standardized concentrations, smart-pump libraries and frequent monitoring.",
+        "De-resuscitation timing": "Active fluid removal belongs after acute resuscitation when hemodynamics and perfusion permit; cumulative balance alone is not an automatic diuresis trigger."
+      },
+      "lens_groups": [
+        {
+          "group": "Shock / Hemodynamics",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All ICU"
+            },
+            {
+              "id": "sepsis",
+              "label": "Sepsis/Septic Shock"
+            },
+            {
+              "id": "vasopressor",
+              "label": "Vasopressors"
+            },
+            {
+              "id": "inotrope",
+              "label": "Inotropes"
+            },
+            {
+              "id": "fluid",
+              "label": "Fluids"
+            },
+            {
+              "id": "deresuscitation",
+              "label": "De-resuscitation"
+            }
+          ]
+        },
+        {
+          "group": "Airway / Ventilation",
+          "items": [
+            {
+              "id": "airway",
+              "label": "Airway/RSI"
+            },
+            {
+              "id": "rsi",
+              "label": "RSI"
+            },
+            {
+              "id": "induction",
+              "label": "Induction"
+            },
+            {
+              "id": "nmba",
+              "label": "Neuromuscular Blockade"
+            },
+            {
+              "id": "ards",
+              "label": "ARDS"
+            },
+            {
+              "id": "rescue",
+              "label": "Rescue Pulmonary"
+            }
+          ]
+        },
+        {
+          "group": "Comfort / Brain",
+          "items": [
+            {
+              "id": "pain",
+              "label": "Analgesia"
+            },
+            {
+              "id": "sedation",
+              "label": "Sedation"
+            },
+            {
+              "id": "delirium",
+              "label": "Delirium"
+            },
+            {
+              "id": "sleep",
+              "label": "Sleep/Circadian"
+            }
+          ]
+        },
+        {
+          "group": "ICU Prevention / Metabolic",
+          "items": [
+            {
+              "id": "stress_ulcer",
+              "label": "Stress-Ulcer Prophylaxis"
+            },
+            {
+              "id": "vte",
+              "label": "VTE Prophylaxis"
+            },
+            {
+              "id": "hyperglycemia",
+              "label": "IV Insulin"
+            },
+            {
+              "id": "acidemia",
+              "label": "Acid-Base"
+            },
+            {
+              "id": "antibiotic",
+              "label": "Antibiotic PK/PD"
+            }
+          ]
+        },
+        {
+          "group": "High-risk infusions",
+          "items": [
+            {
+              "id": "hypertensive_emergency",
+              "label": "IV BP Control"
+            },
+            {
+              "id": "high_risk",
+              "label": "High-Alert"
+            },
+            {
+              "id": "specialist",
+              "label": "Specialist/Rescue"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "icu_crystalloids",
+          "name": "Critical-care crystalloid resuscitation",
+          "mechanism": "Expands intravascular extracellular volume",
+          "target": "Circulation / preload",
+          "tags": [
+            "icu",
+            "sepsis",
+            "shock",
+            "fluid",
+            "resuscitation"
+          ],
+          "role_note": "Crystalloids are foundational resuscitation fluids; dynamic reassessment should guide additional fluid rather than reflexive repeated boluses.",
+          "drug_ids": [
+            "icu_balanced_crystalloid",
+            "icu_normal_saline"
+          ]
+        },
+        {
+          "id": "icu_albumin",
+          "name": "Albumin in critical illness",
+          "mechanism": "Colloid oncotic plasma expansion",
+          "target": "Intravascular volume",
+          "tags": [
+            "icu",
+            "sepsis",
+            "albumin",
+            "fluid"
+          ],
+          "role_note": "Not routine first-line sepsis resuscitation; may be considered in selected patients after substantial crystalloid exposure or specific comorbidity contexts.",
+          "drug_ids": [
+            "icu_albumin_5",
+            "icu_albumin_20"
+          ]
+        },
+        {
+          "id": "icu_norepinephrine",
+          "name": "Norepinephrine",
+          "mechanism": "Predominantly alpha-1 with beta-1 adrenergic agonism",
+          "target": "Vascular tone / MAP",
+          "tags": [
+            "icu",
+            "septic_shock",
+            "vasopressor",
+            "first_line"
+          ],
+          "role_note": "Current adult sepsis guidance recommends norepinephrine as first-line vasopressor for septic shock.",
+          "drug_ids": [
+            "icu_norepinephrine_profile"
+          ]
+        },
+        {
+          "id": "icu_vasopressin",
+          "name": "Vasopressin adjunct",
+          "mechanism": "V1 receptor-mediated vasoconstriction",
+          "target": "Vascular smooth muscle",
+          "tags": [
+            "icu",
+            "septic_shock",
+            "vasopressor",
+            "adjunct"
+          ],
+          "role_note": "Adjunct vasopressor when norepinephrine requirements are escalating in septic shock.",
+          "drug_ids": [
+            "icu_vasopressin_profile"
+          ]
+        },
+        {
+          "id": "icu_epinephrine",
+          "name": "Epinephrine in shock",
+          "mechanism": "Alpha and beta adrenergic agonism",
+          "target": "Vascular tone + cardiac output",
+          "tags": [
+            "icu",
+            "septic_shock",
+            "vasopressor",
+            "inotrope"
+          ],
+          "role_note": "Additional vasopressor/inotrope option when MAP remains inadequate despite norepinephrine plus vasopressin or in selected cardiac dysfunction.",
+          "drug_ids": [
+            "icu_epinephrine_infusion"
+          ]
+        },
+        {
+          "id": "icu_phenylephrine",
+          "name": "Phenylephrine",
+          "mechanism": "Selective alpha-1 agonism",
+          "target": "Vascular tone",
+          "tags": [
+            "icu",
+            "vasopressor",
+            "selected"
+          ],
+          "role_note": "Pure vasoconstrictor reserved for selected hemodynamic situations rather than routine septic-shock first-line therapy.",
+          "drug_ids": [
+            "icu_phenylephrine_profile"
+          ]
+        },
+        {
+          "id": "icu_dopamine",
+          "name": "Dopamine — restricted critical-care use",
+          "mechanism": "Dose-dependent dopaminergic and adrenergic agonism",
+          "target": "Heart rate / contractility / vascular tone",
+          "tags": [
+            "icu",
+            "vasopressor",
+            "restricted",
+            "arrhythmia"
+          ],
+          "role_note": "Not preferred first-line septic-shock vasopressor; higher arrhythmia burden makes use selective.",
+          "drug_ids": [
+            "icu_dopamine_profile"
+          ]
+        },
+        {
+          "id": "icu_angiotensin2",
+          "name": "Angiotensin II",
+          "mechanism": "AT1 receptor agonism causing vasoconstriction",
+          "target": "Renin–angiotensin vascular pathway",
+          "tags": [
+            "icu",
+            "vasopressor",
+            "rescue",
+            "specialist"
+          ],
+          "role_note": "Specialist rescue vasopressor option in refractory vasodilatory shock; not first line.",
+          "drug_ids": [
+            "icu_angiotensin2_profile"
+          ]
+        },
+        {
+          "id": "icu_inotropes",
+          "name": "Inotropes for low cardiac output / septic cardiac dysfunction",
+          "mechanism": "Increase myocardial contractility through beta-adrenergic or PDE3 pathways",
+          "target": "Cardiac output",
+          "tags": [
+            "icu",
+            "inotrope",
+            "cardiac_dysfunction"
+          ],
+          "role_note": "Consider when persistent hypoperfusion is associated with cardiac dysfunction despite adequate volume status and arterial pressure.",
+          "drug_ids": [
+            "icu_dobutamine",
+            "icu_milrinone"
+          ]
+        },
+        {
+          "id": "icu_shock_steroids",
+          "name": "IV corticosteroid in septic shock",
+          "mechanism": "Glucocorticoid effect on inflammatory and vascular responsiveness pathways",
+          "target": "Systemic inflammation / vasopressor responsiveness",
+          "tags": [
+            "icu",
+            "septic_shock",
+            "corticosteroid"
+          ],
+          "role_note": "Current sepsis guidance suggests IV corticosteroids in adults with septic shock; exact regimen remains protocol dependent.",
+          "drug_ids": [
+            "icu_hydrocortisone_shock"
+          ]
+        },
+        {
+          "id": "icu_rsi_induction",
+          "name": "RSI sedative-hypnotic induction agents",
+          "mechanism": "Rapid unconsciousness to facilitate tracheal intubation",
+          "target": "CNS hypnosis",
+          "tags": [
+            "icu",
+            "airway",
+            "rsi",
+            "induction",
+            "high_risk"
+          ],
+          "role_note": "A sedative-hypnotic induction agent should accompany NMBA use for RSI; agent selection depends on hemodynamic and neurologic context.",
+          "drug_ids": [
+            "icu_etomidate",
+            "icu_ketamine_induction",
+            "icu_propofol_induction",
+            "icu_midazolam_induction"
+          ]
+        },
+        {
+          "id": "icu_rsi_nmba",
+          "name": "RSI neuromuscular blockers",
+          "mechanism": "Neuromuscular junction blockade",
+          "target": "Skeletal muscle nicotinic transmission",
+          "tags": [
+            "icu",
+            "airway",
+            "rsi",
+            "nmba",
+            "paralytic",
+            "high_risk"
+          ],
+          "role_note": "SCCM recommends an NMBA when a sedative-hypnotic induction agent is used for RSI; paralysis provides no analgesia or amnesia.",
+          "drug_ids": [
+            "icu_rocuronium_rsi",
+            "icu_succinylcholine_rsi"
+          ]
+        },
+        {
+          "id": "icu_nmba_reversal",
+          "name": "Neuromuscular-blockade reversal",
+          "mechanism": "Encapsulation or acetylcholinesterase inhibition reverses nondepolarizing blockade",
+          "target": "Neuromuscular junction",
+          "tags": [
+            "icu",
+            "airway",
+            "nmba",
+            "reversal",
+            "specialist"
+          ],
+          "role_note": "Reversal is agent-, depth- and monitoring-dependent; quantitative neuromuscular monitoring is preferred when available.",
+          "drug_ids": [
+            "icu_sugammadex",
+            "icu_neostigmine_glyco"
+          ]
+        },
+        {
+          "id": "icu_opioid_analgesia",
+          "name": "ICU opioid analgesia",
+          "mechanism": "Mu-opioid receptor agonism",
+          "target": "Pain pathways",
+          "tags": [
+            "icu",
+            "pain",
+            "analgesia",
+            "opioid",
+            "ventilated"
+          ],
+          "role_note": "Analgesia-first strategies are foundational; opioid selection should account for hemodynamics, renal/hepatic function and accumulation.",
+          "drug_ids": [
+            "icu_fentanyl",
+            "icu_hydromorphone",
+            "icu_morphine"
+          ]
+        },
+        {
+          "id": "icu_nonopioid_analgesia",
+          "name": "Non-opioid and opioid-sparing ICU analgesia",
+          "mechanism": "Multimodal analgesia reduces opioid burden",
+          "target": "Pain pathways",
+          "tags": [
+            "icu",
+            "pain",
+            "multimodal"
+          ],
+          "role_note": "Use indication-specific multimodal analgesia while avoiding organ toxicity and oversedation.",
+          "drug_ids": [
+            "icu_acetaminophen",
+            "icu_ketamine_analgesia"
+          ]
+        },
+        {
+          "id": "icu_dexmedetomidine",
+          "name": "Dexmedetomidine sedation",
+          "mechanism": "Central alpha-2 agonism",
+          "target": "Arousal/sympathetic pathways",
+          "tags": [
+            "icu",
+            "sedation",
+            "light_sedation",
+            "delirium"
+          ],
+          "role_note": "2025 PADIS focused update suggests dexmedetomidine over propofol when light sedation and/or delirium reduction are highest priorities in ventilated adults.",
+          "drug_ids": [
+            "icu_dexmedetomidine_profile"
+          ]
+        },
+        {
+          "id": "icu_propofol_sedation",
+          "name": "Propofol sedation",
+          "mechanism": "GABA-A potentiation",
+          "target": "CNS sedation",
+          "tags": [
+            "icu",
+            "sedation",
+            "ventilation",
+            "propofol"
+          ],
+          "role_note": "Rapid-onset/offset sedative widely used for ventilated patients when hemodynamically appropriate.",
+          "drug_ids": [
+            "icu_propofol_sedation_profile"
+          ]
+        },
+        {
+          "id": "icu_benzodiazepine_sedation",
+          "name": "Benzodiazepines in ICU",
+          "mechanism": "GABA-A positive allosteric modulation",
+          "target": "CNS sedation/anxiolysis",
+          "tags": [
+            "icu",
+            "sedation",
+            "benzodiazepine",
+            "selected"
+          ],
+          "role_note": "Selected use for specific indications such as seizures, alcohol withdrawal or when other sedatives are unsuitable; routine deep benzodiazepine sedation may prolong delirium/ventilation.",
+          "drug_ids": [
+            "icu_midazolam_sedation",
+            "icu_lorazepam_sedation"
+          ]
+        },
+        {
+          "id": "icu_delirium_drugs",
+          "name": "ICU delirium pharmacology — limited evidence",
+          "mechanism": "Dopamine/serotonin receptor modulation",
+          "target": "Delirium symptoms",
+          "tags": [
+            "icu",
+            "delirium",
+            "antipsychotic",
+            "safety"
+          ],
+          "role_note": "Nonpharmacologic delirium prevention/treatment remains central; 2025 PADIS could not recommend for or against antipsychotics for delirium treatment.",
+          "drug_ids": [
+            "icu_haloperidol_delirium",
+            "icu_quetiapine_delirium"
+          ]
+        },
+        {
+          "id": "icu_sleep_melatonin",
+          "name": "Melatonin / circadian support",
+          "mechanism": "Melatonin receptor agonism",
+          "target": "Sleep-wake rhythm",
+          "tags": [
+            "icu",
+            "sleep",
+            "melatonin"
+          ],
+          "role_note": "2025 PADIS focused update conditionally recommends melatonin for adult ICU sleep disruption.",
+          "drug_ids": [
+            "icu_melatonin"
+          ]
+        },
+        {
+          "id": "icu_ards_nmba",
+          "name": "Neuromuscular blockade in severe ARDS",
+          "mechanism": "Temporary skeletal muscle paralysis improves synchrony in selected cases",
+          "target": "Neuromuscular junction",
+          "tags": [
+            "icu",
+            "ards",
+            "nmba",
+            "ventilation",
+            "high_risk"
+          ],
+          "role_note": "Current sepsis/ARDS guidance favors intermittent NMBA boluses over routine continuous infusion in moderate-severe ARDS when blockade is needed.",
+          "drug_ids": [
+            "icu_cisatracurium_ards",
+            "icu_rocuronium_ards"
+          ]
+        },
+        {
+          "id": "icu_inhaled_pulm_vasodilators",
+          "name": "Inhaled pulmonary vasodilators",
+          "mechanism": "Selective pulmonary vasodilation in ventilated lung units",
+          "target": "Pulmonary vascular resistance",
+          "tags": [
+            "icu",
+            "ards",
+            "rv_failure",
+            "pulmonary_vasodilator",
+            "rescue"
+          ],
+          "role_note": "Rescue physiology tools for selected refractory hypoxemia or right-ventricular failure; not routine mortality-improving ARDS therapy.",
+          "drug_ids": [
+            "icu_inhaled_nitric_oxide",
+            "icu_inhaled_epoprostenol"
+          ]
+        },
+        {
+          "id": "icu_sup",
+          "name": "Stress-ulcer prophylaxis",
+          "mechanism": "Acid suppression reduces stress-related upper GI bleeding in selected high-risk critical illness",
+          "target": "Gastric acid secretion",
+          "tags": [
+            "icu",
+            "stress_ulcer",
+            "gi_bleed",
+            "prophylaxis"
+          ],
+          "role_note": "2024 SCCM/ASHP guidance supports PPI or H2RA prophylaxis for critically ill adults with major bleeding risk factors, with discontinuation when risk resolves.",
+          "drug_ids": [
+            "icu_pantoprazole_sup",
+            "icu_omeprazole_sup",
+            "icu_famotidine_sup"
+          ]
+        },
+        {
+          "id": "icu_vte_prophylaxis",
+          "name": "Pharmacologic VTE prophylaxis in critical illness",
+          "mechanism": "Anticoagulation reduces venous thromboembolism risk",
+          "target": "Coagulation cascade",
+          "tags": [
+            "icu",
+            "vte",
+            "prophylaxis",
+            "anticoagulant"
+          ],
+          "role_note": "Current sepsis guidance recommends pharmacologic VTE prophylaxis unless contraindicated and prefers LMWH over UFH in adults with sepsis/septic shock.",
+          "drug_ids": [
+            "icu_enoxaparin_vte",
+            "icu_ufh_vte"
+          ]
+        },
+        {
+          "id": "icu_insulin_infusion",
+          "name": "Critical-care IV insulin",
+          "mechanism": "Continuous insulin lowers persistent hyperglycemia while protocolized monitoring limits hypoglycemia",
+          "target": "Glucose metabolism",
+          "tags": [
+            "icu",
+            "hyperglycemia",
+            "insulin",
+            "high_risk"
+          ],
+          "role_note": "SCCM supports protocolized IV insulin for acute hyperglycemia in critically ill adults with frequent monitoring and avoidance of overly intensive glucose targets.",
+          "drug_ids": [
+            "icu_regular_insulin_infusion"
+          ]
+        },
+        {
+          "id": "icu_bicarbonate",
+          "name": "Sodium bicarbonate in critical illness",
+          "mechanism": "Raises extracellular bicarbonate and buffers hydrogen ions",
+          "target": "Acid-base balance",
+          "tags": [
+            "icu",
+            "acidemia",
+            "bicarbonate",
+            "high_risk"
+          ],
+          "role_note": "Not routine therapy to improve hemodynamics in lactic acidosis; selected severe acidemia with AKI may be considered under current sepsis guidance.",
+          "drug_ids": [
+            "icu_sodium_bicarbonate"
+          ]
+        },
+        {
+          "id": "icu_deresuscitation",
+          "name": "Active fluid removal / de-resuscitation",
+          "mechanism": "Loop diuresis promotes natriuresis and fluid removal",
+          "target": "Renal Na-K-2Cl transporter",
+          "tags": [
+            "icu",
+            "deresuscitation",
+            "fluid_overload",
+            "diuretic"
+          ],
+          "role_note": "After acute shock resuscitation, selected fluid-overloaded patients may benefit from active fluid removal; timing depends on hemodynamic stability.",
+          "drug_ids": [
+            "icu_furosemide_deres",
+            "icu_bumetanide_deres"
+          ]
+        },
+        {
+          "id": "icu_hypertensive_infusions",
+          "name": "Titrated IV antihypertensive infusions",
+          "mechanism": "Short-acting vascular or beta-adrenergic modulation permits controlled BP reduction",
+          "target": "Systemic vascular resistance / heart rate",
+          "tags": [
+            "icu",
+            "hypertensive_emergency",
+            "infusion",
+            "high_risk"
+          ],
+          "role_note": "Used for selected hypertensive emergencies only after defining the end-organ syndrome and BP target; not for asymptomatic hypertension.",
+          "drug_ids": [
+            "icu_nicardipine",
+            "icu_clevidipine",
+            "icu_labetalol"
+          ]
+        },
+        {
+          "id": "icu_beta1_infusion",
+          "name": "Short-acting beta-1 blockade",
+          "mechanism": "Beta-1 antagonism slows heart rate and AV conduction",
+          "target": "Heart rate / AV node",
+          "tags": [
+            "icu",
+            "tachycardia",
+            "esmolol",
+            "high_risk"
+          ],
+          "role_note": "Short-acting beta blockade has selected ICU indications but is not recommended as a treatment strategy for septic shock itself.",
+          "drug_ids": [
+            "icu_esmolol"
+          ]
+        },
+        {
+          "id": "icu_nitrates",
+          "name": "Titrated IV nitrate vasodilator",
+          "mechanism": "Nitric-oxide donor reduces preload and, at higher exposure, afterload",
+          "target": "Venous/arterial vascular smooth muscle",
+          "tags": [
+            "icu",
+            "pulmonary_edema",
+            "acs",
+            "vasodilator",
+            "high_risk"
+          ],
+          "role_note": "Selected acute pulmonary edema/ischemic hypertensive contexts with adequate BP; contraindications and hemodynamic phenotype are crucial.",
+          "drug_ids": [
+            "icu_nitroglycerin"
+          ]
+        },
+        {
+          "id": "icu_nitroprusside",
+          "name": "Sodium nitroprusside",
+          "mechanism": "Direct NO-mediated arterial and venous vasodilation",
+          "target": "Systemic vascular resistance",
+          "tags": [
+            "icu",
+            "hypertensive_emergency",
+            "vasodilator",
+            "toxicology"
+          ],
+          "role_note": "Potent titratable vasodilator reserved for selected ICU indications with close monitoring.",
+          "drug_ids": [
+            "icu_sodium_nitroprusside"
+          ]
+        },
+        {
+          "id": "icu_antibiotic_pkpd",
+          "name": "Critical-care antimicrobial PK/PD optimization",
+          "mechanism": "Optimizes time- or exposure-dependent antimicrobial pharmacodynamics",
+          "target": "Antimicrobial exposure",
+          "tags": [
+            "icu",
+            "sepsis",
+            "antibiotic",
+            "stewardship",
+            "pkpd"
+          ],
+          "role_note": "This is a cross-link to the Antibiotic Lab: current sepsis guidance supports prolonged beta-lactam maintenance infusion and case-by-case TDM in selected patients.",
+          "drug_ids": [
+            "icu_beta_lactam_extended",
+            "icu_antimicrobial_tdm"
+          ]
+        },
+        {
+          "id": "icu_temperature_symptom",
+          "name": "Antipyretic symptom control — not sepsis outcome therapy",
+          "mechanism": "Central prostaglandin inhibition",
+          "target": "Temperature/pain symptoms",
+          "tags": [
+            "icu",
+            "fever",
+            "symptom_control"
+          ],
+          "role_note": "Current sepsis guidance advises against antipyretics solely to improve sepsis outcomes; symptom/pain or other neurologic indications remain separate.",
+          "drug_ids": [
+            "icu_paracetamol_fever"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "icu_balanced_crystalloid",
+          "generic": "Balanced crystalloid (e.g., Ringer lactate / Plasma-Lyte type)",
+          "class_id": "icu_crystalloids",
+          "form": "IV crystalloid",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "sepsis",
+            "shock",
+            "fluid",
+            "resuscitation",
+            "balanced"
+          ],
+          "role": "Preferred crystalloid family for many sepsis-resuscitation contexts.",
+          "monitoring_pearl": "Track perfusion response, chloride/acid-base status, cumulative balance and signs of fluid intolerance.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_normal_saline",
+          "generic": "0.9% Sodium chloride",
+          "class_id": "icu_crystalloids",
+          "form": "IV crystalloid",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "sepsis",
+            "shock",
+            "fluid",
+            "resuscitation",
+            "saline"
+          ],
+          "role": "Alternative isotonic crystalloid; selected contexts may favor saline.",
+          "monitoring_pearl": "Large chloride exposure can affect acid-base balance; choice is context dependent.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_albumin_5",
+          "generic": "Human albumin 5%",
+          "class_id": "icu_albumin",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "sepsis",
+            "albumin",
+            "fluid",
+            "colloid"
+          ],
+          "role": "Selected plasma-volume expansion context.",
+          "monitoring_pearl": "Avoid treating serum albumin number alone; reassess hemodynamics and fluid tolerance.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_albumin_20",
+          "generic": "Human albumin 20–25%",
+          "class_id": "icu_albumin",
+          "form": "Concentrated infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "sepsis",
+            "albumin",
+            "fluid",
+            "colloid",
+            "concentrated"
+          ],
+          "role": "Selected specialist use where concentrated albumin is clinically indicated.",
+          "monitoring_pearl": "Hemodynamic and volume-status monitoring is essential; indication differs from routine crystalloid resuscitation.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_norepinephrine_profile",
+          "generic": "Norepinephrine / Noradrenaline",
+          "class_id": "icu_norepinephrine",
+          "form": "Concentrated infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "septic_shock",
+            "vasopressor",
+            "first_line",
+            "vasopressor"
+          ],
+          "role": "First-line vasopressor in septic shock.",
+          "monitoring_pearl": "Continuous BP/perfusion monitoring; verify central/peripheral access policy, extravasation precautions and arrhythmia/ischemia risk.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_vasopressin_profile",
+          "generic": "Vasopressin",
+          "class_id": "icu_vasopressin",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "septic_shock",
+            "vasopressor",
+            "adjunct",
+            "vasopressor"
+          ],
+          "role": "Catecholamine-sparing adjunct in selected vasodilatory shock.",
+          "monitoring_pearl": "Monitor ischemia, perfusion and sodium/water effects; not a substitute for diagnosis of shock phenotype.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_epinephrine_infusion",
+          "generic": "Epinephrine / Adrenaline — ICU infusion context",
+          "class_id": "icu_epinephrine",
+          "form": "Concentrated infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "septic_shock",
+            "vasopressor",
+            "inotrope",
+            "vasopressor",
+            "inotrope"
+          ],
+          "role": "Escalation option in refractory septic shock or selected shock with cardiac dysfunction.",
+          "monitoring_pearl": "Can increase lactate, glucose, tachyarrhythmias and myocardial oxygen demand; interpret trends in context.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_phenylephrine_profile",
+          "generic": "Phenylephrine",
+          "class_id": "icu_phenylephrine",
+          "form": "Infusion / bolus",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "vasopressor",
+            "selected",
+            "vasopressor"
+          ],
+          "role": "Selected vasodilatory hypotension/peri-intubation contexts under local protocol.",
+          "monitoring_pearl": "May reduce stroke volume in preload-limited or ventricular dysfunction states; phenotype matters.",
+          "source_refs": [
+            "SCCM_RSI_2023",
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_dopamine_profile",
+          "generic": "Dopamine",
+          "class_id": "icu_dopamine",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "vasopressor",
+            "restricted",
+            "arrhythmia",
+            "vasopressor",
+            "inotrope"
+          ],
+          "role": "Selected specialist use when a particular chronotropic/hemodynamic profile is desired.",
+          "monitoring_pearl": "Tachyarrhythmia risk and unpredictable dose-response require close monitoring.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_angiotensin2_profile",
+          "generic": "Angiotensin II",
+          "class_id": "icu_angiotensin2",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "vasopressor",
+            "rescue",
+            "specialist",
+            "rescue"
+          ],
+          "role": "Selected refractory vasodilatory shock under ICU protocol.",
+          "monitoring_pearl": "Thrombotic risk, concomitant VTE prophylaxis and perfusion monitoring are important; evidence/context differ from first-line agents.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_dobutamine",
+          "generic": "Dobutamine",
+          "class_id": "icu_inotropes",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "inotrope",
+            "cardiac_dysfunction",
+            "beta1"
+          ],
+          "role": "Common inotrope added to vasopressor support for selected low-output states.",
+          "monitoring_pearl": "Monitor tachyarrhythmia, myocardial ischemia and BP; may worsen hypotension in vasodilatory states.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_milrinone",
+          "generic": "Milrinone",
+          "class_id": "icu_inotropes",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "inotrope",
+            "cardiac_dysfunction",
+            "pde3",
+            "inodilator"
+          ],
+          "role": "Inodilator used in selected cardiac dysfunction/right-ventricular contexts.",
+          "monitoring_pearl": "Renally cleared; hypotension and arrhythmia risk require careful selection.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_hydrocortisone_shock",
+          "generic": "Hydrocortisone — septic shock context",
+          "class_id": "icu_shock_steroids",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "septic_shock",
+            "corticosteroid",
+            "steroid"
+          ],
+          "role": "Common corticosteroid used for vasopressor-dependent septic shock.",
+          "monitoring_pearl": "Monitor glucose, sodium/fluid status, infection context, neuromuscular weakness and GI risk; taper/cessation strategy is protocol specific.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_etomidate",
+          "generic": "Etomidate",
+          "class_id": "icu_rsi_induction",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "airway",
+            "rsi",
+            "induction",
+            "high_risk",
+            "rsi"
+          ],
+          "role": "Hemodynamically stable induction option in many critically ill patients.",
+          "monitoring_pearl": "Myoclonus/adrenal effects exist; SCCM does not recommend routine corticosteroid solely to counter etomidate-related adrenal suppression.",
+          "source_refs": [
+            "SCCM_RSI_2023"
+          ]
+        },
+        {
+          "id": "icu_ketamine_induction",
+          "generic": "Ketamine — RSI induction",
+          "class_id": "icu_rsi_induction",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "airway",
+            "rsi",
+            "induction",
+            "high_risk",
+            "rsi",
+            "dissociative"
+          ],
+          "role": "Induction option with analgesic/dissociative properties.",
+          "monitoring_pearl": "BP/HR response is variable in catecholamine-depleted shock; emergence and secretions are context dependent.",
+          "source_refs": [
+            "SCCM_RSI_2023"
+          ]
+        },
+        {
+          "id": "icu_propofol_induction",
+          "generic": "Propofol — induction context",
+          "class_id": "icu_rsi_induction",
+          "form": "Injection emulsion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "airway",
+            "rsi",
+            "induction",
+            "high_risk",
+            "rsi",
+            "hypotension"
+          ],
+          "role": "Rapid induction agent used selectively in hemodynamically appropriate patients.",
+          "monitoring_pearl": "Can cause marked hypotension and respiratory depression; dose selection is highly context-sensitive.",
+          "source_refs": [
+            "SCCM_RSI_2023"
+          ]
+        },
+        {
+          "id": "icu_midazolam_induction",
+          "generic": "Midazolam — induction context",
+          "class_id": "icu_rsi_induction",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "airway",
+            "rsi",
+            "induction",
+            "high_risk",
+            "rsi",
+            "benzodiazepine"
+          ],
+          "role": "Selected induction/sedation agent; slower and more hemodynamically variable than some alternatives.",
+          "monitoring_pearl": "Accumulation, hypotension and respiratory depression require caution.",
+          "source_refs": [
+            "SCCM_RSI_2023"
+          ]
+        },
+        {
+          "id": "icu_rocuronium_rsi",
+          "generic": "Rocuronium — RSI",
+          "class_id": "icu_rsi_nmba",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "airway",
+            "rsi",
+            "nmba",
+            "paralytic",
+            "high_risk",
+            "nondepolarizing"
+          ],
+          "role": "Common nondepolarizing RSI paralytic.",
+          "monitoring_pearl": "Longer paralysis can cause awareness risk if post-intubation sedation/analgesia is delayed.",
+          "source_refs": [
+            "SCCM_RSI_2023"
+          ]
+        },
+        {
+          "id": "icu_succinylcholine_rsi",
+          "generic": "Succinylcholine / Suxamethonium — RSI",
+          "class_id": "icu_rsi_nmba",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "airway",
+            "rsi",
+            "nmba",
+            "paralytic",
+            "high_risk",
+            "depolarizing"
+          ],
+          "role": "Rapid depolarizing RSI paralytic when no contraindication exists.",
+          "monitoring_pearl": "Hyperkalemia, malignant hyperthermia susceptibility, neuromuscular disease/denervation and other contraindications must be screened.",
+          "source_refs": [
+            "SCCM_RSI_2023"
+          ]
+        },
+        {
+          "id": "icu_sugammadex",
+          "generic": "Sugammadex",
+          "class_id": "icu_nmba_reversal",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "airway",
+            "nmba",
+            "reversal",
+            "specialist",
+            "reversal"
+          ],
+          "role": "Rapid reversal option for rocuronium/vecuronium blockade in appropriate settings.",
+          "monitoring_pearl": "Bradycardia, hypersensitivity, renal function and re-paralysis planning matter.",
+          "source_refs": [
+            "SCCM_RSI_2023"
+          ]
+        },
+        {
+          "id": "icu_neostigmine_glyco",
+          "generic": "Neostigmine + glycopyrrolate reversal strategy",
+          "class_id": "icu_nmba_reversal",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "airway",
+            "nmba",
+            "reversal",
+            "specialist",
+            "reversal"
+          ],
+          "role": "Traditional reversal strategy for suitable depth of nondepolarizing blockade.",
+          "monitoring_pearl": "Requires antimuscarinic co-therapy and appropriate depth of recovery; not interchangeable with sugammadex.",
+          "source_refs": [
+            "SCCM_RSI_2023"
+          ]
+        },
+        {
+          "id": "icu_fentanyl",
+          "generic": "Fentanyl — ICU analgesia",
+          "class_id": "icu_opioid_analgesia",
+          "form": "Injection / infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "pain",
+            "analgesia",
+            "opioid",
+            "ventilated",
+            "opioid"
+          ],
+          "role": "Potent opioid commonly used for procedural/ventilated-patient analgesia.",
+          "monitoring_pearl": "Respiratory depression, chest-wall rigidity at high rapid exposure, ileus and accumulation are key risks.",
+          "source_refs": [
+            "SCCM_PADIS_2025"
+          ]
+        },
+        {
+          "id": "icu_hydromorphone",
+          "generic": "Hydromorphone — ICU analgesia",
+          "class_id": "icu_opioid_analgesia",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "pain",
+            "analgesia",
+            "opioid",
+            "ventilated",
+            "opioid"
+          ],
+          "role": "Alternative opioid for severe pain in selected ICU patients.",
+          "monitoring_pearl": "Renal/hepatic function and sedation/respiratory effects require titration.",
+          "source_refs": [
+            "SCCM_PADIS_2025"
+          ]
+        },
+        {
+          "id": "icu_morphine",
+          "generic": "Morphine — ICU analgesia",
+          "class_id": "icu_opioid_analgesia",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "pain",
+            "analgesia",
+            "opioid",
+            "ventilated",
+            "opioid"
+          ],
+          "role": "Opioid analgesic used selectively.",
+          "monitoring_pearl": "Active metabolites can accumulate in renal dysfunction; histamine-mediated hypotension may occur.",
+          "source_refs": [
+            "SCCM_PADIS_2025"
+          ]
+        },
+        {
+          "id": "icu_acetaminophen",
+          "generic": "Paracetamol / Acetaminophen",
+          "class_id": "icu_nonopioid_analgesia",
+          "form": "IV / oral",
+          "route": "IV/PO",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "pain",
+            "multimodal",
+            "nonopioid"
+          ],
+          "role": "Non-opioid analgesic/antipyretic adjunct for suitable patients.",
+          "monitoring_pearl": "Total daily exposure and hepatic risk must be reconciled across combination products.",
+          "source_refs": [
+            "SCCM_PADIS_2025"
+          ]
+        },
+        {
+          "id": "icu_ketamine_analgesia",
+          "generic": "Low-dose ketamine — analgesic adjunct",
+          "class_id": "icu_nonopioid_analgesia",
+          "form": "Injection / infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "pain",
+            "multimodal",
+            "nmda",
+            "opioid_sparing"
+          ],
+          "role": "Selected opioid-sparing analgesic adjunct.",
+          "monitoring_pearl": "Monitor hemodynamics, psychotomimetic effects and secretions; use protocolized dosing.",
+          "source_refs": [
+            "SCCM_PADIS_2025"
+          ]
+        },
+        {
+          "id": "icu_dexmedetomidine_profile",
+          "generic": "Dexmedetomidine",
+          "class_id": "icu_dexmedetomidine",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "sedation",
+            "light_sedation",
+            "delirium",
+            "alpha2"
+          ],
+          "role": "Cooperative/light-sedation option in selected mechanically ventilated adults.",
+          "monitoring_pearl": "Bradycardia and hypotension are key limiting effects; loading strategies vary by protocol.",
+          "source_refs": [
+            "SCCM_PADIS_2025"
+          ]
+        },
+        {
+          "id": "icu_propofol_sedation_profile",
+          "generic": "Propofol — ICU sedation",
+          "class_id": "icu_propofol_sedation",
+          "form": "Lipid emulsion infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "sedation",
+            "ventilation",
+            "propofol",
+            "sedation"
+          ],
+          "role": "Titrated ICU sedative for ventilated patients.",
+          "monitoring_pearl": "Monitor hypotension, triglycerides/caloric load and propofol infusion syndrome risk with prolonged/high exposure.",
+          "source_refs": [
+            "SCCM_PADIS_2025"
+          ]
+        },
+        {
+          "id": "icu_midazolam_sedation",
+          "generic": "Midazolam — ICU sedation",
+          "class_id": "icu_benzodiazepine_sedation",
+          "form": "Injection / infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "sedation",
+            "benzodiazepine",
+            "selected",
+            "benzodiazepine"
+          ],
+          "role": "Selected sedative/anxiolytic in ICU.",
+          "monitoring_pearl": "Active metabolites and context-sensitive accumulation can prolong awakening, especially with organ dysfunction.",
+          "source_refs": [
+            "SCCM_PADIS_2025"
+          ]
+        },
+        {
+          "id": "icu_lorazepam_sedation",
+          "generic": "Lorazepam — ICU sedation/anxiety context",
+          "class_id": "icu_benzodiazepine_sedation",
+          "form": "Injection / oral",
+          "route": "IV/PO",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "sedation",
+            "benzodiazepine",
+            "selected",
+            "benzodiazepine"
+          ],
+          "role": "Selected benzodiazepine for specific ICU indications.",
+          "monitoring_pearl": "Repeated IV exposure can add propylene-glycol toxicity risk depending on formulation; monitor sedation and delirium.",
+          "source_refs": [
+            "SCCM_PADIS_2025"
+          ]
+        },
+        {
+          "id": "icu_haloperidol_delirium",
+          "generic": "Haloperidol — severe agitation/delirium symptom control context",
+          "class_id": "icu_delirium_drugs",
+          "form": "Injection / oral",
+          "route": "IV/IM/PO",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "delirium",
+            "antipsychotic",
+            "safety",
+            "antipsychotic"
+          ],
+          "role": "May be used for dangerous agitation or selected symptom control; not proven to shorten delirium routinely.",
+          "monitoring_pearl": "QT, extrapyramidal effects, NMS risk and reversible causes of delirium must be assessed.",
+          "source_refs": [
+            "SCCM_PADIS_2025"
+          ]
+        },
+        {
+          "id": "icu_quetiapine_delirium",
+          "generic": "Quetiapine — selected delirium/agitation context",
+          "class_id": "icu_delirium_drugs",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "delirium",
+            "antipsychotic",
+            "safety",
+            "antipsychotic"
+          ],
+          "role": "Selected enteral symptom-control option.",
+          "monitoring_pearl": "Sedation, orthostasis, QT/metabolic effects and swallowing/enteral feasibility matter.",
+          "source_refs": [
+            "SCCM_PADIS_2025"
+          ]
+        },
+        {
+          "id": "icu_melatonin",
+          "generic": "Melatonin",
+          "class_id": "icu_sleep_melatonin",
+          "form": "Tablet / liquid",
+          "route": "Oral/enteral",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "sleep",
+            "melatonin",
+            "sleep"
+          ],
+          "role": "Sleep/circadian adjunct in suitable ICU patients.",
+          "monitoring_pearl": "Avoid substituting medication for sleep hygiene, light/noise optimization and delirium prevention bundle.",
+          "source_refs": [
+            "SCCM_PADIS_2025"
+          ]
+        },
+        {
+          "id": "icu_cisatracurium_ards",
+          "generic": "Cisatracurium",
+          "class_id": "icu_ards_nmba",
+          "form": "Injection / infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "ards",
+            "nmba",
+            "ventilation",
+            "high_risk",
+            "nondepolarizing"
+          ],
+          "role": "Common ICU NMBA for selected severe ARDS/ventilator dyssynchrony.",
+          "monitoring_pearl": "Requires deep analgesia/sedation, eye/pressure-area care and awareness prevention; organ-independent Hofmann elimination can be advantageous.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_rocuronium_ards",
+          "generic": "Rocuronium — ICU paralysis context",
+          "class_id": "icu_ards_nmba",
+          "form": "Injection / infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "ards",
+            "nmba",
+            "ventilation",
+            "high_risk",
+            "nondepolarizing"
+          ],
+          "role": "Alternative nondepolarizing NMBA for selected ICU indications.",
+          "monitoring_pearl": "Accumulation and prolonged weakness can occur; sedation/analgesia must precede paralysis.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_inhaled_nitric_oxide",
+          "generic": "Inhaled nitric oxide",
+          "class_id": "icu_inhaled_pulm_vasodilators",
+          "form": "Inhaled gas",
+          "route": "Inhaled",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "ards",
+            "rv_failure",
+            "pulmonary_vasodilator",
+            "rescue",
+            "rescue"
+          ],
+          "role": "Short-acting pulmonary vasodilator rescue in selected ICU settings.",
+          "monitoring_pearl": "Monitor methemoglobin, NO2, rebound pulmonary hypertension and response; specialist delivery system required.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_inhaled_epoprostenol",
+          "generic": "Inhaled epoprostenol",
+          "class_id": "icu_inhaled_pulm_vasodilators",
+          "form": "Neb/inhaled continuous delivery",
+          "route": "Inhaled",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "ards",
+            "rv_failure",
+            "pulmonary_vasodilator",
+            "rescue",
+            "rescue",
+            "prostacyclin"
+          ],
+          "role": "Alternative inhaled pulmonary vasodilator rescue strategy.",
+          "monitoring_pearl": "Delivery-system consistency, systemic hypotension/platelet effects and rebound physiology require protocolized care.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_pantoprazole_sup",
+          "generic": "Pantoprazole — SUP",
+          "class_id": "icu_sup",
+          "form": "Injection / tablet",
+          "route": "IV/PO",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "stress_ulcer",
+            "gi_bleed",
+            "prophylaxis",
+            "ppi"
+          ],
+          "role": "PPI option for stress-ulcer prophylaxis when risk factors justify prophylaxis.",
+          "monitoring_pearl": "Reassess daily and stop when critical-illness bleeding risk resolves to prevent inappropriate continuation.",
+          "source_refs": [
+            "SCCM_SUP_2024"
+          ]
+        },
+        {
+          "id": "icu_omeprazole_sup",
+          "generic": "Omeprazole — SUP",
+          "class_id": "icu_sup",
+          "form": "Capsule / enteral formulation",
+          "route": "PO/enteral",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "stress_ulcer",
+            "gi_bleed",
+            "prophylaxis",
+            "ppi"
+          ],
+          "role": "Enteral PPI option when appropriate.",
+          "monitoring_pearl": "Check enteral access/formulation suitability and discontinue when no longer indicated.",
+          "source_refs": [
+            "SCCM_SUP_2024"
+          ]
+        },
+        {
+          "id": "icu_famotidine_sup",
+          "generic": "Famotidine — SUP",
+          "class_id": "icu_sup",
+          "form": "Injection / tablet",
+          "route": "IV/PO",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "stress_ulcer",
+            "gi_bleed",
+            "prophylaxis",
+            "h2ra"
+          ],
+          "role": "H2-receptor antagonist option for SUP.",
+          "monitoring_pearl": "Renal adjustment and CNS effects in susceptible patients should be considered.",
+          "source_refs": [
+            "SCCM_SUP_2024"
+          ]
+        },
+        {
+          "id": "icu_enoxaparin_vte",
+          "generic": "Enoxaparin — VTE prophylaxis context",
+          "class_id": "icu_vte_prophylaxis",
+          "form": "Prefilled syringe",
+          "route": "SC",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "vte",
+            "prophylaxis",
+            "anticoagulant",
+            "lmwh"
+          ],
+          "role": "Preferred prophylactic anticoagulant family in many critically ill adults when renal function/bleeding risk permit.",
+          "monitoring_pearl": "Renal function, weight extremes, platelets/HIT history and procedures must be reconciled.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_ufh_vte",
+          "generic": "Unfractionated heparin — VTE prophylaxis context",
+          "class_id": "icu_vte_prophylaxis",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "vte",
+            "prophylaxis",
+            "anticoagulant",
+            "heparin"
+          ],
+          "role": "Alternative prophylaxis when LMWH is unsuitable.",
+          "monitoring_pearl": "Platelets/HIT risk, bleeding, procedures and renal context guide selection.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_regular_insulin_infusion",
+          "generic": "Regular insulin — ICU infusion",
+          "class_id": "icu_insulin_infusion",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "hyperglycemia",
+            "insulin",
+            "high_risk",
+            "insulin"
+          ],
+          "role": "Protocol-driven treatment of persistent ICU hyperglycemia.",
+          "monitoring_pearl": "High-alert therapy: frequent glucose checks, potassium awareness, nutrition changes and interruption safeguards are mandatory.",
+          "source_refs": [
+            "SCCM_GLYCEMIC_2024",
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_sodium_bicarbonate",
+          "generic": "Sodium bicarbonate — ICU severe-acidemia context",
+          "class_id": "icu_bicarbonate",
+          "form": "Injection / infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "acidemia",
+            "bicarbonate",
+            "high_risk",
+            "alkali"
+          ],
+          "role": "Selected severe metabolic-acidemia context, especially when guideline criteria are met.",
+          "monitoring_pearl": "Follow pH, sodium, ionized calcium, potassium, volume/CO2 burden and underlying cause; avoid reflexive use for lactate alone.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_furosemide_deres",
+          "generic": "Furosemide — de-resuscitation context",
+          "class_id": "icu_deresuscitation",
+          "form": "Injection / tablet",
+          "route": "IV/PO",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "deresuscitation",
+            "fluid_overload",
+            "diuretic",
+            "loop"
+          ],
+          "role": "Common loop diuretic for active fluid removal after stabilization.",
+          "monitoring_pearl": "Track urine output, creatinine, electrolytes, BP and diuretic responsiveness; do not diurese ongoing under-resuscitated shock.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_bumetanide_deres",
+          "generic": "Bumetanide — de-resuscitation context",
+          "class_id": "icu_deresuscitation",
+          "form": "Injection / tablet",
+          "route": "IV/PO",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "deresuscitation",
+            "fluid_overload",
+            "diuretic",
+            "loop"
+          ],
+          "role": "Alternative loop diuretic for fluid removal.",
+          "monitoring_pearl": "Potency conversion and renal/electrolyte monitoring are essential.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_nicardipine",
+          "generic": "Nicardipine",
+          "class_id": "icu_hypertensive_infusions",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "hypertensive_emergency",
+            "infusion",
+            "high_risk",
+            "ccb"
+          ],
+          "role": "Titrated arterial vasodilator widely used in neuro/cardiovascular hypertensive emergencies.",
+          "monitoring_pearl": "Continuous BP monitoring; reflex tachycardia and fluid load from infusion can matter.",
+          "source_refs": [
+            "SCCM_RSI_2023"
+          ]
+        },
+        {
+          "id": "icu_clevidipine",
+          "generic": "Clevidipine",
+          "class_id": "icu_hypertensive_infusions",
+          "form": "Lipid emulsion infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "hypertensive_emergency",
+            "infusion",
+            "high_risk",
+            "ccb"
+          ],
+          "role": "Ultra-short arterial vasodilator for selected critical hypertension.",
+          "monitoring_pearl": "Lipid emulsion considerations and allergy/formulation issues require review.",
+          "source_refs": [
+            "SCCM_RSI_2023"
+          ]
+        },
+        {
+          "id": "icu_labetalol",
+          "generic": "Labetalol",
+          "class_id": "icu_hypertensive_infusions",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "hypertensive_emergency",
+            "infusion",
+            "high_risk",
+            "alpha_beta_blocker"
+          ],
+          "role": "Bolus/infusion option where beta- plus alpha-blockade is appropriate.",
+          "monitoring_pearl": "Avoid/limit in severe bradycardia, heart block, bronchospasm or acute decompensated systolic failure.",
+          "source_refs": [
+            "SCCM_RSI_2023"
+          ]
+        },
+        {
+          "id": "icu_esmolol",
+          "generic": "Esmolol",
+          "class_id": "icu_beta1_infusion",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "tachycardia",
+            "esmolol",
+            "high_risk",
+            "beta1"
+          ],
+          "role": "Short-acting beta-1 blocker for selected tachyarrhythmia/perioperative/critical-care contexts.",
+          "monitoring_pearl": "Continuous ECG/BP monitoring; distinguish arrhythmia indication from unsupported septic-shock heart-rate suppression.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_nitroglycerin",
+          "generic": "Nitroglycerin / Glyceryl trinitrate",
+          "class_id": "icu_nitrates",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "pulmonary_edema",
+            "acs",
+            "vasodilator",
+            "high_risk",
+            "nitrate"
+          ],
+          "role": "Rapid titratable venodilator/anti-ischemic therapy in selected acute cardiopulmonary states.",
+          "monitoring_pearl": "Avoid with hypotension, RV preload dependence and recent PDE5 inhibitor exposure; monitor headache and methemoglobinemia at unusual exposures.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_sodium_nitroprusside",
+          "generic": "Sodium nitroprusside",
+          "class_id": "icu_nitroprusside",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "hypertensive_emergency",
+            "vasodilator",
+            "toxicology",
+            "cyanide_risk"
+          ],
+          "role": "Rapid afterload/preload reduction in selected monitored settings.",
+          "monitoring_pearl": "Cyanide/thiocyanate toxicity, renal/hepatic function and light protection are key safety issues.",
+          "source_refs": [
+            "SCCM_RSI_2023"
+          ]
+        },
+        {
+          "id": "icu_beta_lactam_extended",
+          "generic": "Beta-lactam prolonged/extended-infusion strategy",
+          "class_id": "icu_antibiotic_pkpd",
+          "form": "Regimen strategy",
+          "route": "IV",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "sepsis",
+            "antibiotic",
+            "stewardship",
+            "pkpd",
+            "beta_lactam",
+            "infusion_strategy"
+          ],
+          "role": "PK/PD optimization strategy after appropriate initial loading in eligible sepsis patients.",
+          "monitoring_pearl": "Drug, MIC, renal function, stability/compatibility and local protocol determine the exact infusion plan.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_antimicrobial_tdm",
+          "generic": "Antimicrobial therapeutic drug monitoring strategy",
+          "class_id": "icu_antibiotic_pkpd",
+          "form": "Monitoring strategy",
+          "route": "N/A",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "sepsis",
+            "antibiotic",
+            "stewardship",
+            "pkpd",
+            "tdm"
+          ],
+          "role": "Case-by-case exposure monitoring for selected antibiotics/antimicrobials.",
+          "monitoring_pearl": "Use validated assays/targets and interpret with organism, site, renal function and timing.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        },
+        {
+          "id": "icu_paracetamol_fever",
+          "generic": "Paracetamol / Acetaminophen — symptom-control context",
+          "class_id": "icu_temperature_symptom",
+          "form": "IV / oral",
+          "route": "IV/PO",
+          "dose_example": "ICU dosing/concentration/titration is patient-, indication-, access-, organ-function- and protocol-specific. Verify the current critical-care guideline, institutional concentration standard, product information, pump settings and required monitoring; do not auto-prescribe from this learning card.",
+          "tags": [
+            "icu",
+            "fever",
+            "symptom_control",
+            "antipyretic"
+          ],
+          "role": "May be used for pain/symptom comfort when otherwise appropriate, not as disease-modifying sepsis therapy.",
+          "monitoring_pearl": "Account for all sources and hepatic risk; fever may also be diagnostically useful.",
+          "source_refs": [
+            "SCCM_SEPSIS_2026"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "SCCM_SEPSIS_2026",
+          "label": "Surviving Sepsis Campaign — International Guidelines for Management of Sepsis and Septic Shock (2026)",
+          "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026"
+        },
+        {
+          "id": "SCCM_PADIS_2025",
+          "label": "SCCM — Focused Update to PADIS Guidelines for Adult ICU Patients (2025)",
+          "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/focused-update-padis-guideline"
+        },
+        {
+          "id": "SCCM_RSI_2023",
+          "label": "SCCM — Clinical Practice Guidelines for Rapid Sequence Intubation in the Critically Ill Adult Patient (2023)",
+          "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/guidelines-rapid-sequence-intubation"
+        },
+        {
+          "id": "SCCM_GLYCEMIC_2024",
+          "label": "SCCM — Guidelines on Glycemic Control for Critically Ill Children and Adults (2024)",
+          "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/guidelines-on-glycemic-control-for-critically-ill"
+        },
+        {
+          "id": "SCCM_SUP_2024",
+          "label": "SCCM/ASHP — Prevention of Stress-Related Gastrointestinal Bleeding in Critically Ill Adults (2024)",
+          "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/sccm-ashp-guideline-prevention-of-ugib"
+        },
+        {
+          "id": "SCCM_ICU_LIB",
+          "label": "SCCM — ICU Liberation Bundle (A–F)",
+          "url": "https://sccm.org/clinical-resources/iculiberation-home/abcdef-bundles"
         }
       ]
     }
