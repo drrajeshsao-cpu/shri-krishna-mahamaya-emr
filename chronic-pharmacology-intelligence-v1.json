@@ -1,13 +1,13 @@
 {
   "schema": "mahamaya.common_chronic_pharmacology.v1",
-  "version": "1.3A",
-  "app_version": "V5.40A",
-  "build": "2026.08.14-R25A",
-  "name": "High-Use Pharmacology Intelligence Labs — Chronic + GI/Pain + Respiratory/Allergy",
+  "version": "1.3B",
+  "app_version": "V5.40B",
+  "build": "2026.08.14-R25B",
+  "name": "High-Use Pharmacology Intelligence Labs — Chronic + GI/Pain + Respiratory/Allergy + Cardiovascular/Vascular",
   "counts": {
-    "labs": 6,
-    "classes": 118,
-    "drug_profiles": 367
+    "labs": 7,
+    "classes": 162,
+    "drug_profiles": 471
   },
   "global_boundary": "Research/learning pharmacology only. Class tags and typical adult dose snapshots are not patient-specific prescribing instructions. Verify diagnosis, indication, formulation/route/device, current label/guideline, age/weight, renal/hepatic function, pregnancy/lactation, contraindications, interactions, monitoring and emergency/specialist requirements before prescribing. Asthma and COPD algorithms are not interchangeable.",
   "labs": [
@@ -10690,6 +10690,3994 @@
           "id": "ASCIA_ANAPHYLAXIS_2026",
           "label": "ASCIA 2026 Acute Management of Anaphylaxis",
           "url": "https://www.allergy.org.au/hp/anaphylaxis/acute-management-guidelines"
+        }
+      ]
+    },
+    {
+      "id": "cardio_vascular",
+      "title": "Cardiovascular & Vascular Intelligence Lab",
+      "icon": "❤️",
+      "badge": "CV-VASC v1.0",
+      "eyebrow": "CARDIOLOGY • THROMBOSIS • LIPIDS • HEART FAILURE • ELECTROPHYSIOLOGY • VASCULAR MEDICINE",
+      "subtitle": "Antithrombotics → lipids → ischemia/ACS → heart failure → AF/arrhythmia → PAD/VTE → pulmonary vascular pharmacology → monitored emergency/advanced therapy",
+      "scientific_boundary": "Research/learning pharmacology only. “Antiplatelet”, “anticoagulant”, “ACS”, “AF”, “HFrEF”, “PAD” and “PAH” tags describe pharmacologic/clinical contexts—not an automatic drug-of-choice recommendation. Verify diagnosis, ECG/EF, ischemic/bleeding risk, indication-specific dosing, renal/hepatic function, pregnancy, interactions, current guideline/label, local formulary and procedure/emergency protocol before prescribing. Fibrinolytics, IV antiarrhythmics, inotropes and PAH therapies require strict specialist/monitored workflows.",
+      "classification_notes": {
+        "antiplatelet_vs_anticoagulant": "Antiplatelets primarily inhibit platelet activation/aggregation and dominate arterial thrombosis/PCI pathways; anticoagulants inhibit the coagulation cascade and dominate AF/VTE/PE pathways. Combined therapy markedly increases bleeding and should be indication- and duration-specific.",
+        "acs_dapt": "ACS/PCI antithrombotic therapy depends on reperfusion strategy, stent/procedure, ischemic vs bleeding risk and need for oral anticoagulation. The 2025 ACC/AHA ACS guideline is the primary contemporary reference in this lab.",
+        "af_stroke_prevention": "AF management separates stroke prevention, rate control and rhythm control. Anticoagulation decisions use validated thromboembolic/bleeding risk assessment and valve/renal context; DOACs are not interchangeable with warfarin in every valvular/mechanical-valve setting.",
+        "hfrEF_four_pillars": "Contemporary HFrEF foundational pharmacotherapy is organized around ARNI/RAAS inhibition, evidence-based beta blocker, MRA and SGLT2 inhibitor, with diuretics for congestion and additional therapies for selected phenotypes.",
+        "lipids_2026": "The 2026 ACC/AHA dyslipidemia guideline restores explicit LDL/non-HDL goals and emphasizes earlier, risk-based intensification using statins plus evidence-based nonstatin therapies when needed.",
+        "pad_vascular": "PAD treatment is systemic ASCVD therapy plus limb-specific care: antithrombotic strategy, intensive lipid lowering, smoking cessation/exercise and revascularization assessment. Claudication drugs are symptom modifiers, not substitutes for vascular risk reduction.",
+        "vte_pe": "Acute PE/VTE requires severity/risk stratification. The 2026 AHA/ACC acute PE guideline generally favors DOACs over VKAs for eligible oral-anticoagulation patients and LMWH over UFH when initial parenteral therapy is needed, unless clinical factors dictate otherwise.",
+        "antiarrhythmics": "Vaughan-Williams classes are useful for mechanism learning but do not by themselves determine safe drug selection. Structural heart disease, EF, QT, renal function, conduction disease, ischemia and interacting drugs can completely change the appropriate choice.",
+        "pulmonary_vascular": "PAH drugs must not be started merely because “pulmonary hypertension” appears on an echo. Confirm PH group/hemodynamics and specialist indication; therapies for group 1 PAH/CTEPH are not routine treatment for left-heart or hypoxic lung-disease PH."
+      },
+      "lens_groups": [
+        {
+          "group": "Antithrombotic / vascular protection",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All cardiovascular/vascular classes"
+            },
+            {
+              "id": "antiplatelet",
+              "label": "Antiplatelets"
+            },
+            {
+              "id": "anticoagulant",
+              "label": "Anticoagulants"
+            },
+            {
+              "id": "fibrinolytic",
+              "label": "Fibrinolytics / thrombolysis"
+            },
+            {
+              "id": "vte",
+              "label": "VTE / PE"
+            },
+            {
+              "id": "stroke_prevention",
+              "label": "Stroke prevention"
+            }
+          ]
+        },
+        {
+          "group": "Coronary / lipid / heart failure",
+          "items": [
+            {
+              "id": "acs",
+              "label": "ACS / PCI"
+            },
+            {
+              "id": "antianginal",
+              "label": "Angina / chronic CAD"
+            },
+            {
+              "id": "lipid",
+              "label": "Lipid-lowering"
+            },
+            {
+              "id": "heart_failure",
+              "label": "Heart failure"
+            },
+            {
+              "id": "four_pillars",
+              "label": "HFrEF four pillars"
+            },
+            {
+              "id": "congestion",
+              "label": "Congestion / diuretics"
+            }
+          ]
+        },
+        {
+          "group": "Electrophysiology",
+          "items": [
+            {
+              "id": "af",
+              "label": "Atrial fibrillation"
+            },
+            {
+              "id": "rate_control",
+              "label": "Rate control"
+            },
+            {
+              "id": "rhythm_control",
+              "label": "Rhythm control"
+            },
+            {
+              "id": "svt",
+              "label": "SVT"
+            },
+            {
+              "id": "ventricular_arrhythmia",
+              "label": "Ventricular arrhythmia"
+            }
+          ]
+        },
+        {
+          "group": "Vascular / advanced",
+          "items": [
+            {
+              "id": "pad",
+              "label": "Peripheral artery disease"
+            },
+            {
+              "id": "pulmonary_hypertension",
+              "label": "Pulmonary vascular / PAH"
+            },
+            {
+              "id": "emergency",
+              "label": "Emergency / monitored"
+            },
+            {
+              "id": "advanced",
+              "label": "Advanced / specialist"
+            },
+            {
+              "id": "parenteral",
+              "label": "IV / parenteral drugs"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "cv_aspirin",
+          "name": "Aspirin / COX-1 antiplatelet",
+          "mechanism": "Irreversibly acetylates platelet COX-1, reducing thromboxane A2",
+          "target": "Platelet COX-1",
+          "tags": [
+            "overview",
+            "antithrombotic",
+            "antiplatelet",
+            "acs",
+            "ccd",
+            "pad",
+            "stroke_prevention"
+          ],
+          "role_note": "Foundational antiplatelet in many atherosclerotic contexts; indication and bleeding risk determine use.",
+          "drug_ids": [
+            "cv_aspirin_low"
+          ]
+        },
+        {
+          "id": "cv_p2y12",
+          "name": "P2Y12 receptor inhibitors",
+          "mechanism": "Inhibit ADP-mediated platelet activation and aggregation",
+          "target": "Platelet P2Y12 receptor",
+          "tags": [
+            "overview",
+            "antithrombotic",
+            "antiplatelet",
+            "acs",
+            "pci",
+            "dapt",
+            "stroke_prevention"
+          ],
+          "role_note": "Core DAPT partners after ACS/PCI; choice depends on ACS strategy, bleeding, stroke history and interactions.",
+          "drug_ids": [
+            "cv_clopidogrel",
+            "cv_ticagrelor",
+            "cv_prasugrel",
+            "cv_cangrelor"
+          ]
+        },
+        {
+          "id": "cv_gp2b3a",
+          "name": "GPIIb/IIIa inhibitors",
+          "mechanism": "Block final common platelet aggregation pathway by inhibiting fibrinogen binding",
+          "target": "Platelet GPIIb/IIIa receptor",
+          "tags": [
+            "antithrombotic",
+            "antiplatelet",
+            "acs",
+            "pci",
+            "parenteral",
+            "advanced"
+          ],
+          "role_note": "Selective cath-lab/PCI use rather than routine outpatient antiplatelet therapy.",
+          "drug_ids": [
+            "cv_eptifibatide",
+            "cv_tirofiban",
+            "cv_abciximab"
+          ]
+        },
+        {
+          "id": "cv_doac_xa",
+          "name": "Direct oral factor-Xa inhibitors",
+          "mechanism": "Directly inhibit activated factor X and thrombin generation",
+          "target": "Factor Xa",
+          "tags": [
+            "overview",
+            "antithrombotic",
+            "anticoagulant",
+            "af",
+            "vte",
+            "pe",
+            "stroke_prevention",
+            "oral"
+          ],
+          "role_note": "Major oral anticoagulant class for AF and VTE when appropriate; indication-specific dosing is essential.",
+          "drug_ids": [
+            "cv_apixaban",
+            "cv_rivaroxaban",
+            "cv_edoxaban"
+          ]
+        },
+        {
+          "id": "cv_direct_thrombin",
+          "name": "Direct thrombin inhibitors",
+          "mechanism": "Directly inhibit thrombin (factor IIa)",
+          "target": "Thrombin / factor IIa",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "af",
+            "vte",
+            "pci",
+            "parenteral",
+            "oral"
+          ],
+          "role_note": "Includes oral dabigatran and parenteral agents used in PCI/HIT contexts.",
+          "drug_ids": [
+            "cv_dabigatran",
+            "cv_bivalirudin",
+            "cv_argatroban"
+          ]
+        },
+        {
+          "id": "cv_vka",
+          "name": "Vitamin-K antagonists",
+          "mechanism": "Reduce hepatic synthesis of vitamin-K–dependent clotting factors",
+          "target": "Vitamin K epoxide reductase complex",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "af",
+            "vte",
+            "mechanical_valve",
+            "oral"
+          ],
+          "role_note": "Still essential in mechanical valves and selected valvular/thrombophilic contexts; requires INR-guided dosing.",
+          "drug_ids": [
+            "cv_warfarin",
+            "cv_acenocoumarol"
+          ]
+        },
+        {
+          "id": "cv_heparins",
+          "name": "Heparins (UFH / LMWH)",
+          "mechanism": "Potentiate antithrombin-mediated inhibition of factor Xa and/or thrombin",
+          "target": "Antithrombin III",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "acs",
+            "vte",
+            "pe",
+            "parenteral",
+            "pregnancy_context"
+          ],
+          "role_note": "Hospital and bridging anticoagulation class; LMWH and UFH differ in kinetics/monitoring.",
+          "drug_ids": [
+            "cv_ufh",
+            "cv_enoxaparin",
+            "cv_dalteparin",
+            "cv_tinzaparin"
+          ]
+        },
+        {
+          "id": "cv_fondaparinux",
+          "name": "Indirect factor-Xa inhibitor (fondaparinux)",
+          "mechanism": "Synthetic pentasaccharide potentiates antithrombin inhibition of Xa",
+          "target": "Antithrombin–factor Xa complex",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "vte",
+            "acs",
+            "parenteral"
+          ],
+          "role_note": "Once-daily parenteral anticoagulant with weight/renal considerations.",
+          "drug_ids": [
+            "cv_fondaparinux"
+          ]
+        },
+        {
+          "id": "cv_fibrinolytics",
+          "name": "Fibrinolytic / thrombolytic agents",
+          "mechanism": "Convert plasminogen to plasmin and promote fibrin clot dissolution",
+          "target": "Plasminogen / fibrin",
+          "tags": [
+            "antithrombotic",
+            "fibrinolytic",
+            "stemi",
+            "pe",
+            "stroke",
+            "emergency",
+            "parenteral"
+          ],
+          "role_note": "Time-critical emergency reperfusion drugs; indication, contraindication and protocol verification are mandatory.",
+          "drug_ids": [
+            "cv_tenecteplase",
+            "cv_alteplase",
+            "cv_reteplase",
+            "cv_streptokinase"
+          ]
+        },
+        {
+          "id": "cv_statins",
+          "name": "HMG-CoA reductase inhibitors (statins)",
+          "mechanism": "Reduce hepatic cholesterol synthesis and upregulate LDL receptors",
+          "target": "HMG-CoA reductase",
+          "tags": [
+            "overview",
+            "lipid",
+            "ldl",
+            "ascvd",
+            "secondary_prevention",
+            "ccd",
+            "pad"
+          ],
+          "role_note": "Foundation LDL-lowering therapy across ASCVD risk categories; intensity and target depend on risk.",
+          "drug_ids": [
+            "cv_atorvastatin",
+            "cv_rosuvastatin",
+            "cv_simvastatin",
+            "cv_pravastatin",
+            "cv_pitavastatin"
+          ]
+        },
+        {
+          "id": "cv_ezetimibe",
+          "name": "Cholesterol absorption inhibitor",
+          "mechanism": "Blocks intestinal NPC1L1-mediated cholesterol absorption",
+          "target": "NPC1L1 transporter",
+          "tags": [
+            "lipid",
+            "ldl",
+            "nonstatin",
+            "ascvd",
+            "secondary_prevention"
+          ],
+          "role_note": "Common first add-on to statin when further LDL lowering is needed.",
+          "drug_ids": [
+            "cv_ezetimibe"
+          ]
+        },
+        {
+          "id": "cv_pcsk9_mab",
+          "name": "PCSK9 monoclonal antibodies",
+          "mechanism": "Prevent PCSK9-mediated LDL-receptor degradation",
+          "target": "PCSK9",
+          "tags": [
+            "lipid",
+            "ldl",
+            "nonstatin",
+            "ascvd",
+            "secondary_prevention",
+            "injectable"
+          ],
+          "role_note": "Potent LDL lowering for high-risk ASCVD/familial hypercholesterolemia when indicated.",
+          "drug_ids": [
+            "cv_evolocumab",
+            "cv_alirocumab"
+          ]
+        },
+        {
+          "id": "cv_inclisiran",
+          "name": "PCSK9 siRNA therapy",
+          "mechanism": "Silences hepatic PCSK9 synthesis via RNA interference",
+          "target": "PCSK9 mRNA",
+          "tags": [
+            "lipid",
+            "ldl",
+            "nonstatin",
+            "ascvd",
+            "injectable"
+          ],
+          "role_note": "Twice-yearly maintenance LDL-lowering option after initial and 3-month doses.",
+          "drug_ids": [
+            "cv_inclisiran"
+          ]
+        },
+        {
+          "id": "cv_bempedoic",
+          "name": "ATP-citrate lyase inhibitor",
+          "mechanism": "Inhibits hepatic cholesterol synthesis upstream of HMG-CoA reductase",
+          "target": "ATP-citrate lyase",
+          "tags": [
+            "lipid",
+            "ldl",
+            "nonstatin",
+            "ascvd",
+            "oral"
+          ],
+          "role_note": "Oral nonstatin LDL-lowering option, including selected statin-intolerant patients.",
+          "drug_ids": [
+            "cv_bempedoic_acid",
+            "cv_bempedoic_ezetimibe"
+          ]
+        },
+        {
+          "id": "cv_fibrates",
+          "name": "Fibrates (PPAR-α agonists)",
+          "mechanism": "Increase fatty-acid oxidation and reduce triglyceride-rich lipoproteins",
+          "target": "PPAR-α",
+          "tags": [
+            "lipid",
+            "triglyceride",
+            "nonstatin"
+          ],
+          "role_note": "Primarily triglyceride-focused agents; role depends on TG severity and overall risk.",
+          "drug_ids": [
+            "cv_fenofibrate",
+            "cv_gemfibrozil"
+          ]
+        },
+        {
+          "id": "cv_omega3",
+          "name": "Prescription omega-3 / EPA therapy",
+          "mechanism": "Reduces hepatic VLDL-triglyceride production and alters lipid metabolism",
+          "target": "Triglyceride-rich lipoprotein metabolism",
+          "tags": [
+            "lipid",
+            "triglyceride",
+            "nonstatin"
+          ],
+          "role_note": "Selected high-TG and cardiovascular-risk contexts; prescription products differ from supplements.",
+          "drug_ids": [
+            "cv_icosapent",
+            "cv_omega3_ethy"
+          ]
+        },
+        {
+          "id": "cv_bile_acid_seq",
+          "name": "Bile-acid sequestrants",
+          "mechanism": "Bind intestinal bile acids and increase hepatic LDL-receptor activity",
+          "target": "Bile acids / enterohepatic circulation",
+          "tags": [
+            "lipid",
+            "ldl",
+            "nonstatin",
+            "oral"
+          ],
+          "role_note": "Older oral LDL-lowering class; can worsen triglycerides and interfere with drug absorption.",
+          "drug_ids": [
+            "cv_cholestyramine",
+            "cv_colesevelam"
+          ]
+        },
+        {
+          "id": "cv_nitrates",
+          "name": "Organic nitrates",
+          "mechanism": "Generate nitric oxide, increasing cGMP and reducing preload/ischemia",
+          "target": "Soluble guanylate cyclase via NO",
+          "tags": [
+            "overview",
+            "antianginal",
+            "acs",
+            "ccd",
+            "emergency",
+            "vasodilator"
+          ],
+          "role_note": "Symptom-relief/acute anti-ischemic vasodilators; nitrate-free interval needed for chronic formulations.",
+          "drug_ids": [
+            "cv_ntg_sl",
+            "cv_ntg_iv",
+            "cv_isosorbide_mono",
+            "cv_isosorbide_di"
+          ]
+        },
+        {
+          "id": "cv_beta_antianginal",
+          "name": "β-blockers for ischemia/rate control",
+          "mechanism": "Block cardiac β-adrenergic signaling, lowering heart rate and contractility",
+          "target": "β1 ± β2 adrenergic receptors",
+          "tags": [
+            "antianginal",
+            "ccd",
+            "post_mi",
+            "rate_control",
+            "hfrEF"
+          ],
+          "role_note": "High-value class when there is a compelling indication such as angina, prior MI, arrhythmia or HFrEF.",
+          "drug_ids": [
+            "cv_metoprolol",
+            "cv_bisoprolol",
+            "cv_carvedilol"
+          ]
+        },
+        {
+          "id": "cv_ccb_antianginal",
+          "name": "Calcium-channel blockers for angina/rate control",
+          "mechanism": "Reduce L-type calcium entry in vascular smooth muscle and/or AV node",
+          "target": "L-type calcium channel",
+          "tags": [
+            "antianginal",
+            "ccd",
+            "rate_control",
+            "vasodilator"
+          ],
+          "role_note": "DHP agents mainly vasodilate; non-DHP agents also slow AV conduction and need EF/conduction review.",
+          "drug_ids": [
+            "cv_amlodipine",
+            "cv_diltiazem",
+            "cv_verapamil"
+          ]
+        },
+        {
+          "id": "cv_other_antianginal",
+          "name": "Other antianginal / metabolic agents",
+          "mechanism": "Reduce ischemia through late-Na inhibition, K-channel effects or metabolic mechanisms",
+          "target": "Multiple myocardial/vascular targets",
+          "tags": [
+            "antianginal",
+            "ccd",
+            "second_line"
+          ],
+          "role_note": "Adjunct antianginal options when symptoms persist or standard agents are limited; approvals vary by country.",
+          "drug_ids": [
+            "cv_ranolazine",
+            "cv_nicorandil",
+            "cv_trimetazidine"
+          ]
+        },
+        {
+          "id": "cv_arni_raas_hf",
+          "name": "ARNI / RAAS inhibition in HFrEF",
+          "mechanism": "Reduces RAAS signaling; ARNI also augments natriuretic peptide pathways",
+          "target": "Angiotensin receptor / neprilysin / ACE",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "four_pillars",
+            "raas",
+            "foundational"
+          ],
+          "role_note": "Foundational HFrEF pathway; ARNI is preferred for many symptomatic HFrEF patients when tolerated.",
+          "drug_ids": [
+            "cv_sacubitril_valsartan",
+            "cv_enalapril_hf",
+            "cv_candesartan_hf"
+          ]
+        },
+        {
+          "id": "cv_hf_beta",
+          "name": "Evidence-based β-blockers in HFrEF",
+          "mechanism": "Blunt chronic sympathetic activation and improve ventricular remodeling",
+          "target": "β-adrenergic receptors",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "four_pillars",
+            "foundational"
+          ],
+          "role_note": "Use one of the evidence-based β-blockers and titrate when clinically stable/euvolemic.",
+          "drug_ids": [
+            "cv_carvedilol_hf",
+            "cv_metoprolol_succinate",
+            "cv_bisoprolol_hf"
+          ]
+        },
+        {
+          "id": "cv_mra_hf",
+          "name": "Mineralocorticoid receptor antagonists",
+          "mechanism": "Block aldosterone effects, reducing sodium retention and fibrosis",
+          "target": "Mineralocorticoid receptor",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "four_pillars",
+            "foundational",
+            "mra"
+          ],
+          "role_note": "Foundational HFrEF class when potassium/renal criteria are met.",
+          "drug_ids": [
+            "cv_spironolactone_hf",
+            "cv_eplerenone_hf"
+          ]
+        },
+        {
+          "id": "cv_sglt2_hf",
+          "name": "SGLT2 inhibitors in heart failure",
+          "mechanism": "Promote glycosuria/natriuresis and favorable cardiorenal physiology",
+          "target": "Renal SGLT2 transporter",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "hfpef",
+            "four_pillars",
+            "foundational",
+            "cardiorenal"
+          ],
+          "role_note": "Foundational HFrEF therapy and useful across a broad EF spectrum independent of diabetes status when indicated.",
+          "drug_ids": [
+            "cv_dapagliflozin_hf",
+            "cv_empagliflozin_hf"
+          ]
+        },
+        {
+          "id": "cv_loop_diuretics",
+          "name": "Loop diuretics for congestion",
+          "mechanism": "Block NKCC2 in thick ascending limb, causing potent natriuresis",
+          "target": "Na-K-2Cl cotransporter",
+          "tags": [
+            "heart_failure",
+            "congestion",
+            "diuretic",
+            "acute_hf"
+          ],
+          "role_note": "Relieve congestion/symptoms; dose is individualized to prior exposure, renal function and diuretic response.",
+          "drug_ids": [
+            "cv_furosemide_hf",
+            "cv_torsemide_hf",
+            "cv_bumetanide_hf"
+          ]
+        },
+        {
+          "id": "cv_sequential_diuretic",
+          "name": "Sequential nephron blockade adjuncts",
+          "mechanism": "Add distal sodium-chloride blockade to loop diuretics",
+          "target": "NCC / distal nephron sodium handling",
+          "tags": [
+            "heart_failure",
+            "congestion",
+            "diuretic",
+            "advanced"
+          ],
+          "role_note": "Short-term adjunct for diuretic resistance; high electrolyte/renal monitoring burden.",
+          "drug_ids": [
+            "cv_metolazone",
+            "cv_chlorothiazide"
+          ]
+        },
+        {
+          "id": "cv_hydral_nitrate",
+          "name": "Hydralazine + nitrate vasodilator therapy",
+          "mechanism": "Arterial dilation plus venodilation reduces afterload and preload",
+          "target": "Arteriolar smooth muscle + NO/cGMP",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "vasodilator",
+            "second_line"
+          ],
+          "role_note": "HFrEF add-on or alternative in selected patients; fixed-dose combination evidence exists.",
+          "drug_ids": [
+            "cv_hydral_isdn"
+          ]
+        },
+        {
+          "id": "cv_digoxin",
+          "name": "Cardiac glycoside",
+          "mechanism": "Inhibits Na/K ATPase and increases vagal tone",
+          "target": "Na+/K+ ATPase; AV node",
+          "tags": [
+            "heart_failure",
+            "af",
+            "rate_control",
+            "advanced"
+          ],
+          "role_note": "Narrow-therapeutic-index adjunct for selected HFrEF/AF patients; not a routine first-line rate-control drug for everyone.",
+          "drug_ids": [
+            "cv_digoxin"
+          ]
+        },
+        {
+          "id": "cv_ivabradine",
+          "name": "If-channel inhibitor",
+          "mechanism": "Selectively slows sinus-node pacemaker current without reducing contractility",
+          "target": "HCN / If current",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "sinus_rhythm",
+            "second_line"
+          ],
+          "role_note": "Selected symptomatic HFrEF patients in sinus rhythm with elevated HR despite maximally tolerated β-blocker.",
+          "drug_ids": [
+            "cv_ivabradine"
+          ]
+        },
+        {
+          "id": "cv_vericiguat",
+          "name": "Soluble guanylate-cyclase stimulator",
+          "mechanism": "Stimulates sGC and increases cGMP signaling",
+          "target": "Soluble guanylate cyclase",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "advanced",
+            "worsening_hf"
+          ],
+          "role_note": "Selected high-risk HFrEF after recent worsening HF despite guideline-directed therapy.",
+          "drug_ids": [
+            "cv_vericiguat"
+          ]
+        },
+        {
+          "id": "cv_inotropes",
+          "name": "IV inotropes / inodilators",
+          "mechanism": "Increase contractility via β-adrenergic signaling or PDE3 inhibition",
+          "target": "β1 receptor / PDE3",
+          "tags": [
+            "heart_failure",
+            "acute_hf",
+            "shock",
+            "advanced",
+            "parenteral",
+            "emergency"
+          ],
+          "role_note": "Monitored short-term therapy for selected low-output/shock/advanced HF; not routine chronic outpatient treatment.",
+          "drug_ids": [
+            "cv_dobutamine",
+            "cv_milrinone"
+          ]
+        },
+        {
+          "id": "cv_aa_ia",
+          "name": "Class IA antiarrhythmics",
+          "mechanism": "Moderate fast-Na block plus repolarization effects",
+          "target": "Fast sodium channels + potassium currents",
+          "tags": [
+            "arrhythmia",
+            "rhythm_control",
+            "class_i",
+            "advanced"
+          ],
+          "role_note": "Specialist rhythm-control agents with important QT/proarrhythmia limitations.",
+          "drug_ids": [
+            "cv_procainamide",
+            "cv_quinidine",
+            "cv_disopyramide"
+          ]
+        },
+        {
+          "id": "cv_aa_ib",
+          "name": "Class IB antiarrhythmics",
+          "mechanism": "Fast-Na channel block with preference for ischemic/depolarized ventricular tissue",
+          "target": "Fast sodium channels",
+          "tags": [
+            "arrhythmia",
+            "ventricular_arrhythmia",
+            "class_i",
+            "emergency"
+          ],
+          "role_note": "Primarily ventricular arrhythmia role; lidocaine is IV, mexiletine oral.",
+          "drug_ids": [
+            "cv_lidocaine_iv",
+            "cv_mexiletine"
+          ]
+        },
+        {
+          "id": "cv_aa_ic",
+          "name": "Class IC antiarrhythmics",
+          "mechanism": "Potent fast-Na channel block with marked conduction slowing",
+          "target": "Fast sodium channels",
+          "tags": [
+            "arrhythmia",
+            "af",
+            "rhythm_control",
+            "class_i",
+            "advanced"
+          ],
+          "role_note": "Selected AF/SVT rhythm control in patients without significant structural/ischemic heart disease.",
+          "drug_ids": [
+            "cv_flecainide",
+            "cv_propafenone"
+          ]
+        },
+        {
+          "id": "cv_aa_iii",
+          "name": "Class III antiarrhythmics",
+          "mechanism": "Predominantly prolong repolarization via potassium-channel effects; some have mixed actions",
+          "target": "Potassium channels ± multiple cardiac channels",
+          "tags": [
+            "arrhythmia",
+            "af",
+            "rhythm_control",
+            "ventricular_arrhythmia",
+            "class_iii",
+            "advanced"
+          ],
+          "role_note": "Potent rhythm-control class with agent-specific organ/QT monitoring and inpatient initiation requirements for some drugs.",
+          "drug_ids": [
+            "cv_amiodarone",
+            "cv_sotalol",
+            "cv_dofetilide",
+            "cv_dronedarone",
+            "cv_ibutilide"
+          ]
+        },
+        {
+          "id": "cv_avnodal_ccb",
+          "name": "Non-DHP CCBs for AV-nodal rate control",
+          "mechanism": "Slow AV-nodal conduction through L-type calcium-channel blockade",
+          "target": "AV-node L-type calcium channels",
+          "tags": [
+            "arrhythmia",
+            "af",
+            "svt",
+            "rate_control",
+            "class_iv"
+          ],
+          "role_note": "Rate-control class for selected AF/SVT patients; avoid in significant HFrEF.",
+          "drug_ids": [
+            "cv_diltiazem_rate",
+            "cv_verapamil_rate"
+          ]
+        },
+        {
+          "id": "cv_adenosine",
+          "name": "Adenosine",
+          "mechanism": "Transiently activates A1 receptors and blocks AV-nodal conduction",
+          "target": "A1 adenosine receptor",
+          "tags": [
+            "arrhythmia",
+            "svt",
+            "emergency",
+            "parenteral"
+          ],
+          "role_note": "Very short-acting diagnostic/therapeutic drug for regular narrow-complex AV-node–dependent SVT.",
+          "drug_ids": [
+            "cv_adenosine"
+          ]
+        },
+        {
+          "id": "cv_pad_symptom",
+          "name": "PAD claudication symptom agents",
+          "mechanism": "Improve walking symptoms via PDE3 inhibition or hemorheologic effects",
+          "target": "PDE3 / blood rheology",
+          "tags": [
+            "vascular",
+            "pad",
+            "claudication"
+          ],
+          "role_note": "Symptom-directed PAD agents do not replace antiplatelet, statin, exercise, smoking cessation and revascularization assessment.",
+          "drug_ids": [
+            "cv_cilostazol",
+            "cv_pentoxifylline"
+          ]
+        },
+        {
+          "id": "cv_pa_pde5",
+          "name": "PDE5 inhibitors for pulmonary arterial hypertension",
+          "mechanism": "Increase cGMP by inhibiting phosphodiesterase-5 in pulmonary vasculature",
+          "target": "PDE5",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "advanced",
+            "vasodilator"
+          ],
+          "role_note": "PAH-specific therapy requiring accurate PH classification; not interchangeable with routine systemic hypertension treatment.",
+          "drug_ids": [
+            "cv_sildenafil_pah",
+            "cv_tadalafil_pah"
+          ]
+        },
+        {
+          "id": "cv_pa_era",
+          "name": "Endothelin-receptor antagonists",
+          "mechanism": "Block endothelin-mediated pulmonary vasoconstriction/remodeling",
+          "target": "Endothelin ETA ± ETB receptors",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "advanced",
+            "oral"
+          ],
+          "role_note": "PAH disease-targeted class with pregnancy and liver/hematology precautions.",
+          "drug_ids": [
+            "cv_bosentan",
+            "cv_ambrisentan",
+            "cv_macitentan"
+          ]
+        },
+        {
+          "id": "cv_pa_prostacyclin",
+          "name": "Prostacyclin-pathway therapies",
+          "mechanism": "Increase prostacyclin signaling causing pulmonary vasodilation and antiproliferative effects",
+          "target": "IP receptor / prostacyclin pathway",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "advanced",
+            "parenteral",
+            "inhaled"
+          ],
+          "role_note": "Advanced PAH therapy with route-specific titration and specialist infrastructure.",
+          "drug_ids": [
+            "cv_epoprostenol",
+            "cv_treprostinil",
+            "cv_iloprost",
+            "cv_selexipag"
+          ]
+        },
+        {
+          "id": "cv_pa_sgc",
+          "name": "sGC stimulator for pulmonary vascular disease",
+          "mechanism": "Directly stimulates soluble guanylate cyclase and sensitizes it to NO",
+          "target": "Soluble guanylate cyclase",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "cteph",
+            "advanced",
+            "vasodilator"
+          ],
+          "role_note": "Used in selected PAH/CTEPH contexts; nitrate/PDE5 combinations are unsafe.",
+          "drug_ids": [
+            "cv_riociguat"
+          ]
+        },
+        {
+          "id": "cv_pa_activin",
+          "name": "Activin-signaling inhibitor (PAH)",
+          "mechanism": "Traps activin ligands and rebalances proliferative signaling in pulmonary vasculature",
+          "target": "Activin signaling pathway",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "advanced",
+            "injectable"
+          ],
+          "role_note": "Newer add-on PAH disease-modifying pathway; specialist selection and monitoring required.",
+          "drug_ids": [
+            "cv_sotatercept"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "cv_aspirin_low",
+          "generic": "Aspirin (low-dose antiplatelet)",
+          "class_id": "cv_aspirin",
+          "form": "Tablet/chewable",
+          "route": "Oral",
+          "dose_example": "Common antiplatelet maintenance: 75–100 mg once daily; acute loading is indication-specific.",
+          "tags": [
+            "overview",
+            "antithrombotic",
+            "antiplatelet",
+            "acs",
+            "ccd",
+            "pad",
+            "stroke_prevention"
+          ],
+          "role": "Atherosclerotic antiplatelet therapy.",
+          "monitoring_pearl": "Bleeding, GI toxicity, hypersensitivity; verify indication and concomitant anticoagulants.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_clopidogrel",
+          "generic": "Clopidogrel",
+          "class_id": "cv_p2y12",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common maintenance: 75 mg once daily after indication-specific loading.",
+          "tags": [
+            "overview",
+            "antithrombotic",
+            "antiplatelet",
+            "acs",
+            "pci",
+            "dapt",
+            "stroke_prevention"
+          ],
+          "role": "P2Y12 inhibitor used across CAD/PAD/stroke contexts.",
+          "monitoring_pearl": "Bleeding; CYP2C19 variability/interactions can affect response.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_ticagrelor",
+          "generic": "Ticagrelor",
+          "class_id": "cv_p2y12",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common ACS maintenance: 90 mg twice daily after loading; longer-term dose may differ.",
+          "tags": [
+            "overview",
+            "antithrombotic",
+            "antiplatelet",
+            "acs",
+            "pci",
+            "dapt"
+          ],
+          "role": "Potent reversible P2Y12 inhibitor.",
+          "monitoring_pearl": "Bleeding, dyspnea, bradyarrhythmia; interaction review.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_prasugrel",
+          "generic": "Prasugrel",
+          "class_id": "cv_p2y12",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common PCI maintenance: 10 mg once daily after loading; lower dose may be used in selected low-weight/older patients.",
+          "tags": [
+            "overview",
+            "antithrombotic",
+            "antiplatelet",
+            "acs",
+            "pci",
+            "dapt"
+          ],
+          "role": "Potent thienopyridine for selected PCI patients.",
+          "monitoring_pearl": "Avoid with prior stroke/TIA; bleeding risk and age/weight matter.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_cangrelor",
+          "generic": "Cangrelor",
+          "class_id": "cv_p2y12",
+          "form": "IV injection",
+          "route": "IV",
+          "dose_example": "PCI regimen is weight-based IV bolus + infusion; verify current label/protocol.",
+          "tags": [
+            "antithrombotic",
+            "antiplatelet",
+            "acs",
+            "pci",
+            "parenteral"
+          ],
+          "role": "Very short-acting IV P2Y12 inhibitor for selected PCI settings.",
+          "monitoring_pearl": "Bleeding; transition timing to oral P2Y12 agents is protocol-specific.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_eptifibatide",
+          "generic": "Eptifibatide",
+          "class_id": "cv_gp2b3a",
+          "form": "IV injection",
+          "route": "IV",
+          "dose_example": "Weight- and renal-function–based ACS/PCI infusion; verify protocol.",
+          "tags": [
+            "antithrombotic",
+            "antiplatelet",
+            "acs",
+            "pci",
+            "parenteral",
+            "advanced"
+          ],
+          "role": "IV GPIIb/IIIa inhibitor.",
+          "monitoring_pearl": "Bleeding, thrombocytopenia, renal dose adjustment.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_tirofiban",
+          "generic": "Tirofiban",
+          "class_id": "cv_gp2b3a",
+          "form": "IV injection",
+          "route": "IV",
+          "dose_example": "Weight- and renal-function–based infusion; verify PCI/ACS protocol.",
+          "tags": [
+            "antithrombotic",
+            "antiplatelet",
+            "acs",
+            "pci",
+            "parenteral",
+            "advanced"
+          ],
+          "role": "IV GPIIb/IIIa inhibitor.",
+          "monitoring_pearl": "Bleeding, thrombocytopenia, renal adjustment.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_abciximab",
+          "generic": "Abciximab",
+          "class_id": "cv_gp2b3a",
+          "form": "IV injection",
+          "route": "IV",
+          "dose_example": "PCI-only bolus/infusion protocols; availability varies.",
+          "tags": [
+            "antithrombotic",
+            "antiplatelet",
+            "pci",
+            "parenteral",
+            "advanced"
+          ],
+          "role": "Potent IV platelet GPIIb/IIIa blockade.",
+          "monitoring_pearl": "Bleeding/thrombocytopenia; specialist cath-lab use.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_apixaban",
+          "generic": "Apixaban",
+          "class_id": "cv_doac_xa",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "AF commonly 5 mg twice daily; VTE treatment uses a different initial/maintenance schedule. Verify criteria for dose reduction.",
+          "tags": [
+            "overview",
+            "antithrombotic",
+            "anticoagulant",
+            "af",
+            "vte",
+            "pe",
+            "stroke_prevention",
+            "oral"
+          ],
+          "role": "DOAC for AF/VTE.",
+          "monitoring_pearl": "Bleeding, renal/hepatic function, strong CYP3A4/P-gp interactions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_rivaroxaban",
+          "generic": "Rivaroxaban",
+          "class_id": "cv_doac_xa",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "AF commonly once daily with food; VTE uses an initial twice-daily phase then once daily. Verify indication/renal function.",
+          "tags": [
+            "overview",
+            "antithrombotic",
+            "anticoagulant",
+            "af",
+            "vte",
+            "pe",
+            "pad",
+            "stroke_prevention",
+            "oral"
+          ],
+          "role": "DOAC for AF/VTE; low-dose vascular regimen exists in selected CAD/PAD contexts.",
+          "monitoring_pearl": "Bleeding, renal/hepatic function; administration with food for selected strengths.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_edoxaban",
+          "generic": "Edoxaban",
+          "class_id": "cv_doac_xa",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common AF/VTE maintenance once daily after appropriate lead-in for VTE; dose depends on renal function/weight/interactions.",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "af",
+            "vte",
+            "pe",
+            "stroke_prevention",
+            "oral"
+          ],
+          "role": "Factor-Xa DOAC.",
+          "monitoring_pearl": "Bleeding, renal function, weight and P-gp interactions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_dabigatran",
+          "generic": "Dabigatran etexilate",
+          "class_id": "cv_direct_thrombin",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "AF/VTE dosing is indication- and renal-function–specific; verify current label.",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "af",
+            "vte",
+            "pe",
+            "stroke_prevention",
+            "oral"
+          ],
+          "role": "Oral direct thrombin inhibitor.",
+          "monitoring_pearl": "Bleeding, renal clearance, dyspepsia; capsule handling and P-gp interactions matter.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_bivalirudin",
+          "generic": "Bivalirudin",
+          "class_id": "cv_direct_thrombin",
+          "form": "IV injection",
+          "route": "IV",
+          "dose_example": "PCI dosing is weight-based bolus + infusion; verify cath-lab protocol.",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "pci",
+            "acs",
+            "parenteral",
+            "advanced"
+          ],
+          "role": "Short-acting parenteral direct thrombin inhibitor.",
+          "monitoring_pearl": "Bleeding; renal adjustment; specialist PCI use.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_argatroban",
+          "generic": "Argatroban",
+          "class_id": "cv_direct_thrombin",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "HIT dosing is continuous infusion titrated to aPTT; hepatic impairment requires reduction.",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "parenteral",
+            "advanced"
+          ],
+          "role": "Parenteral anticoagulant particularly relevant to HIT.",
+          "monitoring_pearl": "aPTT monitoring, bleeding, hepatic clearance; affects INR.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_warfarin",
+          "generic": "Warfarin",
+          "class_id": "cv_vka",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Individualized once-daily dosing to target INR; no universal fixed maintenance dose.",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "af",
+            "vte",
+            "mechanical_valve",
+            "oral"
+          ],
+          "role": "INR-guided vitamin-K antagonist.",
+          "monitoring_pearl": "INR, bleeding, food/drug interactions, pregnancy contraindication in many contexts.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_acenocoumarol",
+          "generic": "Acenocoumarol / Nicoumalone",
+          "class_id": "cv_vka",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Individualized INR-guided dosing; common in India/Europe.",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "af",
+            "vte",
+            "mechanical_valve",
+            "oral"
+          ],
+          "role": "Shorter-acting VKA used in some regions.",
+          "monitoring_pearl": "INR variability, bleeding and extensive interactions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_ufh",
+          "generic": "Unfractionated heparin",
+          "class_id": "cv_heparins",
+          "form": "IV/SC injection",
+          "route": "IV/SC",
+          "dose_example": "Therapeutic dosing is weight-based and protocol/aPTT or anti-Xa guided.",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "acs",
+            "vte",
+            "pe",
+            "parenteral",
+            "pregnancy_context"
+          ],
+          "role": "Rapidly titratable parenteral anticoagulant.",
+          "monitoring_pearl": "aPTT/anti-Xa, platelets/HIT, bleeding, potassium with prolonged use.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_enoxaparin",
+          "generic": "Enoxaparin",
+          "class_id": "cv_heparins",
+          "form": "Prefilled SC injection",
+          "route": "SC",
+          "dose_example": "Common treatment dose 1 mg/kg every 12 h in many VTE/ACS settings; renal and indication adjustments apply.",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "acs",
+            "vte",
+            "pe",
+            "parenteral",
+            "pregnancy_context"
+          ],
+          "role": "LMWH for VTE/ACS and pregnancy contexts.",
+          "monitoring_pearl": "Renal function, bleeding, platelets; anti-Xa only in selected situations.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_dalteparin",
+          "generic": "Dalteparin",
+          "class_id": "cv_heparins",
+          "form": "SC injection",
+          "route": "SC",
+          "dose_example": "Weight-based once/twice-daily regimens vary by VTE/cancer indication.",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "vte",
+            "parenteral",
+            "pregnancy_context"
+          ],
+          "role": "LMWH with VTE/cancer experience.",
+          "monitoring_pearl": "Renal function, bleeding, platelets.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_tinzaparin",
+          "generic": "Tinzaparin",
+          "class_id": "cv_heparins",
+          "form": "SC injection",
+          "route": "SC",
+          "dose_example": "Weight-based once-daily treatment regimen; verify label/local availability.",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "vte",
+            "parenteral"
+          ],
+          "role": "LMWH option for VTE.",
+          "monitoring_pearl": "Renal function and bleeding.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_fondaparinux",
+          "generic": "Fondaparinux",
+          "class_id": "cv_fondaparinux",
+          "form": "SC injection",
+          "route": "SC",
+          "dose_example": "VTE treatment commonly 5/7.5/10 mg once daily by weight; prophylaxis and ACS doses differ.",
+          "tags": [
+            "antithrombotic",
+            "anticoagulant",
+            "vte",
+            "acs",
+            "parenteral"
+          ],
+          "role": "Synthetic pentasaccharide anticoagulant.",
+          "monitoring_pearl": "Avoid severe renal impairment; bleeding; PCI requires additional procedural anticoagulation.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_tenecteplase",
+          "generic": "Tenecteplase",
+          "class_id": "cv_fibrinolytics",
+          "form": "IV vial",
+          "route": "IV",
+          "dose_example": "Weight-tiered single IV bolus for approved reperfusion indications; verify current indication-specific label/protocol.",
+          "tags": [
+            "antithrombotic",
+            "fibrinolytic",
+            "stemi",
+            "pe",
+            "stroke",
+            "emergency",
+            "parenteral"
+          ],
+          "role": "Fibrin-specific thrombolytic.",
+          "monitoring_pearl": "Major/intracranial bleeding; strict contraindication checklist.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_alteplase",
+          "generic": "Alteplase (rt-PA)",
+          "class_id": "cv_fibrinolytics",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Dose and infusion differ markedly for stroke, PE and STEMI; use indication-specific protocol only.",
+          "tags": [
+            "antithrombotic",
+            "fibrinolytic",
+            "stemi",
+            "pe",
+            "stroke",
+            "emergency",
+            "parenteral"
+          ],
+          "role": "Fibrinolytic across selected acute vascular emergencies.",
+          "monitoring_pearl": "Intracranial/major bleeding; BP and contraindication screening.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_reteplase",
+          "generic": "Reteplase",
+          "class_id": "cv_fibrinolytics",
+          "form": "IV injection",
+          "route": "IV",
+          "dose_example": "STEMI double-bolus regimen per label/protocol.",
+          "tags": [
+            "antithrombotic",
+            "fibrinolytic",
+            "stemi",
+            "emergency",
+            "parenteral"
+          ],
+          "role": "Fibrinolytic for selected STEMI reperfusion.",
+          "monitoring_pearl": "Major bleeding and reperfusion protocol requirements.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_streptokinase",
+          "generic": "Streptokinase",
+          "class_id": "cv_fibrinolytics",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Common STEMI regimen historically 1.5 million units over 60 min; verify local protocol/availability.",
+          "tags": [
+            "antithrombotic",
+            "fibrinolytic",
+            "stemi",
+            "emergency",
+            "parenteral"
+          ],
+          "role": "Older non-fibrin-specific thrombolytic used in some settings.",
+          "monitoring_pearl": "Bleeding, hypotension, allergy/antibody effects; prior exposure matters.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_atorvastatin",
+          "generic": "Atorvastatin",
+          "class_id": "cv_statins",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "10–80 mg once daily; 40–80 mg is high-intensity.",
+          "tags": [
+            "overview",
+            "lipid",
+            "ldl",
+            "ascvd",
+            "secondary_prevention",
+            "ccd",
+            "pad"
+          ],
+          "role": "High-intensity statin option.",
+          "monitoring_pearl": "Liver symptoms/enzymes when indicated, myopathy, interactions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_rosuvastatin",
+          "generic": "Rosuvastatin",
+          "class_id": "cv_statins",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "5–40 mg once daily; 20–40 mg is high-intensity.",
+          "tags": [
+            "overview",
+            "lipid",
+            "ldl",
+            "ascvd",
+            "secondary_prevention",
+            "ccd",
+            "pad"
+          ],
+          "role": "Potent statin with high-intensity dosing.",
+          "monitoring_pearl": "Myopathy; renal/Asian ancestry considerations at higher doses.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_simvastatin",
+          "generic": "Simvastatin",
+          "class_id": "cv_statins",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common 20–40 mg nightly; 80 mg has major restriction due myopathy risk.",
+          "tags": [
+            "lipid",
+            "ldl",
+            "ascvd"
+          ],
+          "role": "Moderate-intensity statin in many settings.",
+          "monitoring_pearl": "CYP3A4 interactions and myopathy risk.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_pravastatin",
+          "generic": "Pravastatin",
+          "class_id": "cv_statins",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common 40–80 mg once daily.",
+          "tags": [
+            "lipid",
+            "ldl",
+            "ascvd"
+          ],
+          "role": "Hydrophilic statin option.",
+          "monitoring_pearl": "Myopathy/LFT symptoms; renal dosing considerations.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_pitavastatin",
+          "generic": "Pitavastatin",
+          "class_id": "cv_statins",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "1–4 mg once daily.",
+          "tags": [
+            "lipid",
+            "ldl",
+            "ascvd"
+          ],
+          "role": "Statin option with fewer CYP3A4 interactions.",
+          "monitoring_pearl": "Myopathy, renal considerations.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_ezetimibe",
+          "generic": "Ezetimibe",
+          "class_id": "cv_ezetimibe",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "10 mg once daily.",
+          "tags": [
+            "lipid",
+            "ldl",
+            "nonstatin",
+            "ascvd",
+            "secondary_prevention"
+          ],
+          "role": "Nonstatin LDL-lowering add-on or alternative.",
+          "monitoring_pearl": "LFTs when combined with statin in selected patients; myalgias uncommon.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_evolocumab",
+          "generic": "Evolocumab",
+          "class_id": "cv_pcsk9_mab",
+          "form": "Prefilled pen/syringe",
+          "route": "SC",
+          "dose_example": "140 mg every 2 weeks or 420 mg monthly.",
+          "tags": [
+            "lipid",
+            "ldl",
+            "nonstatin",
+            "ascvd",
+            "secondary_prevention",
+            "injectable"
+          ],
+          "role": "PCSK9 mAb.",
+          "monitoring_pearl": "Injection reactions; assess LDL response/adherence.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_alirocumab",
+          "generic": "Alirocumab",
+          "class_id": "cv_pcsk9_mab",
+          "form": "Prefilled pen/syringe",
+          "route": "SC",
+          "dose_example": "Common 75–150 mg every 2 weeks or selected monthly regimens.",
+          "tags": [
+            "lipid",
+            "ldl",
+            "nonstatin",
+            "ascvd",
+            "secondary_prevention",
+            "injectable"
+          ],
+          "role": "PCSK9 mAb.",
+          "monitoring_pearl": "Injection reactions; LDL response monitoring.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_inclisiran",
+          "generic": "Inclisiran",
+          "class_id": "cv_inclisiran",
+          "form": "Prefilled syringe",
+          "route": "SC",
+          "dose_example": "284 mg initially, at 3 months, then every 6 months.",
+          "tags": [
+            "lipid",
+            "ldl",
+            "nonstatin",
+            "ascvd",
+            "injectable"
+          ],
+          "role": "Long-interval PCSK9 synthesis inhibitor.",
+          "monitoring_pearl": "Injection-site reactions; LDL monitoring and access/cost considerations.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_bempedoic_acid",
+          "generic": "Bempedoic acid",
+          "class_id": "cv_bempedoic",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "180 mg once daily.",
+          "tags": [
+            "lipid",
+            "ldl",
+            "nonstatin",
+            "ascvd",
+            "oral"
+          ],
+          "role": "Oral LDL-lowering agent.",
+          "monitoring_pearl": "Uric acid/gout, tendon symptoms, LFTs; interaction review with some statins.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_bempedoic_ezetimibe",
+          "generic": "Bempedoic acid + Ezetimibe",
+          "class_id": "cv_bempedoic",
+          "form": "Fixed-dose tablet",
+          "route": "Oral",
+          "dose_example": "180/10 mg once daily.",
+          "tags": [
+            "lipid",
+            "ldl",
+            "nonstatin",
+            "ascvd",
+            "oral"
+          ],
+          "role": "Fixed nonstatin dual LDL-lowering therapy.",
+          "monitoring_pearl": "Bempedoic and ezetimibe precautions; lipid response.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_fenofibrate",
+          "generic": "Fenofibrate",
+          "class_id": "cv_fibrates",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common 145 mg once daily; formulation and renal dosing vary.",
+          "tags": [
+            "lipid",
+            "triglyceride",
+            "nonstatin"
+          ],
+          "role": "Triglyceride-lowering fibrate.",
+          "monitoring_pearl": "Renal function, gallstones, LFTs; statin-associated myopathy risk.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_gemfibrozil",
+          "generic": "Gemfibrozil",
+          "class_id": "cv_fibrates",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "600 mg twice daily before meals.",
+          "tags": [
+            "lipid",
+            "triglyceride",
+            "nonstatin"
+          ],
+          "role": "Triglyceride-lowering fibrate.",
+          "monitoring_pearl": "Major statin interaction/myopathy risk; gallbladder/LFT monitoring.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_icosapent",
+          "generic": "Icosapent ethyl (EPA)",
+          "class_id": "cv_omega3",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "2 g twice daily with food.",
+          "tags": [
+            "lipid",
+            "triglyceride",
+            "nonstatin",
+            "ascvd"
+          ],
+          "role": "EPA therapy with outcome evidence in selected high-risk patients.",
+          "monitoring_pearl": "AF/flutter signal and bleeding risk, especially with antithrombotics.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_omega3_ethy",
+          "generic": "Omega-3-acid ethyl esters",
+          "class_id": "cv_omega3",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "4 g/day total, once daily or divided depending product.",
+          "tags": [
+            "lipid",
+            "triglyceride",
+            "nonstatin"
+          ],
+          "role": "Prescription omega-3 for severe hypertriglyceridemia.",
+          "monitoring_pearl": "GI effects, LDL may rise in some; bleeding considerations.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_cholestyramine",
+          "generic": "Cholestyramine",
+          "class_id": "cv_bile_acid_seq",
+          "form": "Powder",
+          "route": "Oral",
+          "dose_example": "Common 4 g once/twice daily, titrated.",
+          "tags": [
+            "lipid",
+            "ldl",
+            "nonstatin",
+            "oral"
+          ],
+          "role": "Bile-acid sequestrant.",
+          "monitoring_pearl": "Constipation, high TG, spacing from other medicines.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_colesevelam",
+          "generic": "Colesevelam",
+          "class_id": "cv_bile_acid_seq",
+          "form": "Tablets/powder",
+          "route": "Oral",
+          "dose_example": "Common 3.75 g/day total.",
+          "tags": [
+            "lipid",
+            "ldl",
+            "nonstatin",
+            "oral"
+          ],
+          "role": "Better-tolerated bile-acid sequestrant option.",
+          "monitoring_pearl": "Constipation, TG, drug absorption.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_ntg_sl",
+          "generic": "Nitroglycerin sublingual",
+          "class_id": "cv_nitrates",
+          "form": "SL tablet/spray",
+          "route": "Sublingual",
+          "dose_example": "0.3–0.6 mg SL every 5 min up to 3 doses for acute angina while seeking urgent assessment if pain persists.",
+          "tags": [
+            "overview",
+            "antianginal",
+            "acs",
+            "ccd",
+            "emergency",
+            "vasodilator"
+          ],
+          "role": "Rapid angina relief.",
+          "monitoring_pearl": "BP, headache; absolute interaction with PDE5 inhibitors/riociguat.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_ntg_iv",
+          "generic": "Nitroglycerin IV",
+          "class_id": "cv_nitrates",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Start/titrate by BP and ischemia in monitored settings; protocol-specific.",
+          "tags": [
+            "antianginal",
+            "acs",
+            "emergency",
+            "vasodilator",
+            "parenteral"
+          ],
+          "role": "Titrated IV vasodilator for selected ACS/pulmonary edema/hypertensive contexts.",
+          "monitoring_pearl": "Continuous BP; PDE5/riociguat interaction; tolerance.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_isosorbide_mono",
+          "generic": "Isosorbide mononitrate",
+          "class_id": "cv_nitrates",
+          "form": "IR/ER tablet",
+          "route": "Oral",
+          "dose_example": "Common ER 30–60 mg once daily, titrate; maintain nitrate-free physiology.",
+          "tags": [
+            "antianginal",
+            "ccd",
+            "vasodilator"
+          ],
+          "role": "Chronic angina prophylaxis.",
+          "monitoring_pearl": "Headache, hypotension, tolerance, PDE5 interaction.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_isosorbide_di",
+          "generic": "Isosorbide dinitrate",
+          "class_id": "cv_nitrates",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common 10–40 mg 2–3 times daily with nitrate-free interval; HF combination regimens differ.",
+          "tags": [
+            "antianginal",
+            "ccd",
+            "hfrEF",
+            "vasodilator"
+          ],
+          "role": "Angina/HF vasodilator component.",
+          "monitoring_pearl": "Headache, hypotension, tolerance, PDE5 interaction.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_metoprolol",
+          "generic": "Metoprolol (tartrate/succinate)",
+          "class_id": "cv_beta_antianginal",
+          "form": "Tablet/IV",
+          "route": "Oral/IV",
+          "dose_example": "Formulation-specific; common oral starts 25–50 mg/day or twice daily depending product/indication.",
+          "tags": [
+            "antianginal",
+            "ccd",
+            "post_mi",
+            "rate_control",
+            "hfrEF"
+          ],
+          "role": "β1-selective blocker for CAD/rate control; succinate has HFrEF evidence.",
+          "monitoring_pearl": "HR/BP, bradycardia, AV block; do not stop abruptly.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_bisoprolol",
+          "generic": "Bisoprolol",
+          "class_id": "cv_beta_antianginal",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common start 1.25–5 mg once daily depending HF/angina context.",
+          "tags": [
+            "antianginal",
+            "ccd",
+            "rate_control",
+            "hfrEF"
+          ],
+          "role": "β1-selective blocker with HFrEF evidence.",
+          "monitoring_pearl": "HR/BP, bradycardia; bronchospasm risk is lower but not absent.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_carvedilol",
+          "generic": "Carvedilol",
+          "class_id": "cv_beta_antianginal",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "HF often starts 3.125 mg twice daily and titrates; other indications differ.",
+          "tags": [
+            "ccd",
+            "post_mi",
+            "rate_control",
+            "hfrEF"
+          ],
+          "role": "Nonselective β + α1 blocker with HFrEF evidence.",
+          "monitoring_pearl": "BP/HR, orthostasis; titrate slowly in HF.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_amlodipine",
+          "generic": "Amlodipine",
+          "class_id": "cv_ccb_antianginal",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "2.5–10 mg once daily.",
+          "tags": [
+            "antianginal",
+            "ccd",
+            "vasodilator"
+          ],
+          "role": "DHP CCB for angina/BP.",
+          "monitoring_pearl": "Edema, flushing, BP.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_diltiazem",
+          "generic": "Diltiazem",
+          "class_id": "cv_ccb_antianginal",
+          "form": "IR/ER tablet/capsule; IV",
+          "route": "Oral/IV",
+          "dose_example": "Oral ER commonly 120–360 mg/day; acute rate-control IV protocols differ.",
+          "tags": [
+            "antianginal",
+            "ccd",
+            "rate_control"
+          ],
+          "role": "Non-DHP CCB for angina and selected AF/SVT rate control.",
+          "monitoring_pearl": "HR/AV block, interactions; avoid/restrict in HFrEF.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_verapamil",
+          "generic": "Verapamil",
+          "class_id": "cv_ccb_antianginal",
+          "form": "IR/ER tablet; IV",
+          "route": "Oral/IV",
+          "dose_example": "Oral commonly 120–360 mg/day; IV SVT dosing is monitored/protocol-specific.",
+          "tags": [
+            "antianginal",
+            "ccd",
+            "rate_control"
+          ],
+          "role": "Non-DHP CCB for selected angina/SVT/AF.",
+          "monitoring_pearl": "Bradycardia/AV block, constipation, HFrEF caution.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_ranolazine",
+          "generic": "Ranolazine",
+          "class_id": "cv_other_antianginal",
+          "form": "ER tablet",
+          "route": "Oral",
+          "dose_example": "500 mg twice daily, may increase to 1000 mg twice daily if appropriate.",
+          "tags": [
+            "antianginal",
+            "ccd",
+            "second_line"
+          ],
+          "role": "Late sodium-current inhibitor for chronic angina.",
+          "monitoring_pearl": "QT prolongation, CYP3A interactions, renal/hepatic considerations.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_nicorandil",
+          "generic": "Nicorandil",
+          "class_id": "cv_other_antianginal",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common 5–10 mg twice daily, titrated; availability varies by country.",
+          "tags": [
+            "antianginal",
+            "ccd",
+            "second_line"
+          ],
+          "role": "KATP opener/nitrate-like antianginal.",
+          "monitoring_pearl": "Headache, hypotension, ulceration; PDE5 interaction concern.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_trimetazidine",
+          "generic": "Trimetazidine",
+          "class_id": "cv_other_antianginal",
+          "form": "MR tablet",
+          "route": "Oral",
+          "dose_example": "Common MR 35 mg twice daily; approval/use varies.",
+          "tags": [
+            "antianginal",
+            "ccd",
+            "second_line"
+          ],
+          "role": "Metabolic antianginal adjunct in selected regions.",
+          "monitoring_pearl": "Parkinsonism/movement-disorder warning; renal adjustment.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_sacubitril_valsartan",
+          "generic": "Sacubitril / Valsartan",
+          "class_id": "cv_arni_raas_hf",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common start 24/26 or 49/51 mg twice daily; target 97/103 mg twice daily as tolerated.",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "four_pillars",
+            "raas",
+            "foundational"
+          ],
+          "role": "ARNI foundational HFrEF therapy.",
+          "monitoring_pearl": "BP, renal function, potassium; 36-h ACEi washout; angioedema risk.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_enalapril_hf",
+          "generic": "Enalapril",
+          "class_id": "cv_arni_raas_hf",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "HF commonly starts 2.5 mg twice daily and titrates to 10 mg twice daily as tolerated.",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "raas",
+            "foundational"
+          ],
+          "role": "ACE inhibitor alternative when ARNI not used.",
+          "monitoring_pearl": "Creatinine/K+, BP, cough/angioedema; pregnancy contraindication.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_candesartan_hf",
+          "generic": "Candesartan",
+          "class_id": "cv_arni_raas_hf",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "HF commonly 4–8 mg once daily, titrate to 32 mg daily as tolerated.",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "raas",
+            "foundational"
+          ],
+          "role": "ARB option when ACEi/ARNI not suitable.",
+          "monitoring_pearl": "Creatinine/K+, BP; pregnancy contraindication.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_carvedilol_hf",
+          "generic": "Carvedilol",
+          "class_id": "cv_hf_beta",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "3.125 mg twice daily initially; titrate every ~2 weeks as tolerated.",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "four_pillars",
+            "foundational"
+          ],
+          "role": "Evidence-based HFrEF β-blocker.",
+          "monitoring_pearl": "HR/BP, fluid status; do not newly up-titrate during unstable congestion.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_metoprolol_succinate",
+          "generic": "Metoprolol succinate ER",
+          "class_id": "cv_hf_beta",
+          "form": "ER tablet",
+          "route": "Oral",
+          "dose_example": "12.5–25 mg once daily initially; target up to 200 mg daily as tolerated.",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "four_pillars",
+            "foundational"
+          ],
+          "role": "Evidence-based HFrEF β1 blocker.",
+          "monitoring_pearl": "HR/BP, congestion, bradycardia.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_bisoprolol_hf",
+          "generic": "Bisoprolol",
+          "class_id": "cv_hf_beta",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "1.25 mg once daily initially; target up to 10 mg daily as tolerated.",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "four_pillars",
+            "foundational"
+          ],
+          "role": "Evidence-based HFrEF β1 blocker.",
+          "monitoring_pearl": "HR/BP, congestion, bradycardia.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_spironolactone_hf",
+          "generic": "Spironolactone",
+          "class_id": "cv_mra_hf",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common HFrEF start 12.5–25 mg daily; target 25–50 mg daily as tolerated.",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "four_pillars",
+            "foundational",
+            "mra"
+          ],
+          "role": "Steroidal MRA.",
+          "monitoring_pearl": "Potassium/creatinine closely; gynecomastia/endocrine effects.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_eplerenone_hf",
+          "generic": "Eplerenone",
+          "class_id": "cv_mra_hf",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common start 25 mg daily; target 50 mg daily if renal/K+ allow.",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "four_pillars",
+            "foundational",
+            "mra"
+          ],
+          "role": "Selective steroidal MRA.",
+          "monitoring_pearl": "Potassium/renal function; CYP3A interactions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_dapagliflozin_hf",
+          "generic": "Dapagliflozin",
+          "class_id": "cv_sglt2_hf",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "10 mg once daily for HF/CKD indications.",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "hfpef",
+            "four_pillars",
+            "foundational",
+            "cardiorenal"
+          ],
+          "role": "SGLT2 inhibitor with HF outcome benefit.",
+          "monitoring_pearl": "Volume status, genital infections, euglycemic ketoacidosis risk, renal thresholds.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_empagliflozin_hf",
+          "generic": "Empagliflozin",
+          "class_id": "cv_sglt2_hf",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "10 mg once daily for HF.",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "hfpef",
+            "four_pillars",
+            "foundational",
+            "cardiorenal"
+          ],
+          "role": "SGLT2 inhibitor with HF outcome benefit.",
+          "monitoring_pearl": "Volume status, genital infections, ketoacidosis risk, renal thresholds.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_furosemide_hf",
+          "generic": "Furosemide",
+          "class_id": "cv_loop_diuretics",
+          "form": "Tablet/IV",
+          "route": "Oral/IV",
+          "dose_example": "Common outpatient start 20–40 mg once/twice daily; IV dosing in acute HF depends on prior loop exposure.",
+          "tags": [
+            "heart_failure",
+            "congestion",
+            "diuretic",
+            "acute_hf"
+          ],
+          "role": "Loop diuretic for volume management.",
+          "monitoring_pearl": "Weight, urine output, creatinine, Na/K/Mg, BP.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_torsemide_hf",
+          "generic": "Torsemide",
+          "class_id": "cv_loop_diuretics",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common 10–20 mg once daily, titrated to congestion.",
+          "tags": [
+            "heart_failure",
+            "congestion",
+            "diuretic"
+          ],
+          "role": "Longer-acting oral loop diuretic.",
+          "monitoring_pearl": "Electrolytes, renal function, volume status.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_bumetanide_hf",
+          "generic": "Bumetanide",
+          "class_id": "cv_loop_diuretics",
+          "form": "Tablet/IV",
+          "route": "Oral/IV",
+          "dose_example": "Common 0.5–1 mg once/twice daily, titrated.",
+          "tags": [
+            "heart_failure",
+            "congestion",
+            "diuretic",
+            "acute_hf"
+          ],
+          "role": "Potent loop diuretic.",
+          "monitoring_pearl": "Electrolytes, renal function, volume status.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_metolazone",
+          "generic": "Metolazone",
+          "class_id": "cv_sequential_diuretic",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "2.5–5 mg intermittently or daily in selected resistant congestion; close monitoring required.",
+          "tags": [
+            "heart_failure",
+            "congestion",
+            "diuretic",
+            "advanced"
+          ],
+          "role": "Thiazide-like add-on to loop diuretic.",
+          "monitoring_pearl": "Profound hypokalemia/hyponatremia/AKI risk.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_chlorothiazide",
+          "generic": "Chlorothiazide IV",
+          "class_id": "cv_sequential_diuretic",
+          "form": "IV injection",
+          "route": "IV",
+          "dose_example": "Hospital protocol dosing for resistant congestion; verify local protocol.",
+          "tags": [
+            "heart_failure",
+            "congestion",
+            "diuretic",
+            "advanced",
+            "parenteral"
+          ],
+          "role": "IV thiazide add-on in selected acute HF.",
+          "monitoring_pearl": "Electrolytes/renal function frequent monitoring.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_hydral_isdn",
+          "generic": "Hydralazine + Isosorbide dinitrate",
+          "class_id": "cv_hydral_nitrate",
+          "form": "Fixed-dose tablet",
+          "route": "Oral",
+          "dose_example": "Fixed combo commonly 20/37.5 mg three times daily, titrated to 40/75 mg three times daily.",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "vasodilator",
+            "second_line"
+          ],
+          "role": "Selected HFrEF vasodilator combination.",
+          "monitoring_pearl": "Headache, hypotension, hydralazine lupus-like syndrome; nitrate interaction precautions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_digoxin",
+          "generic": "Digoxin",
+          "class_id": "cv_digoxin",
+          "form": "Tablet/elixir/IV",
+          "route": "Oral/IV",
+          "dose_example": "Common maintenance 0.125 mg daily; lower/alternate-day dosing may be needed in older/renal patients.",
+          "tags": [
+            "heart_failure",
+            "af",
+            "rate_control",
+            "advanced"
+          ],
+          "role": "Inotrope/AV-nodal adjunct.",
+          "monitoring_pearl": "Renal function, K/Mg, ECG, toxicity; serum level when indicated.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_ivabradine",
+          "generic": "Ivabradine",
+          "class_id": "cv_ivabradine",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common 5 mg twice daily; adjust to resting HR/tolerance, max commonly 7.5 mg twice daily.",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "sinus_rhythm",
+            "second_line"
+          ],
+          "role": "Sinus-node rate reduction in selected HFrEF.",
+          "monitoring_pearl": "Bradycardia, AF, luminous phenomena; CYP3A interactions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_vericiguat",
+          "generic": "Vericiguat",
+          "class_id": "cv_vericiguat",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "2.5 mg once daily with food, double about every 2 weeks to 10 mg daily as tolerated.",
+          "tags": [
+            "heart_failure",
+            "hfrEF",
+            "advanced",
+            "worsening_hf"
+          ],
+          "role": "sGC stimulator for selected worsening HFrEF.",
+          "monitoring_pearl": "Hypotension/anemia; contraindicated in pregnancy; avoid other sGC stimulators.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_dobutamine",
+          "generic": "Dobutamine",
+          "class_id": "cv_inotropes",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Common 2–20 mcg/kg/min titrated to hemodynamics.",
+          "tags": [
+            "heart_failure",
+            "acute_hf",
+            "shock",
+            "advanced",
+            "parenteral",
+            "emergency"
+          ],
+          "role": "β1-predominant inotrope.",
+          "monitoring_pearl": "Continuous ECG/BP, arrhythmias, ischemia, tachyphylaxis.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_milrinone",
+          "generic": "Milrinone",
+          "class_id": "cv_inotropes",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Common infusion 0.125–0.75 mcg/kg/min; loading often avoided in hypotension; renal adjustment.",
+          "tags": [
+            "heart_failure",
+            "acute_hf",
+            "shock",
+            "advanced",
+            "parenteral",
+            "emergency"
+          ],
+          "role": "PDE3 inodilator.",
+          "monitoring_pearl": "Hypotension, arrhythmias, renal accumulation.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_procainamide",
+          "generic": "Procainamide",
+          "class_id": "cv_aa_ia",
+          "form": "IV/oral",
+          "route": "IV/Oral",
+          "dose_example": "Stable wide-complex tachycardia IV loading is protocol-based; chronic oral use uncommon.",
+          "tags": [
+            "arrhythmia",
+            "rhythm_control",
+            "class_i",
+            "advanced",
+            "emergency"
+          ],
+          "role": "Class IA antiarrhythmic.",
+          "monitoring_pearl": "QT/QRS, BP, renal function; lupus-like syndrome with chronic use.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_quinidine",
+          "generic": "Quinidine",
+          "class_id": "cv_aa_ia",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Specialist-indication dosing varies by salt/formulation.",
+          "tags": [
+            "arrhythmia",
+            "rhythm_control",
+            "class_i",
+            "advanced"
+          ],
+          "role": "Older class IA agent with niche uses.",
+          "monitoring_pearl": "QT/torsades, diarrhea, interactions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_disopyramide",
+          "generic": "Disopyramide",
+          "class_id": "cv_aa_ia",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Common 100–150 mg every 6 h or controlled-release regimen; specialist use.",
+          "tags": [
+            "arrhythmia",
+            "rhythm_control",
+            "class_i",
+            "advanced"
+          ],
+          "role": "Class IA; sometimes used in obstructive HCM due negative inotropy.",
+          "monitoring_pearl": "QT, anticholinergic effects, HF worsening.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_lidocaine_iv",
+          "generic": "Lidocaine IV",
+          "class_id": "cv_aa_ib",
+          "form": "IV injection/infusion",
+          "route": "IV",
+          "dose_example": "Ventricular arrhythmia dosing uses monitored IV bolus/infusion protocols.",
+          "tags": [
+            "arrhythmia",
+            "ventricular_arrhythmia",
+            "class_i",
+            "emergency",
+            "parenteral"
+          ],
+          "role": "IV class IB antiarrhythmic.",
+          "monitoring_pearl": "Neurologic toxicity, seizures, hepatic clearance; continuous ECG.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_mexiletine",
+          "generic": "Mexiletine",
+          "class_id": "cv_aa_ib",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Common 150–200 mg every 8 h; specialist titration.",
+          "tags": [
+            "arrhythmia",
+            "ventricular_arrhythmia",
+            "class_i",
+            "advanced"
+          ],
+          "role": "Oral class IB for selected ventricular arrhythmias.",
+          "monitoring_pearl": "GI/CNS effects, QRS/ECG, hepatic interactions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_flecainide",
+          "generic": "Flecainide",
+          "class_id": "cv_aa_ic",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common 50–100 mg twice daily; pill-in-pocket regimens require prior specialist evaluation.",
+          "tags": [
+            "arrhythmia",
+            "af",
+            "rhythm_control",
+            "class_i",
+            "advanced"
+          ],
+          "role": "Class IC rhythm-control agent.",
+          "monitoring_pearl": "QRS widening/proarrhythmia; avoid significant structural/ischemic heart disease.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_propafenone",
+          "generic": "Propafenone",
+          "class_id": "cv_aa_ic",
+          "form": "IR/ER tablet",
+          "route": "Oral",
+          "dose_example": "Common IR 150 mg every 8 h or ER 225 mg twice daily; titrate.",
+          "tags": [
+            "arrhythmia",
+            "af",
+            "rhythm_control",
+            "class_i",
+            "advanced"
+          ],
+          "role": "Class IC rhythm-control agent.",
+          "monitoring_pearl": "QRS, β-blocking effects, CYP interactions; structural heart disease caution.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_amiodarone",
+          "generic": "Amiodarone",
+          "class_id": "cv_aa_iii",
+          "form": "Tablet/IV",
+          "route": "Oral/IV",
+          "dose_example": "Loading and maintenance vary by AF/VT indication; chronic maintenance often 100–200 mg/day after loading.",
+          "tags": [
+            "arrhythmia",
+            "af",
+            "rhythm_control",
+            "ventricular_arrhythmia",
+            "class_iii",
+            "advanced"
+          ],
+          "role": "Broad-spectrum antiarrhythmic.",
+          "monitoring_pearl": "Thyroid, liver, lung, eye, skin, QT/bradycardia and many interactions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_sotalol",
+          "generic": "Sotalol",
+          "class_id": "cv_aa_iii",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common 80 mg twice daily initially; renal/QT-guided titration and monitored initiation often required.",
+          "tags": [
+            "arrhythmia",
+            "af",
+            "rhythm_control",
+            "ventricular_arrhythmia",
+            "class_iii",
+            "advanced"
+          ],
+          "role": "K-channel blocker + β-blocker.",
+          "monitoring_pearl": "QT/torsades, renal dosing, bradycardia.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_dofetilide",
+          "generic": "Dofetilide",
+          "class_id": "cv_aa_iii",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Renal/QT-based twice-daily dose; initiation requires monitored protocol.",
+          "tags": [
+            "arrhythmia",
+            "af",
+            "rhythm_control",
+            "class_iii",
+            "advanced"
+          ],
+          "role": "AF rhythm-control agent.",
+          "monitoring_pearl": "Mandatory QT/renal-based initiation; many interactions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_dronedarone",
+          "generic": "Dronedarone",
+          "class_id": "cv_aa_iii",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "400 mg twice daily with meals.",
+          "tags": [
+            "arrhythmia",
+            "af",
+            "rhythm_control",
+            "class_iii"
+          ],
+          "role": "AF rhythm-control option in selected patients.",
+          "monitoring_pearl": "Avoid permanent AF and symptomatic/recently decompensated HF; liver/interactions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_ibutilide",
+          "generic": "Ibutilide",
+          "class_id": "cv_aa_iii",
+          "form": "IV injection",
+          "route": "IV",
+          "dose_example": "Weight-based IV conversion protocol for AF/flutter; monitored setting.",
+          "tags": [
+            "arrhythmia",
+            "af",
+            "rhythm_control",
+            "class_iii",
+            "emergency",
+            "parenteral"
+          ],
+          "role": "IV pharmacologic cardioversion agent.",
+          "monitoring_pearl": "QT/torsades; continuous monitoring after dose.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_diltiazem_rate",
+          "generic": "Diltiazem",
+          "class_id": "cv_avnodal_ccb",
+          "form": "Tablet/IV",
+          "route": "Oral/IV",
+          "dose_example": "Acute IV and chronic ER dosing are indication-specific; oral ER commonly 120–360 mg/day.",
+          "tags": [
+            "arrhythmia",
+            "af",
+            "svt",
+            "rate_control",
+            "class_iv"
+          ],
+          "role": "AV-nodal blocker for rate control.",
+          "monitoring_pearl": "HR/BP, AV block; HFrEF caution.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_verapamil_rate",
+          "generic": "Verapamil",
+          "class_id": "cv_avnodal_ccb",
+          "form": "Tablet/IV",
+          "route": "Oral/IV",
+          "dose_example": "Acute SVT/AF and chronic dosing vary; oral commonly 120–360 mg/day.",
+          "tags": [
+            "arrhythmia",
+            "af",
+            "svt",
+            "rate_control",
+            "class_iv"
+          ],
+          "role": "AV-nodal blocker.",
+          "monitoring_pearl": "Bradycardia/AV block, constipation, HFrEF caution.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_adenosine",
+          "generic": "Adenosine",
+          "class_id": "cv_adenosine",
+          "form": "IV rapid injection",
+          "route": "IV",
+          "dose_example": "6 mg rapid IV push, then 12 mg if needed per ACLS/SVT protocol.",
+          "tags": [
+            "arrhythmia",
+            "svt",
+            "emergency",
+            "parenteral"
+          ],
+          "role": "Rapid AV-nodal blockade for selected SVT.",
+          "monitoring_pearl": "Transient flushing/chest discomfort; bronchospasm/AV-block cautions; caffeine/theophylline interactions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_cilostazol",
+          "generic": "Cilostazol",
+          "class_id": "cv_pad_symptom",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "100 mg twice daily, taken away from meals.",
+          "tags": [
+            "vascular",
+            "pad",
+            "claudication"
+          ],
+          "role": "PDE3 inhibitor that can improve claudication walking distance.",
+          "monitoring_pearl": "Contraindicated in heart failure; headache/palpitations, CYP interactions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_pentoxifylline",
+          "generic": "Pentoxifylline",
+          "class_id": "cv_pad_symptom",
+          "form": "ER tablet",
+          "route": "Oral",
+          "dose_example": "400 mg three times daily with meals; benefit for claudication is limited.",
+          "tags": [
+            "vascular",
+            "pad",
+            "claudication"
+          ],
+          "role": "Older hemorheologic agent with limited efficacy.",
+          "monitoring_pearl": "GI effects, renal dose adjustment; not preferred when cilostazol/exercise options available.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_sildenafil_pah",
+          "generic": "Sildenafil (PAH)",
+          "class_id": "cv_pa_pde5",
+          "form": "Tablet/oral suspension/IV",
+          "route": "Oral/IV",
+          "dose_example": "PAH adult dose commonly 20 mg three times daily; label/regional doses vary.",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "advanced",
+            "vasodilator"
+          ],
+          "role": "PDE5 inhibitor for selected PAH.",
+          "monitoring_pearl": "Absolute nitrate/riociguat interaction, BP, vision/hearing effects.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_tadalafil_pah",
+          "generic": "Tadalafil (PAH)",
+          "class_id": "cv_pa_pde5",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "PAH commonly 40 mg once daily.",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "advanced",
+            "vasodilator"
+          ],
+          "role": "Long-acting PDE5 inhibitor for PAH.",
+          "monitoring_pearl": "Nitrate/riociguat interaction, renal/hepatic considerations.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_bosentan",
+          "generic": "Bosentan",
+          "class_id": "cv_pa_era",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "62.5 mg twice daily for 4 weeks then usually 125 mg twice daily.",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "advanced",
+            "oral"
+          ],
+          "role": "Dual endothelin-receptor antagonist.",
+          "monitoring_pearl": "Monthly LFTs, anemia, teratogenicity, interactions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_ambrisentan",
+          "generic": "Ambrisentan",
+          "class_id": "cv_pa_era",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "5 mg once daily, may increase to 10 mg.",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "advanced",
+            "oral"
+          ],
+          "role": "ETA-selective antagonist.",
+          "monitoring_pearl": "Edema, anemia, teratogenicity; liver monitoring as clinically indicated.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_macitentan",
+          "generic": "Macitentan",
+          "class_id": "cv_pa_era",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "10 mg once daily.",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "advanced",
+            "oral"
+          ],
+          "role": "Dual endothelin antagonist.",
+          "monitoring_pearl": "Anemia, edema, teratogenicity.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_epoprostenol",
+          "generic": "Epoprostenol",
+          "class_id": "cv_pa_prostacyclin",
+          "form": "Continuous IV infusion",
+          "route": "IV",
+          "dose_example": "Continuous ng/kg/min infusion titrated by specialist protocol.",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "advanced",
+            "parenteral"
+          ],
+          "role": "Potent continuous prostacyclin for high-risk PAH.",
+          "monitoring_pearl": "Abrupt interruption can be life-threatening; catheter infection, hypotension, jaw pain.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_treprostinil",
+          "generic": "Treprostinil",
+          "class_id": "cv_pa_prostacyclin",
+          "form": "SC/IV/inhaled/oral",
+          "route": "Multiple",
+          "dose_example": "Dose/route titration is formulation-specific; specialist protocol required.",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "advanced",
+            "parenteral",
+            "inhaled",
+            "oral"
+          ],
+          "role": "Multi-route prostacyclin analogue.",
+          "monitoring_pearl": "Infusion-site pain, hypotension, bleeding; route-specific monitoring.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_iloprost",
+          "generic": "Iloprost",
+          "class_id": "cv_pa_prostacyclin",
+          "form": "Inhalation solution",
+          "route": "Inhaled",
+          "dose_example": "Inhaled multiple times daily; exact device regimen per label.",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "advanced",
+            "inhaled"
+          ],
+          "role": "Inhaled prostacyclin analogue.",
+          "monitoring_pearl": "Hypotension, syncope, bronchospasm; frequent dosing.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_selexipag",
+          "generic": "Selexipag",
+          "class_id": "cv_pa_prostacyclin",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Start 200 mcg twice daily and titrate weekly to highest tolerated dose up to 1600 mcg twice daily.",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "advanced",
+            "oral"
+          ],
+          "role": "Oral selective IP-receptor agonist.",
+          "monitoring_pearl": "Headache, jaw pain, GI effects, thyroid monitoring.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_riociguat",
+          "generic": "Riociguat",
+          "class_id": "cv_pa_sgc",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common start 1 mg three times daily (0.5 mg if hypotension risk), titrate to max 2.5 mg TID.",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "cteph",
+            "advanced",
+            "vasodilator"
+          ],
+          "role": "sGC stimulator for PAH/CTEPH.",
+          "monitoring_pearl": "Hypotension, bleeding, teratogenicity; contraindicated with nitrates/PDE5 inhibitors.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "cv_sotatercept",
+          "generic": "Sotatercept-csrk",
+          "class_id": "cv_pa_activin",
+          "form": "SC injection",
+          "route": "SC",
+          "dose_example": "Weight-based every 3 weeks with initial 0.3 mg/kg then 0.7 mg/kg if appropriate per label.",
+          "tags": [
+            "vascular",
+            "pulmonary_hypertension",
+            "advanced",
+            "injectable"
+          ],
+          "role": "Activin-signaling inhibitor for selected PAH.",
+          "monitoring_pearl": "Hemoglobin/platelets, bleeding/telangiectasia, BP; pregnancy precautions.",
+          "source_refs": [
+            "ACC_ACS_2025",
+            "ACC_AF_2023",
+            "ACC_HF_2022",
+            "ACC_CCD_2023",
+            "ACC_PAD_2024",
+            "ACC_LIPID_2026",
+            "AHA_PE_2026",
+            "ESC_PAAD_2024",
+            "ICMR_CARDIO_STW",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "ACC_ACS_2025",
+          "label": "2025 ACC/AHA/ACEP/NAEMSP/SCAI Acute Coronary Syndromes Guideline",
+          "url": "https://www.acc.org/guidelines/guidelines/2025/02/27/17/21/acute-coronary-syndromes-2025"
+        },
+        {
+          "id": "ACC_AF_2023",
+          "label": "2023 ACC/AHA/ACCP/HRS Atrial Fibrillation Guideline",
+          "url": "https://www.acc.org/guidelines/guidelines/2023/11/30/12/05/atrial-fibrillation-2023-guideline"
+        },
+        {
+          "id": "ACC_HF_2022",
+          "label": "2022 AHA/ACC/HFSA Heart Failure Guideline",
+          "url": "https://www.acc.org/guidelines/guidelines/2022/03/30/16/38/2022-heart-failure"
+        },
+        {
+          "id": "ACC_CCD_2023",
+          "label": "2023 AHA/ACC Multisociety Chronic Coronary Disease Guideline",
+          "url": "https://www.acc.org/guidelines/guidelines/2023/07/20/12/34/chronic-coronary-disease"
+        },
+        {
+          "id": "ACC_PAD_2024",
+          "label": "2024 ACC/AHA Multisociety Lower-Extremity PAD Guideline",
+          "url": "https://www.acc.org/guidelines/guidelines/2024/05/14/11/09/2024-lower-extremity-peripheral-artery-disease"
+        },
+        {
+          "id": "ACC_LIPID_2026",
+          "label": "2026 ACC/AHA Multisociety Dyslipidemia Guideline",
+          "url": "https://www.acc.org/about-acc/press-releases/2026/03/13/18/01/accaha-issue-updated-guideline-for-managing-lipids-cholesterol"
+        },
+        {
+          "id": "AHA_PE_2026",
+          "label": "2026 AHA/ACC Multisociety Acute Pulmonary Embolism Guideline",
+          "url": "https://www.acc.org/about-acc/press-releases/2026/02/19/19/27/first-ahaacc-acute-pulmonary-embolism-guideline-prompt-diagnosis-and-treatment-are-key"
+        },
+        {
+          "id": "ESC_PAAD_2024",
+          "label": "2024 ESC Peripheral Arterial & Aortic Diseases Guideline",
+          "url": "https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/peripheral-arterial-and-aortic-diseases/"
+        },
+        {
+          "id": "ICMR_CARDIO_STW",
+          "label": "ICMR Standard Treatment Workflows — Cardiology",
+          "url": "https://www.icmr.gov.in/standard-treatment-workflows-stws"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "DailyMed — current regulator-submitted prescribing labels",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
         }
       ]
     }
