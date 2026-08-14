@@ -1,0 +1,53 @@
+Mahamaya Clinic EMR V5.01 — Modern Atlas Button/Action Validation
+Build: 2026.08.14-R21
+MTLPI v2.0 dataset unchanged
+
+- Version badge V5.01: PASS
+- Build R21 marker: PASS
+- Workflow buttons 6: PASS
+- Duplicate static DOM IDs 0: PASS
+- Local action status present: PASS
+- Modern Search button present: PASS
+- Use Patient Context present: PASS
+- Reset button present: PASS
+- Modern tab buttons 4: PASS
+- 238 disease pathways: PASS
+- 177 drug groups: PASS
+- 371 generic records: PASS
+- Broken modern data refs 0: PASS
+- Manifest version 5.01: PASS
+- Service worker R21 cache: PASS
+- No invalid activeTab groups assignment: PASS
+- Workflow handlers wired: PASS
+- Enter search wired: PASS
+- therapeutics-intelligence-engine.js syntax: PASS
+- service-worker.js syntax: PASS
+- ayurveda-therapeutics-engine.js syntax: PASS
+- complaint-intelligence-engine.js syntax: PASS
+- mission-assurance-engine.js syntax: PASS
+- Inline JavaScript syntax 10/10: PASS
+- Search smoke asthma: PASS
+- Search smoke type 2 diabetes: PASS
+- Search smoke hypertension: PASS
+
+- Mission SHA-256 integrity: 20/20 — PASS
+
+Browser interaction regression (Playwright isolated Atlas harness):
+- Catalog load 238/177/371: PASS
+- 6 workflow controls are real buttons: PASS
+- Search Atlas selects disease and renders therapy pane: PASS
+- Disease / Drug Groups / Mechanism / Generic / Dose / Verify workflow clicks: PASS
+- Research tabs (context/therapy/drug/sources): PASS
+- Monograph button: PASS
+- Reset: PASS
+- Enter search: PASS
+- Use Patient Context (no context) safe feedback: PASS
+- System filter: PASS
+- Use Patient Context (Asthma patient harness): PASS
+- Add selected disease to Provisional Dx: PASS
+- Draft Rx enabled after recorded diagnosis and populates draft fields: PASS
+- Quick search chip: PASS
+- Live search result row click: PASS
+- Browser page JavaScript errors: 0 — PASS
+
+LIMITATION: Browser regression used an isolated local Modern Atlas harness with the real V5.01 HTML card, engine and MTLPI JSON. Final Firebase-authenticated GitHub Pages deployment still requires one live smoke test after upload/cache refresh.
