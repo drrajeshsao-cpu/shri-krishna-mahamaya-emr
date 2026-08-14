@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Mahamaya Clinic EMR — Premium Adaptive Clinical Workspace V5.50",
-  "short_name": "Mahamaya EMR V5.50",
-  "description": "Premium adaptive clinical + Ayurveda EMR optimized for mobile, tablet, laptop and desktop, preserving the V5.41C therapeutic and safety intelligence stack.",
+  "name": "Mahamaya Clinic EMR — Installable Premium Clinical App V5.51",
+  "short_name": "Mahamaya EMR",
+  "description": "Installable premium adaptive clinical and Ayurveda EMR for mobile, tablet, laptop and desktop. Preserves the V5.50 clinical stack and authentication workflow.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -14,7 +14,7 @@
   "orientation": "any",
   "lang": "en-IN",
   "background_color": "#f4f8f8",
-  "theme_color": "#0a665f",
+  "theme_color": "#0b6f78",
   "categories": [
     "medical",
     "health",
@@ -25,13 +25,25 @@
       "src": "./icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "shortcuts": [
@@ -265,5 +277,7 @@
       ]
     }
   ],
-  "version": "5.50"
+  "version": "5.51",
+  "dir": "ltr",
+  "prefer_related_applications": false
 }

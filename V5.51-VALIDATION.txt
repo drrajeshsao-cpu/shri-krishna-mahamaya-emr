@@ -1,0 +1,42 @@
+Mahamaya Clinic EMR V5.51 — Installable Premium Clinical App Validation
+Build: 2026.08.15-R28
+
+PWA / MANIFEST
+- Manifest JSON: PASS
+- name/short_name/start_url/scope: PASS
+- display=standalone: PASS
+- 192x192 any icon: PASS
+- 512x512 any icon: PASS
+- 192x192 maskable icon: PASS
+- 512x512 maskable icon: PASS
+- Apple touch icon present: PASS
+- Install controller present: PASS
+- Versioned service-worker cache R28: PASS
+- Service-worker referenced local assets missing: 0 PASS
+
+STATIC / JAVASCRIPT
+- Static DOM IDs: 1416 total / 1416 unique / duplicates: 0 PASS
+- External JS syntax: 7/7 PASS
+- Inline JS syntax: 10/10 PASS
+
+LOGIN / AUTH PRESERVATION
+- Firebase auth HTML + module block byte-for-byte vs V5.50: PASS
+- unlockApp/lockApp/restoreSession/savePins byte-for-byte vs V5.50: PASS
+- Service worker intercepts only same-origin GET and leaves Firebase/CDN cross-origin requests untouched: PASS by design
+- No forced page reload on service-worker update: PASS by design
+
+MISSION INTEGRITY
+- Tracked files: 130
+- SHA-256/byte-size mismatches: 0 PASS
+
+IMPORTANT LIVE-DEVICE LIMITATION
+- Static/source validation cannot prove browser install UI, iOS Add to Home Screen, real Firebase login, device-specific standalone display, or cloud sync.
+- Final test must use the live HTTPS GitHub Pages URL on Android/Chrome, iPhone/iPad Safari, Windows Edge/Chrome and the clinic laptop/desktop.
+
+LOCAL HTTP SMOKE
+- index.html: 200 PASS
+- manifest.webmanifest: 200 PASS
+- service-worker.js: 200 PASS
+- install-pwa.js: 200 PASS
+- icon-192.png: 200 PASS
+- icon-512-maskable.png: 200 PASS

@@ -1,8 +1,8 @@
 {
   "schema": "MAHAMAYA-INTEGRITY-MANIFEST-V1",
-  "app_version": "V5.50",
-  "build": "2026.08.15-R27",
-  "generated_at": "2026-08-15T00:43:00+05:30",
+  "app_version": "V5.51",
+  "build": "2026.08.15-R28",
+  "generated_at": "2026-08-15T01:05:00+05:30",
   "algorithm": "SHA-256",
   "files": [
     {
@@ -477,8 +477,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "a0e3848c762535b923ed1cdd924f9266b51c655179913686f47672cdf20f8525",
-      "bytes": 1042963
+      "sha256": "b952a1da9b2b6c33ac40d773507ae162b56393d960af8e1163fa53c5e40c097d",
+      "bytes": 1043197
     },
     {
       "path": "investigation-catalog-v1.json",
@@ -487,8 +487,8 @@
     },
     {
       "path": "manifest.webmanifest",
-      "sha256": "b15470905a7ec42077f3d50309f425d08a429666668e12f3c6a3d6190d6f5e03",
-      "bytes": 6849
+      "sha256": "c9af35e2f8fdd874d5edde6550ab2b8a0b1091d1155d0b08fc0dbdca110761fc",
+      "bytes": 7149
     },
     {
       "path": "mission-assurance-engine.js",
@@ -502,8 +502,8 @@
     },
     {
       "path": "service-worker.js",
-      "sha256": "e240b27efae3a37869801214a3e92cacd2d9b5476bccc43c9b7d801d9a4cfcf7",
-      "bytes": 2175
+      "sha256": "41b850252c76ec6393c7e4990d845f847e0aebcfd454b8336181aa5efe690024",
+      "bytes": 3105
     },
     {
       "path": "slaie-omega-exact-row-v1.json",
@@ -609,8 +609,53 @@
       "path": "V5.50-VALIDATION.txt",
       "sha256": "64ada1e2b610aef83d2453a3d71512757f9487b2ed8754f1b771856da5117260",
       "bytes": 2860
+    },
+    {
+      "path": "install-pwa.js",
+      "sha256": "7415840e5cd57c14933a8b46ff14ed8db7b133bbe956ac4ae5a5b2f040fc1e17",
+      "bytes": 6008
+    },
+    {
+      "path": "icon-192.png",
+      "sha256": "dfb685223a327a93ba4b7e9c5d7a8d81feb7c2468c711252121f69e7693590bf",
+      "bytes": 48796
+    },
+    {
+      "path": "icon-512.png",
+      "sha256": "51131f85a8411bce25c1ce2d67002c3cba1ccec2b08cbde26aa5fc9e48b4a47c",
+      "bytes": 256632
+    },
+    {
+      "path": "apple-touch-icon.png",
+      "sha256": "b793949ec55c53db0f184156210dde9ecb95e151dfa65c97d8c7e99679027ae6",
+      "bytes": 43973
+    },
+    {
+      "path": "icon-192-maskable.png",
+      "sha256": "6abe7dd7da0b455307cb52278be0eae390e7ac68fa39e848cd98c460962e7f6c",
+      "bytes": 30138
+    },
+    {
+      "path": "icon-512-maskable.png",
+      "sha256": "7e2a1ca87e3e45d1e361803378712299dab1353baf2c5c2e02452adafcac01a4",
+      "bytes": 152093
+    },
+    {
+      "path": "V5.51-INSTALLABLE-PWA-ARCHITECTURE.md",
+      "sha256": "2d806b941bf74cd5aba7838d4fff9b8ade892a303025a184a8ea03e9ee37a47d",
+      "bytes": 1750
+    },
+    {
+      "path": "V5.51-UPDATE-NOTES-HINDI.md",
+      "sha256": "5ff55be185a1e2302af62998431d79ab954e24457c063d99ffb0c5d5cc17264d",
+      "bytes": 1467
+    },
+    {
+      "path": "V5.51-VALIDATION.txt",
+      "sha256": "baf974ab47fbf716747a181583819f5d66e4c5be8888c42073a5b4b770925f34",
+      "bytes": 1580
     }
   ],
-  "note": "V5.50 integrity manifest covering the preserved V5.41C clinical stack plus Premium Adaptive Clinical Workspace CSS/JS, responsive navigation, release notes and validation. Authentication/Firebase logic was intentionally not modified. Static hash verification does not replace live device/security regression.",
+  "note": "V5.51 installable PWA integrity manifest covering the preserved V5.50 clinical stack plus install controller, service worker, manifest metadata, any/maskable app icons and release documentation. Authentication/PIN/Firebase/role/cloud-save logic was intentionally not modified. Static integrity validation does not replace live HTTPS install/login/device regression.",
   "version": "1.0"
 }
