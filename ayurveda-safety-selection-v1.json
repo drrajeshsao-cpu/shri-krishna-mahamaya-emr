@@ -1,10 +1,10 @@
 {
   "schema": "mahamaya-ayurveda-safety-selection-v1",
-  "version": "1.1",
+  "version": "1.2",
   "app_version": "4.20",
-  "build": "2026.08.14-R18",
+  "build": "2026.08.14-R19",
   "last_evidence_refresh": "2026-08-14",
-  "name": "MATLI v1.4 Clinical Safety, Personalization & Selection Matrix",
+  "name": "MATLI v1.5 Clinical Safety, Personalization & Selection Matrix",
   "boundary": "This engine is a clinician/research decision-support layer. Missing safety data never means safe. It does not replace the applicable official monograph, STG/CPG, licensed product label, pharmacovigilance review or patient-specific clinical judgment.",
   "selection_policy": {
     "drug_of_choice": "Do not label a formulation as Drug of Choice / first-line / preferred unless an explicit authoritative guideline or protocol supports that wording.",
@@ -308,5 +308,6 @@
         "verify": "Define review interval, maximum duration if known, response/ADR monitoring and stop/escalation criteria."
       }
     ]
-  }
+  },
+  "ui_profile": "scientist-workspace-v1"
 }
