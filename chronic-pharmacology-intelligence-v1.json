@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4S",
-  "app_version": "5.40S",
-  "build": "2026.08.14-R25S",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40S Transplant / Immunosuppression Lab",
+  "version": "2.4T",
+  "app_version": "5.40T",
+  "build": "2026.08.14-R25T",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40T Geriatrics / Polypharmacy / Deprescribing / Frailty Lab",
   "counts": {
-    "labs": 25,
-    "classes": 759,
-    "drug_profiles": 1778
+    "labs": 26,
+    "classes": 796,
+    "drug_profiles": 1847
   },
-  "global_boundary": "Research/learning pharmacology only. V5.40S adds a high-risk Transplant • Immunosuppressant • Immune-Modulator Lab while retaining all earlier specialized labs. No automatic transplant regimen, rejection-treatment plan, TDM target, prophylaxis duration or pregnancy medication switch is generated. Transplant-center protocol and specialist review remain mandatory.",
+  "global_boundary": "Research/learning pharmacology only. V5.40T adds a Geriatrics • Polypharmacy • Deprescribing • Frailty safety lab while retaining all earlier specialized labs. No medicine is automatically stopped because of age, Beers/STOPP status, frailty, falls, kidney function or medicine count. Any deprescribing/tapering, renal-dose change or treatment de-intensification requires patient-specific verification and monitoring.",
   "labs": [
     {
       "id": "hypertension",
@@ -53905,6 +53905,1883 @@
           "id": "WHO_TRANSPLANT",
           "label": "WHO — Transplantation of human cells, tissues and organs",
           "url": "https://www.who.int/health-topics/transplantation"
+        }
+      ]
+    },
+    {
+      "id": "geriatrics_polypharmacy",
+      "title": "Geriatrics • Polypharmacy • Deprescribing • Frailty Intelligence Lab",
+      "icon": "👴",
+      "badge": "V5.40T",
+      "eyebrow": "OLDER ADULTS • MEDICATION REVIEW • BEERS • STOPP/START • ANTICHOLINERGIC • FALLS • RENAL • DEPRESCRIBING • FRAILTY • GOALS",
+      "subtitle": "Scientist-style medication-safety workspace for older adults: appropriateness screening, cumulative burden, frailty-aware benefit–harm review and supervised deprescribing pathways.",
+      "scientific_boundary": "Research/learning medication-safety CDS only. Age alone never makes a medicine inappropriate, and a Beers/STOPP flag is not an automatic stop order. This lab does not calculate anticholinergic scores, renal doses, taper schedules, glycemic targets or life expectancy. Verify active indications, current doses/duration, renal/hepatic function, cognition, falls/orthostasis, frailty, goals of care, withdrawal risk and current guideline/product information before changing therapy.",
+      "classification_notes": {
+        "Potentially inappropriate ≠ prohibited": "AGS Beers and STOPP criteria are screening tools. A flagged medicine can still be appropriate when indication, alternatives, dose, monitoring and patient goals justify it.",
+        "Deprescribing is a clinical intervention": "Stopping is not simply deleting a medicine. It requires indication review, withdrawal/rebound planning, monitoring and shared decision-making.",
+        "Polypharmacy can be appropriate": "The problem is not the medicine count alone. Appropriate multi-drug treatment may be necessary; focus on net benefit, duplication, interactions, treatment burden and omissions.",
+        "Frailty changes priorities": "Frailty, cognition, falls, swallowing, adherence and time-to-benefit can change the balance between long-term prevention and near-term function/symptom goals.",
+        "Kidney function is a recurrent safety axis": "Serum creatinine can look deceptively normal with low muscle mass. Use the renal function measure required by the current drug label/guideline and review after acute illness.",
+        "Never reproduce a copyrighted checklist as an auto-rule engine": "This lab summarizes common safety domains and links to authoritative tools; it intentionally does not copy the full Beers or STOPP/START criteria tables."
+      },
+      "lens_groups": [
+        {
+          "group": "Medication review",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Geriatrics"
+            },
+            {
+              "id": "med_reconciliation",
+              "label": "Reconciliation"
+            },
+            {
+              "id": "polypharmacy",
+              "label": "Polypharmacy"
+            },
+            {
+              "id": "beers",
+              "label": "Beers Review"
+            },
+            {
+              "id": "stopp_start",
+              "label": "STOPP/START"
+            },
+            {
+              "id": "goals",
+              "label": "Goals/Benefit"
+            }
+          ]
+        },
+        {
+          "group": "Cognition / Falls",
+          "items": [
+            {
+              "id": "anticholinergic",
+              "label": "Anticholinergic"
+            },
+            {
+              "id": "falls",
+              "label": "Falls/FRIDs"
+            },
+            {
+              "id": "delirium",
+              "label": "Delirium"
+            },
+            {
+              "id": "cognition",
+              "label": "Cognition"
+            },
+            {
+              "id": "sedative",
+              "label": "Sedative Load"
+            },
+            {
+              "id": "orthostasis",
+              "label": "Orthostasis"
+            }
+          ]
+        },
+        {
+          "group": "Organ / metabolic safety",
+          "items": [
+            {
+              "id": "renal_dose",
+              "label": "Renal Dose"
+            },
+            {
+              "id": "hypoglycemia",
+              "label": "Hypoglycemia"
+            },
+            {
+              "id": "bleeding",
+              "label": "Bleeding"
+            },
+            {
+              "id": "constipation",
+              "label": "Constipation"
+            },
+            {
+              "id": "urinary_retention",
+              "label": "Urinary Retention"
+            },
+            {
+              "id": "qt",
+              "label": "QT/Conduction"
+            }
+          ]
+        },
+        {
+          "group": "Deprescribing",
+          "items": [
+            {
+              "id": "deprescribing",
+              "label": "All Deprescribing"
+            },
+            {
+              "id": "deprescribing_ppi",
+              "label": "PPI"
+            },
+            {
+              "id": "deprescribing_bzra",
+              "label": "BZD/Z-drug"
+            },
+            {
+              "id": "deprescribing_antipsychotic",
+              "label": "Antipsychotic"
+            },
+            {
+              "id": "deprescribing_antihyperglycemic",
+              "label": "Diabetes"
+            },
+            {
+              "id": "statin",
+              "label": "Statin"
+            }
+          ]
+        },
+        {
+          "group": "Frailty / usability",
+          "items": [
+            {
+              "id": "frailty",
+              "label": "Frailty"
+            },
+            {
+              "id": "stopfrail",
+              "label": "Limited Life Expectancy"
+            },
+            {
+              "id": "adherence",
+              "label": "Adherence"
+            },
+            {
+              "id": "pill_burden",
+              "label": "Pill Burden"
+            },
+            {
+              "id": "swallowing",
+              "label": "Swallowing"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "ger_med_reconciliation",
+          "name": "Medication reconciliation & brown-bag review",
+          "mechanism": "Systematic comparison of prescribed, OTC, herbal and actual-use medicines",
+          "target": "Medication-list accuracy",
+          "tags": [
+            "overview",
+            "med_reconciliation",
+            "transitions",
+            "polypharmacy"
+          ],
+          "role_note": "Foundational safety step before deprescribing or adding therapy; discrepancies and duplicate products must be resolved first.",
+          "drug_ids": [
+            "ger_brown_bag",
+            "ger_transition_reconcile"
+          ]
+        },
+        {
+          "id": "ger_indication_goal_review",
+          "name": "Indication • benefit • harm • goals review",
+          "mechanism": "Links each medicine to an active indication, expected benefit and patient-priority outcome",
+          "target": "Therapeutic appropriateness",
+          "tags": [
+            "overview",
+            "goals",
+            "frailty",
+            "deprescribing"
+          ],
+          "role_note": "Every medicine should have a current indication and a benefit that still matters within the patient’s goals, prognosis and treatment burden.",
+          "drug_ids": [
+            "ger_indication_map",
+            "ger_time_to_benefit"
+          ]
+        },
+        {
+          "id": "ger_explicit_pim_review",
+          "name": "Explicit PIM/PPO screening framework",
+          "mechanism": "Structured screening highlights medicines that may be inappropriate and potentially beneficial omissions",
+          "target": "PIM/PPO review",
+          "tags": [
+            "overview",
+            "beers",
+            "stopp_start",
+            "pim",
+            "ppo"
+          ],
+          "role_note": "Use Beers and STOPP/START as screening prompts, not automatic stop/start commands.",
+          "drug_ids": [
+            "ger_beers_gate",
+            "ger_stopp_start_gate"
+          ]
+        },
+        {
+          "id": "ger_duplicate_cascade",
+          "name": "Duplicate therapy & prescribing-cascade review",
+          "mechanism": "Detects therapeutic duplication and new medicines added to treat adverse effects of another medicine",
+          "target": "Medication burden",
+          "tags": [
+            "overview",
+            "polypharmacy",
+            "duplicate",
+            "prescribing_cascade"
+          ],
+          "role_note": "Before adding another medicine, ask whether a current medicine caused the new symptom or whether two products duplicate the same pharmacologic effect.",
+          "drug_ids": [
+            "ger_duplicate_gate",
+            "ger_prescribing_cascade"
+          ]
+        },
+        {
+          "id": "ger_anticholinergic_burden",
+          "name": "Cumulative anticholinergic burden",
+          "mechanism": "Muscarinic blockade can accumulate across medicines and worsen cognition, dry mouth, constipation, urinary retention and falls",
+          "target": "Central/peripheral muscarinic effects",
+          "tags": [
+            "anticholinergic",
+            "falls",
+            "delirium",
+            "cognition",
+            "constipation",
+            "urinary_retention"
+          ],
+          "role_note": "Review cumulative burden rather than judging one drug in isolation; avoid automatic numeric scoring unless the exact validated scale is selected.",
+          "drug_ids": [
+            "ger_diphenhydramine",
+            "ger_hydroxyzine",
+            "ger_oxybutynin",
+            "ger_amitriptyline_ach"
+          ]
+        },
+        {
+          "id": "ger_first_gen_antihistamines",
+          "name": "First-generation antihistamine safety review",
+          "mechanism": "H1 blockade plus anticholinergic CNS effects can increase sedation, confusion and falls",
+          "target": "H1 / muscarinic receptors",
+          "tags": [
+            "anticholinergic",
+            "allergy",
+            "falls"
+          ],
+          "role_note": "Prefer indication-specific lower-burden approaches when appropriate; acute severe allergic emergencies are a separate context.",
+          "drug_ids": [
+            "ger_chlorpheniramine",
+            "ger_promethazine"
+          ]
+        },
+        {
+          "id": "ger_benzodiazepines",
+          "name": "Benzodiazepine risk & dependence review",
+          "mechanism": "GABA-A positive allosteric modulation causes anxiolysis/sedation but can impair balance, cognition and respiration",
+          "target": "GABA-A receptor",
+          "tags": [
+            "benzodiazepine",
+            "falls",
+            "delirium",
+            "sedative",
+            "deprescribing_bzra"
+          ],
+          "role_note": "Long- and short-acting benzodiazepines can both cause harm in older adults; chronic use requires indication and withdrawal-risk review.",
+          "drug_ids": [
+            "ger_diazepam",
+            "ger_alprazolam",
+            "ger_lorazepam",
+            "ger_clonazepam"
+          ]
+        },
+        {
+          "id": "ger_z_drugs",
+          "name": "Non-benzodiazepine hypnotics (Z-drugs)",
+          "mechanism": "GABA-A receptor modulation produces hypnotic effects with fall/cognitive risk similar to other sedatives",
+          "target": "GABA-A receptor",
+          "tags": [
+            "z_drug",
+            "insomnia",
+            "falls",
+            "deprescribing_bzra"
+          ],
+          "role_note": "Review ongoing benefit, next-day impairment, falls and non-drug insomnia management.",
+          "drug_ids": [
+            "ger_zolpidem",
+            "ger_eszopiclone"
+          ]
+        },
+        {
+          "id": "ger_antipsychotic_dementia",
+          "name": "Antipsychotic use in dementia/delirium",
+          "mechanism": "Dopamine/serotonin receptor effects may control selected severe symptoms but carry important neurologic, cardiovascular and mortality risks",
+          "target": "Dopamine/serotonin pathways",
+          "tags": [
+            "antipsychotic",
+            "dementia",
+            "delirium",
+            "falls",
+            "deprescribing_antipsychotic"
+          ],
+          "role_note": "Do not use routinely for behavioral symptoms or delirium without a clear indication, non-drug review and ongoing reassessment.",
+          "drug_ids": [
+            "ger_quetiapine",
+            "ger_risperidone",
+            "ger_haloperidol"
+          ]
+        },
+        {
+          "id": "ger_antidepressant_safety",
+          "name": "Antidepressant geriatric safety review",
+          "mechanism": "Serotonergic/noradrenergic and anticholinergic effects interact with falls, sodium balance, BP and cognition",
+          "target": "CNS monoamine pathways",
+          "tags": [
+            "antidepressant",
+            "falls",
+            "hyponatremia",
+            "anticholinergic"
+          ],
+          "role_note": "Antidepressant selection should consider indication, falls, hyponatremia, anticholinergic load, QT risk and withdrawal.",
+          "drug_ids": [
+            "ger_paroxetine",
+            "ger_ssri_class"
+          ]
+        },
+        {
+          "id": "ger_muscle_relaxants",
+          "name": "Skeletal muscle relaxant safety review",
+          "mechanism": "CNS depression and anticholinergic effects can cause sedation, weakness and falls",
+          "target": "CNS / muscle tone pathways",
+          "tags": [
+            "muscle_relaxant",
+            "falls",
+            "sedative"
+          ],
+          "role_note": "Many centrally acting skeletal muscle relaxants are poorly tolerated in older adults; distinguish spasticity agents from routine musculoskeletal use.",
+          "drug_ids": [
+            "ger_cyclobenzaprine",
+            "ger_methocarbamol"
+          ]
+        },
+        {
+          "id": "ger_opioids",
+          "name": "Opioid geriatric risk review",
+          "mechanism": "Mu-opioid receptor agonism provides analgesia but increases sedation, constipation, respiratory depression and falls",
+          "target": "Opioid receptors",
+          "tags": [
+            "opioid",
+            "falls",
+            "constipation",
+            "sedative",
+            "respiratory"
+          ],
+          "role_note": "Use the lowest effective burden consistent with pain/function goals; review constipation prophylaxis, renal function and CNS combinations.",
+          "drug_ids": [
+            "ger_morphine",
+            "ger_tramadol"
+          ]
+        },
+        {
+          "id": "ger_cns_polypharmacy",
+          "name": "CNS-active polypharmacy",
+          "mechanism": "Multiple CNS-active drugs can have additive sedation, ataxia, cognitive impairment and respiratory effects",
+          "target": "Additive CNS depression",
+          "tags": [
+            "falls",
+            "cognition",
+            "sedative",
+            "polypharmacy"
+          ],
+          "role_note": "Count the combined CNS burden rather than treating each agent as isolated.",
+          "drug_ids": [
+            "ger_opioid_benzo_combo",
+            "ger_opioid_gabapentinoid_combo"
+          ]
+        },
+        {
+          "id": "ger_gabapentinoids",
+          "name": "Gabapentinoid renal/CNS review",
+          "mechanism": "Alpha-2-delta calcium-channel ligand effects can cause dizziness, somnolence and gait instability",
+          "target": "Voltage-gated calcium-channel α2δ subunit",
+          "tags": [
+            "gabapentinoid",
+            "falls",
+            "renal_dose",
+            "sedative"
+          ],
+          "role_note": "Review renal clearance, indication, dose burden and combined CNS depressants.",
+          "drug_ids": [
+            "ger_gabapentin",
+            "ger_pregabalin"
+          ]
+        },
+        {
+          "id": "ger_nsaids",
+          "name": "NSAID / COX inhibitor risk review",
+          "mechanism": "Cyclooxygenase inhibition can worsen GI bleeding, kidney function, BP and fluid status",
+          "target": "COX-1/COX-2",
+          "tags": [
+            "nsaid",
+            "renal_dose",
+            "bleeding",
+            "heart_failure"
+          ],
+          "role_note": "Review indication, duration, renal function, GI risk, BP, heart failure and anticoagulant/antiplatelet co-use.",
+          "drug_ids": [
+            "ger_ibuprofen",
+            "ger_naproxen",
+            "ger_diclofenac"
+          ]
+        },
+        {
+          "id": "ger_aspirin_primary_prevention",
+          "name": "Aspirin primary-prevention review",
+          "mechanism": "Irreversible platelet COX-1 inhibition lowers thrombosis but increases bleeding",
+          "target": "Platelet COX-1",
+          "tags": [
+            "aspirin",
+            "bleeding",
+            "primary_prevention",
+            "deprescribing"
+          ],
+          "role_note": "Do not confuse primary with secondary prevention; initiation/continuation should reflect current cardiovascular and bleeding risk.",
+          "drug_ids": [
+            "ger_aspirin_primary"
+          ]
+        },
+        {
+          "id": "ger_alpha1_blockers",
+          "name": "Non-selective peripheral alpha-1 blocker orthostasis review",
+          "mechanism": "Alpha-1 blockade lowers vascular tone and can cause orthostatic hypotension",
+          "target": "Peripheral α1 receptors",
+          "tags": [
+            "orthostasis",
+            "falls",
+            "hypertension",
+            "bph"
+          ],
+          "role_note": "Review indication and postural BP, especially when used for hypertension rather than selected urologic indications.",
+          "drug_ids": [
+            "ger_doxazosin",
+            "ger_prazosin"
+          ]
+        },
+        {
+          "id": "ger_central_alpha_agonists",
+          "name": "Central alpha-agonist safety review",
+          "mechanism": "Central sympathetic suppression lowers BP but may cause bradycardia, sedation and orthostasis",
+          "target": "Central α2 receptors",
+          "tags": [
+            "orthostasis",
+            "bradycardia",
+            "falls",
+            "hypertension"
+          ],
+          "role_note": "Generally avoid using central alpha agonists as routine first-line hypertension therapy in older adults unless a specific rationale exists.",
+          "drug_ids": [
+            "ger_clonidine"
+          ]
+        },
+        {
+          "id": "ger_digoxin",
+          "name": "Digoxin geriatric/renal review",
+          "mechanism": "Na/K-ATPase inhibition increases inotropy and alters AV nodal conduction; narrow therapeutic index",
+          "target": "Na/K-ATPase / AV node",
+          "tags": [
+            "digoxin",
+            "renal_dose",
+            "bradycardia",
+            "tdm"
+          ],
+          "role_note": "Use only for a clear contemporary indication; renal function, interactions and concentration/symptoms matter.",
+          "drug_ids": [
+            "ger_digoxin_profile"
+          ]
+        },
+        {
+          "id": "ger_renal_clearance_gate",
+          "name": "Renal-clearance high-risk review",
+          "mechanism": "Age-related or disease-related reduction in kidney function can increase exposure and toxicity",
+          "target": "Renal elimination",
+          "tags": [
+            "renal_dose",
+            "ckd",
+            "frailty",
+            "safety"
+          ],
+          "role_note": "Do not infer renal safety from age or serum creatinine alone; use current eGFR/CrCl method appropriate to the drug/label.",
+          "drug_ids": [
+            "ger_baclofen",
+            "ger_nitrofurantoin",
+            "ger_doac_renal_gate"
+          ]
+        },
+        {
+          "id": "ger_sulfonylureas",
+          "name": "Sulfonylurea hypoglycemia review",
+          "mechanism": "Insulin secretagogue action can cause prolonged hypoglycemia, especially with longer-acting agents",
+          "target": "Pancreatic KATP channels",
+          "tags": [
+            "diabetes",
+            "hypoglycemia",
+            "deprescribing_antihyperglycemic"
+          ],
+          "role_note": "Review glycemic targets, meal regularity, renal function and whether lower-hypoglycemia strategies are suitable.",
+          "drug_ids": [
+            "ger_glibenclamide",
+            "ger_glimepiride"
+          ]
+        },
+        {
+          "id": "ger_insulin_complexity",
+          "name": "Insulin complexity / hypoglycemia de-intensification",
+          "mechanism": "Exogenous insulin lowers glucose but complex regimens increase treatment burden and hypoglycemia risk",
+          "target": "Insulin receptor",
+          "tags": [
+            "diabetes",
+            "hypoglycemia",
+            "frailty",
+            "deprescribing_antihyperglycemic"
+          ],
+          "role_note": "Avoid sliding-scale-only strategies for chronic management; simplify safely when goals, intake or frailty change.",
+          "drug_ids": [
+            "ger_sliding_scale",
+            "ger_diabetes_deintensify"
+          ]
+        },
+        {
+          "id": "ger_ppi_longterm",
+          "name": "Long-term proton-pump inhibitor review",
+          "mechanism": "Gastric H+/K+-ATPase inhibition suppresses acid; long-term therapy may be unnecessary without a continuing indication",
+          "target": "Gastric proton pump",
+          "tags": [
+            "ppi",
+            "deprescribing_ppi",
+            "gi"
+          ],
+          "role_note": "Confirm ongoing indication, gastroprotection need and prior relapse before tapering/stopping.",
+          "drug_ids": [
+            "ger_omeprazole",
+            "ger_pantoprazole"
+          ]
+        },
+        {
+          "id": "ger_metoclopramide",
+          "name": "Metoclopramide neurologic-risk review",
+          "mechanism": "D2 antagonism and prokinetic effects can cause extrapyramidal symptoms/tardive dyskinesia",
+          "target": "D2 receptors / GI motility",
+          "tags": [
+            "metoclopramide",
+            "eps",
+            "gi"
+          ],
+          "role_note": "Use only for a clear indication and appropriate duration; older adults have higher neurologic vulnerability.",
+          "drug_ids": [
+            "ger_metoclopramide_profile"
+          ]
+        },
+        {
+          "id": "ger_falls_frids",
+          "name": "Falls-risk-increasing drug (FRID) review",
+          "mechanism": "Sedation, orthostasis, impaired reaction time, hypoglycemia and motor effects can combine to raise fall risk",
+          "target": "Multifactorial fall pathways",
+          "tags": [
+            "falls",
+            "frailty",
+            "orthostasis",
+            "sedative"
+          ],
+          "role_note": "A fall is not automatically caused by one medicine; review all FRIDs plus gait, vision, BP, environment and acute illness.",
+          "drug_ids": [
+            "ger_frid_bundle",
+            "ger_postural_bp_gate"
+          ]
+        },
+        {
+          "id": "ger_delirium_risk",
+          "name": "Delirium medication review",
+          "mechanism": "Anticholinergic, sedative, opioid and psychoactive effects can precipitate or worsen delirium in vulnerable patients",
+          "target": "CNS vulnerability",
+          "tags": [
+            "delirium",
+            "anticholinergic",
+            "sedative",
+            "cognition"
+          ],
+          "role_note": "Treat delirium as a syndrome requiring cause search; medication review is one component, not the whole diagnosis.",
+          "drug_ids": [
+            "ger_delirium_med_gate"
+          ]
+        },
+        {
+          "id": "ger_cognition_burden",
+          "name": "Cognitive-impairment medication burden",
+          "mechanism": "Sedative and anticholinergic medicines may worsen memory, attention and functional independence",
+          "target": "CNS cognition pathways",
+          "tags": [
+            "cognition",
+            "dementia",
+            "anticholinergic",
+            "sedative"
+          ],
+          "role_note": "Review potentially reversible medicine contributors before attributing all decline to neurodegenerative disease.",
+          "drug_ids": [
+            "ger_cognition_med_review"
+          ]
+        },
+        {
+          "id": "ger_constipation_retention",
+          "name": "Constipation & urinary-retention burden",
+          "mechanism": "Anticholinergic, opioid, iron and other medicine effects can worsen bowel/bladder function",
+          "target": "GI and bladder motility",
+          "tags": [
+            "constipation",
+            "urinary_retention",
+            "anticholinergic",
+            "opioid"
+          ],
+          "role_note": "Before adding laxatives or bladder medicines, review medication contributors and red flags.",
+          "drug_ids": [
+            "ger_constipation_med_gate",
+            "ger_retention_med_gate"
+          ]
+        },
+        {
+          "id": "ger_qt_bradycardia",
+          "name": "QT / bradycardia / conduction interaction review",
+          "mechanism": "Multiple medicines can add QT prolongation, bradycardia or electrolyte-mediated arrhythmia risk",
+          "target": "Cardiac repolarization / conduction",
+          "tags": [
+            "qt",
+            "bradycardia",
+            "interactions",
+            "electrolytes"
+          ],
+          "role_note": "Use patient-specific ECG, electrolytes, heart rate and interaction data; do not rely on one generic risk list.",
+          "drug_ids": [
+            "ger_qt_stack",
+            "ger_brady_stack"
+          ]
+        },
+        {
+          "id": "ger_deprescribe_ppi",
+          "name": "Deprescribing: proton-pump inhibitors",
+          "mechanism": "Supervised dose reduction/cessation when the original indication has resolved or benefit no longer exceeds burden",
+          "target": "Acid-suppression withdrawal planning",
+          "tags": [
+            "deprescribing",
+            "deprescribing_ppi",
+            "ppi"
+          ],
+          "role_note": "Use a structured algorithm; check exclusions/ongoing indications and anticipate rebound symptoms.",
+          "drug_ids": [
+            "ger_ppi_deprescribe_algorithm"
+          ]
+        },
+        {
+          "id": "ger_deprescribe_bzra",
+          "name": "Deprescribing: benzodiazepine receptor agonists",
+          "mechanism": "Gradual supervised dose reduction limits withdrawal/rebound while reducing chronic sedative burden",
+          "target": "GABA-A withdrawal planning",
+          "tags": [
+            "deprescribing",
+            "deprescribing_bzra",
+            "benzodiazepine",
+            "z_drug"
+          ],
+          "role_note": "Abrupt cessation can be dangerous after chronic use; taper pace depends on dose, duration, indication and withdrawal history.",
+          "drug_ids": [
+            "ger_bzra_deprescribe_algorithm"
+          ]
+        },
+        {
+          "id": "ger_deprescribe_antipsychotic",
+          "name": "Deprescribing: antipsychotics in selected BPSD/insomnia",
+          "mechanism": "Supervised tapering can reduce exposure when symptoms are stable and the original indication no longer justifies risk",
+          "target": "Dopamine/serotonin withdrawal planning",
+          "tags": [
+            "deprescribing",
+            "deprescribing_antipsychotic",
+            "dementia"
+          ],
+          "role_note": "Not applicable to all psychiatric indications; psychosis, bipolar disorder and other primary indications need specialist/diagnosis-specific management.",
+          "drug_ids": [
+            "ger_antipsychotic_deprescribe_algorithm"
+          ]
+        },
+        {
+          "id": "ger_deprescribe_antihyperglycemic",
+          "name": "Deprescribing: antihyperglycemics",
+          "mechanism": "Treatment intensity is reduced when hypoglycemia risk/treatment burden outweigh expected benefit",
+          "target": "Glucose-lowering de-intensification",
+          "tags": [
+            "deprescribing",
+            "deprescribing_antihyperglycemic",
+            "diabetes",
+            "hypoglycemia"
+          ],
+          "role_note": "Prioritize agents most likely to cause hypoglycemia while maintaining symptom safety and individualized goals.",
+          "drug_ids": [
+            "ger_antihyperglycemic_algorithm"
+          ]
+        },
+        {
+          "id": "ger_deprescribe_cognitive",
+          "name": "Deprescribing: cholinesterase inhibitors / memantine",
+          "mechanism": "Supervised trial reduction may be considered when goals, benefit, adverse effects or disease stage change",
+          "target": "Dementia symptom therapy review",
+          "tags": [
+            "deprescribing",
+            "dementia",
+            "cognition"
+          ],
+          "role_note": "Do not stop reflexively because dementia is advanced; establish goals, prior benefit and monitoring for meaningful decline.",
+          "drug_ids": [
+            "ger_chei_memantine_algorithm"
+          ]
+        },
+        {
+          "id": "ger_deprescribe_statin",
+          "name": "Deprescribing: statin / preventive therapy review",
+          "mechanism": "Long-term preventive benefit is weighed against adverse effects, treatment burden, life expectancy and patient goals",
+          "target": "ASCVD prevention time-to-benefit",
+          "tags": [
+            "deprescribing",
+            "statin",
+            "frailty",
+            "goals"
+          ],
+          "role_note": "Do not equate older age with stopping statins; distinguish secondary prevention, primary prevention and limited-life-expectancy contexts.",
+          "drug_ids": [
+            "ger_statin_deprescribe_gate"
+          ]
+        },
+        {
+          "id": "ger_frailty_limited_life",
+          "name": "Frailty • limited life expectancy • treatment-burden review",
+          "mechanism": "Frailty and limited prognosis change the balance between preventive benefit, symptom control and medicine burden",
+          "target": "Goal-concordant pharmacotherapy",
+          "tags": [
+            "frailty",
+            "stopfrail",
+            "goals",
+            "deprescribing"
+          ],
+          "role_note": "Use a goals-based approach for patients with advanced frailty or limited life expectancy; symptom-relief medicines may become more important than long-horizon prevention.",
+          "drug_ids": [
+            "ger_stoppfrail_gate",
+            "ger_symptom_priority"
+          ]
+        },
+        {
+          "id": "ger_adherence_swallowing",
+          "name": "Adherence • pill burden • swallowing/formulation review",
+          "mechanism": "Complex schedules, dexterity, cognition and dysphagia can make otherwise appropriate regimens unsafe or ineffective",
+          "target": "Medication usability",
+          "tags": [
+            "adherence",
+            "pill_burden",
+            "swallowing",
+            "frailty"
+          ],
+          "role_note": "Simplify timing and formulation where possible without crushing/modifying products that must remain intact.",
+          "drug_ids": [
+            "ger_schedule_simplify",
+            "ger_swallow_formulation"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "ger_brown_bag",
+          "generic": "Brown-bag / actual-use medication review",
+          "class_id": "ger_med_reconciliation",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Bring prescription, OTC, PRN, supplements and herbal products together and reconcile what is actually taken.",
+          "monitoring_pearl": "Confirm name, strength, schedule, indication, prescriber, adherence, recent changes and duplicate ingredients.",
+          "source_refs": [
+            "WHO_POLYPHARMACY",
+            "NICE_NG5"
+          ]
+        },
+        {
+          "id": "ger_transition_reconcile",
+          "generic": "Transitions-of-care medication reconciliation",
+          "class_id": "ger_med_reconciliation",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Compare pre-admission, inpatient and discharge lists to prevent unintended omissions/duplications.",
+          "monitoring_pearl": "High-risk transitions deserve early review, especially anticoagulants, insulin, opioids, antiepileptics and immunosuppressants.",
+          "source_refs": [
+            "WHO_POLYPHARMACY",
+            "NICE_NG5"
+          ]
+        },
+        {
+          "id": "ger_indication_map",
+          "generic": "Medicine-to-indication map",
+          "class_id": "ger_indication_goal_review",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Identify medicines without a current indication and conditions with a potentially important treatment omission.",
+          "monitoring_pearl": "Do not equate fewer medicines with better care: undertreatment and prescribing omissions also matter.",
+          "source_refs": [
+            "STOPP_START_V3",
+            "NICE_NG56"
+          ]
+        },
+        {
+          "id": "ger_time_to_benefit",
+          "generic": "Time-to-benefit / goals-of-care review",
+          "class_id": "ger_indication_goal_review",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Compare expected time to benefit with frailty, prognosis, symptom priorities and treatment burden.",
+          "monitoring_pearl": "Preventive therapies may remain valuable; decisions should be individualized rather than age-only.",
+          "source_refs": [
+            "NICE_NG56",
+            "STOPPFRAIL"
+          ]
+        },
+        {
+          "id": "ger_beers_gate",
+          "generic": "AGS Beers Criteria review gate",
+          "class_id": "ger_explicit_pim_review",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Flags representative higher-risk medicines/classes in adults 65+ for clinician review.",
+          "monitoring_pearl": "A Beers listing is a signal for closer assessment; it is not an automatic contraindication.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "AGS_ALT_2025"
+          ]
+        },
+        {
+          "id": "ger_stopp_start_gate",
+          "generic": "STOPP/START v3 review gate",
+          "class_id": "ger_explicit_pim_review",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Pairs potentially inappropriate prescribing review with checks for clinically important prescribing omissions.",
+          "monitoring_pearl": "Version 3 is a system-based screening tool; criteria require patient-specific clinical context.",
+          "source_refs": [
+            "STOPP_START_V3"
+          ]
+        },
+        {
+          "id": "ger_duplicate_gate",
+          "generic": "Therapeutic-duplication gate",
+          "class_id": "ger_duplicate_cascade",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Review same-class or same-purpose combinations, including OTC duplication.",
+          "monitoring_pearl": "Common hidden duplication includes paracetamol-containing combinations, NSAIDs, antihistamines and multiple sedatives.",
+          "source_refs": [
+            "WHO_POLYPHARMACY",
+            "NICE_NG5"
+          ]
+        },
+        {
+          "id": "ger_prescribing_cascade",
+          "generic": "Prescribing-cascade gate",
+          "class_id": "ger_duplicate_cascade",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Investigate whether dizziness, edema, constipation, confusion, urinary symptoms or falls may be medicine-related before adding treatment.",
+          "monitoring_pearl": "Treating an adverse drug effect with another medicine can compound polypharmacy.",
+          "source_refs": [
+            "WHO_POLYPHARMACY",
+            "NICE_NG56"
+          ]
+        },
+        {
+          "id": "ger_diphenhydramine",
+          "generic": "Diphenhydramine",
+          "class_id": "ger_anticholinergic_burden",
+          "form": "Tablet/capsule/liquid",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [
+            "anticholinergic",
+            "sedative",
+            "falls"
+          ],
+          "role": "First-generation antihistamine with strong anticholinergic/sedating effects.",
+          "monitoring_pearl": "Review daytime sedation, confusion, constipation, urinary retention and use as an OTC sleep aid.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "AGS_ALT_2025"
+          ]
+        },
+        {
+          "id": "ger_hydroxyzine",
+          "generic": "Hydroxyzine",
+          "class_id": "ger_anticholinergic_burden",
+          "form": "Tablet/syrup",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [
+            "anticholinergic",
+            "sedative",
+            "falls"
+          ],
+          "role": "Sedating first-generation antihistamine/anxiolytic with anticholinergic burden.",
+          "monitoring_pearl": "Consider cognition, falls, QT risk and cumulative sedative load.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_oxybutynin",
+          "generic": "Oxybutynin",
+          "class_id": "ger_anticholinergic_burden",
+          "form": "IR/ER tablet; transdermal products",
+          "route": "PO/TD",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [
+            "anticholinergic",
+            "oab",
+            "cognition"
+          ],
+          "role": "Bladder antimuscarinic that can meaningfully contribute to anticholinergic burden.",
+          "monitoring_pearl": "Review cognition, constipation, dry mouth and whether lower-burden OAB strategies are suitable.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_amitriptyline_ach",
+          "generic": "Amitriptyline",
+          "class_id": "ger_anticholinergic_burden",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [
+            "anticholinergic",
+            "tca",
+            "falls"
+          ],
+          "role": "TCA with anticholinergic, sedative and orthostatic effects.",
+          "monitoring_pearl": "Review fall risk, cognition, constipation, urinary retention, arrhythmia risk and indication.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_chlorpheniramine",
+          "generic": "Chlorpheniramine",
+          "class_id": "ger_first_gen_antihistamines",
+          "form": "Tablet/syrup",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "First-generation H1 antihistamine with anticholinergic/sedative effects.",
+          "monitoring_pearl": "Review use in chronic allergy/cold products and cumulative anticholinergic burden.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "AGS_ALT_2025"
+          ]
+        },
+        {
+          "id": "ger_promethazine",
+          "generic": "Promethazine",
+          "class_id": "ger_first_gen_antihistamines",
+          "form": "Tablet/syrup/injection",
+          "route": "PO/IM/IV",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Sedating phenothiazine antihistamine/antiemetic with strong anticholinergic burden.",
+          "monitoring_pearl": "Review sedation, delirium, orthostasis and route-specific hazards.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_diazepam",
+          "generic": "Diazepam",
+          "class_id": "ger_benzodiazepines",
+          "form": "Tablet; product-dependent formulations",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [
+            "benzodiazepine",
+            "sedative",
+            "falls"
+          ],
+          "role": "Benzodiazepine review profile.",
+          "monitoring_pearl": "Do not abruptly stop chronic therapy; assess dependence, withdrawal/seizure risk, falls, cognition and concomitant opioids.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_alprazolam",
+          "generic": "Alprazolam",
+          "class_id": "ger_benzodiazepines",
+          "form": "Tablet; product-dependent formulations",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [
+            "benzodiazepine",
+            "sedative",
+            "falls"
+          ],
+          "role": "Benzodiazepine review profile.",
+          "monitoring_pearl": "Do not abruptly stop chronic therapy; assess dependence, withdrawal/seizure risk, falls, cognition and concomitant opioids.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_lorazepam",
+          "generic": "Lorazepam",
+          "class_id": "ger_benzodiazepines",
+          "form": "Tablet; product-dependent formulations",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [
+            "benzodiazepine",
+            "sedative",
+            "falls"
+          ],
+          "role": "Benzodiazepine review profile.",
+          "monitoring_pearl": "Do not abruptly stop chronic therapy; assess dependence, withdrawal/seizure risk, falls, cognition and concomitant opioids.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_clonazepam",
+          "generic": "Clonazepam",
+          "class_id": "ger_benzodiazepines",
+          "form": "Tablet; product-dependent formulations",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [
+            "benzodiazepine",
+            "sedative",
+            "falls"
+          ],
+          "role": "Benzodiazepine review profile.",
+          "monitoring_pearl": "Do not abruptly stop chronic therapy; assess dependence, withdrawal/seizure risk, falls, cognition and concomitant opioids.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_zolpidem",
+          "generic": "Zolpidem",
+          "class_id": "ger_z_drugs",
+          "form": "IR/ER tablet; product-dependent",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Hypnotic used for insomnia.",
+          "monitoring_pearl": "Review duration, nocturnal falls, confusion and complex sleep behavior; tapering may be appropriate in chronic use.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "AGS_ALT_2025",
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_eszopiclone",
+          "generic": "Eszopiclone",
+          "class_id": "ger_z_drugs",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Non-benzodiazepine hypnotic.",
+          "monitoring_pearl": "Review persistent insomnia indication, cognition and fall risk.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "AGS_ALT_2025",
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_quetiapine",
+          "generic": "Quetiapine",
+          "class_id": "ger_antipsychotic_dementia",
+          "form": "IR/ER tablet",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Atypical antipsychotic; review indication, sedation and orthostasis.",
+          "monitoring_pearl": "If used for BPSD, document target symptom, severity/risk, non-drug measures and planned reassessment.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_risperidone",
+          "generic": "Risperidone",
+          "class_id": "ger_antipsychotic_dementia",
+          "form": "Tablet/ODT/liquid; LAI products",
+          "route": "PO/IM",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Atypical antipsychotic with EPS, orthostasis and metabolic risks.",
+          "monitoring_pearl": "Review cerebrovascular/mortality warning context in dementia and deprescribing eligibility.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_haloperidol",
+          "generic": "Haloperidol",
+          "class_id": "ger_antipsychotic_dementia",
+          "form": "Tablet/liquid/injection",
+          "route": "PO/IM/IV-product dependent",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Typical antipsychotic sometimes used in selected acute situations.",
+          "monitoring_pearl": "Review QT/EPS risk and avoid reflexive use for nonspecific agitation or delirium.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_paroxetine",
+          "generic": "Paroxetine",
+          "class_id": "ger_antidepressant_safety",
+          "form": "Tablet/suspension",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "SSRI with relatively higher anticholinergic burden among SSRIs.",
+          "monitoring_pearl": "Review cognition, constipation, hyponatremia, withdrawal and interactions.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_ssri_class",
+          "generic": "SSRI/SNRI class review",
+          "class_id": "ger_antidepressant_safety",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Class-level review for falls, hyponatremia and bleeding interactions.",
+          "monitoring_pearl": "Check sodium when clinically indicated and review concomitant anticoagulant/antiplatelet therapy.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "BNF_ELDERLY"
+          ]
+        },
+        {
+          "id": "ger_cyclobenzaprine",
+          "generic": "Cyclobenzaprine",
+          "class_id": "ger_muscle_relaxants",
+          "form": "Tablet/capsule",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Centrally acting skeletal muscle relaxant with TCA-like anticholinergic effects.",
+          "monitoring_pearl": "Review sedation, confusion and falls; chronic routine use is generally difficult to justify.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_methocarbamol",
+          "generic": "Methocarbamol",
+          "class_id": "ger_muscle_relaxants",
+          "form": "Tablet/injection",
+          "route": "PO/IV",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Centrally acting muscle relaxant with sedation risk.",
+          "monitoring_pearl": "Review dizziness, sedation and fall risk.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_morphine",
+          "generic": "Morphine",
+          "class_id": "ger_opioids",
+          "form": "IR/ER oral; injection",
+          "route": "PO/IV/SC",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Opioid analgesic with active metabolites affected by renal impairment.",
+          "monitoring_pearl": "Review renal function, sedation, constipation and respiratory risk; avoid automatic equianalgesic conversions.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "BNF_ELDERLY"
+          ]
+        },
+        {
+          "id": "ger_tramadol",
+          "generic": "Tramadol",
+          "class_id": "ger_opioids",
+          "form": "IR/ER tablet/capsule",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Opioid/monoaminergic analgesic with CNS, seizure and sodium-related concerns.",
+          "monitoring_pearl": "Review hyponatremia, seizures, serotonergic interactions and renal dosing.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_opioid_benzo_combo",
+          "generic": "Opioid + benzodiazepine combination gate",
+          "class_id": "ger_cns_polypharmacy",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "High-risk additive respiratory/CNS depression combination.",
+          "monitoring_pearl": "Review whether both medicines are essential and whether safer alternatives/taper plans are possible.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_opioid_gabapentinoid_combo",
+          "generic": "Opioid + gabapentinoid combination gate",
+          "class_id": "ger_cns_polypharmacy",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Additive sedation/respiratory depression risk, especially with frailty or renal impairment.",
+          "monitoring_pearl": "Check indication, renal dose, sedation and respiratory vulnerability.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_gabapentin",
+          "generic": "Gabapentin",
+          "class_id": "ger_gabapentinoids",
+          "form": "Capsule/tablet/solution",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Gabapentinoid used for selected neuropathic pain/seizure indications.",
+          "monitoring_pearl": "Renal function strongly affects exposure; review dizziness, edema and falls.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "BNF_ELDERLY"
+          ]
+        },
+        {
+          "id": "ger_pregabalin",
+          "generic": "Pregabalin",
+          "class_id": "ger_gabapentinoids",
+          "form": "Capsule/solution",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Gabapentinoid with renal clearance and sedation/edema risks.",
+          "monitoring_pearl": "Review renal dosing, dizziness, edema and opioid co-use.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "BNF_ELDERLY"
+          ]
+        },
+        {
+          "id": "ger_ibuprofen",
+          "generic": "Ibuprofen",
+          "class_id": "ger_nsaids",
+          "form": "Oral; topical forms for selected agents",
+          "route": "PO/topical",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "NSAID review profile.",
+          "monitoring_pearl": "Prefer the lowest necessary exposure; topical options may reduce systemic exposure for localized pain but are not risk-free.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "BNF_ELDERLY"
+          ]
+        },
+        {
+          "id": "ger_naproxen",
+          "generic": "Naproxen",
+          "class_id": "ger_nsaids",
+          "form": "Oral; topical forms for selected agents",
+          "route": "PO/topical",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "NSAID review profile.",
+          "monitoring_pearl": "Prefer the lowest necessary exposure; topical options may reduce systemic exposure for localized pain but are not risk-free.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "BNF_ELDERLY"
+          ]
+        },
+        {
+          "id": "ger_diclofenac",
+          "generic": "Diclofenac",
+          "class_id": "ger_nsaids",
+          "form": "Oral; topical forms for selected agents",
+          "route": "PO/topical",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "NSAID review profile.",
+          "monitoring_pearl": "Prefer the lowest necessary exposure; topical options may reduce systemic exposure for localized pain but are not risk-free.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "BNF_ELDERLY"
+          ]
+        },
+        {
+          "id": "ger_aspirin_primary",
+          "generic": "Low-dose aspirin — primary-prevention review",
+          "class_id": "ger_aspirin_primary_prevention",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Review whether aspirin is being used for primary versus established secondary prevention.",
+          "monitoring_pearl": "Do not automatically stop aspirin used for established ASCVD; verify indication first.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_doxazosin",
+          "generic": "Doxazosin",
+          "class_id": "ger_alpha1_blockers",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Peripheral alpha-1 blocker with orthostatic/fall risk.",
+          "monitoring_pearl": "Check seated/standing BP, dizziness and concurrent vasodilators.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_prazosin",
+          "generic": "Prazosin",
+          "class_id": "ger_alpha1_blockers",
+          "form": "Capsule/tablet",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Alpha-1 blocker with postural hypotension risk.",
+          "monitoring_pearl": "Review indication, first-dose/orthostatic symptoms and falls.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_clonidine",
+          "generic": "Clonidine",
+          "class_id": "ger_central_alpha_agonists",
+          "form": "Tablet/transdermal",
+          "route": "PO/TD",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Central alpha-2 agonist; abrupt withdrawal can cause rebound hypertension.",
+          "monitoring_pearl": "Review bradycardia, sedation, orthostasis and withdrawal risk before any change.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_digoxin_profile",
+          "generic": "Digoxin",
+          "class_id": "ger_digoxin",
+          "form": "Tablet/solution/injection",
+          "route": "PO/IV",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Narrow-therapeutic-index cardiac glycoside.",
+          "monitoring_pearl": "Review renal function, potassium/magnesium, bradyarrhythmia, interacting drugs and toxicity symptoms.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "BNF_ELDERLY"
+          ]
+        },
+        {
+          "id": "ger_baclofen",
+          "generic": "Baclofen",
+          "class_id": "ger_renal_clearance_gate",
+          "form": "Tablet/solution; intrathecal specialist use",
+          "route": "PO/intrathecal",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "GABA-B agonist with substantial renal elimination.",
+          "monitoring_pearl": "Renal impairment can markedly increase encephalopathy/sedation risk; verify current renal guidance.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "BNF_ELDERLY"
+          ]
+        },
+        {
+          "id": "ger_nitrofurantoin",
+          "generic": "Nitrofurantoin",
+          "class_id": "ger_renal_clearance_gate",
+          "form": "Capsule/tablet/suspension",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Urinary antibacterial whose efficacy/toxicity profile depends on kidney function and duration.",
+          "monitoring_pearl": "Verify renal function, indication and duration; chronic suppression carries pulmonary/hepatic/neuropathy concerns.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_doac_renal_gate",
+          "generic": "DOAC renal-function gate",
+          "class_id": "ger_renal_clearance_gate",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Anticoagulant selection/dose depends on indication, kidney function, age/weight and product label.",
+          "monitoring_pearl": "Do not auto-convert between DOACs or warfarin; verify exact indication and current renal dosing criteria.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "BNF_ELDERLY"
+          ]
+        },
+        {
+          "id": "ger_glibenclamide",
+          "generic": "Glibenclamide (glyburide)",
+          "class_id": "ger_sulfonylureas",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Longer-acting sulfonylurea with prolonged hypoglycemia concern.",
+          "monitoring_pearl": "Avoid reflexive continuation in frailty or recurrent hypoglycemia; review alternatives and goals.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_glimepiride",
+          "generic": "Glimepiride",
+          "class_id": "ger_sulfonylureas",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Sulfonylurea with hypoglycemia risk.",
+          "monitoring_pearl": "Review hypoglycemia history, kidney function and individualized glycemic target.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_sliding_scale",
+          "generic": "Sliding-scale-only insulin review",
+          "class_id": "ger_insulin_complexity",
+          "form": "Strategy card",
+          "route": "SC",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Reactive insulin-only approach without appropriate basal/individualized framework.",
+          "monitoring_pearl": "Review repeated hypo/hyperglycemia and whether a simpler evidence-based regimen fits goals and intake.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_diabetes_deintensify",
+          "generic": "Diabetes treatment de-intensification gate",
+          "class_id": "ger_insulin_complexity",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Reassess tight glycemic treatment when hypoglycemia, frailty, cognitive impairment or limited life expectancy changes the balance.",
+          "monitoring_pearl": "De-intensification is not neglect; preserve symptomatic control and avoid abrupt unsafe insulin changes.",
+          "source_refs": [
+            "DEPRESCRIBING_ORG",
+            "NICE_NG56"
+          ]
+        },
+        {
+          "id": "ger_omeprazole",
+          "generic": "Omeprazole",
+          "class_id": "ger_ppi_longterm",
+          "form": "Capsule/tablet; product dependent",
+          "route": "PO",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "PPI review profile.",
+          "monitoring_pearl": "Check indication such as severe erosive disease, high GI-bleed risk or other continuing need before deprescribing.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_pantoprazole",
+          "generic": "Pantoprazole",
+          "class_id": "ger_ppi_longterm",
+          "form": "Tablet/injection",
+          "route": "PO/IV",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "PPI review profile.",
+          "monitoring_pearl": "Review duration and ongoing gastroprotection indication; anticipate rebound acid symptoms after withdrawal.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_metoclopramide_profile",
+          "generic": "Metoclopramide",
+          "class_id": "ger_metoclopramide",
+          "form": "Tablet/liquid/injection",
+          "route": "PO/IV/IM",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Prokinetic/antiemetic with dopamine-antagonist neurologic risks.",
+          "monitoring_pearl": "Review parkinsonism, akathisia, tardive dyskinesia, renal function and duration.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_frid_bundle",
+          "generic": "FRID bundle review",
+          "class_id": "ger_falls_frids",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Review benzodiazepines/Z-drugs, antipsychotics, antidepressants, opioids, antihypertensives and other contributors together.",
+          "monitoring_pearl": "Prioritize medicines most plausibly linked to symptoms and with the weakest ongoing indication.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "STOPP_START_V3"
+          ]
+        },
+        {
+          "id": "ger_postural_bp_gate",
+          "generic": "Orthostatic BP / symptom correlation gate",
+          "class_id": "ger_falls_frids",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Correlate dizziness/falls with standing BP, hydration, autonomic disease and vasoactive medicines.",
+          "monitoring_pearl": "Avoid indiscriminate antihypertensive withdrawal; balance falls with cardiovascular indications.",
+          "source_refs": [
+            "NICE_NG56",
+            "BNF_ELDERLY"
+          ]
+        },
+        {
+          "id": "ger_delirium_med_gate",
+          "generic": "Delirium medication trigger gate",
+          "class_id": "ger_delirium_risk",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Review new/changed anticholinergics, sedatives, opioids, corticosteroids and withdrawal states.",
+          "monitoring_pearl": "Search infection, metabolic, pain, urinary/constipation and environmental causes alongside medicines.",
+          "source_refs": [
+            "AGS_BEERS_2023",
+            "NICE_NG56"
+          ]
+        },
+        {
+          "id": "ger_cognition_med_review",
+          "generic": "Cognition-focused medication review",
+          "class_id": "ger_cognition_burden",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Prioritize strong anticholinergics and sedative stacking when cognition worsens.",
+          "monitoring_pearl": "Changes should be gradual where withdrawal/rebound is possible and should track function as well as symptoms.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_constipation_med_gate",
+          "generic": "Medication-induced constipation gate",
+          "class_id": "ger_constipation_retention",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Review opioids, anticholinergics, iron/calcium and other contributors.",
+          "monitoring_pearl": "Use bowel regimen when indicated, but also reassess the causative medicine burden.",
+          "source_refs": [
+            "NICE_NG56",
+            "BNF_ELDERLY"
+          ]
+        },
+        {
+          "id": "ger_retention_med_gate",
+          "generic": "Medication-induced urinary-retention gate",
+          "class_id": "ger_constipation_retention",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Review anticholinergics, antihistamines and other contributors in susceptible patients.",
+          "monitoring_pearl": "Acute retention is a clinical problem requiring prompt assessment; do not manage solely by medication changes.",
+          "source_refs": [
+            "AGS_BEERS_2023"
+          ]
+        },
+        {
+          "id": "ger_qt_stack",
+          "generic": "QT-prolonging combination gate",
+          "class_id": "ger_qt_bradycardia",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Review additive QT-risk medicines and correct modifiable electrolyte/bradycardia contributors.",
+          "monitoring_pearl": "Risk is dynamic: acute illness, renal/hepatic changes and new interacting medicines can change exposure.",
+          "source_refs": [
+            "BNF_ELDERLY",
+            "NICE_NG5"
+          ]
+        },
+        {
+          "id": "ger_brady_stack",
+          "generic": "Bradycardia/conduction combination gate",
+          "class_id": "ger_qt_bradycardia",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Review beta-blockers, non-DHP calcium-channel blockers, digoxin and other AV-nodal agents together.",
+          "monitoring_pearl": "Correlate with symptoms, ECG and indication before adjusting therapy.",
+          "source_refs": [
+            "BNF_ELDERLY"
+          ]
+        },
+        {
+          "id": "ger_ppi_deprescribe_algorithm",
+          "generic": "PPI deprescribing algorithm gate",
+          "class_id": "ger_deprescribe_ppi",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Assess continuing indication, symptom control, gastroprotection need and relapse plan before step-down/stop.",
+          "monitoring_pearl": "Do not copy a generic taper blindly; individualize and provide a rescue/monitoring plan.",
+          "source_refs": [
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_bzra_deprescribe_algorithm",
+          "generic": "Benzodiazepine/Z-drug deprescribing gate",
+          "class_id": "ger_deprescribe_bzra",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Confirm indication, dependence/withdrawal risk, patient readiness and non-drug sleep/anxiety plan.",
+          "monitoring_pearl": "Monitor withdrawal, rebound insomnia/anxiety and seizures in high-risk situations.",
+          "source_refs": [
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_antipsychotic_deprescribe_algorithm",
+          "generic": "Antipsychotic deprescribing gate",
+          "class_id": "ger_deprescribe_antipsychotic",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Review target behavior, duration, stability, underlying psychiatric indication and non-drug plan.",
+          "monitoring_pearl": "Monitor recurrence of severe symptoms and avoid applying BPSD algorithms to schizophrenia/bipolar disorder without specialist review.",
+          "source_refs": [
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_antihyperglycemic_algorithm",
+          "generic": "Antihyperglycemic deprescribing gate",
+          "class_id": "ger_deprescribe_antihyperglycemic",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Reassess glycemic goals, hypoglycemia, frailty, renal function, nutrition and regimen complexity.",
+          "monitoring_pearl": "Insulin/sulfonylurea changes need glucose monitoring and a contingency plan.",
+          "source_refs": [
+            "DEPRESCRIBING_ORG",
+            "NICE_NG56"
+          ]
+        },
+        {
+          "id": "ger_chei_memantine_algorithm",
+          "generic": "Cholinesterase inhibitor / memantine deprescribing gate",
+          "class_id": "ger_deprescribe_cognitive",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Review ongoing benefit, adverse effects, adherence and goals; use a supervised trial when appropriate.",
+          "monitoring_pearl": "Monitor cognition, function and behavior after changes, with a plan to reinstate if clinically meaningful deterioration follows.",
+          "source_refs": [
+            "DEPRESCRIBING_ORG"
+          ]
+        },
+        {
+          "id": "ger_statin_deprescribe_gate",
+          "generic": "Statin deprescribing / continuation gate",
+          "class_id": "ger_deprescribe_statin",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Review ASCVD history, prevention category, tolerability, interactions, frailty, prognosis and patient preference.",
+          "monitoring_pearl": "Secondary-prevention benefit may remain important; decisions should be diagnosis- and goal-specific.",
+          "source_refs": [
+            "DEPRESCRIBING_ORG",
+            "NICE_NG56"
+          ]
+        },
+        {
+          "id": "ger_stoppfrail_gate",
+          "generic": "STOPPFrail-style review gate",
+          "class_id": "ger_frailty_limited_life",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Screens medicines whose preventive benefit may no longer align with severe frailty/limited life expectancy.",
+          "monitoring_pearl": "Apply only in the intended clinical context and with shared decision-making; not a general “stop list” for all older adults.",
+          "source_refs": [
+            "STOPPFRAIL",
+            "NICE_NG56"
+          ]
+        },
+        {
+          "id": "ger_symptom_priority",
+          "generic": "Symptom-priority / comfort-care medication review",
+          "class_id": "ger_frailty_limited_life",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Prioritize medicines that meaningfully relieve symptoms or prevent near-term distress while reducing low-value burden.",
+          "monitoring_pearl": "Goals can change; document the rationale and review after transitions or clinical deterioration.",
+          "source_refs": [
+            "NICE_NG56",
+            "WHO_POLYPHARMACY"
+          ]
+        },
+        {
+          "id": "ger_schedule_simplify",
+          "generic": "Regimen simplification gate",
+          "class_id": "ger_adherence_swallowing",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Reduce unnecessary dosing times/duplicate products when clinically safe.",
+          "monitoring_pearl": "Confirm that modified-release, enteric-coated or narrow-therapeutic-index products are not inappropriately altered.",
+          "source_refs": [
+            "NICE_NG5",
+            "BNF_ELDERLY"
+          ]
+        },
+        {
+          "id": "ger_swallow_formulation",
+          "generic": "Swallowing / formulation suitability gate",
+          "class_id": "ger_adherence_swallowing",
+          "form": "Review card",
+          "route": "N/A",
+          "dose_example": "No automatic geriatric dose or stop-order. Verify indication, current dose, duration, renal/hepatic function, frailty, falls/cognition, interactions, withdrawal risk and the patient’s goals before any change.",
+          "tags": [],
+          "role": "Match formulation to dysphagia, dexterity, vision and caregiver capability.",
+          "monitoring_pearl": "Do not assume tablets can be crushed; verify product-specific administration instructions.",
+          "source_refs": [
+            "BNF_ELDERLY",
+            "NICE_NG5"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "AGS_BEERS_2023",
+          "label": "American Geriatrics Society 2023 Updated AGS Beers Criteria® for Potentially Inappropriate Medication Use in Older Adults",
+          "url": "https://agsjournals.onlinelibrary.wiley.com/doi/10.1111/jgs.18372"
+        },
+        {
+          "id": "AGS_ALT_2025",
+          "label": "AGS Health in Aging — Alternatives for Medications Listed in the 2023 AGS Beers Criteria® (2025 resource)",
+          "url": "https://www.healthinaging.org/sites/default/files/media/pdf/HIA-LearnMore-BEERS-alternatives25-FINAL_0.pdf"
+        },
+        {
+          "id": "STOPP_START_V3",
+          "label": "STOPP/START criteria for potentially inappropriate prescribing in older people: version 3 (2023)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37256475/"
+        },
+        {
+          "id": "WHO_POLYPHARMACY",
+          "label": "WHO — Medication Safety in Polypharmacy: Technical Report",
+          "url": "https://www.who.int/publications-detail-redirect/medication-safety-in-polypharmacy-technical-report"
+        },
+        {
+          "id": "NICE_NG56",
+          "label": "NICE NG56 — Multimorbidity: clinical assessment and management",
+          "url": "https://www.nice.org.uk/guidance/ng56"
+        },
+        {
+          "id": "NICE_NG5",
+          "label": "NICE NG5 — Medicines optimisation: safe and effective use of medicines",
+          "url": "https://www.nice.org.uk/guidance/ng5"
+        },
+        {
+          "id": "DEPRESCRIBING_ORG",
+          "label": "Deprescribing.org — Evidence-based deprescribing guidelines and algorithms",
+          "url": "https://deprescribing.org/resources/deprescribing-guidelines-algorithms/"
+        },
+        {
+          "id": "STOPPFRAIL",
+          "label": "STOPPFrail — explicit criteria for frail older adults with limited life expectancy",
+          "url": "https://academic.oup.com/ageing/article/46/4/600/2948308"
+        },
+        {
+          "id": "BNF_ELDERLY",
+          "label": "BNF/NICE — Prescribing in the elderly",
+          "url": "https://bnf.nice.org.uk/medicines-guidance/prescribing-in-the-elderly/"
         }
       ]
     }

@@ -1,0 +1,44 @@
+MAHAMAYA EMR V5.40T STATIC VALIDATION
+Build: 2026.08.14-R25T
+
+New lab: Geriatrics • Polypharmacy • Deprescribing • Frailty
+Classes: 37
+Profiles: 69
+Cumulative labs/classes/profiles: 26 / 796 / 1847
+
+PASS CHECKS
+- JavaScript engine syntax: PASS (node --check)
+- Inline JavaScript syntax: PASS (node --check)
+- JSON chronic-pharmacology-intelligence-v1.json: PASS
+- JSON therapeutics-intelligence-master-v1.json: PASS
+- JSON mission-integrity-manifest-v1.json: PASS
+- JSON manifest.webmanifest: PASS
+- unique geriatric class IDs: PASS
+- unique geriatric profile IDs: PASS
+- class/profile/source references: PASS
+- unique static DOM IDs: PASS
+- index V5.40T/R25T: PASS
+- geriatrics launcher: PASS
+- geriatrics handler: PASS
+- geriatrics search terms: PASS
+- geriatrics quick open: PASS
+- manifest version: PASS
+- service worker cache: PASS
+- counts: PASS
+- safety no auto stop: PASS
+- no score calculator: PASS
+- no taper generator: PASS
+
+GLOBAL DATA NOTE
+- Pre-existing duplicate chronic profile IDs: ['gi_metoclopramide']
+- V5.40T new-lab IDs: unique
+
+SAFETY BOUNDARIES
+- Beers/STOPP flag ≠ automatic stop order: PASS
+- No anticholinergic score calculator: PASS
+- No renal-dose calculator: PASS
+- No automatic taper schedule: PASS
+- Frailty/age/medicine count alone never determines deprescribing: PASS
+
+ERRORS
+none
