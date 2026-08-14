@@ -1,0 +1,28 @@
+Mahamaya EMR V5.40C-1 Validation
+Build: 2026.08.14-R25C1
+Neurology/Neuro-Psych classes: 48
+Neurology/Neuro-Psych drug/formulation profiles: 142
+All specialized chronic labs: 8
+All specialized classes: 210
+All specialized drug profiles: 613
+Duplicate Neuro class IDs: 0
+Duplicate Neuro drug IDs: 0
+Duplicate parsed DOM IDs: 0
+JavaScript syntax: PASS
+Button tiNeuroPsychLabBtn + handler: PASS
+Class→drug references: PASS
+Drug→source references: PASS
+Key lens smoke checks: PASS
+Overall static validation: PASS
+- epilepsy: 26 profiles
+- migraine_acute: 13 profiles
+- migraine_preventive: 16 profiles
+- vertigo: 7 profiles
+- parkinson: 17 profiles
+- dementia: 7 profiles
+- depression: 21 profiles
+- anxiety: 20 profiles
+- psychosis: 17 profiles
+- bipolar: 13 profiles
+- insomnia: 12 profiles
+Boundary: static/source-structure validation only; live GitHub/Firebase browser regression remains after deployment.

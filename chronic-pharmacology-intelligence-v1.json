@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya.common_chronic_pharmacology.v1",
-  "version": "1.3B",
-  "app_version": "V5.40B",
-  "build": "2026.08.14-R25B",
-  "name": "High-Use Pharmacology Intelligence Labs — Chronic + GI/Pain + Respiratory/Allergy + Cardiovascular/Vascular",
+  "version": "1.4C1",
+  "app_version": "V5.40C-1",
+  "build": "2026.08.14-R25C1",
+  "name": "High-Use Pharmacology Intelligence Labs — through Neurology/Neuro-Psych",
   "counts": {
-    "labs": 7,
-    "classes": 162,
-    "drug_profiles": 471
+    "labs": 8,
+    "classes": 210,
+    "drug_profiles": 613
   },
-  "global_boundary": "Research/learning pharmacology only. Class tags and typical adult dose snapshots are not patient-specific prescribing instructions. Verify diagnosis, indication, formulation/route/device, current label/guideline, age/weight, renal/hepatic function, pregnancy/lactation, contraindications, interactions, monitoring and emergency/specialist requirements before prescribing. Asthma and COPD algorithms are not interchangeable.",
+  "global_boundary": "Research/learning pharmacology only. Class tags and adult learning-dose snapshots are not patient-specific prescribing instructions. Verify diagnosis/syndrome, indication, formulation/route, current label/guideline, age/weight, renal/hepatic function, pregnancy/lactation, contraindications, interactions, tapering/withdrawal requirements and monitoring before prescribing. Neurologic/psychiatric drugs may worsen seizures, mania, suicidality, cognition, falls, QT, metabolic status or withdrawal risk if misapplied.",
   "labs": [
     {
       "id": "hypertension",
@@ -14677,6 +14677,3881 @@
         {
           "id": "DAILYMED",
           "label": "DailyMed — current regulator-submitted prescribing labels",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "neuro_psych",
+      "title": "Neurology & Neuro-Psych Intelligence Lab",
+      "icon": "🧠",
+      "badge": "NEURO-PSYCH v1.0",
+      "eyebrow": "NEUROLOGY / PSYCHIATRY CLINICAL PHARMACOLOGY LEARNING WORKSPACE",
+      "subtitle": "Seizure phenotype → headache pathway → movement/cognition → mood/anxiety/psychosis → mechanism → generic → formulation → adult learning-dose → monitoring/source verification",
+      "scientific_boundary": "Research/learning pharmacology only. Neurologic and psychiatric medicines require diagnosis-specific selection, slow titration or tapering where appropriate, interaction review and close monitoring. Valproate, benzodiazepines, lithium, clozapine, anti-amyloid antibodies, antiseizure medicines in pregnancy, and emergency/status-seizure therapy have high-consequence safeguards. Do not infer a universal first-line drug from a class card. Verify current guideline/label, seizure syndrome, suicidality/mania risk, pregnancy potential, renal/hepatic function, ECG/QT, metabolic/EPS risk and controlled-drug rules before prescribing.",
+      "classification_notes": {
+        "seizure_syndrome": "Antiseizure medicine choice depends on focal vs generalized seizure type, epilepsy syndrome, age, comorbidity, reproductive potential and interaction profile. Narrow-spectrum sodium-channel agents can worsen some generalized epilepsies.",
+        "valproate_reproductive_safety": "Valproate has major reproductive safety restrictions. Current national/regulatory rules and pregnancy-prevention requirements must be checked before use in people who could conceive; do not rely on a generic class summary.",
+        "migraine_acute_vs_preventive": "Acute rescue and prevention are separate decisions. Medication-overuse headache, cardiovascular contraindications to vasoconstrictors, pregnancy, and attack frequency alter drug choice.",
+        "vestibular_suppression": "Vestibular suppressants can be useful briefly for severe vertigo/nausea but prolonged use may delay central compensation; diagnose the cause and prioritize repositioning/rehabilitation when indicated.",
+        "parkinson_pharmacology": "Levodopa, dopamine agonists, MAO-B/COMT inhibitors and adjuncts differ in motor benefit, dyskinesia, impulse-control, hallucination, orthostasis and sleepiness risks; timing and advanced-device therapy are specialist-sensitive.",
+        "dementia_symptomatic_vs_disease_modifying": "Cholinesterase inhibitors/memantine are symptomatic therapies. Anti-amyloid monoclonal antibodies are disease-modifying specialist therapies for selected biomarker-confirmed early Alzheimer disease with MRI/ARIA and anticoagulation-related considerations.",
+        "psych_diagnostic_gate": "Before antidepressant escalation, assess bipolar-spectrum features, suicidality, substance use and medical causes. Antipsychotic choice requires metabolic, prolactin, QT/EPS and tardive-dyskinesia monitoring. Benzodiazepines are generally short-term/limited-use tools because of dependence, falls and withdrawal risk.",
+        "dose_boundary": "Displayed doses are adult learning snapshots, not individualized prescriptions. Many drugs require syndrome-specific titration, therapeutic drug monitoring, renal/hepatic adjustment, slow withdrawal, or specialist initiation."
+      },
+      "lens_groups": [
+        {
+          "group": "Seizures / epilepsy",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Neuro-Psych classes"
+            },
+            {
+              "id": "epilepsy",
+              "label": "Epilepsy / ASMs"
+            },
+            {
+              "id": "focal_seizure",
+              "label": "Focal seizures"
+            },
+            {
+              "id": "generalized_seizure",
+              "label": "Generalized seizures"
+            },
+            {
+              "id": "absence",
+              "label": "Absence seizures"
+            },
+            {
+              "id": "status_epilepticus",
+              "label": "Status / rescue"
+            },
+            {
+              "id": "pregnancy_caution",
+              "label": "Reproductive-safety caution"
+            }
+          ]
+        },
+        {
+          "group": "Headache / pain / vestibular",
+          "items": [
+            {
+              "id": "migraine_acute",
+              "label": "Migraine — acute"
+            },
+            {
+              "id": "migraine_preventive",
+              "label": "Migraine — prevention"
+            },
+            {
+              "id": "cluster_headache",
+              "label": "Cluster headache"
+            },
+            {
+              "id": "neuropathic_pain",
+              "label": "Neuropathic pain"
+            },
+            {
+              "id": "vertigo",
+              "label": "Vertigo / vestibular"
+            }
+          ]
+        },
+        {
+          "group": "Movement / cognition / stroke",
+          "items": [
+            {
+              "id": "parkinson",
+              "label": "Parkinsonism"
+            },
+            {
+              "id": "dementia",
+              "label": "Dementia / Alzheimer"
+            },
+            {
+              "id": "stroke_adjunct",
+              "label": "Stroke adjunct / prevention"
+            }
+          ]
+        },
+        {
+          "group": "Mood / anxiety / sleep / psychosis",
+          "items": [
+            {
+              "id": "depression",
+              "label": "Depression"
+            },
+            {
+              "id": "anxiety",
+              "label": "Anxiety / panic"
+            },
+            {
+              "id": "bipolar",
+              "label": "Bipolar / mood stabilizers"
+            },
+            {
+              "id": "psychosis",
+              "label": "Psychosis / antipsychotics"
+            },
+            {
+              "id": "insomnia",
+              "label": "Insomnia / hypnotics"
+            }
+          ]
+        },
+        {
+          "group": "Mechanism / monitoring lens",
+          "items": [
+            {
+              "id": "sodium_channel",
+              "label": "Na⁺ channel"
+            },
+            {
+              "id": "gaba",
+              "label": "GABAergic"
+            },
+            {
+              "id": "sv2a",
+              "label": "SV2A"
+            },
+            {
+              "id": "cgrp",
+              "label": "CGRP pathway"
+            },
+            {
+              "id": "dopamine",
+              "label": "Dopaminergic"
+            },
+            {
+              "id": "serotonin",
+              "label": "Serotonergic"
+            },
+            {
+              "id": "cholinergic",
+              "label": "Cholinergic"
+            },
+            {
+              "id": "controlled_drug",
+              "label": "Controlled/dependence risk"
+            },
+            {
+              "id": "metabolic_monitor",
+              "label": "Metabolic monitoring"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "np_asm_sodium",
+          "name": "Voltage-gated sodium-channel antiseizure medicines",
+          "mechanism": "Use-dependent sodium-channel inhibition stabilizes hyperexcitable neuronal membranes",
+          "target": "Voltage-gated Na⁺ channels",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "sodium_channel"
+          ],
+          "role_note": "Major focal-seizure family; agent-specific interaction, cardiac, hyponatremia and rash profiles differ.",
+          "drug_ids": [
+            "np_carbamazepine",
+            "np_oxcarbazepine",
+            "np_eslicarbazepine_acetate",
+            "np_phenytoin",
+            "np_fosphenytoin",
+            "np_lacosamide",
+            "np_lamotrigine"
+          ]
+        },
+        {
+          "id": "np_asm_sv2a",
+          "name": "SV2A ligands",
+          "mechanism": "Bind synaptic vesicle protein 2A and modulate neurotransmitter release",
+          "target": "SV2A",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "generalized_seizure",
+            "sv2a"
+          ],
+          "role_note": "Broadly used ASMs with relatively limited pharmacokinetic interactions; behavioral adverse effects matter.",
+          "drug_ids": [
+            "np_levetiracetam",
+            "np_brivaracetam"
+          ]
+        },
+        {
+          "id": "np_asm_broad_multi",
+          "name": "Broad-spectrum multi-mechanism ASMs",
+          "mechanism": "Multiple ion-channel and inhibitory/excitatory neurotransmitter effects",
+          "target": "Multiple neuronal targets",
+          "tags": [
+            "epilepsy",
+            "generalized_seizure",
+            "focal_seizure"
+          ],
+          "role_note": "Useful across seizure types but safety profiles differ greatly.",
+          "drug_ids": [
+            "np_valproate_sodium_valproate",
+            "np_topiramate",
+            "np_zonisamide"
+          ]
+        },
+        {
+          "id": "np_asm_ttype",
+          "name": "T-type calcium-channel ASM",
+          "mechanism": "Reduces thalamic T-type calcium currents",
+          "target": "T-type Ca²⁺ channels",
+          "tags": [
+            "epilepsy",
+            "absence"
+          ],
+          "role_note": "Classic pharmacology for absence seizures.",
+          "drug_ids": [
+            "np_ethosuximide"
+          ]
+        },
+        {
+          "id": "np_asm_gaba_benzo",
+          "name": "Benzodiazepine antiseizure / rescue agents",
+          "mechanism": "Positive allosteric modulation of GABA-A increases inhibitory neurotransmission",
+          "target": "GABA-A receptor",
+          "tags": [
+            "epilepsy",
+            "gaba",
+            "status_epilepticus",
+            "controlled_drug"
+          ],
+          "role_note": "Rapid antiseizure effect; tolerance, sedation, respiratory depression and dependence limit chronic use.",
+          "drug_ids": [
+            "np_lorazepam",
+            "np_midazolam",
+            "np_diazepam",
+            "np_clobazam",
+            "np_clonazepam"
+          ]
+        },
+        {
+          "id": "np_asm_barbiturate",
+          "name": "Barbiturate antiseizure medicines",
+          "mechanism": "Prolong GABA-A chloride-channel opening and depress CNS excitability",
+          "target": "GABA-A receptor",
+          "tags": [
+            "epilepsy",
+            "gaba",
+            "controlled_drug"
+          ],
+          "role_note": "Older effective ASMs with sedation, dependence and major interaction burden.",
+          "drug_ids": [
+            "np_phenobarbital",
+            "np_primidone"
+          ]
+        },
+        {
+          "id": "np_asm_alpha2delta",
+          "name": "α2δ calcium-channel ligands",
+          "mechanism": "Bind α2δ subunit of voltage-gated calcium channels, reducing excitatory transmitter release",
+          "target": "α2δ subunit",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "neuropathic_pain"
+          ],
+          "role_note": "Adjunct focal-seizure and neuropathic-pain pharmacology; renal clearance is important.",
+          "drug_ids": [
+            "np_gabapentin",
+            "np_pregabalin"
+          ]
+        },
+        {
+          "id": "np_asm_glutamate",
+          "name": "Glutamatergic / AMPA antagonism ASMs",
+          "mechanism": "Reduce excitatory glutamate signaling at AMPA receptors",
+          "target": "AMPA receptor",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "generalized_seizure"
+          ],
+          "role_note": "Newer adjunctive antiseizure mechanism.",
+          "drug_ids": [
+            "np_perampanel"
+          ]
+        },
+        {
+          "id": "np_asm_other_new",
+          "name": "Other newer / specialized ASMs",
+          "mechanism": "Diverse mechanisms including persistent sodium-current inhibition and endocannabinoid effects",
+          "target": "Multiple neuronal targets",
+          "tags": [
+            "epilepsy",
+            "focal_seizure"
+          ],
+          "role_note": "Specialist-focused options for refractory epilepsy.",
+          "drug_ids": [
+            "np_cenobamate",
+            "np_cannabidiol_prescription",
+            "np_rufinamide"
+          ]
+        },
+        {
+          "id": "np_triptans",
+          "name": "Triptans (5-HT1B/1D agonists)",
+          "mechanism": "Cranial vasoconstriction plus trigeminal neuropeptide inhibition",
+          "target": "5-HT1B/1D receptors",
+          "tags": [
+            "migraine_acute",
+            "serotonin"
+          ],
+          "role_note": "Migraine-specific acute therapy; cardiovascular contraindications and medication-overuse risk must be checked.",
+          "drug_ids": [
+            "np_sumatriptan",
+            "np_rizatriptan",
+            "np_zolmitriptan",
+            "np_eletriptan",
+            "np_naratriptan",
+            "np_almotriptan",
+            "np_frovatriptan"
+          ]
+        },
+        {
+          "id": "np_gepant_acute",
+          "name": "CGRP receptor antagonists (gepants) — acute",
+          "mechanism": "Block CGRP receptor signaling without triptan-like vasoconstriction",
+          "target": "CGRP receptor",
+          "tags": [
+            "migraine_acute",
+            "cgrp"
+          ],
+          "role_note": "Migraine-specific non-vasoconstrictor acute options; interaction/hepatic/renal limits vary.",
+          "drug_ids": [
+            "np_ubrogepant",
+            "np_rimegepant",
+            "np_zavegepant"
+          ]
+        },
+        {
+          "id": "np_ditan",
+          "name": "5-HT1F agonist (ditan)",
+          "mechanism": "Selective 5-HT1F agonism reduces trigeminal signaling without 5-HT1B vasoconstriction",
+          "target": "5-HT1F receptor",
+          "tags": [
+            "migraine_acute",
+            "serotonin",
+            "controlled_drug"
+          ],
+          "role_note": "Acute migraine option with prominent CNS impairment precautions.",
+          "drug_ids": [
+            "np_lasmiditan"
+          ]
+        },
+        {
+          "id": "np_migraine_cgrp_mab",
+          "name": "CGRP-pathway monoclonal antibodies — prevention",
+          "mechanism": "Neutralize CGRP ligand or block the CGRP receptor",
+          "target": "CGRP ligand/receptor",
+          "tags": [
+            "migraine_preventive",
+            "cgrp"
+          ],
+          "role_note": "Migraine prevention with monthly/quarterly SC or IV dosing; selection depends on access and phenotype.",
+          "drug_ids": [
+            "np_erenumab",
+            "np_fremanezumab",
+            "np_galcanezumab",
+            "np_eptinezumab"
+          ]
+        },
+        {
+          "id": "np_migraine_oral_preventive",
+          "name": "Oral migraine preventives — multi-mechanism",
+          "mechanism": "Reduce cortical/trigeminovascular excitability via diverse targets",
+          "target": "Multiple targets",
+          "tags": [
+            "migraine_preventive"
+          ],
+          "role_note": "Established oral prevention options; comorbidity often guides choice.",
+          "drug_ids": [
+            "np_propranolol",
+            "np_amitriptyline",
+            "np_candesartan",
+            "np_topiramate_2"
+          ]
+        },
+        {
+          "id": "np_gepant_preventive",
+          "name": "Oral CGRP antagonists — prevention",
+          "mechanism": "CGRP receptor antagonism reduces migraine signaling",
+          "target": "CGRP receptor",
+          "tags": [
+            "migraine_preventive",
+            "cgrp"
+          ],
+          "role_note": "Oral preventive CGRP pathway options.",
+          "drug_ids": [
+            "np_atogepant",
+            "np_rimegepant_preventive_schedule"
+          ]
+        },
+        {
+          "id": "np_botox_migraine",
+          "name": "OnabotulinumtoxinA for chronic migraine",
+          "mechanism": "Blocks acetylcholine release at peripheral nerve terminals and modulates nociceptive signaling",
+          "target": "SNARE-mediated acetylcholine release",
+          "tags": [
+            "migraine_preventive"
+          ],
+          "role_note": "Procedure-based prevention for chronic migraine, not episodic migraine.",
+          "drug_ids": [
+            "np_onabotulinumtoxina"
+          ]
+        },
+        {
+          "id": "np_cluster",
+          "name": "Cluster-headache specific pharmacology",
+          "mechanism": "Acute trigeminal-autonomic attack termination and preventive modulation",
+          "target": "5-HT1B/1D / calcium-channel and other targets",
+          "tags": [
+            "cluster_headache",
+            "migraine_acute"
+          ],
+          "role_note": "High-flow oxygen is non-drug first-line acute therapy; subcutaneous/nasal triptans and preventive verapamil are key pharmacologic concepts.",
+          "drug_ids": [
+            "np_sumatriptan_cluster_route",
+            "np_verapamil_cluster_prevention"
+          ]
+        },
+        {
+          "id": "np_vestib_antihist",
+          "name": "Vestibular H1 antihistamines / anticholinergic suppressants",
+          "mechanism": "Reduce vestibular nucleus signaling through H1 and antimuscarinic effects",
+          "target": "H1 / muscarinic receptors",
+          "tags": [
+            "vertigo",
+            "cholinergic"
+          ],
+          "role_note": "Short-term symptomatic relief of acute vertigo/motion sickness; prolonged suppression can impair compensation.",
+          "drug_ids": [
+            "np_meclizine",
+            "np_dimenhydrinate",
+            "np_promethazine",
+            "np_cinnarizine"
+          ]
+        },
+        {
+          "id": "np_vestib_dopamine",
+          "name": "Dopamine-antagonist antiemetics for severe vertigo/nausea",
+          "mechanism": "D2 antagonism in chemoreceptor trigger zone with vestibular antiemetic effect",
+          "target": "D2 receptor",
+          "tags": [
+            "vertigo",
+            "dopamine"
+          ],
+          "role_note": "Short-course antiemetic/vestibular suppression; EPS/QT risks matter.",
+          "drug_ids": [
+            "np_prochlorperazine",
+            "np_metoclopramide"
+          ]
+        },
+        {
+          "id": "np_betahistine",
+          "name": "Histamine-modulating antivertigo therapy",
+          "mechanism": "H1 agonist/H3 antagonist activity may influence vestibular compensation and inner-ear microcirculation",
+          "target": "Histamine H1/H3 receptors",
+          "tags": [
+            "vertigo"
+          ],
+          "role_note": "Used in Ménière-type vertigo in many countries; evidence/availability vary by jurisdiction.",
+          "drug_ids": [
+            "np_betahistine"
+          ]
+        },
+        {
+          "id": "np_pd_levodopa",
+          "name": "Levodopa + peripheral dopa-decarboxylase inhibitor",
+          "mechanism": "Levodopa crosses BBB and is converted to dopamine; carbidopa/benserazide reduces peripheral conversion",
+          "target": "Dopamine synthesis",
+          "tags": [
+            "parkinson",
+            "dopamine"
+          ],
+          "role_note": "Most effective symptomatic motor therapy; dose timing, protein interaction, wearing-off and dyskinesia matter.",
+          "drug_ids": [
+            "np_levodopa_carbidopa_immediate_release",
+            "np_levodopa_carbidopa_controlled_extended_release",
+            "np_levodopa_benserazide"
+          ]
+        },
+        {
+          "id": "np_pd_agonists",
+          "name": "Dopamine agonists",
+          "mechanism": "Directly stimulate dopamine receptors",
+          "target": "D2/D3 dopamine receptors",
+          "tags": [
+            "parkinson",
+            "dopamine"
+          ],
+          "role_note": "Can delay/add to levodopa but carry impulse-control, hallucination, edema and sleep-attack risks.",
+          "drug_ids": [
+            "np_pramipexole",
+            "np_ropinirole",
+            "np_rotigotine",
+            "np_apomorphine"
+          ]
+        },
+        {
+          "id": "np_pd_maob",
+          "name": "MAO-B inhibitors",
+          "mechanism": "Reduce dopamine breakdown by inhibiting monoamine oxidase-B",
+          "target": "MAO-B",
+          "tags": [
+            "parkinson",
+            "dopamine"
+          ],
+          "role_note": "Mild symptomatic/add-on therapy for wearing-off; interaction and serotonergic review required.",
+          "drug_ids": [
+            "np_selegiline",
+            "np_rasagiline",
+            "np_safinamide"
+          ]
+        },
+        {
+          "id": "np_pd_comt",
+          "name": "COMT inhibitors",
+          "mechanism": "Inhibit peripheral (and for tolcapone central) levodopa metabolism, prolonging levodopa effect",
+          "target": "Catechol-O-methyltransferase",
+          "tags": [
+            "parkinson",
+            "dopamine"
+          ],
+          "role_note": "Adjuncts for levodopa wearing-off; no meaningful monotherapy role.",
+          "drug_ids": [
+            "np_entacapone",
+            "np_opicapone",
+            "np_tolcapone"
+          ]
+        },
+        {
+          "id": "np_pd_amantadine",
+          "name": "Amantadine / NMDA-dopaminergic modulation",
+          "mechanism": "NMDA antagonism with dopaminergic effects",
+          "target": "NMDA / dopamine pathways",
+          "tags": [
+            "parkinson",
+            "dopamine",
+            "nmda"
+          ],
+          "role_note": "Useful particularly for dyskinesia; renal clearance and neuropsychiatric effects matter.",
+          "drug_ids": [
+            "np_amantadine"
+          ]
+        },
+        {
+          "id": "np_pd_anticholinergic",
+          "name": "Central antimuscarinics for parkinsonian tremor",
+          "mechanism": "Block central muscarinic cholinergic activity",
+          "target": "Muscarinic receptors",
+          "tags": [
+            "parkinson",
+            "cholinergic"
+          ],
+          "role_note": "Limited role, mainly tremor in younger selected patients; avoid in cognitive impairment/elderly when possible.",
+          "drug_ids": [
+            "np_trihexyphenidyl",
+            "np_benztropine"
+          ]
+        },
+        {
+          "id": "np_pd_a2a",
+          "name": "Adenosine A2A antagonist",
+          "mechanism": "Blocks striatal adenosine A2A receptors to modulate indirect pathway signaling",
+          "target": "Adenosine A2A receptor",
+          "tags": [
+            "parkinson",
+            "dopamine"
+          ],
+          "role_note": "Add-on for OFF episodes in levodopa-treated Parkinson disease.",
+          "drug_ids": [
+            "np_istradefylline"
+          ]
+        },
+        {
+          "id": "np_dementia_achei",
+          "name": "Acetylcholinesterase inhibitors",
+          "mechanism": "Increase synaptic acetylcholine by inhibiting acetylcholinesterase",
+          "target": "Acetylcholinesterase",
+          "tags": [
+            "dementia",
+            "cholinergic"
+          ],
+          "role_note": "Symptomatic cognitive therapy in Alzheimer disease and selected dementias; bradycardia/GI burden matters.",
+          "drug_ids": [
+            "np_donepezil",
+            "np_rivastigmine",
+            "np_galantamine"
+          ]
+        },
+        {
+          "id": "np_dementia_nmda",
+          "name": "NMDA receptor antagonist for dementia",
+          "mechanism": "Moderate-affinity NMDA antagonism reduces pathologic glutamatergic excitotoxicity",
+          "target": "NMDA receptor",
+          "tags": [
+            "dementia",
+            "nmda"
+          ],
+          "role_note": "Symptomatic therapy for moderate–severe Alzheimer disease, alone or with AChEI.",
+          "drug_ids": [
+            "np_memantine"
+          ]
+        },
+        {
+          "id": "np_dementia_amyloid",
+          "name": "Anti-amyloid monoclonal antibodies",
+          "mechanism": "Bind aggregated amyloid-β species to reduce cerebral amyloid burden",
+          "target": "Amyloid-β",
+          "tags": [
+            "dementia",
+            "specialist"
+          ],
+          "role_note": "Disease-modifying specialist therapy for selected biomarker-confirmed early Alzheimer disease; not routine symptomatic dementia treatment.",
+          "drug_ids": [
+            "np_lecanemab",
+            "np_donanemab"
+          ]
+        },
+        {
+          "id": "np_stroke_antiplatelet",
+          "name": "Antiplatelet secondary-prevention pharmacology",
+          "mechanism": "Inhibit platelet activation/aggregation to reduce recurrent non-cardioembolic ischemic events",
+          "target": "Platelet COX-1 / P2Y12",
+          "tags": [
+            "stroke_adjunct"
+          ],
+          "role_note": "Stroke prevention depends on stroke mechanism; short DAPT is only for selected acute minor stroke/TIA scenarios, not indefinite default therapy.",
+          "drug_ids": [
+            "np_aspirin",
+            "np_clopidogrel",
+            "np_aspirin_clopidogrel_short_course_dapt"
+          ]
+        },
+        {
+          "id": "np_stroke_lipid",
+          "name": "High-intensity lipid lowering after atherosclerotic ischemic stroke",
+          "mechanism": "LDL reduction and plaque stabilization",
+          "target": "HMG-CoA reductase / LDL pathway",
+          "tags": [
+            "stroke_adjunct"
+          ],
+          "role_note": "Secondary vascular prevention after atherosclerotic ischemic stroke; targets/intensification depend on vascular risk and tolerance.",
+          "drug_ids": [
+            "np_atorvastatin",
+            "np_rosuvastatin"
+          ]
+        },
+        {
+          "id": "np_ssri",
+          "name": "Selective serotonin reuptake inhibitors (SSRIs)",
+          "mechanism": "Block serotonin transporter and increase synaptic serotonin",
+          "target": "SERT",
+          "tags": [
+            "depression",
+            "anxiety",
+            "serotonin"
+          ],
+          "role_note": "Common first-line antidepressant/anxiolytic family; individual agents differ in half-life, QT, interactions and withdrawal.",
+          "drug_ids": [
+            "np_sertraline",
+            "np_escitalopram",
+            "np_fluoxetine",
+            "np_citalopram",
+            "np_paroxetine",
+            "np_fluvoxamine"
+          ]
+        },
+        {
+          "id": "np_snri",
+          "name": "Serotonin–norepinephrine reuptake inhibitors (SNRIs)",
+          "mechanism": "Block SERT and NET to increase serotonin and norepinephrine",
+          "target": "SERT / NET",
+          "tags": [
+            "depression",
+            "anxiety",
+            "neuropathic_pain",
+            "serotonin"
+          ],
+          "role_note": "Depression/anxiety drugs with pain utility for some agents; BP and discontinuation effects matter.",
+          "drug_ids": [
+            "np_venlafaxine_xr",
+            "np_duloxetine",
+            "np_desvenlafaxine"
+          ]
+        },
+        {
+          "id": "np_atypical_antidepressant",
+          "name": "Atypical / multimodal antidepressants",
+          "mechanism": "Diverse monoaminergic mechanisms beyond classic SSRI/SNRI",
+          "target": "Multiple monoamine targets",
+          "tags": [
+            "depression",
+            "anxiety",
+            "serotonin"
+          ],
+          "role_note": "Useful when symptom profile or adverse-effect priorities favor a different mechanism.",
+          "drug_ids": [
+            "np_bupropion_xl",
+            "np_mirtazapine",
+            "np_vortioxetine",
+            "np_trazodone"
+          ]
+        },
+        {
+          "id": "np_tca",
+          "name": "Tricyclic antidepressants",
+          "mechanism": "Inhibit serotonin/norepinephrine reuptake with varying anticholinergic/antihistamine effects",
+          "target": "SERT / NET + muscarinic/H1",
+          "tags": [
+            "depression",
+            "neuropathic_pain",
+            "migraine_preventive"
+          ],
+          "role_note": "Effective but higher anticholinergic, cardiac and overdose toxicity than newer antidepressants.",
+          "drug_ids": [
+            "np_amitriptyline_2",
+            "np_nortriptyline",
+            "np_clomipramine",
+            "np_imipramine"
+          ]
+        },
+        {
+          "id": "np_maoi",
+          "name": "Monoamine oxidase inhibitors (MAOIs)",
+          "mechanism": "Irreversibly inhibit MAO-A/B, increasing monoamines",
+          "target": "MAO-A / MAO-B",
+          "tags": [
+            "depression",
+            "serotonin",
+            "specialist"
+          ],
+          "role_note": "Specialist treatment-resistant depression option with major food/drug interaction burden.",
+          "drug_ids": [
+            "np_phenelzine",
+            "np_tranylcypromine"
+          ]
+        },
+        {
+          "id": "np_rapid_antidepressant",
+          "name": "Rapid-acting glutamatergic antidepressant strategies",
+          "mechanism": "NMDA receptor antagonism and downstream synaptic plasticity effects",
+          "target": "NMDA / glutamatergic signaling",
+          "tags": [
+            "depression",
+            "nmda",
+            "specialist"
+          ],
+          "role_note": "Treatment-resistant depression strategies requiring monitored administration and diagnostic safeguards.",
+          "drug_ids": [
+            "np_esketamine",
+            "np_ketamine_specialist_off_label_depression"
+          ]
+        },
+        {
+          "id": "np_benzo_anxiety",
+          "name": "Benzodiazepine anxiolytics",
+          "mechanism": "Positive allosteric modulation of GABA-A receptors",
+          "target": "GABA-A receptor",
+          "tags": [
+            "anxiety",
+            "insomnia",
+            "gaba",
+            "controlled_drug"
+          ],
+          "role_note": "Rapid short-term anxiolysis; dependence, withdrawal, cognitive and fall risks argue against routine long-term use.",
+          "drug_ids": [
+            "np_lorazepam_2",
+            "np_clonazepam_2",
+            "np_alprazolam",
+            "np_diazepam_2"
+          ]
+        },
+        {
+          "id": "np_nonbenzo_anxiety",
+          "name": "Non-benzodiazepine anxiolytics",
+          "mechanism": "Serotonergic, antihistaminic or calcium-channel mechanisms reduce anxiety without classic benzodiazepine pharmacology",
+          "target": "5-HT1A / H1 / α2δ",
+          "tags": [
+            "anxiety"
+          ],
+          "role_note": "Alternatives/adjuncts for anxiety; onset and evidence differ by agent.",
+          "drug_ids": [
+            "np_buspirone",
+            "np_hydroxyzine",
+            "np_pregabalin_anxiety_context"
+          ]
+        },
+        {
+          "id": "np_z_hypnotic",
+          "name": "Non-benzodiazepine GABA-A hypnotics (Z-drugs)",
+          "mechanism": "Bind GABA-A benzodiazepine site with relative hypnotic selectivity",
+          "target": "GABA-A receptor",
+          "tags": [
+            "insomnia",
+            "gaba",
+            "controlled_drug"
+          ],
+          "role_note": "Short-term hypnotics; complex sleep behaviors, next-day impairment and dependence risks remain.",
+          "drug_ids": [
+            "np_zolpidem",
+            "np_eszopiclone",
+            "np_zaleplon"
+          ]
+        },
+        {
+          "id": "np_melatonin_sleep",
+          "name": "Melatonin-receptor sleep agents",
+          "mechanism": "Activate MT1/MT2 receptors to regulate circadian sleep signaling",
+          "target": "Melatonin MT1/MT2 receptors",
+          "tags": [
+            "insomnia"
+          ],
+          "role_note": "Circadian/sleep-onset focused agents with lower respiratory-depressant burden than GABA hypnotics.",
+          "drug_ids": [
+            "np_ramelteon",
+            "np_melatonin"
+          ]
+        },
+        {
+          "id": "np_orexin_sleep",
+          "name": "Dual orexin receptor antagonists",
+          "mechanism": "Block orexin OX1/OX2 wake-promoting signaling",
+          "target": "Orexin OX1/OX2 receptors",
+          "tags": [
+            "insomnia",
+            "controlled_drug"
+          ],
+          "role_note": "Sleep-onset/maintenance therapy; somnolence and next-day impairment remain important.",
+          "drug_ids": [
+            "np_daridorexant",
+            "np_suvorexant",
+            "np_lemborexant"
+          ]
+        },
+        {
+          "id": "np_sga",
+          "name": "Second-generation (atypical) antipsychotics",
+          "mechanism": "D2 and 5-HT2A modulation with agent-specific partial agonism/other receptor effects",
+          "target": "D2 / 5-HT2A and related receptors",
+          "tags": [
+            "psychosis",
+            "bipolar",
+            "dopamine",
+            "serotonin",
+            "metabolic_monitor"
+          ],
+          "role_note": "Core schizophrenia/psychosis medicines and some bipolar/augmentation uses; metabolic, prolactin, EPS and QT profiles differ.",
+          "drug_ids": [
+            "np_risperidone",
+            "np_olanzapine",
+            "np_quetiapine",
+            "np_aripiprazole",
+            "np_paliperidone",
+            "np_lurasidone",
+            "np_ziprasidone",
+            "np_amisulpride",
+            "np_clozapine"
+          ]
+        },
+        {
+          "id": "np_fga",
+          "name": "First-generation (typical) antipsychotics",
+          "mechanism": "Potent dopamine D2 receptor antagonism",
+          "target": "D2 receptor",
+          "tags": [
+            "psychosis",
+            "dopamine"
+          ],
+          "role_note": "Effective antipsychotics with higher EPS/tardive dyskinesia burden for many agents.",
+          "drug_ids": [
+            "np_haloperidol",
+            "np_chlorpromazine",
+            "np_trifluoperazine",
+            "np_fluphenazine"
+          ]
+        },
+        {
+          "id": "np_lai",
+          "name": "Long-acting injectable antipsychotics",
+          "mechanism": "Depot formulations provide sustained D2/5-HT2A or partial-agonist exposure",
+          "target": "Dopamine/serotonin receptors",
+          "tags": [
+            "psychosis",
+            "dopamine",
+            "metabolic_monitor"
+          ],
+          "role_note": "Adherence-support strategy after oral tolerability/agent-specific loading requirements are addressed.",
+          "drug_ids": [
+            "np_risperidone_lai",
+            "np_paliperidone_palmitate_lai",
+            "np_aripiprazole_lai",
+            "np_haloperidol_decanoate"
+          ]
+        },
+        {
+          "id": "np_lithium",
+          "name": "Lithium mood stabilizer",
+          "mechanism": "Modulates intracellular second-messenger signaling and neurotransmission",
+          "target": "Multiple intracellular signaling pathways",
+          "tags": [
+            "bipolar",
+            "mood_stabilizer"
+          ],
+          "role_note": "Highly effective mood stabilizer with anti-suicidal evidence but narrow therapeutic index and major renal/thyroid/interactions burden.",
+          "drug_ids": [
+            "np_lithium_carbonate"
+          ]
+        },
+        {
+          "id": "np_bipolar_asm",
+          "name": "Antiseizure mood stabilizers",
+          "mechanism": "Mood stabilization through sodium-channel/GABA/multiple mechanisms",
+          "target": "Multiple neuronal targets",
+          "tags": [
+            "bipolar",
+            "mood_stabilizer",
+            "pregnancy_caution"
+          ],
+          "role_note": "Valproate, carbamazepine and lamotrigine have different roles in mania vs bipolar depression/maintenance; not interchangeable.",
+          "drug_ids": [
+            "np_valproate_bipolar_context",
+            "np_lamotrigine_bipolar_maintenance",
+            "np_carbamazepine_bipolar_context"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "np_carbamazepine",
+          "generic": "Carbamazepine",
+          "class_id": "np_asm_sodium",
+          "form": "IR/XR tablet, suspension",
+          "route": "Oral",
+          "dose_example": "Common adult start: 200 mg twice daily; titrate by response/levels.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "pregnancy_caution",
+            "sodium_channel"
+          ],
+          "role": "Focal seizures; trigeminal neuralgia also uses this mechanism.",
+          "monitoring_pearl": "CBC/LFT/sodium; CYP interactions; HLA-associated severe rash risk in susceptible ancestry.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_oxcarbazepine",
+          "generic": "Oxcarbazepine",
+          "class_id": "np_asm_sodium",
+          "form": "Tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Common adult start: 300 mg twice daily; titrate.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "pregnancy_caution",
+            "sodium_channel"
+          ],
+          "role": "Focal seizures.",
+          "monitoring_pearl": "Monitor sodium; fewer CYP interactions than carbamazepine but still clinically important.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_eslicarbazepine_acetate",
+          "generic": "Eslicarbazepine acetate",
+          "class_id": "np_asm_sodium",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult start often 400 mg once daily; titrate.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "pregnancy_caution",
+            "sodium_channel"
+          ],
+          "role": "Adjunct/monotherapy focal seizures.",
+          "monitoring_pearl": "Sodium, dizziness, PR interval and interaction review.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_phenytoin",
+          "generic": "Phenytoin",
+          "class_id": "np_asm_sodium",
+          "form": "Capsule/tablet/suspension/IV",
+          "route": "Oral/IV",
+          "dose_example": "Maintenance is individualized, commonly around 300 mg/day; loading is emergency/weight-specific.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "pregnancy_caution",
+            "sodium_channel",
+            "status_epilepticus"
+          ],
+          "role": "Focal/generalized tonic-clonic; IV use in status pathways.",
+          "monitoring_pearl": "Narrow therapeutic index, levels, albumin, interactions, gingival/bone effects; nonlinear kinetics.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_fosphenytoin",
+          "generic": "Fosphenytoin",
+          "class_id": "np_asm_sodium",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Status loading is weight-based in phenytoin equivalents; verify emergency protocol.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "pregnancy_caution",
+            "sodium_channel",
+            "status_epilepticus"
+          ],
+          "role": "Parenteral prodrug used in status pathways.",
+          "monitoring_pearl": "ECG/BP monitoring during IV loading; PE-based dosing.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_lacosamide",
+          "generic": "Lacosamide",
+          "class_id": "np_asm_sodium",
+          "form": "Tablet/oral solution/IV",
+          "route": "Oral/IV",
+          "dose_example": "Common adult start: 50 mg twice daily; usual maintenance often 100–200 mg twice daily.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "sodium_channel"
+          ],
+          "role": "Focal seizures; IV option available.",
+          "monitoring_pearl": "PR prolongation, dizziness; ECG in conduction disease or interacting drugs.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_lamotrigine",
+          "generic": "Lamotrigine",
+          "class_id": "np_asm_sodium",
+          "form": "Tablet/dispersible",
+          "route": "Oral",
+          "dose_example": "Requires slow titration; schedule changes with valproate/enzyme inducers—verify exact label.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "generalized_seizure",
+            "pregnancy_caution",
+            "sodium_channel"
+          ],
+          "role": "Broad utility including focal/generalized epilepsy and bipolar maintenance.",
+          "monitoring_pearl": "Serious rash/SJS risk if titrated too rapidly; interaction-dependent schedule.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_levetiracetam",
+          "generic": "Levetiracetam",
+          "class_id": "np_asm_sv2a",
+          "form": "Tablet/oral solution/IV",
+          "route": "Oral/IV",
+          "dose_example": "Common adult start: 500 mg twice daily; renal-adjust.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "generalized_seizure",
+            "status_epilepticus",
+            "sv2a"
+          ],
+          "role": "Broad-spectrum focal/generalized use; common IV second-line status option.",
+          "monitoring_pearl": "Renal adjustment; mood/irritability/suicidality review.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_brivaracetam",
+          "generic": "Brivaracetam",
+          "class_id": "np_asm_sv2a",
+          "form": "Tablet/oral solution/IV",
+          "route": "Oral/IV",
+          "dose_example": "Common adult range: 50 mg twice daily; individualized.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "generalized_seizure",
+            "sv2a"
+          ],
+          "role": "High-affinity SV2A focal-seizure therapy.",
+          "monitoring_pearl": "Somnolence, behavioral effects, hepatic adjustment/interactions.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_valproate_sodium_valproate",
+          "generic": "Valproate / Sodium valproate",
+          "class_id": "np_asm_broad_multi",
+          "form": "IR/DR/ER tablet, liquid, IV",
+          "route": "Oral/IV",
+          "dose_example": "Dose is weight/indication-specific; common initiation around 10–15 mg/kg/day with titration.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "generalized_seizure",
+            "pregnancy_caution",
+            "status_epilepticus"
+          ],
+          "role": "Broad-spectrum ASM; also mood-stabilizer/migraine roles.",
+          "monitoring_pearl": "Major reproductive restrictions; LFT/CBC, weight/metabolic, pancreatitis/ammonia when indicated.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_topiramate",
+          "generic": "Topiramate",
+          "class_id": "np_asm_broad_multi",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common epilepsy start: 25–50 mg/day with slow titration; migraine prevention often 25 mg nightly then titrate.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "generalized_seizure",
+            "migraine_preventive",
+            "pregnancy_caution"
+          ],
+          "role": "Broad-spectrum ASM and migraine preventive.",
+          "monitoring_pearl": "Cognition, weight loss, bicarbonate, nephrolithiasis, glaucoma; reproductive safety.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED",
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_zonisamide",
+          "generic": "Zonisamide",
+          "class_id": "np_asm_broad_multi",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Common adult start: 100 mg/day; gradual titration.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "generalized_seizure"
+          ],
+          "role": "Broad-spectrum adjunct.",
+          "monitoring_pearl": "Sulfonamide reactions, stones, bicarbonate, weight/cognition, renal function.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_ethosuximide",
+          "generic": "Ethosuximide",
+          "class_id": "np_asm_ttype",
+          "form": "Capsule/syrup",
+          "route": "Oral",
+          "dose_example": "Common adult start: 250 mg twice daily; titrate to seizure control.",
+          "tags": [
+            "absence",
+            "epilepsy"
+          ],
+          "role": "Absence-seizure focused agent.",
+          "monitoring_pearl": "GI/CNS effects; CBC/LFT if clinically indicated.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_lorazepam",
+          "generic": "Lorazepam",
+          "class_id": "np_asm_gaba_benzo",
+          "form": "Injection/tablet",
+          "route": "IV/Oral",
+          "dose_example": "Convulsive status dosing is emergency weight/protocol-specific; IV lorazepam is a common first-line rescue option.",
+          "tags": [
+            "controlled_drug",
+            "epilepsy",
+            "gaba",
+            "status_epilepticus"
+          ],
+          "role": "Rescue or adjunctive GABAergic antiseizure therapy.",
+          "monitoring_pearl": "Sedation, respiratory depression, falls, tolerance/dependence; avoid abrupt withdrawal.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_midazolam",
+          "generic": "Midazolam",
+          "class_id": "np_asm_gaba_benzo",
+          "form": "Injection/buccal/intranasal products",
+          "route": "IV/IM/Buccal/Intranasal",
+          "dose_example": "Emergency rescue dosing is route/age/weight-specific—verify protocol.",
+          "tags": [
+            "controlled_drug",
+            "epilepsy",
+            "gaba",
+            "status_epilepticus"
+          ],
+          "role": "Rescue or adjunctive GABAergic antiseizure therapy.",
+          "monitoring_pearl": "Sedation, respiratory depression, falls, tolerance/dependence; avoid abrupt withdrawal.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_diazepam",
+          "generic": "Diazepam",
+          "class_id": "np_asm_gaba_benzo",
+          "form": "Injection/rectal gel/nasal spray/tablet",
+          "route": "IV/Rectal/Intranasal/Oral",
+          "dose_example": "Emergency rescue dosing is route/age/weight-specific—verify protocol.",
+          "tags": [
+            "controlled_drug",
+            "epilepsy",
+            "gaba",
+            "status_epilepticus"
+          ],
+          "role": "Rescue or adjunctive GABAergic antiseizure therapy.",
+          "monitoring_pearl": "Sedation, respiratory depression, falls, tolerance/dependence; avoid abrupt withdrawal.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_clobazam",
+          "generic": "Clobazam",
+          "class_id": "np_asm_gaba_benzo",
+          "form": "Tablet/oral suspension",
+          "route": "Oral",
+          "dose_example": "Common adult use often starts 5–10 mg/day and is titrated; indication-specific.",
+          "tags": [
+            "controlled_drug",
+            "epilepsy",
+            "gaba",
+            "status_epilepticus"
+          ],
+          "role": "Rescue or adjunctive GABAergic antiseizure therapy.",
+          "monitoring_pearl": "Sedation, respiratory depression, falls, tolerance/dependence; avoid abrupt withdrawal.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_clonazepam",
+          "generic": "Clonazepam",
+          "class_id": "np_asm_gaba_benzo",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult initiation often 0.25–0.5 mg one to three times daily depending indication; titrate cautiously.",
+          "tags": [
+            "controlled_drug",
+            "epilepsy",
+            "gaba",
+            "status_epilepticus"
+          ],
+          "role": "Rescue or adjunctive GABAergic antiseizure therapy.",
+          "monitoring_pearl": "Sedation, respiratory depression, falls, tolerance/dependence; avoid abrupt withdrawal.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_phenobarbital",
+          "generic": "Phenobarbital",
+          "class_id": "np_asm_barbiturate",
+          "form": "Tablet/elixir/injection",
+          "route": "Oral/IV",
+          "dose_example": "Maintenance and loading are weight/indication-specific; verify protocol.",
+          "tags": [
+            "controlled_drug",
+            "epilepsy",
+            "gaba",
+            "status_epilepticus"
+          ],
+          "role": "Seizure control/status pathway option.",
+          "monitoring_pearl": "Sedation, respiratory depression, dependence, CYP induction, bone health.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_primidone",
+          "generic": "Primidone",
+          "class_id": "np_asm_barbiturate",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Low-dose initiation with gradual titration; exact schedule indication-specific.",
+          "tags": [
+            "controlled_drug",
+            "epilepsy",
+            "gaba"
+          ],
+          "role": "Seizures; also essential tremor use.",
+          "monitoring_pearl": "Sedation, ataxia, CBC and interaction review.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_gabapentin",
+          "generic": "Gabapentin",
+          "class_id": "np_asm_alpha2delta",
+          "form": "Capsule/tablet/solution",
+          "route": "Oral",
+          "dose_example": "Often titrated from 300 mg once daily to divided doses; renal-adjust.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "neuropathic_pain"
+          ],
+          "role": "Focal-seizure adjunct / neuropathic pain.",
+          "monitoring_pearl": "Renal adjustment, sedation, dizziness; taper rather than abrupt stop.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED",
+            "NICE_NEUROPATHIC_CG173",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_pregabalin",
+          "generic": "Pregabalin",
+          "class_id": "np_asm_alpha2delta",
+          "form": "Capsule/solution",
+          "route": "Oral",
+          "dose_example": "Common neuropathic-pain start: 75 mg twice daily (or equivalent); renal-adjust.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "neuropathic_pain"
+          ],
+          "role": "Neuropathic pain / focal-seizure adjunct / selected anxiety contexts.",
+          "monitoring_pearl": "Renal adjustment, edema, weight gain, sedation/misuse risk.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED",
+            "NICE_NEUROPATHIC_CG173",
+            "DAILYMED",
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_perampanel",
+          "generic": "Perampanel",
+          "class_id": "np_asm_glutamate",
+          "form": "Tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Common adult start: 2 mg at bedtime; slow titration.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure",
+            "generalized_seizure"
+          ],
+          "role": "Focal and generalized tonic-clonic adjunct.",
+          "monitoring_pearl": "Behavioral aggression/psychiatric effects, dizziness, falls, interactions.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_cenobamate",
+          "generic": "Cenobamate",
+          "class_id": "np_asm_other_new",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Starts very low (12.5 mg once daily) with slow scheduled titration.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure"
+          ],
+          "role": "Focal-onset seizures in adults.",
+          "monitoring_pearl": "DRESS risk if titrated rapidly; QT shortening; major interaction review.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_cannabidiol_prescription",
+          "generic": "Cannabidiol (prescription)",
+          "class_id": "np_asm_other_new",
+          "form": "Oral solution",
+          "route": "Oral",
+          "dose_example": "Weight-based specialist dosing; verify syndrome-specific label.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure"
+          ],
+          "role": "Selected severe epilepsy syndromes.",
+          "monitoring_pearl": "LFTs, somnolence, interactions especially with clobazam/valproate.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_rufinamide",
+          "generic": "Rufinamide",
+          "class_id": "np_asm_other_new",
+          "form": "Tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Weight/age and food-dependent titration; verify label.",
+          "tags": [
+            "epilepsy",
+            "focal_seizure"
+          ],
+          "role": "Lennox–Gastaut syndrome.",
+          "monitoring_pearl": "QT shortening, dizziness, interactions.",
+          "source_refs": [
+            "NICE_EPILEPSY_NG217",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_sumatriptan",
+          "generic": "Sumatriptan",
+          "class_id": "np_triptans",
+          "form": "Tablet/nasal spray/SC injection",
+          "route": "Oral/Nasal/SC",
+          "dose_example": "Typical adult options include 50–100 mg oral once, 10–20 mg nasal, or 6 mg SC; route-specific repeat/max limits apply.",
+          "tags": [
+            "migraine_acute",
+            "serotonin"
+          ],
+          "role": "Acute migraine-specific therapy.",
+          "monitoring_pearl": "Avoid/verify in significant ischemic vascular disease; serotonin and medication-overuse review.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_rizatriptan",
+          "generic": "Rizatriptan",
+          "class_id": "np_triptans",
+          "form": "Tablet/ODT",
+          "route": "Oral",
+          "dose_example": "5–10 mg at onset; repeat/max limits and propranolol interaction apply.",
+          "tags": [
+            "migraine_acute",
+            "serotonin"
+          ],
+          "role": "Acute migraine-specific therapy.",
+          "monitoring_pearl": "Avoid/verify in significant ischemic vascular disease; serotonin and medication-overuse review.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_zolmitriptan",
+          "generic": "Zolmitriptan",
+          "class_id": "np_triptans",
+          "form": "Tablet/ODT/nasal",
+          "route": "Oral/Nasal",
+          "dose_example": "2.5–5 mg at onset; route-specific max applies.",
+          "tags": [
+            "migraine_acute",
+            "serotonin"
+          ],
+          "role": "Acute migraine-specific therapy.",
+          "monitoring_pearl": "Avoid/verify in significant ischemic vascular disease; serotonin and medication-overuse review.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_eletriptan",
+          "generic": "Eletriptan",
+          "class_id": "np_triptans",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "20–40 mg at onset; interaction/max-dose rules apply.",
+          "tags": [
+            "migraine_acute",
+            "serotonin"
+          ],
+          "role": "Acute migraine-specific therapy.",
+          "monitoring_pearl": "Avoid/verify in significant ischemic vascular disease; serotonin and medication-overuse review.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_naratriptan",
+          "generic": "Naratriptan",
+          "class_id": "np_triptans",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "1–2.5 mg at onset; slower onset/longer half-life profile.",
+          "tags": [
+            "migraine_acute",
+            "serotonin"
+          ],
+          "role": "Acute migraine-specific therapy.",
+          "monitoring_pearl": "Avoid/verify in significant ischemic vascular disease; serotonin and medication-overuse review.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_almotriptan",
+          "generic": "Almotriptan",
+          "class_id": "np_triptans",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "6.25–12.5 mg at onset; repeat/max per label.",
+          "tags": [
+            "migraine_acute",
+            "serotonin"
+          ],
+          "role": "Acute migraine-specific therapy.",
+          "monitoring_pearl": "Avoid/verify in significant ischemic vascular disease; serotonin and medication-overuse review.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_frovatriptan",
+          "generic": "Frovatriptan",
+          "class_id": "np_triptans",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "2.5 mg at onset; long half-life; max per label.",
+          "tags": [
+            "migraine_acute",
+            "serotonin"
+          ],
+          "role": "Acute migraine-specific therapy.",
+          "monitoring_pearl": "Avoid/verify in significant ischemic vascular disease; serotonin and medication-overuse review.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_ubrogepant",
+          "generic": "Ubrogepant",
+          "class_id": "np_gepant_acute",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "50 or 100 mg once; a second dose may be allowed after ≥2 h within label max.",
+          "tags": [
+            "cgrp",
+            "migraine_acute"
+          ],
+          "role": "Acute migraine.",
+          "monitoring_pearl": "CYP3A4 interactions; hepatic/renal label restrictions.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_rimegepant",
+          "generic": "Rimegepant",
+          "class_id": "np_gepant_acute",
+          "form": "ODT",
+          "route": "Oral",
+          "dose_example": "75 mg once for acute migraine; do not exceed label frequency.",
+          "tags": [
+            "cgrp",
+            "migraine_acute"
+          ],
+          "role": "Acute migraine; also preventive schedule.",
+          "monitoring_pearl": "CYP3A/P-gp interactions; hepatic/renal restrictions.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_zavegepant",
+          "generic": "Zavegepant",
+          "class_id": "np_gepant_acute",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "10 mg as a single nasal dose for an attack; label frequency limits apply.",
+          "tags": [
+            "cgrp",
+            "migraine_acute"
+          ],
+          "role": "Acute migraine.",
+          "monitoring_pearl": "Taste disturbance/nasal effects; interaction and hepatic/renal review.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_lasmiditan",
+          "generic": "Lasmiditan",
+          "class_id": "np_ditan",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "50, 100 or 200 mg as a single dose; do not repeat within 24 h per label.",
+          "tags": [
+            "controlled_drug",
+            "migraine_acute",
+            "serotonin"
+          ],
+          "role": "Acute migraine.",
+          "monitoring_pearl": "Marked dizziness/somnolence; driving restriction after dose; serotonergic/CNS depressant review.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_erenumab",
+          "generic": "Erenumab",
+          "class_id": "np_migraine_cgrp_mab",
+          "form": "Prefilled autoinjector",
+          "route": "SC",
+          "dose_example": "70 mg monthly; some patients use 140 mg monthly.",
+          "tags": [
+            "cgrp",
+            "migraine_preventive"
+          ],
+          "role": "Migraine preventive CGRP-pathway therapy.",
+          "monitoring_pearl": "Constipation and hypertension warnings; injection reactions.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_fremanezumab",
+          "generic": "Fremanezumab",
+          "class_id": "np_migraine_cgrp_mab",
+          "form": "Prefilled syringe/autoinjector",
+          "route": "SC",
+          "dose_example": "225 mg monthly or 675 mg every 3 months.",
+          "tags": [
+            "cgrp",
+            "migraine_preventive"
+          ],
+          "role": "Migraine preventive CGRP-pathway therapy.",
+          "monitoring_pearl": "Injection reactions; hypersensitivity.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_galcanezumab",
+          "generic": "Galcanezumab",
+          "class_id": "np_migraine_cgrp_mab",
+          "form": "Prefilled pen/syringe",
+          "route": "SC",
+          "dose_example": "Migraine: loading then 120 mg monthly; cluster regimen differs.",
+          "tags": [
+            "cgrp",
+            "migraine_preventive"
+          ],
+          "role": "Migraine preventive CGRP-pathway therapy.",
+          "monitoring_pearl": "Injection reactions; hypersensitivity.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_eptinezumab",
+          "generic": "Eptinezumab",
+          "class_id": "np_migraine_cgrp_mab",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "100 mg every 3 months; 300 mg may be used.",
+          "tags": [
+            "cgrp",
+            "migraine_preventive"
+          ],
+          "role": "Migraine preventive CGRP-pathway therapy.",
+          "monitoring_pearl": "Infusion/hypersensitivity monitoring.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_propranolol",
+          "generic": "Propranolol",
+          "class_id": "np_migraine_oral_preventive",
+          "form": "Tablet/ER",
+          "route": "Oral",
+          "dose_example": "Often started 20–40 mg twice daily (or ER equivalent) and titrated.",
+          "tags": [
+            "migraine_preventive"
+          ],
+          "role": "β-blocker migraine prevention.",
+          "monitoring_pearl": "BP/HR, asthma/bronchospasm, fatigue.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_amitriptyline",
+          "generic": "Amitriptyline",
+          "class_id": "np_migraine_oral_preventive",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Often 10–25 mg at night, titrated as needed.",
+          "tags": [
+            "migraine_preventive"
+          ],
+          "role": "TCA migraine/tension-headache prevention.",
+          "monitoring_pearl": "Anticholinergic burden, sedation, QT/overdose toxicity.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_candesartan",
+          "generic": "Candesartan",
+          "class_id": "np_migraine_oral_preventive",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common preventive target often 16 mg/day after lower start.",
+          "tags": [
+            "migraine_preventive"
+          ],
+          "role": "ARB off-label migraine prevention in some guidelines/practice.",
+          "monitoring_pearl": "BP, potassium, renal function, pregnancy contraindication.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_topiramate_2",
+          "generic": "Topiramate",
+          "class_id": "np_migraine_oral_preventive",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Often 25 mg nightly then gradual titration toward 50 mg twice daily if tolerated.",
+          "tags": [
+            "migraine_preventive"
+          ],
+          "role": "Antiseizure migraine prevention.",
+          "monitoring_pearl": "Cognition, stones, bicarbonate, weight, pregnancy caution.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_atogepant",
+          "generic": "Atogepant",
+          "class_id": "np_gepant_preventive",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "10, 30 or 60 mg once daily depending regimen/interactions.",
+          "tags": [
+            "cgrp",
+            "migraine_preventive"
+          ],
+          "role": "Preventive migraine therapy.",
+          "monitoring_pearl": "CYP3A/OATP interactions; constipation/nausea; hepatic/renal restrictions.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_rimegepant_preventive_schedule",
+          "generic": "Rimegepant (preventive schedule)",
+          "class_id": "np_gepant_preventive",
+          "form": "ODT",
+          "route": "Oral",
+          "dose_example": "75 mg every other day for prevention per label.",
+          "tags": [
+            "cgrp",
+            "migraine_preventive"
+          ],
+          "role": "Preventive migraine therapy.",
+          "monitoring_pearl": "Interaction and hepatic/renal review.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_onabotulinumtoxina",
+          "generic": "OnabotulinumtoxinA",
+          "class_id": "np_botox_migraine",
+          "form": "Injection vials",
+          "route": "IM / pericranial protocol",
+          "dose_example": "Chronic migraine uses a standardized multi-site injection protocol every 12 weeks; specialist administration.",
+          "tags": [
+            "migraine_preventive"
+          ],
+          "role": "Chronic migraine prevention.",
+          "monitoring_pearl": "Injection-site weakness; swallowing/breathing warnings; procedure expertise required.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_sumatriptan_cluster_route",
+          "generic": "Sumatriptan (cluster route)",
+          "class_id": "np_cluster",
+          "form": "SC injection / nasal spray",
+          "route": "SC/Intranasal",
+          "dose_example": "SC 6 mg is a common rapid acute option; repeat/max and CV limits apply.",
+          "tags": [
+            "cluster_headache",
+            "migraine_acute"
+          ],
+          "role": "Acute cluster headache.",
+          "monitoring_pearl": "CV contraindications and total daily exposure.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_verapamil_cluster_prevention",
+          "generic": "Verapamil (cluster prevention)",
+          "class_id": "np_cluster",
+          "form": "Tablet/ER",
+          "route": "Oral",
+          "dose_example": "Preventive doses are titrated and often higher than routine CV use; ECG-guided specialist titration is required.",
+          "tags": [
+            "cluster_headache",
+            "migraine_acute"
+          ],
+          "role": "Cluster headache prevention.",
+          "monitoring_pearl": "Serial ECG/PR interval; constipation/hypotension; interactions.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_meclizine",
+          "generic": "Meclizine",
+          "class_id": "np_vestib_antihist",
+          "form": "Tablet/chewable",
+          "route": "Oral",
+          "dose_example": "25–50 mg, typically once daily or divided depending indication.",
+          "tags": [
+            "cholinergic",
+            "vertigo"
+          ],
+          "role": "Short-term vestibular suppression / antiemetic support.",
+          "monitoring_pearl": "Sedation, anticholinergic effects, falls; avoid prolonged routine use without diagnosis.",
+          "source_refs": [
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_dimenhydrinate",
+          "generic": "Dimenhydrinate",
+          "class_id": "np_vestib_antihist",
+          "form": "Tablet/injection",
+          "route": "Oral",
+          "dose_example": "50 mg every 4–6 h as needed within label max.",
+          "tags": [
+            "cholinergic",
+            "vertigo"
+          ],
+          "role": "Short-term vestibular suppression / antiemetic support.",
+          "monitoring_pearl": "Sedation, anticholinergic effects, falls; avoid prolonged routine use without diagnosis.",
+          "source_refs": [
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_promethazine",
+          "generic": "Promethazine",
+          "class_id": "np_vestib_antihist",
+          "form": "Tablet/syrup/injection",
+          "route": "Oral/IM/IV",
+          "dose_example": "12.5–25 mg as needed; route-specific restrictions apply.",
+          "tags": [
+            "cholinergic",
+            "vertigo"
+          ],
+          "role": "Short-term vestibular suppression / antiemetic support.",
+          "monitoring_pearl": "Sedation, anticholinergic effects, falls; avoid prolonged routine use without diagnosis.",
+          "source_refs": [
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_cinnarizine",
+          "generic": "Cinnarizine",
+          "class_id": "np_vestib_antihist",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult vertigo dosing varies by local product; verify India label/formulary.",
+          "tags": [
+            "cholinergic",
+            "vertigo"
+          ],
+          "role": "Short-term vestibular suppression / antiemetic support.",
+          "monitoring_pearl": "Sedation, anticholinergic effects, falls; avoid prolonged routine use without diagnosis.",
+          "source_refs": [
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_prochlorperazine",
+          "generic": "Prochlorperazine",
+          "class_id": "np_vestib_dopamine",
+          "form": "Tablet/buccal/injection",
+          "route": "Oral/Buccal/IM",
+          "dose_example": "Common adult oral use 5–10 mg up to several times daily short-term; verify indication/form.",
+          "tags": [
+            "dopamine",
+            "vertigo"
+          ],
+          "role": "Severe nausea/vertigo symptom control.",
+          "monitoring_pearl": "EPS, akathisia, QT, sedation; avoid prolonged use.",
+          "source_refs": [
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_metoclopramide",
+          "generic": "Metoclopramide",
+          "class_id": "np_vestib_dopamine",
+          "form": "Tablet/solution/injection",
+          "route": "Oral/IV/IM",
+          "dose_example": "Common antiemetic dose 10 mg up to three times daily short-term; indication/age restrictions apply.",
+          "tags": [
+            "dopamine",
+            "vertigo"
+          ],
+          "role": "Nausea; migraine adjunct in some acute pathways.",
+          "monitoring_pearl": "Acute dystonia/tardive dyskinesia, QT, renal adjustment; duration restrictions.",
+          "source_refs": [
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_betahistine",
+          "generic": "Betahistine",
+          "class_id": "np_betahistine",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult regimens total 24–48 mg/day in divided doses; verify local product label.",
+          "tags": [
+            "vertigo"
+          ],
+          "role": "Ménière/vertigo symptomatic management in jurisdictions where used.",
+          "monitoring_pearl": "GI effects; caution with active peptic ulcer/asthma; jurisdiction-specific evidence.",
+          "source_refs": [
+            "ICMR_NEURO"
+          ]
+        },
+        {
+          "id": "np_levodopa_carbidopa_immediate_release",
+          "generic": "Levodopa/Carbidopa immediate-release",
+          "class_id": "np_pd_levodopa",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common initiation may use 25/100 mg three times daily, individualized to symptoms/tolerance.",
+          "tags": [
+            "dopamine",
+            "parkinson"
+          ],
+          "role": "Core Parkinson motor therapy.",
+          "monitoring_pearl": "Nausea, orthostasis, hallucination, dyskinesia, wearing-off; avoid abrupt withdrawal.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_levodopa_carbidopa_controlled_extended_release",
+          "generic": "Levodopa/Carbidopa controlled/extended-release",
+          "class_id": "np_pd_levodopa",
+          "form": "ER tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Conversion from IR is not 1:1; individualized schedule required.",
+          "tags": [
+            "dopamine",
+            "parkinson"
+          ],
+          "role": "Extended dopaminergic coverage.",
+          "monitoring_pearl": "Motor fluctuations and dyskinesia; formulation-specific conversion.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_levodopa_benserazide",
+          "generic": "Levodopa/Benserazide",
+          "class_id": "np_pd_levodopa",
+          "form": "Capsule/tablet/dispersible",
+          "route": "Oral",
+          "dose_example": "Dose is individualized; common equivalent regimens use divided levodopa doses.",
+          "tags": [
+            "dopamine",
+            "parkinson"
+          ],
+          "role": "Core Parkinson therapy where available.",
+          "monitoring_pearl": "Same levodopa-class monitoring; product-specific conversion.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_pramipexole",
+          "generic": "Pramipexole",
+          "class_id": "np_pd_agonists",
+          "form": "Tablet/ER",
+          "route": "Oral",
+          "dose_example": "Common start 0.125 mg three times daily IR; renal-adjust and titrate.",
+          "tags": [
+            "dopamine",
+            "parkinson"
+          ],
+          "role": "Dopamine-agonist motor therapy.",
+          "monitoring_pearl": "Impulse-control disorder, hallucination, sleep attacks, edema, orthostasis; renal adjustment for some agents.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_ropinirole",
+          "generic": "Ropinirole",
+          "class_id": "np_pd_agonists",
+          "form": "Tablet/ER",
+          "route": "Oral",
+          "dose_example": "Common start 0.25 mg three times daily IR; titrate.",
+          "tags": [
+            "dopamine",
+            "parkinson"
+          ],
+          "role": "Dopamine-agonist motor therapy.",
+          "monitoring_pearl": "Impulse-control disorder, hallucination, sleep attacks, edema, orthostasis; renal adjustment for some agents.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_rotigotine",
+          "generic": "Rotigotine",
+          "class_id": "np_pd_agonists",
+          "form": "Transdermal patch",
+          "route": "Transdermal",
+          "dose_example": "Common start 2 mg/24 h patch once daily; indication-dependent titration.",
+          "tags": [
+            "dopamine",
+            "parkinson"
+          ],
+          "role": "Dopamine-agonist motor therapy.",
+          "monitoring_pearl": "Impulse-control disorder, hallucination, sleep attacks, edema, orthostasis; renal adjustment for some agents.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_apomorphine",
+          "generic": "Apomorphine",
+          "class_id": "np_pd_agonists",
+          "form": "SC injection/infusion",
+          "route": "SC",
+          "dose_example": "Specialist rescue/infusion dosing after supervised test and antiemetic planning.",
+          "tags": [
+            "dopamine",
+            "parkinson"
+          ],
+          "role": "Dopamine-agonist motor therapy.",
+          "monitoring_pearl": "Impulse-control disorder, hallucination, sleep attacks, edema, orthostasis; renal adjustment for some agents.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_selegiline",
+          "generic": "Selegiline",
+          "class_id": "np_pd_maob",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "5 mg twice daily (earlier in day) is a common oral regimen; formulations differ.",
+          "tags": [
+            "dopamine",
+            "parkinson"
+          ],
+          "role": "MAO-B dopaminergic adjunct.",
+          "monitoring_pearl": "Interaction review with serotonergic/MAOI drugs; dyskinesia may increase with levodopa.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_rasagiline",
+          "generic": "Rasagiline",
+          "class_id": "np_pd_maob",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "0.5–1 mg once daily.",
+          "tags": [
+            "dopamine",
+            "parkinson"
+          ],
+          "role": "MAO-B dopaminergic adjunct.",
+          "monitoring_pearl": "Interaction review with serotonergic/MAOI drugs; dyskinesia may increase with levodopa.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_safinamide",
+          "generic": "Safinamide",
+          "class_id": "np_pd_maob",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "50 mg once daily, may increase to 100 mg once daily as add-on.",
+          "tags": [
+            "dopamine",
+            "parkinson"
+          ],
+          "role": "MAO-B dopaminergic adjunct.",
+          "monitoring_pearl": "Interaction review with serotonergic/MAOI drugs; dyskinesia may increase with levodopa.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_entacapone",
+          "generic": "Entacapone",
+          "class_id": "np_pd_comt",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "200 mg with each levodopa dose within product maximum.",
+          "tags": [
+            "dopamine",
+            "parkinson"
+          ],
+          "role": "Levodopa wearing-off adjunct.",
+          "monitoring_pearl": "Diarrhea, orange urine, increased dyskinesia.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_opicapone",
+          "generic": "Opicapone",
+          "class_id": "np_pd_comt",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "50 mg once nightly in common adult regimen.",
+          "tags": [
+            "dopamine",
+            "parkinson"
+          ],
+          "role": "Levodopa wearing-off adjunct.",
+          "monitoring_pearl": "Dyskinesia, hallucination; separate from levodopa timing per label.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_tolcapone",
+          "generic": "Tolcapone",
+          "class_id": "np_pd_comt",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "100 mg three times daily is a typical regimen; specialist use.",
+          "tags": [
+            "dopamine",
+            "parkinson"
+          ],
+          "role": "Levodopa wearing-off adjunct.",
+          "monitoring_pearl": "Serious hepatotoxicity monitoring/restrictions; reserve/specialist use.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_amantadine",
+          "generic": "Amantadine",
+          "class_id": "np_pd_amantadine",
+          "form": "IR/ER capsule/tablet",
+          "route": "Oral",
+          "dose_example": "IR commonly 100 mg once or twice daily; ER dyskinesia products have formulation-specific dosing.",
+          "tags": [
+            "dementia",
+            "dopamine",
+            "nmda",
+            "parkinson"
+          ],
+          "role": "Parkinson symptoms/dyskinesia.",
+          "monitoring_pearl": "Renal adjust; edema, livedo reticularis, hallucination/confusion; taper carefully.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_trihexyphenidyl",
+          "generic": "Trihexyphenidyl",
+          "class_id": "np_pd_anticholinergic",
+          "form": "Tablet/elixir",
+          "route": "Oral",
+          "dose_example": "Often starts 1 mg/day and titrates slowly; individualized.",
+          "tags": [
+            "cholinergic",
+            "parkinson"
+          ],
+          "role": "Tremor-predominant Parkinsonism.",
+          "monitoring_pearl": "Confusion, urinary retention, glaucoma, constipation; high anticholinergic burden.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_benztropine",
+          "generic": "Benztropine",
+          "class_id": "np_pd_anticholinergic",
+          "form": "Tablet/injection",
+          "route": "Oral/IM/IV",
+          "dose_example": "Often 0.5–1 mg once or twice daily; individualized.",
+          "tags": [
+            "cholinergic",
+            "parkinson"
+          ],
+          "role": "Parkinsonism / drug-induced EPS.",
+          "monitoring_pearl": "Anticholinergic toxicity; cognitive/urinary/glaucoma caution.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_istradefylline",
+          "generic": "Istradefylline",
+          "class_id": "np_pd_a2a",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "20 mg once daily; may increase to 40 mg once daily.",
+          "tags": [
+            "dopamine",
+            "parkinson"
+          ],
+          "role": "OFF-time adjunct.",
+          "monitoring_pearl": "Dyskinesia, hallucination, CYP3A interactions.",
+          "source_refs": [
+            "NICE_PARKINSON_NG71",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_donepezil",
+          "generic": "Donepezil",
+          "class_id": "np_dementia_achei",
+          "form": "Tablet/ODT",
+          "route": "Oral",
+          "dose_example": "5 mg nightly, usually increase to 10 mg after several weeks; higher-dose product is indication-specific.",
+          "tags": [
+            "cholinergic",
+            "dementia"
+          ],
+          "role": "Symptomatic cholinergic cognitive therapy.",
+          "monitoring_pearl": "Bradycardia/syncope, GI effects, weight loss, vivid dreams.",
+          "source_refs": [
+            "NICE_DEMENTIA_NG97",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_rivastigmine",
+          "generic": "Rivastigmine",
+          "class_id": "np_dementia_achei",
+          "form": "Capsule/solution/patch",
+          "route": "Oral/Transdermal",
+          "dose_example": "Oral 1.5 mg twice daily or patch 4.6 mg/24 h start; titrate.",
+          "tags": [
+            "cholinergic",
+            "dementia"
+          ],
+          "role": "Symptomatic cholinergic cognitive therapy.",
+          "monitoring_pearl": "GI effects lower with patch for some patients; weight, pulse, skin.",
+          "source_refs": [
+            "NICE_DEMENTIA_NG97",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_galantamine",
+          "generic": "Galantamine",
+          "class_id": "np_dementia_achei",
+          "form": "IR/ER tablet/capsule/solution",
+          "route": "Oral",
+          "dose_example": "IR often 4 mg twice daily or ER 8 mg daily start; titrate.",
+          "tags": [
+            "cholinergic",
+            "dementia"
+          ],
+          "role": "Symptomatic cholinergic cognitive therapy.",
+          "monitoring_pearl": "GI effects, bradycardia; renal/hepatic restrictions.",
+          "source_refs": [
+            "NICE_DEMENTIA_NG97",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_memantine",
+          "generic": "Memantine",
+          "class_id": "np_dementia_nmda",
+          "form": "Tablet/solution/ER",
+          "route": "Oral",
+          "dose_example": "Common start: 5 mg once daily, titrate weekly toward 10 mg twice daily (IR) or ER equivalent; renal-adjust.",
+          "tags": [
+            "dementia",
+            "nmda"
+          ],
+          "role": "Moderate–severe Alzheimer disease.",
+          "monitoring_pearl": "Renal adjustment; dizziness/confusion; alkalinized urine interactions.",
+          "source_refs": [
+            "NICE_DEMENTIA_NG97",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_lecanemab",
+          "generic": "Lecanemab",
+          "class_id": "np_dementia_amyloid",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Weight-based IV infusion every 2 weeks per current label.",
+          "tags": [
+            "dementia",
+            "specialist"
+          ],
+          "role": "Selected early Alzheimer disease with confirmed amyloid pathology.",
+          "monitoring_pearl": "ARIA MRI surveillance, APOE ε4 discussion/testing per label, infusion reactions; anticoagulant/bleeding context needs specialist review.",
+          "source_refs": [
+            "NICE_DEMENTIA_NG97",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_donanemab",
+          "generic": "Donanemab",
+          "class_id": "np_dementia_amyloid",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "IV infusion every 4 weeks with label-defined titration/amyloid-guided stopping criteria.",
+          "tags": [
+            "dementia",
+            "specialist"
+          ],
+          "role": "Selected early symptomatic Alzheimer disease with confirmed amyloid pathology.",
+          "monitoring_pearl": "ARIA/MRI surveillance, infusion reactions, amyloid confirmation and specialist eligibility.",
+          "source_refs": [
+            "NICE_DEMENTIA_NG97",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_aspirin",
+          "generic": "Aspirin",
+          "class_id": "np_stroke_antiplatelet",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common maintenance 75–100 mg once daily; acute loading is protocol-specific.",
+          "tags": [
+            "stroke_adjunct"
+          ],
+          "role": "Non-cardioembolic ischemic stroke/TIA secondary prevention.",
+          "monitoring_pearl": "Bleeding/GI risk; mechanism-specific use.",
+          "source_refs": [
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_clopidogrel",
+          "generic": "Clopidogrel",
+          "class_id": "np_stroke_antiplatelet",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "75 mg once daily after indication-specific loading when appropriate.",
+          "tags": [
+            "stroke_adjunct"
+          ],
+          "role": "Non-cardioembolic ischemic stroke/TIA secondary prevention.",
+          "monitoring_pearl": "CYP2C19 interactions/genotype context; bleeding.",
+          "source_refs": [
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_aspirin_clopidogrel_short_course_dapt",
+          "generic": "Aspirin + Clopidogrel (short-course DAPT)",
+          "class_id": "np_stroke_antiplatelet",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Acute loading/short-course duration is syndrome/time-window specific—verify stroke/TIA guideline.",
+          "tags": [
+            "stroke_adjunct"
+          ],
+          "role": "Non-cardioembolic ischemic stroke/TIA secondary prevention.",
+          "monitoring_pearl": "Do not continue dual therapy indefinitely without a specific indication.",
+          "source_refs": [
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_atorvastatin",
+          "generic": "Atorvastatin",
+          "class_id": "np_stroke_lipid",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "40–80 mg once daily is high-intensity adult dosing.",
+          "tags": [
+            "stroke_adjunct"
+          ],
+          "role": "High-intensity statin secondary prevention.",
+          "monitoring_pearl": "LFT/myopathy interactions; LDL response and vascular-risk targets.",
+          "source_refs": [
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_rosuvastatin",
+          "generic": "Rosuvastatin",
+          "class_id": "np_stroke_lipid",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "20–40 mg once daily is high-intensity adult dosing.",
+          "tags": [
+            "stroke_adjunct"
+          ],
+          "role": "High-intensity statin secondary prevention.",
+          "monitoring_pearl": "LFT/myopathy interactions; LDL response and vascular-risk targets.",
+          "source_refs": [
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_sertraline",
+          "generic": "Sertraline",
+          "class_id": "np_ssri",
+          "form": "Tablet/capsule/solution",
+          "route": "Oral",
+          "dose_example": "Common adult start 25–50 mg once daily; titrate.",
+          "tags": [
+            "anxiety",
+            "depression",
+            "serotonin"
+          ],
+          "role": "SSRI antidepressant/anxiolytic.",
+          "monitoring_pearl": "GI effects, sexual dysfunction, hyponatremia, activation/suicidality; relatively broad anxiety use.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_escitalopram",
+          "generic": "Escitalopram",
+          "class_id": "np_ssri",
+          "form": "Tablet/capsule/solution",
+          "route": "Oral",
+          "dose_example": "Common adult start 5–10 mg once daily; usual max 20 mg/day.",
+          "tags": [
+            "anxiety",
+            "depression",
+            "serotonin"
+          ],
+          "role": "SSRI antidepressant/anxiolytic.",
+          "monitoring_pearl": "QT at higher exposure, hyponatremia, sexual dysfunction.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_fluoxetine",
+          "generic": "Fluoxetine",
+          "class_id": "np_ssri",
+          "form": "Tablet/capsule/solution",
+          "route": "Oral",
+          "dose_example": "Common adult start 20 mg once daily.",
+          "tags": [
+            "anxiety",
+            "depression",
+            "serotonin"
+          ],
+          "role": "SSRI antidepressant/anxiolytic.",
+          "monitoring_pearl": "Long half-life; CYP2D6 interactions; activating profile.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_citalopram",
+          "generic": "Citalopram",
+          "class_id": "np_ssri",
+          "form": "Tablet/capsule/solution",
+          "route": "Oral",
+          "dose_example": "Common adult start 20 mg once daily; age/QT-based maximum restrictions.",
+          "tags": [
+            "anxiety",
+            "depression",
+            "serotonin"
+          ],
+          "role": "SSRI antidepressant/anxiolytic.",
+          "monitoring_pearl": "Dose-dependent QT prolongation; lower max in older/hepatic patients.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_paroxetine",
+          "generic": "Paroxetine",
+          "class_id": "np_ssri",
+          "form": "Tablet/capsule/solution",
+          "route": "Oral",
+          "dose_example": "Common adult start 10–20 mg once daily; indication-specific.",
+          "tags": [
+            "anxiety",
+            "depression",
+            "serotonin"
+          ],
+          "role": "SSRI antidepressant/anxiolytic.",
+          "monitoring_pearl": "Anticholinergic/weight/sexual effects; prominent discontinuation; pregnancy considerations.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_fluvoxamine",
+          "generic": "Fluvoxamine",
+          "class_id": "np_ssri",
+          "form": "Tablet/capsule/solution",
+          "route": "Oral",
+          "dose_example": "Common adult start 50 mg at night; titrate.",
+          "tags": [
+            "anxiety",
+            "depression",
+            "serotonin"
+          ],
+          "role": "SSRI antidepressant/anxiolytic.",
+          "monitoring_pearl": "CYP interactions; commonly used in OCD pathways.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_venlafaxine_xr",
+          "generic": "Venlafaxine XR",
+          "class_id": "np_snri",
+          "form": "ER capsule/tablet",
+          "route": "Oral",
+          "dose_example": "37.5–75 mg once daily start; titrate by response.",
+          "tags": [
+            "anxiety",
+            "depression",
+            "neuropathic_pain",
+            "serotonin"
+          ],
+          "role": "SNRI antidepressant/anxiolytic; some agents treat neuropathic pain.",
+          "monitoring_pearl": "BP, withdrawal, serotonin toxicity, renal/hepatic adjustment.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_NEUROPATHIC_CG173",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_duloxetine",
+          "generic": "Duloxetine",
+          "class_id": "np_snri",
+          "form": "ER capsule/tablet",
+          "route": "Oral",
+          "dose_example": "30 mg once daily then often 60 mg once daily.",
+          "tags": [
+            "anxiety",
+            "depression",
+            "neuropathic_pain",
+            "serotonin"
+          ],
+          "role": "SNRI antidepressant/anxiolytic; some agents treat neuropathic pain.",
+          "monitoring_pearl": "Neuropathic pain benefit; BP, liver disease/alcohol caution, withdrawal.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_NEUROPATHIC_CG173",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_desvenlafaxine",
+          "generic": "Desvenlafaxine",
+          "class_id": "np_snri",
+          "form": "ER capsule/tablet",
+          "route": "Oral",
+          "dose_example": "50 mg once daily is common adult dose.",
+          "tags": [
+            "anxiety",
+            "depression",
+            "neuropathic_pain",
+            "serotonin"
+          ],
+          "role": "SNRI antidepressant/anxiolytic; some agents treat neuropathic pain.",
+          "monitoring_pearl": "BP, renal adjustment, withdrawal.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_NEUROPATHIC_CG173",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_bupropion_xl",
+          "generic": "Bupropion XL",
+          "class_id": "np_atypical_antidepressant",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "150 mg once daily start; may increase per indication/label.",
+          "tags": [
+            "anxiety",
+            "depression",
+            "serotonin"
+          ],
+          "role": "Alternative/multimodal antidepressant.",
+          "monitoring_pearl": "Lower sexual adverse effects; seizure risk; avoid in eating disorders/seizure disorder.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_mirtazapine",
+          "generic": "Mirtazapine",
+          "class_id": "np_atypical_antidepressant",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "15 mg nightly start; common range 15–45 mg nightly.",
+          "tags": [
+            "anxiety",
+            "depression",
+            "serotonin"
+          ],
+          "role": "Alternative/multimodal antidepressant.",
+          "monitoring_pearl": "Sedation and weight gain; useful when insomnia/low appetite coexist.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_vortioxetine",
+          "generic": "Vortioxetine",
+          "class_id": "np_atypical_antidepressant",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "5–10 mg once daily start; range commonly 5–20 mg/day.",
+          "tags": [
+            "anxiety",
+            "depression",
+            "serotonin"
+          ],
+          "role": "Alternative/multimodal antidepressant.",
+          "monitoring_pearl": "Nausea; serotonergic interactions.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_trazodone",
+          "generic": "Trazodone",
+          "class_id": "np_atypical_antidepressant",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Depression doses are higher; low bedtime doses are often used off-label for insomnia—verify goal.",
+          "tags": [
+            "anxiety",
+            "depression",
+            "serotonin"
+          ],
+          "role": "Alternative/multimodal antidepressant.",
+          "monitoring_pearl": "Sedation, orthostasis, priapism; not a benign hypnotic.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_amitriptyline_2",
+          "generic": "Amitriptyline",
+          "class_id": "np_tca",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Depression often starts 25–50 mg/day; neuropathic pain often 10–25 mg nightly.",
+          "tags": [
+            "depression",
+            "migraine_preventive",
+            "neuropathic_pain"
+          ],
+          "role": "TCA antidepressant / selected pain-headache indication.",
+          "monitoring_pearl": "ECG/QT/conduction, anticholinergic effects, orthostasis, overdose toxicity; taper.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_NEUROPATHIC_CG173",
+            "DAILYMED",
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_nortriptyline",
+          "generic": "Nortriptyline",
+          "class_id": "np_tca",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common adult start 25 mg/day; titrate; levels may help at higher doses.",
+          "tags": [
+            "depression",
+            "migraine_preventive",
+            "neuropathic_pain"
+          ],
+          "role": "TCA antidepressant / selected pain-headache indication.",
+          "monitoring_pearl": "ECG/QT/conduction, anticholinergic effects, orthostasis, overdose toxicity; taper.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_NEUROPATHIC_CG173",
+            "DAILYMED",
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_clomipramine",
+          "generic": "Clomipramine",
+          "class_id": "np_tca",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common start 25 mg/day; OCD/depression titration specialist-guided.",
+          "tags": [
+            "depression",
+            "migraine_preventive",
+            "neuropathic_pain"
+          ],
+          "role": "TCA antidepressant / selected pain-headache indication.",
+          "monitoring_pearl": "ECG/QT/conduction, anticholinergic effects, orthostasis, overdose toxicity; taper.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_NEUROPATHIC_CG173",
+            "DAILYMED",
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_imipramine",
+          "generic": "Imipramine",
+          "class_id": "np_tca",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common start 25–50 mg/day; titrate.",
+          "tags": [
+            "depression",
+            "migraine_preventive",
+            "neuropathic_pain"
+          ],
+          "role": "TCA antidepressant / selected pain-headache indication.",
+          "monitoring_pearl": "ECG/QT/conduction, anticholinergic effects, orthostasis, overdose toxicity; taper.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_NEUROPATHIC_CG173",
+            "DAILYMED",
+            "NICE_HEADACHE_CG150",
+            "ICMR_NEURO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_phenelzine",
+          "generic": "Phenelzine",
+          "class_id": "np_maoi",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common start 15 mg three times daily; titrate specialist-guided.",
+          "tags": [
+            "depression",
+            "serotonin",
+            "specialist"
+          ],
+          "role": "Specialist MAOI antidepressant.",
+          "monitoring_pearl": "Tyramine hypertensive crisis, serotonergic interactions, mandatory washouts; orthostasis.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_tranylcypromine",
+          "generic": "Tranylcypromine",
+          "class_id": "np_maoi",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common start 10 mg twice daily; titrate specialist-guided.",
+          "tags": [
+            "depression",
+            "serotonin",
+            "specialist"
+          ],
+          "role": "Specialist MAOI antidepressant.",
+          "monitoring_pearl": "Tyramine hypertensive crisis, serotonergic interactions, mandatory washouts; orthostasis.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_esketamine",
+          "generic": "Esketamine",
+          "class_id": "np_rapid_antidepressant",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Supervised induction/maintenance schedule is product-specific; verify current REMS/label.",
+          "tags": [
+            "depression",
+            "nmda",
+            "specialist"
+          ],
+          "role": "Treatment-resistant depression / depressive symptoms in selected contexts.",
+          "monitoring_pearl": "Sedation/dissociation, BP, abuse risk; monitored administration and observation.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_ketamine_specialist_off_label_depression",
+          "generic": "Ketamine (specialist/off-label depression)",
+          "class_id": "np_rapid_antidepressant",
+          "form": "IV/IM formulations",
+          "route": "IV/IM",
+          "dose_example": "Psychiatric dosing is off-label and protocol-specific; specialist monitored setting only.",
+          "tags": [
+            "depression",
+            "nmda",
+            "specialist"
+          ],
+          "role": "Specialist rapid-acting antidepressant strategy.",
+          "monitoring_pearl": "Dissociation, BP, abuse/cystitis concerns; not routine office self-administration.",
+          "source_refs": [
+            "NICE_DEPRESSION_NG222",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_lorazepam_2",
+          "generic": "Lorazepam",
+          "class_id": "np_benzo_anxiety",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common anxiety dose 0.5–1 mg two or three times daily short-term; individualized.",
+          "tags": [
+            "anxiety",
+            "controlled_drug",
+            "gaba",
+            "insomnia"
+          ],
+          "role": "Short-term benzodiazepine anxiolytic.",
+          "monitoring_pearl": "Dependence/withdrawal, falls, respiratory depression with opioids/alcohol; taper after regular use.",
+          "source_refs": [
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_clonazepam_2",
+          "generic": "Clonazepam",
+          "class_id": "np_benzo_anxiety",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common start 0.25–0.5 mg once/twice daily; titrate cautiously.",
+          "tags": [
+            "anxiety",
+            "controlled_drug",
+            "gaba",
+            "insomnia"
+          ],
+          "role": "Short-term benzodiazepine anxiolytic.",
+          "monitoring_pearl": "Dependence/withdrawal, falls, respiratory depression with opioids/alcohol; taper after regular use.",
+          "source_refs": [
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_alprazolam",
+          "generic": "Alprazolam",
+          "class_id": "np_benzo_anxiety",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common start 0.25–0.5 mg up to three times daily; short-term only when appropriate.",
+          "tags": [
+            "anxiety",
+            "controlled_drug",
+            "gaba",
+            "insomnia"
+          ],
+          "role": "Short-term benzodiazepine anxiolytic.",
+          "monitoring_pearl": "Dependence/withdrawal, falls, respiratory depression with opioids/alcohol; taper after regular use.",
+          "source_refs": [
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_diazepam_2",
+          "generic": "Diazepam",
+          "class_id": "np_benzo_anxiety",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common anxiety dose 2–5 mg one to three times daily; indication-specific.",
+          "tags": [
+            "anxiety",
+            "controlled_drug",
+            "gaba",
+            "insomnia"
+          ],
+          "role": "Short-term benzodiazepine anxiolytic.",
+          "monitoring_pearl": "Dependence/withdrawal, falls, respiratory depression with opioids/alcohol; taper after regular use.",
+          "source_refs": [
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_buspirone",
+          "generic": "Buspirone",
+          "class_id": "np_nonbenzo_anxiety",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common start 7.5 mg twice daily or 5 mg three times daily; titrate.",
+          "tags": [
+            "anxiety"
+          ],
+          "role": "5-HT1A partial-agonist GAD therapy.",
+          "monitoring_pearl": "Delayed onset; CYP3A interactions; not a benzodiazepine-withdrawal substitute.",
+          "source_refs": [
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_hydroxyzine",
+          "generic": "Hydroxyzine",
+          "class_id": "np_nonbenzo_anxiety",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "25 mg up to several times daily as needed depending indication.",
+          "tags": [
+            "anxiety"
+          ],
+          "role": "Sedating H1 antihistamine short-term anxiety option.",
+          "monitoring_pearl": "Sedation, anticholinergic burden, QT risk.",
+          "source_refs": [
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_pregabalin_anxiety_context",
+          "generic": "Pregabalin (anxiety context)",
+          "class_id": "np_nonbenzo_anxiety",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Often 75 mg twice daily with titration where approved/used.",
+          "tags": [
+            "anxiety"
+          ],
+          "role": "α2δ ligand used for GAD in some jurisdictions.",
+          "monitoring_pearl": "Renal adjust, sedation, edema, misuse/dependence potential.",
+          "source_refs": [
+            "NICE_GAD_CG113",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_zolpidem",
+          "generic": "Zolpidem",
+          "class_id": "np_z_hypnotic",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Immediate-release adult dose commonly 5–10 mg at bedtime; lower starting dose recommended in many patients.",
+          "tags": [
+            "controlled_drug",
+            "gaba",
+            "insomnia"
+          ],
+          "role": "Short-term insomnia pharmacotherapy.",
+          "monitoring_pearl": "Complex sleep behaviors, next-day impairment, falls, dependence; avoid alcohol/CNS depressants.",
+          "source_refs": [
+            "NICE_INSOMNIA_TA922",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_eszopiclone",
+          "generic": "Eszopiclone",
+          "class_id": "np_z_hypnotic",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "1 mg at bedtime start; may increase within label max.",
+          "tags": [
+            "controlled_drug",
+            "gaba",
+            "insomnia"
+          ],
+          "role": "Short-term insomnia pharmacotherapy.",
+          "monitoring_pearl": "Complex sleep behaviors, next-day impairment, falls, dependence; avoid alcohol/CNS depressants.",
+          "source_refs": [
+            "NICE_INSOMNIA_TA922",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_zaleplon",
+          "generic": "Zaleplon",
+          "class_id": "np_z_hypnotic",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "5–10 mg at bedtime or for middle-of-night use if adequate sleep time remains.",
+          "tags": [
+            "controlled_drug",
+            "gaba",
+            "insomnia"
+          ],
+          "role": "Short-term insomnia pharmacotherapy.",
+          "monitoring_pearl": "Complex sleep behaviors, next-day impairment, falls, dependence; avoid alcohol/CNS depressants.",
+          "source_refs": [
+            "NICE_INSOMNIA_TA922",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_ramelteon",
+          "generic": "Ramelteon",
+          "class_id": "np_melatonin_sleep",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "8 mg within 30 minutes of bedtime.",
+          "tags": [
+            "insomnia"
+          ],
+          "role": "Sleep-onset insomnia.",
+          "monitoring_pearl": "CYP1A2 interactions; dizziness; endocrine effects are uncommon but monitor if symptomatic.",
+          "source_refs": [
+            "NICE_INSOMNIA_TA922",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_melatonin",
+          "generic": "Melatonin",
+          "class_id": "np_melatonin_sleep",
+          "form": "Tablet/capsule/modified-release",
+          "route": "Oral",
+          "dose_example": "Product and indication vary widely; low-dose evening regimens are common—verify local product quality/label.",
+          "tags": [
+            "insomnia"
+          ],
+          "role": "Circadian rhythm / selected insomnia contexts.",
+          "monitoring_pearl": "Variable supplement quality; timing is as important as dose.",
+          "source_refs": [
+            "NICE_INSOMNIA_TA922",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_daridorexant",
+          "generic": "Daridorexant",
+          "class_id": "np_orexin_sleep",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "25–50 mg once nightly within 30 min of bedtime; ensure adequate sleep time.",
+          "tags": [
+            "controlled_drug",
+            "insomnia"
+          ],
+          "role": "Orexin-antagonist insomnia therapy.",
+          "monitoring_pearl": "Next-day somnolence, sleep paralysis/complex behaviors; CYP3A interactions; narcolepsy contraindication.",
+          "source_refs": [
+            "NICE_INSOMNIA_TA922",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_suvorexant",
+          "generic": "Suvorexant",
+          "class_id": "np_orexin_sleep",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "10 mg once nightly start; may titrate within label max.",
+          "tags": [
+            "controlled_drug",
+            "insomnia"
+          ],
+          "role": "Orexin-antagonist insomnia therapy.",
+          "monitoring_pearl": "Next-day somnolence, sleep paralysis/complex behaviors; CYP3A interactions; narcolepsy contraindication.",
+          "source_refs": [
+            "NICE_INSOMNIA_TA922",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_lemborexant",
+          "generic": "Lemborexant",
+          "class_id": "np_orexin_sleep",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "5 mg once nightly; may increase to 10 mg if appropriate.",
+          "tags": [
+            "controlled_drug",
+            "insomnia"
+          ],
+          "role": "Orexin-antagonist insomnia therapy.",
+          "monitoring_pearl": "Next-day somnolence, sleep paralysis/complex behaviors; CYP3A interactions; narcolepsy contraindication.",
+          "source_refs": [
+            "NICE_INSOMNIA_TA922",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_risperidone",
+          "generic": "Risperidone",
+          "class_id": "np_sga",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "1–2 mg/day start; common target 2–6 mg/day.",
+          "tags": [
+            "bipolar",
+            "dopamine",
+            "metabolic_monitor",
+            "psychosis",
+            "serotonin"
+          ],
+          "role": "Second-generation antipsychotic.",
+          "monitoring_pearl": "Prolactin/EPS dose-related; metabolic/QT monitoring.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_BIPOLAR_CG185",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_olanzapine",
+          "generic": "Olanzapine",
+          "class_id": "np_sga",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "5–10 mg once daily start; common 10–20 mg/day range.",
+          "tags": [
+            "bipolar",
+            "dopamine",
+            "metabolic_monitor",
+            "psychosis",
+            "serotonin"
+          ],
+          "role": "Second-generation antipsychotic.",
+          "monitoring_pearl": "High weight/metabolic risk; sedation.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_BIPOLAR_CG185",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_quetiapine",
+          "generic": "Quetiapine",
+          "class_id": "np_sga",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Dose depends strongly on indication; schizophrenia/bipolar doses much higher than sedative off-label use.",
+          "tags": [
+            "bipolar",
+            "dopamine",
+            "metabolic_monitor",
+            "psychosis",
+            "serotonin"
+          ],
+          "role": "Second-generation antipsychotic.",
+          "monitoring_pearl": "Sedation, orthostasis, metabolic risk, QT.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_BIPOLAR_CG185",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_aripiprazole",
+          "generic": "Aripiprazole",
+          "class_id": "np_sga",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "10–15 mg once daily common antipsychotic start.",
+          "tags": [
+            "bipolar",
+            "dopamine",
+            "metabolic_monitor",
+            "psychosis",
+            "serotonin"
+          ],
+          "role": "Second-generation antipsychotic.",
+          "monitoring_pearl": "Akathisia; lower prolactin/metabolic burden than some SGAs.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_BIPOLAR_CG185",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_paliperidone",
+          "generic": "Paliperidone",
+          "class_id": "np_sga",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "3–6 mg once daily common oral start/range; renal-adjust.",
+          "tags": [
+            "bipolar",
+            "dopamine",
+            "metabolic_monitor",
+            "psychosis",
+            "serotonin"
+          ],
+          "role": "Second-generation antipsychotic.",
+          "monitoring_pearl": "Prolactin/EPS, QT; renal clearance.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_BIPOLAR_CG185",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_lurasidone",
+          "generic": "Lurasidone",
+          "class_id": "np_sga",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "40 mg once daily with ≥350 kcal food for schizophrenia; indication-specific range.",
+          "tags": [
+            "bipolar",
+            "dopamine",
+            "metabolic_monitor",
+            "psychosis",
+            "serotonin"
+          ],
+          "role": "Second-generation antipsychotic.",
+          "monitoring_pearl": "Akathisia/EPS; CYP3A interactions; food requirement.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_BIPOLAR_CG185",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_ziprasidone",
+          "generic": "Ziprasidone",
+          "class_id": "np_sga",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "20 mg twice daily with food start; titrate.",
+          "tags": [
+            "bipolar",
+            "dopamine",
+            "metabolic_monitor",
+            "psychosis",
+            "serotonin"
+          ],
+          "role": "Second-generation antipsychotic.",
+          "monitoring_pearl": "QT prolongation; food requirement; lower weight gain.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_BIPOLAR_CG185",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_amisulpride",
+          "generic": "Amisulpride",
+          "class_id": "np_sga",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Dose varies by positive/negative symptom target; verify local label.",
+          "tags": [
+            "bipolar",
+            "dopamine",
+            "metabolic_monitor",
+            "psychosis",
+            "serotonin"
+          ],
+          "role": "Second-generation antipsychotic.",
+          "monitoring_pearl": "Prolactin, QT, renal adjustment.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_BIPOLAR_CG185",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_clozapine",
+          "generic": "Clozapine",
+          "class_id": "np_sga",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Starts 12.5 mg once/twice daily with slow titration under monitoring program.",
+          "tags": [
+            "bipolar",
+            "dopamine",
+            "metabolic_monitor",
+            "psychosis",
+            "serotonin"
+          ],
+          "role": "Second-generation antipsychotic.",
+          "monitoring_pearl": "Agranulocytosis/ANC monitoring, myocarditis, seizures, constipation/ileus, metabolic burden; specialist-only safeguards.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED",
+            "NICE_BIPOLAR_CG185",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_haloperidol",
+          "generic": "Haloperidol",
+          "class_id": "np_fga",
+          "form": "Tablet/injection",
+          "route": "Oral/IM",
+          "dose_example": "0.5–2 mg one to three times daily start depending indication; acute agitation dosing differs.",
+          "tags": [
+            "dopamine",
+            "psychosis"
+          ],
+          "role": "First-generation antipsychotic.",
+          "monitoring_pearl": "EPS/akathisia, QT, neuroleptic malignant syndrome.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_chlorpromazine",
+          "generic": "Chlorpromazine",
+          "class_id": "np_fga",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "25–50 mg two or three times daily start; titrate.",
+          "tags": [
+            "dopamine",
+            "psychosis"
+          ],
+          "role": "First-generation antipsychotic.",
+          "monitoring_pearl": "Sedation, orthostasis, anticholinergic effects, QT.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_trifluoperazine",
+          "generic": "Trifluoperazine",
+          "class_id": "np_fga",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "1–2 mg twice daily start; titrate.",
+          "tags": [
+            "dopamine",
+            "psychosis"
+          ],
+          "role": "First-generation antipsychotic.",
+          "monitoring_pearl": "EPS/prolactin, QT.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_fluphenazine",
+          "generic": "Fluphenazine",
+          "class_id": "np_fga",
+          "form": "Tablet/injection",
+          "route": "Oral/IM",
+          "dose_example": "Oral/decanoate dosing is formulation-specific; verify conversion.",
+          "tags": [
+            "dopamine",
+            "psychosis"
+          ],
+          "role": "First-generation antipsychotic.",
+          "monitoring_pearl": "EPS/tardive dyskinesia, prolactin, depot persistence.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_risperidone_lai",
+          "generic": "Risperidone LAI",
+          "class_id": "np_lai",
+          "form": "Long-acting injection",
+          "route": "IM/SC",
+          "dose_example": "Formulation-dependent q2-week/monthly/subcutaneous schedules; oral overlap varies.",
+          "tags": [
+            "dopamine",
+            "metabolic_monitor",
+            "psychosis"
+          ],
+          "role": "Long-acting antipsychotic maintenance.",
+          "monitoring_pearl": "Confirm oral tolerability, loading/oral overlap, injection interval, metabolic/EPS/prolactin monitoring.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_paliperidone_palmitate_lai",
+          "generic": "Paliperidone palmitate LAI",
+          "class_id": "np_lai",
+          "form": "Long-acting injection",
+          "route": "IM/SC",
+          "dose_example": "Monthly initiation/loading then monthly/3-month/6-month maintenance options after stabilization.",
+          "tags": [
+            "dopamine",
+            "metabolic_monitor",
+            "psychosis"
+          ],
+          "role": "Long-acting antipsychotic maintenance.",
+          "monitoring_pearl": "Confirm oral tolerability, loading/oral overlap, injection interval, metabolic/EPS/prolactin monitoring.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_aripiprazole_lai",
+          "generic": "Aripiprazole LAI",
+          "class_id": "np_lai",
+          "form": "Long-acting injection",
+          "route": "IM/SC",
+          "dose_example": "Monthly/longer-interval formulations with product-specific oral overlap/loading.",
+          "tags": [
+            "dopamine",
+            "metabolic_monitor",
+            "psychosis"
+          ],
+          "role": "Long-acting antipsychotic maintenance.",
+          "monitoring_pearl": "Confirm oral tolerability, loading/oral overlap, injection interval, metabolic/EPS/prolactin monitoring.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_haloperidol_decanoate",
+          "generic": "Haloperidol decanoate",
+          "class_id": "np_lai",
+          "form": "Long-acting injection",
+          "route": "IM/SC",
+          "dose_example": "Monthly dose is converted from oral exposure with product-specific limits.",
+          "tags": [
+            "dopamine",
+            "metabolic_monitor",
+            "psychosis"
+          ],
+          "role": "Long-acting antipsychotic maintenance.",
+          "monitoring_pearl": "Confirm oral tolerability, loading/oral overlap, injection interval, metabolic/EPS/prolactin monitoring.",
+          "source_refs": [
+            "NICE_PSYCHOSIS_CG178",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_lithium_carbonate",
+          "generic": "Lithium carbonate",
+          "class_id": "np_lithium",
+          "form": "IR/ER tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Dose is serum-level guided; common initiation 300 mg two or three times daily (or ER equivalent), then titrate.",
+          "tags": [
+            "bipolar",
+            "mood_stabilizer"
+          ],
+          "role": "Acute/maintenance bipolar mood stabilization.",
+          "monitoring_pearl": "Serum lithium, renal, thyroid, calcium, sodium/hydration; NSAID/ACEi/ARB/thiazide interactions; pregnancy toxicity.",
+          "source_refs": [
+            "NICE_BIPOLAR_CG185",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_valproate_bipolar_context",
+          "generic": "Valproate (bipolar context)",
+          "class_id": "np_bipolar_asm",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Weight/serum-level guided; common adult initiation 750 mg/day divided or weight-based depending formulation.",
+          "tags": [
+            "bipolar",
+            "mood_stabilizer",
+            "pregnancy_caution"
+          ],
+          "role": "Antiseizure-derived mood stabilizer.",
+          "monitoring_pearl": "Major reproductive restrictions; LFT/CBC, weight/metabolic, levels when indicated.",
+          "source_refs": [
+            "NICE_BIPOLAR_CG185",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_lamotrigine_bipolar_maintenance",
+          "generic": "Lamotrigine (bipolar maintenance)",
+          "class_id": "np_bipolar_asm",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Slow titration, typically starting 25 mg/day but lower with valproate; exact schedule interaction-dependent.",
+          "tags": [
+            "bipolar",
+            "mood_stabilizer",
+            "pregnancy_caution"
+          ],
+          "role": "Antiseizure-derived mood stabilizer.",
+          "monitoring_pearl": "SJS/TEN risk; more useful for bipolar depression/maintenance than acute mania.",
+          "source_refs": [
+            "NICE_BIPOLAR_CG185",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "np_carbamazepine_bipolar_context",
+          "generic": "Carbamazepine (bipolar context)",
+          "class_id": "np_bipolar_asm",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common start 200 mg twice daily; serum-level/interaction-guided titration.",
+          "tags": [
+            "bipolar",
+            "mood_stabilizer",
+            "pregnancy_caution"
+          ],
+          "role": "Antiseizure-derived mood stabilizer.",
+          "monitoring_pearl": "CBC/LFT/sodium, CYP interactions, rash/HLA risk.",
+          "source_refs": [
+            "NICE_BIPOLAR_CG185",
+            "ICMR_PSYCH",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "NICE_EPILEPSY_NG217",
+          "label": "NICE NG217 Epilepsies in children, young people and adults — updated Jan 2025",
+          "url": "https://www.nice.org.uk/guidance/ng217"
+        },
+        {
+          "id": "NICE_HEADACHE_CG150",
+          "label": "NICE CG150 Headaches in over 12s: diagnosis and management",
+          "url": "https://www.nice.org.uk/guidance/cg150"
+        },
+        {
+          "id": "NICE_NEUROPATHIC_CG173",
+          "label": "NICE CG173 Neuropathic pain in adults",
+          "url": "https://www.nice.org.uk/guidance/cg173"
+        },
+        {
+          "id": "NICE_PARKINSON_NG71",
+          "label": "NICE NG71 Parkinson’s disease in adults",
+          "url": "https://www.nice.org.uk/guidance/ng71"
+        },
+        {
+          "id": "NICE_DEMENTIA_NG97",
+          "label": "NICE NG97 Dementia: assessment, management and support",
+          "url": "https://www.nice.org.uk/guidance/ng97"
+        },
+        {
+          "id": "ICMR_STW",
+          "label": "ICMR Standard Treatment Workflows — Neurology & Psychiatry",
+          "url": "https://www.icmr.gov.in/standard-treatment-workflows-stws"
+        },
+        {
+          "id": "ICMR_NEURO",
+          "label": "ICMR Neurology Standard Treatment Workflows — dementia, epilepsy, headache, stroke",
+          "url": "https://www.icmr.gov.in/icmrobject/uploads/STWs/1725952342_neurology_all.pdf"
+        },
+        {
+          "id": "ICMR_PSYCH",
+          "label": "ICMR Psychiatry Standard Treatment Workflows — depression, anxiety/OCD, psychotic disorders",
+          "url": "https://www.icmr.gov.in/icmrobject/uploads/STWs/1725952331_psychiatry_all.pdf"
+        },
+        {
+          "id": "NICE_DEPRESSION_NG222",
+          "label": "NICE NG222 Depression in adults: treatment and management",
+          "url": "https://www.nice.org.uk/guidance/ng222"
+        },
+        {
+          "id": "NICE_GAD_CG113",
+          "label": "NICE CG113 Generalised anxiety disorder and panic disorder in adults",
+          "url": "https://www.nice.org.uk/guidance/cg113"
+        },
+        {
+          "id": "NICE_PSYCHOSIS_CG178",
+          "label": "NICE CG178 Psychosis and schizophrenia in adults",
+          "url": "https://www.nice.org.uk/guidance/cg178"
+        },
+        {
+          "id": "NICE_BIPOLAR_CG185",
+          "label": "NICE CG185 Bipolar disorder: assessment and management",
+          "url": "https://www.nice.org.uk/guidance/cg185"
+        },
+        {
+          "id": "NICE_INSOMNIA_TA922",
+          "label": "NICE TA922 Daridorexant for long-term insomnia",
+          "url": "https://www.nice.org.uk/guidance/ta922"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "DailyMed — current US FDA-submitted product labeling",
           "url": "https://dailymed.nlm.nih.gov/dailymed/"
         }
       ]
