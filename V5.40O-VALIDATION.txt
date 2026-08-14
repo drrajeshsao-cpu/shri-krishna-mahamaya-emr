@@ -1,0 +1,35 @@
+V5.40O ONCOLOGY • CANCER PHARMACOLOGY • SUPPORTIVE CARE — STATIC VALIDATION
+Build: 2026.08.14-R25O
+Oncology catalog: 36 classes • 105 profiles • 13 source families
+Cumulative catalog: 21 labs • 630 classes • 1548 profiles
+
+PASS — app version (5.40O)
+PASS — dataset version (2.4O)
+PASS — build (2026.08.14-R25O)
+PASS — lab count ({'labs': 21, 'classes': 630, 'drug_profiles': 1548})
+PASS — class count ({'labs': 21, 'classes': 630, 'drug_profiles': 1548})
+PASS — drug profile count ({'labs': 21, 'classes': 630, 'drug_profiles': 1548})
+PASS — oncology class IDs unique
+PASS — oncology drug IDs unique
+PASS — oncology source IDs unique
+PASS — oncology drug IDs do not collide with earlier labs ([])
+PASS — oncology class IDs do not collide with earlier labs ([])
+PASS — class→drug refs intact ([])
+PASS — drug→class refs intact ([])
+PASS — drug→source refs intact ([])
+PASS — oncology lens tags covered ([])
+PASS — oncology launcher exists
+PASS — oncology launcher wiring exists
+PASS — oncology atlas search terms exist
+PASS — visible version/build label
+PASS — oncology quick-open marker
+PASS — duplicate static DOM IDs ([])
+PASS — PWA manifest version
+PASS — service-worker cache version
+PASS — therapeutics engine JS syntax
+PASS — index inline JavaScript syntax
+PASS — no chemotherapy auto-dose boundary
+PASS — regulatory/protocol verification boundary
+
+RESULT: 27/27 checks PASS
+NOTE: Existing pre-V5.40O dataset contains one legacy duplicate drug ID (gi_metoclopramide) across two older GI labs; V5.40O introduces no new ID collision.

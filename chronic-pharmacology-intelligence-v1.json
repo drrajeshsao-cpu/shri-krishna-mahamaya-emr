@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4N",
-  "app_version": "5.40N",
-  "build": "2026.08.14-R25N",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40N Endocrinology • Hormone • Metabolic Lab",
+  "version": "2.4O",
+  "app_version": "5.40O",
+  "build": "2026.08.14-R25O",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40O Oncology • Cancer Pharmacology • Supportive Care Lab",
   "counts": {
-    "labs": 20,
-    "classes": 594,
-    "drug_profiles": 1443
+    "labs": 21,
+    "classes": 630,
+    "drug_profiles": 1548
   },
-  "global_boundary": "Research/learning pharmacology only. V5.40N adds a dedicated Endocrinology • Hormone • Metabolic Intelligence Lab while retaining all earlier specialized labs. Endocrine pharmacotherapy requires diagnosis-specific biochemical confirmation and monitoring. Adrenal crisis is an emergency; catecholamine-secreting tumors require sequencing safeguards; pituitary/adrenal tumor therapy, PTH replacement and complex hormone replacement are specialist-controlled. Exact indication, product, formulation, dose/titration, age, organ function, pregnancy/fertility plans, contraindications, interactions and current guideline/regulatory label must be verified.",
+  "global_boundary": "Research/learning pharmacology only. V5.40O adds a dedicated Oncology • Cancer Pharmacology • Supportive Care Intelligence Lab while retaining all earlier specialized labs. It is not a chemotherapy regimen generator or dose calculator. Cancer treatment selection depends on tumor type, stage, histology, biomarkers, prior therapy, performance status, organ function and current protocol. Exact regimen, dose, cycle, premedication, hazardous-drug handling, interactions, pregnancy/fertility issues, supportive care and toxicity management must be verified with current oncology protocol, specialist team and product label. Regulatory indications and accelerated approvals/withdrawals can change.",
   "labs": [
     {
       "id": "hypertension",
@@ -43404,6 +43404,2740 @@
         {
           "id": "DAILYMED",
           "label": "DailyMed — current US prescribing labels and formulations",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "oncology_cancer",
+      "title": "Oncology • Cancer Pharmacology • Supportive Care Intelligence Lab",
+      "icon": "🎗️",
+      "badge": "V5.40O",
+      "eyebrow": "CYTOTOXIC • TARGETED • IMMUNOTHERAPY • ENDOCRINE ONCOLOGY • SUPPORTIVE CARE",
+      "subtitle": "Research-oriented cancer pharmacology workspace: classic cytotoxic classes, biomarker-driven targeted therapy, immune checkpoint/cellular therapy, hormone-sensitive cancer therapy and essential oncology supportive-care pharmacology.",
+      "scientific_boundary": "Research/learning CDS only — not a chemotherapy order-set or dose calculator. Anticancer treatment is cancer-type, stage, histology, biomarker, prior-therapy, performance-status, body-size, organ-function and protocol dependent. Many agents are hazardous, vesicant, teratogenic, immunosuppressive or associated with fatal organ toxicities. Regimen construction, exact dose, cycle timing, premedication, dose modification, infusion handling, extravasation response, cellular therapy and immune-toxicity management require current oncology protocol, product label and specialist supervision. FDA accelerated-approval status and withdrawals can change; verify current regulatory status before use.",
+      "classification_notes": [
+        "This module classifies pharmacology by mechanism and supportive-care function; it does not recommend a cancer regimen automatically.",
+        "Targeted therapy and immunotherapy require tumor-, stage- and biomarker-specific selection; the same drug can have very different indications across cancers.",
+        "Classic cytotoxic drugs are separated from targeted therapy, immune therapy and endocrine oncology to reduce category confusion.",
+        "Supportive-care lenses cover CINV, neutropenia prevention, bone complications, tumor lysis, immune-related toxicity and extravasation; antibiotic treatment of febrile neutropenia remains linked to the Antibiotic Lab.",
+        "Current approval/withdrawal status must be checked against FDA/other relevant regulator and local oncology protocol; older NCG documents are an India-context reference, not a substitute for current institutional guidance."
+      ],
+      "lens_groups": [
+        {
+          "group": "Classic Cytotoxic",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Oncology"
+            },
+            {
+              "id": "cytotoxic",
+              "label": "Classic Cytotoxic"
+            },
+            {
+              "id": "platinum",
+              "label": "Platinum"
+            },
+            {
+              "id": "antimetabolite",
+              "label": "Antimetabolites"
+            },
+            {
+              "id": "anthracycline",
+              "label": "Anthracyclines"
+            },
+            {
+              "id": "microtubule",
+              "label": "Microtubule"
+            }
+          ]
+        },
+        {
+          "group": "Precision / Immune",
+          "items": [
+            {
+              "id": "targeted",
+              "label": "Targeted Therapy"
+            },
+            {
+              "id": "her2",
+              "label": "HER2"
+            },
+            {
+              "id": "egfr",
+              "label": "EGFR"
+            },
+            {
+              "id": "lung",
+              "label": "Lung Drivers"
+            },
+            {
+              "id": "dna_repair",
+              "label": "DNA Repair / PARP"
+            },
+            {
+              "id": "immunotherapy",
+              "label": "Immunotherapy"
+            },
+            {
+              "id": "cellular",
+              "label": "CAR-T / Bispecific"
+            }
+          ]
+        },
+        {
+          "group": "Hormone-sensitive Cancer",
+          "items": [
+            {
+              "id": "endocrine_oncology",
+              "label": "Endocrine Oncology"
+            },
+            {
+              "id": "breast",
+              "label": "Breast"
+            },
+            {
+              "id": "prostate",
+              "label": "Prostate"
+            }
+          ]
+        },
+        {
+          "group": "Supportive / Safety",
+          "items": [
+            {
+              "id": "supportive",
+              "label": "Supportive Care"
+            },
+            {
+              "id": "cinv",
+              "label": "CINV"
+            },
+            {
+              "id": "neutropenia",
+              "label": "Neutropenia / G-CSF"
+            },
+            {
+              "id": "tumor_lysis",
+              "label": "Tumor Lysis"
+            },
+            {
+              "id": "bone_metastasis",
+              "label": "Bone Metastasis"
+            },
+            {
+              "id": "irae",
+              "label": "Immune Toxicity"
+            },
+            {
+              "id": "extravasation",
+              "label": "Extravasation"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "onc_alkylating",
+          "name": "Alkylating / DNA-damaging agents",
+          "mechanism": "Covalent DNA injury/cross-linking or related DNA damage",
+          "target": "DNA",
+          "tags": [
+            "cytotoxic",
+            "chemotherapy"
+          ],
+          "role_note": "Cytotoxic backbone used in multiple solid and hematologic malignancies; regimen-specific specialist use.",
+          "drug_ids": [
+            "onc_cyclophosphamide",
+            "onc_ifosfamide",
+            "onc_bendamustine",
+            "onc_temozolomide",
+            "onc_melphalan",
+            "onc_busulfan"
+          ]
+        },
+        {
+          "id": "onc_platinum",
+          "name": "Platinum compounds",
+          "mechanism": "DNA cross-linking and replication inhibition",
+          "target": "DNA",
+          "tags": [
+            "cytotoxic",
+            "platinum"
+          ],
+          "role_note": "Core cytotoxic class with agent-specific renal, neurologic, auditory and marrow toxicities.",
+          "drug_ids": [
+            "onc_cisplatin",
+            "onc_carboplatin",
+            "onc_oxaliplatin"
+          ]
+        },
+        {
+          "id": "onc_antimet_pyr",
+          "name": "Antimetabolites — pyrimidine-related",
+          "mechanism": "Disrupts nucleotide synthesis or DNA/RNA incorporation",
+          "target": "DNA/RNA synthesis",
+          "tags": [
+            "cytotoxic",
+            "antimetabolite"
+          ],
+          "role_note": "Widely used antimetabolite class; pharmacogenomic and organ-function issues can be critical.",
+          "drug_ids": [
+            "onc_fluorouracil",
+            "onc_capecitabine",
+            "onc_cytarabine",
+            "onc_gemcitabine"
+          ]
+        },
+        {
+          "id": "onc_antimet_other",
+          "name": "Antimetabolites — folate/purine pathways",
+          "mechanism": "Inhibits folate or purine metabolism / nucleotide synthesis",
+          "target": "Nucleotide synthesis",
+          "tags": [
+            "cytotoxic",
+            "antimetabolite"
+          ],
+          "role_note": "Mechanistically diverse antimetabolites used in solid and hematologic cancer protocols.",
+          "drug_ids": [
+            "onc_methotrexate",
+            "onc_pemetrexed",
+            "onc_mercaptopurine",
+            "onc_fludarabine"
+          ]
+        },
+        {
+          "id": "onc_anthracycline",
+          "name": "Anthracyclines",
+          "mechanism": "Topoisomerase-II inhibition, DNA intercalation and free-radical injury",
+          "target": "Topoisomerase II / DNA",
+          "tags": [
+            "cytotoxic",
+            "anthracycline"
+          ],
+          "role_note": "Highly effective cytotoxic class with cumulative cardiotoxicity and extravasation risk.",
+          "drug_ids": [
+            "onc_doxorubicin",
+            "onc_daunorubicin",
+            "onc_epirubicin"
+          ]
+        },
+        {
+          "id": "onc_topo",
+          "name": "Topoisomerase inhibitors",
+          "mechanism": "Inhibits topoisomerase I or II causing lethal DNA breaks",
+          "target": "Topoisomerase I/II",
+          "tags": [
+            "cytotoxic",
+            "topoisomerase"
+          ],
+          "role_note": "Solid and hematologic cancer cytotoxics with agent-specific GI and marrow toxicity.",
+          "drug_ids": [
+            "onc_irinotecan",
+            "onc_topotecan",
+            "onc_etoposide"
+          ]
+        },
+        {
+          "id": "onc_taxane",
+          "name": "Taxanes",
+          "mechanism": "Stabilizes microtubules and blocks mitosis",
+          "target": "Microtubules",
+          "tags": [
+            "cytotoxic",
+            "microtubule"
+          ],
+          "role_note": "Common solid-tumor cytotoxics with neuropathy, marrow and hypersensitivity risks.",
+          "drug_ids": [
+            "onc_paclitaxel",
+            "onc_docetaxel",
+            "onc_cabazitaxel"
+          ]
+        },
+        {
+          "id": "onc_vinca",
+          "name": "Vinca alkaloids",
+          "mechanism": "Inhibits microtubule polymerization",
+          "target": "Microtubules",
+          "tags": [
+            "cytotoxic",
+            "microtubule"
+          ],
+          "role_note": "Mitotic inhibitors; vinca agents have major neurotoxicity and route-safety concerns.",
+          "drug_ids": [
+            "onc_vincristine",
+            "onc_vinblastine",
+            "onc_vinorelbine"
+          ]
+        },
+        {
+          "id": "onc_other_microtubule",
+          "name": "Other microtubule inhibitors",
+          "mechanism": "Disrupts microtubule dynamics",
+          "target": "Microtubules",
+          "tags": [
+            "cytotoxic",
+            "microtubule"
+          ],
+          "role_note": "Later-line specialist cytotoxic options.",
+          "drug_ids": [
+            "onc_eribulin"
+          ]
+        },
+        {
+          "id": "onc_other_cytotoxic",
+          "name": "Other classic cytotoxics",
+          "mechanism": "Agent-specific DNA injury or antitumor antibiotic effects",
+          "target": "Multiple",
+          "tags": [
+            "cytotoxic"
+          ],
+          "role_note": "Selected classic cytotoxic agents that do not fit the main mechanistic buckets.",
+          "drug_ids": [
+            "onc_bleomycin",
+            "onc_dacarbazine"
+          ]
+        },
+        {
+          "id": "onc_her2",
+          "name": "HER2-directed therapy",
+          "mechanism": "Blocks HER2 signaling or delivers HER2-directed therapy",
+          "target": "HER2",
+          "tags": [
+            "targeted",
+            "her2",
+            "breast",
+            "gastric"
+          ],
+          "role_note": "Biomarker-selected HER2-positive disease therapy; cardiac and pulmonary toxicities vary by agent.",
+          "drug_ids": [
+            "onc_trastuzumab",
+            "onc_pertuzumab",
+            "onc_tucatinib",
+            "onc_lapatinib"
+          ]
+        },
+        {
+          "id": "onc_egfr",
+          "name": "EGFR-directed therapy",
+          "mechanism": "Inhibits EGFR signaling",
+          "target": "EGFR",
+          "tags": [
+            "targeted",
+            "egfr",
+            "lung",
+            "colorectal"
+          ],
+          "role_note": "Molecular selection matters; rash, diarrhea and interstitial lung disease are important class/agent risks.",
+          "drug_ids": [
+            "onc_osimertinib",
+            "onc_erlotinib",
+            "onc_cetuximab"
+          ]
+        },
+        {
+          "id": "onc_alk_ros1",
+          "name": "ALK / ROS1 kinase inhibitors",
+          "mechanism": "Inhibits oncogenic ALK/ROS1 signaling",
+          "target": "ALK / ROS1",
+          "tags": [
+            "targeted",
+            "lung"
+          ],
+          "role_note": "Driver-mutation selected NSCLC therapy; CNS activity and toxicity differ by agent.",
+          "drug_ids": [
+            "onc_alectinib",
+            "onc_lorlatinib",
+            "onc_crizotinib"
+          ]
+        },
+        {
+          "id": "onc_bcr_abl",
+          "name": "BCR-ABL tyrosine-kinase inhibitors",
+          "mechanism": "Suppresses BCR-ABL oncogenic kinase signaling",
+          "target": "BCR-ABL",
+          "tags": [
+            "targeted",
+            "cml",
+            "all"
+          ],
+          "role_note": "Core precision therapy in Philadelphia chromosome/BCR-ABL disease; agent-specific vascular and pleuropulmonary risks.",
+          "drug_ids": [
+            "onc_imatinib",
+            "onc_dasatinib",
+            "onc_nilotinib"
+          ]
+        },
+        {
+          "id": "onc_vegf",
+          "name": "VEGF / VEGFR pathway inhibitors",
+          "mechanism": "Inhibits tumor angiogenesis signaling",
+          "target": "VEGF / VEGFR",
+          "tags": [
+            "targeted",
+            "angiogenesis"
+          ],
+          "role_note": "Antiangiogenic therapy across several cancers; hypertension, thrombosis/bleeding, wound healing and proteinuria are key issues.",
+          "drug_ids": [
+            "onc_bevacizumab",
+            "onc_sunitinib",
+            "onc_pazopanib",
+            "onc_axitinib"
+          ]
+        },
+        {
+          "id": "onc_braf_mek",
+          "name": "BRAF / MEK pathway inhibitors",
+          "mechanism": "Blocks MAPK signaling downstream of oncogenic BRAF",
+          "target": "BRAF / MEK",
+          "tags": [
+            "targeted",
+            "melanoma",
+            "lung"
+          ],
+          "role_note": "Usually biomarker-selected and often combination based to delay resistance.",
+          "drug_ids": [
+            "onc_dabrafenib",
+            "onc_trametinib"
+          ]
+        },
+        {
+          "id": "onc_cdk46",
+          "name": "CDK4/6 inhibitors",
+          "mechanism": "Blocks cyclin-dependent kinases 4/6 and cell-cycle progression",
+          "target": "CDK4/6",
+          "tags": [
+            "targeted",
+            "breast",
+            "hr_positive"
+          ],
+          "role_note": "Major HR-positive breast-cancer targeted class combined with endocrine therapy.",
+          "drug_ids": [
+            "onc_palbociclib",
+            "onc_ribociclib",
+            "onc_abemaciclib"
+          ]
+        },
+        {
+          "id": "onc_parp",
+          "name": "PARP inhibitors",
+          "mechanism": "Exploits homologous-recombination repair defects / synthetic lethality",
+          "target": "PARP",
+          "tags": [
+            "targeted",
+            "dna_repair",
+            "breast",
+            "ovarian",
+            "prostate"
+          ],
+          "role_note": "Biomarker/indication-dependent maintenance or treatment; marrow toxicity and MDS/AML signal require surveillance.",
+          "drug_ids": [
+            "onc_olaparib",
+            "onc_niraparib",
+            "onc_talazoparib"
+          ]
+        },
+        {
+          "id": "onc_pi3k_akt_mtor",
+          "name": "PI3K / AKT / mTOR pathway inhibitors",
+          "mechanism": "Inhibits oncogenic PI3K-AKT-mTOR signaling",
+          "target": "PI3K / AKT / mTOR",
+          "tags": [
+            "targeted",
+            "breast",
+            "renal"
+          ],
+          "role_note": "Biomarker- and indication-specific targeted agents with metabolic and immune/toxicologic risks.",
+          "drug_ids": [
+            "onc_alpelisib",
+            "onc_capivasertib",
+            "onc_everolimus"
+          ]
+        },
+        {
+          "id": "onc_adc",
+          "name": "Antibody-drug conjugates",
+          "mechanism": "Targeted antibody delivers cytotoxic payload to antigen-expressing tumor cells",
+          "target": "Tumor antigen + cytotoxic payload",
+          "tags": [
+            "targeted",
+            "adc"
+          ],
+          "role_note": "Rapidly evolving specialist class; indication and biomarker must match current approval/protocol.",
+          "drug_ids": [
+            "onc_tdxd",
+            "onc_sacituzumab",
+            "onc_enfortumab"
+          ]
+        },
+        {
+          "id": "onc_pd1_pdl1",
+          "name": "PD-1 / PD-L1 immune checkpoint inhibitors",
+          "mechanism": "Releases inhibitory immune checkpoints to restore antitumor T-cell activity",
+          "target": "PD-1 / PD-L1",
+          "tags": [
+            "immunotherapy",
+            "checkpoint"
+          ],
+          "role_note": "Tumor/biomarker- and stage-specific immunotherapy; immune-related adverse events can affect any organ.",
+          "drug_ids": [
+            "onc_pembrolizumab",
+            "onc_nivolumab",
+            "onc_atezolizumab",
+            "onc_durvalumab"
+          ]
+        },
+        {
+          "id": "onc_ctla4_lag3",
+          "name": "CTLA-4 / LAG-3 checkpoint therapy",
+          "mechanism": "Enhances T-cell activation through additional immune checkpoints",
+          "target": "CTLA-4 / LAG-3",
+          "tags": [
+            "immunotherapy",
+            "checkpoint"
+          ],
+          "role_note": "Specialist immunotherapy often used in combination; immune toxicity burden can be substantial.",
+          "drug_ids": [
+            "onc_ipilimumab",
+            "onc_niv_rel"
+          ]
+        },
+        {
+          "id": "onc_cellular_bispecific",
+          "name": "Cellular therapy / bispecific T-cell engagers",
+          "mechanism": "Redirects or engineers immune cells to attack malignant cells",
+          "target": "CD19/BCMA/other targets",
+          "tags": [
+            "immunotherapy",
+            "cellular",
+            "hematologic"
+          ],
+          "role_note": "Highly specialized hematologic-oncology therapy requiring certified centers/protocols and intensive toxicity monitoring.",
+          "drug_ids": [
+            "onc_blinatumomab",
+            "onc_teclistamab",
+            "onc_axi_cel"
+          ]
+        },
+        {
+          "id": "onc_breast_serm_serd",
+          "name": "Breast-cancer endocrine therapy — SERM/SERD",
+          "mechanism": "Blocks or degrades estrogen-receptor signaling",
+          "target": "Estrogen receptor",
+          "tags": [
+            "endocrine_oncology",
+            "breast",
+            "hr_positive"
+          ],
+          "role_note": "HR-positive breast-cancer endocrine therapy selected by stage, menopausal status, prior therapy and molecular context.",
+          "drug_ids": [
+            "onc_tamoxifen",
+            "onc_fulvestrant",
+            "onc_elacestrant"
+          ]
+        },
+        {
+          "id": "onc_aromatase",
+          "name": "Aromatase inhibitors",
+          "mechanism": "Suppresses peripheral estrogen synthesis",
+          "target": "Aromatase",
+          "tags": [
+            "endocrine_oncology",
+            "breast",
+            "hr_positive"
+          ],
+          "role_note": "Postmenopausal or ovarian-suppression-associated HR-positive breast-cancer therapy.",
+          "drug_ids": [
+            "onc_anastrozole",
+            "onc_letrozole",
+            "onc_exemestane"
+          ]
+        },
+        {
+          "id": "onc_gnrh",
+          "name": "GnRH agonist / antagonist cancer therapy",
+          "mechanism": "Suppresses gonadal sex-steroid production",
+          "target": "GnRH receptor",
+          "tags": [
+            "endocrine_oncology",
+            "breast",
+            "prostate"
+          ],
+          "role_note": "Used for ovarian suppression or androgen deprivation depending indication; flare and cardiovascular/metabolic issues vary by agent.",
+          "drug_ids": [
+            "onc_goserelin",
+            "onc_leuprolide",
+            "onc_degarelix",
+            "onc_relugolix"
+          ]
+        },
+        {
+          "id": "onc_ar_pathway",
+          "name": "Androgen-receptor pathway inhibitors",
+          "mechanism": "Blocks androgen receptor signaling",
+          "target": "Androgen receptor",
+          "tags": [
+            "endocrine_oncology",
+            "prostate"
+          ],
+          "role_note": "Prostate-cancer systemic therapy combined/sequenced with ADT depending disease state.",
+          "drug_ids": [
+            "onc_bicalutamide",
+            "onc_enzalutamide",
+            "onc_apalutamide",
+            "onc_darolutamide"
+          ]
+        },
+        {
+          "id": "onc_androgen_synthesis",
+          "name": "Androgen-synthesis inhibitor",
+          "mechanism": "Suppresses extragonadal/tumor androgen synthesis",
+          "target": "CYP17",
+          "tags": [
+            "endocrine_oncology",
+            "prostate"
+          ],
+          "role_note": "CYP17 inhibition in prostate cancer, generally with glucocorticoid support per protocol.",
+          "drug_ids": [
+            "onc_abiraterone"
+          ]
+        },
+        {
+          "id": "onc_cinv_5ht3",
+          "name": "CINV prevention — 5-HT3 antagonists",
+          "mechanism": "Blocks serotonin 5-HT3 signaling",
+          "target": "5-HT3",
+          "tags": [
+            "supportive",
+            "cinv"
+          ],
+          "role_note": "Antiemetic backbone chosen according to emetogenic risk and regimen.",
+          "drug_ids": [
+            "onc_ondansetron",
+            "onc_palonosetron"
+          ]
+        },
+        {
+          "id": "onc_cinv_nk1",
+          "name": "CINV prevention — NK1 antagonists",
+          "mechanism": "Blocks substance-P NK1 signaling",
+          "target": "NK1",
+          "tags": [
+            "supportive",
+            "cinv"
+          ],
+          "role_note": "Used as part of multidrug prophylaxis for higher emetogenic risk.",
+          "drug_ids": [
+            "onc_aprepitant",
+            "onc_fosaprepitant"
+          ]
+        },
+        {
+          "id": "onc_cinv_multi",
+          "name": "CINV multimodal adjuncts",
+          "mechanism": "Multiple antiemetic mechanisms",
+          "target": "Multiple",
+          "tags": [
+            "supportive",
+            "cinv"
+          ],
+          "role_note": "Adjuncts combined according to chemotherapy emetogenicity, prior control and patient risk.",
+          "drug_ids": [
+            "onc_olanzapine",
+            "onc_dexamethasone_antiemetic"
+          ]
+        },
+        {
+          "id": "onc_gcsf",
+          "name": "Myeloid growth factors (G-CSF)",
+          "mechanism": "Stimulates neutrophil production and maturation",
+          "target": "G-CSF receptor",
+          "tags": [
+            "supportive",
+            "neutropenia"
+          ],
+          "role_note": "Primary/secondary febrile-neutropenia prophylaxis depends on regimen risk and patient factors; not a substitute for urgent fever assessment.",
+          "drug_ids": [
+            "onc_filgrastim",
+            "onc_pegfilgrastim"
+          ]
+        },
+        {
+          "id": "onc_bone_support",
+          "name": "Bone-modifying therapy in cancer",
+          "mechanism": "Inhibits osteoclast-mediated bone resorption",
+          "target": "Bone resorption",
+          "tags": [
+            "supportive",
+            "bone_metastasis",
+            "myeloma"
+          ],
+          "role_note": "Prevents skeletal-related events in selected bone metastasis/myeloma contexts; dental and renal/calcium safety are essential.",
+          "drug_ids": [
+            "onc_zoledronic",
+            "onc_denosumab_onc"
+          ]
+        },
+        {
+          "id": "onc_tls",
+          "name": "Tumor-lysis syndrome prophylaxis / treatment",
+          "mechanism": "Reduces uric acid formation or rapidly degrades uric acid",
+          "target": "Uric acid pathway",
+          "tags": [
+            "supportive",
+            "tumor_lysis"
+          ],
+          "role_note": "Risk-stratified TLS prevention/treatment requires hydration, frequent chemistry monitoring and disease-specific protocol.",
+          "drug_ids": [
+            "onc_allopurinol_tls",
+            "onc_rasburicase"
+          ]
+        },
+        {
+          "id": "onc_irae",
+          "name": "Immune-related adverse-event immunosuppression",
+          "mechanism": "Suppresses immune-mediated organ inflammation caused by checkpoint therapy",
+          "target": "Immune pathways",
+          "tags": [
+            "supportive",
+            "irae",
+            "high_risk"
+          ],
+          "role_note": "Organ- and grade-specific toxicity management; specialist protocols determine when to hold immunotherapy and which immunosuppressant to use.",
+          "drug_ids": [
+            "onc_methylpred_irae",
+            "onc_infliximab_irae",
+            "onc_mmf_irae",
+            "onc_tocilizumab_crs"
+          ]
+        },
+        {
+          "id": "onc_extravasation",
+          "name": "Chemotherapy extravasation antidotes",
+          "mechanism": "Agent-specific neutralization or tissue dispersion after vesicant extravasation",
+          "target": "Local tissue injury",
+          "tags": [
+            "supportive",
+            "extravasation",
+            "emergency"
+          ],
+          "role_note": "Extravasation is a time-critical protocol event; stop infusion, preserve line as appropriate and follow agent-specific institutional pathway.",
+          "drug_ids": [
+            "onc_dexrazoxane",
+            "onc_hyaluronidase"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "onc_cyclophosphamide",
+          "generic": "Cyclophosphamide",
+          "class_id": "onc_alkylating",
+          "form": "Tablet/Injection",
+          "route": "Oral/IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "chemotherapy"
+          ],
+          "role": "Cytotoxic backbone used in multiple solid and hematologic malignancies; regimen-specific specialist use.",
+          "monitoring_pearl": "Myelosuppression, hemorrhagic cystitis, fertility and secondary-malignancy risks require protocol monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_ifosfamide",
+          "generic": "Ifosfamide",
+          "class_id": "onc_alkylating",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "chemotherapy"
+          ],
+          "role": "Cytotoxic backbone used in multiple solid and hematologic malignancies; regimen-specific specialist use.",
+          "monitoring_pearl": "Neurotoxicity and urotoxicity are key high-risk issues; mesna/hydration are protocol dependent.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_bendamustine",
+          "generic": "Bendamustine",
+          "class_id": "onc_alkylating",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "chemotherapy"
+          ],
+          "role": "Cytotoxic backbone used in multiple solid and hematologic malignancies; regimen-specific specialist use.",
+          "monitoring_pearl": "Myelosuppression, infections, infusion reactions and skin reactions require close monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_temozolomide",
+          "generic": "Temozolomide",
+          "class_id": "onc_alkylating",
+          "form": "Capsule/Injection",
+          "route": "Oral/IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "chemotherapy"
+          ],
+          "role": "Cytotoxic backbone used in multiple solid and hematologic malignancies; regimen-specific specialist use.",
+          "monitoring_pearl": "CBC and hepatic monitoring; opportunistic-infection prophylaxis depends on regimen context.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_melphalan",
+          "generic": "Melphalan",
+          "class_id": "onc_alkylating",
+          "form": "Tablet/Injection",
+          "route": "Oral/IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "chemotherapy"
+          ],
+          "role": "Cytotoxic backbone used in multiple solid and hematologic malignancies; regimen-specific specialist use.",
+          "monitoring_pearl": "Profound marrow toxicity and transplant-conditioning context require specialist protocol.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_busulfan",
+          "generic": "Busulfan",
+          "class_id": "onc_alkylating",
+          "form": "Tablet/Injection",
+          "route": "Oral/IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "chemotherapy"
+          ],
+          "role": "Cytotoxic backbone used in multiple solid and hematologic malignancies; regimen-specific specialist use.",
+          "monitoring_pearl": "Therapeutic drug monitoring may be required; hepatic sinusoidal obstruction and seizures are important risks.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_cisplatin",
+          "generic": "Cisplatin",
+          "class_id": "onc_platinum",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "platinum"
+          ],
+          "role": "Core cytotoxic class with agent-specific renal, neurologic, auditory and marrow toxicities.",
+          "monitoring_pearl": "Nephrotoxicity, ototoxicity, neuropathy and electrolyte wasting require protocol hydration and monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_carboplatin",
+          "generic": "Carboplatin",
+          "class_id": "onc_platinum",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "platinum"
+          ],
+          "role": "Core cytotoxic class with agent-specific renal, neurologic, auditory and marrow toxicities.",
+          "monitoring_pearl": "Dose is commonly renal-function/AUC based in oncology protocols; thrombocytopenia is important.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_oxaliplatin",
+          "generic": "Oxaliplatin",
+          "class_id": "onc_platinum",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "platinum"
+          ],
+          "role": "Core cytotoxic class with agent-specific renal, neurologic, auditory and marrow toxicities.",
+          "monitoring_pearl": "Acute cold-triggered and cumulative sensory neuropathy are characteristic risks.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_fluorouracil",
+          "generic": "Fluorouracil (5-FU)",
+          "class_id": "onc_antimet_pyr",
+          "form": "Injection/Topical",
+          "route": "IV/Topical",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "antimetabolite"
+          ],
+          "role": "Widely used antimetabolite class; pharmacogenomic and organ-function issues can be critical.",
+          "monitoring_pearl": "Severe fluoropyrimidine toxicity can occur with DPD deficiency; mucositis, diarrhea and cardiotoxicity require vigilance.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_capecitabine",
+          "generic": "Capecitabine",
+          "class_id": "onc_antimet_pyr",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "antimetabolite"
+          ],
+          "role": "Widely used antimetabolite class; pharmacogenomic and organ-function issues can be critical.",
+          "monitoring_pearl": "Hand-foot syndrome, diarrhea and renal-function considerations; fluoropyrimidine pharmacogenomic risk applies.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_cytarabine",
+          "generic": "Cytarabine",
+          "class_id": "onc_antimet_pyr",
+          "form": "Injection",
+          "route": "IV/SC/Intrathecal protocol-specific",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "antimetabolite"
+          ],
+          "role": "Widely used antimetabolite class; pharmacogenomic and organ-function issues can be critical.",
+          "monitoring_pearl": "Marrow suppression; high-dose regimens add cerebellar and ocular toxicity monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_gemcitabine",
+          "generic": "Gemcitabine",
+          "class_id": "onc_antimet_pyr",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "antimetabolite"
+          ],
+          "role": "Widely used antimetabolite class; pharmacogenomic and organ-function issues can be critical.",
+          "monitoring_pearl": "Myelosuppression and hepatic/renal toxicity; rare thrombotic microangiopathy is a major signal.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_methotrexate",
+          "generic": "Methotrexate",
+          "class_id": "onc_antimet_other",
+          "form": "Tablet/Injection",
+          "route": "Oral/IV/IM/SC/Intrathecal protocol-specific",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "antimetabolite"
+          ],
+          "role": "Mechanistically diverse antimetabolites used in solid and hematologic cancer protocols.",
+          "monitoring_pearl": "High-dose therapy requires leucovorin/rescue and drug-level/renal monitoring; interactions can be dangerous.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_pemetrexed",
+          "generic": "Pemetrexed",
+          "class_id": "onc_antimet_other",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "antimetabolite"
+          ],
+          "role": "Mechanistically diverse antimetabolites used in solid and hematologic cancer protocols.",
+          "monitoring_pearl": "Folate/B12 supplementation and renal function are key protocol checks.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_mercaptopurine",
+          "generic": "Mercaptopurine",
+          "class_id": "onc_antimet_other",
+          "form": "Tablet/Suspension",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "antimetabolite"
+          ],
+          "role": "Mechanistically diverse antimetabolites used in solid and hematologic cancer protocols.",
+          "monitoring_pearl": "TPMT/NUDT15 pharmacogenomics, marrow and hepatic toxicity are key safeguards.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_fludarabine",
+          "generic": "Fludarabine",
+          "class_id": "onc_antimet_other",
+          "form": "Tablet/Injection",
+          "route": "Oral/IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "antimetabolite"
+          ],
+          "role": "Mechanistically diverse antimetabolites used in solid and hematologic cancer protocols.",
+          "monitoring_pearl": "Profound immunosuppression, opportunistic infection and neurotoxicity require specialist monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_doxorubicin",
+          "generic": "Doxorubicin",
+          "class_id": "onc_anthracycline",
+          "form": "Injection/Liposomal injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "anthracycline"
+          ],
+          "role": "Highly effective cytotoxic class with cumulative cardiotoxicity and extravasation risk.",
+          "monitoring_pearl": "Baseline/cumulative cardiac exposure, marrow toxicity and vesicant extravasation risk require tracking.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_daunorubicin",
+          "generic": "Daunorubicin",
+          "class_id": "onc_anthracycline",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "anthracycline"
+          ],
+          "role": "Highly effective cytotoxic class with cumulative cardiotoxicity and extravasation risk.",
+          "monitoring_pearl": "Cardiac and marrow toxicity monitoring; leukemia protocols are specialist controlled.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_epirubicin",
+          "generic": "Epirubicin",
+          "class_id": "onc_anthracycline",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "anthracycline"
+          ],
+          "role": "Highly effective cytotoxic class with cumulative cardiotoxicity and extravasation risk.",
+          "monitoring_pearl": "Cumulative cardiotoxicity, myelosuppression and vesicant precautions apply.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_irinotecan",
+          "generic": "Irinotecan",
+          "class_id": "onc_topo",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "topoisomerase"
+          ],
+          "role": "Solid and hematologic cancer cytotoxics with agent-specific GI and marrow toxicity.",
+          "monitoring_pearl": "Acute cholinergic symptoms and delayed diarrhea are major toxicities; UGT1A1 context may matter.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_topotecan",
+          "generic": "Topotecan",
+          "class_id": "onc_topo",
+          "form": "Capsule/Injection",
+          "route": "Oral/IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "topoisomerase"
+          ],
+          "role": "Solid and hematologic cancer cytotoxics with agent-specific GI and marrow toxicity.",
+          "monitoring_pearl": "Dose-limiting marrow suppression; renal function affects exposure.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_etoposide",
+          "generic": "Etoposide",
+          "class_id": "onc_topo",
+          "form": "Capsule/Injection",
+          "route": "Oral/IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "topoisomerase"
+          ],
+          "role": "Solid and hematologic cancer cytotoxics with agent-specific GI and marrow toxicity.",
+          "monitoring_pearl": "Myelosuppression, infusion hypotension and secondary leukemia risk with cumulative exposure.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_paclitaxel",
+          "generic": "Paclitaxel",
+          "class_id": "onc_taxane",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "microtubule"
+          ],
+          "role": "Common solid-tumor cytotoxics with neuropathy, marrow and hypersensitivity risks.",
+          "monitoring_pearl": "Neuropathy and hypersensitivity; formulation-specific premedication and infusion precautions apply.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_docetaxel",
+          "generic": "Docetaxel",
+          "class_id": "onc_taxane",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "microtubule"
+          ],
+          "role": "Common solid-tumor cytotoxics with neuropathy, marrow and hypersensitivity risks.",
+          "monitoring_pearl": "Neutropenia, edema/fluid retention and hepatic-function considerations.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_cabazitaxel",
+          "generic": "Cabazitaxel",
+          "class_id": "onc_taxane",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "microtubule"
+          ],
+          "role": "Common solid-tumor cytotoxics with neuropathy, marrow and hypersensitivity risks.",
+          "monitoring_pearl": "Severe neutropenia and diarrhea risk; prostate-cancer protocol use.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_vincristine",
+          "generic": "Vincristine",
+          "class_id": "onc_vinca",
+          "form": "Injection",
+          "route": "IV only",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "microtubule"
+          ],
+          "role": "Mitotic inhibitors; vinca agents have major neurotoxicity and route-safety concerns.",
+          "monitoring_pearl": "Fatal if given intrathecally; peripheral/autonomic neuropathy and ileus are major risks.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_vinblastine",
+          "generic": "Vinblastine",
+          "class_id": "onc_vinca",
+          "form": "Injection",
+          "route": "IV only",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "microtubule"
+          ],
+          "role": "Mitotic inhibitors; vinca agents have major neurotoxicity and route-safety concerns.",
+          "monitoring_pearl": "Myelosuppression and vesicant injury; never intrathecal.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_vinorelbine",
+          "generic": "Vinorelbine",
+          "class_id": "onc_vinca",
+          "form": "Capsule/Injection",
+          "route": "Oral/IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "microtubule"
+          ],
+          "role": "Mitotic inhibitors; vinca agents have major neurotoxicity and route-safety concerns.",
+          "monitoring_pearl": "Neutropenia, neuropathy and vesicant/irritant precautions.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_eribulin",
+          "generic": "Eribulin",
+          "class_id": "onc_other_microtubule",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic",
+            "microtubule"
+          ],
+          "role": "Later-line specialist cytotoxic options.",
+          "monitoring_pearl": "Neutropenia, neuropathy and QT/electrolyte considerations.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_bleomycin",
+          "generic": "Bleomycin",
+          "class_id": "onc_other_cytotoxic",
+          "form": "Injection",
+          "route": "IV/IM/SC/Intralesional protocol-specific",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic"
+          ],
+          "role": "Selected classic cytotoxic agents that do not fit the main mechanistic buckets.",
+          "monitoring_pearl": "Pulmonary toxicity is the dominant cumulative risk; oxygen exposure considerations in prior therapy.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_dacarbazine",
+          "generic": "Dacarbazine",
+          "class_id": "onc_other_cytotoxic",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "cytotoxic"
+          ],
+          "role": "Selected classic cytotoxic agents that do not fit the main mechanistic buckets.",
+          "monitoring_pearl": "Severe nausea/vomiting and marrow/hepatic toxicity require protocol supportive care.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_trastuzumab",
+          "generic": "Trastuzumab",
+          "class_id": "onc_her2",
+          "form": "Injection",
+          "route": "IV/SC product-specific",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "her2",
+            "breast",
+            "gastric"
+          ],
+          "role": "Biomarker-selected HER2-positive disease therapy; cardiac and pulmonary toxicities vary by agent.",
+          "monitoring_pearl": "Cardiac function monitoring and infusion-reaction awareness are essential.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_pertuzumab",
+          "generic": "Pertuzumab",
+          "class_id": "onc_her2",
+          "form": "Injection",
+          "route": "IV/SC combination product-specific",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "her2",
+            "breast",
+            "gastric"
+          ],
+          "role": "Biomarker-selected HER2-positive disease therapy; cardiac and pulmonary toxicities vary by agent.",
+          "monitoring_pearl": "Cardiac monitoring, diarrhea and infusion reactions; used in HER2-directed combinations.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_tucatinib",
+          "generic": "Tucatinib",
+          "class_id": "onc_her2",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "her2",
+            "breast",
+            "gastric"
+          ],
+          "role": "Biomarker-selected HER2-positive disease therapy; cardiac and pulmonary toxicities vary by agent.",
+          "monitoring_pearl": "Hepatic toxicity and diarrhea; interaction review required.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_lapatinib",
+          "generic": "Lapatinib",
+          "class_id": "onc_her2",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "her2",
+            "breast",
+            "gastric"
+          ],
+          "role": "Biomarker-selected HER2-positive disease therapy; cardiac and pulmonary toxicities vary by agent.",
+          "monitoring_pearl": "Diarrhea, hepatotoxicity and cardiac/QT considerations.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_osimertinib",
+          "generic": "Osimertinib",
+          "class_id": "onc_egfr",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "egfr",
+            "lung",
+            "colorectal"
+          ],
+          "role": "Molecular selection matters; rash, diarrhea and interstitial lung disease are important class/agent risks.",
+          "monitoring_pearl": "QT, cardiomyopathy and interstitial lung disease/pneumonitis monitoring; requires appropriate EGFR biomarker context.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_erlotinib",
+          "generic": "Erlotinib",
+          "class_id": "onc_egfr",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "egfr",
+            "lung",
+            "colorectal"
+          ],
+          "role": "Molecular selection matters; rash, diarrhea and interstitial lung disease are important class/agent risks.",
+          "monitoring_pearl": "Rash, diarrhea, hepatic toxicity and major smoking/drug interaction effects.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_cetuximab",
+          "generic": "Cetuximab",
+          "class_id": "onc_egfr",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "egfr",
+            "lung",
+            "colorectal"
+          ],
+          "role": "Molecular selection matters; rash, diarrhea and interstitial lung disease are important class/agent risks.",
+          "monitoring_pearl": "Infusion reactions, acneiform rash and hypomagnesemia; RAS biomarker context in colorectal cancer.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_alectinib",
+          "generic": "Alectinib",
+          "class_id": "onc_alk_ros1",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "lung"
+          ],
+          "role": "Driver-mutation selected NSCLC therapy; CNS activity and toxicity differ by agent.",
+          "monitoring_pearl": "Hepatic, CPK, bradycardia and pulmonary toxicity monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_lorlatinib",
+          "generic": "Lorlatinib",
+          "class_id": "onc_alk_ros1",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "lung"
+          ],
+          "role": "Driver-mutation selected NSCLC therapy; CNS activity and toxicity differ by agent.",
+          "monitoring_pearl": "Hyperlipidemia, CNS effects, hypertension and interactions are major issues.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_crizotinib",
+          "generic": "Crizotinib",
+          "class_id": "onc_alk_ros1",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "lung"
+          ],
+          "role": "Driver-mutation selected NSCLC therapy; CNS activity and toxicity differ by agent.",
+          "monitoring_pearl": "QT/bradycardia, hepatic toxicity and visual effects require monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_imatinib",
+          "generic": "Imatinib",
+          "class_id": "onc_bcr_abl",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "cml",
+            "all"
+          ],
+          "role": "Core precision therapy in Philadelphia chromosome/BCR-ABL disease; agent-specific vascular and pleuropulmonary risks.",
+          "monitoring_pearl": "Edema, cytopenias, hepatic toxicity and interaction review.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_dasatinib",
+          "generic": "Dasatinib",
+          "class_id": "onc_bcr_abl",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "cml",
+            "all"
+          ],
+          "role": "Core precision therapy in Philadelphia chromosome/BCR-ABL disease; agent-specific vascular and pleuropulmonary risks.",
+          "monitoring_pearl": "Pleural effusion, pulmonary hypertension and cytopenias are important.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_nilotinib",
+          "generic": "Nilotinib",
+          "class_id": "onc_bcr_abl",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "cml",
+            "all"
+          ],
+          "role": "Core precision therapy in Philadelphia chromosome/BCR-ABL disease; agent-specific vascular and pleuropulmonary risks.",
+          "monitoring_pearl": "QT prolongation and arterial occlusive/metabolic risks require careful selection.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_bevacizumab",
+          "generic": "Bevacizumab",
+          "class_id": "onc_vegf",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "angiogenesis"
+          ],
+          "role": "Antiangiogenic therapy across several cancers; hypertension, thrombosis/bleeding, wound healing and proteinuria are key issues.",
+          "monitoring_pearl": "Hypertension, proteinuria, bleeding/thrombosis, GI perforation and wound-healing precautions.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_sunitinib",
+          "generic": "Sunitinib",
+          "class_id": "onc_vegf",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "angiogenesis"
+          ],
+          "role": "Antiangiogenic therapy across several cancers; hypertension, thrombosis/bleeding, wound healing and proteinuria are key issues.",
+          "monitoring_pearl": "Hypertension, cardiotoxicity, thyroid dysfunction and marrow/hepatic effects.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_pazopanib",
+          "generic": "Pazopanib",
+          "class_id": "onc_vegf",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "angiogenesis"
+          ],
+          "role": "Antiangiogenic therapy across several cancers; hypertension, thrombosis/bleeding, wound healing and proteinuria are key issues.",
+          "monitoring_pearl": "Hepatotoxicity, hypertension, QT and drug/food interactions.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_axitinib",
+          "generic": "Axitinib",
+          "class_id": "onc_vegf",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "angiogenesis"
+          ],
+          "role": "Antiangiogenic therapy across several cancers; hypertension, thrombosis/bleeding, wound healing and proteinuria are key issues.",
+          "monitoring_pearl": "Hypertension, thyroid, hepatic and thrombotic/bleeding risks.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_dabrafenib",
+          "generic": "Dabrafenib",
+          "class_id": "onc_braf_mek",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "melanoma",
+            "lung"
+          ],
+          "role": "Usually biomarker-selected and often combination based to delay resistance.",
+          "monitoring_pearl": "Pyrexia, skin malignancy surveillance and interaction review; commonly paired with MEK inhibition.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_trametinib",
+          "generic": "Trametinib",
+          "class_id": "onc_braf_mek",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "melanoma",
+            "lung"
+          ],
+          "role": "Usually biomarker-selected and often combination based to delay resistance.",
+          "monitoring_pearl": "Cardiomyopathy, ocular toxicity, rash and interstitial lung disease monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_palbociclib",
+          "generic": "Palbociclib",
+          "class_id": "onc_cdk46",
+          "form": "Tablet/Capsule",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "breast",
+            "hr_positive"
+          ],
+          "role": "Major HR-positive breast-cancer targeted class combined with endocrine therapy.",
+          "monitoring_pearl": "Neutropenia and interaction monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_ribociclib",
+          "generic": "Ribociclib",
+          "class_id": "onc_cdk46",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "breast",
+            "hr_positive"
+          ],
+          "role": "Major HR-positive breast-cancer targeted class combined with endocrine therapy.",
+          "monitoring_pearl": "CBC, liver tests, QT/electrolytes and interactions require monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_abemaciclib",
+          "generic": "Abemaciclib",
+          "class_id": "onc_cdk46",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "breast",
+            "hr_positive"
+          ],
+          "role": "Major HR-positive breast-cancer targeted class combined with endocrine therapy.",
+          "monitoring_pearl": "Diarrhea, VTE, hepatotoxicity and interstitial lung disease monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_olaparib",
+          "generic": "Olaparib",
+          "class_id": "onc_parp",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "dna_repair",
+            "breast",
+            "ovarian",
+            "prostate"
+          ],
+          "role": "Biomarker/indication-dependent maintenance or treatment; marrow toxicity and MDS/AML signal require surveillance.",
+          "monitoring_pearl": "CBC, renal function and interaction review; rare MDS/AML and pneumonitis signals.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_niraparib",
+          "generic": "Niraparib",
+          "class_id": "onc_parp",
+          "form": "Tablet/Capsule",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "dna_repair",
+            "breast",
+            "ovarian",
+            "prostate"
+          ],
+          "role": "Biomarker/indication-dependent maintenance or treatment; marrow toxicity and MDS/AML signal require surveillance.",
+          "monitoring_pearl": "Thrombocytopenia, hypertension and marrow toxicity; individualized protocol considerations.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_talazoparib",
+          "generic": "Talazoparib",
+          "class_id": "onc_parp",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "dna_repair",
+            "breast",
+            "ovarian",
+            "prostate"
+          ],
+          "role": "Biomarker/indication-dependent maintenance or treatment; marrow toxicity and MDS/AML signal require surveillance.",
+          "monitoring_pearl": "Myelosuppression and renal-function dose considerations.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_alpelisib",
+          "generic": "Alpelisib",
+          "class_id": "onc_pi3k_akt_mtor",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "breast",
+            "renal"
+          ],
+          "role": "Biomarker- and indication-specific targeted agents with metabolic and immune/toxicologic risks.",
+          "monitoring_pearl": "Hyperglycemia, rash and diarrhea; PIK3CA biomarker context.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_capivasertib",
+          "generic": "Capivasertib",
+          "class_id": "onc_pi3k_akt_mtor",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "breast",
+            "renal"
+          ],
+          "role": "Biomarker- and indication-specific targeted agents with metabolic and immune/toxicologic risks.",
+          "monitoring_pearl": "Hyperglycemia, diarrhea and rash; biomarker/combination context must be verified.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_everolimus",
+          "generic": "Everolimus",
+          "class_id": "onc_pi3k_akt_mtor",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "breast",
+            "renal"
+          ],
+          "role": "Biomarker- and indication-specific targeted agents with metabolic and immune/toxicologic risks.",
+          "monitoring_pearl": "Stomatitis, pneumonitis, metabolic effects and immunosuppression.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_tdxd",
+          "generic": "Trastuzumab deruxtecan",
+          "class_id": "onc_adc",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "adc"
+          ],
+          "role": "Rapidly evolving specialist class; indication and biomarker must match current approval/protocol.",
+          "monitoring_pearl": "Interstitial lung disease/pneumonitis can be fatal; cardiac and marrow monitoring also required.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_sacituzumab",
+          "generic": "Sacituzumab govitecan",
+          "class_id": "onc_adc",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "adc"
+          ],
+          "role": "Rapidly evolving specialist class; indication and biomarker must match current approval/protocol.",
+          "monitoring_pearl": "Neutropenia and diarrhea are major toxicities; UGT1A1 context may matter.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_enfortumab",
+          "generic": "Enfortumab vedotin",
+          "class_id": "onc_adc",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "targeted",
+            "adc"
+          ],
+          "role": "Rapidly evolving specialist class; indication and biomarker must match current approval/protocol.",
+          "monitoring_pearl": "Severe skin reactions, hyperglycemia, neuropathy and ocular effects require monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_pembrolizumab",
+          "generic": "Pembrolizumab",
+          "class_id": "onc_pd1_pdl1",
+          "form": "Injection",
+          "route": "IV/SC product-specific",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "immunotherapy",
+            "checkpoint"
+          ],
+          "role": "Tumor/biomarker- and stage-specific immunotherapy; immune-related adverse events can affect any organ.",
+          "monitoring_pearl": "Monitor for immune-mediated pneumonitis, colitis, hepatitis, endocrinopathies, nephritis and other irAEs.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_nivolumab",
+          "generic": "Nivolumab",
+          "class_id": "onc_pd1_pdl1",
+          "form": "Injection",
+          "route": "IV/SC product-specific",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "immunotherapy",
+            "checkpoint"
+          ],
+          "role": "Tumor/biomarker- and stage-specific immunotherapy; immune-related adverse events can affect any organ.",
+          "monitoring_pearl": "Broad irAE surveillance; combination regimens may increase immune toxicity.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_atezolizumab",
+          "generic": "Atezolizumab",
+          "class_id": "onc_pd1_pdl1",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "immunotherapy",
+            "checkpoint"
+          ],
+          "role": "Tumor/biomarker- and stage-specific immunotherapy; immune-related adverse events can affect any organ.",
+          "monitoring_pearl": "Immune-mediated toxicities and infusion reactions; indication-specific biomarker context.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_durvalumab",
+          "generic": "Durvalumab",
+          "class_id": "onc_pd1_pdl1",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "immunotherapy",
+            "checkpoint"
+          ],
+          "role": "Tumor/biomarker- and stage-specific immunotherapy; immune-related adverse events can affect any organ.",
+          "monitoring_pearl": "Immune-mediated toxicities including pneumonitis; stage/regimen context is critical.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_ipilimumab",
+          "generic": "Ipilimumab",
+          "class_id": "onc_ctla4_lag3",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "immunotherapy",
+            "checkpoint"
+          ],
+          "role": "Specialist immunotherapy often used in combination; immune toxicity burden can be substantial.",
+          "monitoring_pearl": "Higher-grade immune colitis, hepatitis, dermatitis and endocrinopathies can occur.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_niv_rel",
+          "generic": "Nivolumab + relatlimab",
+          "class_id": "onc_ctla4_lag3",
+          "form": "Fixed-dose injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "immunotherapy",
+            "checkpoint"
+          ],
+          "role": "Specialist immunotherapy often used in combination; immune toxicity burden can be substantial.",
+          "monitoring_pearl": "Dual checkpoint blockade; monitor for immune-mediated toxicities across organs.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_blinatumomab",
+          "generic": "Blinatumomab",
+          "class_id": "onc_cellular_bispecific",
+          "form": "Continuous infusion",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "immunotherapy",
+            "cellular",
+            "hematologic"
+          ],
+          "role": "Highly specialized hematologic-oncology therapy requiring certified centers/protocols and intensive toxicity monitoring.",
+          "monitoring_pearl": "Cytokine-release syndrome and neurotoxicity; continuous-infusion logistics and specialist monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_teclistamab",
+          "generic": "Teclistamab",
+          "class_id": "onc_cellular_bispecific",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "immunotherapy",
+            "cellular",
+            "hematologic"
+          ],
+          "role": "Highly specialized hematologic-oncology therapy requiring certified centers/protocols and intensive toxicity monitoring.",
+          "monitoring_pearl": "CRS, neurologic toxicity and severe infections/hypogammaglobulinemia require specialist protocols.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_axi_cel",
+          "generic": "Axicabtagene ciloleucel (CAR-T)",
+          "class_id": "onc_cellular_bispecific",
+          "form": "Cellular infusion",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "immunotherapy",
+            "cellular",
+            "hematologic"
+          ],
+          "role": "Highly specialized hematologic-oncology therapy requiring certified centers/protocols and intensive toxicity monitoring.",
+          "monitoring_pearl": "CRS, ICANS, prolonged cytopenia and infections; certified cellular-therapy center only.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_tamoxifen",
+          "generic": "Tamoxifen",
+          "class_id": "onc_breast_serm_serd",
+          "form": "Tablet/Solution",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "breast",
+            "hr_positive"
+          ],
+          "role": "HR-positive breast-cancer endocrine therapy selected by stage, menopausal status, prior therapy and molecular context.",
+          "monitoring_pearl": "VTE and endometrial effects; CYP2D6 interaction considerations and menopausal context.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_fulvestrant",
+          "generic": "Fulvestrant",
+          "class_id": "onc_breast_serm_serd",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "breast",
+            "hr_positive"
+          ],
+          "role": "HR-positive breast-cancer endocrine therapy selected by stage, menopausal status, prior therapy and molecular context.",
+          "monitoring_pearl": "Injection-site effects and hepatic considerations; metastatic HR-positive context.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_elacestrant",
+          "generic": "Elacestrant",
+          "class_id": "onc_breast_serm_serd",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "breast",
+            "hr_positive"
+          ],
+          "role": "HR-positive breast-cancer endocrine therapy selected by stage, menopausal status, prior therapy and molecular context.",
+          "monitoring_pearl": "Indication depends on ESR1 mutation and prior endocrine therapy; lipid/hepatic monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_anastrozole",
+          "generic": "Anastrozole",
+          "class_id": "onc_aromatase",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "breast",
+            "hr_positive"
+          ],
+          "role": "Postmenopausal or ovarian-suppression-associated HR-positive breast-cancer therapy.",
+          "monitoring_pearl": "Bone loss/fracture risk, arthralgia and lipid/cardiovascular context.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_letrozole",
+          "generic": "Letrozole",
+          "class_id": "onc_aromatase",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "breast",
+            "hr_positive"
+          ],
+          "role": "Postmenopausal or ovarian-suppression-associated HR-positive breast-cancer therapy.",
+          "monitoring_pearl": "Bone health, arthralgia and lipid considerations.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_exemestane",
+          "generic": "Exemestane",
+          "class_id": "onc_aromatase",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "breast",
+            "hr_positive"
+          ],
+          "role": "Postmenopausal or ovarian-suppression-associated HR-positive breast-cancer therapy.",
+          "monitoring_pearl": "Bone density and musculoskeletal symptoms; drug interaction review.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_goserelin",
+          "generic": "Goserelin",
+          "class_id": "onc_gnrh",
+          "form": "Depot implant/injection",
+          "route": "SC",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "breast",
+            "prostate"
+          ],
+          "role": "Used for ovarian suppression or androgen deprivation depending indication; flare and cardiovascular/metabolic issues vary by agent.",
+          "monitoring_pearl": "Monitor suppression, bone health and metabolic/cardiovascular effects; flare with agonist context.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_leuprolide",
+          "generic": "Leuprolide depot",
+          "class_id": "onc_gnrh",
+          "form": "Depot injection",
+          "route": "IM/SC product-specific",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "breast",
+            "prostate"
+          ],
+          "role": "Used for ovarian suppression or androgen deprivation depending indication; flare and cardiovascular/metabolic issues vary by agent.",
+          "monitoring_pearl": "Tumor-flare precautions in prostate cancer and long-term bone/metabolic effects.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_degarelix",
+          "generic": "Degarelix",
+          "class_id": "onc_gnrh",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "breast",
+            "prostate"
+          ],
+          "role": "Used for ovarian suppression or androgen deprivation depending indication; flare and cardiovascular/metabolic issues vary by agent.",
+          "monitoring_pearl": "GnRH antagonist avoids testosterone flare; injection reactions and QT/cardiovascular context.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_relugolix",
+          "generic": "Relugolix",
+          "class_id": "onc_gnrh",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "breast",
+            "prostate"
+          ],
+          "role": "Used for ovarian suppression or androgen deprivation depending indication; flare and cardiovascular/metabolic issues vary by agent.",
+          "monitoring_pearl": "Oral GnRH antagonist; adherence and major transporter/drug interactions require review.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_bicalutamide",
+          "generic": "Bicalutamide",
+          "class_id": "onc_ar_pathway",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "prostate"
+          ],
+          "role": "Prostate-cancer systemic therapy combined/sequenced with ADT depending disease state.",
+          "monitoring_pearl": "Liver monitoring and gynecomastia/hot-flash effects; older AR antagonist.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_enzalutamide",
+          "generic": "Enzalutamide",
+          "class_id": "onc_ar_pathway",
+          "form": "Tablet/Capsule",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "prostate"
+          ],
+          "role": "Prostate-cancer systemic therapy combined/sequenced with ADT depending disease state.",
+          "monitoring_pearl": "Seizure/fall risk, hypertension and strong drug interactions.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_apalutamide",
+          "generic": "Apalutamide",
+          "class_id": "onc_ar_pathway",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "prostate"
+          ],
+          "role": "Prostate-cancer systemic therapy combined/sequenced with ADT depending disease state.",
+          "monitoring_pearl": "Rash, hypothyroidism, falls/fractures and interactions.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_darolutamide",
+          "generic": "Darolutamide",
+          "class_id": "onc_ar_pathway",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "prostate"
+          ],
+          "role": "Prostate-cancer systemic therapy combined/sequenced with ADT depending disease state.",
+          "monitoring_pearl": "Fatigue and interaction review; lower CNS penetration but still specialist monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_abiraterone",
+          "generic": "Abiraterone acetate",
+          "class_id": "onc_androgen_synthesis",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "endocrine_oncology",
+            "prostate"
+          ],
+          "role": "CYP17 inhibition in prostate cancer, generally with glucocorticoid support per protocol.",
+          "monitoring_pearl": "Mineralocorticoid excess, liver toxicity, potassium/BP monitoring and required steroid co-therapy context.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_ondansetron",
+          "generic": "Ondansetron",
+          "class_id": "onc_cinv_5ht3",
+          "form": "Tablet/ODT/Injection",
+          "route": "Oral/IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "cinv"
+          ],
+          "role": "Antiemetic backbone chosen according to emetogenic risk and regimen.",
+          "monitoring_pearl": "QT and constipation considerations; antiemetic regimen depends on emetogenic risk.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_palonosetron",
+          "generic": "Palonosetron",
+          "class_id": "onc_cinv_5ht3",
+          "form": "Injection/Capsule combination product-specific",
+          "route": "IV/Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "cinv"
+          ],
+          "role": "Antiemetic backbone chosen according to emetogenic risk and regimen.",
+          "monitoring_pearl": "Long-acting 5-HT3 antagonist used in regimen-specific CINV prophylaxis.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_aprepitant",
+          "generic": "Aprepitant",
+          "class_id": "onc_cinv_nk1",
+          "form": "Capsule/Oral suspension",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "cinv"
+          ],
+          "role": "Used as part of multidrug prophylaxis for higher emetogenic risk.",
+          "monitoring_pearl": "CYP3A interactions and dexamethasone dose interaction are important.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_fosaprepitant",
+          "generic": "Fosaprepitant",
+          "class_id": "onc_cinv_nk1",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "cinv"
+          ],
+          "role": "Used as part of multidrug prophylaxis for higher emetogenic risk.",
+          "monitoring_pearl": "Infusion reactions and CYP3A interactions; regimen-specific use.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_olanzapine",
+          "generic": "Olanzapine",
+          "class_id": "onc_cinv_multi",
+          "form": "Tablet/ODT",
+          "route": "Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "cinv"
+          ],
+          "role": "Adjuncts combined according to chemotherapy emetogenicity, prior control and patient risk.",
+          "monitoring_pearl": "Sedation and metabolic effects; strong evidence in selected high-risk CINV regimens.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_dexamethasone_antiemetic",
+          "generic": "Dexamethasone",
+          "class_id": "onc_cinv_multi",
+          "form": "Tablet/Injection",
+          "route": "Oral/IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "cinv"
+          ],
+          "role": "Adjuncts combined according to chemotherapy emetogenicity, prior control and patient risk.",
+          "monitoring_pearl": "Glucose, infection, mood and cumulative steroid effects; dose depends on antiemetic regimen/interactions.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_filgrastim",
+          "generic": "Filgrastim",
+          "class_id": "onc_gcsf",
+          "form": "Injection",
+          "route": "SC/IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "neutropenia"
+          ],
+          "role": "Primary/secondary febrile-neutropenia prophylaxis depends on regimen risk and patient factors; not a substitute for urgent fever assessment.",
+          "monitoring_pearl": "Bone pain, leukocytosis, splenic events and rare ARDS/aortitis signals.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_pegfilgrastim",
+          "generic": "Pegfilgrastim",
+          "class_id": "onc_gcsf",
+          "form": "Injection/On-body injector product-specific",
+          "route": "SC",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "neutropenia"
+          ],
+          "role": "Primary/secondary febrile-neutropenia prophylaxis depends on regimen risk and patient factors; not a substitute for urgent fever assessment.",
+          "monitoring_pearl": "Timing relative to chemotherapy is protocol specific; bone pain and rare serious inflammatory events.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_zoledronic",
+          "generic": "Zoledronic acid",
+          "class_id": "onc_bone_support",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "bone_metastasis",
+            "myeloma"
+          ],
+          "role": "Prevents skeletal-related events in selected bone metastasis/myeloma contexts; dental and renal/calcium safety are essential.",
+          "monitoring_pearl": "Renal function, calcium/vitamin-D status and osteonecrosis-of-jaw risk require monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_denosumab_onc",
+          "generic": "Denosumab (oncology dose context)",
+          "class_id": "onc_bone_support",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "bone_metastasis",
+            "myeloma"
+          ],
+          "role": "Prevents skeletal-related events in selected bone metastasis/myeloma contexts; dental and renal/calcium safety are essential.",
+          "monitoring_pearl": "Hypocalcemia and osteonecrosis-of-jaw risk; renal impairment increases hypocalcemia risk.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_allopurinol_tls",
+          "generic": "Allopurinol",
+          "class_id": "onc_tls",
+          "form": "Tablet/Injection",
+          "route": "Oral/IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "tumor_lysis"
+          ],
+          "role": "Risk-stratified TLS prevention/treatment requires hydration, frequent chemistry monitoring and disease-specific protocol.",
+          "monitoring_pearl": "Prevents new uric-acid formation; renal dosing/interactions and hypersensitivity risk.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_rasburicase",
+          "generic": "Rasburicase",
+          "class_id": "onc_tls",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "tumor_lysis"
+          ],
+          "role": "Risk-stratified TLS prevention/treatment requires hydration, frequent chemistry monitoring and disease-specific protocol.",
+          "monitoring_pearl": "Contraindicated in G6PD deficiency; can cause hemolysis/methemoglobinemia and requires specimen-handling awareness.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_methylpred_irae",
+          "generic": "Methylprednisolone",
+          "class_id": "onc_irae",
+          "form": "Injection/Tablet equivalent steroid context",
+          "route": "IV/Oral",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "irae",
+            "high_risk"
+          ],
+          "role": "Organ- and grade-specific toxicity management; specialist protocols determine when to hold immunotherapy and which immunosuppressant to use.",
+          "monitoring_pearl": "High-dose systemic steroid protocols vary by organ/grade; infection and metabolic safeguards are mandatory.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_infliximab_irae",
+          "generic": "Infliximab",
+          "class_id": "onc_irae",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "irae",
+            "high_risk"
+          ],
+          "role": "Organ- and grade-specific toxicity management; specialist protocols determine when to hold immunotherapy and which immunosuppressant to use.",
+          "monitoring_pearl": "Used in selected steroid-refractory immune colitis; avoid in some hepatic/infectious contexts; screen infections.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_mmf_irae",
+          "generic": "Mycophenolate mofetil",
+          "class_id": "onc_irae",
+          "form": "Tablet/Capsule/Suspension/Injection",
+          "route": "Oral/IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "irae",
+            "high_risk"
+          ],
+          "role": "Organ- and grade-specific toxicity management; specialist protocols determine when to hold immunotherapy and which immunosuppressant to use.",
+          "monitoring_pearl": "Often considered in selected steroid-refractory immune hepatitis; marrow/infection/reproductive risks.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_tocilizumab_crs",
+          "generic": "Tocilizumab",
+          "class_id": "onc_irae",
+          "form": "Injection",
+          "route": "IV/SC",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "irae",
+            "high_risk"
+          ],
+          "role": "Organ- and grade-specific toxicity management; specialist protocols determine when to hold immunotherapy and which immunosuppressant to use.",
+          "monitoring_pearl": "Key cytokine-release syndrome therapy in cellular/bispecific treatment; liver, infection and cytopenia monitoring.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_dexrazoxane",
+          "generic": "Dexrazoxane",
+          "class_id": "onc_extravasation",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "extravasation",
+            "emergency"
+          ],
+          "role": "Extravasation is a time-critical protocol event; stop infusion, preserve line as appropriate and follow agent-specific institutional pathway.",
+          "monitoring_pearl": "Specific antidote for anthracycline extravasation in defined timing protocol; renal and marrow considerations.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        },
+        {
+          "id": "onc_hyaluronidase",
+          "generic": "Hyaluronidase",
+          "class_id": "onc_extravasation",
+          "form": "Injection",
+          "route": "Local/SC protocol-specific",
+          "dose_example": "Cancer-, biomarker-, regimen- and protocol-specific learning snapshot only; verify current oncology protocol, product label, body-size/organ-function parameters, interactions and supportive-care plan before use.",
+          "tags": [
+            "supportive",
+            "extravasation",
+            "emergency"
+          ],
+          "role": "Extravasation is a time-critical protocol event; stop infusion, preserve line as appropriate and follow agent-specific institutional pathway.",
+          "monitoring_pearl": "Used for selected non-anthracycline vesicant extravasations according to institutional protocol.",
+          "source_refs": [
+            "DAILYMED",
+            "FDA_ONCOLOGY"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "NCI_TYPES",
+          "label": "National Cancer Institute — Types of Cancer Treatment",
+          "url": "https://www.cancer.gov/about-cancer/treatment/types"
+        },
+        {
+          "id": "NCI_TARGETED",
+          "label": "National Cancer Institute — Targeted Therapy for Cancer",
+          "url": "https://www.cancer.gov/about-cancer/treatment/types/targeted-therapies"
+        },
+        {
+          "id": "NCI_DRUG_LIST",
+          "label": "National Cancer Institute — Targeted Therapy Drug List by Cancer Type",
+          "url": "https://www.cancer.gov/about-cancer/treatment/types/targeted-therapies/approved-drug-list"
+        },
+        {
+          "id": "NCI_IMMUNO",
+          "label": "National Cancer Institute — Immunotherapy to Treat Cancer",
+          "url": "https://www.cancer.gov/about-cancer/treatment/types/immunotherapy"
+        },
+        {
+          "id": "NCI_SIDE_EFFECTS",
+          "label": "National Cancer Institute — Side Effects of Cancer Treatment",
+          "url": "https://www.cancer.gov/about-cancer/treatment/side-effects"
+        },
+        {
+          "id": "NCI_PAIN",
+          "label": "National Cancer Institute — Cancer Pain PDQ",
+          "url": "https://www.cancer.gov/about-cancer/treatment/side-effects/pain/pain-hp-pdq"
+        },
+        {
+          "id": "ASCO_GUIDELINES",
+          "label": "American Society of Clinical Oncology — Guidelines Library",
+          "url": "https://www.asco.org/guidelines"
+        },
+        {
+          "id": "ASCO_ANTIEMETIC",
+          "label": "ASCO — Antiemetics Guideline Update",
+          "url": "https://ascopubs.org/doi/10.1200/JCO.20.01296"
+        },
+        {
+          "id": "FDA_ONCOLOGY",
+          "label": "US FDA — Oncology/Hematologic Malignancies Approval Notifications",
+          "url": "https://www.fda.gov/drugs/resources-information-approved-drugs/oncology-cancerhematologic-malignancies-approval-notifications"
+        },
+        {
+          "id": "FDA_WITHDRAWN_AA",
+          "label": "US FDA — Withdrawn Cancer Accelerated Approvals",
+          "url": "https://www.fda.gov/drugs/resources-information-approved-drugs/withdrawn-cancer-accelerated-approvals"
+        },
+        {
+          "id": "WHO_EML_2025",
+          "label": "WHO — 24th Model List of Essential Medicines (2025)",
+          "url": "https://www.who.int/groups/expert-committee-on-selection-and-use-of-essential-medicines/essential-medicines-lists"
+        },
+        {
+          "id": "NCG_INDIA",
+          "label": "National Cancer Grid India — Cancer Guidelines",
+          "url": "https://www.ncgindia.org/cancer-guidelines"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "DailyMed — Current Prescribing Labels and Formulations",
           "url": "https://dailymed.nlm.nih.gov/dailymed/"
         }
       ]
