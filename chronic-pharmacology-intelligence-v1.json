@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.5A",
-  "app_version": "V5.41A",
-  "build": "2026.08.15-R26A",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.41A IV Medication Administration • Infusion • Compatibility • High-Alert Injection Safety",
+  "version": "2.5B",
+  "app_version": "V5.41B",
+  "build": "2026.08.15-R26B",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.41B Medication Reconciliation • LASA • Dispensing • Storage • Barcode • Medication Error Prevention",
   "counts": {
-    "labs": 33,
-    "classes": 1097,
-    "drug_profiles": 2449
+    "labs": 34,
+    "classes": 1141,
+    "drug_profiles": 2537
   },
-  "global_boundary": "Research/learning medication-safety CDS only. IV/injectable workflows do not replace pharmacist verification, current manufacturer labeling, institution-approved injectable compatibility references, nursing/medical administration policy or device instructions. No automatic IV dose, dilution, concentration, infusion/IV-push rate, compatibility, line assignment, extravasation antidote, pump setting or high-alert override is generated.",
+  "global_boundary": "Research/learning medication-safety CDS only. Medication reconciliation, LASA, dispensing/storage and barcode workflows do not replace pharmacist/clinician judgment, current product labeling, institution-approved medication policy or direct patient verification. No automatic start/stop/restart/substitution/dispensing/administration authorization is generated. Barcode, EHR and ADC status are safety aids—not proof of clinical appropriateness.",
   "labs": [
     {
       "id": "hypertension",
@@ -74885,6 +74885,2679 @@
           "id": "DAILYMED",
           "label": "NIH DailyMed — current prescribing information repository",
           "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "med_reconciliation_error_prevention",
+      "title": "Medication Reconciliation • LASA • Dispensing • Storage • Barcode • Medication Error Prevention Intelligence Lab",
+      "icon": "🏥",
+      "badge": "V5.41B",
+      "eyebrow": "BPMH • ADMISSION • TRANSFER • DISCHARGE • DISCREPANCY • LASA • TALL MAN • DISPENSING • STORAGE • BARCODE • NEAR MISS • DOWNTIME",
+      "subtitle": "Clinician/pharmacy medication-safety workspace linking Best Possible Medication History, transition reconciliation, discrepancy resolution, LASA/labeling controls, dispensing/storage safeguards, barcode verification and closed-loop medication-error learning.",
+      "scientific_boundary": "Medication-safety decision support only. The lab does not autonomously start, stop, restart, substitute, dispense or administer a medicine and does not treat barcode/ADC/EHR status as clinical authorization. Verify the patient, exact product/order, indication, allergy/ADR history, current medication sources, transition intent, organ function, current label/formulary and local pharmacy/medication-safety policy. Time-critical discrepancies involving high-alert medicines, wrong drug/route/strength, serious allergy or dangerous interruption require prompt clinician/pharmacist escalation.",
+      "classification_notes": {
+        "BPMH ≠ copied medication list": "A Best Possible Medication History uses structured questioning and available independent sources; a copied prior list may be stale or incomplete.",
+        "Discrepancy ≠ error": "Differences may be intentional therapeutic changes. Determine intent and document/communicate it before labeling an error.",
+        "Reconciliation is a transition process": "Admission, internal transfer and discharge all require deliberate comparison and communication; discharge alone is not sufficient.",
+        "LASA is a system hazard": "Tall Man lettering, segregation, labels and barcode checks are complementary barriers; none is a standalone guarantee.",
+        "Barcode ≠ clinical appropriateness": "A successful scan can help verify identity but cannot confirm indication, dose, timing or patient-specific appropriateness.",
+        "Near misses matter": "Events intercepted before reaching the patient can reveal weak systems and should feed medication-safety learning."
+      },
+      "lens_groups": [
+        {
+          "group": "Reconciliation workflow",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Med Safety"
+            },
+            {
+              "id": "history",
+              "label": "BPMH / History"
+            },
+            {
+              "id": "admission",
+              "label": "Admission"
+            },
+            {
+              "id": "transfer",
+              "label": "Transfer"
+            },
+            {
+              "id": "discharge",
+              "label": "Discharge"
+            },
+            {
+              "id": "transition",
+              "label": "Transitions"
+            }
+          ]
+        },
+        {
+          "group": "Discrepancies & plans",
+          "items": [
+            {
+              "id": "discrepancy",
+              "label": "Discrepancies"
+            },
+            {
+              "id": "omission",
+              "label": "Omissions"
+            },
+            {
+              "id": "duplication",
+              "label": "Duplicates"
+            },
+            {
+              "id": "hold_restart",
+              "label": "Hold / Restart"
+            },
+            {
+              "id": "followup",
+              "label": "Follow-up"
+            }
+          ]
+        },
+        {
+          "group": "High-risk medicines",
+          "items": [
+            {
+              "id": "high_alert",
+              "label": "High-Alert"
+            },
+            {
+              "id": "anticoagulant",
+              "label": "Anticoagulants"
+            },
+            {
+              "id": "insulin",
+              "label": "Insulin"
+            },
+            {
+              "id": "opioid",
+              "label": "Opioid/Sedative"
+            },
+            {
+              "id": "immunosuppressant",
+              "label": "Steroid/Immunosupp."
+            }
+          ]
+        },
+        {
+          "group": "LASA • dispensing • storage",
+          "items": [
+            {
+              "id": "lasa",
+              "label": "LASA / Tall Man"
+            },
+            {
+              "id": "dispensing",
+              "label": "Dispensing"
+            },
+            {
+              "id": "storage",
+              "label": "Storage"
+            },
+            {
+              "id": "adc",
+              "label": "ADC"
+            },
+            {
+              "id": "labeling",
+              "label": "Labeling"
+            }
+          ]
+        },
+        {
+          "group": "Barcode & learning",
+          "items": [
+            {
+              "id": "barcode",
+              "label": "Barcode"
+            },
+            {
+              "id": "traceability",
+              "label": "Traceability"
+            },
+            {
+              "id": "near_miss",
+              "label": "Near Miss / Error"
+            },
+            {
+              "id": "downtime",
+              "label": "Downtime"
+            },
+            {
+              "id": "patient_education",
+              "label": "Patient / Teach-back"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "mr_bpmh",
+          "name": "Best Possible Medication History (BPMH)",
+          "mechanism": "Structured medication-history acquisition",
+          "target": "Prescription • OTC • PRN • supplements • actual use",
+          "tags": [
+            "reconciliation",
+            "history",
+            "bpmh"
+          ],
+          "role_note": "Build the most complete pre-transition medication list possible, including name, strength, dose, route, frequency, indication where useful and how the patient is actually taking it.",
+          "drug_ids": [
+            "mr_bpmh_review",
+            "mr_bpmh_closure"
+          ]
+        },
+        {
+          "id": "mr_source_triangulation",
+          "name": "Medication-history source triangulation",
+          "mechanism": "Cross-checking independent medication information sources",
+          "target": "Patient/caregiver • previous records • prescription/dispensing data • containers",
+          "tags": [
+            "reconciliation",
+            "history",
+            "sources"
+          ],
+          "role_note": "Do not treat a single source as infallible. Reconcile patient/caregiver report with available records, medication containers and prior lists; document unresolved uncertainty.",
+          "drug_ids": [
+            "mr_source_triangulation_review",
+            "mr_source_triangulation_closure"
+          ]
+        },
+        {
+          "id": "mr_admission",
+          "name": "Admission medication reconciliation",
+          "mechanism": "Pre-admission list vs admission orders",
+          "target": "Admission • emergency/inpatient entry",
+          "tags": [
+            "reconciliation",
+            "admission",
+            "transition"
+          ],
+          "role_note": "Compare the BPMH with admission orders and identify omissions, duplications, formulation changes and intentional holds before they are perpetuated.",
+          "drug_ids": [
+            "mr_admission_review",
+            "mr_admission_closure"
+          ]
+        },
+        {
+          "id": "mr_transfer",
+          "name": "Intrahospital transfer medication reconciliation",
+          "mechanism": "Medication list continuity across level-of-care change",
+          "target": "Ward • ICU • OT/PACU • step-down • interfacility transfer",
+          "tags": [
+            "reconciliation",
+            "transfer",
+            "transition"
+          ],
+          "role_note": "At transfer, explicitly reconcile active, held, discontinued and newly started medicines; avoid assuming the receiving list is automatically current.",
+          "drug_ids": [
+            "mr_transfer_review",
+            "mr_transfer_closure"
+          ]
+        },
+        {
+          "id": "mr_discharge",
+          "name": "Discharge medication reconciliation",
+          "mechanism": "Final inpatient list vs intended post-discharge regimen",
+          "target": "Discharge • home • facility • referral",
+          "tags": [
+            "reconciliation",
+            "discharge",
+            "transition"
+          ],
+          "role_note": "Create one final reconciled discharge list that clearly states what continues, stops, changes or restarts, and why when clinically important.",
+          "drug_ids": [
+            "mr_discharge_review",
+            "mr_discharge_closure"
+          ]
+        },
+        {
+          "id": "mr_periprocedural",
+          "name": "Perioperative / procedural medication reconciliation",
+          "mechanism": "Planned medication interruption and restart",
+          "target": "Procedure • surgery • sedation • NPO period",
+          "tags": [
+            "reconciliation",
+            "perioperative",
+            "hold_restart"
+          ],
+          "role_note": "Document each medication intentionally held or modified for a procedure and the responsible clinician/criteria for restart; avoid silent indefinite discontinuation.",
+          "drug_ids": [
+            "mr_periprocedural_review",
+            "mr_periprocedural_closure"
+          ]
+        },
+        {
+          "id": "mr_emergency",
+          "name": "Emergency / urgent-care medication reconciliation",
+          "mechanism": "Rapid high-risk medication history under time pressure",
+          "target": "ED • urgent care • acute deterioration",
+          "tags": [
+            "reconciliation",
+            "emergency",
+            "high_risk"
+          ],
+          "role_note": "Prioritize time-critical high-risk medicines, allergy history and last doses when a complete history is initially impossible; complete and reconcile as soon as feasible.",
+          "drug_ids": [
+            "mr_emergency_review",
+            "mr_emergency_closure"
+          ]
+        },
+        {
+          "id": "mr_outpatient_transition",
+          "name": "Specialist / outpatient transition reconciliation",
+          "mechanism": "Cross-setting outpatient medication-list synchronization",
+          "target": "Primary care • specialist • telehealth • post-hospital follow-up",
+          "tags": [
+            "reconciliation",
+            "outpatient",
+            "transition"
+          ],
+          "role_note": "When a clinician changes therapy, ensure the change is visible to the next responsible clinician and to the patient; reconcile competing active lists.",
+          "drug_ids": [
+            "mr_outpatient_transition_review",
+            "mr_outpatient_transition_closure"
+          ]
+        },
+        {
+          "id": "mr_discrepancy_classify",
+          "name": "Medication discrepancy classification",
+          "mechanism": "Intentional vs unintended difference identification",
+          "target": "Omission • commission • duplication • dose/route/frequency mismatch",
+          "tags": [
+            "reconciliation",
+            "discrepancy",
+            "classification"
+          ],
+          "role_note": "Classify each discrepancy before correcting it. An intentional therapeutic change is not an error if it is clinically intended and clearly documented/communicated.",
+          "drug_ids": [
+            "mr_discrepancy_classify_review",
+            "mr_discrepancy_classify_closure"
+          ]
+        },
+        {
+          "id": "mr_intent_documentation",
+          "name": "Intentional medication-change documentation",
+          "mechanism": "Making the reason and plan for a change explicit",
+          "target": "Start • stop • hold • switch • dose change",
+          "tags": [
+            "reconciliation",
+            "intentional_change",
+            "communication"
+          ],
+          "role_note": "For clinically meaningful changes, document intent, rationale, duration/review point and any restart/follow-up plan so later clinicians do not reverse or perpetuate the wrong state.",
+          "drug_ids": [
+            "mr_intent_documentation_review",
+            "mr_intent_documentation_closure"
+          ]
+        },
+        {
+          "id": "mr_unintended_omission",
+          "name": "Unintended omission detection",
+          "mechanism": "Detecting missing chronic/essential therapy",
+          "target": "Omitted medicine • missed continuation",
+          "tags": [
+            "reconciliation",
+            "omission",
+            "discrepancy"
+          ],
+          "role_note": "A missing medicine should trigger confirmation of intent rather than automatic continuation; urgent relevance depends on drug, indication and interruption duration.",
+          "drug_ids": [
+            "mr_unintended_omission_review",
+            "mr_unintended_omission_closure"
+          ]
+        },
+        {
+          "id": "mr_duplicate_therapy",
+          "name": "Duplicate therapy detection",
+          "mechanism": "Overlapping active ingredients or therapeutic duplication",
+          "target": "Generic/brand duplication • same-class overlap",
+          "tags": [
+            "reconciliation",
+            "duplication",
+            "medication_error"
+          ],
+          "role_note": "Check ingredients and indications before labeling a pair as duplicate; some combination therapy is intentional while duplicate products can cause overdose.",
+          "drug_ids": [
+            "mr_duplicate_therapy_review",
+            "mr_duplicate_therapy_closure"
+          ]
+        },
+        {
+          "id": "mr_dose_frequency",
+          "name": "Dose / frequency discrepancy",
+          "mechanism": "Mismatch in strength, dose or schedule",
+          "target": "Strength • dose • interval • timing",
+          "tags": [
+            "reconciliation",
+            "dose",
+            "frequency"
+          ],
+          "role_note": "Verify the exact product and intended regimen before changing a discrepancy; organ function, indication and recent titration may explain differences.",
+          "drug_ids": [
+            "mr_dose_frequency_review",
+            "mr_dose_frequency_closure"
+          ]
+        },
+        {
+          "id": "mr_route_formulation",
+          "name": "Route / formulation discrepancy",
+          "mechanism": "Mismatch in dosage form or administration route",
+          "target": "IR/ER • oral/injectable • device/formulation",
+          "tags": [
+            "reconciliation",
+            "route",
+            "formulation"
+          ],
+          "role_note": "Do not assume formulations are interchangeable. Confirm route, release characteristics, device and product-specific instructions.",
+          "drug_ids": [
+            "mr_route_formulation_review",
+            "mr_route_formulation_closure"
+          ]
+        },
+        {
+          "id": "mr_interchange",
+          "name": "Therapeutic interchange / formulary substitution reconciliation",
+          "mechanism": "Documenting equivalent-intent substitutions",
+          "target": "Brand/generic • formulary switch • therapeutic alternative",
+          "tags": [
+            "reconciliation",
+            "interchange",
+            "formulary"
+          ],
+          "role_note": "Clearly distinguish product substitution from a true therapeutic change, and reconcile back to the intended outpatient regimen when appropriate.",
+          "drug_ids": [
+            "mr_interchange_review",
+            "mr_interchange_closure"
+          ]
+        },
+        {
+          "id": "mr_allergy_adr",
+          "name": "Allergy / adverse-reaction reconciliation",
+          "mechanism": "Separating allergy, intolerance and adverse effect history",
+          "target": "Culprit • reaction phenotype • severity • timing",
+          "tags": [
+            "reconciliation",
+            "allergy",
+            "adr"
+          ],
+          "role_note": "Verify the culprit and reaction phenotype; do not convert vague intolerance or family history into an unqualified severe allergy label, and do not ignore a credible serious reaction.",
+          "drug_ids": [
+            "mr_allergy_adr_review",
+            "mr_allergy_adr_closure"
+          ]
+        },
+        {
+          "id": "mr_otc_herbal",
+          "name": "OTC • herbal • Ayurveda • supplement reconciliation",
+          "mechanism": "Capturing non-prescription exposure",
+          "target": "OTC • vitamins • herbals • Ayurveda • supplements",
+          "tags": [
+            "reconciliation",
+            "otc",
+            "herbal",
+            "ayurveda"
+          ],
+          "role_note": "Include non-prescription and traditional products because they may affect bleeding, sedation, organ toxicity or interactions; document uncertain composition when exact product is unknown.",
+          "drug_ids": [
+            "mr_otc_herbal_review",
+            "mr_otc_herbal_closure"
+          ]
+        },
+        {
+          "id": "mr_prn_intermittent",
+          "name": "PRN / intermittent / seasonal medication reconciliation",
+          "mechanism": "Capturing medicines not taken every day",
+          "target": "PRN • rescue • weekly/monthly • seasonal",
+          "tags": [
+            "reconciliation",
+            "prn",
+            "intermittent"
+          ],
+          "role_note": "Ask specifically about rescue and intermittent products; “not taken today” does not mean the medicine is inactive or irrelevant.",
+          "drug_ids": [
+            "mr_prn_intermittent_review",
+            "mr_prn_intermittent_closure"
+          ]
+        },
+        {
+          "id": "mr_high_alert",
+          "name": "High-alert medication reconciliation",
+          "mechanism": "Prioritizing medicines with greater harm potential when errors occur",
+          "target": "Insulin • anticoagulants • opioids • concentrated electrolytes • others",
+          "tags": [
+            "reconciliation",
+            "high_alert",
+            "priority"
+          ],
+          "role_note": "Flag high-alert medicines for prioritized last-dose, indication, monitoring and transition review; the flag is a safety prompt, not a reason to stop therapy.",
+          "drug_ids": [
+            "mr_high_alert_review",
+            "mr_high_alert_closure"
+          ]
+        },
+        {
+          "id": "mr_organ_function",
+          "name": "Renal / hepatic status reconciliation",
+          "mechanism": "Rechecking organ-function-sensitive regimens after transition",
+          "target": "AKI/CKD • hepatic dysfunction • recovery",
+          "tags": [
+            "reconciliation",
+            "renal",
+            "hepatic"
+          ],
+          "role_note": "A previously reduced/held medicine may become inappropriate as organ function worsens or recovers. Reassess current function and the exact drug label/guideline.",
+          "drug_ids": [
+            "mr_organ_function_review",
+            "mr_organ_function_closure"
+          ]
+        },
+        {
+          "id": "mr_anticoagulant",
+          "name": "Anticoagulant / antiplatelet reconciliation",
+          "mechanism": "Preventing omission, duplication and unsafe interruption",
+          "target": "Warfarin • DOAC • heparin • antiplatelet",
+          "tags": [
+            "reconciliation",
+            "anticoagulant",
+            "high_alert"
+          ],
+          "role_note": "Document indication, last dose, current hold/restart intent and concurrent antithrombotics; avoid unplanned duplication or indefinite peri-procedural interruption.",
+          "drug_ids": [
+            "mr_anticoagulant_review",
+            "mr_anticoagulant_closure"
+          ]
+        },
+        {
+          "id": "mr_diabetes",
+          "name": "Insulin / diabetes medication reconciliation",
+          "mechanism": "Preventing insulin-type/dose and oral-agent transition errors",
+          "target": "Insulin type • device • meal relationship • glucose-lowering drugs",
+          "tags": [
+            "reconciliation",
+            "insulin",
+            "diabetes",
+            "high_alert"
+          ],
+          "role_note": "Confirm insulin product/concentration/device and actual home use; nutrition/NPO status and organ function can make a copied home regimen unsafe.",
+          "drug_ids": [
+            "mr_diabetes_review",
+            "mr_diabetes_closure"
+          ]
+        },
+        {
+          "id": "mr_steroid_immunosupp",
+          "name": "Steroid / immunosuppressant reconciliation",
+          "mechanism": "Avoiding abrupt interruption or duplicate immunosuppression",
+          "target": "Glucocorticoid • calcineurin inhibitor • antimetabolite",
+          "tags": [
+            "reconciliation",
+            "steroid",
+            "immunosuppressant"
+          ],
+          "role_note": "Verify chronic exposure, indication, timing and specialist plan; abrupt interruption or duplicate therapy can be clinically important.",
+          "drug_ids": [
+            "mr_steroid_immunosupp_review",
+            "mr_steroid_immunosupp_closure"
+          ]
+        },
+        {
+          "id": "mr_opioid_sedative",
+          "name": "Opioid / sedative reconciliation",
+          "mechanism": "Managing CNS-depressant transition risk",
+          "target": "Opioid • benzodiazepine • sedative • gabapentinoid context",
+          "tags": [
+            "reconciliation",
+            "opioid",
+            "sedative",
+            "high_alert"
+          ],
+          "role_note": "Confirm chronic tolerance, last dose, co-sedatives and intended continuation/taper. Avoid automatic resumption of outdated doses after an interruption.",
+          "drug_ids": [
+            "mr_opioid_sedative_review",
+            "mr_opioid_sedative_closure"
+          ]
+        },
+        {
+          "id": "mr_antimicrobial_duration",
+          "name": "Antimicrobial duration / stop-date reconciliation",
+          "mechanism": "Preserving intended course and review date",
+          "target": "Antibiotic • antiviral • antifungal • duration",
+          "tags": [
+            "reconciliation",
+            "antimicrobial",
+            "duration"
+          ],
+          "role_note": "Carry forward indication, start date, intended duration/stop date and culture/review plan so transitions do not unintentionally prolong or truncate therapy.",
+          "drug_ids": [
+            "mr_antimicrobial_duration_review",
+            "mr_antimicrobial_duration_closure"
+          ]
+        },
+        {
+          "id": "mr_patient_discharge_list",
+          "name": "Patient-facing reconciled medication list",
+          "mechanism": "One understandable post-discharge regimen",
+          "target": "Continue • stop • change • new • restart",
+          "tags": [
+            "reconciliation",
+            "discharge",
+            "patient_list"
+          ],
+          "role_note": "Give the patient/caregiver one current list using understandable medicine names and instructions, with changed/stopped medicines clearly distinguished.",
+          "drug_ids": [
+            "mr_patient_discharge_list_review",
+            "mr_patient_discharge_list_closure"
+          ]
+        },
+        {
+          "id": "mr_teachback_access",
+          "name": "Teach-back • adherence • access verification",
+          "mechanism": "Confirming the plan can actually be followed",
+          "target": "Understanding • affordability • availability • device technique",
+          "tags": [
+            "reconciliation",
+            "patient_education",
+            "adherence",
+            "access"
+          ],
+          "role_note": "Ask the patient/caregiver to explain the regimen in their own words and identify access, cost, supply, swallowing, device or caregiver barriers before transition closure.",
+          "drug_ids": [
+            "mr_teachback_access_review",
+            "mr_teachback_access_closure"
+          ]
+        },
+        {
+          "id": "mr_pending_followup",
+          "name": "Pending tests / monitoring / responsibility handoff",
+          "mechanism": "Closing the loop on medication-related follow-up",
+          "target": "INR • drug level • renal/electrolytes • adverse-effect monitoring",
+          "tags": [
+            "reconciliation",
+            "followup",
+            "responsibility"
+          ],
+          "role_note": "Document what must be checked, when, and who is responsible; a pending result without ownership is a transition hazard.",
+          "drug_ids": [
+            "mr_pending_followup_review",
+            "mr_pending_followup_closure"
+          ]
+        },
+        {
+          "id": "mr_hold_restart",
+          "name": "Held medicine / deprescribing / restart plan",
+          "mechanism": "Making temporary vs permanent discontinuation explicit",
+          "target": "Hold • taper • stop • restart criteria",
+          "tags": [
+            "reconciliation",
+            "hold_restart",
+            "deprescribing"
+          ],
+          "role_note": "Differentiate temporary hold from permanent discontinuation; state restart criteria or review date when appropriate.",
+          "drug_ids": [
+            "mr_hold_restart_review",
+            "mr_hold_restart_closure"
+          ]
+        },
+        {
+          "id": "mr_patient_own_meds",
+          "name": "Patient-owned / brought-in medication reconciliation",
+          "mechanism": "Safe handling of medicines brought from home",
+          "target": "Identification • storage • continued use",
+          "tags": [
+            "reconciliation",
+            "patient_own_med",
+            "storage"
+          ],
+          "role_note": "Do not administer an unidentified or unverified home product. Follow institutional policy for identification, storage, authorization and return/disposal.",
+          "drug_ids": [
+            "mr_patient_own_meds_review",
+            "mr_patient_own_meds_closure"
+          ]
+        },
+        {
+          "id": "me_lasa_screen",
+          "name": "Look-alike / sound-alike (LASA) risk screen",
+          "mechanism": "Detecting name/packaging confusion risk",
+          "target": "Similar names • similar packaging • same shelf/workflow",
+          "tags": [
+            "lasa",
+            "dispensing",
+            "selection_error"
+          ],
+          "role_note": "Treat LASA as a system hazard: use independent identifiers, indication/strength checks and separation/alerting where appropriate rather than relying on memory or color.",
+          "drug_ids": [
+            "me_lasa_screen_review",
+            "me_lasa_screen_closure"
+          ]
+        },
+        {
+          "id": "me_tall_man",
+          "name": "Tall Man lettering support",
+          "mechanism": "Visual differentiation of selected confusable drug names",
+          "target": "Name differentiation • uppercase dissimilar letters",
+          "tags": [
+            "lasa",
+            "tall_man",
+            "labeling"
+          ],
+          "role_note": "Use Tall Man lettering only for established/locally adopted confusable pairs; it supplements but does not replace barcode/product/indication verification.",
+          "drug_ids": [
+            "me_tall_man_review",
+            "me_tall_man_closure"
+          ]
+        },
+        {
+          "id": "me_label_strength_unit",
+          "name": "Strength / concentration / unit label verification",
+          "mechanism": "Making critical numeric information unambiguous",
+          "target": "Strength • concentration • units • total amount/volume",
+          "tags": [
+            "labeling",
+            "strength",
+            "concentration"
+          ],
+          "role_note": "Read the full label and distinguish total amount from concentration. Avoid assumptions based on vial size, cap color or familiar packaging.",
+          "drug_ids": [
+            "me_label_strength_unit_review",
+            "me_label_strength_unit_closure"
+          ]
+        },
+        {
+          "id": "me_packaging_visual",
+          "name": "Look-alike packaging / container differentiation",
+          "mechanism": "Reducing selection errors from similar presentation",
+          "target": "Carton • vial • ampoule • blister • device",
+          "tags": [
+            "lasa",
+            "packaging",
+            "selection_error"
+          ],
+          "role_note": "Similar colors or package shapes should not be used as primary identifiers. Verify name, strength, dosage form and product identifier.",
+          "drug_ids": [
+            "me_packaging_visual_review",
+            "me_packaging_visual_closure"
+          ]
+        },
+        {
+          "id": "me_storage_segregation",
+          "name": "Medication storage segregation",
+          "mechanism": "Separating high-risk or confusable stock",
+          "target": "LASA • high-alert • concentrated products • external-use products",
+          "tags": [
+            "storage",
+            "lasa",
+            "high_alert"
+          ],
+          "role_note": "Use risk-based separation, clear labeling and controlled access for locally identified hazards; do not store by convenience alone when it increases selection risk.",
+          "drug_ids": [
+            "me_storage_segregation_review",
+            "me_storage_segregation_closure"
+          ]
+        },
+        {
+          "id": "me_storage_conditions",
+          "name": "Storage-condition / expiry integrity check",
+          "mechanism": "Maintaining labeled storage and usable stock",
+          "target": "Temperature • light • moisture • expiry • opened-date context",
+          "tags": [
+            "storage",
+            "expiry",
+            "integrity"
+          ],
+          "role_note": "Verify product-specific storage and in-use requirements from current labeling; do not infer stability or beyond-use time from class-level knowledge.",
+          "drug_ids": [
+            "me_storage_conditions_review",
+            "me_storage_conditions_closure"
+          ]
+        },
+        {
+          "id": "me_high_alert_storage",
+          "name": "High-alert storage / access safeguards",
+          "mechanism": "System barriers before selection and administration",
+          "target": "Restricted stock • standardization • independent checks",
+          "tags": [
+            "storage",
+            "high_alert",
+            "access"
+          ],
+          "role_note": "Apply stronger system controls to high-alert medicines based on local risk assessment and policy; “high-alert” describes harm potential if error occurs, not intrinsic unsafety.",
+          "drug_ids": [
+            "me_high_alert_storage_review",
+            "me_high_alert_storage_closure"
+          ]
+        },
+        {
+          "id": "me_adc_selection",
+          "name": "Automated dispensing cabinet selection / override safety",
+          "mechanism": "Reducing wrong-drug/wrong-strength ADC selection",
+          "target": "ADC search • profile • override • pocket selection",
+          "tags": [
+            "dispensing",
+            "adc",
+            "override",
+            "lasa"
+          ],
+          "role_note": "Use patient-profile-linked selection where available, minimize non-urgent overrides, and verify the actual product removed rather than trusting screen selection alone.",
+          "drug_ids": [
+            "me_adc_selection_review",
+            "me_adc_selection_closure"
+          ]
+        },
+        {
+          "id": "me_dispensing_final_check",
+          "name": "Pharmacy dispensing final verification",
+          "mechanism": "Independent product-order-patient match before supply",
+          "target": "Drug • strength • form • quantity • label • patient",
+          "tags": [
+            "dispensing",
+            "verification",
+            "pharmacy"
+          ],
+          "role_note": "Before dispensing, verify prescription/order against the selected product and label, including strength, dosage form, route-relevant formulation and patient identifiers.",
+          "drug_ids": [
+            "me_dispensing_final_check_review",
+            "me_dispensing_final_check_closure"
+          ]
+        },
+        {
+          "id": "me_barcode_closed_loop",
+          "name": "Barcode product–patient verification",
+          "mechanism": "Machine-readable identity check as a safety barrier",
+          "target": "Patient ID • medication ID • product identifier",
+          "tags": [
+            "barcode",
+            "verification",
+            "closed_loop"
+          ],
+          "role_note": "Barcode scanning can add a verification barrier but does not prove the order is clinically appropriate; respond to mismatches rather than bypassing them reflexively.",
+          "drug_ids": [
+            "me_barcode_closed_loop_review",
+            "me_barcode_closed_loop_closure"
+          ]
+        },
+        {
+          "id": "me_barcode_override",
+          "name": "Barcode mismatch / unavailable-code fallback",
+          "mechanism": "Safe response when scanning fails or is unavailable",
+          "target": "Mismatch • unreadable code • downtime • override",
+          "tags": [
+            "barcode",
+            "override",
+            "downtime"
+          ],
+          "role_note": "A barcode mismatch or scan failure should trigger manual independent verification and problem resolution per policy; do not normalize workarounds that defeat the safety barrier.",
+          "drug_ids": [
+            "me_barcode_override_review",
+            "me_barcode_override_closure"
+          ]
+        },
+        {
+          "id": "me_lot_expiry_trace",
+          "name": "Lot / batch / expiry / recall traceability",
+          "mechanism": "Product traceability across dispensing and administration",
+          "target": "Lot • batch • expiry • recall • product identifier",
+          "tags": [
+            "traceability",
+            "expiry",
+            "recall"
+          ],
+          "role_note": "Where relevant, capture product identifiers needed to trace affected stock/patients and promptly quarantine recalled, expired or suspect product according to policy.",
+          "drug_ids": [
+            "me_lot_expiry_trace_review",
+            "me_lot_expiry_trace_closure"
+          ]
+        },
+        {
+          "id": "me_near_miss_learning",
+          "name": "Medication near-miss / error capture & learning",
+          "mechanism": "Learning from hazards without hiding weak signals",
+          "target": "Near miss • wrong drug • wrong dose • wrong route • system factor",
+          "tags": [
+            "medication_error",
+            "near_miss",
+            "learning"
+          ],
+          "role_note": "Record what happened, contributing system factors and immediate mitigation. Near misses are useful safety signals even when no patient harm occurred.",
+          "drug_ids": [
+            "me_near_miss_learning_review",
+            "me_near_miss_learning_closure"
+          ]
+        },
+        {
+          "id": "me_downtime_fallback",
+          "name": "Downtime / manual medication-safety fallback",
+          "mechanism": "Maintaining verification when EHR/barcode/ADC systems are unavailable",
+          "target": "Downtime • paper process • later reconciliation",
+          "tags": [
+            "downtime",
+            "manual_workflow",
+            "reconciliation"
+          ],
+          "role_note": "Use a defined downtime process with patient/product/order verification, clear temporary documentation and post-recovery reconciliation; avoid unsynchronized shadow lists.",
+          "drug_ids": [
+            "me_downtime_fallback_review",
+            "me_downtime_fallback_closure"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "mr_bpmh_review",
+          "generic": "Best Possible Medication History (BPMH) — reconciliation / verification card",
+          "class_id": "mr_bpmh",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "history",
+            "bpmh",
+            "review"
+          ],
+          "role": "Build the most complete pre-transition medication list possible, including name, strength, dose, route, frequency, indication where useful and how the patient is actually taking it.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_MED_RECON_SOP",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_bpmh_closure",
+          "generic": "Best Possible Medication History (BPMH) — closure / handoff monitoring card",
+          "class_id": "mr_bpmh",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "history",
+            "bpmh",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_MED_RECON_SOP",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_source_triangulation_review",
+          "generic": "Medication-history source triangulation — reconciliation / verification card",
+          "class_id": "mr_source_triangulation",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "history",
+            "sources",
+            "review"
+          ],
+          "role": "Do not treat a single source as infallible. Reconcile patient/caregiver report with available records, medication containers and prior lists; document unresolved uncertainty.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_MED_RECON_SOP",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_source_triangulation_closure",
+          "generic": "Medication-history source triangulation — closure / handoff monitoring card",
+          "class_id": "mr_source_triangulation",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "history",
+            "sources",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_MED_RECON_SOP",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_admission_review",
+          "generic": "Admission medication reconciliation — reconciliation / verification card",
+          "class_id": "mr_admission",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "admission",
+            "transition",
+            "review"
+          ],
+          "role": "Compare the BPMH with admission orders and identify omissions, duplications, formulation changes and intentional holds before they are perpetuated.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_MED_RECON_SOP",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_admission_closure",
+          "generic": "Admission medication reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_admission",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "admission",
+            "transition",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_MED_RECON_SOP",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_transfer_review",
+          "generic": "Intrahospital transfer medication reconciliation — reconciliation / verification card",
+          "class_id": "mr_transfer",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "transfer",
+            "transition",
+            "review"
+          ],
+          "role": "At transfer, explicitly reconcile active, held, discontinued and newly started medicines; avoid assuming the receiving list is automatically current.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_RECON_SOP"
+          ]
+        },
+        {
+          "id": "mr_transfer_closure",
+          "generic": "Intrahospital transfer medication reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_transfer",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "transfer",
+            "transition",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_RECON_SOP"
+          ]
+        },
+        {
+          "id": "mr_discharge_review",
+          "generic": "Discharge medication reconciliation — reconciliation / verification card",
+          "class_id": "mr_discharge",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "discharge",
+            "transition",
+            "review"
+          ],
+          "role": "Create one final reconciled discharge list that clearly states what continues, stops, changes or restarts, and why when clinically important.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_RECON_SOP"
+          ]
+        },
+        {
+          "id": "mr_discharge_closure",
+          "generic": "Discharge medication reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_discharge",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "discharge",
+            "transition",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_RECON_SOP"
+          ]
+        },
+        {
+          "id": "mr_periprocedural_review",
+          "generic": "Perioperative / procedural medication reconciliation — reconciliation / verification card",
+          "class_id": "mr_periprocedural",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "perioperative",
+            "hold_restart",
+            "review"
+          ],
+          "role": "Document each medication intentionally held or modified for a procedure and the responsible clinician/criteria for restart; avoid silent indefinite discontinuation.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_periprocedural_closure",
+          "generic": "Perioperative / procedural medication reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_periprocedural",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "perioperative",
+            "hold_restart",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_emergency_review",
+          "generic": "Emergency / urgent-care medication reconciliation — reconciliation / verification card",
+          "class_id": "mr_emergency",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "emergency",
+            "high_risk",
+            "review"
+          ],
+          "role": "Prioritize time-critical high-risk medicines, allergy history and last doses when a complete history is initially impossible; complete and reconcile as soon as feasible.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "ISMP_HIGH_ALERT_2024"
+          ]
+        },
+        {
+          "id": "mr_emergency_closure",
+          "generic": "Emergency / urgent-care medication reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_emergency",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "emergency",
+            "high_risk",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "ISMP_HIGH_ALERT_2024"
+          ]
+        },
+        {
+          "id": "mr_outpatient_transition_review",
+          "generic": "Specialist / outpatient transition reconciliation — reconciliation / verification card",
+          "class_id": "mr_outpatient_transition",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "outpatient",
+            "transition",
+            "review"
+          ],
+          "role": "When a clinician changes therapy, ensure the change is visible to the next responsible clinician and to the patient; reconcile competing active lists.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_outpatient_transition_closure",
+          "generic": "Specialist / outpatient transition reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_outpatient_transition",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "outpatient",
+            "transition",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_discrepancy_classify_review",
+          "generic": "Medication discrepancy classification — reconciliation / verification card",
+          "class_id": "mr_discrepancy_classify",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "discrepancy",
+            "classification",
+            "review"
+          ],
+          "role": "Classify each discrepancy before correcting it. An intentional therapeutic change is not an error if it is clinically intended and clearly documented/communicated.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_MED_RECON_SOP",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_discrepancy_classify_closure",
+          "generic": "Medication discrepancy classification — closure / handoff monitoring card",
+          "class_id": "mr_discrepancy_classify",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "discrepancy",
+            "classification",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_MED_RECON_SOP",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_intent_documentation_review",
+          "generic": "Intentional medication-change documentation — reconciliation / verification card",
+          "class_id": "mr_intent_documentation",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "intentional_change",
+            "communication",
+            "review"
+          ],
+          "role": "For clinically meaningful changes, document intent, rationale, duration/review point and any restart/follow-up plan so later clinicians do not reverse or perpetuate the wrong state.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_intent_documentation_closure",
+          "generic": "Intentional medication-change documentation — closure / handoff monitoring card",
+          "class_id": "mr_intent_documentation",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "intentional_change",
+            "communication",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_unintended_omission_review",
+          "generic": "Unintended omission detection — reconciliation / verification card",
+          "class_id": "mr_unintended_omission",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "omission",
+            "discrepancy",
+            "review"
+          ],
+          "role": "A missing medicine should trigger confirmation of intent rather than automatic continuation; urgent relevance depends on drug, indication and interruption duration.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_MED_RECON_SOP",
+            "ISMP_HIGH_ALERT_2024"
+          ]
+        },
+        {
+          "id": "mr_unintended_omission_closure",
+          "generic": "Unintended omission detection — closure / handoff monitoring card",
+          "class_id": "mr_unintended_omission",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "omission",
+            "discrepancy",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_MED_RECON_SOP",
+            "ISMP_HIGH_ALERT_2024"
+          ]
+        },
+        {
+          "id": "mr_duplicate_therapy_review",
+          "generic": "Duplicate therapy detection — reconciliation / verification card",
+          "class_id": "mr_duplicate_therapy",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "duplication",
+            "medication_error",
+            "review"
+          ],
+          "role": "Check ingredients and indications before labeling a pair as duplicate; some combination therapy is intentional while duplicate products can cause overdose.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_duplicate_therapy_closure",
+          "generic": "Duplicate therapy detection — closure / handoff monitoring card",
+          "class_id": "mr_duplicate_therapy",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "duplication",
+            "medication_error",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_dose_frequency_review",
+          "generic": "Dose / frequency discrepancy — reconciliation / verification card",
+          "class_id": "mr_dose_frequency",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "dose",
+            "frequency",
+            "review"
+          ],
+          "role": "Verify the exact product and intended regimen before changing a discrepancy; organ function, indication and recent titration may explain differences.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_MED_RECON_SOP",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_dose_frequency_closure",
+          "generic": "Dose / frequency discrepancy — closure / handoff monitoring card",
+          "class_id": "mr_dose_frequency",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "dose",
+            "frequency",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_MED_RECON_SOP",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_route_formulation_review",
+          "generic": "Route / formulation discrepancy — reconciliation / verification card",
+          "class_id": "mr_route_formulation",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "route",
+            "formulation",
+            "review"
+          ],
+          "role": "Do not assume formulations are interchangeable. Confirm route, release characteristics, device and product-specific instructions.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "FDA_LABEL_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_route_formulation_closure",
+          "generic": "Route / formulation discrepancy — closure / handoff monitoring card",
+          "class_id": "mr_route_formulation",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "route",
+            "formulation",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "FDA_LABEL_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_interchange_review",
+          "generic": "Therapeutic interchange / formulary substitution reconciliation — reconciliation / verification card",
+          "class_id": "mr_interchange",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "interchange",
+            "formulary",
+            "review"
+          ],
+          "role": "Clearly distinguish product substitution from a true therapeutic change, and reconcile back to the intended outpatient regimen when appropriate.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_interchange_closure",
+          "generic": "Therapeutic interchange / formulary substitution reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_interchange",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "interchange",
+            "formulary",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_allergy_adr_review",
+          "generic": "Allergy / adverse-reaction reconciliation — reconciliation / verification card",
+          "class_id": "mr_allergy_adr",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "allergy",
+            "adr",
+            "review"
+          ],
+          "role": "Verify the culprit and reaction phenotype; do not convert vague intolerance or family history into an unqualified severe allergy label, and do not ignore a credible serious reaction.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_allergy_adr_closure",
+          "generic": "Allergy / adverse-reaction reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_allergy_adr",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "allergy",
+            "adr",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_otc_herbal_review",
+          "generic": "OTC • herbal • Ayurveda • supplement reconciliation — reconciliation / verification card",
+          "class_id": "mr_otc_herbal",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "otc",
+            "herbal",
+            "ayurveda",
+            "review"
+          ],
+          "role": "Include non-prescription and traditional products because they may affect bleeding, sedation, organ toxicity or interactions; document uncertain composition when exact product is unknown.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_otc_herbal_closure",
+          "generic": "OTC • herbal • Ayurveda • supplement reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_otc_herbal",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "otc",
+            "herbal",
+            "ayurveda",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_prn_intermittent_review",
+          "generic": "PRN / intermittent / seasonal medication reconciliation — reconciliation / verification card",
+          "class_id": "mr_prn_intermittent",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "prn",
+            "intermittent",
+            "review"
+          ],
+          "role": "Ask specifically about rescue and intermittent products; “not taken today” does not mean the medicine is inactive or irrelevant.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_MED_RECON_SOP",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_prn_intermittent_closure",
+          "generic": "PRN / intermittent / seasonal medication reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_prn_intermittent",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "prn",
+            "intermittent",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_MED_RECON_SOP",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_high_alert_review",
+          "generic": "High-alert medication reconciliation — reconciliation / verification card",
+          "class_id": "mr_high_alert",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "high_alert",
+            "priority",
+            "review"
+          ],
+          "role": "Flag high-alert medicines for prioritized last-dose, indication, monitoring and transition review; the flag is a safety prompt, not a reason to stop therapy.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_high_alert_closure",
+          "generic": "High-alert medication reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_high_alert",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "high_alert",
+            "priority",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_organ_function_review",
+          "generic": "Renal / hepatic status reconciliation — reconciliation / verification card",
+          "class_id": "mr_organ_function",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "renal",
+            "hepatic",
+            "review"
+          ],
+          "role": "A previously reduced/held medicine may become inappropriate as organ function worsens or recovers. Reassess current function and the exact drug label/guideline.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_organ_function_closure",
+          "generic": "Renal / hepatic status reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_organ_function",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "renal",
+            "hepatic",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_anticoagulant_review",
+          "generic": "Anticoagulant / antiplatelet reconciliation — reconciliation / verification card",
+          "class_id": "mr_anticoagulant",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "anticoagulant",
+            "high_alert",
+            "review"
+          ],
+          "role": "Document indication, last dose, current hold/restart intent and concurrent antithrombotics; avoid unplanned duplication or indefinite peri-procedural interruption.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_anticoagulant_closure",
+          "generic": "Anticoagulant / antiplatelet reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_anticoagulant",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "anticoagulant",
+            "high_alert",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_diabetes_review",
+          "generic": "Insulin / diabetes medication reconciliation — reconciliation / verification card",
+          "class_id": "mr_diabetes",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "insulin",
+            "diabetes",
+            "high_alert",
+            "review"
+          ],
+          "role": "Confirm insulin product/concentration/device and actual home use; nutrition/NPO status and organ function can make a copied home regimen unsafe.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_diabetes_closure",
+          "generic": "Insulin / diabetes medication reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_diabetes",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "insulin",
+            "diabetes",
+            "high_alert",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_steroid_immunosupp_review",
+          "generic": "Steroid / immunosuppressant reconciliation — reconciliation / verification card",
+          "class_id": "mr_steroid_immunosupp",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "steroid",
+            "immunosuppressant",
+            "review"
+          ],
+          "role": "Verify chronic exposure, indication, timing and specialist plan; abrupt interruption or duplicate therapy can be clinically important.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_steroid_immunosupp_closure",
+          "generic": "Steroid / immunosuppressant reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_steroid_immunosupp",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "steroid",
+            "immunosuppressant",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_opioid_sedative_review",
+          "generic": "Opioid / sedative reconciliation — reconciliation / verification card",
+          "class_id": "mr_opioid_sedative",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "opioid",
+            "sedative",
+            "high_alert",
+            "review"
+          ],
+          "role": "Confirm chronic tolerance, last dose, co-sedatives and intended continuation/taper. Avoid automatic resumption of outdated doses after an interruption.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_opioid_sedative_closure",
+          "generic": "Opioid / sedative reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_opioid_sedative",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "opioid",
+            "sedative",
+            "high_alert",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "WHO_TRANSITIONS_MED_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_antimicrobial_duration_review",
+          "generic": "Antimicrobial duration / stop-date reconciliation — reconciliation / verification card",
+          "class_id": "mr_antimicrobial_duration",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "antimicrobial",
+            "duration",
+            "review"
+          ],
+          "role": "Carry forward indication, start date, intended duration/stop date and culture/review plan so transitions do not unintentionally prolong or truncate therapy.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_antimicrobial_duration_closure",
+          "generic": "Antimicrobial duration / stop-date reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_antimicrobial_duration",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "antimicrobial",
+            "duration",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_patient_discharge_list_review",
+          "generic": "Patient-facing reconciled medication list — reconciliation / verification card",
+          "class_id": "mr_patient_discharge_list",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "discharge",
+            "patient_list",
+            "review"
+          ],
+          "role": "Give the patient/caregiver one current list using understandable medicine names and instructions, with changed/stopped medicines clearly distinguished.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_RECON_SOP"
+          ]
+        },
+        {
+          "id": "mr_patient_discharge_list_closure",
+          "generic": "Patient-facing reconciled medication list — closure / handoff monitoring card",
+          "class_id": "mr_patient_discharge_list",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "discharge",
+            "patient_list",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_RECON_SOP"
+          ]
+        },
+        {
+          "id": "mr_teachback_access_review",
+          "generic": "Teach-back • adherence • access verification — reconciliation / verification card",
+          "class_id": "mr_teachback_access",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "patient_education",
+            "adherence",
+            "access",
+            "review"
+          ],
+          "role": "Ask the patient/caregiver to explain the regimen in their own words and identify access, cost, supply, swallowing, device or caregiver barriers before transition closure.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_teachback_access_closure",
+          "generic": "Teach-back • adherence • access verification — closure / handoff monitoring card",
+          "class_id": "mr_teachback_access",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "patient_education",
+            "adherence",
+            "access",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_pending_followup_review",
+          "generic": "Pending tests / monitoring / responsibility handoff — reconciliation / verification card",
+          "class_id": "mr_pending_followup",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "followup",
+            "responsibility",
+            "review"
+          ],
+          "role": "Document what must be checked, when, and who is responsible; a pending result without ownership is a transition hazard.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_pending_followup_closure",
+          "generic": "Pending tests / monitoring / responsibility handoff — closure / handoff monitoring card",
+          "class_id": "mr_pending_followup",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "followup",
+            "responsibility",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_hold_restart_review",
+          "generic": "Held medicine / deprescribing / restart plan — reconciliation / verification card",
+          "class_id": "mr_hold_restart",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "hold_restart",
+            "deprescribing",
+            "review"
+          ],
+          "role": "Differentiate temporary hold from permanent discontinuation; state restart criteria or review date when appropriate.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_hold_restart_closure",
+          "generic": "Held medicine / deprescribing / restart plan — closure / handoff monitoring card",
+          "class_id": "mr_hold_restart",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "hold_restart",
+            "deprescribing",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "mr_patient_own_meds_review",
+          "generic": "Patient-owned / brought-in medication reconciliation — reconciliation / verification card",
+          "class_id": "mr_patient_own_meds",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "patient_own_med",
+            "storage",
+            "review"
+          ],
+          "role": "Do not administer an unidentified or unverified home product. Follow institutional policy for identification, storage, authorization and return/disposal.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "mr_patient_own_meds_closure",
+          "generic": "Patient-owned / brought-in medication reconciliation — closure / handoff monitoring card",
+          "class_id": "mr_patient_own_meds",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "reconciliation",
+            "patient_own_med",
+            "storage",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "me_lasa_screen_review",
+          "generic": "Look-alike / sound-alike (LASA) risk screen — reconciliation / verification card",
+          "class_id": "me_lasa_screen",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "lasa",
+            "dispensing",
+            "selection_error",
+            "review"
+          ],
+          "role": "Treat LASA as a system hazard: use independent identifiers, indication/strength checks and separation/alerting where appropriate rather than relying on memory or color.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "FDA_TALL_MAN",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "me_lasa_screen_closure",
+          "generic": "Look-alike / sound-alike (LASA) risk screen — closure / handoff monitoring card",
+          "class_id": "me_lasa_screen",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "lasa",
+            "dispensing",
+            "selection_error",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "FDA_TALL_MAN",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "me_tall_man_review",
+          "generic": "Tall Man lettering support — reconciliation / verification card",
+          "class_id": "me_tall_man",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "lasa",
+            "tall_man",
+            "labeling",
+            "review"
+          ],
+          "role": "Use Tall Man lettering only for established/locally adopted confusable pairs; it supplements but does not replace barcode/product/indication verification.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "FDA_TALL_MAN",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "me_tall_man_closure",
+          "generic": "Tall Man lettering support — closure / handoff monitoring card",
+          "class_id": "me_tall_man",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "lasa",
+            "tall_man",
+            "labeling",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "FDA_TALL_MAN",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "me_label_strength_unit_review",
+          "generic": "Strength / concentration / unit label verification — reconciliation / verification card",
+          "class_id": "me_label_strength_unit",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "labeling",
+            "strength",
+            "concentration",
+            "review"
+          ],
+          "role": "Read the full label and distinguish total amount from concentration. Avoid assumptions based on vial size, cap color or familiar packaging.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "FDA_LABEL_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "me_label_strength_unit_closure",
+          "generic": "Strength / concentration / unit label verification — closure / handoff monitoring card",
+          "class_id": "me_label_strength_unit",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "labeling",
+            "strength",
+            "concentration",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "FDA_LABEL_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "me_packaging_visual_review",
+          "generic": "Look-alike packaging / container differentiation — reconciliation / verification card",
+          "class_id": "me_packaging_visual",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "lasa",
+            "packaging",
+            "selection_error",
+            "review"
+          ],
+          "role": "Similar colors or package shapes should not be used as primary identifiers. Verify name, strength, dosage form and product identifier.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "FDA_LABEL_SAFETY",
+            "FDA_TALL_MAN"
+          ]
+        },
+        {
+          "id": "me_packaging_visual_closure",
+          "generic": "Look-alike packaging / container differentiation — closure / handoff monitoring card",
+          "class_id": "me_packaging_visual",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "lasa",
+            "packaging",
+            "selection_error",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "FDA_LABEL_SAFETY",
+            "FDA_TALL_MAN"
+          ]
+        },
+        {
+          "id": "me_storage_segregation_review",
+          "generic": "Medication storage segregation — reconciliation / verification card",
+          "class_id": "me_storage_segregation",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "storage",
+            "lasa",
+            "high_alert",
+            "review"
+          ],
+          "role": "Use risk-based separation, clear labeling and controlled access for locally identified hazards; do not store by convenience alone when it increases selection risk.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "ISMP_ADC_GUIDELINE"
+          ]
+        },
+        {
+          "id": "me_storage_segregation_closure",
+          "generic": "Medication storage segregation — closure / handoff monitoring card",
+          "class_id": "me_storage_segregation",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "storage",
+            "lasa",
+            "high_alert",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "ISMP_ADC_GUIDELINE"
+          ]
+        },
+        {
+          "id": "me_storage_conditions_review",
+          "generic": "Storage-condition / expiry integrity check — reconciliation / verification card",
+          "class_id": "me_storage_conditions",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "storage",
+            "expiry",
+            "integrity",
+            "review"
+          ],
+          "role": "Verify product-specific storage and in-use requirements from current labeling; do not infer stability or beyond-use time from class-level knowledge.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "FDA_LABEL_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "me_storage_conditions_closure",
+          "generic": "Storage-condition / expiry integrity check — closure / handoff monitoring card",
+          "class_id": "me_storage_conditions",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "storage",
+            "expiry",
+            "integrity",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "FDA_LABEL_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "me_high_alert_storage_review",
+          "generic": "High-alert storage / access safeguards — reconciliation / verification card",
+          "class_id": "me_high_alert_storage",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "storage",
+            "high_alert",
+            "access",
+            "review"
+          ],
+          "role": "Apply stronger system controls to high-alert medicines based on local risk assessment and policy; “high-alert” describes harm potential if error occurs, not intrinsic unsafety.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "me_high_alert_storage_closure",
+          "generic": "High-alert storage / access safeguards — closure / handoff monitoring card",
+          "class_id": "me_high_alert_storage",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "storage",
+            "high_alert",
+            "access",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "ISMP_HIGH_ALERT_2024",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "me_adc_selection_review",
+          "generic": "Automated dispensing cabinet selection / override safety — reconciliation / verification card",
+          "class_id": "me_adc_selection",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "dispensing",
+            "adc",
+            "override",
+            "lasa",
+            "review"
+          ],
+          "role": "Use patient-profile-linked selection where available, minimize non-urgent overrides, and verify the actual product removed rather than trusting screen selection alone.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "ISMP_ADC_GUIDELINE",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "me_adc_selection_closure",
+          "generic": "Automated dispensing cabinet selection / override safety — closure / handoff monitoring card",
+          "class_id": "me_adc_selection",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "dispensing",
+            "adc",
+            "override",
+            "lasa",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "ISMP_ADC_GUIDELINE",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "me_dispensing_final_check_review",
+          "generic": "Pharmacy dispensing final verification — reconciliation / verification card",
+          "class_id": "me_dispensing_final_check",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "dispensing",
+            "verification",
+            "pharmacy",
+            "review"
+          ],
+          "role": "Before dispensing, verify prescription/order against the selected product and label, including strength, dosage form, route-relevant formulation and patient identifiers.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "FDA_LABEL_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "me_dispensing_final_check_closure",
+          "generic": "Pharmacy dispensing final verification — closure / handoff monitoring card",
+          "class_id": "me_dispensing_final_check",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "dispensing",
+            "verification",
+            "pharmacy",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "FDA_LABEL_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "me_barcode_closed_loop_review",
+          "generic": "Barcode product–patient verification — reconciliation / verification card",
+          "class_id": "me_barcode_closed_loop",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "barcode",
+            "verification",
+            "closed_loop",
+            "review"
+          ],
+          "role": "Barcode scanning can add a verification barrier but does not prove the order is clinically appropriate; respond to mismatches rather than bypassing them reflexively.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "FDA_BARCODE_RESOURCES",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "me_barcode_closed_loop_closure",
+          "generic": "Barcode product–patient verification — closure / handoff monitoring card",
+          "class_id": "me_barcode_closed_loop",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "barcode",
+            "verification",
+            "closed_loop",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "FDA_BARCODE_RESOURCES",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "me_barcode_override_review",
+          "generic": "Barcode mismatch / unavailable-code fallback — reconciliation / verification card",
+          "class_id": "me_barcode_override",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "barcode",
+            "override",
+            "downtime",
+            "review"
+          ],
+          "role": "A barcode mismatch or scan failure should trigger manual independent verification and problem resolution per policy; do not normalize workarounds that defeat the safety barrier.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "FDA_BARCODE_RESOURCES",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "me_barcode_override_closure",
+          "generic": "Barcode mismatch / unavailable-code fallback — closure / handoff monitoring card",
+          "class_id": "me_barcode_override",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "barcode",
+            "override",
+            "downtime",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "FDA_BARCODE_RESOURCES",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "me_lot_expiry_trace_review",
+          "generic": "Lot / batch / expiry / recall traceability — reconciliation / verification card",
+          "class_id": "me_lot_expiry_trace",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "traceability",
+            "expiry",
+            "recall",
+            "review"
+          ],
+          "role": "Where relevant, capture product identifiers needed to trace affected stock/patients and promptly quarantine recalled, expired or suspect product according to policy.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "FDA_BARCODE_RESOURCES",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "me_lot_expiry_trace_closure",
+          "generic": "Lot / batch / expiry / recall traceability — closure / handoff monitoring card",
+          "class_id": "me_lot_expiry_trace",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "traceability",
+            "expiry",
+            "recall",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "FDA_BARCODE_RESOURCES",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "me_near_miss_learning_review",
+          "generic": "Medication near-miss / error capture & learning — reconciliation / verification card",
+          "class_id": "me_near_miss_learning",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "medication_error",
+            "near_miss",
+            "learning",
+            "review"
+          ],
+          "role": "Record what happened, contributing system factors and immediate mitigation. Near misses are useful safety signals even when no patient harm occurred.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "me_near_miss_learning_closure",
+          "generic": "Medication near-miss / error capture & learning — closure / handoff monitoring card",
+          "class_id": "me_near_miss_learning",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "medication_error",
+            "near_miss",
+            "learning",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_MED_WITHOUT_HARM",
+            "FDA_LABEL_SAFETY"
+          ]
+        },
+        {
+          "id": "me_downtime_fallback_review",
+          "generic": "Downtime / manual medication-safety fallback — reconciliation / verification card",
+          "class_id": "me_downtime_fallback",
+          "form": "Medication reconciliation & error-prevention review card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "downtime",
+            "manual_workflow",
+            "reconciliation",
+            "review"
+          ],
+          "role": "Use a defined downtime process with patient/product/order verification, clear temporary documentation and post-recovery reconciliation; avoid unsynchronized shadow lists.",
+          "monitoring_pearl": "Resolve discrepancies with the responsible clinician/pharmacist and document the source, intent and action. Escalate time-critical high-alert, allergy, wrong-drug, wrong-route or clinically significant interruption risks promptly.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        },
+        {
+          "id": "me_downtime_fallback_closure",
+          "generic": "Downtime / manual medication-safety fallback — closure / handoff monitoring card",
+          "class_id": "me_downtime_fallback",
+          "form": "Medication-safety closure / handoff card",
+          "route": "Cross-setting medication-safety context",
+          "dose_example": "Medication-safety decision-support only. Do not automatically start, stop, restart, substitute, dispense or administer a medicine from this card. Verify the patient, exact product/order, current medication list, indication, allergy/ADR history, organ function, transition intent and local policy/current labeling before action.",
+          "tags": [
+            "downtime",
+            "manual_workflow",
+            "reconciliation",
+            "closure"
+          ],
+          "role": "Close the loop: confirm the corrected/current medication state is visible to the next responsible clinician and, where relevant, understandable to the patient/caregiver.",
+          "monitoring_pearl": "Recheck the medication list after transitions, corrections, downtime recovery or dispensing changes. A closed alert is not proof that the underlying discrepancy or system hazard was corrected.",
+          "source_refs": [
+            "WHO_TRANSITIONS_MED_SAFETY",
+            "WHO_MED_WITHOUT_HARM"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "WHO_TRANSITIONS_MED_SAFETY",
+          "label": "WHO — Medication Safety in Transitions of Care",
+          "url": "https://www.who.int/publications/i/item/WHO-UHC-SDS-2019.9"
+        },
+        {
+          "id": "WHO_MED_RECON_SOP",
+          "label": "WHO High 5s — Standard Operating Protocol for Medication Reconciliation",
+          "url": "https://cdn.who.int/media/docs/default-source/patient-safety/high5s/h5s-sop.pdf"
+        },
+        {
+          "id": "WHO_MED_WITHOUT_HARM",
+          "label": "WHO — Medication Without Harm",
+          "url": "https://www.who.int/initiatives/medication-without-harm"
+        },
+        {
+          "id": "FDA_TALL_MAN",
+          "label": "FDA — Name Differentiation Project / Tall Man Lettering",
+          "url": "https://www.fda.gov/drugs/medication-errors-related-cder-regulated-drug-products/fda-name-differentiation-project"
+        },
+        {
+          "id": "FDA_LABEL_SAFETY",
+          "label": "FDA — Safety Considerations for Container Labels and Carton Labeling",
+          "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/safety-considerations-container-labels-and-carton-labeling-design-minimize-medication-errors"
+        },
+        {
+          "id": "FDA_BARCODE_RESOURCES",
+          "label": "FDA — Carton and Container Labeling Resources / Bar Code Label Requirements",
+          "url": "https://www.fda.gov/drugs/fdas-labeling-resources-human-prescription-drugs/carton-and-container-labeling-resources"
+        },
+        {
+          "id": "ISMP_HIGH_ALERT_2024",
+          "label": "ISMP — List of High-Alert Medications in Acute Care Settings (2024)",
+          "url": "https://www.ismp.org/tools/highalertmedications/"
+        },
+        {
+          "id": "ISMP_ADC_GUIDELINE",
+          "label": "ISMP — Guidelines for the Safe Use of Automated Dispensing Cabinets",
+          "url": "https://www.ismp.org/resources/guidelines-safe-use-automated-dispensing-cabinets"
         }
       ]
     }

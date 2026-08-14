@@ -1,0 +1,32 @@
+V5.41B MEDICATION RECONCILIATION • LASA • DISPENSING • STORAGE • BARCODE • MEDICATION ERROR PREVENTION — STATIC VALIDATION
+Build: 2026.08.15-R26B
+
+PASS — app version marker
+PASS — dataset version MTLPI 2.5B
+PASS — build marker
+PASS — new lab exists
+PASS — class count (44)
+PASS — profile count (88)
+PASS — all class→profile refs resolve
+PASS — all new source refs resolve
+PASS — launcher button
+PASS — reconciliation/LASA/barcode search terms
+PASS — therapeutics engine JavaScript syntax
+PASS — service worker JavaScript syntax
+PASS — service worker cache marker
+PASS — manifest version
+PASS — no duplicate static DOM IDs
+
+New lab: 44 classes • 88 profiles
+Cumulative: 34 labs • 1141 classes • 2537 profiles
+Broken class→profile refs: 0
+Broken new source refs: 0
+Duplicate static DOM IDs: 0
+
+SAFETY BOUNDARY
+- No automatic medication start/stop/restart/substitution/dispensing/administration is generated.
+- Barcode, EHR and automated-dispensing-cabinet status are verification aids, not proof of clinical appropriateness.
+- A medication discrepancy is not automatically labeled an error; intent must be verified and documented.
+- Current patient-specific data, product labeling, pharmacy/formulary policy and clinician/pharmacist review remain required.
+
+NOTE: Static validation does not replace live browser/mobile/tablet/Firebase testing after GitHub Pages deployment.
