@@ -1,0 +1,246 @@
+{
+  "schema": "mahamaya-ayurveda-safety-selection-v1",
+  "version": "1.0",
+  "app_version": "4.10",
+  "build": "2026.08.14-R17",
+  "last_evidence_refresh": "2026-08-14",
+  "name": "MATLI v1.3 Clinical Safety & Selection Matrix",
+  "boundary": "This engine is a clinician/research decision-support layer. Missing safety data never means safe. It does not replace the applicable official monograph, STG/CPG, licensed product label, pharmacovigilance review or patient-specific clinical judgment.",
+  "selection_policy": {
+    "drug_of_choice": "Do not label a formulation as Drug of Choice / first-line / preferred unless an explicit authoritative guideline or protocol supports that wording.",
+    "priority": "Priority is a research-navigation order based on evidence layer, condition match and conservative safety flags; it is not an autonomous prescription ranking.",
+    "missing_data": "Unknown / not source-verified safety is displayed as REVIEW REQUIRED, never as SAFE."
+  },
+  "evidence_tiers": {
+    "E1": {
+      "label": "E1 • Condition-linked clinical evidence",
+      "meaning": "Curated MATLI formulation linked to a condition-specific government/institutional clinical study, protocol or treatment resource in this build."
+    },
+    "E2": {
+      "label": "E2 • Curated official/classical source layer",
+      "meaning": "Curated formulation with official/classical source families, but no condition-specific protocol embedded for the current search."
+    },
+    "D": {
+      "label": "D • AFI discovery only",
+      "meaning": "Formulary-index therapeutic-use match. Useful for discovery; not a ranked treatment recommendation."
+    }
+  },
+  "situations": [
+    {
+      "id": "general",
+      "label": "General research • no special-population clearance"
+    },
+    {
+      "id": "pediatric",
+      "label": "Pediatric / child"
+    },
+    {
+      "id": "pregnancy",
+      "label": "Pregnancy / planning pregnancy"
+    },
+    {
+      "id": "lactation",
+      "label": "Lactation / breastfeeding"
+    },
+    {
+      "id": "elderly",
+      "label": "Elderly / frail"
+    },
+    {
+      "id": "renal",
+      "label": "Renal impairment / CKD"
+    },
+    {
+      "id": "hepatic",
+      "label": "Hepatic impairment / liver disease"
+    },
+    {
+      "id": "gi_ulcer",
+      "label": "GI sensitivity / gastritis / peptic ulcer"
+    },
+    {
+      "id": "diabetes",
+      "label": "Diabetes / metabolic risk"
+    },
+    {
+      "id": "polypharmacy",
+      "label": "Polypharmacy / anticoagulant-interaction review"
+    }
+  ],
+  "status_labels": {
+    "source_verified": "Source-verified in this build",
+    "protocol_example": "Protocol example available — not universal dose",
+    "review": "Formulation-specific review required",
+    "specialist_review": "High-caution: specialist + source review required",
+    "not_verified": "Not source-verified in this build",
+    "not_applicable": "Not applicable / route dependent"
+  },
+  "class_rules": [
+    {
+      "id": "high_caution",
+      "match": [
+        "rasaushadhi",
+        "rasayoga",
+        "bhasma",
+        "lauha",
+        "mandura",
+        "parpati",
+        "pishti",
+        "kupipakva"
+      ],
+      "situations": {
+        "pregnancy": "specialist_review",
+        "lactation": "specialist_review",
+        "pediatric": "specialist_review",
+        "elderly": "review",
+        "renal": "specialist_review",
+        "hepatic": "specialist_review",
+        "gi_ulcer": "review",
+        "diabetes": "review",
+        "polypharmacy": "specialist_review"
+      },
+      "note": "High-caution herbo-mineral/mineral-rich class: verify exact composition/version, Shodhana/Marana or applicable processing, licensed quality, dose, organ function, special-population suitability, interactions and monitoring."
+    },
+    {
+      "id": "fermented",
+      "match": [
+        "asava",
+        "arishta",
+        "fermented"
+      ],
+      "situations": {
+        "pregnancy": "review",
+        "lactation": "review",
+        "pediatric": "review",
+        "elderly": "review",
+        "hepatic": "review",
+        "polypharmacy": "review"
+      },
+      "note": "Asava/Arishta or fermented formulation: verify alcohol content, sugar/content, label, hepatic context, age/special-population suitability and interacting medicines."
+    },
+    {
+      "id": "avaleha",
+      "match": [
+        "avaleha",
+        "leha"
+      ],
+      "situations": {
+        "diabetes": "review",
+        "pediatric": "review",
+        "elderly": "review"
+      },
+      "note": "Avaleha/Leha: verify sugar/base composition, dose, swallowing/metabolic context and licensed label."
+    },
+    {
+      "id": "kshara",
+      "match": [
+        "kshara",
+        "alkali"
+      ],
+      "situations": {
+        "gi_ulcer": "review",
+        "pregnancy": "review",
+        "pediatric": "review",
+        "renal": "review"
+      },
+      "note": "Kshara/alkali-containing formulation: exact formulation, route, GI/mucosal tolerance and special-population context require verification."
+    },
+    {
+      "id": "all_medicines",
+      "match": [
+        "*"
+      ],
+      "situations": {
+        "pregnancy": "not_verified",
+        "lactation": "not_verified",
+        "pediatric": "not_verified",
+        "elderly": "not_verified",
+        "renal": "not_verified",
+        "hepatic": "not_verified",
+        "gi_ulcer": "not_verified",
+        "diabetes": "not_verified",
+        "polypharmacy": "review"
+      },
+      "note": "No formulation should be considered cleared for a special population solely because a warning is absent."
+    }
+  ],
+  "safety_domains": [
+    {
+      "id": "pregnancy",
+      "label": "Pregnancy / conception"
+    },
+    {
+      "id": "lactation",
+      "label": "Lactation"
+    },
+    {
+      "id": "pediatric",
+      "label": "Pediatric / age limitation"
+    },
+    {
+      "id": "elderly",
+      "label": "Elderly / frailty"
+    },
+    {
+      "id": "renal",
+      "label": "Renal / CKD"
+    },
+    {
+      "id": "hepatic",
+      "label": "Hepatic / liver"
+    },
+    {
+      "id": "gi_ulcer",
+      "label": "GI / gastritis / ulcer"
+    },
+    {
+      "id": "diabetes",
+      "label": "Diabetes / sugar load"
+    },
+    {
+      "id": "polypharmacy",
+      "label": "Drug–herb / formulation interaction"
+    },
+    {
+      "id": "duration",
+      "label": "Duration / long-term limitation"
+    }
+  ],
+  "source_hierarchy": [
+    {
+      "tier": "S1",
+      "label": "Official pharmacopoeia/formulary/monograph",
+      "examples": [
+        "PCIM&H API",
+        "PCIM&H AFI"
+      ]
+    },
+    {
+      "tier": "S2",
+      "label": "Government treatment protocol / STG / essential-medicine resource",
+      "examples": [
+        "Ministry of Ayush",
+        "CCRAS treatment protocols",
+        "National Ayush Mission"
+      ]
+    },
+    {
+      "tier": "S3",
+      "label": "Government / national institute clinical research",
+      "examples": [
+        "CCRAS",
+        "AIIA",
+        "NIA",
+        "AIIMS CIMR / AYUSH-integrative research"
+      ]
+    },
+    {
+      "tier": "S4",
+      "label": "Pharmacovigilance / safety monitoring",
+      "examples": [
+        "Ayush Suraksha",
+        "WHO pharmacovigilance resources"
+      ]
+    }
+  ]
+}

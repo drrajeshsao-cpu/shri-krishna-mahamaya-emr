@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<title>Mahamaya Clinic EMR | Ayurveda Research Navigator V4.01</title>
+<title>Mahamaya Clinic EMR | Ayurveda Safety & Selection Navigator V4.10</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -619,6 +619,10 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 <style>
 .ati-research-help{margin:7px 0 10px;padding:9px 11px;border:1px solid #c9dfe3;background:#f4fafb;border-radius:10px;color:#315d65;font-size:11px;line-height:1.4}.ati-search-commandbar-v12 .primary,.ati-search-commandbar-v12 .secondary{min-height:42px}.ati-card .ti-empty b{color:#315f2c}
 </style>
+
+<style>
+.ati-safety-matrix{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:8px;margin:8px 0 14px}.ati-safety-cell{border:1px solid #d7e4e7;border-left:4px solid #7aa8b0;border-radius:10px;padding:9px;background:#fff}.ati-safety-cell.red{border-left-color:#c43d3d;background:#fff7f7}.ati-safety-cell.amber{border-left-color:#c99117;background:#fffaf0}.ati-safety-cell.green{border-left-color:#4e8b2a;background:#f7fbf2}.ati-safety-cell small,.ati-safety-cell span{display:block;color:#5e7378;font-size:10px}.ati-safety-cell b{display:block;margin:3px 0;font-size:12px}.ati-matrix-title{margin:14px 0 6px;color:#315f2c}.ati-source-hierarchy{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:10px 0 14px}.ati-source-hierarchy>div{padding:10px;border:1px solid #d8e6e8;border-radius:10px;background:#f8fbfc}.ati-source-hierarchy small{display:block;margin-top:4px;color:#60777c}.ati-situation-filter{min-width:220px}
+</style>
 </head>
 <body>
 
@@ -645,8 +649,8 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
     <div class="brand-lockup">
       <img class="brand-logo" src="./icon-192.png" alt="Mahamaya Clinic">
       <div class="brand-copy">
-        <h1>Mahamaya Clinic <span class="version-badge">V4.01</span></h1>
-        <p>Fast Ayurveda Formulary Discovery • Modern MTLPI + Ayurveda MATLI v1.2 • Mission Assurance • SLAIE • Build 2026.08.14-R16</p>
+        <h1>Mahamaya Clinic <span class="version-badge">V4.10</span></h1>
+        <p>Fast Ayurveda Formulary Discovery • Modern MTLPI + Ayurveda MATLI v1.3 • Mission Assurance • SLAIE • Build 2026.08.14-R17</p>
       </div>
     </div>
     <div class="header-meta">
@@ -671,7 +675,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 </nav>
 
 <div class="system-strip no-print">
-  <div id="status" class="status">App loaded successfully. V4.01 Ayurveda Research Navigator: MATLI v1.2 + Modern MTLPI + Mission Assurance + Research Prakriti + Smart Investigations + SLAIE ready.</div>
+  <div id="status" class="status">App loaded successfully. V4.10 Ayurveda Safety & Selection Navigator: MATLI v1.3 + Modern MTLPI + Mission Assurance + Research Prakriti + Smart Investigations + SLAIE ready.</div>
   <div class="actions">
     <span id="activeRoleBadge" class="role-badge">Locked</span>
     <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -4902,17 +4906,17 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 
 <div class="card ti-card ati-card" id="ayurvedaTherapeuticsLearningCard">
   <div class="ati-head">
-    <div><h2>🌿 Ayurveda Therapeutics Intelligence — MATLI v1.2 • Fast Formulary Discovery</h2><div class="ati-sub">Complaint/Dx + Prakriti/Vikriti + Agni/Ama/Koshtha → curated MATLI candidates + large AFI discovery index → concise monograph/source record → safety gate → clinician-controlled Draft Rx</div></div>
+    <div><h2>🌿 Ayurveda Therapeutics Intelligence — MATLI v1.3 • Safety & Selection Intelligence</h2><div class="ati-sub">Complaint/Dx + Prakriti/Vikriti + Agni/Ama/Koshtha → curated MATLI candidates + large AFI discovery index → concise monograph/source record → safety gate → clinician-controlled Draft Rx</div></div>
     <div class="ati-head-actions"><span id="atiCatalogCount" class="ti-pill blue">Loading Ayurveda catalog…</span><button type="button" id="atiModeToggle" class="warning">Learning Assist: ON</button></div>
   </div>
   <div id="atiModeOffNote" class="ati-mode-off-note hidden"><b>Ayurveda Learning Assist is OFF.</b> Standard Prescription remains fully available below. Turn it ON only when you want research/learning suggestions.</div>
-  <div class="ati-boundary"><b>Scientist-mode safety boundary:</b> Ayurveda is individualized. Complaint ≠ diagnosis. MATLI does not auto-prescribe from symptoms and does not guess classical doses. Exact composition, dose, anupana, kala, duration and licensed product quality must be verified from API/AFI/CCRAS/STG/official monograph or product label. Rasaushadhi/Bhasma/Lauha/Mandura/Kshara and other high-caution formulations get stronger safety gates. Brands are not ranked.</div>
+  <div class="ati-boundary"><b>Scientist-mode safety boundary:</b> Ayurveda is individualized. Complaint ≠ diagnosis. MATLI does not auto-prescribe from symptoms and does not guess classical doses. Exact composition, dose, anupana, kala, duration and licensed product quality must be verified from API/AFI/CCRAS/STG/official monograph or product label. Pregnancy/lactation, pediatric/elderly, renal/hepatic, GI/ulcer, metabolic, interaction and duration safety are never assumed from missing data. Rasaushadhi/Bhasma/Lauha/Mandura/Kshara and other high-caution formulations get stronger safety gates. Brands are not ranked.</div>
   <div class="ati-snapshot"><div><small>Current complaint</small><b id="atiCurrentComplaint">—</b></div><div><small>Ayurveda diagnosis</small><b id="atiCurrentAyurDx">—</b></div><div><small>Ayurveda personalization snapshot</small><b id="atiAyuSnapshot">—</b></div></div>
-  <div class="ati-search-commandbar ati-search-commandbar-v12"><div class="ati-search-wrap ti-search-wrap"><label>Research search (works without patient): disease/condition, classical formulation, Rasaushadhi/Bhasma/Lauha, single drug or formulation class</label><input id="atiSearch" autocomplete="off" placeholder="e.g. Kasa, Atisara, Sitopaladi, Sutashekhara, Bhasma, Lauha, Guggulu…"><div id="atiSearchResults" class="ti-search-results hidden"></div></div><div class="ati-filter-wrap"><label>Formulation class</label><select id="atiCategoryFilter"><option value="">All formulation classes</option></select></div><div class="ati-filter-wrap"><label>Source layer</label><select id="atiSourceFilter"><option value="all">Curated + AFI index</option><option value="curated">Curated monographs only</option><option value="index">AFI discovery only</option></select></div><div class="ati-filter-wrap"><label>Risk filter</label><select id="atiRiskFilter"><option value="standard-first">Standard first</option><option value="exclude-high">Exclude high-caution</option><option value="high-only">High-caution only</option></select></div><label class="ati-high-toggle"><input id="atiIncludeHighCaution" type="checkbox"> Include high-caution in diagnosis discovery</label><button type="button" id="atiUseCurrentBtn" class="primary">🔎 Search Formulary</button><button type="button" id="atiRefreshBtn" class="secondary">👤 Use Patient Encounter</button></div><div id="atiResearchHelp" class="ati-research-help"><b>Research mode:</b> No patient is required. Example: type <b>Kasa</b> → choose <b>Rasaushadhi / Herbo-mineral</b> → <b>High-caution only</b> → press <b>Search Formulary</b>. Use Patient Encounter only when you want patient-specific context.</div>
+  <div class="ati-search-commandbar ati-search-commandbar-v12"><div class="ati-search-wrap ti-search-wrap"><label>Research search (works without patient): disease/condition, classical formulation, Rasaushadhi/Bhasma/Lauha, single drug or formulation class</label><input id="atiSearch" autocomplete="off" placeholder="e.g. Kasa, Atisara, Sitopaladi, Sutashekhara, Bhasma, Lauha, Guggulu…"><div id="atiSearchResults" class="ti-search-results hidden"></div></div><div class="ati-filter-wrap"><label>Formulation class</label><select id="atiCategoryFilter"><option value="">All formulation classes</option></select></div><div class="ati-filter-wrap"><label>Source layer</label><select id="atiSourceFilter"><option value="all">Curated + AFI index</option><option value="curated">Curated monographs only</option><option value="index">AFI discovery only</option></select></div><div class="ati-filter-wrap"><label>Risk filter</label><select id="atiRiskFilter"><option value="standard-first">Standard first</option><option value="exclude-high">Exclude high-caution</option><option value="high-only">High-caution only</option></select></div><div class="ati-filter-wrap ati-situation-filter"><label>Clinical situation / age-safety lens</label><select id="atiSituationFilter"><option value="general">General research • no safety clearance</option><option value="pediatric">Pediatric / child</option><option value="pregnancy">Pregnancy / planning</option><option value="lactation">Lactation</option><option value="elderly">Elderly / frail</option><option value="renal">Renal impairment / CKD</option><option value="hepatic">Hepatic / liver disease</option><option value="gi_ulcer">GI sensitivity / gastritis / ulcer</option><option value="diabetes">Diabetes / metabolic risk</option><option value="polypharmacy">Polypharmacy / interaction review</option></select></div><label class="ati-high-toggle"><input id="atiIncludeHighCaution" type="checkbox"> Include high-caution in diagnosis discovery</label><button type="button" id="atiUseCurrentBtn" class="primary">🔎 Search Formulary</button><button type="button" id="atiRefreshBtn" class="secondary">👤 Use Patient Encounter</button></div><div id="atiResearchHelp" class="ati-research-help"><b>Research mode:</b> No patient is required. Example: type <b>Kasa</b> → choose <b>Rasaushadhi / Herbo-mineral</b> → <b>High-caution only</b> → press <b>Search Formulary</b>. Choose a Clinical situation to conservatively re-order/flag results. Use Patient Encounter only when you want actual patient-specific context.</div>
   <div class="ti-tabs" role="tablist" aria-label="Ayurveda therapeutics learning workspace"><button type="button" class="active" data-ati-tab="context">1 • Context / Samprapti</button><button type="button" data-ati-tab="therapy">2 • Formulation Candidates</button><button type="button" data-ati-tab="medicine">3 • Ayurveda Monograph</button><button type="button" data-ati-tab="sources">4 • Safety & Sources</button></div>
   <div id="atiContextPane" class="ti-pane"></div><div id="atiTherapyPane" class="ti-pane hidden"></div><div id="atiMedicinePane" class="ti-pane hidden"></div><div id="atiSourcesPane" class="ti-pane hidden"></div>
   <div class="ti-footer-actions"><button type="button" id="atiAddDxBtn" class="secondary">＋ Add selected Ayurveda diagnosis context</button><button type="button" id="atiAddInvBtn" class="secondary">＋ Add suggested investigations</button></div>
-  <div class="ati-mode-note">MATLI v1.2 is a clinician-learning/research CDS + formulary-discovery layer, not an autonomous Ayurveda prescription generator. AFI index records are discovery references; verify the original official monograph before clinical use.</div>
+  <div class="ati-mode-note">MATLI v1.3 is a clinician-learning/research CDS + formulary-discovery + safety-selection layer, not an autonomous Ayurveda prescription generator. AFI index records are discovery references; verify the original official monograph before clinical use.</div>
 </div>
 
 <div class="ti-normal-rx-separator">Standard Prescription — clinician controlled</div>
@@ -12748,7 +12752,7 @@ window.MahamayaBridge={
   esc:(x)=>esc(x)
 };
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V4.01 Ayurveda Research Navigator: MATLI v1.2 + Modern MTLPI + Mission Assurance + Research Prakriti + Smart Investigations + SLAIE ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V4.10 Ayurveda Safety & Selection Navigator: MATLI v1.3 + Modern MTLPI + Mission Assurance + Research Prakriti + Smart Investigations + SLAIE ready.');
 })();
 </script>
 
