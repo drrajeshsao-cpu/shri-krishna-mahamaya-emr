@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-<title>Mahamaya Clinic EMR | Dual Therapeutics Intelligence V3.80</title>
+<title>Mahamaya Clinic EMR | Ayurveda Formulary Discovery V3.90</title>
 <style>
 :root{--p:#126b82;--s:#218f87;--bg:#eef6f8;--card:#fff;--line:#cbdde3;--text:#17333d;--ok:#176b43;--danger:#a1261d;--warn:#8a5b00}
 *{box-sizing:border-box}
@@ -605,6 +605,9 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 <style id="mahamaya-v380-ayurveda-therapeutics-css">
 .ati-card{border-top:4px solid #5b7f2b;background:linear-gradient(180deg,#fff 0,#fbfdf8 100%)}
 .ati-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}.ati-head h2{margin:0;color:#41651c}.ati-sub{font-size:13px;color:#5d6f52;margin-top:3px}.ati-boundary{margin:10px 0;padding:10px 12px;border:1px solid #cddba9;background:#f7fbe9;border-radius:12px;font-size:13px;line-height:1.45}.ati-snapshot{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:8px;margin:10px 0}.ati-snapshot>div,.ati-context-grid>div{border:1px solid var(--line);border-radius:11px;background:#fbfdf9;padding:9px 11px}.ati-snapshot small,.ati-context-grid small{display:block;color:#65756a;font-size:11px}.ati-snapshot b,.ati-context-grid b{display:block;margin-top:2px}.ati-search-wrap{position:relative}.ati-context-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:10px 0}.ati-mon-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ati-mon-grid>div{border:1px solid var(--line);border-radius:12px;padding:11px;background:#fff}.ati-mon-grid h5{margin:0 0 5px;color:#315f2c}.ati-mon-grid p{margin:0;line-height:1.45}.ati-mode-note{font-size:12px;color:#667}.ati-card .ti-tabs button.active{background:#5b7f2b;color:#fff;border-color:#5b7f2b}.ati-card .primary{background:#5b7f2b}.ati-card .primary:hover{filter:brightness(.96)}
+.ati-search-commandbar{display:grid;grid-template-columns:minmax(360px,1fr) minmax(190px,260px) auto auto;gap:8px;align-items:end}.ati-filter-wrap label{display:block}.ati-section-title{display:flex;align-items:center;gap:8px;margin:14px 0 8px;color:#315f2c}.ati-section-title small,.ati-discovery-head small{font-size:11px;color:#6d7f72}.ati-discovery-head{margin:18px 0 9px;padding:11px 12px;border-left:4px solid #3f7e89;background:#f2f9fa;border-radius:10px}.ati-discovery-head h3{margin:0;color:#285c64}.ati-discovery-head p{margin:5px 0 0;font-size:12px;line-height:1.45}.ati-discovery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.ati-discovery-card{border:1px solid var(--line);border-left:4px solid #5e92a0;border-radius:12px;background:#fff;padding:10px}.ati-discovery-card.amber{border-left-color:#d28b18;background:#fffdf8}.ati-discovery-top{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:start}.ati-discovery-top small{display:block;color:#6b7b80;margin-top:2px}.ati-discovery-card p{font-size:12px;line-height:1.45;margin:8px 0;max-height:5.9em;overflow:auto}.ati-discovery-card button{min-height:34px;padding:6px 10px}.ati-card .ti-search-results{max-height:440px}
+@media(max-width:1080px){.ati-search-commandbar{grid-template-columns:1fr 220px}.ati-search-commandbar>button{min-height:42px}.ati-discovery-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.ati-search-commandbar{grid-template-columns:1fr}.ati-discovery-grid{grid-template-columns:1fr}.ati-search-commandbar>button{width:100%}.ati-discovery-card p{max-height:none}.ati-filter-wrap select{min-height:44px}}
 @media(max-width:1000px){.ati-context-grid{grid-template-columns:repeat(3,1fr)}.ati-snapshot{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){.ati-snapshot,.ati-context-grid,.ati-mon-grid{grid-template-columns:1fr}.ati-head{display:block}.ati-head .ti-pill{display:inline-block;margin-top:8px}.ati-card .ti-tabs{overflow-x:auto;white-space:nowrap;display:flex}.ati-card .ti-tabs button{min-width:max-content}}
 </style>
@@ -634,8 +637,8 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
     <div class="brand-lockup">
       <img class="brand-logo" src="./icon-192.png" alt="Mahamaya Clinic">
       <div class="brand-copy">
-        <h1>Mahamaya Clinic <span class="version-badge">V3.80</span></h1>
-        <p>Dual Therapeutics: Modern MTLPI + Ayurveda MATLI • Mission Assurance • Research-grade Traceability • SLAIE • Build 2026.08.14-R13</p>
+        <h1>Mahamaya Clinic <span class="version-badge">V3.90</span></h1>
+        <p>Fast Ayurveda Formulary Discovery • Modern MTLPI + Ayurveda MATLI v1.1 • Mission Assurance • SLAIE • Build 2026.08.14-R14</p>
       </div>
     </div>
     <div class="header-meta">
@@ -660,7 +663,7 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 </nav>
 
 <div class="system-strip no-print">
-  <div id="status" class="status">App loaded successfully. V3.80 Dual Therapeutics Intelligence: Modern MTLPI + Ayurveda MATLI + Mission Assurance + Research Prakriti + Smart Investigations + SLAIE ready.</div>
+  <div id="status" class="status">App loaded successfully. V3.90 Fast Ayurveda Formulary Discovery: MATLI v1.1 + Modern MTLPI + Mission Assurance + Research Prakriti + Smart Investigations + SLAIE ready.</div>
   <div class="actions">
     <span id="activeRoleBadge" class="role-badge">Locked</span>
     <button id="lockNowBtn" class="secondary">🔒 Lock</button>
@@ -4891,16 +4894,16 @@ body.density-compact .card{padding:12px}body.density-compact label{margin-top:7p
 
 <div class="card ti-card ati-card" id="ayurvedaTherapeuticsLearningCard">
   <div class="ati-head">
-    <div><h2>🌿 Ayurveda Therapeutics Learning & Prescription Intelligence — MATLI v1.0</h2><div class="ati-sub">Complaint/Dx + Prakriti/Vikriti + Agni/Ama/Koshtha → evidence-linked Ayurveda candidates → concise monograph → dose-verification gate → draft Rx → existing Safety Screening</div></div>
+    <div><h2>🌿 Ayurveda Therapeutics Intelligence — MATLI v1.1 • Fast Formulary Discovery</h2><div class="ati-sub">Complaint/Dx + Prakriti/Vikriti + Agni/Ama/Koshtha → curated MATLI candidates + large AFI discovery index → concise monograph/source record → safety gate → clinician-controlled Draft Rx</div></div>
     <span id="atiCatalogCount" class="ti-pill blue">Loading Ayurveda catalog…</span>
   </div>
   <div class="ati-boundary"><b>Scientist-mode safety boundary:</b> Ayurveda is individualized. Complaint ≠ diagnosis. MATLI does not auto-prescribe from symptoms and does not guess classical doses. Exact composition, dose, anupana, kala, duration and licensed product quality must be verified from API/AFI/CCRAS/STG/official monograph or product label. Rasaushadhi/Bhasma/Lauha/Mandura/Kshara and other high-caution formulations get stronger safety gates. Brands are not ranked.</div>
   <div class="ati-snapshot"><div><small>Current complaint</small><b id="atiCurrentComplaint">—</b></div><div><small>Ayurveda diagnosis</small><b id="atiCurrentAyurDx">—</b></div><div><small>Ayurveda personalization snapshot</small><b id="atiAyuSnapshot">—</b></div></div>
-  <div class="ti-search-row-grid"><div class="ati-search-wrap ti-search-wrap"><label>Search Ayurveda diagnosis, classical formulation, single drug or formulation class</label><input id="atiSearch" autocomplete="off" placeholder="e.g. Gridhrasi, Kasa, Yogaraja Guggulu, Sitopaladi, Guduchi…"><div id="atiSearchResults" class="ti-search-results hidden"></div></div><button type="button" id="atiUseCurrentBtn" class="primary">Use current encounter</button><button type="button" id="atiRefreshBtn" class="secondary">↻ Refresh</button></div>
+  <div class="ati-search-commandbar"><div class="ati-search-wrap ti-search-wrap"><label>Fast search: Ayurveda diagnosis, classical formulation, Rasaushadhi/Bhasma/Lauha, single drug or formulation class</label><input id="atiSearch" autocomplete="off" placeholder="e.g. Kasa, Sitopaladi, Sutashekhara, Bhasma, Lauha, Rasa, Guggulu…"><div id="atiSearchResults" class="ti-search-results hidden"></div></div><div class="ati-filter-wrap"><label>Formulation class</label><select id="atiCategoryFilter"><option value="">All formulation classes</option></select></div><button type="button" id="atiUseCurrentBtn" class="primary">Use current encounter</button><button type="button" id="atiRefreshBtn" class="secondary">↻ Refresh</button></div>
   <div class="ti-tabs" role="tablist" aria-label="Ayurveda therapeutics learning workspace"><button type="button" class="active" data-ati-tab="context">1 • Context / Samprapti</button><button type="button" data-ati-tab="therapy">2 • Formulation Candidates</button><button type="button" data-ati-tab="medicine">3 • Ayurveda Monograph</button><button type="button" data-ati-tab="sources">4 • Safety & Sources</button></div>
   <div id="atiContextPane" class="ti-pane"></div><div id="atiTherapyPane" class="ti-pane hidden"></div><div id="atiMedicinePane" class="ti-pane hidden"></div><div id="atiSourcesPane" class="ti-pane hidden"></div>
   <div class="ti-footer-actions"><button type="button" id="atiAddDxBtn" class="secondary">＋ Add selected Ayurveda diagnosis context</button><button type="button" id="atiAddInvBtn" class="secondary">＋ Add suggested investigations</button></div>
-  <div class="ati-mode-note">MATLI v1.0 is a clinician-learning/research CDS layer, not an autonomous Ayurveda prescription generator.</div>
+  <div class="ati-mode-note">MATLI v1.1 is a clinician-learning/research CDS + formulary-discovery layer, not an autonomous Ayurveda prescription generator. AFI index records are discovery references; verify the original official monograph before clinical use.</div>
 </div>
 
 <div class="ti-normal-rx-separator">Standard Prescription — clinician controlled</div>
@@ -12736,7 +12739,7 @@ window.MahamayaBridge={
   esc:(x)=>esc(x)
 };
 
-renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.80 Dual Therapeutics Intelligence: Modern MTLPI + Ayurveda MATLI + Mission Assurance + Research Prakriti + Smart Investigations + SLAIE ready.');
+renderComplaintOptions();renderGeneralRows();renderImagingChecks();renderChecks('doshaChecks','dosha',doshas);loadAyurvedaSubtypeData();renderChecks('gunaChecks','guna',gunas);renderChecks('srotasChecks','srotas',srotas);populate(blank());showDashboard();populateSettings();restoreSession();renderDoshaSynthesis();renderSampraptiCorrelation();status('App loaded successfully. V3.90 Fast Ayurveda Formulary Discovery: MATLI v1.1 + Modern MTLPI + Mission Assurance + Research Prakriti + Smart Investigations + SLAIE ready.');
 })();
 </script>
 

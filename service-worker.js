@@ -1,10 +1,10 @@
-const CACHE_NAME = 'mahamaya-emr-v3.80-20260814-r13';
+const CACHE_NAME = 'mahamaya-emr-v3.90-20260814-r14';
 const CORE_ASSETS = [
   './', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png', './logo.jpg', './clinical-terminology-master.json', './slaie-omega-exact-row-v1.json', './systemic-exam-master-v1.json', './investigation-catalog-v1.json', './ayurveda-lifestyle-master-v1.json',
   './complaint-intelligence-master-v1.json',
   './complaint-intelligence-engine.js',
   './therapeutics-intelligence-master-v1.json', './therapeutics-intelligence-engine.js',
-  './ayurveda-therapeutics-master-v1.json', './ayurveda-therapeutics-engine.js',
+  './ayurveda-therapeutics-master-v1.json', './ayurveda-formulary-index-v1.json', './ayurveda-therapeutics-engine.js',
   './mission-assurance-master-v1.json', './mission-assurance-engine.js', './mission-integrity-manifest-v1.json'
 ];
 

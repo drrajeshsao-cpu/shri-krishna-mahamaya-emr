@@ -1,24 +1,24 @@
 {
   "schema": "MAHAMAYA-INTEGRITY-MANIFEST-V1",
-  "app_version": "3.80",
-  "build": "2026.08.14-R13",
+  "app_version": "3.90",
+  "build": "2026.08.14-R14",
   "generated_at": "2026-08-14",
   "algorithm": "SHA-256",
   "files": [
     {
       "path": "index.html",
-      "sha256": "d38a8e1ed7168fca2625aac72c7f2777ebc22a28b586511edf06f6491ceaf456",
-      "bytes": 997510
+      "sha256": "c8dee92068965f6f8f13cf8352c29ea235c8377b85f7961a34c6a19ef59854ca",
+      "bytes": 999484
     },
     {
       "path": "manifest.webmanifest",
-      "sha256": "ed37f6aea57e04ab01efff12ee28f81e5acb701c0edc04a8a6e2aef7c1c5cd40",
-      "bytes": 4499
+      "sha256": "aa23682b1af5e48117249329ba100dc1f9539808e0821a72204d4bbcc4e4bc04",
+      "bytes": 4443
     },
     {
       "path": "service-worker.js",
-      "sha256": "a8a78a70c2fec1f27ac9f1ee5cc6da448b787d7f8c85463832af9b00a45891db",
-      "bytes": 1958
+      "sha256": "f954588ff51297b05be5a793dfb8174cb0c85dd15ca74f7843ad7d3f20dffebd",
+      "bytes": 1996
     },
     {
       "path": "clinical-terminology-master.json",
@@ -67,24 +67,29 @@
     },
     {
       "path": "ayurveda-therapeutics-master-v1.json",
-      "sha256": "6468839b0f53b074bb80aaff6281e41e8d5213bf30fcfb2b8adb4739d141cde3",
-      "bytes": 355729
+      "sha256": "48f74c025c67308077bdcdf6fbb61a5a72d938ca3963e3721df87600848d9372",
+      "bytes": 365115
+    },
+    {
+      "path": "ayurveda-formulary-index-v1.json",
+      "sha256": "dc3b8c867d83b182ece219d3cf062a6c798a7ee571f85e377180aee6e189e46f",
+      "bytes": 343609
     },
     {
       "path": "ayurveda-therapeutics-engine.js",
-      "sha256": "7a273a30b778d54be9ec057c27da5598d755cce64aaeba8ad265397216ffdf53",
-      "bytes": 22568
+      "sha256": "48647a589057b9358a95a03eea8eef2a41639991eb51e02ef58b9d3d7644bd23",
+      "bytes": 28764
     },
     {
       "path": "mission-assurance-master-v1.json",
-      "sha256": "5e010987518ae0858876763708e4ca3e4483315ff0b6ea8e9d73ef6af60ecdd9",
-      "bytes": 4748
+      "sha256": "9ca8e92319772d588926fc1320d47d3a36dcef1564e5a2fcc23058642c7eb961",
+      "bytes": 4889
     },
     {
       "path": "mission-assurance-engine.js",
-      "sha256": "97837fe1125e96207dd2add70a5e3800b7c76d0f7df879b2ed0c62ddf9457cad",
+      "sha256": "f0a03ab8ccdde89449feee1af6b843c0a6fc8d36724e11476ab3e26fa8b0e788",
       "bytes": 19215
     }
   ],
-  "note": "Build-time hashes support deployment-corruption/configuration checks. They do not replace signed releases, secure CI/CD, code signing, independent clinical validation, pharmacist/Ayurveda expert review or independent verification."
+  "note": "Build-time hashes support deployment-corruption/configuration checks. They do not replace signed releases, secure CI/CD, code signing, independent clinical validation, Ayurveda expert/pharmacology review or independent verification. AFI discovery-index records require original-source verification before clinical use."
 }
