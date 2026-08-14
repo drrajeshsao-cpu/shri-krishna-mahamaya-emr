@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4T",
-  "app_version": "5.40T",
-  "build": "2026.08.14-R25T",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40T Geriatrics / Polypharmacy / Deprescribing / Frailty Lab",
+  "version": "2.4U",
+  "app_version": "V5.40U",
+  "build": "2026.08.14-R25U",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40U Pregnancy / Lactation / Reproductive Safety Lab",
   "counts": {
-    "labs": 26,
-    "classes": 796,
-    "drug_profiles": 1847
+    "labs": 27,
+    "classes": 834,
+    "drug_profiles": 1923
   },
-  "global_boundary": "Research/learning pharmacology only. V5.40T adds a Geriatrics • Polypharmacy • Deprescribing • Frailty safety lab while retaining all earlier specialized labs. No medicine is automatically stopped because of age, Beers/STOPP status, frailty, falls, kidney function or medicine count. Any deprescribing/tapering, renal-dose change or treatment de-intensification requires patient-specific verification and monitoring.",
+  "global_boundary": "Research/learning pharmacology only. V5.40U adds a Pregnancy • Lactation • Reproductive Safety cross-cutting lab while retaining all earlier specialized labs. Do not use obsolete FDA pregnancy letter categories or automatic safe/unsafe labels. Any medicine start/stop/switch, contraception/washout advice, pregnancy exposure response or breastfeeding recommendation requires current product-label/guideline verification and patient-specific risk-benefit assessment.",
   "labs": [
     {
       "id": "hypertension",
@@ -55782,6 +55782,2306 @@
           "id": "BNF_ELDERLY",
           "label": "BNF/NICE — Prescribing in the elderly",
           "url": "https://bnf.nice.org.uk/medicines-guidance/prescribing-in-the-elderly/"
+        }
+      ]
+    },
+    {
+      "id": "pregnancy_lactation_repro",
+      "title": "Pregnancy • Lactation • Reproductive Safety Intelligence Lab",
+      "icon": "🤰",
+      "badge": "V5.40U",
+      "eyebrow": "PLLR • PRECONCEPTION • TRIMESTER • LACTMED • CONTRACEPTION • WASHOUT • FETAL/NEONATAL RISK • BREASTFEEDING • PATERNAL EXPOSURE",
+      "subtitle": "Cross-cutting scientist-style reproductive medication-safety workspace spanning preconception, pregnancy, postpartum, breastfeeding and female/male reproductive potential.",
+      "scientific_boundary": "Research/learning medication-safety CDS only. Pregnancy is not a reason to leave serious maternal disease untreated, and a medication exposure is not an automatic indication to stop therapy or pregnancy. Do not use obsolete FDA A/B/C/D/X categories. Verify the current product label (PLLR), indication, gestational timing, maternal disease risk, fetal/infant factors and specialist guidance before starting, stopping, switching, tapering or timing any medicine.",
+      "classification_notes": {
+        "PLLR replaces letter categories": "FDA labeling uses narrative Pregnancy, Lactation, and Females/Males of Reproductive Potential sections rather than A/B/C/D/X categories.",
+        "Risk is time-dependent": "First-trimester structural risk, later fetal functional effects, delivery/neonatal adaptation and breastfeeding exposure are different questions.",
+        "Untreated disease also carries risk": "Medication decisions must compare treatment risk with the maternal/fetal consequences of uncontrolled disease.",
+        "Breastfeeding is not binary": "Milk level, infant oral absorption, age/prematurity, dose, half-life and infant monitoring all matter.",
+        "Washout is product-specific": "Never invent contraception or washout intervals; verify the current label/REMS.",
+        "No automatic teratogenicity inference": "A class association never replaces agent-specific evidence and current labeling."
+      },
+      "lens_groups": [
+        {
+          "group": "Core safety workflow",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Reproductive Safety"
+            },
+            {
+              "id": "pllr",
+              "label": "PLLR"
+            },
+            {
+              "id": "preconception",
+              "label": "Preconception"
+            },
+            {
+              "id": "trimester",
+              "label": "Trimester"
+            },
+            {
+              "id": "lactation",
+              "label": "Lactation/LactMed"
+            },
+            {
+              "id": "contraception",
+              "label": "Contraception/Washout"
+            }
+          ]
+        },
+        {
+          "group": "High-risk medicines",
+          "items": [
+            {
+              "id": "high_risk",
+              "label": "High-Risk"
+            },
+            {
+              "id": "antifolate",
+              "label": "Antifolate"
+            },
+            {
+              "id": "washout",
+              "label": "Washout"
+            },
+            {
+              "id": "oncology",
+              "label": "Oncology"
+            },
+            {
+              "id": "transplant",
+              "label": "Transplant"
+            }
+          ]
+        },
+        {
+          "group": "Common specialties",
+          "items": [
+            {
+              "id": "cardio",
+              "label": "Cardio/BP"
+            },
+            {
+              "id": "neurology",
+              "label": "Neuro/Psych"
+            },
+            {
+              "id": "diabetes",
+              "label": "Diabetes"
+            },
+            {
+              "id": "thyroid",
+              "label": "Thyroid"
+            },
+            {
+              "id": "antibiotic",
+              "label": "Antibiotics"
+            },
+            {
+              "id": "respiratory",
+              "label": "Respiratory"
+            }
+          ]
+        },
+        {
+          "group": "Infection & immune",
+          "items": [
+            {
+              "id": "antiviral",
+              "label": "Antiviral"
+            },
+            {
+              "id": "antifungal",
+              "label": "Antifungal"
+            },
+            {
+              "id": "tb",
+              "label": "TB"
+            },
+            {
+              "id": "rheumatology",
+              "label": "Immune/Rheum"
+            },
+            {
+              "id": "vaccines",
+              "label": "Vaccines"
+            }
+          ]
+        },
+        {
+          "group": "Reproductive potential",
+          "items": [
+            {
+              "id": "male_repro",
+              "label": "Male Exposure/Fertility"
+            },
+            {
+              "id": "fertility",
+              "label": "Fertility"
+            },
+            {
+              "id": "pain",
+              "label": "Pain/NSAID"
+            },
+            {
+              "id": "gi",
+              "label": "GI"
+            },
+            {
+              "id": "steroid",
+              "label": "Steroids"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "repro_pllr",
+          "name": "PLLR risk-summary framework",
+          "mechanism": "Label-based pregnancy/lactation risk assessment",
+          "target": "Pregnancy 8.1 • Lactation 8.2 • Reproductive potential 8.3",
+          "tags": [
+            "overview",
+            "pllr"
+          ],
+          "role_note": "Use the current product label risk summary, clinical considerations and data; do not use obsolete A/B/C/D/X letter categories.",
+          "drug_ids": [
+            "repro_pllr_1",
+            "repro_pllr_2"
+          ]
+        },
+        {
+          "id": "repro_preconception",
+          "name": "Preconception medication review",
+          "mechanism": "Medication optimization before conception",
+          "target": "Planned pregnancy • disease control • avoid abrupt withdrawal",
+          "tags": [
+            "overview",
+            "preconception"
+          ],
+          "role_note": "Review prescription, OTC, supplements and herbal products before conception; optimize disease control and avoid unnecessary exposure.",
+          "drug_ids": [
+            "repro_preconception_1",
+            "repro_preconception_2"
+          ]
+        },
+        {
+          "id": "repro_trimester",
+          "name": "Trimester & gestational-age context",
+          "mechanism": "Time-dependent maternal-fetal risk assessment",
+          "target": "Embryogenesis • fetal growth/function • peripartum/neonatal effects",
+          "tags": [
+            "pregnancy",
+            "trimester"
+          ],
+          "role_note": "Prioritize structural-development risk and the consequences of untreated maternal disease.",
+          "drug_ids": [
+            "repro_trimester_1",
+            "repro_trimester_2"
+          ]
+        },
+        {
+          "id": "repro_lactmed",
+          "name": "Lactation / LactMed review",
+          "mechanism": "Milk transfer + infant exposure + infant monitoring",
+          "target": "Milk levels • oral bioavailability • infant age/health",
+          "tags": [
+            "lactation",
+            "lactmed"
+          ],
+          "role_note": "Check milk concentrations, infant serum data, reported adverse effects and suggested alternatives when available.",
+          "drug_ids": [
+            "repro_lactmed_1",
+            "repro_lactmed_2"
+          ]
+        },
+        {
+          "id": "repro_contraception",
+          "name": "Contraception & washout verification",
+          "mechanism": "Exposure prevention for embryo-fetal-risk medicines",
+          "target": "Female/male reproductive potential • product-specific interval",
+          "tags": [
+            "preconception",
+            "contraception",
+            "washout"
+          ],
+          "role_note": "Verify pregnancy testing and contraception requirements exactly from the current label/REMS when applicable.",
+          "drug_ids": [
+            "repro_contraception_1",
+            "repro_contraception_2"
+          ]
+        },
+        {
+          "id": "repro_raas",
+          "name": "ACE inhibitor / ARB / direct RAAS-blocker pregnancy safety",
+          "mechanism": "Fetal renin-angiotensin system toxicity risk",
+          "target": "Hypertension • CKD • heart failure",
+          "tags": [
+            "pregnancy",
+            "cardio",
+            "renal"
+          ],
+          "role_note": "If pregnancy occurs or is planned, verify current label and transition strategy; do not leave maternal BP/heart-failure disease untreated.",
+          "drug_ids": [
+            "repro_raas_1",
+            "repro_raas_2"
+          ]
+        },
+        {
+          "id": "repro_bp",
+          "name": "Pregnancy-compatible antihypertensive framework",
+          "mechanism": "Condition-specific BP treatment in pregnancy",
+          "target": "Chronic HTN • acute severe HTN • postpartum",
+          "tags": [
+            "pregnancy",
+            "hypertension"
+          ],
+          "role_note": "Common pregnancy antihypertensive options require indication, BP severity, comorbidity and formulation-specific verification.",
+          "drug_ids": [
+            "repro_bp_1",
+            "repro_bp_2"
+          ]
+        },
+        {
+          "id": "repro_anticoag",
+          "name": "Anticoagulation in pregnancy & lactation",
+          "mechanism": "Thrombosis prevention/treatment with pregnancy-specific agent selection",
+          "target": "VTE • mechanical valve • postpartum",
+          "tags": [
+            "pregnancy",
+            "anticoagulation"
+          ],
+          "role_note": "Heparin-based therapy is commonly used because placental transfer differs from oral anticoagulants; exact indication and peripartum timing need protocol verification.",
+          "drug_ids": [
+            "repro_anticoag_1",
+            "repro_anticoag_2"
+          ]
+        },
+        {
+          "id": "repro_antiplatelet",
+          "name": "Antiplatelet therapy in pregnancy",
+          "mechanism": "Platelet inhibition with obstetric/vascular indication review",
+          "target": "Low-dose aspirin indications • coronary disease",
+          "tags": [
+            "pregnancy",
+            "antiplatelet"
+          ],
+          "role_note": "Use only for a defined obstetric/vascular indication with gestational timing and bleeding-risk verification.",
+          "drug_ids": [
+            "repro_antiplatelet_1",
+            "repro_antiplatelet_2"
+          ]
+        },
+        {
+          "id": "repro_nsaid",
+          "name": "NSAID gestational-age safety",
+          "mechanism": "COX inhibition with fetal renal/ductal and maternal bleeding considerations",
+          "target": "Pain • inflammation • gestational age",
+          "tags": [
+            "pregnancy",
+            "pain",
+            "nsaid"
+          ],
+          "role_note": "FDA warns that NSAID use at about 20 weeks or later can cause fetal renal dysfunction/oligohydramnios; verify need and gestational age.",
+          "drug_ids": [
+            "repro_nsaid_1",
+            "repro_nsaid_2"
+          ]
+        },
+        {
+          "id": "repro_analgesia",
+          "name": "Analgesic / opioid reproductive safety",
+          "mechanism": "Pain treatment balancing maternal function and fetal/neonatal effects",
+          "target": "Acetaminophen • opioid exposure • neonatal adaptation",
+          "tags": [
+            "pregnancy",
+            "pain",
+            "lactation"
+          ],
+          "role_note": "Use only when clinically indicated and verify current guidance; avoid treating any analgesic as risk-free.",
+          "drug_ids": [
+            "repro_analgesia_1",
+            "repro_analgesia_2"
+          ]
+        },
+        {
+          "id": "repro_valproate",
+          "name": "Valproate high-risk reproductive safety",
+          "mechanism": "Antiseizure/mood drug with major fetal structural and neurodevelopmental risk",
+          "target": "Epilepsy • bipolar • migraine prevention",
+          "tags": [
+            "pregnancy",
+            "neurology",
+            "high_risk"
+          ],
+          "role_note": "Use a prominent high-risk alert; migraine prevention in pregnancy is contraindicated in FDA labeling and other indications require stringent benefit-risk review.",
+          "drug_ids": [
+            "repro_valproate_1",
+            "repro_valproate_2"
+          ]
+        },
+        {
+          "id": "repro_asms",
+          "name": "Other antiseizure medicines in pregnancy",
+          "mechanism": "Seizure control with drug-specific pregnancy pharmacokinetics and fetal-risk profiles",
+          "target": "Lamotrigine • levetiracetam • topiramate",
+          "tags": [
+            "pregnancy",
+            "neurology"
+          ],
+          "role_note": "Often considered when pregnancy-compatible seizure control is needed, but levels/clearance may change and individualized monitoring is required.",
+          "drug_ids": [
+            "repro_asms_1",
+            "repro_asms_2"
+          ]
+        },
+        {
+          "id": "repro_ssri",
+          "name": "Antidepressants / SSRIs in pregnancy & lactation",
+          "mechanism": "Maternal psychiatric stability vs fetal/neonatal exposure",
+          "target": "Depression • anxiety • postpartum",
+          "tags": [
+            "pregnancy",
+            "psych",
+            "lactation"
+          ],
+          "role_note": "Avoid automatic discontinuation; assess relapse risk, prior response, gestational timing and drug-specific neonatal/lactation data.",
+          "drug_ids": [
+            "repro_ssri_1",
+            "repro_ssri_2"
+          ]
+        },
+        {
+          "id": "repro_lithium",
+          "name": "Lithium reproductive safety",
+          "mechanism": "Mood stabilization with pregnancy pharmacokinetic/peripartum monitoring needs",
+          "target": "Bipolar disorder",
+          "tags": [
+            "pregnancy",
+            "psych",
+            "high_risk"
+          ],
+          "role_note": "Requires specialist review of maternal relapse risk, renal/thyroid status, gestational pharmacokinetics and fetal assessment.",
+          "drug_ids": [
+            "repro_lithium_1",
+            "repro_lithium_2"
+          ]
+        },
+        {
+          "id": "repro_benzo",
+          "name": "Benzodiazepines / sedatives",
+          "mechanism": "CNS depression with pregnancy, delivery and breastfeeding considerations",
+          "target": "Anxiety • insomnia • seizure rescue",
+          "tags": [
+            "pregnancy",
+            "psych",
+            "lactation"
+          ],
+          "role_note": "Avoid abrupt withdrawal in dependent patients; review indication, lowest effective exposure, peripartum neonatal sedation/withdrawal and alternatives.",
+          "drug_ids": [
+            "repro_benzo_1",
+            "repro_benzo_2"
+          ]
+        },
+        {
+          "id": "repro_retinoid",
+          "name": "Systemic retinoids: strict embryo-fetal-risk control",
+          "mechanism": "Retinoid teratogenicity / long washout requirements",
+          "target": "Isotretinoin • acitretin",
+          "tags": [
+            "pregnancy",
+            "dermatology",
+            "high_risk",
+            "washout"
+          ],
+          "role_note": "Use strict pregnancy-prevention/REMS-style verification and current product requirements; no pregnancy-use suggestion.",
+          "drug_ids": [
+            "repro_retinoid_1",
+            "repro_retinoid_2"
+          ]
+        },
+        {
+          "id": "repro_mtx",
+          "name": "Methotrexate reproductive safety",
+          "mechanism": "Antifolate cytotoxic/immunomodulator with embryo-fetal toxicity",
+          "target": "Rheumatology • dermatology • oncology",
+          "tags": [
+            "pregnancy",
+            "high_risk",
+            "antifolate"
+          ],
+          "role_note": "Do not present as routine pregnancy therapy; verify product-specific contraindications, pregnancy prevention and washout.",
+          "drug_ids": [
+            "repro_mtx_1",
+            "repro_mtx_2"
+          ]
+        },
+        {
+          "id": "repro_mycophenolate",
+          "name": "Mycophenolate reproductive safety",
+          "mechanism": "IMPDH inhibition with miscarriage/congenital-malformation risk",
+          "target": "Transplant • autoimmune disease",
+          "tags": [
+            "pregnancy",
+            "transplant",
+            "high_risk"
+          ],
+          "role_note": "Prominent fetal-risk warning: associated with first-trimester pregnancy loss and congenital malformations; pregnancy prevention/planning is mandatory.",
+          "drug_ids": [
+            "repro_mycophenolate_1",
+            "repro_mycophenolate_2"
+          ]
+        },
+        {
+          "id": "repro_immunosupp",
+          "name": "Selected immunosuppressants in pregnancy/lactation",
+          "mechanism": "Maintain disease/graft control with agent-specific reproductive safety",
+          "target": "Tacrolimus • cyclosporine • azathioprine",
+          "tags": [
+            "pregnancy",
+            "transplant",
+            "rheumatology"
+          ],
+          "role_note": "Can be used in selected pregnancies under specialist monitoring; verify levels, renal function, BP, glucose and drug interactions.",
+          "drug_ids": [
+            "repro_immunosupp_1",
+            "repro_immunosupp_2"
+          ]
+        },
+        {
+          "id": "repro_biologics",
+          "name": "Biologic / targeted immune therapy reproductive safety",
+          "mechanism": "Large-molecule or targeted immune exposure with trimester and infant-vaccine implications",
+          "target": "TNF • IL • JAK families",
+          "tags": [
+            "pregnancy",
+            "rheumatology",
+            "dermatology"
+          ],
+          "role_note": "Pregnancy continuation/timing is indication- and molecule-specific; consider placental transfer late in pregnancy and infant live-vaccine planning.",
+          "drug_ids": [
+            "repro_biologics_1",
+            "repro_biologics_2"
+          ]
+        },
+        {
+          "id": "repro_diabetes",
+          "name": "Diabetes pharmacotherapy in pregnancy",
+          "mechanism": "Maternal glycemic control with fetal safety and changing insulin requirements",
+          "target": "Pre-existing diabetes • gestational diabetes",
+          "tags": [
+            "pregnancy",
+            "diabetes"
+          ],
+          "role_note": "Insulin is a core pregnancy glucose-lowering option; regimen and targets require pregnancy-specific monitoring, not adult routine defaults.",
+          "drug_ids": [
+            "repro_diabetes_1",
+            "repro_diabetes_2"
+          ]
+        },
+        {
+          "id": "repro_thyroid",
+          "name": "Thyroid hormone replacement in pregnancy",
+          "mechanism": "Maternal-fetal thyroid hormone sufficiency",
+          "target": "Hypothyroidism",
+          "tags": [
+            "pregnancy",
+            "thyroid"
+          ],
+          "role_note": "Pregnancy commonly changes replacement requirements; monitor thyroid tests with pregnancy-specific targets and formulation/adherence review.",
+          "drug_ids": [
+            "repro_thyroid_1",
+            "repro_thyroid_2"
+          ]
+        },
+        {
+          "id": "repro_antithyroid",
+          "name": "Antithyroid drugs in pregnancy",
+          "mechanism": "Control maternal thyrotoxicosis while minimizing fetal thyroid/teratogenic risk",
+          "target": "PTU • methimazole/carbimazole",
+          "tags": [
+            "pregnancy",
+            "thyroid",
+            "high_risk"
+          ],
+          "role_note": "PTU is often considered early in pregnancy because methimazole-related embryopathy is a concern; hepatotoxicity and switching strategy require specialist oversight.",
+          "drug_ids": [
+            "repro_antithyroid_1",
+            "repro_antithyroid_2"
+          ]
+        },
+        {
+          "id": "repro_abx_common",
+          "name": "Common antibacterial options in pregnancy/lactation",
+          "mechanism": "Infection treatment with pathogen/site + pregnancy safety review",
+          "target": "Penicillins • cephalosporins • macrolides",
+          "tags": [
+            "pregnancy",
+            "antibiotic"
+          ],
+          "role_note": "Penicillins and cephalosporins are commonly used when indicated; verify allergy, renal function, infection site and exact agent.",
+          "drug_ids": [
+            "repro_abx_common_1",
+            "repro_abx_common_2"
+          ]
+        },
+        {
+          "id": "repro_abx_caution",
+          "name": "Antibacterial classes needing special reproductive review",
+          "mechanism": "Gestational-age, fetal-toxicity or data limitations",
+          "target": "Tetracyclines • aminoglycosides • TMP-SMX • fluoroquinolones",
+          "tags": [
+            "pregnancy",
+            "antibiotic",
+            "caution"
+          ],
+          "role_note": "Risks vary by gestational age and indication; verify current guideline, folate status and alternatives rather than using blanket class rules.",
+          "drug_ids": [
+            "repro_abx_caution_1",
+            "repro_abx_caution_2"
+          ]
+        },
+        {
+          "id": "repro_antifungal",
+          "name": "Antifungal reproductive safety",
+          "mechanism": "Topical vs systemic exposure and agent-specific fetal/lactation data",
+          "target": "Azoles • polyenes • echinocandins",
+          "tags": [
+            "pregnancy",
+            "antifungal"
+          ],
+          "role_note": "Prefer local therapy when effective; confirm formulation/site and pregnancy/lactation data.",
+          "drug_ids": [
+            "repro_antifungal_1",
+            "repro_antifungal_2"
+          ]
+        },
+        {
+          "id": "repro_antiviral",
+          "name": "Antiviral therapy in pregnancy/lactation",
+          "mechanism": "Maternal infection treatment/prevention with fetal-neonatal considerations",
+          "target": "HSV/VZV • influenza • HIV/HBV",
+          "tags": [
+            "pregnancy",
+            "antiviral"
+          ],
+          "role_note": "Commonly used antivirals may be appropriate when indicated; verify gestational timing, renal dosing and current disease guideline.",
+          "drug_ids": [
+            "repro_antiviral_1",
+            "repro_antiviral_2"
+          ]
+        },
+        {
+          "id": "repro_tb",
+          "name": "TB / mycobacterial therapy in pregnancy",
+          "mechanism": "Maternal cure and transmission prevention with regimen-specific fetal safety",
+          "target": "DS-TB • DR-TB",
+          "tags": [
+            "pregnancy",
+            "tb"
+          ],
+          "role_note": "Active TB should be treated; verify current national/WHO regimen, gestation, liver function and pyridoxine-related considerations.",
+          "drug_ids": [
+            "repro_tb_1",
+            "repro_tb_2"
+          ]
+        },
+        {
+          "id": "repro_asthma",
+          "name": "Asthma/allergy therapy in pregnancy & lactation",
+          "mechanism": "Maintain maternal oxygenation and disease control",
+          "target": "ICS • beta-agonists • antihistamines",
+          "tags": [
+            "pregnancy",
+            "respiratory"
+          ],
+          "role_note": "Poorly controlled asthma itself is harmful; continue evidence-based control with agent/device verification rather than stopping inhalers reflexively.",
+          "drug_ids": [
+            "repro_asthma_1",
+            "repro_asthma_2"
+          ]
+        },
+        {
+          "id": "repro_gi",
+          "name": "GI medicines in pregnancy/lactation",
+          "mechanism": "Symptom control with trimester and maternal-fetal safety review",
+          "target": "Antiemetics • reflux • constipation",
+          "tags": [
+            "pregnancy",
+            "gi"
+          ],
+          "role_note": "Nausea/vomiting therapy should follow pregnancy-specific severity and safety pathways; avoid automatic stacking of QT/sedating agents.",
+          "drug_ids": [
+            "repro_gi_1",
+            "repro_gi_2"
+          ]
+        },
+        {
+          "id": "repro_steroids",
+          "name": "Systemic & local corticosteroids",
+          "mechanism": "Anti-inflammatory treatment with maternal metabolic and fetal considerations",
+          "target": "Autoimmune • asthma • fetal indications",
+          "tags": [
+            "pregnancy",
+            "steroid"
+          ],
+          "role_note": "Use the lowest effective regimen for the maternal indication; monitor glucose, BP, infection and cumulative exposure.",
+          "drug_ids": [
+            "repro_steroids_1",
+            "repro_steroids_2"
+          ]
+        },
+        {
+          "id": "repro_vax",
+          "name": "Vaccines in pregnancy & lactation",
+          "mechanism": "Maternal immunization vs live-vaccine restrictions",
+          "target": "Inactivated/non-live • live attenuated",
+          "tags": [
+            "pregnancy",
+            "vaccines"
+          ],
+          "role_note": "Use current national/CDC/WHO schedule for influenza, Tdap, COVID-19 and other indicated vaccines; timing matters.",
+          "drug_ids": [
+            "repro_vax_1",
+            "repro_vax_2"
+          ]
+        },
+        {
+          "id": "repro_oncology",
+          "name": "Antineoplastic therapy reproductive safety",
+          "mechanism": "Cytotoxic/targeted/endocrine therapy with strict contraception and fertility planning",
+          "target": "Chemotherapy • targeted therapy • endocrine cancer therapy",
+          "tags": [
+            "pregnancy",
+            "oncology",
+            "high_risk"
+          ],
+          "role_note": "No automatic regimen suggestion in pregnancy; gestational timing, cancer urgency and maternal-fetal multidisciplinary care are mandatory.",
+          "drug_ids": [
+            "repro_oncology_1",
+            "repro_oncology_2"
+          ]
+        },
+        {
+          "id": "repro_radioiodine",
+          "name": "Radioiodine / radiopharmaceutical reproductive safety",
+          "mechanism": "Ionizing radiation and thyroid-specific fetal/neonatal risk",
+          "target": "I-131 • nuclear medicine",
+          "tags": [
+            "pregnancy",
+            "thyroid",
+            "high_risk"
+          ],
+          "role_note": "Do not suggest radioiodine therapy during pregnancy; verify nuclear-medicine pregnancy testing and specialist protocol.",
+          "drug_ids": [
+            "repro_radioiodine_1",
+            "repro_radioiodine_2"
+          ]
+        },
+        {
+          "id": "repro_bf_highrisk",
+          "name": "High-risk lactation medication review",
+          "mechanism": "Potential infant toxicity, marrow suppression, radioactivity or prolonged exposure",
+          "target": "Chemotherapy • radiopharmaceuticals • selected high-risk drugs",
+          "tags": [
+            "lactation",
+            "high_risk"
+          ],
+          "role_note": "Do not label breastfeeding compatible without current specialist/label verification; many require interruption or avoidance.",
+          "drug_ids": [
+            "repro_bf_highrisk_1",
+            "repro_bf_highrisk_2"
+          ]
+        },
+        {
+          "id": "repro_statins",
+          "name": "Lipid-lowering therapy in pregnancy/lactation",
+          "mechanism": "ASCVD prevention/treatment with updated FDA pregnancy labeling",
+          "target": "Statins • severe familial hypercholesterolemia",
+          "tags": [
+            "pregnancy",
+            "cardio"
+          ],
+          "role_note": "FDA removed the blanket class contraindication, but still advises most pregnant patients stop statins; rare very-high-risk cases need specialist assessment.",
+          "drug_ids": [
+            "repro_statins_1",
+            "repro_statins_2"
+          ]
+        },
+        {
+          "id": "repro_male",
+          "name": "Male reproductive potential / fertility effects",
+          "mechanism": "Paternal exposure, spermatogenesis and contraception counseling",
+          "target": "Oncology • immunomodulators • hormones",
+          "tags": [
+            "male_repro",
+            "fertility"
+          ],
+          "role_note": "Check section 8.3 and product-specific contraception/washout recommendations; paternal exposure risk is drug-specific.",
+          "drug_ids": [
+            "repro_male_1",
+            "repro_male_2"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "repro_pllr_1",
+          "generic": "PLLR label review",
+          "class_id": "repro_pllr",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "overview",
+            "pllr"
+          ],
+          "role": "Use the current product label risk summary, clinical considerations and data; do not use obsolete A/B/C/D/X letter categories.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_pllr_2",
+          "generic": "Pregnancy exposure registry check",
+          "class_id": "repro_pllr",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "overview",
+            "pllr"
+          ],
+          "role": "Look for a pregnancy exposure registry when one exists and document counseling/registry information where relevant.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_preconception_1",
+          "generic": "Preconception medication reconciliation",
+          "class_id": "repro_preconception",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "overview",
+            "preconception"
+          ],
+          "role": "Review prescription, OTC, supplements and herbal products before conception; optimize disease control and avoid unnecessary exposure.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_preconception_2",
+          "generic": "Unplanned pregnancy exposure review",
+          "class_id": "repro_preconception",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "overview",
+            "preconception"
+          ],
+          "role": "Do not reflexively stop essential therapy; identify timing/dose/exposure and verify label/guideline risk-benefit promptly.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_trimester_1",
+          "generic": "First-trimester risk lens",
+          "class_id": "repro_trimester",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "trimester"
+          ],
+          "role": "Prioritize structural-development risk and the consequences of untreated maternal disease.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_trimester_2",
+          "generic": "Late-pregnancy/peripartum lens",
+          "class_id": "repro_trimester",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "trimester"
+          ],
+          "role": "Review fetal renal/circulatory effects, neonatal adaptation/withdrawal, bleeding and delivery-related considerations.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_lactmed_1",
+          "generic": "LactMed evidence review",
+          "class_id": "repro_lactmed",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "lactation",
+            "lactmed"
+          ],
+          "role": "Check milk concentrations, infant serum data, reported adverse effects and suggested alternatives when available.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "LACTMED",
+            "CDC_BF_MED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_lactmed_2",
+          "generic": "Breastfed-infant monitoring plan",
+          "class_id": "repro_lactmed",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "lactation",
+            "lactmed"
+          ],
+          "role": "Consider infant prematurity, age, feeding, jaundice, renal/hepatic function and symptoms rather than using a binary safe/unsafe label.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "LACTMED",
+            "CDC_BF_MED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_contraception_1",
+          "generic": "Female reproductive-potential gate",
+          "class_id": "repro_contraception",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "preconception",
+            "contraception",
+            "washout"
+          ],
+          "role": "Verify pregnancy testing and contraception requirements exactly from the current label/REMS when applicable.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_contraception_2",
+          "generic": "Male reproductive-potential gate",
+          "class_id": "repro_contraception",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "preconception",
+            "contraception",
+            "washout"
+          ],
+          "role": "Check product-specific paternal contraception, donation and washout recommendations rather than assuming maternal-only risk.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_raas_1",
+          "generic": "ACE inhibitor class review",
+          "class_id": "repro_raas",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "cardio",
+            "renal"
+          ],
+          "role": "If pregnancy occurs or is planned, verify current label and transition strategy; do not leave maternal BP/heart-failure disease untreated.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_raas_2",
+          "generic": "ARB/direct-RAAS class review",
+          "class_id": "repro_raas",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "cardio",
+            "renal"
+          ],
+          "role": "Use a hard pregnancy-safety alert with specialist transition planning and fetal exposure assessment when relevant.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_bp_1",
+          "generic": "Labetalol / nifedipine context",
+          "class_id": "repro_bp",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "hypertension"
+          ],
+          "role": "Common pregnancy antihypertensive options require indication, BP severity, comorbidity and formulation-specific verification.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_bp_2",
+          "generic": "Methyldopa / hydralazine context",
+          "class_id": "repro_bp",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "hypertension"
+          ],
+          "role": "Use as context-dependent options; acute severe hypertension and chronic outpatient management are not interchangeable pathways.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_anticoag_1",
+          "generic": "LMWH/UFH framework",
+          "class_id": "repro_anticoag",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "anticoagulation"
+          ],
+          "role": "Heparin-based therapy is commonly used because placental transfer differs from oral anticoagulants; exact indication and peripartum timing need protocol verification.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_anticoag_2",
+          "generic": "Warfarin / DOAC review",
+          "class_id": "repro_anticoag",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "anticoagulation"
+          ],
+          "role": "Warfarin may have special high-risk indications; DOAC pregnancy/lactation evidence is limited or product-specific—verify specialist guidance and label.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_antiplatelet_1",
+          "generic": "Low-dose aspirin indication gate",
+          "class_id": "repro_antiplatelet",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "antiplatelet"
+          ],
+          "role": "Use only for a defined obstetric/vascular indication with gestational timing and bleeding-risk verification.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_antiplatelet_2",
+          "generic": "P2Y12 inhibitor specialist review",
+          "class_id": "repro_antiplatelet",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "antiplatelet"
+          ],
+          "role": "Clopidogrel and other P2Y12 agents require individualized cardiology/obstetric assessment when pregnancy intersects with PCI/ACS.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_nsaid_1",
+          "generic": "NSAIDs ≥20-week safety gate",
+          "class_id": "repro_nsaid",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "pain",
+            "nsaid"
+          ],
+          "role": "FDA warns that NSAID use at about 20 weeks or later can cause fetal renal dysfunction/oligohydramnios; verify need and gestational age.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "FDA_NSAID_PREG",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_nsaid_2",
+          "generic": "Late-pregnancy NSAID gate",
+          "class_id": "repro_nsaid",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "pain",
+            "nsaid"
+          ],
+          "role": "Avoid reflex prescribing late in pregnancy; review ductal, renal and bleeding considerations in the current label/guideline.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "FDA_NSAID_PREG",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_analgesia_1",
+          "generic": "Acetaminophen context",
+          "class_id": "repro_analgesia",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "pain",
+            "lactation"
+          ],
+          "role": "Use only when clinically indicated and verify current guidance; avoid treating any analgesic as risk-free.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "LACTMED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_analgesia_2",
+          "generic": "Opioid exposure review",
+          "class_id": "repro_analgesia",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "pain",
+            "lactation"
+          ],
+          "role": "Assess indication, dose/duration, dependence, neonatal respiratory/withdrawal risk and breastfeeding infant sedation monitoring.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "LACTMED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_valproate_1",
+          "generic": "Valproate pregnancy gate",
+          "class_id": "repro_valproate",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "neurology",
+            "high_risk"
+          ],
+          "role": "Use a prominent high-risk alert; migraine prevention in pregnancy is contraindicated in FDA labeling and other indications require stringent benefit-risk review.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "FDA_VALPROATE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_valproate_2",
+          "generic": "Valproate contraception/preconception gate",
+          "class_id": "repro_valproate",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "neurology",
+            "high_risk"
+          ],
+          "role": "Women of reproductive potential need documented counseling and effective pregnancy prevention when use is unavoidable.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "FDA_VALPROATE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_asms_1",
+          "generic": "Lamotrigine / levetiracetam review",
+          "class_id": "repro_asms",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "neurology"
+          ],
+          "role": "Often considered when pregnancy-compatible seizure control is needed, but levels/clearance may change and individualized monitoring is required.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_asms_2",
+          "generic": "Topiramate / other ASM review",
+          "class_id": "repro_asms",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "neurology"
+          ],
+          "role": "Check drug-specific congenital/fetal-growth risk, indication and registry data; never substitute one ASM abruptly during pregnancy.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_ssri_1",
+          "generic": "SSRI continuation/selection review",
+          "class_id": "repro_ssri",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "psych",
+            "lactation"
+          ],
+          "role": "Avoid automatic discontinuation; assess relapse risk, prior response, gestational timing and drug-specific neonatal/lactation data.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "LACTMED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_ssri_2",
+          "generic": "Postpartum/lactation antidepressant review",
+          "class_id": "repro_ssri",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "psych",
+            "lactation"
+          ],
+          "role": "Use LactMed and infant monitoring, especially for preterm or medically fragile infants.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "LACTMED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_lithium_1",
+          "generic": "Lithium pregnancy monitoring gate",
+          "class_id": "repro_lithium",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "psych",
+            "high_risk"
+          ],
+          "role": "Requires specialist review of maternal relapse risk, renal/thyroid status, gestational pharmacokinetics and fetal assessment.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_lithium_2",
+          "generic": "Lithium lactation gate",
+          "class_id": "repro_lithium",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "psych",
+            "high_risk"
+          ],
+          "role": "Breastfeeding exposure can be clinically important; verify current specialist guidance and infant monitoring before use.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_benzo_1",
+          "generic": "Benzodiazepine pregnancy review",
+          "class_id": "repro_benzo",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "psych",
+            "lactation"
+          ],
+          "role": "Avoid abrupt withdrawal in dependent patients; review indication, lowest effective exposure, peripartum neonatal sedation/withdrawal and alternatives.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "LACTMED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_benzo_2",
+          "generic": "Benzodiazepine lactation review",
+          "class_id": "repro_benzo",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "psych",
+            "lactation"
+          ],
+          "role": "Consider half-life, repeated dosing and infant sedation/feeding/respiratory monitoring using LactMed.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "LACTMED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_retinoid_1",
+          "generic": "Isotretinoin pregnancy-prevention gate",
+          "class_id": "repro_retinoid",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "dermatology",
+            "high_risk",
+            "washout"
+          ],
+          "role": "Use strict pregnancy-prevention/REMS-style verification and current product requirements; no pregnancy-use suggestion.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_retinoid_2",
+          "generic": "Acitretin long-washout gate",
+          "class_id": "repro_retinoid",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "dermatology",
+            "high_risk",
+            "washout"
+          ],
+          "role": "Acitretin has prolonged product-specific pregnancy-avoidance requirements; verify current label before prescribing to reproductive-potential patients.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_mtx_1",
+          "generic": "Methotrexate pregnancy gate",
+          "class_id": "repro_mtx",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "high_risk",
+            "antifolate"
+          ],
+          "role": "Do not present as routine pregnancy therapy; verify product-specific contraindications, pregnancy prevention and washout.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_mtx_2",
+          "generic": "Methotrexate lactation/reproductive-potential gate",
+          "class_id": "repro_mtx",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "high_risk",
+            "antifolate"
+          ],
+          "role": "Breastfeeding and female/male reproductive recommendations are dose/indication/product-specific—verify current label and specialist guidance.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_mycophenolate_1",
+          "generic": "Mycophenolate REMS pregnancy gate",
+          "class_id": "repro_mycophenolate",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "transplant",
+            "high_risk"
+          ],
+          "role": "Prominent fetal-risk warning: associated with first-trimester pregnancy loss and congenital malformations; pregnancy prevention/planning is mandatory.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "FDA_MYCOPHENOLATE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_mycophenolate_2",
+          "generic": "Mycophenolate transition planning",
+          "class_id": "repro_mycophenolate",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "transplant",
+            "high_risk"
+          ],
+          "role": "Do not stop transplant immunosuppression without specialist substitution; coordinate transplant + maternal-fetal medicine planning.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "FDA_MYCOPHENOLATE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_immunosupp_1",
+          "generic": "Tacrolimus / cyclosporine context",
+          "class_id": "repro_immunosupp",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "transplant",
+            "rheumatology"
+          ],
+          "role": "Can be used in selected pregnancies under specialist monitoring; verify levels, renal function, BP, glucose and drug interactions.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_immunosupp_2",
+          "generic": "Azathioprine context",
+          "class_id": "repro_immunosupp",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "transplant",
+            "rheumatology"
+          ],
+          "role": "May be continued for selected indications when benefit justifies exposure; verify dose, blood counts, liver function and breastfeeding data.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_biologics_1",
+          "generic": "TNF-inhibitor review",
+          "class_id": "repro_biologics",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "rheumatology",
+            "dermatology"
+          ],
+          "role": "Pregnancy continuation/timing is indication- and molecule-specific; consider placental transfer late in pregnancy and infant live-vaccine planning.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_biologics_2",
+          "generic": "JAK/other targeted therapy gate",
+          "class_id": "repro_biologics",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "rheumatology",
+            "dermatology"
+          ],
+          "role": "Many targeted small molecules have limited pregnancy data or contraception requirements; verify current label before conception/pregnancy/breastfeeding.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_diabetes_1",
+          "generic": "Insulin pregnancy framework",
+          "class_id": "repro_diabetes",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "diabetes"
+          ],
+          "role": "Insulin is a core pregnancy glucose-lowering option; regimen and targets require pregnancy-specific monitoring, not adult routine defaults.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_diabetes_2",
+          "generic": "Metformin / other non-insulin review",
+          "class_id": "repro_diabetes",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "diabetes"
+          ],
+          "role": "Metformin may be used in selected contexts; other glucose-lowering drugs require product/guideline-specific pregnancy and lactation review.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_thyroid_1",
+          "generic": "Levothyroxine pregnancy review",
+          "class_id": "repro_thyroid",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "thyroid"
+          ],
+          "role": "Pregnancy commonly changes replacement requirements; monitor thyroid tests with pregnancy-specific targets and formulation/adherence review.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_thyroid_2",
+          "generic": "Postpartum levothyroxine review",
+          "class_id": "repro_thyroid",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "thyroid"
+          ],
+          "role": "Reassess dose after delivery and during breastfeeding rather than carrying the pregnancy dose forward automatically.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_antithyroid_1",
+          "generic": "PTU early-pregnancy context",
+          "class_id": "repro_antithyroid",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "thyroid",
+            "high_risk"
+          ],
+          "role": "PTU is often considered early in pregnancy because methimazole-related embryopathy is a concern; hepatotoxicity and switching strategy require specialist oversight.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_antithyroid_2",
+          "generic": "Methimazole/carbimazole later-pregnancy context",
+          "class_id": "repro_antithyroid",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "thyroid",
+            "high_risk"
+          ],
+          "role": "Timing and lowest-effective-dose principles matter; monitor maternal thyroid status and avoid fetal hypothyroidism from overtreatment.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_abx_common_1",
+          "generic": "Beta-lactam pregnancy/lactation review",
+          "class_id": "repro_abx_common",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "antibiotic"
+          ],
+          "role": "Penicillins and cephalosporins are commonly used when indicated; verify allergy, renal function, infection site and exact agent.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_abx_common_2",
+          "generic": "Macrolide pregnancy/lactation review",
+          "class_id": "repro_abx_common",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "antibiotic"
+          ],
+          "role": "Agent-specific evidence and interactions differ; avoid assuming the entire macrolide class is interchangeable.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_abx_caution_1",
+          "generic": "Tetracycline/TMP-SMX timing review",
+          "class_id": "repro_abx_caution",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "antibiotic",
+            "caution"
+          ],
+          "role": "Risks vary by gestational age and indication; verify current guideline, folate status and alternatives rather than using blanket class rules.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_abx_caution_2",
+          "generic": "Aminoglycoside/fluoroquinolone review",
+          "class_id": "repro_abx_caution",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "antibiotic",
+            "caution"
+          ],
+          "role": "Reserve for situations where infection severity, susceptibility and benefits justify exposure; use agent-specific labeling and specialist guidance.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_antifungal_1",
+          "generic": "Topical antifungal review",
+          "class_id": "repro_antifungal",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "antifungal"
+          ],
+          "role": "Prefer local therapy when effective; confirm formulation/site and pregnancy/lactation data.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_antifungal_2",
+          "generic": "Systemic azole/other antifungal review",
+          "class_id": "repro_antifungal",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "antifungal"
+          ],
+          "role": "Systemic antifungal risks differ markedly by drug, dose and indication; invasive fungal disease requires specialist benefit-risk management.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_antiviral_1",
+          "generic": "Acyclovir/valacyclovir & influenza antiviral context",
+          "class_id": "repro_antiviral",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "antiviral"
+          ],
+          "role": "Commonly used antivirals may be appropriate when indicated; verify gestational timing, renal dosing and current disease guideline.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_antiviral_2",
+          "generic": "HIV/HBV antiviral regimen review",
+          "class_id": "repro_antiviral",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "antiviral"
+          ],
+          "role": "Do not simplify to single-drug safety; maternal viral suppression and vertical-transmission prevention require complete specialist regimens.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_tb_1",
+          "generic": "Drug-susceptible TB pregnancy review",
+          "class_id": "repro_tb",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "tb"
+          ],
+          "role": "Active TB should be treated; verify current national/WHO regimen, gestation, liver function and pyridoxine-related considerations.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_tb_2",
+          "generic": "Drug-resistant TB pregnancy review",
+          "class_id": "repro_tb",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "tb"
+          ],
+          "role": "Bedaquiline/linezolid/pretomanid/fluoroquinolone-containing regimens need specialist programme review with evolving evidence.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_asthma_1",
+          "generic": "Inhaled asthma controller/rescue review",
+          "class_id": "repro_asthma",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "respiratory"
+          ],
+          "role": "Poorly controlled asthma itself is harmful; continue evidence-based control with agent/device verification rather than stopping inhalers reflexively.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_asthma_2",
+          "generic": "Allergy medicine review",
+          "class_id": "repro_asthma",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "respiratory"
+          ],
+          "role": "Prefer agents with established pregnancy/lactation experience when treatment is needed; review sedating effects and infant exposure.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_gi_1",
+          "generic": "Antiemetic pregnancy review",
+          "class_id": "repro_gi",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "gi"
+          ],
+          "role": "Nausea/vomiting therapy should follow pregnancy-specific severity and safety pathways; avoid automatic stacking of QT/sedating agents.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_gi_2",
+          "generic": "Reflux/constipation review",
+          "class_id": "repro_gi",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "gi"
+          ],
+          "role": "Lifestyle + local/osmotic options may reduce systemic exposure; verify exact product and pregnancy/lactation data.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_steroids_1",
+          "generic": "Systemic corticosteroid review",
+          "class_id": "repro_steroids",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "steroid"
+          ],
+          "role": "Use the lowest effective regimen for the maternal indication; monitor glucose, BP, infection and cumulative exposure.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_steroids_2",
+          "generic": "Local/inhaled/topical corticosteroid review",
+          "class_id": "repro_steroids",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "steroid"
+          ],
+          "role": "Local therapy often limits systemic exposure but potency, body surface area, route and duration still matter.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_vax_1",
+          "generic": "Recommended/non-live vaccine review",
+          "class_id": "repro_vax",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "vaccines"
+          ],
+          "role": "Use current national/CDC/WHO schedule for influenza, Tdap, COVID-19 and other indicated vaccines; timing matters.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "CDC_PREG_VAX",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_vax_2",
+          "generic": "Live-vaccine pregnancy gate",
+          "class_id": "repro_vax",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "vaccines"
+          ],
+          "role": "Live attenuated vaccines generally require pregnancy-specific avoidance/timing review; postpartum/breastfeeding rules differ by vaccine.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "CDC_PREG_VAX",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_oncology_1",
+          "generic": "Anticancer pregnancy gate",
+          "class_id": "repro_oncology",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "oncology",
+            "high_risk"
+          ],
+          "role": "No automatic regimen suggestion in pregnancy; gestational timing, cancer urgency and maternal-fetal multidisciplinary care are mandatory.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_oncology_2",
+          "generic": "Fertility preservation / contraception gate",
+          "class_id": "repro_oncology",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "oncology",
+            "high_risk"
+          ],
+          "role": "Before gonadotoxic or teratogenic therapy, address fertility preservation, pregnancy testing, contraception and product-specific washout.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_radioiodine_1",
+          "generic": "Radioactive iodine pregnancy gate",
+          "class_id": "repro_radioiodine",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "thyroid",
+            "high_risk"
+          ],
+          "role": "Do not suggest radioiodine therapy during pregnancy; verify nuclear-medicine pregnancy testing and specialist protocol.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_radioiodine_2",
+          "generic": "Radioiodine lactation gate",
+          "class_id": "repro_radioiodine",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "thyroid",
+            "high_risk"
+          ],
+          "role": "Breastfeeding interruption/cessation requirements are isotope- and procedure-specific; verify nuclear-medicine guidance before administration.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_bf_highrisk_1",
+          "generic": "Cytotoxic/radiopharmaceutical lactation gate",
+          "class_id": "repro_bf_highrisk",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "lactation",
+            "high_risk"
+          ],
+          "role": "Do not label breastfeeding compatible without current specialist/label verification; many require interruption or avoidance.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "LACTMED",
+            "CDC_BF_MED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_bf_highrisk_2",
+          "generic": "Sedating/long-half-life infant-monitoring gate",
+          "class_id": "repro_bf_highrisk",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "lactation",
+            "high_risk"
+          ],
+          "role": "For CNS depressants or long-half-life drugs, assess infant age, prematurity, dose accumulation, feeding and respiratory status.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "LACTMED",
+            "CDC_BF_MED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_statins_1",
+          "generic": "Statin pregnancy labeling update",
+          "class_id": "repro_statins",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "cardio"
+          ],
+          "role": "FDA removed the blanket class contraindication, but still advises most pregnant patients stop statins; rare very-high-risk cases need specialist assessment.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "FDA_STATIN_PREG",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_statins_2",
+          "generic": "Statin breastfeeding review",
+          "class_id": "repro_statins",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "pregnancy",
+            "cardio"
+          ],
+          "role": "If ongoing statin therapy is essential postpartum, verify current label and breastfeeding recommendation; do not assume class-wide compatibility.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "FDA_STATIN_PREG",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_male_1",
+          "generic": "Paternal exposure label review",
+          "class_id": "repro_male",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "male_repro",
+            "fertility"
+          ],
+          "role": "Check section 8.3 and product-specific contraception/washout recommendations; paternal exposure risk is drug-specific.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "repro_male_2",
+          "generic": "Fertility toxicity review",
+          "class_id": "repro_male",
+          "form": "Safety / evidence card",
+          "route": "N/A",
+          "dose_example": "No automatic pregnancy/lactation dose or stop/start instruction. Verify the exact drug, indication, gestational/postpartum timing, formulation, maternal organ function, fetal/infant factors, interactions and the current product label/guideline before changing therapy.",
+          "tags": [
+            "male_repro",
+            "fertility"
+          ],
+          "role": "Discuss reversible/irreversible effects on spermatogenesis and fertility preservation before gonadotoxic therapy when relevant.",
+          "monitoring_pearl": "Document pregnancy/lactation status, gestational or postpartum age, exposure timing, maternal disease-control risk, fetal/infant considerations, counseling and follow-up plan.",
+          "source_refs": [
+            "FDA_PLLR",
+            "FDA_PLLR_GUIDANCE",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "FDA_PLLR",
+          "label": "FDA Pregnancy and Lactation Labeling Resources (PLLR)",
+          "url": "https://www.fda.gov/drugs/labeling-information-drug-products/pregnancy-and-lactation-labeling-resources"
+        },
+        {
+          "id": "FDA_PLLR_GUIDANCE",
+          "label": "FDA Guidance: Pregnancy, Lactation, and Females and Males of Reproductive Potential Labeling",
+          "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/pregnancy-lactation-and-reproductive-potential-labeling-human-prescription-drug-and-biological"
+        },
+        {
+          "id": "LACTMED",
+          "label": "NIH/NLM Drugs and Lactation Database (LactMed®)",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK501922/"
+        },
+        {
+          "id": "CDC_PREG_VAX",
+          "label": "CDC Guidelines for Vaccinating Pregnant Women",
+          "url": "https://www.cdc.gov/vaccines-pregnancy/hcp/vaccination-guidelines/index.html"
+        },
+        {
+          "id": "CDC_BF_MED",
+          "label": "CDC Prescription Medication Use During Breastfeeding",
+          "url": "https://www.cdc.gov/breastfeeding-special-circumstances/hcp/vaccine-medication-drugs/prescriptions.html"
+        },
+        {
+          "id": "FDA_NSAID_PREG",
+          "label": "FDA Drug Safety Communication: NSAIDs at 20 weeks or later in pregnancy",
+          "url": "https://www.fda.gov/drugs/drug-safety-and-availability/fda-recommends-avoiding-use-nsaidspregnancy-20-weeks-or-later-because-they-can-result-low-amniotic"
+        },
+        {
+          "id": "FDA_STATIN_PREG",
+          "label": "FDA Drug Safety Communication: Statins and pregnancy labeling update",
+          "url": "https://www.fda.gov/drugs/drug-safety-and-availability/fda-requests-removal-strongest-warning-against-using-cholesterol-lowering-statins-during-pregnancy"
+        },
+        {
+          "id": "FDA_VALPROATE",
+          "label": "FDA-approved valproate labeling — pregnancy/fetal risk warnings",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/021168s046lbl.pdf"
+        },
+        {
+          "id": "FDA_MYCOPHENOLATE",
+          "label": "FDA Mycophenolate pregnancy-risk / REMS resources",
+          "url": "https://www.fda.gov/media/86072/download"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "NIH DailyMed — current US prescribing information lookup",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
         }
       ]
     }
