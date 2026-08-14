@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4R",
-  "app_version": "5.40R",
-  "build": "2026.08.14-R25R",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40R Critical Care / ICU Lab",
+  "version": "2.4S",
+  "app_version": "5.40S",
+  "build": "2026.08.14-R25S",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40S Transplant / Immunosuppression Lab",
   "counts": {
-    "labs": 24,
-    "classes": 725,
-    "drug_profiles": 1711
+    "labs": 25,
+    "classes": 759,
+    "drug_profiles": 1778
   },
-  "global_boundary": "Research/learning pharmacology only. V5.40R adds a high-risk Critical Care • ICU • Sepsis • Airway Pharmacology Lab while retaining all earlier specialized labs. No automatic infusion, RSI, sedation, vasopressor or ventilator-linked order is generated. Bedside hemodynamic/airway assessment, institutional ICU protocols and continuous monitoring remain mandatory.",
+  "global_boundary": "Research/learning pharmacology only. V5.40S adds a high-risk Transplant • Immunosuppressant • Immune-Modulator Lab while retaining all earlier specialized labs. No automatic transplant regimen, rejection-treatment plan, TDM target, prophylaxis duration or pregnancy medication switch is generated. Transplant-center protocol and specialist review remain mandatory.",
   "labs": [
     {
       "id": "hypertension",
@@ -51688,6 +51688,2223 @@
           "id": "SCCM_ICU_LIB",
           "label": "SCCM — ICU Liberation Bundle (A–F)",
           "url": "https://sccm.org/clinical-resources/iculiberation-home/abcdef-bundles"
+        }
+      ]
+    },
+    {
+      "id": "transplant_immunosuppression",
+      "title": "Transplant • Immunosuppressant • Immune-Modulator Intelligence Lab",
+      "icon": "🧬",
+      "badge": "V5.40S",
+      "eyebrow": "INDUCTION • MAINTENANCE • REJECTION • TDM • CMV • BK • PJP • INTERACTIONS • PREGNANCY • PTLD • ORGAN-SPECIFIC SAFETY",
+      "subtitle": "Research workspace for solid-organ transplant immunosuppression, induction/maintenance/rejection strategy, therapeutic-drug monitoring, opportunistic-infection prophylaxis and high-risk safety gates.",
+      "scientific_boundary": "Transplant/immunosuppression research and learning CDS only. This lab is not a transplant regimen generator, rejection-treatment order set, therapeutic-drug-monitoring calculator or infection-prophylaxis autoprescriber. Organ type, time from transplant, donor/recipient serology, immunologic risk, biopsy/DSA findings, organ function, drug concentrations, interacting medicines, pregnancy plans, infection status and the transplant-center protocol must be verified.",
+      "classification_notes": {
+        "Organ + time + immunologic risk first": "Kidney, liver, heart and lung transplantation use different induction/maintenance targets; early post-transplant differs from late maintenance.",
+        "Drug level ≠ diagnosis": "A tacrolimus/cyclosporine concentration must be interpreted with exact sampling time, formulation, adherence, interactions and graft function.",
+        "Rejection requires phenotype": "TCMR and ABMR require biopsy/DSA/clinical context; DSA positivity alone should not trigger automated treatment.",
+        "Infection vs rejection balance": "CMV, BK, PJP and fungal risk rises with net immunosuppression; reducing therapy can conversely precipitate rejection.",
+        "Pregnancy planning is preconception care": "Mycophenolate is a major fetal-risk medicine; regimen changes must be planned with transplant and maternal-fetal specialists.",
+        "Live vaccines are a safety gate": "Vaccination timing and platform depend on immunosuppression; routine age schedule must not override transplant safety."
+      },
+      "lens_groups": [
+        {
+          "group": "Core immunosuppression",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Transplant"
+            },
+            {
+              "id": "induction",
+              "label": "Induction"
+            },
+            {
+              "id": "maintenance",
+              "label": "Maintenance"
+            },
+            {
+              "id": "cni",
+              "label": "CNI"
+            },
+            {
+              "id": "antimetabolite",
+              "label": "Antimetabolites"
+            },
+            {
+              "id": "mtor",
+              "label": "mTOR"
+            },
+            {
+              "id": "steroid",
+              "label": "Steroids"
+            }
+          ]
+        },
+        {
+          "group": "Rejection / Immunology",
+          "items": [
+            {
+              "id": "rejection",
+              "label": "Rejection"
+            },
+            {
+              "id": "tcmr",
+              "label": "TCMR"
+            },
+            {
+              "id": "abmr",
+              "label": "ABMR"
+            },
+            {
+              "id": "dsa",
+              "label": "DSA"
+            },
+            {
+              "id": "desensitization",
+              "label": "Desensitization"
+            },
+            {
+              "id": "ptld",
+              "label": "PTLD"
+            }
+          ]
+        },
+        {
+          "group": "Infection prevention",
+          "items": [
+            {
+              "id": "cmv",
+              "label": "CMV"
+            },
+            {
+              "id": "bk",
+              "label": "BK Virus"
+            },
+            {
+              "id": "pjp",
+              "label": "PJP"
+            },
+            {
+              "id": "fungal",
+              "label": "Fungal"
+            },
+            {
+              "id": "hbv",
+              "label": "HBV"
+            },
+            {
+              "id": "vaccines",
+              "label": "Vaccines"
+            }
+          ]
+        },
+        {
+          "group": "Safety / Monitoring",
+          "items": [
+            {
+              "id": "tdm",
+              "label": "TDM"
+            },
+            {
+              "id": "interactions",
+              "label": "Interactions"
+            },
+            {
+              "id": "nephrotoxicity",
+              "label": "Nephrotoxicity"
+            },
+            {
+              "id": "pregnancy",
+              "label": "Pregnancy"
+            },
+            {
+              "id": "malignancy",
+              "label": "Malignancy"
+            },
+            {
+              "id": "adherence",
+              "label": "Adherence"
+            }
+          ]
+        },
+        {
+          "group": "Organ context",
+          "items": [
+            {
+              "id": "kidney",
+              "label": "Kidney"
+            },
+            {
+              "id": "liver",
+              "label": "Liver"
+            },
+            {
+              "id": "heart",
+              "label": "Heart"
+            },
+            {
+              "id": "lung",
+              "label": "Lung"
+            },
+            {
+              "id": "specialist",
+              "label": "Specialist/Off-label"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "tx_calcineurin_inhibitors",
+          "name": "Calcineurin inhibitors (CNI)",
+          "mechanism": "Calcineurin inhibition reduces IL-2 transcription and T-cell activation",
+          "target": "T-cell activation",
+          "tags": [
+            "transplant",
+            "maintenance",
+            "cni",
+            "tdm"
+          ],
+          "role_note": "Core maintenance immunosuppressant family in many solid-organ regimens; exposure and toxicity must be individualized.",
+          "drug_ids": [
+            "tx_tacrolimus",
+            "tx_cyclosporine"
+          ]
+        },
+        {
+          "id": "tx_mycophenolate",
+          "name": "Mycophenolate antimetabolites",
+          "mechanism": "IMPDH inhibition suppresses de-novo guanosine synthesis in activated lymphocytes",
+          "target": "T/B-cell proliferation",
+          "tags": [
+            "transplant",
+            "maintenance",
+            "antimetabolite",
+            "pregnancy_high_risk"
+          ],
+          "role_note": "Common antiproliferative maintenance component; major reproductive safety and cytopenia/GI monitoring gate.",
+          "drug_ids": [
+            "tx_mmf",
+            "tx_mpa_ec"
+          ]
+        },
+        {
+          "id": "tx_azathioprine",
+          "name": "Azathioprine",
+          "mechanism": "Purine antimetabolite suppressing lymphocyte proliferation",
+          "target": "DNA/purine synthesis",
+          "tags": [
+            "transplant",
+            "maintenance",
+            "antimetabolite"
+          ],
+          "role_note": "Older antiproliferative option retained for selected patients, including situations where mycophenolate is unsuitable.",
+          "drug_ids": [
+            "tx_azathioprine_profile"
+          ]
+        },
+        {
+          "id": "tx_mtor_inhibitors",
+          "name": "mTOR inhibitors",
+          "mechanism": "mTOR pathway inhibition blocks cytokine-driven lymphocyte proliferation",
+          "target": "mTORC1 / cell-cycle progression",
+          "tags": [
+            "transplant",
+            "maintenance",
+            "mtor",
+            "tdm"
+          ],
+          "role_note": "Selected maintenance/minimization or malignancy-related strategies; wound-healing, lipid, proteinuria and organ-specific cautions are important.",
+          "drug_ids": [
+            "tx_sirolimus",
+            "tx_everolimus"
+          ]
+        },
+        {
+          "id": "tx_corticosteroids",
+          "name": "Transplant corticosteroids",
+          "mechanism": "Broad glucocorticoid immunosuppression",
+          "target": "Multiple inflammatory gene pathways",
+          "tags": [
+            "transplant",
+            "induction",
+            "maintenance",
+            "rejection"
+          ],
+          "role_note": "Used in many induction, maintenance and rejection-treatment pathways; exposure minimization depends on organ/risk/center.",
+          "drug_ids": [
+            "tx_prednisone",
+            "tx_methylpred"
+          ]
+        },
+        {
+          "id": "tx_il2ra_induction",
+          "name": "IL-2 receptor antagonist induction",
+          "mechanism": "Blocks CD25/IL-2 receptor signaling on activated T cells",
+          "target": "Activated T cells",
+          "tags": [
+            "transplant",
+            "induction",
+            "basiliximab"
+          ],
+          "role_note": "Non-depleting induction strategy used particularly in selected lower-risk kidney transplant protocols.",
+          "drug_ids": [
+            "tx_basiliximab"
+          ]
+        },
+        {
+          "id": "tx_atg_induction",
+          "name": "Antithymocyte globulin (ATG)",
+          "mechanism": "Polyclonal T-cell-depleting antibodies",
+          "target": "T lymphocytes",
+          "tags": [
+            "transplant",
+            "induction",
+            "rejection",
+            "depleting",
+            "high_risk"
+          ],
+          "role_note": "Lymphocyte-depleting induction or rejection therapy in selected higher-risk settings.",
+          "drug_ids": [
+            "tx_rabbit_atg"
+          ]
+        },
+        {
+          "id": "tx_alemtuzumab",
+          "name": "Alemtuzumab — selected transplant use",
+          "mechanism": "Anti-CD52 monoclonal antibody causes profound lymphocyte depletion",
+          "target": "CD52+ lymphocytes",
+          "tags": [
+            "transplant",
+            "induction",
+            "off_label",
+            "depleting"
+          ],
+          "role_note": "Used by some centers as an induction strategy; transplant use is center-specific and often off-label.",
+          "drug_ids": [
+            "tx_alemtuzumab_profile"
+          ]
+        },
+        {
+          "id": "tx_belatacept",
+          "name": "Belatacept costimulation blockade",
+          "mechanism": "CTLA4-Ig blocks CD80/CD86-mediated T-cell costimulation",
+          "target": "CD28 costimulation pathway",
+          "tags": [
+            "transplant",
+            "kidney",
+            "maintenance",
+            "ebv_gate"
+          ],
+          "role_note": "Calcineurin-sparing option for selected adult kidney recipients; EBV serostatus is a critical safety gate.",
+          "drug_ids": [
+            "tx_belatacept_profile"
+          ]
+        },
+        {
+          "id": "tx_rituximab",
+          "name": "B-cell depletion with rituximab",
+          "mechanism": "Anti-CD20 monoclonal antibody depletes B cells",
+          "target": "CD20+ B cells",
+          "tags": [
+            "transplant",
+            "abmr",
+            "desensitization",
+            "ptld",
+            "specialist"
+          ],
+          "role_note": "Used in selected antibody-mediated rejection, desensitization or PTLD pathways; many transplant uses are protocol/off-label dependent.",
+          "drug_ids": [
+            "tx_rituximab_profile"
+          ]
+        },
+        {
+          "id": "tx_ivig",
+          "name": "Intravenous immunoglobulin (IVIG)",
+          "mechanism": "Immunomodulatory pooled IgG with multiple antibody/Fc/complement effects",
+          "target": "Humoral immune modulation",
+          "tags": [
+            "transplant",
+            "abmr",
+            "desensitization",
+            "bk_adjunct"
+          ],
+          "role_note": "Adjunct in selected desensitization/ABMR strategies and sometimes BK-management contexts; not a stand-alone universal rejection therapy.",
+          "drug_ids": [
+            "tx_ivig_profile"
+          ]
+        },
+        {
+          "id": "tx_plasma_exchange",
+          "name": "Therapeutic plasma exchange strategy",
+          "mechanism": "Removes circulating donor-specific antibodies and soluble mediators",
+          "target": "Circulating antibodies",
+          "tags": [
+            "transplant",
+            "abmr",
+            "desensitization",
+            "procedure"
+          ],
+          "role_note": "Procedure-based component of selected ABMR/desensitization protocols rather than a drug.",
+          "drug_ids": [
+            "tx_plex_strategy"
+          ]
+        },
+        {
+          "id": "tx_tcmr",
+          "name": "T-cell–mediated rejection (TCMR) pharmacology",
+          "mechanism": "Escalates T-cell-directed immunosuppression according to severity/biopsy findings",
+          "target": "Cellular rejection",
+          "tags": [
+            "transplant",
+            "rejection",
+            "tcmr",
+            "biopsy"
+          ],
+          "role_note": "Biopsy-defined rejection strategy; treatment intensity depends on grade, organ and steroid responsiveness.",
+          "drug_ids": [
+            "tx_tcmr_steroid_strategy",
+            "tx_tcmr_atg_strategy"
+          ]
+        },
+        {
+          "id": "tx_abmr",
+          "name": "Antibody-mediated rejection (ABMR) framework",
+          "mechanism": "Targets circulating antibody, B-cell/plasma-cell/complement pathways depending on phenotype",
+          "target": "Humoral rejection",
+          "tags": [
+            "transplant",
+            "rejection",
+            "abmr",
+            "dsa",
+            "biopsy"
+          ],
+          "role_note": "No single universal drug regimen fits all ABMR; biopsy, DSA, chronicity and organ context determine the center protocol.",
+          "drug_ids": [
+            "tx_abmr_plex_ivig",
+            "tx_abmr_bcell_adjunct"
+          ]
+        },
+        {
+          "id": "tx_complement_rescue",
+          "name": "Complement inhibition — selected rescue use",
+          "mechanism": "Terminal complement blockade",
+          "target": "C5/complement",
+          "tags": [
+            "transplant",
+            "abmr",
+            "complement",
+            "off_label",
+            "specialist"
+          ],
+          "role_note": "Selected severe/refractory complement-mediated transplant contexts; many uses are off-label and highly specialized.",
+          "drug_ids": [
+            "tx_eculizumab_context",
+            "tx_ravulizumab_context"
+          ]
+        },
+        {
+          "id": "tx_proteasome_rescue",
+          "name": "Plasma-cell/proteasome targeting — investigational/selective",
+          "mechanism": "Proteasome inhibition reduces antibody-producing plasma cells",
+          "target": "Plasma cells",
+          "tags": [
+            "transplant",
+            "abmr",
+            "proteasome",
+            "off_label",
+            "specialist"
+          ],
+          "role_note": "Rescue/desensitization approach in selected centers; evidence and toxicity require expert review.",
+          "drug_ids": [
+            "tx_bortezomib_context"
+          ]
+        },
+        {
+          "id": "tx_il6_rescue",
+          "name": "IL-6 pathway modulation — selected chronic ABMR research use",
+          "mechanism": "IL-6/IL-6R blockade modifies B-cell/plasma-cell inflammatory signaling",
+          "target": "IL-6 pathway",
+          "tags": [
+            "transplant",
+            "chronic_abmr",
+            "il6",
+            "off_label",
+            "research"
+          ],
+          "role_note": "Research/center-specific strategy; not standard automatic chronic ABMR treatment.",
+          "drug_ids": [
+            "tx_tocilizumab_context"
+          ]
+        },
+        {
+          "id": "tx_cmv_prophylaxis",
+          "name": "CMV prophylaxis after solid-organ transplant",
+          "mechanism": "Antivirals suppress CMV replication or terminase function",
+          "target": "CMV replication",
+          "tags": [
+            "transplant",
+            "infection",
+            "cmv",
+            "prophylaxis"
+          ],
+          "role_note": "Prophylaxis or preemptive strategies depend on organ and donor/recipient CMV serostatus.",
+          "drug_ids": [
+            "tx_valganciclovir",
+            "tx_ganciclovir",
+            "tx_letermovir"
+          ]
+        },
+        {
+          "id": "tx_cmv_refractory",
+          "name": "Refractory/resistant CMV therapies",
+          "mechanism": "Targets CMV replication through alternative mechanisms",
+          "target": "CMV replication",
+          "tags": [
+            "transplant",
+            "infection",
+            "cmv",
+            "refractory",
+            "specialist"
+          ],
+          "role_note": "Resistance/refractory CMV requires specialist virologic and toxicity-guided therapy.",
+          "drug_ids": [
+            "tx_maribavir",
+            "tx_foscarnet",
+            "tx_cidofovir"
+          ]
+        },
+        {
+          "id": "tx_pjp_prophylaxis",
+          "name": "Pneumocystis jirovecii prophylaxis",
+          "mechanism": "Antimicrobial prevention of opportunistic Pneumocystis infection",
+          "target": "P. jirovecii",
+          "tags": [
+            "transplant",
+            "infection",
+            "pjp",
+            "prophylaxis"
+          ],
+          "role_note": "Routine post-transplant prophylaxis is common but agent/duration depend on organ, allergy and center protocol.",
+          "drug_ids": [
+            "tx_tmp_smx_pjp",
+            "tx_atovaquone_pjp",
+            "tx_dapsone_pjp",
+            "tx_pentamidine_pjp"
+          ]
+        },
+        {
+          "id": "tx_fungal_prophylaxis",
+          "name": "Fungal prophylaxis in transplant",
+          "mechanism": "Azole or other antifungal prevention according to organ/geography/risk",
+          "target": "Fungal pathogens",
+          "tags": [
+            "transplant",
+            "infection",
+            "fungal",
+            "prophylaxis",
+            "interaction_high_risk"
+          ],
+          "role_note": "Organ-specific prophylaxis varies substantially; azole–CNI/mTOR interactions are a major safety issue.",
+          "drug_ids": [
+            "tx_fluconazole_proph",
+            "tx_voriconazole_proph",
+            "tx_posaconazole_proph"
+          ]
+        },
+        {
+          "id": "tx_bk_management",
+          "name": "BK polyomavirus management",
+          "mechanism": "Reduces net immunosuppression to restore antiviral immune control",
+          "target": "BK polyomavirus / graft immune balance",
+          "tags": [
+            "transplant",
+            "kidney",
+            "bk",
+            "immunosuppression_reduction"
+          ],
+          "role_note": "Current consensus emphasizes screening and stepwise reduction of immunosuppression; there is no validated routine BK antiviral drug.",
+          "drug_ids": [
+            "tx_bk_reduce_is",
+            "tx_bk_ivig_adjunct"
+          ]
+        },
+        {
+          "id": "tx_bk_avoid_unsupported",
+          "name": "BK therapies not recommended routinely",
+          "mechanism": "Avoids ineffective/toxic empiric antivirals or antimicrobials",
+          "target": "BK polyomavirus",
+          "tags": [
+            "transplant",
+            "kidney",
+            "bk",
+            "do_not_use"
+          ],
+          "role_note": "Consensus safety lens: selected historically used agents should not be reflexively prescribed for BK.",
+          "drug_ids": [
+            "tx_bk_no_leflunomide",
+            "tx_bk_no_fq"
+          ]
+        },
+        {
+          "id": "tx_hbv_management",
+          "name": "HBV suppression in transplant recipients",
+          "mechanism": "Nucleos(t)ide analogue inhibition of HBV polymerase",
+          "target": "HBV replication",
+          "tags": [
+            "transplant",
+            "infection",
+            "hbv",
+            "prophylaxis"
+          ],
+          "role_note": "HBV management depends on recipient/donor serology, organ type and reactivation risk.",
+          "drug_ids": [
+            "tx_entecavir",
+            "tx_tenofovir_taf",
+            "tx_tenofovir_tdf"
+          ]
+        },
+        {
+          "id": "tx_tdm",
+          "name": "Therapeutic drug monitoring (TDM)",
+          "mechanism": "Measured concentrations guide narrow-therapeutic-index immunosuppressant exposure",
+          "target": "Drug exposure",
+          "tags": [
+            "transplant",
+            "tdm",
+            "tacrolimus",
+            "cyclosporine",
+            "mtor"
+          ],
+          "role_note": "TDM is a core safety layer; target ranges depend on organ, post-transplant time, regimen and assay.",
+          "drug_ids": [
+            "tx_tdm_tac",
+            "tx_tdm_csa",
+            "tx_tdm_mtor"
+          ]
+        },
+        {
+          "id": "tx_interactions",
+          "name": "CYP3A/P-gp interaction gate",
+          "mechanism": "Inhibitors/inducers markedly alter CNI/mTOR exposure",
+          "target": "CYP3A4/5 and P-glycoprotein",
+          "tags": [
+            "transplant",
+            "interactions",
+            "high_risk"
+          ],
+          "role_note": "Any new azole, macrolide, rifamycin, antiseizure drug, herbal product or grapefruit exposure should trigger immediate interaction review.",
+          "drug_ids": [
+            "tx_cyp_inhibitors",
+            "tx_cyp_inducers",
+            "tx_grapefruit"
+          ]
+        },
+        {
+          "id": "tx_cni_nephrotoxicity",
+          "name": "CNI nephrotoxicity / minimization strategies",
+          "mechanism": "Balances calcineurin exposure against rejection and renal toxicity",
+          "target": "Kidney graft/native kidney",
+          "tags": [
+            "transplant",
+            "nephrotoxicity",
+            "cni",
+            "minimization"
+          ],
+          "role_note": "Rising creatinine is not automatically CNI toxicity; evaluate rejection, obstruction, infection, volume status and drug level.",
+          "drug_ids": [
+            "tx_cni_minimize",
+            "tx_belatacept_conversion"
+          ]
+        },
+        {
+          "id": "tx_metabolic_complications",
+          "name": "Post-transplant metabolic complications",
+          "mechanism": "Recognizes immunosuppressant-related diabetes, hypertension, dyslipidemia and electrolyte effects",
+          "target": "Metabolic/CV risk",
+          "tags": [
+            "transplant",
+            "diabetes",
+            "hypertension",
+            "dyslipidemia",
+            "crosslink"
+          ],
+          "role_note": "Cross-link rather than stand-alone regimen: manage metabolic disease while preserving graft immunosuppression goals.",
+          "drug_ids": [
+            "tx_ptdm_crosslink",
+            "tx_lipid_crosslink"
+          ]
+        },
+        {
+          "id": "tx_pregnancy",
+          "name": "Pregnancy & reproductive safety in transplant",
+          "mechanism": "Balances graft preservation with teratogenicity and maternal/fetal risk",
+          "target": "Reproductive safety",
+          "tags": [
+            "transplant",
+            "pregnancy",
+            "reproductive_safety",
+            "high_risk"
+          ],
+          "role_note": "Pregnancy planning must occur with transplant + maternal-fetal medicine teams before conception; never abruptly stop immunosuppression.",
+          "drug_ids": [
+            "tx_mycophenolate_pregnancy",
+            "tx_pregnancy_compatible_review"
+          ]
+        },
+        {
+          "id": "tx_vaccination",
+          "name": "Vaccination after solid-organ transplant",
+          "mechanism": "Prevents vaccine-preventable infection while accounting for immunosuppression",
+          "target": "Adaptive immunity",
+          "tags": [
+            "transplant",
+            "vaccines",
+            "live_vaccine_safety",
+            "crosslink"
+          ],
+          "role_note": "Cross-link to Vaccine Lab: timing relative to transplant and immunosuppression intensity determines safety and expected response.",
+          "drug_ids": [
+            "tx_inactivated_vaccine",
+            "tx_live_vaccine_gate"
+          ]
+        },
+        {
+          "id": "tx_malignancy",
+          "name": "Malignancy risk under chronic immunosuppression",
+          "mechanism": "Net immunosuppression increases risk of skin cancer, lymphoma/PTLD and other malignancy",
+          "target": "Cancer surveillance / immunosuppression balance",
+          "tags": [
+            "transplant",
+            "malignancy",
+            "skin_cancer",
+            "ptld"
+          ],
+          "role_note": "Cancer management may require immunosuppression modification but this must balance rejection risk.",
+          "drug_ids": [
+            "tx_skin_cancer_strategy",
+            "tx_ptld_is_reduction"
+          ]
+        },
+        {
+          "id": "tx_ptld",
+          "name": "Post-transplant lymphoproliferative disorder (PTLD) therapy context",
+          "mechanism": "Targets EBV-driven or B-cell lymphoproliferation according to subtype",
+          "target": "Lymphoid clone / EBV",
+          "tags": [
+            "transplant",
+            "ptld",
+            "rituximab",
+            "oncology",
+            "specialist"
+          ],
+          "role_note": "PTLD is an oncology-transplant emergency spectrum; tissue diagnosis/subtyping is essential.",
+          "drug_ids": [
+            "tx_ptld_rituximab",
+            "tx_ptld_chemo_crosslink"
+          ]
+        },
+        {
+          "id": "tx_organ_context",
+          "name": "Organ-specific immunosuppression context",
+          "mechanism": "Recognizes that maintenance and induction differ by transplanted organ",
+          "target": "Kidney/liver/heart/lung graft",
+          "tags": [
+            "transplant",
+            "organ_specific",
+            "kidney",
+            "liver",
+            "heart",
+            "lung"
+          ],
+          "role_note": "The same drug has different roles, target exposures and warnings across organs; organ type is mandatory context.",
+          "drug_ids": [
+            "tx_kidney_context",
+            "tx_liver_context",
+            "tx_heart_lung_context"
+          ]
+        },
+        {
+          "id": "tx_adherence_formulation",
+          "name": "Adherence & formulation consistency",
+          "mechanism": "Prevents unplanned exposure variability in narrow-therapeutic-index therapy",
+          "target": "Medication-taking behavior / formulation",
+          "tags": [
+            "transplant",
+            "adherence",
+            "formulation",
+            "safety"
+          ],
+          "role_note": "Missed doses or unplanned formulation switching can threaten graft safety.",
+          "drug_ids": [
+            "tx_missed_dose_gate",
+            "tx_tac_formulation_gate"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "tx_tacrolimus",
+          "generic": "Tacrolimus",
+          "class_id": "tx_calcineurin_inhibitors",
+          "form": "Immediate/extended-release capsule; oral suspension; IV formulation",
+          "route": "PO/IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "maintenance",
+            "cni",
+            "tdm",
+            "tacrolimus"
+          ],
+          "role": "Major maintenance CNI across kidney/liver/heart/lung transplantation in combination regimens.",
+          "monitoring_pearl": "Narrow therapeutic index: track trough/exposure per center, creatinine/eGFR, potassium, magnesium, glucose, BP, neurotoxicity and interactions.",
+          "source_refs": [
+            "KDIGO_TX_2009",
+            "FDA_TACROLIMUS"
+          ]
+        },
+        {
+          "id": "tx_cyclosporine",
+          "generic": "Cyclosporine",
+          "class_id": "tx_calcineurin_inhibitors",
+          "form": "Modified oral capsule/solution; IV formulation",
+          "route": "PO/IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "maintenance",
+            "cni",
+            "tdm",
+            "cyclosporine"
+          ],
+          "role": "Alternative CNI used in selected transplant regimens.",
+          "monitoring_pearl": "Use product/formulation-specific monitoring; nephrotoxicity, hypertension, dyslipidemia, gingival/hair effects and CYP3A/P-gp interactions matter.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_mmf",
+          "generic": "Mycophenolate mofetil (MMF)",
+          "class_id": "tx_mycophenolate",
+          "form": "Capsule/tablet/suspension; IV",
+          "route": "PO/IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "maintenance",
+            "antimetabolite",
+            "pregnancy_high_risk",
+            "mmf"
+          ],
+          "role": "Common maintenance antiproliferative agent.",
+          "monitoring_pearl": "CBC, GI toxicity, infection risk and reproductive counseling are essential; pregnancy exposure carries major fetal risk.",
+          "source_refs": [
+            "KDIGO_TX_2009",
+            "FDA_MYCOPHENOLATE"
+          ]
+        },
+        {
+          "id": "tx_mpa_ec",
+          "generic": "Mycophenolic acid / enteric-coated mycophenolate sodium",
+          "class_id": "tx_mycophenolate",
+          "form": "Delayed-release tablet",
+          "route": "PO",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "maintenance",
+            "antimetabolite",
+            "pregnancy_high_risk",
+            "mycophenolic_acid"
+          ],
+          "role": "Alternative mycophenolate formulation used in selected maintenance regimens.",
+          "monitoring_pearl": "Do not assume milligram-for-milligram interchangeability between MMF and enteric-coated mycophenolate products; follow product/center conversion guidance.",
+          "source_refs": [
+            "FDA_MYCOPHENOLATE"
+          ]
+        },
+        {
+          "id": "tx_azathioprine_profile",
+          "generic": "Azathioprine",
+          "class_id": "tx_azathioprine",
+          "form": "Tablet / injection",
+          "route": "PO/IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "maintenance",
+            "antimetabolite",
+            "azathioprine"
+          ],
+          "role": "Selected maintenance immunosuppression alternative.",
+          "monitoring_pearl": "CBC/LFT monitoring and TPMT/NUDT15 context where relevant; dangerous interaction with xanthine-oxidase inhibitors requires specialist dose adjustment/avoidance.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_sirolimus",
+          "generic": "Sirolimus",
+          "class_id": "tx_mtor_inhibitors",
+          "form": "Tablet/oral solution",
+          "route": "PO",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "maintenance",
+            "mtor",
+            "tdm",
+            "sirolimus"
+          ],
+          "role": "mTOR inhibitor approved in renal-transplant rejection prophylaxis; use outside labeled organ settings requires specialist review.",
+          "monitoring_pearl": "TDM, lipids, CBC, proteinuria, oral ulcers, edema and wound healing; strong CYP3A/P-gp interactions.",
+          "source_refs": [
+            "KDIGO_TX_2009",
+            "FDA_SIROLIMUS"
+          ]
+        },
+        {
+          "id": "tx_everolimus",
+          "generic": "Everolimus — transplant formulation",
+          "class_id": "tx_mtor_inhibitors",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "maintenance",
+            "mtor",
+            "tdm",
+            "everolimus"
+          ],
+          "role": "mTOR inhibitor used in selected transplant regimens depending on organ/product approval and center protocol.",
+          "monitoring_pearl": "TDM and monitoring for proteinuria, dyslipidemia, cytopenias, stomatitis, edema, pneumonitis and wound-healing problems.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_prednisone",
+          "generic": "Prednisone / Prednisolone",
+          "class_id": "tx_corticosteroids",
+          "form": "Tablet / oral liquid",
+          "route": "PO",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "induction",
+            "maintenance",
+            "rejection",
+            "steroid"
+          ],
+          "role": "Maintenance or taper component in selected regimens.",
+          "monitoring_pearl": "Monitor glucose, BP, infection, bone health, cataract/glaucoma, adrenal suppression and cumulative metabolic toxicity.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_methylpred",
+          "generic": "Methylprednisolone — transplant pulse context",
+          "class_id": "tx_corticosteroids",
+          "form": "Injection / tablet",
+          "route": "IV/PO",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "induction",
+            "maintenance",
+            "rejection",
+            "steroid",
+            "pulse"
+          ],
+          "role": "High-dose pulse corticosteroid is a common first-line component for selected acute cellular rejection episodes.",
+          "monitoring_pearl": "Biopsy context, infection exclusion, glucose, BP, psychiatric effects and GI risk require monitoring.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_basiliximab",
+          "generic": "Basiliximab",
+          "class_id": "tx_il2ra_induction",
+          "form": "IV monoclonal antibody",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "induction",
+            "basiliximab",
+            "il2ra"
+          ],
+          "role": "Non-depleting induction agent used in selected kidney-transplant protocols.",
+          "monitoring_pearl": "Administer under transplant protocol; hypersensitivity and overall immunosuppression burden remain relevant.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_rabbit_atg",
+          "generic": "Rabbit antithymocyte globulin",
+          "class_id": "tx_atg_induction",
+          "form": "IV immune globulin",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "induction",
+            "rejection",
+            "depleting",
+            "high_risk",
+            "atg"
+          ],
+          "role": "Used for induction and/or treatment of acute rejection depending on organ and center.",
+          "monitoring_pearl": "Premedication, CBC/platelets, infusion reactions, infection prophylaxis and cumulative immunosuppression require close specialist monitoring.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_alemtuzumab_profile",
+          "generic": "Alemtuzumab — transplant induction context",
+          "class_id": "tx_alemtuzumab",
+          "form": "IV/SC monoclonal antibody",
+          "route": "IV/SC",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "induction",
+            "off_label",
+            "depleting",
+            "alemtuzumab"
+          ],
+          "role": "Specialist center-specific induction option.",
+          "monitoring_pearl": "Prolonged lymphopenia, infection/reactivation risk, cytopenias and autoimmune complications require dedicated monitoring.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_belatacept_profile",
+          "generic": "Belatacept",
+          "class_id": "tx_belatacept",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "kidney",
+            "maintenance",
+            "ebv_gate",
+            "belatacept"
+          ],
+          "role": "Kidney-transplant rejection prophylaxis option in appropriately selected EBV-seropositive adults.",
+          "monitoring_pearl": "EBV-seronegative or unknown status is contraindicated by label because of PTLD risk; monitor infection, neurologic symptoms and graft function.",
+          "source_refs": [
+            "FDA_BELATACEPT"
+          ]
+        },
+        {
+          "id": "tx_rituximab_profile",
+          "generic": "Rituximab",
+          "class_id": "tx_rituximab",
+          "form": "IV monoclonal antibody",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "abmr",
+            "desensitization",
+            "ptld",
+            "specialist",
+            "rituximab"
+          ],
+          "role": "Specialist B-cell-directed adjunct in selected transplant immunology/hematology contexts.",
+          "monitoring_pearl": "HBV screening/reactivation precautions, infusion reactions, hypogammaglobulinemia and infection monitoring are essential.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_ivig_profile",
+          "generic": "Intravenous immunoglobulin",
+          "class_id": "tx_ivig",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "abmr",
+            "desensitization",
+            "bk_adjunct",
+            "ivig"
+          ],
+          "role": "Specialist immunomodulatory adjunct.",
+          "monitoring_pearl": "Renal risk, thrombosis, hemolysis, volume/osmolar load and product-specific administration precautions require review.",
+          "source_refs": [
+            "KDIGO_TX_2009",
+            "TTS_BK_2024"
+          ]
+        },
+        {
+          "id": "tx_plex_strategy",
+          "generic": "Therapeutic plasma exchange / plasmapheresis",
+          "class_id": "tx_plasma_exchange",
+          "form": "Apheresis strategy",
+          "route": "Procedure",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "abmr",
+            "desensitization",
+            "procedure",
+            "plex"
+          ],
+          "role": "Selected ABMR/desensitization strategy combined with center-specific immunomodulation.",
+          "monitoring_pearl": "Requires vascular access, coagulation/electrolyte monitoring and coordination with timing of IVIG/biologics.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_tcmr_steroid_strategy",
+          "generic": "Pulse corticosteroid strategy — TCMR",
+          "class_id": "tx_tcmr",
+          "form": "Protocol strategy",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "rejection",
+            "tcmr",
+            "biopsy",
+            "steroid"
+          ],
+          "role": "Common initial treatment pathway for many acute cellular rejection episodes.",
+          "monitoring_pearl": "Confirm rejection phenotype and exclude competing infection/toxicity before escalation.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_tcmr_atg_strategy",
+          "generic": "T-cell depletion strategy — steroid-resistant/severe TCMR",
+          "class_id": "tx_tcmr",
+          "form": "Protocol strategy",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "rejection",
+            "tcmr",
+            "biopsy",
+            "atg"
+          ],
+          "role": "Selected steroid-resistant or severe cellular rejection pathway.",
+          "monitoring_pearl": "Profound infection/cytopenia risk; transplant specialist protocol mandatory.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_abmr_plex_ivig",
+          "generic": "PLEX + IVIG framework",
+          "class_id": "tx_abmr",
+          "form": "Combination strategy",
+          "route": "Procedure/IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "rejection",
+            "abmr",
+            "dsa",
+            "biopsy",
+            "abmr"
+          ],
+          "role": "Common backbone in selected active ABMR treatment protocols.",
+          "monitoring_pearl": "Coordinate exchange timing, infection risk, volume/coagulation and adjunctive immunotherapy.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_abmr_bcell_adjunct",
+          "generic": "B-cell–directed adjunct framework",
+          "class_id": "tx_abmr",
+          "form": "Specialist strategy",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "rejection",
+            "abmr",
+            "dsa",
+            "biopsy",
+            "abmr",
+            "rituximab"
+          ],
+          "role": "Selected adjunctive approach depending on center and rejection phenotype.",
+          "monitoring_pearl": "Evidence and regimen vary; avoid automatic escalation from DSA positivity alone.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_eculizumab_context",
+          "generic": "Eculizumab — transplant rescue context",
+          "class_id": "tx_complement_rescue",
+          "form": "IV monoclonal antibody",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "abmr",
+            "complement",
+            "off_label",
+            "specialist",
+            "c5"
+          ],
+          "role": "Specialist complement blockade in selected transplant scenarios.",
+          "monitoring_pearl": "Meningococcal infection prevention/urgent prophylaxis requirements and vaccination status are critical.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_ravulizumab_context",
+          "generic": "Ravulizumab — transplant rescue context",
+          "class_id": "tx_complement_rescue",
+          "form": "IV monoclonal antibody",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "abmr",
+            "complement",
+            "off_label",
+            "specialist",
+            "c5"
+          ],
+          "role": "Long-acting complement inhibition considered only in highly selected specialist contexts.",
+          "monitoring_pearl": "Same invasive meningococcal risk architecture as terminal complement blockade; verify indication and evidence.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_bortezomib_context",
+          "generic": "Bortezomib — transplant immunology context",
+          "class_id": "tx_proteasome_rescue",
+          "form": "Injection",
+          "route": "SC/IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "abmr",
+            "proteasome",
+            "off_label",
+            "specialist",
+            "bortezomib"
+          ],
+          "role": "Selected off-label plasma-cell-directed adjunct.",
+          "monitoring_pearl": "Neuropathy, cytopenias, zoster risk and organ function matter; not routine ABMR therapy.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_tocilizumab_context",
+          "generic": "Tocilizumab — transplant research context",
+          "class_id": "tx_il6_rescue",
+          "form": "IV/SC monoclonal antibody",
+          "route": "IV/SC",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "chronic_abmr",
+            "il6",
+            "off_label",
+            "research",
+            "tocilizumab"
+          ],
+          "role": "Selected off-label chronic-active ABMR/desensitization research use.",
+          "monitoring_pearl": "CBC/LFT/lipid, infection/TB risk and GI perforation risk; evidence remains center- and phenotype-specific.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_valganciclovir",
+          "generic": "Valganciclovir",
+          "class_id": "tx_cmv_prophylaxis",
+          "form": "Tablet/oral solution",
+          "route": "PO",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "cmv",
+            "prophylaxis",
+            "cmv",
+            "ganciclovir_prodrug"
+          ],
+          "role": "Common CMV prophylaxis/treatment drug in transplant practice.",
+          "monitoring_pearl": "Renal dose adjustment and CBC monitoring are mandatory; myelosuppression is important.",
+          "source_refs": [
+            "TTS_CMV_2025"
+          ]
+        },
+        {
+          "id": "tx_ganciclovir",
+          "generic": "Ganciclovir",
+          "class_id": "tx_cmv_prophylaxis",
+          "form": "IV formulation",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "cmv",
+            "prophylaxis",
+            "cmv"
+          ],
+          "role": "IV anti-CMV therapy for selected severe disease or when oral therapy is unsuitable.",
+          "monitoring_pearl": "Renal dosing, cytopenias and resistance testing in refractory disease.",
+          "source_refs": [
+            "TTS_CMV_2025"
+          ]
+        },
+        {
+          "id": "tx_letermovir",
+          "generic": "Letermovir",
+          "class_id": "tx_cmv_prophylaxis",
+          "form": "Tablet / IV",
+          "route": "PO/IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "cmv",
+            "prophylaxis",
+            "cmv",
+            "terminase"
+          ],
+          "role": "Approved prophylaxis option for high-risk D+/R− kidney-transplant recipients in specified populations; role is prevention, not treatment of established CMV disease.",
+          "monitoring_pearl": "Check organ/age/weight indication, interactions and breakthrough CMV monitoring.",
+          "source_refs": [
+            "TTS_CMV_2025",
+            "FDA_LETERMOVIR"
+          ]
+        },
+        {
+          "id": "tx_maribavir",
+          "generic": "Maribavir",
+          "class_id": "tx_cmv_refractory",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "cmv",
+            "refractory",
+            "specialist",
+            "cmv",
+            "ul97"
+          ],
+          "role": "Approved option for post-transplant CMV infection/disease refractory to prior anti-CMV therapy in specified patients.",
+          "monitoring_pearl": "Drug interactions, dysgeusia and resistance testing context; not for routine prophylaxis.",
+          "source_refs": [
+            "TTS_CMV_2025",
+            "FDA_MARIBAVIR"
+          ]
+        },
+        {
+          "id": "tx_foscarnet",
+          "generic": "Foscarnet",
+          "class_id": "tx_cmv_refractory",
+          "form": "IV antiviral",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "cmv",
+            "refractory",
+            "specialist",
+            "cmv",
+            "resistant"
+          ],
+          "role": "Specialist option for selected resistant/refractory CMV.",
+          "monitoring_pearl": "Major nephrotoxicity and electrolyte disturbances require intensive monitoring.",
+          "source_refs": [
+            "TTS_CMV_2025"
+          ]
+        },
+        {
+          "id": "tx_cidofovir",
+          "generic": "Cidofovir",
+          "class_id": "tx_cmv_refractory",
+          "form": "IV antiviral",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "cmv",
+            "refractory",
+            "specialist",
+            "cmv",
+            "resistant",
+            "nephrotoxic"
+          ],
+          "role": "Rare salvage option in selected resistant CMV contexts.",
+          "monitoring_pearl": "Marked nephrotoxicity; specialist protocol, renal protection and monitoring essential.",
+          "source_refs": [
+            "TTS_CMV_2025"
+          ]
+        },
+        {
+          "id": "tx_tmp_smx_pjp",
+          "generic": "Trimethoprim-sulfamethoxazole",
+          "class_id": "tx_pjp_prophylaxis",
+          "form": "Tablet/suspension",
+          "route": "PO",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "pjp",
+            "prophylaxis",
+            "pjp",
+            "first_line"
+          ],
+          "role": "Preferred prophylactic family in many centers; also covers selected bacterial/Nocardia risks.",
+          "monitoring_pearl": "Renal function, potassium, cytopenias and sulfonamide reactions require monitoring.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_atovaquone_pjp",
+          "generic": "Atovaquone",
+          "class_id": "tx_pjp_prophylaxis",
+          "form": "Oral suspension",
+          "route": "PO",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "pjp",
+            "prophylaxis",
+            "pjp",
+            "alternative"
+          ],
+          "role": "Alternative PJP prophylaxis when TMP-SMX is unsuitable.",
+          "monitoring_pearl": "Absorption depends on administration with food; breakthrough risk and cost matter.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_dapsone_pjp",
+          "generic": "Dapsone",
+          "class_id": "tx_pjp_prophylaxis",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "pjp",
+            "prophylaxis",
+            "pjp",
+            "alternative"
+          ],
+          "role": "Alternative PJP prophylaxis in selected patients.",
+          "monitoring_pearl": "Check G6PD status; monitor methemoglobinemia/hemolysis and cytopenias.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_pentamidine_pjp",
+          "generic": "Pentamidine — inhaled/IV prophylaxis context",
+          "class_id": "tx_pjp_prophylaxis",
+          "form": "Nebulized / IV",
+          "route": "INH/IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "pjp",
+            "prophylaxis",
+            "pjp",
+            "alternative"
+          ],
+          "role": "Alternative prophylaxis when oral options are unsuitable.",
+          "monitoring_pearl": "Route-specific efficacy/toxicity and breakthrough extrapulmonary risk require center protocol.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_fluconazole_proph",
+          "generic": "Fluconazole — transplant prophylaxis context",
+          "class_id": "tx_fungal_prophylaxis",
+          "form": "Tablet/IV",
+          "route": "PO/IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "fungal",
+            "prophylaxis",
+            "interaction_high_risk",
+            "azole"
+          ],
+          "role": "Selected yeast prophylaxis depending on transplant type/local epidemiology.",
+          "monitoring_pearl": "CYP interactions can raise tacrolimus/cyclosporine/sirolimus exposure; renal/hepatic monitoring.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_voriconazole_proph",
+          "generic": "Voriconazole — mold prophylaxis/treatment context",
+          "class_id": "tx_fungal_prophylaxis",
+          "form": "Tablet/IV",
+          "route": "PO/IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "fungal",
+            "prophylaxis",
+            "interaction_high_risk",
+            "azole",
+            "mold"
+          ],
+          "role": "Selected lung/other high-risk mold-prevention or treatment contexts.",
+          "monitoring_pearl": "Very strong interaction/TDM/phototoxicity/hepatotoxicity considerations; adjust immunosuppressant monitoring.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_posaconazole_proph",
+          "generic": "Posaconazole",
+          "class_id": "tx_fungal_prophylaxis",
+          "form": "Tablet/suspension/IV",
+          "route": "PO/IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "fungal",
+            "prophylaxis",
+            "interaction_high_risk",
+            "azole",
+            "mold"
+          ],
+          "role": "Selected mold prophylaxis in high-risk immunosuppressed patients.",
+          "monitoring_pearl": "Formulation-specific absorption and major CYP3A interactions with CNI/mTOR drugs.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_bk_reduce_is",
+          "generic": "Stepwise immunosuppression reduction — BK DNAemia/nephropathy",
+          "class_id": "tx_bk_management",
+          "form": "Protocol strategy",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "kidney",
+            "bk",
+            "immunosuppression_reduction",
+            "bk",
+            "first_line_strategy"
+          ],
+          "role": "Core management strategy for sustained significant BK DNAemia/nephropathy in kidney transplant.",
+          "monitoring_pearl": "Coordinate viral-load trends, graft function and rejection risk; avoid unsupervised abrupt immunosuppression withdrawal.",
+          "source_refs": [
+            "TTS_BK_2024"
+          ]
+        },
+        {
+          "id": "tx_bk_ivig_adjunct",
+          "generic": "IVIG — selected BK adjunct",
+          "class_id": "tx_bk_management",
+          "form": "IV immunoglobulin",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "kidney",
+            "bk",
+            "immunosuppression_reduction",
+            "bk",
+            "adjunct"
+          ],
+          "role": "May be considered as an adjunct in selected cases when immunosuppression reduction is insufficient or rejection risk is high.",
+          "monitoring_pearl": "Evidence is limited; renal/thrombotic risks and center protocol matter.",
+          "source_refs": [
+            "TTS_BK_2024"
+          ]
+        },
+        {
+          "id": "tx_bk_no_leflunomide",
+          "generic": "Do not routinely use leflunomide for BK",
+          "class_id": "tx_bk_avoid_unsupported",
+          "form": "Safety rule",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "kidney",
+            "bk",
+            "do_not_use",
+            "bk",
+            "leflunomide"
+          ],
+          "role": "Not recommended as routine BK treatment in current consensus guidance.",
+          "monitoring_pearl": "Focus on immunosuppression reduction and validated monitoring rather than unsupported antiviral substitution.",
+          "source_refs": [
+            "TTS_BK_2024"
+          ]
+        },
+        {
+          "id": "tx_bk_no_fq",
+          "generic": "Do not use fluoroquinolones for BK prevention/treatment",
+          "class_id": "tx_bk_avoid_unsupported",
+          "form": "Safety rule",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "kidney",
+            "bk",
+            "do_not_use",
+            "bk",
+            "fluoroquinolone"
+          ],
+          "role": "Fluoroquinolones are not recommended for BK prevention or treatment.",
+          "monitoring_pearl": "Avoid antimicrobial harm/resistance from unsupported use.",
+          "source_refs": [
+            "TTS_BK_2024"
+          ]
+        },
+        {
+          "id": "tx_entecavir",
+          "generic": "Entecavir",
+          "class_id": "tx_hbv_management",
+          "form": "Tablet/oral solution",
+          "route": "PO",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "hbv",
+            "prophylaxis",
+            "hbv"
+          ],
+          "role": "Potent HBV nucleoside analogue used in selected transplant prophylaxis/treatment pathways.",
+          "monitoring_pearl": "Renal dose adjustment and resistance history matter.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_tenofovir_taf",
+          "generic": "Tenofovir alafenamide",
+          "class_id": "tx_hbv_management",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "hbv",
+            "prophylaxis",
+            "hbv"
+          ],
+          "role": "Potent HBV nucleotide analogue option in selected patients.",
+          "monitoring_pearl": "Renal/bone profile differs from TDF; product interactions and liver/HBV monitoring remain required.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_tenofovir_tdf",
+          "generic": "Tenofovir disoproxil fumarate",
+          "class_id": "tx_hbv_management",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "infection",
+            "hbv",
+            "prophylaxis",
+            "hbv"
+          ],
+          "role": "Potent HBV nucleotide analogue option in selected contexts.",
+          "monitoring_pearl": "Monitor renal function/phosphate and bone risk.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_tdm_tac",
+          "generic": "Tacrolimus concentration monitoring",
+          "class_id": "tx_tdm",
+          "form": "TDM strategy",
+          "route": "Blood",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "tdm",
+            "tacrolimus",
+            "cyclosporine",
+            "mtor",
+            "tacrolimus"
+          ],
+          "role": "Routine exposure monitoring for tacrolimus.",
+          "monitoring_pearl": "Interpret trough/exposure with timing accuracy, adherence, interacting drugs, diarrhea, liver function and assay method.",
+          "source_refs": [
+            "KDIGO_TX_2009",
+            "FDA_TACROLIMUS"
+          ]
+        },
+        {
+          "id": "tx_tdm_csa",
+          "generic": "Cyclosporine concentration monitoring",
+          "class_id": "tx_tdm",
+          "form": "TDM strategy",
+          "route": "Blood",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "tdm",
+            "tacrolimus",
+            "cyclosporine",
+            "mtor",
+            "cyclosporine"
+          ],
+          "role": "Center-specific trough/C2/exposure monitoring depending on regimen.",
+          "monitoring_pearl": "Ensure sample timing and formulation consistency.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_tdm_mtor",
+          "generic": "Sirolimus/Everolimus concentration monitoring",
+          "class_id": "tx_tdm",
+          "form": "TDM strategy",
+          "route": "Blood",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "tdm",
+            "tacrolimus",
+            "cyclosporine",
+            "mtor",
+            "mtor"
+          ],
+          "role": "Exposure monitoring for mTOR inhibitors.",
+          "monitoring_pearl": "Interpret with CNI co-therapy, interactions, proteinuria, cytopenias and lipids.",
+          "source_refs": [
+            "KDIGO_TX_2009",
+            "FDA_SIROLIMUS"
+          ]
+        },
+        {
+          "id": "tx_cyp_inhibitors",
+          "generic": "Strong/moderate CYP3A inhibitors — interaction rule",
+          "class_id": "tx_interactions",
+          "form": "Interaction strategy",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "interactions",
+            "high_risk",
+            "azole",
+            "macrolide",
+            "cyp3a"
+          ],
+          "role": "Can rapidly increase tacrolimus/cyclosporine/sirolimus/everolimus exposure.",
+          "monitoring_pearl": "Pre-emptive center-guided dose/level plan and early repeat concentrations are often necessary.",
+          "source_refs": [
+            "FDA_TACROLIMUS",
+            "FDA_SIROLIMUS"
+          ]
+        },
+        {
+          "id": "tx_cyp_inducers",
+          "generic": "CYP3A inducers — interaction rule",
+          "class_id": "tx_interactions",
+          "form": "Interaction strategy",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "interactions",
+            "high_risk",
+            "rifamycin",
+            "antiepileptic",
+            "cyp3a"
+          ],
+          "role": "Can markedly reduce immunosuppressant exposure and increase rejection risk.",
+          "monitoring_pearl": "Avoid or coordinate intensive TDM and specialist dose strategy.",
+          "source_refs": [
+            "FDA_TACROLIMUS",
+            "FDA_SIROLIMUS"
+          ]
+        },
+        {
+          "id": "tx_grapefruit",
+          "generic": "Grapefruit / pomelo interaction warning",
+          "class_id": "tx_interactions",
+          "form": "Food interaction",
+          "route": "PO",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "interactions",
+            "high_risk",
+            "food_interaction"
+          ],
+          "role": "Food products can alter intestinal CYP3A/P-gp and immunosuppressant exposure.",
+          "monitoring_pearl": "Follow product-specific avoidance advice and keep diet consistent.",
+          "source_refs": [
+            "FDA_TACROLIMUS"
+          ]
+        },
+        {
+          "id": "tx_cni_minimize",
+          "generic": "CNI exposure minimization strategy",
+          "class_id": "tx_cni_nephrotoxicity",
+          "form": "Protocol strategy",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "nephrotoxicity",
+            "cni",
+            "minimization",
+            "cni",
+            "renal"
+          ],
+          "role": "Selected maintenance strategy when toxicity risk is high.",
+          "monitoring_pearl": "Requires transplant specialist because underexposure can cause rejection.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_belatacept_conversion",
+          "generic": "Belatacept conversion — selected kidney recipients",
+          "class_id": "tx_cni_nephrotoxicity",
+          "form": "Conversion strategy",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "nephrotoxicity",
+            "cni",
+            "minimization",
+            "belatacept",
+            "cni_sparing"
+          ],
+          "role": "Selected CNI-sparing conversion in EBV-seropositive kidney recipients.",
+          "monitoring_pearl": "Assess rejection risk, EBV status, prior graft history and center protocol.",
+          "source_refs": [
+            "FDA_BELATACEPT"
+          ]
+        },
+        {
+          "id": "tx_ptdm_crosslink",
+          "generic": "Post-transplant diabetes management cross-link",
+          "class_id": "tx_metabolic_complications",
+          "form": "Clinical strategy",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "diabetes",
+            "hypertension",
+            "dyslipidemia",
+            "crosslink",
+            "ptdm",
+            "diabetes"
+          ],
+          "role": "Links to Diabetes/Endocrine labs for individualized glycemic therapy.",
+          "monitoring_pearl": "Tacrolimus/steroids can contribute; do not change immunosuppression solely from glucose without transplant review.",
+          "source_refs": [
+            "FDA_TACROLIMUS"
+          ]
+        },
+        {
+          "id": "tx_lipid_crosslink",
+          "generic": "Post-transplant dyslipidemia management cross-link",
+          "class_id": "tx_metabolic_complications",
+          "form": "Clinical strategy",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "diabetes",
+            "hypertension",
+            "dyslipidemia",
+            "crosslink",
+            "lipid"
+          ],
+          "role": "Links to Cardiovascular lab with interaction-aware statin selection.",
+          "monitoring_pearl": "Cyclosporine and mTOR inhibitors can substantially alter lipid profile and statin exposure.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_mycophenolate_pregnancy",
+          "generic": "Mycophenolate pregnancy danger gate",
+          "class_id": "tx_pregnancy",
+          "form": "Safety rule",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "pregnancy",
+            "reproductive_safety",
+            "high_risk",
+            "mycophenolate",
+            "pregnancy"
+          ],
+          "role": "Mycophenolate exposure in pregnancy is associated with increased miscarriage and congenital-malformation risk.",
+          "monitoring_pearl": "Preconception transition requires specialist planning and adequate washout/contraception per current label/program; do not stop abruptly without graft plan.",
+          "source_refs": [
+            "FDA_MYCOPHENOLATE"
+          ]
+        },
+        {
+          "id": "tx_pregnancy_compatible_review",
+          "generic": "Pregnancy-compatible regimen review",
+          "class_id": "tx_pregnancy",
+          "form": "Specialist strategy",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "pregnancy",
+            "reproductive_safety",
+            "high_risk",
+            "pregnancy",
+            "tacrolimus",
+            "azathioprine"
+          ],
+          "role": "Specialists may use alternative maintenance agents depending on organ and individual risk.",
+          "monitoring_pearl": "Therapeutic drug levels and pharmacokinetics can change during pregnancy; coordinate transplant and obstetric teams.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_inactivated_vaccine",
+          "generic": "Inactivated/non-live vaccine strategy",
+          "class_id": "tx_vaccination",
+          "form": "Preventive strategy",
+          "route": "IM/other",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "vaccines",
+            "live_vaccine_safety",
+            "crosslink",
+            "vaccine"
+          ],
+          "role": "Generally preferred vaccine platform after transplant when indicated; timing and response may be modified by immunosuppression.",
+          "monitoring_pearl": "Coordinate with transplant schedule and current national guidance.",
+          "source_refs": [
+            "CDC_ALTERED_IMMUNOCOMP"
+          ]
+        },
+        {
+          "id": "tx_live_vaccine_gate",
+          "generic": "Live-vaccine safety gate",
+          "class_id": "tx_vaccination",
+          "form": "Safety rule",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "vaccines",
+            "live_vaccine_safety",
+            "crosslink",
+            "live_vaccine"
+          ],
+          "role": "Live vaccines are generally contraindicated during significant post-transplant immunosuppression; exceptional pediatric protocols require expert review.",
+          "monitoring_pearl": "Never auto-administer a live vaccine based only on age schedule.",
+          "source_refs": [
+            "CDC_ALTERED_IMMUNOCOMP"
+          ]
+        },
+        {
+          "id": "tx_skin_cancer_strategy",
+          "generic": "Post-transplant skin-cancer prevention / IS review",
+          "class_id": "tx_malignancy",
+          "form": "Clinical strategy",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "malignancy",
+            "skin_cancer",
+            "ptld",
+            "skin_cancer"
+          ],
+          "role": "Sun protection, dermatologic surveillance and selected immunosuppression adjustments are common prevention strategies.",
+          "monitoring_pearl": "mTOR conversion/minimization decisions are individualized and not automatic.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_ptld_is_reduction",
+          "generic": "PTLD — immunosuppression reduction framework",
+          "class_id": "tx_malignancy",
+          "form": "Clinical strategy",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "malignancy",
+            "skin_cancer",
+            "ptld",
+            "ptld",
+            "ebv"
+          ],
+          "role": "Reduction of immunosuppression is a foundational first step in many PTLD pathways when feasible.",
+          "monitoring_pearl": "Requires transplant-oncology coordination; graft rejection risk and PTLD subtype/stage determine subsequent treatment.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_ptld_rituximab",
+          "generic": "Rituximab — CD20+ PTLD context",
+          "class_id": "tx_ptld",
+          "form": "IV monoclonal antibody",
+          "route": "IV",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "ptld",
+            "rituximab",
+            "oncology",
+            "specialist",
+            "ptld",
+            "cd20"
+          ],
+          "role": "Common targeted component for CD20-positive B-cell PTLD depending on response/risk strategy.",
+          "monitoring_pearl": "HBV screening, infection risk and oncology protocol required.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_ptld_chemo_crosslink",
+          "generic": "PTLD chemotherapy/immunochemotherapy cross-link",
+          "class_id": "tx_ptld",
+          "form": "Oncology strategy",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "ptld",
+            "rituximab",
+            "oncology",
+            "specialist",
+            "ptld",
+            "chemotherapy"
+          ],
+          "role": "Links to Oncology lab for refractory/high-risk PTLD regimens.",
+          "monitoring_pearl": "Do not start cytotoxic therapy without tissue diagnosis, staging and transplant-oncology coordination.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_kidney_context",
+          "generic": "Kidney transplant regimen context",
+          "class_id": "tx_organ_context",
+          "form": "Context card",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "organ_specific",
+            "kidney",
+            "liver",
+            "heart",
+            "lung",
+            "kidney"
+          ],
+          "role": "Commonly CNI + antimetabolite ± steroid with risk-based induction, but center/patient factors govern.",
+          "monitoring_pearl": "Use kidney-specific graft function, rejection/BK/CMV risk and TDM.",
+          "source_refs": [
+            "KDIGO_TX_2009"
+          ]
+        },
+        {
+          "id": "tx_liver_context",
+          "generic": "Liver transplant regimen context",
+          "class_id": "tx_organ_context",
+          "form": "Context card",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "organ_specific",
+            "kidney",
+            "liver",
+            "heart",
+            "lung",
+            "liver"
+          ],
+          "role": "CNI-based strategies are common, often with different steroid/antimetabolite needs from kidney transplant.",
+          "monitoring_pearl": "Hepatic recovery, renal toxicity, biliary issues and organ-specific label warnings matter.",
+          "source_refs": [
+            "FDA_TACROLIMUS"
+          ]
+        },
+        {
+          "id": "tx_heart_lung_context",
+          "generic": "Heart/Lung transplant regimen context",
+          "class_id": "tx_organ_context",
+          "form": "Context card",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "organ_specific",
+            "kidney",
+            "liver",
+            "heart",
+            "lung",
+            "heart",
+            "lung"
+          ],
+          "role": "High immunologic/infectious complexity; regimens and prophylaxis are strongly center-specific.",
+          "monitoring_pearl": "Review organ-specific product approvals, rejection surveillance and mold/CMV prophylaxis.",
+          "source_refs": [
+            "FDA_TACROLIMUS"
+          ]
+        },
+        {
+          "id": "tx_missed_dose_gate",
+          "generic": "Missed-dose escalation gate",
+          "class_id": "tx_adherence_formulation",
+          "form": "Safety strategy",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "adherence",
+            "formulation",
+            "safety",
+            "adherence"
+          ],
+          "role": "A missed immunosuppressant dose should trigger product-specific/center advice rather than double-dosing by default.",
+          "monitoring_pearl": "Record timing, formulation and next scheduled dose; contact transplant team for high-risk scenarios.",
+          "source_refs": [
+            "FDA_TACROLIMUS"
+          ]
+        },
+        {
+          "id": "tx_tac_formulation_gate",
+          "generic": "Tacrolimus formulation consistency gate",
+          "class_id": "tx_adherence_formulation",
+          "form": "Safety strategy",
+          "route": "N/A",
+          "dose_example": "Transplant dosing, target exposure, induction/maintenance selection, rejection treatment and prophylaxis duration are organ-, time-, risk-, assay-, interaction- and center-protocol specific. Verify the current transplant guideline/product label, measured drug levels, graft function and specialist plan; do not auto-prescribe from this learning card.",
+          "tags": [
+            "transplant",
+            "adherence",
+            "formulation",
+            "safety",
+            "tacrolimus",
+            "formulation"
+          ],
+          "role": "Immediate- and extended-release tacrolimus products are not automatically interchangeable on the same milligram basis.",
+          "monitoring_pearl": "Use product-specific conversion and repeat levels after any formulation change.",
+          "source_refs": [
+            "FDA_TACROLIMUS"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "KDIGO_TX_2009",
+          "label": "KDIGO Clinical Practice Guideline for the Care of Kidney Transplant Recipient (2009; foundational kidney-transplant guidance)",
+          "url": "https://kdigo.org/guidelines/transplant-recipient/"
+        },
+        {
+          "id": "FDA_TACROLIMUS",
+          "label": "FDA — Tacrolimus/Prograf Prescribing Information (solid-organ rejection prophylaxis and safety)",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/050708s055%2C210115s007lbl.pdf"
+        },
+        {
+          "id": "FDA_MYCOPHENOLATE",
+          "label": "FDA — Mycophenolate prescribing information / embryo-fetal toxicity safety",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/216482s002lbl.pdf"
+        },
+        {
+          "id": "FDA_BELATACEPT",
+          "label": "FDA — Belatacept/Nulojix prescribing information (EBV-seropositive kidney recipients; PTLD warning)",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2011/125288s0000lbl.pdf"
+        },
+        {
+          "id": "FDA_SIROLIMUS",
+          "label": "FDA — Sirolimus/Rapamune prescribing information and organ-specific warnings",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/021083s067%2C021110s085lbl.pdf"
+        },
+        {
+          "id": "TTS_CMV_2025",
+          "label": "The Transplantation Society — Fourth International Consensus Guidelines on CMV in Solid Organ Transplantation (published 2025)",
+          "url": "https://tts.org/join-tts/9-tts/general/1616-fourth-international-consensus-guidelines-on-the-management-of-cytomegalovirus-in-solid-organ-transplantation"
+        },
+        {
+          "id": "TTS_BK_2024",
+          "label": "The Transplantation Society — Second International Consensus Guidelines on BK Polyomavirus in Kidney Transplantation (2024)",
+          "url": "https://tts.org/11-tts/news/1479-2nd-international-consensus-guidelines-on-the-management-of-bk-polyomavirus-in-kidney-transplantation"
+        },
+        {
+          "id": "FDA_LETERMOVIR",
+          "label": "FDA — Letermovir approval for CMV prophylaxis in high-risk kidney transplant recipients",
+          "url": "https://www.accessdata.fda.gov/scripts/opdlisting/oopd/detailedIndex.cfm?cfgridkey=340211"
+        },
+        {
+          "id": "FDA_MARIBAVIR",
+          "label": "FDA — Maribavir/Livtencity prescribing information for refractory post-transplant CMV",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/215596s004lbl.pdf"
+        },
+        {
+          "id": "CDC_ALTERED_IMMUNOCOMP",
+          "label": "CDC — Vaccination of Persons with Altered Immunocompetence",
+          "url": "https://www.cdc.gov/vaccines/hcp/acip-recs/general-recs/immunocompetence.html"
+        },
+        {
+          "id": "WHO_TRANSPLANT",
+          "label": "WHO — Transplantation of human cells, tissues and organs",
+          "url": "https://www.who.int/health-topics/transplantation"
         }
       ]
     }
