@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Mahamaya Clinic EMR — Modern Therapeutics Atlas V5.01",
-  "short_name": "Mahamaya EMR V5.01",
-  "description": "Clinical + Ayurveda EMR with Modern Therapeutics Atlas MTLPI v2.0 and V5.01 interaction hotfix: 238 disease pathways, 177 drug groups, 371 generic medicine records, working workflow/search/navigation controls, Ayurveda MATLI v1.5, Mission Assurance, Smart Investigations and SLAIE.",
+  "name": "Mahamaya Clinic EMR — Modern Therapeutics Atlas V5.10",
+  "short_name": "Mahamaya EMR V5.10",
+  "description": "Clinical + Ayurveda EMR with Modern Therapeutics Atlas MTLPI v2.1: 238 disease pathways, 198 drug groups, 443 generic medicine records, plus Antibiotic Intelligence Lab with 37 antibacterial groups and 111 agent profiles, Gram-spectrum/resistance/AWaRe lenses, Ayurveda MATLI v1.5, Mission Assurance and SLAIE.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -64,6 +64,19 @@
       "short_name": "Modern Atlas",
       "description": "Search disease, drug group, mechanism, generic and dose/formulation learning records",
       "url": "./?action=therapeutics",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Antibiotic Intelligence Lab",
+      "short_name": "Antibiotics",
+      "description": "Open antibacterial classification, spectrum and stewardship learning workspace",
+      "url": "./?action=therapeutics&module=antibiotics",
       "icons": [
         {
           "src": "./icon-192.png",
@@ -187,5 +200,5 @@
       ]
     }
   ],
-  "version": "5.01"
+  "version": "5.10"
 }

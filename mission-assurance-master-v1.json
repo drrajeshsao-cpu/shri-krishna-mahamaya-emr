@@ -1,8 +1,8 @@
 {
   "name": "Mahamaya Mission Assurance Master",
   "version": "1.0",
-  "app_version": "4.20",
-  "build": "2026.08.14-R18",
+  "app_version": "5.10",
+  "build": "2026.08.14-R22",
   "disclaimer": "Publicly inspired by published quality/research principles; not affiliated with or certified by NASA, ISRO, CCRAS, RAV, NHA/ABDM, WHO or HL7.",
   "pillars": [
     {
@@ -67,7 +67,11 @@
         "patient-context safety gate",
         "source provenance",
         "draft-only transfer to prescription",
-        "mandatory downstream safety review"
+        "mandatory downstream safety review",
+        "antibiotic class/spectrum educational boundary",
+        "culture/AST and local-antibiogram verification",
+        "WHO AWaRe stewardship lens",
+        "resistant-phenotype guidance provenance"
       ]
     },
     {
@@ -122,6 +126,10 @@
     {
       "id": "ayurveda_therapeutics_review",
       "label": "Ayurveda therapeutics catalog, condition mappings, dose/anupana verification policy and safety gates reviewed by qualified Ayurveda clinician/pharmacology expert"
+    },
+    {
+      "id": "antibiotic_review",
+      "label": "Antibiotic taxonomy, spectrum tags, AWaRe labels and learning-dose records reviewed against current antimicrobial guidance before clinical release"
     },
     {
       "id": "release_notes",

@@ -1,0 +1,44 @@
+Mahamaya Clinic EMR V5.10 — Antibiotic Intelligence Validation
+Build: 2026.08.14-R22
+MTLPI v2.1 • ABX v1.0
+
+- Version badge V5.10: PASS
+- Build R22 marker: PASS
+- Modern disease pathways: 238 — PASS
+- Modern drug groups: 198 — PASS
+- Modern generic records: 443 — PASS
+- Antibiotic groups: 37 — PASS
+- Antibiotic agent profiles: 111 — PASS
+- WHO AWaRe learning-lens records: Access 40 / Watch 48 / Reserve 23
+- Duplicate static DOM IDs: 0 — PASS
+- Broken class→drug refs: 0 — PASS
+- Broken antibiotic refs: 0 — PASS
+- Broken source refs: 0 — PASS
+- Manifest version 5.10: PASS
+- Service worker R22 cache: PASS
+- Antibiotic JSON cached by service worker: PASS
+- Antibiotic launch button present: PASS
+- Gram-positive / Gram-negative lenses: PASS
+- Resistant phenotype lenses (ESBL/AmpC, CRE, Acinetobacter, Stenotrophomonas): PASS
+- Bactericidal/bacteriostatic + oral/IV practical lenses: PASS
+- Inline JavaScript syntax: 10/10 — PASS
+- therapeutics-intelligence-engine.js syntax: PASS
+- ayurveda-therapeutics-engine.js syntax: PASS
+- complaint-intelligence-engine.js syntax: PASS
+- mission-assurance-engine.js syntax: PASS
+- install-pwa.js syntax: PASS
+- service-worker.js syntax: PASS
+
+Browser interaction regression (isolated real V5.10 Modern Atlas card + engine + real MTLPI + antibiotic JSON):
+- Antibiotic Lab launch: PASS
+- All antibiotic group cards render: PASS
+- Gram-positive / Gram-negative filters: PASS
+- Pseudomonas / MRSA / CRE filters: PASS
+- WHO AWaRe Access / Reserve filters: PASS
+- Antibiotic text filter + clear: PASS
+- Antibiotic Monograph + AWaRe display: PASS
+- Search “antibiotic” opens Antibiotic Lab: PASS
+- Exit Lab → general Asthma Atlas remains functional: PASS
+- Browser JavaScript errors: 0 — PASS
+
+LIMITATION: Full localhost app navigation was blocked by the execution environment administrator, so browser regression used an isolated harness containing the real V5.10 Modern Atlas HTML card, engine and both real JSON datasets. After GitHub Pages upload, one live smoke test is still required. Spectrum/AWaRe/dose content remains clinician/pharmacist-review material and does not replace culture/AST, local antibiogram, current guidelines or patient-specific safety review.
