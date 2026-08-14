@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya.common_chronic_pharmacology.v1",
-  "version": "1.4C2",
-  "app_version": "V5.40C-2",
-  "build": "2026.08.14-R25C2",
-  "name": "High-Use Pharmacology Intelligence Labs — through Bone/Osteoporosis/Rheumatology",
+  "version": "1.4D",
+  "app_version": "V5.40D",
+  "build": "2026.08.14-R25D",
+  "name": "High-Use Pharmacology Intelligence Labs — through Renal & Urology",
   "counts": {
-    "labs": 9,
-    "classes": 236,
-    "drug_profiles": 670
+    "labs": 10,
+    "classes": 267,
+    "drug_profiles": 734
   },
-  "global_boundary": "Research/learning pharmacology only. Class tags and adult learning-dose snapshots are not patient-specific prescriptions. Verify diagnosis, fracture/inflammatory-disease phenotype, indication, formulation/route, current label/guideline, age/weight, renal/hepatic function, pregnancy/reproductive plan, infection/TB/hepatitis status, vaccination, contraindications, interactions and monitoring. Osteoporosis sequencing and DMARD/biologic decisions may have high-consequence stop/start effects.",
+  "global_boundary": "Research/learning pharmacology only. V5.40D adds Renal/Urology on top of the existing pharmacology labs. Exact indication, dose, renal/hepatic function, pregnancy, age/weight, interactions, obstruction/retention status, electrolyte/acid-base state and current label/guideline must be verified. Emergencies and specialist therapies remain clinician-controlled.",
   "labs": [
     {
       "id": "hypertension",
@@ -20542,6 +20542,1954 @@
           "id": "FDA_JAK_SAFETY",
           "label": "FDA JAK inhibitor boxed-warning safety communication",
           "url": "https://www.fda.gov/safety/medical-product-safety-information/janus-kinase-jak-inhibitors-drug-safety-communication-fda-requires-warnings-about-increased-risk"
+        }
+      ]
+    },
+    {
+      "id": "renal_urology",
+      "title": "Renal & Urology Intelligence Lab",
+      "icon": "🚰",
+      "badge": "RENAL-URO v1.0",
+      "eyebrow": "NEPHROLOGY / UROLOGY CLINICAL PHARMACOLOGY LEARNING WORKSPACE",
+      "subtitle": "CKD/AKI context → cardiorenal protection → diuretics/electrolytes → CKD complications → LUTS/BPH/OAB → stones/ED → mechanism → generic → formulation → adult learning-dose → monitoring/source verification",
+      "scientific_boundary": "Research/learning pharmacology only. Kidney and urology prescribing is highly dependent on eGFR, albuminuria, potassium, volume status, acid-base status, dialysis status, obstruction/retention, stone composition, pregnancy and interacting medicines. Displayed doses are adult learning snapshots, not patient-specific prescriptions. AKI, severe electrolyte disturbance, urinary obstruction, priapism and dialysis complications can be emergencies. Verify current guideline/label and local renal-dose resources before prescribing.",
+      "classification_notes": {
+        "renal_dose": "Renal function changes exposure to many medicines. eGFR/CrCl method, indication and product label can differ; do not infer a dose from CKD stage alone.",
+        "aki_gate": "Suspected AKI requires cause/volume/obstruction/nephrotoxin review. Do not use a chronic CKD card as an autonomous AKI treatment protocol.",
+        "raas_k_guard": "ACEi/ARB/MRA/SGLT2 therapies may be kidney-protective in appropriate CKD but need creatinine/eGFR, potassium, BP and volume monitoring. Hyperkalemia may sometimes be mitigated rather than automatically abandoning beneficial therapy.",
+        "diuretic_boundary": "Diuretic response depends on GFR, sodium intake, albumin, gut absorption and congestion. Loop-thiazide combinations can produce profound volume/electrolyte depletion and require close monitoring.",
+        "electrolyte_emergency": "Severe hyperkalemia, symptomatic hyponatremia and severe metabolic acidosis are emergency/specialist contexts. Chronic oral agents must not be confused with immediate membrane-stabilization or shifting therapies.",
+        "bph_oab_overlap": "Male LUTS can reflect BPH, OAB, urethral stricture, neurogenic bladder, infection or malignancy. Measure retention/PVR and identify red flags before escalating drug therapy.",
+        "stone_phenotype": "Stone prevention depends on stone analysis and metabolic phenotype. Thiazide, potassium citrate, allopurinol or cystine-directed therapy are not interchangeable universal stone drugs.",
+        "ed_nitrate": "PDE5 inhibitors are contraindicated with nitrates because of potentially profound hypotension; cardiovascular fitness and interacting alpha-blockers must be reviewed.",
+        "dose_boundary": "All dose examples are common adult learning snapshots. Renal/hepatic adjustment, dialysis timing, geriatric frailty and product-specific formulation rules must be verified."
+      },
+      "lens_groups": [
+        {
+          "group": "Kidney protection / CKD",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Renal/Urology classes"
+            },
+            {
+              "id": "ckd",
+              "label": "CKD protection"
+            },
+            {
+              "id": "albuminuria",
+              "label": "Albuminuria / RAAS"
+            },
+            {
+              "id": "sglt2",
+              "label": "SGLT2 / cardiorenal"
+            },
+            {
+              "id": "hyperkalemia",
+              "label": "Hyperkalemia mitigation"
+            },
+            {
+              "id": "metabolic_acidosis",
+              "label": "Metabolic acidosis"
+            }
+          ]
+        },
+        {
+          "group": "Volume / electrolytes",
+          "items": [
+            {
+              "id": "loop_diuretic",
+              "label": "Loop diuretics"
+            },
+            {
+              "id": "thiazide",
+              "label": "Thiazide / thiazide-like"
+            },
+            {
+              "id": "potassium_sparing",
+              "label": "K⁺-sparing / MRA"
+            },
+            {
+              "id": "edema",
+              "label": "Edema / congestion"
+            },
+            {
+              "id": "hyponatremia",
+              "label": "Hyponatremia / aquaresis"
+            },
+            {
+              "id": "electrolyte_replace",
+              "label": "Electrolyte replacement"
+            }
+          ]
+        },
+        {
+          "group": "CKD complications",
+          "items": [
+            {
+              "id": "anemia_ckd",
+              "label": "Anemia in CKD"
+            },
+            {
+              "id": "ckd_mbd",
+              "label": "CKD-MBD / phosphate-PTH"
+            },
+            {
+              "id": "dialysis_support",
+              "label": "Dialysis supportive pharmacology"
+            }
+          ]
+        },
+        {
+          "group": "Lower urinary tract",
+          "items": [
+            {
+              "id": "bph",
+              "label": "BPH / male LUTS"
+            },
+            {
+              "id": "alpha_blocker",
+              "label": "α1 blockers"
+            },
+            {
+              "id": "five_ari",
+              "label": "5α-reductase inhibitors"
+            },
+            {
+              "id": "oab",
+              "label": "Overactive bladder"
+            },
+            {
+              "id": "antimuscarinic",
+              "label": "Antimuscarinics"
+            },
+            {
+              "id": "beta3",
+              "label": "β3 agonists"
+            },
+            {
+              "id": "retention",
+              "label": "Retention / voiding caution"
+            }
+          ]
+        },
+        {
+          "group": "Stones / sexual-urology",
+          "items": [
+            {
+              "id": "stones",
+              "label": "Kidney stones"
+            },
+            {
+              "id": "stone_prevention",
+              "label": "Stone prevention"
+            },
+            {
+              "id": "medical_expulsive",
+              "label": "Medical expulsive context"
+            },
+            {
+              "id": "ed",
+              "label": "Erectile dysfunction"
+            },
+            {
+              "id": "urinary_analgesia",
+              "label": "Urinary analgesia"
+            }
+          ]
+        },
+        {
+          "group": "Monitoring / safety",
+          "items": [
+            {
+              "id": "renal_adjust",
+              "label": "Renal-dose verification"
+            },
+            {
+              "id": "potassium_monitor",
+              "label": "K⁺ monitoring"
+            },
+            {
+              "id": "bp_volume",
+              "label": "BP / volume monitoring"
+            },
+            {
+              "id": "high_risk",
+              "label": "High-risk / specialist"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "ru_raas",
+          "name": "ACE inhibitors / ARBs in CKD",
+          "mechanism": "Reduce angiotensin-II signaling, intraglomerular pressure and albuminuria",
+          "target": "RAAS / AT1 receptor",
+          "tags": [
+            "ckd",
+            "albuminuria",
+            "potassium_monitor",
+            "renal_adjust"
+          ],
+          "role_note": "Kidney- and CV-protective in appropriate albuminuric CKD; monitor creatinine and potassium after initiation/titration.",
+          "drug_ids": [
+            "ru_lisinopril",
+            "ru_losartan",
+            "ru_telmisartan"
+          ]
+        },
+        {
+          "id": "ru_sglt2",
+          "name": "SGLT2 inhibitors for CKD/cardiorenal protection",
+          "mechanism": "Reduce proximal tubular glucose/sodium reabsorption and alter tubuloglomerular feedback",
+          "target": "SGLT2",
+          "tags": [
+            "ckd",
+            "sglt2",
+            "albuminuria",
+            "renal_adjust"
+          ],
+          "role_note": "Kidney/CV-protective agents in eligible CKD with or without diabetes depending on indication/label.",
+          "drug_ids": [
+            "ru_dapagliflozin",
+            "ru_empagliflozin"
+          ]
+        },
+        {
+          "id": "ru_nsmra",
+          "name": "Nonsteroidal mineralocorticoid receptor antagonist",
+          "mechanism": "Selective MR antagonism reduces inflammatory/fibrotic signaling",
+          "target": "Mineralocorticoid receptor",
+          "tags": [
+            "ckd",
+            "albuminuria",
+            "potassium_monitor",
+            "high_risk"
+          ],
+          "role_note": "Finerenone is used in selected T2D+CKD with albuminuria after potassium/eGFR review.",
+          "drug_ids": [
+            "ru_finerenone"
+          ]
+        },
+        {
+          "id": "ru_loop",
+          "name": "Loop diuretics",
+          "mechanism": "Block Na-K-2Cl cotransporter in thick ascending limb",
+          "target": "NKCC2",
+          "tags": [
+            "loop_diuretic",
+            "edema",
+            "bp_volume",
+            "renal_adjust"
+          ],
+          "role_note": "High-potency natriuresis for edema/congestion; dose requirement rises with reduced GFR and resistance.",
+          "drug_ids": [
+            "ru_furosemide",
+            "ru_torsemide",
+            "ru_bumetanide"
+          ]
+        },
+        {
+          "id": "ru_thiazide",
+          "name": "Thiazide / thiazide-like diuretics",
+          "mechanism": "Block Na-Cl cotransporter in distal convoluted tubule",
+          "target": "NCC",
+          "tags": [
+            "thiazide",
+            "edema",
+            "bp_volume",
+            "stone_prevention"
+          ],
+          "role_note": "BP/edema therapy and selected calcium-stone prevention; can be combined with loop under close monitoring.",
+          "drug_ids": [
+            "ru_chlorthalidone",
+            "ru_indapamide",
+            "ru_hctz"
+          ]
+        },
+        {
+          "id": "ru_mra",
+          "name": "Steroidal MR antagonists / potassium-sparing diuretics",
+          "mechanism": "Block aldosterone-mediated sodium retention and potassium excretion",
+          "target": "Mineralocorticoid receptor",
+          "tags": [
+            "potassium_sparing",
+            "edema",
+            "potassium_monitor",
+            "renal_adjust"
+          ],
+          "role_note": "Useful in HF/resistant HTN/ascites contexts; CKD hyperkalemia risk is central.",
+          "drug_ids": [
+            "ru_spironolactone",
+            "ru_eplerenone"
+          ]
+        },
+        {
+          "id": "ru_enac",
+          "name": "ENaC blockers",
+          "mechanism": "Block epithelial sodium channels in collecting duct",
+          "target": "ENaC",
+          "tags": [
+            "potassium_sparing",
+            "potassium_monitor"
+          ],
+          "role_note": "Weak natriuresis; often paired with thiazide to limit hypokalemia; can cause hyperkalemia.",
+          "drug_ids": [
+            "ru_amiloride",
+            "ru_triamterene"
+          ]
+        },
+        {
+          "id": "ru_ca_inhibitor",
+          "name": "Carbonic anhydrase inhibitor",
+          "mechanism": "Inhibits proximal tubular bicarbonate reabsorption",
+          "target": "Carbonic anhydrase",
+          "tags": [
+            "edema",
+            "metabolic_acidosis",
+            "high_risk"
+          ],
+          "role_note": "Selected edema/alkalosis/glaucoma/altitude contexts; causes bicarbonate loss.",
+          "drug_ids": [
+            "ru_acetazolamide"
+          ]
+        },
+        {
+          "id": "ru_osmotic",
+          "name": "Osmotic diuretic",
+          "mechanism": "Raises tubular fluid osmolality, limiting water reabsorption",
+          "target": "Tubular osmolality",
+          "tags": [
+            "high_risk",
+            "bp_volume"
+          ],
+          "role_note": "Hospital/specialist therapy for selected intracranial/intraocular pressure contexts, not routine CKD edema therapy.",
+          "drug_ids": [
+            "ru_mannitol"
+          ]
+        },
+        {
+          "id": "ru_k_binders",
+          "name": "Chronic potassium binders",
+          "mechanism": "Bind potassium in GI tract to increase fecal elimination",
+          "target": "GI potassium exchange",
+          "tags": [
+            "hyperkalemia",
+            "potassium_monitor",
+            "renal_adjust"
+          ],
+          "role_note": "Useful for chronic/subacute hyperkalemia mitigation; not substitutes for immediate ECG-directed emergency therapy.",
+          "drug_ids": [
+            "ru_patiromer",
+            "ru_szc",
+            "ru_sps"
+          ]
+        },
+        {
+          "id": "ru_alkali",
+          "name": "Oral alkali therapy",
+          "mechanism": "Provides bicarbonate/citrate base to correct chronic acid load or alkalinize urine",
+          "target": "Systemic bicarbonate / urinary citrate",
+          "tags": [
+            "metabolic_acidosis",
+            "stones",
+            "stone_prevention"
+          ],
+          "role_note": "Used for selected CKD metabolic acidosis or stone phenotypes after sodium/potassium/volume review.",
+          "drug_ids": [
+            "ru_sodium_bicarbonate",
+            "ru_potassium_citrate"
+          ]
+        },
+        {
+          "id": "ru_phosphate_binders",
+          "name": "Phosphate binders",
+          "mechanism": "Bind dietary phosphate in GI tract, reducing absorption",
+          "target": "GI phosphate binding",
+          "tags": [
+            "ckd_mbd",
+            "dialysis_support",
+            "renal_adjust"
+          ],
+          "role_note": "CKD-MBD therapy is based on serial phosphate/calcium/PTH trends; avoid reflex treatment of a single lab value.",
+          "drug_ids": [
+            "ru_calcium_acetate",
+            "ru_sevelamer",
+            "ru_lanthanum",
+            "ru_ferric_citrate"
+          ]
+        },
+        {
+          "id": "ru_vitd_ckd",
+          "name": "Active vitamin-D receptor therapy in CKD-MBD",
+          "mechanism": "Activates vitamin-D receptor to suppress PTH",
+          "target": "Vitamin D receptor",
+          "tags": [
+            "ckd_mbd",
+            "dialysis_support"
+          ],
+          "role_note": "Used selectively for secondary hyperparathyroidism; not interchangeable with routine nutritional vitamin D replacement.",
+          "drug_ids": [
+            "ru_calcitriol",
+            "ru_paricalcitol"
+          ]
+        },
+        {
+          "id": "ru_calcimimetic",
+          "name": "Calcimimetics",
+          "mechanism": "Activate calcium-sensing receptor to suppress PTH secretion",
+          "target": "CaSR",
+          "tags": [
+            "ckd_mbd",
+            "dialysis_support",
+            "high_risk"
+          ],
+          "role_note": "Secondary hyperparathyroidism therapy especially in dialysis; calcium monitoring is mandatory.",
+          "drug_ids": [
+            "ru_cinacalcet",
+            "ru_etelcalcetide"
+          ]
+        },
+        {
+          "id": "ru_iron_ckd",
+          "name": "Iron replacement in CKD",
+          "mechanism": "Replaces iron for erythropoiesis",
+          "target": "Iron stores / transferrin saturation",
+          "tags": [
+            "anemia_ckd",
+            "dialysis_support"
+          ],
+          "role_note": "Iron route and thresholds depend on Hb, ferritin, TSAT, CKD/dialysis status and ESA plan.",
+          "drug_ids": [
+            "ru_ferrous_sulfate",
+            "ru_iron_sucrose",
+            "ru_ferric_carboxymaltose"
+          ]
+        },
+        {
+          "id": "ru_esa",
+          "name": "Erythropoiesis-stimulating agents",
+          "mechanism": "Stimulate erythroid progenitors via erythropoietin receptor",
+          "target": "EPO receptor",
+          "tags": [
+            "anemia_ckd",
+            "dialysis_support",
+            "high_risk"
+          ],
+          "role_note": "Used after evaluating/treating iron deficiency and other causes; Hb targets and dosing are deliberately conservative because of CV/thrombotic risk.",
+          "drug_ids": [
+            "ru_epoetin",
+            "ru_darbepoetin"
+          ]
+        },
+        {
+          "id": "ru_hifphi",
+          "name": "HIF-prolyl hydroxylase inhibitor",
+          "mechanism": "Stabilizes HIF transcription factors, increasing endogenous EPO and iron availability pathways",
+          "target": "HIF-PH",
+          "tags": [
+            "anemia_ckd",
+            "high_risk"
+          ],
+          "role_note": "Oral anemia-in-CKD class with jurisdiction/label-specific indications and safety considerations.",
+          "drug_ids": [
+            "ru_daprodustat"
+          ]
+        },
+        {
+          "id": "ru_bph_alpha",
+          "name": "α1-adrenergic blockers for LUTS/BPH",
+          "mechanism": "Relax prostatic/bladder-neck smooth muscle",
+          "target": "α1 adrenergic receptor",
+          "tags": [
+            "bph",
+            "alpha_blocker",
+            "retention",
+            "bp_volume"
+          ],
+          "role_note": "Rapid symptom improvement in BPH/LUTS but does not reliably shrink prostate or prevent progression alone.",
+          "drug_ids": [
+            "ru_tamsulosin",
+            "ru_alfuzosin",
+            "ru_silodosin",
+            "ru_doxazosin"
+          ]
+        },
+        {
+          "id": "ru_bph_5ari",
+          "name": "5α-reductase inhibitors",
+          "mechanism": "Reduce conversion of testosterone to DHT and shrink androgen-dependent prostate tissue",
+          "target": "5α-reductase",
+          "tags": [
+            "bph",
+            "five_ari"
+          ],
+          "role_note": "Best suited to enlarged prostate/progression-risk phenotype; symptom benefit takes months.",
+          "drug_ids": [
+            "ru_finasteride",
+            "ru_dutasteride"
+          ]
+        },
+        {
+          "id": "ru_bph_pde5",
+          "name": "PDE5 inhibitor for LUTS/BPH",
+          "mechanism": "Increases cGMP signaling in lower urinary tract smooth muscle",
+          "target": "PDE5",
+          "tags": [
+            "bph",
+            "ed",
+            "bp_volume"
+          ],
+          "role_note": "Tadalafil can address both LUTS/BPH and ED; nitrate contraindication is critical.",
+          "drug_ids": [
+            "ru_tadalafil_bph"
+          ]
+        },
+        {
+          "id": "ru_oab_antimus",
+          "name": "Antimuscarinics for overactive bladder",
+          "mechanism": "Block muscarinic detrusor signaling to reduce urgency/frequency",
+          "target": "M3-predominant muscarinic receptors",
+          "tags": [
+            "oab",
+            "antimuscarinic",
+            "retention"
+          ],
+          "role_note": "OAB symptom therapy after behavioral measures; cognitive/anticholinergic burden and retention risk matter.",
+          "drug_ids": [
+            "ru_oxybutynin",
+            "ru_tolterodine",
+            "ru_solifenacin",
+            "ru_trospium"
+          ]
+        },
+        {
+          "id": "ru_oab_beta3",
+          "name": "β3-adrenergic agonists for OAB",
+          "mechanism": "Relax detrusor during storage via β3 receptor activation",
+          "target": "β3 adrenergic receptor",
+          "tags": [
+            "oab",
+            "beta3",
+            "bp_volume"
+          ],
+          "role_note": "Non-anticholinergic OAB option; BP and interactions differ by agent.",
+          "drug_ids": [
+            "ru_mirabegron",
+            "ru_vibegron"
+          ]
+        },
+        {
+          "id": "ru_desmopressin",
+          "name": "Desmopressin for selected nocturnal polyuria",
+          "mechanism": "V2 receptor agonism increases collecting-duct water reabsorption",
+          "target": "V2 receptor / aquaporin-2",
+          "tags": [
+            "hyponatremia",
+            "high_risk",
+            "renal_adjust"
+          ],
+          "role_note": "Only for carefully selected nocturnal polyuria/DI contexts; hyponatremia risk can be serious.",
+          "drug_ids": [
+            "ru_desmopressin"
+          ]
+        },
+        {
+          "id": "ru_stone_thiazide",
+          "name": "Thiazides for recurrent calcium-stone phenotype",
+          "mechanism": "Lower urinary calcium excretion through distal tubular sodium/calcium effects",
+          "target": "NCC / urinary calcium",
+          "tags": [
+            "stones",
+            "stone_prevention",
+            "thiazide"
+          ],
+          "role_note": "Consider only after stone/metabolic evaluation and dietary sodium counseling.",
+          "drug_ids": [
+            "ru_chlorthalidone_stone"
+          ]
+        },
+        {
+          "id": "ru_stone_urate",
+          "name": "Uric-acid / hyperuricosuric stone pharmacology",
+          "mechanism": "Reduces uric acid production or alkalinizes urine depending phenotype",
+          "target": "Xanthine oxidase / urinary pH",
+          "tags": [
+            "stones",
+            "stone_prevention"
+          ],
+          "role_note": "Uric-acid stones often depend strongly on urine alkalinization; allopurinol is phenotype-specific rather than universal.",
+          "drug_ids": [
+            "ru_allopurinol_stone",
+            "ru_potassium_citrate_stone"
+          ]
+        },
+        {
+          "id": "ru_cystine",
+          "name": "Cystinuria-directed thiol therapy",
+          "mechanism": "Forms more soluble mixed disulfides with cystine",
+          "target": "Urinary cystine",
+          "tags": [
+            "stones",
+            "stone_prevention",
+            "high_risk"
+          ],
+          "role_note": "Specialist therapy after high fluids, sodium/protein measures and urine alkalinization when cystinuria persists.",
+          "drug_ids": [
+            "ru_tiopronin",
+            "ru_dpenicillamine"
+          ]
+        },
+        {
+          "id": "ru_met",
+          "name": "α-blocker medical expulsive therapy context",
+          "mechanism": "Relaxes ureteral smooth muscle via α1 blockade",
+          "target": "Ureteral α1 receptors",
+          "tags": [
+            "stones",
+            "medical_expulsive",
+            "alpha_blocker"
+          ],
+          "role_note": "May aid passage of selected ureteral stones; size/location and need for urgent decompression are decisive.",
+          "drug_ids": [
+            "ru_tamsulosin_met"
+          ]
+        },
+        {
+          "id": "ru_ed_pde5",
+          "name": "PDE5 inhibitors for erectile dysfunction",
+          "mechanism": "Prevent cGMP degradation and augment nitric-oxide mediated cavernosal smooth-muscle relaxation",
+          "target": "PDE5",
+          "tags": [
+            "ed",
+            "bp_volume"
+          ],
+          "role_note": "First-line pharmacologic ED class for many patients after cardiovascular/medication review.",
+          "drug_ids": [
+            "ru_sildenafil",
+            "ru_tadalafil",
+            "ru_vardenafil"
+          ]
+        },
+        {
+          "id": "ru_ed_prostaglandin",
+          "name": "Prostaglandin E1 erectile therapy",
+          "mechanism": "Increases cAMP causing cavernosal smooth-muscle relaxation",
+          "target": "EP receptors / cAMP",
+          "tags": [
+            "ed",
+            "high_risk"
+          ],
+          "role_note": "Second-line/local ED therapy when oral PDE5 inhibitors are unsuitable or ineffective.",
+          "drug_ids": [
+            "ru_alprostadil"
+          ]
+        },
+        {
+          "id": "ru_urinary_analgesic",
+          "name": "Urinary tract analgesic",
+          "mechanism": "Exerts topical analgesic effect on urinary mucosa after renal excretion",
+          "target": "Urinary mucosa",
+          "tags": [
+            "urinary_analgesia",
+            "renal_adjust"
+          ],
+          "role_note": "Short-term symptom relief only; does not treat infection or obstruction.",
+          "drug_ids": [
+            "ru_phenazopyridine"
+          ]
+        },
+        {
+          "id": "ru_electrolyte_replace",
+          "name": "Oral electrolyte replacement",
+          "mechanism": "Replaces depleted potassium or magnesium stores when oral replacement is appropriate",
+          "target": "Systemic potassium / magnesium stores",
+          "tags": [
+            "electrolyte_replace",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role_note": "Oral replacement is for selected stable deficits; severe/symptomatic disturbances require ECG-aware emergency or monitored protocols.",
+          "drug_ids": [
+            "ru_potassium_chloride",
+            "ru_magnesium_oxide"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "ru_lisinopril",
+          "generic": "Lisinopril",
+          "class_id": "ru_raas",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult start 5–10 mg once daily; renal function/BP guide titration.",
+          "tags": [
+            "ckd",
+            "albuminuria",
+            "potassium_monitor",
+            "renal_adjust"
+          ],
+          "role": "ACE inhibitor option.",
+          "monitoring_pearl": "Creatinine/eGFR, potassium, BP; cough/angioedema; pregnancy contraindication.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_losartan",
+          "generic": "Losartan",
+          "class_id": "ru_raas",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult start 25–50 mg once daily; titrate to response.",
+          "tags": [
+            "ckd",
+            "albuminuria",
+            "potassium_monitor",
+            "renal_adjust"
+          ],
+          "role": "ARB option with albuminuria/BP benefit.",
+          "monitoring_pearl": "Potassium, creatinine/eGFR, BP; pregnancy contraindication.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_telmisartan",
+          "generic": "Telmisartan",
+          "class_id": "ru_raas",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult 20–40 mg once daily, titrate as indicated.",
+          "tags": [
+            "ckd",
+            "albuminuria",
+            "potassium_monitor",
+            "renal_adjust"
+          ],
+          "role": "Long-acting ARB.",
+          "monitoring_pearl": "Potassium, creatinine/eGFR, BP; pregnancy contraindication.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_dapagliflozin",
+          "generic": "Dapagliflozin",
+          "class_id": "ru_sglt2",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "10 mg once daily is the common CKD/HF dose; verify eGFR/label initiation threshold.",
+          "tags": [
+            "ckd",
+            "sglt2",
+            "albuminuria",
+            "renal_adjust"
+          ],
+          "role": "CKD/HF cardiorenal therapy.",
+          "monitoring_pearl": "Volume status, eGFR, genital infection, ketoacidosis sick-day/perioperative precautions.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_empagliflozin",
+          "generic": "Empagliflozin",
+          "class_id": "ru_sglt2",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "10 mg once daily is common for CKD/HF; verify eGFR/label.",
+          "tags": [
+            "ckd",
+            "sglt2",
+            "albuminuria",
+            "renal_adjust"
+          ],
+          "role": "CKD/HF cardiorenal therapy.",
+          "monitoring_pearl": "Volume status, eGFR, genital infection, ketoacidosis precautions.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_finerenone",
+          "generic": "Finerenone",
+          "class_id": "ru_nsmra",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "10 or 20 mg once daily depending on eGFR/potassium; use label algorithm.",
+          "tags": [
+            "ckd",
+            "albuminuria",
+            "potassium_monitor",
+            "high_risk"
+          ],
+          "role": "Cardiorenal risk reduction in eligible T2D+CKD.",
+          "monitoring_pearl": "Potassium and eGFR before/after initiation; CYP3A interactions.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_furosemide",
+          "generic": "Furosemide",
+          "class_id": "ru_loop",
+          "form": "Tablet/solution/injection",
+          "route": "Oral/IV",
+          "dose_example": "Common outpatient start 20–40 mg once daily; edema dosing is highly individualized.",
+          "tags": [
+            "loop_diuretic",
+            "edema",
+            "bp_volume",
+            "renal_adjust"
+          ],
+          "role": "Loop diuretic for volume overload.",
+          "monitoring_pearl": "Weight, BP, creatinine, Na/K/Mg; ototoxicity at high/rapid IV doses.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_torsemide",
+          "generic": "Torsemide",
+          "class_id": "ru_loop",
+          "form": "Tablet/injection",
+          "route": "Oral/IV",
+          "dose_example": "Common outpatient start 10–20 mg once daily for edema; titrate.",
+          "tags": [
+            "loop_diuretic",
+            "edema",
+            "bp_volume",
+            "renal_adjust"
+          ],
+          "role": "Loop with reliable oral bioavailability.",
+          "monitoring_pearl": "Volume, renal function, Na/K/Mg, BP.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_bumetanide",
+          "generic": "Bumetanide",
+          "class_id": "ru_loop",
+          "form": "Tablet/injection",
+          "route": "Oral/IV",
+          "dose_example": "Common adult start 0.5–1 mg once or twice daily; potency differs from furosemide.",
+          "tags": [
+            "loop_diuretic",
+            "edema",
+            "bp_volume",
+            "renal_adjust"
+          ],
+          "role": "Potent loop diuretic.",
+          "monitoring_pearl": "Volume/electrolytes/renal function; avoid simple mg-for-mg loop conversion.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_chlorthalidone",
+          "generic": "Chlorthalidone",
+          "class_id": "ru_thiazide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult 12.5–25 mg once daily for hypertension.",
+          "tags": [
+            "thiazide",
+            "edema",
+            "bp_volume",
+            "stone_prevention"
+          ],
+          "role": "Long-acting thiazide-like diuretic.",
+          "monitoring_pearl": "Na/K, uric acid, glucose, creatinine; volume depletion.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_indapamide",
+          "generic": "Indapamide",
+          "class_id": "ru_thiazide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common 1.25–2.5 mg once daily; formulation-specific dosing.",
+          "tags": [
+            "thiazide",
+            "edema",
+            "bp_volume",
+            "stone_prevention"
+          ],
+          "role": "Thiazide-like diuretic.",
+          "monitoring_pearl": "Na/K, renal function, uric acid.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_hctz",
+          "generic": "Hydrochlorothiazide",
+          "class_id": "ru_thiazide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common 12.5–25 mg once daily for hypertension; stone regimens may differ.",
+          "tags": [
+            "thiazide",
+            "edema",
+            "bp_volume",
+            "stone_prevention",
+            "stones"
+          ],
+          "role": "Thiazide diuretic / hypercalciuria context.",
+          "monitoring_pearl": "Na/K, uric acid, glucose; confirm stone phenotype.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_spironolactone",
+          "generic": "Spironolactone",
+          "class_id": "ru_mra",
+          "form": "Tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Common 12.5–25 mg once daily in HF/resistant HTN; indication-specific.",
+          "tags": [
+            "potassium_sparing",
+            "edema",
+            "potassium_monitor",
+            "renal_adjust"
+          ],
+          "role": "MRA.",
+          "monitoring_pearl": "Potassium/eGFR, gynecomastia/endocrine effects.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_eplerenone",
+          "generic": "Eplerenone",
+          "class_id": "ru_mra",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common 25 mg once daily, titrate to 50 mg once daily if appropriate.",
+          "tags": [
+            "potassium_sparing",
+            "edema",
+            "potassium_monitor",
+            "renal_adjust"
+          ],
+          "role": "Selective MRA.",
+          "monitoring_pearl": "Potassium/eGFR; CYP3A interactions.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_amiloride",
+          "generic": "Amiloride",
+          "class_id": "ru_enac",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common 5 mg once daily, titrate cautiously.",
+          "tags": [
+            "potassium_sparing",
+            "potassium_monitor"
+          ],
+          "role": "ENaC blocker; also selected lithium-induced nephrogenic DI context.",
+          "monitoring_pearl": "Potassium/eGFR; hyperkalemia.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_triamterene",
+          "generic": "Triamterene",
+          "class_id": "ru_enac",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Common 50–100 mg once/twice daily depending product/combination.",
+          "tags": [
+            "potassium_sparing",
+            "potassium_monitor"
+          ],
+          "role": "ENaC blocker often in fixed diuretic combination.",
+          "monitoring_pearl": "Potassium/eGFR; stones/crystalluria rare.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_acetazolamide",
+          "generic": "Acetazolamide",
+          "class_id": "ru_ca_inhibitor",
+          "form": "Tablet/injection",
+          "route": "Oral/IV",
+          "dose_example": "Common adult 250–500 mg once/twice daily depending indication.",
+          "tags": [
+            "edema",
+            "metabolic_acidosis",
+            "high_risk"
+          ],
+          "role": "Carbonic anhydrase inhibitor.",
+          "monitoring_pearl": "Bicarbonate/K/Na, renal function; sulfonamide reaction, stones, metabolic acidosis.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_mannitol",
+          "generic": "Mannitol",
+          "class_id": "ru_osmotic",
+          "form": "IV solution",
+          "route": "IV",
+          "dose_example": "Weight-based hospital dosing is indication-specific; verify protocol.",
+          "tags": [
+            "high_risk",
+            "bp_volume"
+          ],
+          "role": "Osmotic diuretic.",
+          "monitoring_pearl": "Serum osmolality/electrolytes, volume, pulmonary edema; avoid anuria without specialist assessment.",
+          "source_refs": [
+            "ICMR_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_patiromer",
+          "generic": "Patiromer",
+          "class_id": "ru_k_binders",
+          "form": "Powder for suspension",
+          "route": "Oral",
+          "dose_example": "Common start 8.4 g once daily; titrate based on potassium.",
+          "tags": [
+            "hyperkalemia",
+            "potassium_monitor",
+            "renal_adjust"
+          ],
+          "role": "Chronic potassium binder.",
+          "monitoring_pearl": "K/Mg; separate many oral drugs by label-defined interval; not emergency onset.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_szc",
+          "generic": "Sodium zirconium cyclosilicate",
+          "class_id": "ru_k_binders",
+          "form": "Powder for suspension",
+          "route": "Oral",
+          "dose_example": "Initial 10 g three times daily up to 48 h may be used, then maintenance 5–15 g daily; label-specific.",
+          "tags": [
+            "hyperkalemia",
+            "potassium_monitor",
+            "renal_adjust"
+          ],
+          "role": "Potassium binder with relatively rapid GI action.",
+          "monitoring_pearl": "K, edema/sodium load; separate pH-dependent drugs per label.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_sps",
+          "generic": "Sodium polystyrene sulfonate",
+          "class_id": "ru_k_binders",
+          "form": "Powder/suspension",
+          "route": "Oral/rectal",
+          "dose_example": "Product dosing varies; verify current label/local protocol.",
+          "tags": [
+            "hyperkalemia",
+            "potassium_monitor",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role": "Older cation-exchange resin.",
+          "monitoring_pearl": "GI injury/necrosis risk, sodium load, interactions; contemporary alternatives may be preferred.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_sodium_bicarbonate",
+          "generic": "Sodium bicarbonate",
+          "class_id": "ru_alkali",
+          "form": "Tablet/powder",
+          "route": "Oral",
+          "dose_example": "Common CKD starts around 650 mg once/twice daily then titrate to bicarbonate; individualized.",
+          "tags": [
+            "metabolic_acidosis",
+            "stones",
+            "stone_prevention"
+          ],
+          "role": "Oral alkali for chronic metabolic acidosis.",
+          "monitoring_pearl": "Bicarbonate, sodium, BP/edema; pill burden.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_potassium_citrate",
+          "generic": "Potassium citrate",
+          "class_id": "ru_alkali",
+          "form": "ER tablet/solution",
+          "route": "Oral",
+          "dose_example": "Stone prevention commonly 10–20 mEq two or three times daily depending urine chemistry.",
+          "tags": [
+            "metabolic_acidosis",
+            "stones",
+            "stone_prevention"
+          ],
+          "role": "Urinary citrate replacement/alkalinization.",
+          "monitoring_pearl": "Potassium/eGFR, urine pH/citrate; avoid uncontrolled hyperkalemia.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_calcium_acetate",
+          "generic": "Calcium acetate",
+          "class_id": "ru_phosphate_binders",
+          "form": "Capsule/tablet/solution",
+          "route": "Oral",
+          "dose_example": "Common 667 mg capsules with meals; titrate to phosphate and calcium.",
+          "tags": [
+            "ckd_mbd",
+            "dialysis_support",
+            "renal_adjust"
+          ],
+          "role": "Calcium-based phosphate binder.",
+          "monitoring_pearl": "Calcium/phosphate/PTH; hypercalcemia and vascular calcification context.",
+          "source_refs": [
+            "KDIGO_CKDMBD_2017",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_sevelamer",
+          "generic": "Sevelamer carbonate",
+          "class_id": "ru_phosphate_binders",
+          "form": "Tablet/powder",
+          "route": "Oral",
+          "dose_example": "Common 800–1600 mg with meals based on phosphate burden.",
+          "tags": [
+            "ckd_mbd",
+            "dialysis_support",
+            "renal_adjust"
+          ],
+          "role": "Non-calcium phosphate binder.",
+          "monitoring_pearl": "Phosphate, GI effects, pill burden; interactions.",
+          "source_refs": [
+            "KDIGO_CKDMBD_2017",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_lanthanum",
+          "generic": "Lanthanum carbonate",
+          "class_id": "ru_phosphate_binders",
+          "form": "Chewable/powder",
+          "route": "Oral",
+          "dose_example": "Common 500–1000 mg with meals, titrate.",
+          "tags": [
+            "ckd_mbd",
+            "dialysis_support",
+            "renal_adjust"
+          ],
+          "role": "Non-calcium phosphate binder.",
+          "monitoring_pearl": "Phosphate/GI; chew thoroughly.",
+          "source_refs": [
+            "KDIGO_CKDMBD_2017",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_ferric_citrate",
+          "generic": "Ferric citrate",
+          "class_id": "ru_phosphate_binders",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Dose is phosphate-guided with meals; product-specific tablets.",
+          "tags": [
+            "ckd_mbd",
+            "dialysis_support",
+            "renal_adjust",
+            "anemia_ckd"
+          ],
+          "role": "Iron-based phosphate binder.",
+          "monitoring_pearl": "Phosphate, ferritin/TSAT; iron overload/GI effects.",
+          "source_refs": [
+            "KDIGO_CKDMBD_2017",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_calcitriol",
+          "generic": "Calcitriol",
+          "class_id": "ru_vitd_ckd",
+          "form": "Capsule/solution/injection",
+          "route": "Oral/IV",
+          "dose_example": "Common low oral doses 0.25 mcg daily or several times weekly; specialist titration.",
+          "tags": [
+            "ckd_mbd",
+            "dialysis_support"
+          ],
+          "role": "Active vitamin D.",
+          "monitoring_pearl": "Calcium/phosphate/PTH; hypercalcemia/hyperphosphatemia.",
+          "source_refs": [
+            "KDIGO_CKDMBD_2017",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_paricalcitol",
+          "generic": "Paricalcitol",
+          "class_id": "ru_vitd_ckd",
+          "form": "Capsule/injection",
+          "route": "Oral/IV",
+          "dose_example": "Dose based on CKD/dialysis/PTH protocol; verify label.",
+          "tags": [
+            "ckd_mbd",
+            "dialysis_support"
+          ],
+          "role": "Vitamin-D receptor activator.",
+          "monitoring_pearl": "Calcium/phosphate/PTH.",
+          "source_refs": [
+            "KDIGO_CKDMBD_2017",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_cinacalcet",
+          "generic": "Cinacalcet",
+          "class_id": "ru_calcimimetic",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Dialysis SHPT commonly starts 30 mg once daily and titrates.",
+          "tags": [
+            "ckd_mbd",
+            "dialysis_support",
+            "high_risk"
+          ],
+          "role": "Oral calcimimetic.",
+          "monitoring_pearl": "Calcium/PTH/phosphate, nausea, QT risk with hypocalcemia.",
+          "source_refs": [
+            "KDIGO_CKDMBD_2017",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_etelcalcetide",
+          "generic": "Etelcalcetide",
+          "class_id": "ru_calcimimetic",
+          "form": "Injection",
+          "route": "IV post-hemodialysis",
+          "dose_example": "Hemodialysis dosing is post-dialysis three times weekly and specialist-titrated.",
+          "tags": [
+            "ckd_mbd",
+            "dialysis_support",
+            "high_risk"
+          ],
+          "role": "IV calcimimetic for dialysis SHPT.",
+          "monitoring_pearl": "Calcium/PTH, QT/hypocalcemia; dialysis-only workflow.",
+          "source_refs": [
+            "KDIGO_CKDMBD_2017",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_ferrous_sulfate",
+          "generic": "Ferrous sulfate",
+          "class_id": "ru_iron_ckd",
+          "form": "Tablet/liquid",
+          "route": "Oral",
+          "dose_example": "Common 325 mg tablet contains ~65 mg elemental iron; once daily or alternate-day strategies may improve tolerance.",
+          "tags": [
+            "anemia_ckd",
+            "dialysis_support"
+          ],
+          "role": "Oral iron replacement.",
+          "monitoring_pearl": "Hb, ferritin/TSAT, GI tolerance; distinguish salt from elemental iron.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_iron_sucrose",
+          "generic": "Iron sucrose",
+          "class_id": "ru_iron_ckd",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "CKD replacement commonly given as divided IV doses totaling about 1 g; protocol varies.",
+          "tags": [
+            "anemia_ckd",
+            "dialysis_support"
+          ],
+          "role": "IV iron.",
+          "monitoring_pearl": "Ferritin/TSAT/Hb, hypersensitivity, infection context.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_ferric_carboxymaltose",
+          "generic": "Ferric carboxymaltose",
+          "class_id": "ru_iron_ckd",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Large-dose IV replacement is weight/iron-deficit/product-label specific.",
+          "tags": [
+            "anemia_ckd",
+            "dialysis_support"
+          ],
+          "role": "IV iron allowing larger single doses.",
+          "monitoring_pearl": "Phosphate, ferritin/TSAT, hypersensitivity; hypophosphatemia risk.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_epoetin",
+          "generic": "Epoetin alfa",
+          "class_id": "ru_esa",
+          "form": "Injection",
+          "route": "SC/IV",
+          "dose_example": "Weight-based CKD dosing and Hb-adjustment protocol required; do not use a fixed universal dose.",
+          "tags": [
+            "anemia_ckd",
+            "dialysis_support",
+            "high_risk"
+          ],
+          "role": "ESA for CKD anemia.",
+          "monitoring_pearl": "Hb, BP, iron stores; thrombosis/stroke/CV risk; avoid rapid Hb rise.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_darbepoetin",
+          "generic": "Darbepoetin alfa",
+          "class_id": "ru_esa",
+          "form": "Injection",
+          "route": "SC/IV",
+          "dose_example": "Longer-acting weight-based CKD dosing; individualized by Hb response.",
+          "tags": [
+            "anemia_ckd",
+            "dialysis_support",
+            "high_risk"
+          ],
+          "role": "Long-acting ESA.",
+          "monitoring_pearl": "Hb/BP/iron, thrombotic/CV risk.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_daprodustat",
+          "generic": "Daprodustat",
+          "class_id": "ru_hifphi",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Dose is individualized by baseline Hb/ESA conversion and current label; dialysis indication varies by jurisdiction.",
+          "tags": [
+            "anemia_ckd",
+            "high_risk"
+          ],
+          "role": "Oral HIF-PHI.",
+          "monitoring_pearl": "Hb, BP, thrombosis/CV risk, interactions; verify country-specific approval.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_tamsulosin",
+          "generic": "Tamsulosin",
+          "class_id": "ru_bph_alpha",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "0.4 mg once daily after same meal; may increase to 0.8 mg if needed.",
+          "tags": [
+            "bph",
+            "alpha_blocker",
+            "retention",
+            "bp_volume"
+          ],
+          "role": "Uroselective α1 blocker.",
+          "monitoring_pearl": "Orthostasis, dizziness, ejaculatory dysfunction; intraoperative floppy iris syndrome.",
+          "source_refs": [
+            "AUA_BPH_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_alfuzosin",
+          "generic": "Alfuzosin ER",
+          "class_id": "ru_bph_alpha",
+          "form": "ER tablet",
+          "route": "Oral",
+          "dose_example": "10 mg once daily after same meal.",
+          "tags": [
+            "bph",
+            "alpha_blocker",
+            "retention",
+            "bp_volume"
+          ],
+          "role": "Functionally uroselective α blocker.",
+          "monitoring_pearl": "Orthostasis/QT/interactions; swallow ER whole.",
+          "source_refs": [
+            "AUA_BPH_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_silodosin",
+          "generic": "Silodosin",
+          "class_id": "ru_bph_alpha",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "8 mg once daily with meal; renal-adjust.",
+          "tags": [
+            "bph",
+            "alpha_blocker",
+            "retention",
+            "bp_volume",
+            "renal_adjust"
+          ],
+          "role": "Highly α1A-selective BPH therapy.",
+          "monitoring_pearl": "Ejaculatory dysfunction, orthostasis; renal dosing.",
+          "source_refs": [
+            "AUA_BPH_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_doxazosin",
+          "generic": "Doxazosin",
+          "class_id": "ru_bph_alpha",
+          "form": "Tablet/ER",
+          "route": "Oral",
+          "dose_example": "IR commonly starts 1 mg nightly and titrates; ER differs.",
+          "tags": [
+            "bph",
+            "alpha_blocker",
+            "retention",
+            "bp_volume"
+          ],
+          "role": "BPH + BP lowering α1 blocker.",
+          "monitoring_pearl": "First-dose orthostasis/syncope; BP monitoring.",
+          "source_refs": [
+            "AUA_BPH_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_finasteride",
+          "generic": "Finasteride",
+          "class_id": "ru_bph_5ari",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "5 mg once daily for BPH.",
+          "tags": [
+            "bph",
+            "five_ari"
+          ],
+          "role": "Type-2 5α-reductase inhibitor.",
+          "monitoring_pearl": "PSA interpretation, sexual adverse effects; pregnancy handling precautions for crushed tablets.",
+          "source_refs": [
+            "AUA_BPH_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_dutasteride",
+          "generic": "Dutasteride",
+          "class_id": "ru_bph_5ari",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "0.5 mg once daily.",
+          "tags": [
+            "bph",
+            "five_ari"
+          ],
+          "role": "Dual type-1/2 5α-reductase inhibitor.",
+          "monitoring_pearl": "PSA interpretation, sexual adverse effects; long half-life.",
+          "source_refs": [
+            "AUA_BPH_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_tadalafil_bph",
+          "generic": "Tadalafil",
+          "class_id": "ru_bph_pde5",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "5 mg once daily for LUTS/BPH ± ED.",
+          "tags": [
+            "bph",
+            "ed",
+            "bp_volume"
+          ],
+          "role": "PDE5 inhibitor for LUTS/BPH and ED.",
+          "monitoring_pearl": "Absolute nitrate contraindication; BP/alpha-blocker interactions, renal/hepatic adjustment.",
+          "source_refs": [
+            "AUA_BPH_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_oxybutynin",
+          "generic": "Oxybutynin",
+          "class_id": "ru_oab_antimus",
+          "form": "IR/ER tablet, patch/gel",
+          "route": "Oral/Transdermal",
+          "dose_example": "IR common 5 mg two to three times daily; ER 5–10 mg once daily; titrate.",
+          "tags": [
+            "oab",
+            "antimuscarinic",
+            "retention"
+          ],
+          "role": "Antimuscarinic OAB therapy.",
+          "monitoring_pearl": "Dry mouth/constipation, cognitive burden, glaucoma/retention; transdermal may reduce systemic anticholinergic effects.",
+          "source_refs": [
+            "AUA_OAB_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_tolterodine",
+          "generic": "Tolterodine",
+          "class_id": "ru_oab_antimus",
+          "form": "IR/ER capsule/tablet",
+          "route": "Oral",
+          "dose_example": "IR 2 mg twice daily or ER 4 mg once daily; reduce for organ function/interactions.",
+          "tags": [
+            "oab",
+            "antimuscarinic",
+            "retention"
+          ],
+          "role": "Antimuscarinic OAB therapy.",
+          "monitoring_pearl": "Anticholinergic/QT/retention; renal/hepatic/CYP adjustment.",
+          "source_refs": [
+            "AUA_OAB_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_solifenacin",
+          "generic": "Solifenacin",
+          "class_id": "ru_oab_antimus",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "5 mg once daily, may increase to 10 mg once daily.",
+          "tags": [
+            "oab",
+            "antimuscarinic",
+            "retention"
+          ],
+          "role": "M3-predominant OAB therapy.",
+          "monitoring_pearl": "Constipation, QT, glaucoma/retention; renal/hepatic adjustment.",
+          "source_refs": [
+            "AUA_OAB_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_trospium",
+          "generic": "Trospium",
+          "class_id": "ru_oab_antimus",
+          "form": "IR/ER capsule/tablet",
+          "route": "Oral",
+          "dose_example": "IR 20 mg twice daily on empty stomach; renal adjustment.",
+          "tags": [
+            "oab",
+            "antimuscarinic",
+            "retention",
+            "renal_adjust"
+          ],
+          "role": "Quaternary antimuscarinic with lower CNS penetration.",
+          "monitoring_pearl": "Renal adjustment, anticholinergic effects, retention.",
+          "source_refs": [
+            "AUA_OAB_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_mirabegron",
+          "generic": "Mirabegron",
+          "class_id": "ru_oab_beta3",
+          "form": "ER tablet/granules",
+          "route": "Oral",
+          "dose_example": "25 mg once daily, may increase to 50 mg; renal/hepatic limits apply.",
+          "tags": [
+            "oab",
+            "beta3",
+            "bp_volume"
+          ],
+          "role": "β3 agonist.",
+          "monitoring_pearl": "BP, urinary retention, CYP2D6 interactions; renal/hepatic adjustment.",
+          "source_refs": [
+            "AUA_OAB_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_vibegron",
+          "generic": "Vibegron",
+          "class_id": "ru_oab_beta3",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "75 mg once daily in adult OAB label.",
+          "tags": [
+            "oab",
+            "beta3",
+            "bp_volume"
+          ],
+          "role": "β3 agonist.",
+          "monitoring_pearl": "Retention; digoxin interaction review; verify local availability.",
+          "source_refs": [
+            "AUA_OAB_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_desmopressin",
+          "generic": "Desmopressin",
+          "class_id": "ru_desmopressin",
+          "form": "Tablet/ODT/nasal/injection",
+          "route": "Oral/SL/Nasal/IV",
+          "dose_example": "Nocturia products use sex/formulation-specific microgram doses; use exact product label.",
+          "tags": [
+            "hyponatremia",
+            "high_risk",
+            "renal_adjust"
+          ],
+          "role": "Antidiuretic therapy for selected indications.",
+          "monitoring_pearl": "Baseline/follow-up sodium, fluid restriction, renal/elderly contraindications; hyponatremia.",
+          "source_refs": [
+            "AUA_OAB_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_chlorthalidone_stone",
+          "generic": "Chlorthalidone (stone prevention)",
+          "class_id": "ru_stone_thiazide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common 12.5–25 mg once daily; prevention dose individualized.",
+          "tags": [
+            "stones",
+            "stone_prevention",
+            "thiazide"
+          ],
+          "role": "Hypercalciuria/calcium-stone prevention context.",
+          "monitoring_pearl": "Na/K, glucose, uric acid, BP; assess urine calcium and sodium.",
+          "source_refs": [
+            "AUA_STONES_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_allopurinol_stone",
+          "generic": "Allopurinol",
+          "class_id": "ru_stone_urate",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common start 100 mg/day, lower in CKD; titrate to urate/urine phenotype.",
+          "tags": [
+            "stones",
+            "stone_prevention",
+            "renal_adjust"
+          ],
+          "role": "Hyperuricosuria/recurrent calcium oxalate or gout context.",
+          "monitoring_pearl": "Renal-aware titration, rash/AHS, HLA-B*58:01 in high-risk ancestry, CBC/LFT.",
+          "source_refs": [
+            "AUA_STONES_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_potassium_citrate_stone",
+          "generic": "Potassium citrate (stone prevention)",
+          "class_id": "ru_stone_urate",
+          "form": "ER tablet/solution",
+          "route": "Oral",
+          "dose_example": "Common 10–20 mEq two or three times daily, guided by urine pH/citrate.",
+          "tags": [
+            "stones",
+            "stone_prevention"
+          ],
+          "role": "Hypocitraturia/uric-acid stone alkalinization.",
+          "monitoring_pearl": "K/eGFR and urine pH; avoid over-alkalinization/hyperkalemia.",
+          "source_refs": [
+            "AUA_STONES_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_tiopronin",
+          "generic": "Tiopronin",
+          "class_id": "ru_cystine",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Dose is individualized to urinary cystine; specialist titration.",
+          "tags": [
+            "stones",
+            "stone_prevention",
+            "high_risk"
+          ],
+          "role": "Cystine-binding thiol drug.",
+          "monitoring_pearl": "Urine cystine, proteinuria, CBC/LFT; adverse reactions.",
+          "source_refs": [
+            "AUA_STONES_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_dpenicillamine",
+          "generic": "D-Penicillamine",
+          "class_id": "ru_cystine",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Specialist individualized dosing for refractory cystinuria.",
+          "tags": [
+            "stones",
+            "stone_prevention",
+            "high_risk"
+          ],
+          "role": "Alternative cystine-binding thiol.",
+          "monitoring_pearl": "CBC/urinalysis/proteinuria, autoimmune/hematologic toxicity; interactions.",
+          "source_refs": [
+            "AUA_STONES_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_tamsulosin_met",
+          "generic": "Tamsulosin (MET context)",
+          "class_id": "ru_met",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "0.4 mg once daily is commonly studied; duration is short and stone-specific.",
+          "tags": [
+            "stones",
+            "medical_expulsive",
+            "alpha_blocker"
+          ],
+          "role": "Selected ureteral stone passage adjunct.",
+          "monitoring_pearl": "Orthostasis; do not delay urgent decompression for infected obstruction or threatened kidney.",
+          "source_refs": [
+            "AUA_STONES_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_sildenafil",
+          "generic": "Sildenafil",
+          "class_id": "ru_ed_pde5",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common on-demand start 50 mg about 1 hour before sexual activity; range 25–100 mg.",
+          "tags": [
+            "ed",
+            "bp_volume"
+          ],
+          "role": "On-demand PDE5 inhibitor.",
+          "monitoring_pearl": "Absolute nitrate contraindication; hypotension, headache, visual effects; renal/hepatic/CYP3A adjustment.",
+          "source_refs": [
+            "AUA_ED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_tadalafil",
+          "generic": "Tadalafil",
+          "class_id": "ru_ed_pde5",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "On-demand 10 mg or daily 2.5–5 mg depending goal; BPH uses 5 mg daily.",
+          "tags": [
+            "ed",
+            "bp_volume",
+            "bph"
+          ],
+          "role": "Long-acting PDE5 inhibitor.",
+          "monitoring_pearl": "Absolute nitrate contraindication; BP/alpha-blocker interactions, back pain, renal/hepatic adjustment.",
+          "source_refs": [
+            "AUA_ED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_vardenafil",
+          "generic": "Vardenafil",
+          "class_id": "ru_ed_pde5",
+          "form": "Tablet/ODT",
+          "route": "Oral",
+          "dose_example": "Common on-demand start 10 mg; adjust by age/interactions.",
+          "tags": [
+            "ed",
+            "bp_volume"
+          ],
+          "role": "PDE5 inhibitor.",
+          "monitoring_pearl": "Nitrates contraindicated; QT/interactions; BP.",
+          "source_refs": [
+            "AUA_ED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_alprostadil",
+          "generic": "Alprostadil",
+          "class_id": "ru_ed_prostaglandin",
+          "form": "Intracavernosal injection / intraurethral pellet",
+          "route": "Intracavernosal/Intraurethral",
+          "dose_example": "Dose requires supervised titration by formulation; start low to avoid priapism.",
+          "tags": [
+            "ed",
+            "high_risk"
+          ],
+          "role": "Local PGE1 erectile therapy.",
+          "monitoring_pearl": "Priapism, penile pain/fibrosis, hypotension; emergency plan for prolonged erection.",
+          "source_refs": [
+            "AUA_ED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_phenazopyridine",
+          "generic": "Phenazopyridine",
+          "class_id": "ru_urinary_analgesic",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult 200 mg three times daily after meals for no more than 2 days with antibacterial therapy when used for UTI symptoms.",
+          "tags": [
+            "urinary_analgesia",
+            "renal_adjust"
+          ],
+          "role": "Short-term dysuria relief.",
+          "monitoring_pearl": "Avoid significant renal impairment; orange/red urine, hemolysis/methemoglobinemia risk; not antimicrobial.",
+          "source_refs": [
+            "ICMR_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_potassium_chloride",
+          "generic": "Potassium chloride",
+          "class_id": "ru_electrolyte_replace",
+          "form": "ER tablet/capsule, liquid/powder",
+          "route": "Oral",
+          "dose_example": "Common oral replacement is expressed in mEq and must be individualized to serum potassium, renal function and ongoing losses.",
+          "tags": [
+            "electrolyte_replace",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role": "Potassium replacement for selected hypokalemia.",
+          "monitoring_pearl": "Recheck potassium/creatinine; GI injury with solid forms; avoid empiric replacement in oliguria/advanced renal failure without review.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ru_magnesium_oxide",
+          "generic": "Magnesium oxide",
+          "class_id": "ru_electrolyte_replace",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common supplemental products provide 200–400 mg elemental magnesium/day; exact salt-to-elemental conversion varies.",
+          "tags": [
+            "electrolyte_replace",
+            "renal_adjust"
+          ],
+          "role": "Oral magnesium replacement for selected mild deficiency.",
+          "monitoring_pearl": "Diarrhea is common; magnesium can accumulate in advanced CKD—verify renal function and elemental content.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "KDIGO_CKD_2024",
+          "label": "KDIGO 2024 Clinical Practice Guideline for Evaluation and Management of CKD",
+          "url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/"
+        },
+        {
+          "id": "KDIGO_ANEMIA_2026",
+          "label": "KDIGO 2026 Clinical Practice Guideline for Anemia in CKD",
+          "url": "https://kdigo.org/guidelines/anemia-in-ckd/"
+        },
+        {
+          "id": "KDIGO_CKDMBD_2017",
+          "label": "KDIGO CKD-MBD Guideline Update",
+          "url": "https://kdigo.org/guidelines/ckd-mbd/"
+        },
+        {
+          "id": "KDIGO_GD",
+          "label": "KDIGO Glomerular Diseases guideline hub",
+          "url": "https://kdigo.org/guidelines/gd/"
+        },
+        {
+          "id": "AUA_BPH_2026",
+          "label": "AUA Guideline — LUTS attributed to BPH (2026)",
+          "url": "https://www.auanet.org/guidelines-and-quality/guidelines/bph-guideline"
+        },
+        {
+          "id": "AUA_OAB_2024",
+          "label": "AUA/SUFU Guideline — Idiopathic Overactive Bladder (2024)",
+          "url": "https://www.auanet.org/guidelines-and-quality/guidelines/idiopathic-overactive-bladder"
+        },
+        {
+          "id": "AUA_STONES_2026",
+          "label": "AUA Guideline — Medical Management of Kidney Stones",
+          "url": "https://www.auanet.org/guidelines-and-quality/guidelines/medical-management-of-kidney-stones"
+        },
+        {
+          "id": "AUA_ED",
+          "label": "AUA Guideline — Erectile Dysfunction",
+          "url": "https://www.auanet.org/guidelines-and-quality/guidelines/erectile-dysfunction-%28ed%29-guideline"
+        },
+        {
+          "id": "ICMR_STW",
+          "label": "ICMR Standard Treatment Workflows — Nephrology and Urology",
+          "url": "https://www.icmr.gov.in/standard-treatment-workflows-stws"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "DailyMed — current FDA-submitted product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
         }
       ]
     }
