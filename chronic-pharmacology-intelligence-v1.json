@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4W",
-  "app_version": "V5.40W",
-  "build": "2026.08.15-R25W",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40W Kidney/Renal Dose • AKI/CKD • Dialysis • TDM Lab",
+  "version": "2.4X",
+  "app_version": "V5.40X",
+  "build": "2026.08.15-R25X",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40X Pharmacogenomics • Precision Medicine • Genotype–Drug Safety Lab",
   "counts": {
-    "labs": 29,
-    "classes": 921,
-    "drug_profiles": 2097
+    "labs": 30,
+    "classes": 965,
+    "drug_profiles": 2185
   },
-  "global_boundary": "Research/learning medication-safety CDS only. This lab does not calculate or prescribe an automatic renal dose. Kidney-function estimates can be unreliable in non-steady-state illness and drug labels may use different renal metrics. Verify the exact medicine/indication, current label/guideline, age/weight/body size, kidney-function equation and trend, AKI/recovery status, dialysis modality, residual kidney function, interacting drugs, drug-level timing and local specialist protocol before changing therapy.",
+  "global_boundary": "Research/learning medication-safety CDS only. Pharmacogenomic results do not replace diagnosis, clinical pharmacology, current labeling/guidelines, TDM, organ-function assessment or clinician judgment. Verify original laboratory result, allele/assay coverage, diplotype/phenotype translation, possible phenoconversion and drug-specific evidence before changing therapy. No automatic genetic test ordering, genotype-based dose, substitution, hold/start/stop or safe/unsafe declaration is generated.",
   "labs": [
     {
       "id": "hypertension",
@@ -63553,6 +63553,2993 @@
           "id": "DAILYMED",
           "label": "NIH/NLM DailyMed — Current US prescribing information",
           "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "pharmacogenomics_precision",
+      "title": "Pharmacogenomics • Precision Medicine • Genotype–Drug Safety",
+      "icon": "🧬",
+      "badge": "PGx / PRECISION",
+      "eyebrow": "V5.40X • MTLPI v2.4X • PGx v1.0",
+      "subtitle": "Clinician-reviewed genotype/diplotype → phenotype → drug-specific evidence workflow with HLA, CYP, transporter, DPYD, TPMT/NUDT15, UGT1A1, MT-RNR1, G6PD and malignant-hyperthermia safety lenses.",
+      "scientific_boundary": "Research/learning clinical decision support only. A PGx result is one factor in treatment. This lab does not order genetic testing, infer unreported alleles, calculate a genotype-based dose, declare a drug safe/unsafe, or automatically substitute/stop therapy. Verify the original report, assay coverage, diplotype/phenotype, current CPIC/FDA labeling or specialty guidance, interacting medicines, organ function and patient-specific context. Companion-diagnostic requirements and local regulatory policy remain controlling.",
+      "classification_notes": "The lab prioritizes high-impact gene–drug examples and implementation guardrails. CPIC guidance primarily addresses how to use available PGx results; FDA tables/labels may differ in scope and wording. A negative or incomplete panel is not treated as proof of absence of risk.",
+      "lens_groups": [
+        {
+          "group": "Core PGx workflow",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All PGx"
+            },
+            {
+              "id": "implementation",
+              "label": "Implementation"
+            },
+            {
+              "id": "phenotype",
+              "label": "Phenotype"
+            },
+            {
+              "id": "interaction",
+              "label": "Phenoconversion"
+            }
+          ]
+        },
+        {
+          "group": "HLA / severe reactions",
+          "items": [
+            {
+              "id": "hla",
+              "label": "HLA Safety"
+            },
+            {
+              "id": "sjs",
+              "label": "SJS/TEN"
+            },
+            {
+              "id": "hypersensitivity",
+              "label": "Hypersensitivity"
+            }
+          ]
+        },
+        {
+          "group": "Cardiovascular",
+          "items": [
+            {
+              "id": "cardio",
+              "label": "Cardiovascular"
+            },
+            {
+              "id": "antiplatelet",
+              "label": "Antiplatelet"
+            },
+            {
+              "id": "anticoagulation",
+              "label": "Anticoagulation"
+            },
+            {
+              "id": "statin",
+              "label": "Statins"
+            }
+          ]
+        },
+        {
+          "group": "Pain / Neuro / Psych",
+          "items": [
+            {
+              "id": "pain",
+              "label": "Pain/Opioids"
+            },
+            {
+              "id": "neuro",
+              "label": "Neurology"
+            },
+            {
+              "id": "psych",
+              "label": "Psychiatry"
+            },
+            {
+              "id": "anesthesia",
+              "label": "Anesthesia"
+            }
+          ]
+        },
+        {
+          "group": "Infectious / Transplant / GI",
+          "items": [
+            {
+              "id": "infectious",
+              "label": "Infectious"
+            },
+            {
+              "id": "transplant",
+              "label": "Transplant/TDM"
+            },
+            {
+              "id": "gi",
+              "label": "GI/PPIs"
+            }
+          ]
+        },
+        {
+          "group": "Oncology / Hematology",
+          "items": [
+            {
+              "id": "oncology",
+              "label": "Oncology"
+            },
+            {
+              "id": "hematology",
+              "label": "Hematology"
+            },
+            {
+              "id": "dpyd",
+              "label": "DPYD"
+            },
+            {
+              "id": "tpmt",
+              "label": "TPMT/NUDT15"
+            }
+          ]
+        },
+        {
+          "group": "Genes",
+          "items": [
+            {
+              "id": "cyp2d6",
+              "label": "CYP2D6"
+            },
+            {
+              "id": "cyp2c19",
+              "label": "CYP2C19"
+            },
+            {
+              "id": "cyp2c9",
+              "label": "CYP2C9"
+            },
+            {
+              "id": "slco1b1",
+              "label": "SLCO1B1"
+            },
+            {
+              "id": "cyp3a5",
+              "label": "CYP3A5"
+            },
+            {
+              "id": "ugt1a1",
+              "label": "UGT1A1"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "pgx_result_verification",
+          "name": "PGx result verification & specimen identity",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "Laboratory provenance • gene/allele coverage • diplotype call",
+          "tags": [
+            "result",
+            "verification",
+            "implementation"
+          ],
+          "role_note": "Confirm patient/specimen identity, test methodology, allele coverage, copy-number capability where relevant, report date and laboratory interpretation before using a PGx result.",
+          "drug_ids": [
+            "pgx_result_verification_clinical",
+            "pgx_result_verification_implementation"
+          ]
+        },
+        {
+          "id": "pgx_diplotype_phenotype",
+          "name": "Diplotype → phenotype translation",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "Star alleles / diplotype • activity/function assignment",
+          "tags": [
+            "diplotype",
+            "phenotype",
+            "implementation"
+          ],
+          "role_note": "Translate the reported diplotype using the current gene-specific consensus/CPIC translation rather than assuming phenotype from one variant in isolation.",
+          "drug_ids": [
+            "pgx_diplotype_phenotype_clinical",
+            "pgx_diplotype_phenotype_implementation"
+          ]
+        },
+        {
+          "id": "pgx_phenoconversion",
+          "name": "Phenoconversion / drug–gene–drug interaction review",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "Genotype-inferred phenotype + strong inhibitor/inducer + organ function",
+          "tags": [
+            "phenoconversion",
+            "interaction",
+            "implementation"
+          ],
+          "role_note": "Genotype-inferred phenotype can be modified by interacting medicines, organ dysfunction and other clinical factors; review drug–gene–drug context before acting.",
+          "drug_ids": [
+            "pgx_phenoconversion_clinical",
+            "pgx_phenoconversion_implementation"
+          ]
+        },
+        {
+          "id": "pgx_ancestry_coverage",
+          "name": "Allele coverage & population-frequency limitations",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "Assay coverage • ancestry/population representation",
+          "tags": [
+            "ancestry",
+            "coverage",
+            "implementation"
+          ],
+          "role_note": "A negative panel does not exclude clinically relevant variation if the assay does not cover the relevant alleles/copy-number/structural variants. Avoid inferring safety from ancestry alone.",
+          "drug_ids": [
+            "pgx_ancestry_coverage_clinical",
+            "pgx_ancestry_coverage_implementation"
+          ]
+        },
+        {
+          "id": "abacavir_hlab5701",
+          "name": "Abacavir — HLA-B*57:01",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "HLA-B*57:01",
+          "tags": [
+            "hla",
+            "hypersensitivity",
+            "infectious"
+          ],
+          "role_note": "HLA-B*57:01 positivity is associated with abacavir hypersensitivity. Use current labeling/CPIC guidance; a positive result is a high-priority safety finding.",
+          "drug_ids": [
+            "abacavir_hlab5701_clinical",
+            "abacavir_hlab5701_implementation"
+          ]
+        },
+        {
+          "id": "carbamazepine_hlab1502",
+          "name": "Carbamazepine — HLA-B*15:02",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "HLA-B*15:02",
+          "tags": [
+            "hla",
+            "sjs",
+            "ten",
+            "neurology"
+          ],
+          "role_note": "HLA-B*15:02 is associated with carbamazepine-related SJS/TEN risk. Apply current CPIC/label recommendations and clinical vigilance.",
+          "drug_ids": [
+            "carbamazepine_hlab1502_clinical",
+            "carbamazepine_hlab1502_implementation"
+          ]
+        },
+        {
+          "id": "carbamazepine_hlaa3101",
+          "name": "Carbamazepine — HLA-A*31:01",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "HLA-A*31:01",
+          "tags": [
+            "hla",
+            "scar",
+            "neurology"
+          ],
+          "role_note": "HLA-A*31:01 is associated with increased risk of carbamazepine hypersensitivity phenotypes. Use current CPIC guidance; genotype does not replace rash/systemic monitoring.",
+          "drug_ids": [
+            "carbamazepine_hlaa3101_clinical",
+            "carbamazepine_hlaa3101_implementation"
+          ]
+        },
+        {
+          "id": "oxcarbazepine_hlab1502",
+          "name": "Oxcarbazepine — HLA-B*15:02",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "HLA-B*15:02",
+          "tags": [
+            "hla",
+            "sjs",
+            "ten",
+            "neurology"
+          ],
+          "role_note": "HLA-B*15:02 is clinically relevant to oxcarbazepine severe cutaneous adverse-reaction risk. Use current CPIC guidance and patient-specific alternatives.",
+          "drug_ids": [
+            "oxcarbazepine_hlab1502_clinical",
+            "oxcarbazepine_hlab1502_implementation"
+          ]
+        },
+        {
+          "id": "phenytoin_cyp2c9",
+          "name": "Phenytoin/Fosphenytoin — CYP2C9",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2C9 metabolizer phenotype",
+          "tags": [
+            "cyp2c9",
+            "tdm",
+            "neurology",
+            "neuro"
+          ],
+          "role_note": "Reduced CYP2C9 function can increase phenytoin exposure and toxicity risk. Use current CPIC/label guidance with serum concentration and clinical monitoring.",
+          "drug_ids": [
+            "phenytoin_cyp2c9_clinical",
+            "phenytoin_cyp2c9_implementation"
+          ]
+        },
+        {
+          "id": "phenytoin_hlab1502",
+          "name": "Phenytoin/Fosphenytoin — HLA-B*15:02",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "HLA-B*15:02",
+          "tags": [
+            "hla",
+            "sjs",
+            "ten",
+            "neurology"
+          ],
+          "role_note": "HLA-B*15:02 can affect severe cutaneous adverse-reaction risk with phenytoin-class therapy. Use current CPIC/label guidance; genotype is not a substitute for clinical vigilance.",
+          "drug_ids": [
+            "phenytoin_hlab1502_clinical",
+            "phenytoin_hlab1502_implementation"
+          ]
+        },
+        {
+          "id": "allopurinol_hlab5801",
+          "name": "Allopurinol — HLA-B*58:01",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "HLA-B*58:01",
+          "tags": [
+            "hla",
+            "scar",
+            "gout"
+          ],
+          "role_note": "HLA-B*58:01 is associated with allopurinol severe cutaneous adverse reactions. Use current guideline/label recommendations before initiation or re-exposure decisions.",
+          "drug_ids": [
+            "allopurinol_hlab5801_clinical",
+            "allopurinol_hlab5801_implementation"
+          ]
+        },
+        {
+          "id": "clopidogrel_cyp2c19",
+          "name": "Clopidogrel — CYP2C19",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2C19 metabolizer phenotype",
+          "tags": [
+            "cyp2c19",
+            "antiplatelet",
+            "cardio"
+          ],
+          "role_note": "Reduced CYP2C19 function can reduce formation of clopidogrel active metabolite and antiplatelet response. Use indication-specific current CPIC/label guidance when selecting P2Y12 therapy.",
+          "drug_ids": [
+            "clopidogrel_cyp2c19_clinical",
+            "clopidogrel_cyp2c19_implementation"
+          ]
+        },
+        {
+          "id": "warfarin_multigene",
+          "name": "Warfarin — CYP2C9 / VKORC1 / CYP4F2",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2C9 • VKORC1 • CYP4F2 + clinical factors",
+          "tags": [
+            "warfarin",
+            "anticoagulation",
+            "cardio"
+          ],
+          "role_note": "Warfarin dose requirements are influenced by multiple genetic and clinical factors. Do not derive a dose from genotype alone; use a validated current algorithm/guideline where applicable plus INR monitoring.",
+          "drug_ids": [
+            "warfarin_multigene_clinical",
+            "warfarin_multigene_implementation"
+          ]
+        },
+        {
+          "id": "simvastatin_slco1b1",
+          "name": "Simvastatin — SLCO1B1",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "SLCO1B1 transporter function",
+          "tags": [
+            "slco1b1",
+            "statin",
+            "myopathy",
+            "cardio"
+          ],
+          "role_note": "Reduced SLCO1B1 function can increase simvastatin exposure and muscle-toxicity risk. Use current CPIC statin guidance with dose/intensity, interacting-drug and CK context.",
+          "drug_ids": [
+            "simvastatin_slco1b1_clinical",
+            "simvastatin_slco1b1_implementation"
+          ]
+        },
+        {
+          "id": "atorvastatin_slco1b1",
+          "name": "Atorvastatin — SLCO1B1",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "SLCO1B1 transporter function",
+          "tags": [
+            "slco1b1",
+            "statin",
+            "cardio"
+          ],
+          "role_note": "SLCO1B1 variation can alter atorvastatin exposure. Interpret with current statin PGx guidance, intensity goals, interacting drugs and muscle symptoms.",
+          "drug_ids": [
+            "atorvastatin_slco1b1_clinical",
+            "atorvastatin_slco1b1_implementation"
+          ]
+        },
+        {
+          "id": "codeine_cyp2d6",
+          "name": "Codeine — CYP2D6",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2D6 metabolizer phenotype",
+          "tags": [
+            "cyp2d6",
+            "opioid",
+            "pain"
+          ],
+          "role_note": "CYP2D6 phenotype alters conversion of codeine to morphine; ultrarapid metabolism can increase toxicity and poor metabolism can reduce effect. Use current CPIC/label guidance and age-specific safety restrictions.",
+          "drug_ids": [
+            "codeine_cyp2d6_clinical",
+            "codeine_cyp2d6_implementation"
+          ]
+        },
+        {
+          "id": "tramadol_cyp2d6",
+          "name": "Tramadol — CYP2D6",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2D6 metabolizer phenotype",
+          "tags": [
+            "cyp2d6",
+            "opioid",
+            "pain"
+          ],
+          "role_note": "CYP2D6 phenotype can alter active-metabolite formation, efficacy and toxicity. Use current CPIC/label guidance; consider non-CYP2D6 alternatives when clinically appropriate.",
+          "drug_ids": [
+            "tramadol_cyp2d6_clinical",
+            "tramadol_cyp2d6_implementation"
+          ]
+        },
+        {
+          "id": "ondansetron_cyp2d6",
+          "name": "Ondansetron — CYP2D6",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2D6 ultrarapid metabolizer phenotype",
+          "tags": [
+            "cyp2d6",
+            "antiemetic",
+            "gi"
+          ],
+          "role_note": "Very rapid CYP2D6 metabolism can reduce ondansetron exposure/response in some patients. Use current CPIC guidance when an actionable phenotype is already known.",
+          "drug_ids": [
+            "ondansetron_cyp2d6_clinical",
+            "ondansetron_cyp2d6_implementation"
+          ]
+        },
+        {
+          "id": "celecoxib_cyp2c9",
+          "name": "Celecoxib — CYP2C9",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2C9 metabolizer phenotype",
+          "tags": [
+            "cyp2c9",
+            "nsaid",
+            "pain"
+          ],
+          "role_note": "Reduced CYP2C9 function can increase celecoxib exposure. Use current CPIC/FDA label guidance together with GI, renal and cardiovascular risk assessment.",
+          "drug_ids": [
+            "celecoxib_cyp2c9_clinical",
+            "celecoxib_cyp2c9_implementation"
+          ]
+        },
+        {
+          "id": "meloxicam_cyp2c9",
+          "name": "Meloxicam — CYP2C9",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2C9 metabolizer phenotype",
+          "tags": [
+            "cyp2c9",
+            "nsaid",
+            "pain"
+          ],
+          "role_note": "Reduced CYP2C9 function can increase meloxicam exposure. Use current guideline/label recommendations and standard NSAID renal/GI/CV risk review.",
+          "drug_ids": [
+            "meloxicam_cyp2c9_clinical",
+            "meloxicam_cyp2c9_implementation"
+          ]
+        },
+        {
+          "id": "citalopram_cyp2c19",
+          "name": "Citalopram — CYP2C19",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2C19 metabolizer phenotype",
+          "tags": [
+            "cyp2c19",
+            "ssri",
+            "psychiatry",
+            "qt",
+            "psych"
+          ],
+          "role_note": "CYP2C19 phenotype can alter citalopram exposure; poor metabolism may increase adverse-effect/QT concern. Use current CPIC/label recommendations and QT-risk context.",
+          "drug_ids": [
+            "citalopram_cyp2c19_clinical",
+            "citalopram_cyp2c19_implementation"
+          ]
+        },
+        {
+          "id": "escitalopram_cyp2c19",
+          "name": "Escitalopram — CYP2C19",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2C19 metabolizer phenotype",
+          "tags": [
+            "cyp2c19",
+            "ssri",
+            "psychiatry",
+            "psych"
+          ],
+          "role_note": "CYP2C19 phenotype can alter escitalopram exposure and response. Use current CPIC guidance together with clinical response, tolerability and interacting medicines.",
+          "drug_ids": [
+            "escitalopram_cyp2c19_clinical",
+            "escitalopram_cyp2c19_implementation"
+          ]
+        },
+        {
+          "id": "sertraline_cyp2c19",
+          "name": "Sertraline — CYP2C19",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2C19 metabolizer phenotype",
+          "tags": [
+            "cyp2c19",
+            "ssri",
+            "psychiatry",
+            "psych"
+          ],
+          "role_note": "CYP2C19 variation can influence sertraline exposure. Use current CPIC guidance and clinical response rather than genotype alone.",
+          "drug_ids": [
+            "sertraline_cyp2c19_clinical",
+            "sertraline_cyp2c19_implementation"
+          ]
+        },
+        {
+          "id": "amitriptyline_cyp2d6_cyp2c19",
+          "name": "Amitriptyline — CYP2D6 / CYP2C19",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2D6 + CYP2C19 phenotypes",
+          "tags": [
+            "cyp2d6",
+            "cyp2c19",
+            "tca",
+            "psychiatry",
+            "psych"
+          ],
+          "role_note": "Amitriptyline exposure and active-metabolite balance can be influenced by CYP2D6 and CYP2C19. Use current CPIC guidance with indication, ECG/anticholinergic risk and TDM where appropriate.",
+          "drug_ids": [
+            "amitriptyline_cyp2d6_cyp2c19_clinical",
+            "amitriptyline_cyp2d6_cyp2c19_implementation"
+          ]
+        },
+        {
+          "id": "nortriptyline_cyp2d6",
+          "name": "Nortriptyline — CYP2D6",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2D6 metabolizer phenotype",
+          "tags": [
+            "cyp2d6",
+            "tca",
+            "psychiatry",
+            "psych"
+          ],
+          "role_note": "CYP2D6 phenotype can alter nortriptyline exposure. Use current CPIC guidance and therapeutic/clinical monitoring where appropriate.",
+          "drug_ids": [
+            "nortriptyline_cyp2d6_clinical",
+            "nortriptyline_cyp2d6_implementation"
+          ]
+        },
+        {
+          "id": "atomoxetine_cyp2d6",
+          "name": "Atomoxetine — CYP2D6",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2D6 metabolizer phenotype",
+          "tags": [
+            "cyp2d6",
+            "adhd",
+            "psychiatry",
+            "psych"
+          ],
+          "role_note": "CYP2D6 poor metabolism increases atomoxetine exposure and can affect titration/tolerability. Use current labeling/CPIC guidance and clinical response.",
+          "drug_ids": [
+            "atomoxetine_cyp2d6_clinical",
+            "atomoxetine_cyp2d6_implementation"
+          ]
+        },
+        {
+          "id": "aripiprazole_cyp2d6",
+          "name": "Aripiprazole — CYP2D6",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2D6 metabolizer phenotype",
+          "tags": [
+            "cyp2d6",
+            "antipsychotic",
+            "psychiatry",
+            "psych"
+          ],
+          "role_note": "CYP2D6 poor metabolism increases aripiprazole exposure. Use current product labeling/guideline recommendations, including interaction context.",
+          "drug_ids": [
+            "aripiprazole_cyp2d6_clinical",
+            "aripiprazole_cyp2d6_implementation"
+          ]
+        },
+        {
+          "id": "brexpiprazole_cyp2d6",
+          "name": "Brexpiprazole — CYP2D6",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2D6 metabolizer phenotype",
+          "tags": [
+            "cyp2d6",
+            "antipsychotic",
+            "psychiatry",
+            "psych"
+          ],
+          "role_note": "CYP2D6 poor metabolism can increase brexpiprazole exposure. Verify current product labeling and interacting CYP3A/CYP2D6 medicines before adjustment.",
+          "drug_ids": [
+            "brexpiprazole_cyp2d6_clinical",
+            "brexpiprazole_cyp2d6_implementation"
+          ]
+        },
+        {
+          "id": "clobazam_cyp2c19",
+          "name": "Clobazam — CYP2C19",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2C19 metabolizer phenotype",
+          "tags": [
+            "cyp2c19",
+            "antiepileptic",
+            "neurology",
+            "neuro"
+          ],
+          "role_note": "CYP2C19 poor metabolism increases active-metabolite exposure and adverse-effect risk. Use current label/guideline recommendations and sedation/seizure monitoring.",
+          "drug_ids": [
+            "clobazam_cyp2c19_clinical",
+            "clobazam_cyp2c19_implementation"
+          ]
+        },
+        {
+          "id": "voriconazole_cyp2c19",
+          "name": "Voriconazole — CYP2C19",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2C19 metabolizer phenotype",
+          "tags": [
+            "cyp2c19",
+            "antifungal",
+            "infectious",
+            "tdm"
+          ],
+          "role_note": "CYP2C19 phenotype can markedly affect voriconazole exposure. Use current CPIC guidance with TDM, infection severity, liver function and interacting medicines.",
+          "drug_ids": [
+            "voriconazole_cyp2c19_clinical",
+            "voriconazole_cyp2c19_implementation"
+          ]
+        },
+        {
+          "id": "tacrolimus_cyp3a5",
+          "name": "Tacrolimus — CYP3A5",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP3A5 expresser/non-expresser phenotype",
+          "tags": [
+            "cyp3a5",
+            "transplant",
+            "tdm"
+          ],
+          "role_note": "CYP3A5 expression influences tacrolimus dose requirement, but trough/AUC monitoring and transplant-specific factors remain essential. Use current CPIC guidance and local transplant protocol.",
+          "drug_ids": [
+            "tacrolimus_cyp3a5_clinical",
+            "tacrolimus_cyp3a5_implementation"
+          ]
+        },
+        {
+          "id": "efavirenz_cyp2b6",
+          "name": "Efavirenz — CYP2B6",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2B6 metabolizer phenotype",
+          "tags": [
+            "cyp2b6",
+            "antiviral",
+            "hiv",
+            "infectious"
+          ],
+          "role_note": "Reduced CYP2B6 function can increase efavirenz exposure and CNS toxicity risk. Use current CPIC guidance with regimen context and clinical monitoring.",
+          "drug_ids": [
+            "efavirenz_cyp2b6_clinical",
+            "efavirenz_cyp2b6_implementation"
+          ]
+        },
+        {
+          "id": "omeprazole_cyp2c19",
+          "name": "Omeprazole — CYP2C19",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2C19 metabolizer phenotype",
+          "tags": [
+            "cyp2c19",
+            "ppi",
+            "gi"
+          ],
+          "role_note": "CYP2C19 phenotype can alter omeprazole exposure and acid suppression. Use current CPIC PPI guidance when an actionable phenotype is available.",
+          "drug_ids": [
+            "omeprazole_cyp2c19_clinical",
+            "omeprazole_cyp2c19_implementation"
+          ]
+        },
+        {
+          "id": "pantoprazole_cyp2c19",
+          "name": "Pantoprazole — CYP2C19",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2C19 metabolizer phenotype",
+          "tags": [
+            "cyp2c19",
+            "ppi",
+            "gi"
+          ],
+          "role_note": "CYP2C19 phenotype can alter pantoprazole exposure. Use current CPIC/FDA guidance with indication and treatment duration.",
+          "drug_ids": [
+            "pantoprazole_cyp2c19_clinical",
+            "pantoprazole_cyp2c19_implementation"
+          ]
+        },
+        {
+          "id": "lansoprazole_cyp2c19",
+          "name": "Lansoprazole — CYP2C19",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "CYP2C19 metabolizer phenotype",
+          "tags": [
+            "cyp2c19",
+            "ppi",
+            "gi"
+          ],
+          "role_note": "CYP2C19 variation can alter lansoprazole exposure. Use current CPIC/FDA guidance rather than applying a universal genotype dose.",
+          "drug_ids": [
+            "lansoprazole_cyp2c19_clinical",
+            "lansoprazole_cyp2c19_implementation"
+          ]
+        },
+        {
+          "id": "fluorouracil_dpyd",
+          "name": "Fluorouracil — DPYD",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "DPYD activity / metabolizer phenotype",
+          "tags": [
+            "dpyd",
+            "fluoropyrimidine",
+            "oncology"
+          ],
+          "role_note": "Reduced DPD function substantially increases risk of severe fluoropyrimidine toxicity. Use current CPIC/label guidance; do not auto-calculate a dose from this EMR card.",
+          "drug_ids": [
+            "fluorouracil_dpyd_clinical",
+            "fluorouracil_dpyd_implementation"
+          ]
+        },
+        {
+          "id": "capecitabine_dpyd",
+          "name": "Capecitabine — DPYD",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "DPYD activity / metabolizer phenotype",
+          "tags": [
+            "dpyd",
+            "fluoropyrimidine",
+            "oncology"
+          ],
+          "role_note": "Reduced DPD function can markedly increase capecitabine toxicity risk. Use current CPIC/label guidance with oncology review; this module does not generate a starting dose.",
+          "drug_ids": [
+            "capecitabine_dpyd_clinical",
+            "capecitabine_dpyd_implementation"
+          ]
+        },
+        {
+          "id": "azathioprine_tpmt_nudt15",
+          "name": "Azathioprine — TPMT / NUDT15",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "TPMT + NUDT15 metabolizer phenotype",
+          "tags": [
+            "tpmt",
+            "nudt15",
+            "thiopurine",
+            "hematology"
+          ],
+          "role_note": "Reduced TPMT and/or NUDT15 function increases thiopurine myelosuppression risk. Use current CPIC/label recommendations with CBC/LFT monitoring and indication-specific specialist review.",
+          "drug_ids": [
+            "azathioprine_tpmt_nudt15_clinical",
+            "azathioprine_tpmt_nudt15_implementation"
+          ]
+        },
+        {
+          "id": "mercaptopurine_tpmt_nudt15",
+          "name": "Mercaptopurine — TPMT / NUDT15",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "TPMT + NUDT15 metabolizer phenotype",
+          "tags": [
+            "tpmt",
+            "nudt15",
+            "thiopurine",
+            "oncology"
+          ],
+          "role_note": "Reduced TPMT and/or NUDT15 function can greatly increase mercaptopurine toxicity. Use current CPIC/label protocol; oncology/hematology disease protocol remains controlling.",
+          "drug_ids": [
+            "mercaptopurine_tpmt_nudt15_clinical",
+            "mercaptopurine_tpmt_nudt15_implementation"
+          ]
+        },
+        {
+          "id": "thioguanine_tpmt_nudt15",
+          "name": "Thioguanine — TPMT / NUDT15",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "TPMT + NUDT15 metabolizer phenotype",
+          "tags": [
+            "tpmt",
+            "nudt15",
+            "thiopurine",
+            "oncology"
+          ],
+          "role_note": "TPMT/NUDT15 function can alter thioguanine tolerance and myelosuppression risk. Use current guideline/label and disease-specific protocol.",
+          "drug_ids": [
+            "thioguanine_tpmt_nudt15_clinical",
+            "thioguanine_tpmt_nudt15_implementation"
+          ]
+        },
+        {
+          "id": "irinotecan_ugt1a1",
+          "name": "Irinotecan — UGT1A1",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "UGT1A1 reduced-function genotype",
+          "tags": [
+            "ugt1a1",
+            "irinotecan",
+            "oncology"
+          ],
+          "role_note": "Reduced UGT1A1 function can increase active-metabolite exposure and neutropenia/diarrhea risk. Verify current FDA label and oncology protocol for regimen-specific management.",
+          "drug_ids": [
+            "irinotecan_ugt1a1_clinical",
+            "irinotecan_ugt1a1_implementation"
+          ]
+        },
+        {
+          "id": "rasburicase_g6pd",
+          "name": "Rasburicase — G6PD deficiency",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "G6PD status",
+          "tags": [
+            "g6pd",
+            "oncology",
+            "hematology"
+          ],
+          "role_note": "G6PD deficiency is a major safety issue for rasburicase because of hemolysis/methemoglobinemia risk. Follow current label/guideline and appropriate testing strategy.",
+          "drug_ids": [
+            "rasburicase_g6pd_clinical",
+            "rasburicase_g6pd_implementation"
+          ]
+        },
+        {
+          "id": "aminoglycoside_mtrnr1",
+          "name": "Aminoglycosides — MT-RNR1",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "MT-RNR1 mitochondrial variants",
+          "tags": [
+            "mtrnr1",
+            "aminoglycoside",
+            "infectious",
+            "ototoxicity"
+          ],
+          "role_note": "Certain MT-RNR1 variants confer high aminoglycoside ototoxicity susceptibility. Use current CPIC guidance; infection urgency, alternatives and drug-level/renal monitoring still matter.",
+          "drug_ids": [
+            "aminoglycoside_mtrnr1_clinical",
+            "aminoglycoside_mtrnr1_implementation"
+          ]
+        },
+        {
+          "id": "malignant_hyperthermia_ryr1_cacna1s",
+          "name": "Volatile anesthetics / succinylcholine — RYR1 / CACNA1S",
+          "mechanism": "Genotype/phenotype-informed medication safety or response review",
+          "target": "RYR1 / CACNA1S malignant-hyperthermia susceptibility",
+          "tags": [
+            "ryr1",
+            "cacna1s",
+            "anesthesia",
+            "malignant hyperthermia"
+          ],
+          "role_note": "Pathogenic/likely pathogenic RYR1 or CACNA1S findings can indicate malignant-hyperthermia susceptibility. Use current specialist/CPIC guidance and trigger-free anesthesia planning; do not infer status from unclassified variants.",
+          "drug_ids": [
+            "malignant_hyperthermia_ryr1_cacna1s_clinical",
+            "malignant_hyperthermia_ryr1_cacna1s_implementation"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "pgx_result_verification_clinical",
+          "generic": "PGx result verification & specimen identity — clinical PGx card",
+          "class_id": "pgx_result_verification",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "result",
+            "verification",
+            "implementation",
+            "clinical",
+            "review"
+          ],
+          "role": "Confirm patient/specimen identity, test methodology, allele coverage, copy-number capability where relevant, report date and laboratory interpretation before using a PGx result.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "pgx_result_verification_implementation",
+          "generic": "PGx result verification & specimen identity — implementation guardrail",
+          "class_id": "pgx_result_verification",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "result",
+            "verification",
+            "implementation",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "pgx_diplotype_phenotype_clinical",
+          "generic": "Diplotype → phenotype translation — clinical PGx card",
+          "class_id": "pgx_diplotype_phenotype",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "diplotype",
+            "phenotype",
+            "implementation",
+            "clinical",
+            "review"
+          ],
+          "role": "Translate the reported diplotype using the current gene-specific consensus/CPIC translation rather than assuming phenotype from one variant in isolation.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "pgx_diplotype_phenotype_implementation",
+          "generic": "Diplotype → phenotype translation — implementation guardrail",
+          "class_id": "pgx_diplotype_phenotype",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "diplotype",
+            "phenotype",
+            "implementation",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "pgx_phenoconversion_clinical",
+          "generic": "Phenoconversion / drug–gene–drug interaction review — clinical PGx card",
+          "class_id": "pgx_phenoconversion",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "phenoconversion",
+            "interaction",
+            "implementation",
+            "clinical",
+            "review"
+          ],
+          "role": "Genotype-inferred phenotype can be modified by interacting medicines, organ dysfunction and other clinical factors; review drug–gene–drug context before acting.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "pgx_phenoconversion_implementation",
+          "generic": "Phenoconversion / drug–gene–drug interaction review — implementation guardrail",
+          "class_id": "pgx_phenoconversion",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "phenoconversion",
+            "interaction",
+            "implementation",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "pgx_ancestry_coverage_clinical",
+          "generic": "Allele coverage & population-frequency limitations — clinical PGx card",
+          "class_id": "pgx_ancestry_coverage",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "ancestry",
+            "coverage",
+            "implementation",
+            "clinical",
+            "review"
+          ],
+          "role": "A negative panel does not exclude clinically relevant variation if the assay does not cover the relevant alleles/copy-number/structural variants. Avoid inferring safety from ancestry alone.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "pgx_ancestry_coverage_implementation",
+          "generic": "Allele coverage & population-frequency limitations — implementation guardrail",
+          "class_id": "pgx_ancestry_coverage",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "ancestry",
+            "coverage",
+            "implementation",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "abacavir_hlab5701_clinical",
+          "generic": "Abacavir — clinical PGx card",
+          "class_id": "abacavir_hlab5701",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "hla",
+            "hypersensitivity",
+            "infectious",
+            "clinical",
+            "review"
+          ],
+          "role": "HLA-B*57:01 positivity is associated with abacavir hypersensitivity. Use current labeling/CPIC guidance; a positive result is a high-priority safety finding.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "abacavir_hlab5701_implementation",
+          "generic": "Abacavir — implementation guardrail",
+          "class_id": "abacavir_hlab5701",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "hla",
+            "hypersensitivity",
+            "infectious",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "carbamazepine_hlab1502_clinical",
+          "generic": "Carbamazepine — clinical PGx card",
+          "class_id": "carbamazepine_hlab1502",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "hla",
+            "sjs",
+            "ten",
+            "neurology",
+            "clinical",
+            "review"
+          ],
+          "role": "HLA-B*15:02 is associated with carbamazepine-related SJS/TEN risk. Apply current CPIC/label recommendations and clinical vigilance.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "carbamazepine_hlab1502_implementation",
+          "generic": "Carbamazepine — implementation guardrail",
+          "class_id": "carbamazepine_hlab1502",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "hla",
+            "sjs",
+            "ten",
+            "neurology",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "carbamazepine_hlaa3101_clinical",
+          "generic": "Carbamazepine — clinical PGx card",
+          "class_id": "carbamazepine_hlaa3101",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "hla",
+            "scar",
+            "neurology",
+            "clinical",
+            "review"
+          ],
+          "role": "HLA-A*31:01 is associated with increased risk of carbamazepine hypersensitivity phenotypes. Use current CPIC guidance; genotype does not replace rash/systemic monitoring.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "carbamazepine_hlaa3101_implementation",
+          "generic": "Carbamazepine — implementation guardrail",
+          "class_id": "carbamazepine_hlaa3101",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "hla",
+            "scar",
+            "neurology",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "oxcarbazepine_hlab1502_clinical",
+          "generic": "Oxcarbazepine — clinical PGx card",
+          "class_id": "oxcarbazepine_hlab1502",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "hla",
+            "sjs",
+            "ten",
+            "neurology",
+            "clinical",
+            "review"
+          ],
+          "role": "HLA-B*15:02 is clinically relevant to oxcarbazepine severe cutaneous adverse-reaction risk. Use current CPIC guidance and patient-specific alternatives.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "oxcarbazepine_hlab1502_implementation",
+          "generic": "Oxcarbazepine — implementation guardrail",
+          "class_id": "oxcarbazepine_hlab1502",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "hla",
+            "sjs",
+            "ten",
+            "neurology",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "phenytoin_cyp2c9_clinical",
+          "generic": "Phenytoin/Fosphenytoin — clinical PGx card",
+          "class_id": "phenytoin_cyp2c9",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2c9",
+            "tdm",
+            "neurology",
+            "neuro",
+            "clinical",
+            "review"
+          ],
+          "role": "Reduced CYP2C9 function can increase phenytoin exposure and toxicity risk. Use current CPIC/label guidance with serum concentration and clinical monitoring.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "phenytoin_cyp2c9_implementation",
+          "generic": "Phenytoin/Fosphenytoin — implementation guardrail",
+          "class_id": "phenytoin_cyp2c9",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2c9",
+            "tdm",
+            "neurology",
+            "neuro",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "phenytoin_hlab1502_clinical",
+          "generic": "Phenytoin/Fosphenytoin — clinical PGx card",
+          "class_id": "phenytoin_hlab1502",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "hla",
+            "sjs",
+            "ten",
+            "neurology",
+            "clinical",
+            "review"
+          ],
+          "role": "HLA-B*15:02 can affect severe cutaneous adverse-reaction risk with phenytoin-class therapy. Use current CPIC/label guidance; genotype is not a substitute for clinical vigilance.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "phenytoin_hlab1502_implementation",
+          "generic": "Phenytoin/Fosphenytoin — implementation guardrail",
+          "class_id": "phenytoin_hlab1502",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "hla",
+            "sjs",
+            "ten",
+            "neurology",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "allopurinol_hlab5801_clinical",
+          "generic": "Allopurinol — clinical PGx card",
+          "class_id": "allopurinol_hlab5801",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "hla",
+            "scar",
+            "gout",
+            "clinical",
+            "review"
+          ],
+          "role": "HLA-B*58:01 is associated with allopurinol severe cutaneous adverse reactions. Use current guideline/label recommendations before initiation or re-exposure decisions.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "allopurinol_hlab5801_implementation",
+          "generic": "Allopurinol — implementation guardrail",
+          "class_id": "allopurinol_hlab5801",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "hla",
+            "scar",
+            "gout",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "clopidogrel_cyp2c19_clinical",
+          "generic": "Clopidogrel — clinical PGx card",
+          "class_id": "clopidogrel_cyp2c19",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2c19",
+            "antiplatelet",
+            "cardio",
+            "clinical",
+            "review"
+          ],
+          "role": "Reduced CYP2C19 function can reduce formation of clopidogrel active metabolite and antiplatelet response. Use indication-specific current CPIC/label guidance when selecting P2Y12 therapy.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "clopidogrel_cyp2c19_implementation",
+          "generic": "Clopidogrel — implementation guardrail",
+          "class_id": "clopidogrel_cyp2c19",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2c19",
+            "antiplatelet",
+            "cardio",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "warfarin_multigene_clinical",
+          "generic": "Warfarin — clinical PGx card",
+          "class_id": "warfarin_multigene",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "warfarin",
+            "anticoagulation",
+            "cardio",
+            "clinical",
+            "review"
+          ],
+          "role": "Warfarin dose requirements are influenced by multiple genetic and clinical factors. Do not derive a dose from genotype alone; use a validated current algorithm/guideline where applicable plus INR monitoring.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "warfarin_multigene_implementation",
+          "generic": "Warfarin — implementation guardrail",
+          "class_id": "warfarin_multigene",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "warfarin",
+            "anticoagulation",
+            "cardio",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "simvastatin_slco1b1_clinical",
+          "generic": "Simvastatin — clinical PGx card",
+          "class_id": "simvastatin_slco1b1",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "slco1b1",
+            "statin",
+            "myopathy",
+            "cardio",
+            "clinical",
+            "review"
+          ],
+          "role": "Reduced SLCO1B1 function can increase simvastatin exposure and muscle-toxicity risk. Use current CPIC statin guidance with dose/intensity, interacting-drug and CK context.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "simvastatin_slco1b1_implementation",
+          "generic": "Simvastatin — implementation guardrail",
+          "class_id": "simvastatin_slco1b1",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "slco1b1",
+            "statin",
+            "myopathy",
+            "cardio",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "atorvastatin_slco1b1_clinical",
+          "generic": "Atorvastatin — clinical PGx card",
+          "class_id": "atorvastatin_slco1b1",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "slco1b1",
+            "statin",
+            "cardio",
+            "clinical",
+            "review"
+          ],
+          "role": "SLCO1B1 variation can alter atorvastatin exposure. Interpret with current statin PGx guidance, intensity goals, interacting drugs and muscle symptoms.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "atorvastatin_slco1b1_implementation",
+          "generic": "Atorvastatin — implementation guardrail",
+          "class_id": "atorvastatin_slco1b1",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "slco1b1",
+            "statin",
+            "cardio",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "codeine_cyp2d6_clinical",
+          "generic": "Codeine — clinical PGx card",
+          "class_id": "codeine_cyp2d6",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2d6",
+            "opioid",
+            "pain",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP2D6 phenotype alters conversion of codeine to morphine; ultrarapid metabolism can increase toxicity and poor metabolism can reduce effect. Use current CPIC/label guidance and age-specific safety restrictions.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "codeine_cyp2d6_implementation",
+          "generic": "Codeine — implementation guardrail",
+          "class_id": "codeine_cyp2d6",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2d6",
+            "opioid",
+            "pain",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "tramadol_cyp2d6_clinical",
+          "generic": "Tramadol — clinical PGx card",
+          "class_id": "tramadol_cyp2d6",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2d6",
+            "opioid",
+            "pain",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP2D6 phenotype can alter active-metabolite formation, efficacy and toxicity. Use current CPIC/label guidance; consider non-CYP2D6 alternatives when clinically appropriate.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "tramadol_cyp2d6_implementation",
+          "generic": "Tramadol — implementation guardrail",
+          "class_id": "tramadol_cyp2d6",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2d6",
+            "opioid",
+            "pain",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "ondansetron_cyp2d6_clinical",
+          "generic": "Ondansetron — clinical PGx card",
+          "class_id": "ondansetron_cyp2d6",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2d6",
+            "antiemetic",
+            "gi",
+            "clinical",
+            "review"
+          ],
+          "role": "Very rapid CYP2D6 metabolism can reduce ondansetron exposure/response in some patients. Use current CPIC guidance when an actionable phenotype is already known.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "ondansetron_cyp2d6_implementation",
+          "generic": "Ondansetron — implementation guardrail",
+          "class_id": "ondansetron_cyp2d6",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2d6",
+            "antiemetic",
+            "gi",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "celecoxib_cyp2c9_clinical",
+          "generic": "Celecoxib — clinical PGx card",
+          "class_id": "celecoxib_cyp2c9",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2c9",
+            "nsaid",
+            "pain",
+            "clinical",
+            "review"
+          ],
+          "role": "Reduced CYP2C9 function can increase celecoxib exposure. Use current CPIC/FDA label guidance together with GI, renal and cardiovascular risk assessment.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "celecoxib_cyp2c9_implementation",
+          "generic": "Celecoxib — implementation guardrail",
+          "class_id": "celecoxib_cyp2c9",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2c9",
+            "nsaid",
+            "pain",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "meloxicam_cyp2c9_clinical",
+          "generic": "Meloxicam — clinical PGx card",
+          "class_id": "meloxicam_cyp2c9",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2c9",
+            "nsaid",
+            "pain",
+            "clinical",
+            "review"
+          ],
+          "role": "Reduced CYP2C9 function can increase meloxicam exposure. Use current guideline/label recommendations and standard NSAID renal/GI/CV risk review.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "meloxicam_cyp2c9_implementation",
+          "generic": "Meloxicam — implementation guardrail",
+          "class_id": "meloxicam_cyp2c9",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2c9",
+            "nsaid",
+            "pain",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "citalopram_cyp2c19_clinical",
+          "generic": "Citalopram — clinical PGx card",
+          "class_id": "citalopram_cyp2c19",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2c19",
+            "ssri",
+            "psychiatry",
+            "qt",
+            "psych",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP2C19 phenotype can alter citalopram exposure; poor metabolism may increase adverse-effect/QT concern. Use current CPIC/label recommendations and QT-risk context.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "citalopram_cyp2c19_implementation",
+          "generic": "Citalopram — implementation guardrail",
+          "class_id": "citalopram_cyp2c19",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2c19",
+            "ssri",
+            "psychiatry",
+            "qt",
+            "psych",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "escitalopram_cyp2c19_clinical",
+          "generic": "Escitalopram — clinical PGx card",
+          "class_id": "escitalopram_cyp2c19",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2c19",
+            "ssri",
+            "psychiatry",
+            "psych",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP2C19 phenotype can alter escitalopram exposure and response. Use current CPIC guidance together with clinical response, tolerability and interacting medicines.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "escitalopram_cyp2c19_implementation",
+          "generic": "Escitalopram — implementation guardrail",
+          "class_id": "escitalopram_cyp2c19",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2c19",
+            "ssri",
+            "psychiatry",
+            "psych",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "sertraline_cyp2c19_clinical",
+          "generic": "Sertraline — clinical PGx card",
+          "class_id": "sertraline_cyp2c19",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2c19",
+            "ssri",
+            "psychiatry",
+            "psych",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP2C19 variation can influence sertraline exposure. Use current CPIC guidance and clinical response rather than genotype alone.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "sertraline_cyp2c19_implementation",
+          "generic": "Sertraline — implementation guardrail",
+          "class_id": "sertraline_cyp2c19",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2c19",
+            "ssri",
+            "psychiatry",
+            "psych",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "amitriptyline_cyp2d6_cyp2c19_clinical",
+          "generic": "Amitriptyline — clinical PGx card",
+          "class_id": "amitriptyline_cyp2d6_cyp2c19",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2d6",
+            "cyp2c19",
+            "tca",
+            "psychiatry",
+            "psych",
+            "clinical",
+            "review"
+          ],
+          "role": "Amitriptyline exposure and active-metabolite balance can be influenced by CYP2D6 and CYP2C19. Use current CPIC guidance with indication, ECG/anticholinergic risk and TDM where appropriate.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "amitriptyline_cyp2d6_cyp2c19_implementation",
+          "generic": "Amitriptyline — implementation guardrail",
+          "class_id": "amitriptyline_cyp2d6_cyp2c19",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2d6",
+            "cyp2c19",
+            "tca",
+            "psychiatry",
+            "psych",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "nortriptyline_cyp2d6_clinical",
+          "generic": "Nortriptyline — clinical PGx card",
+          "class_id": "nortriptyline_cyp2d6",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2d6",
+            "tca",
+            "psychiatry",
+            "psych",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP2D6 phenotype can alter nortriptyline exposure. Use current CPIC guidance and therapeutic/clinical monitoring where appropriate.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "nortriptyline_cyp2d6_implementation",
+          "generic": "Nortriptyline — implementation guardrail",
+          "class_id": "nortriptyline_cyp2d6",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2d6",
+            "tca",
+            "psychiatry",
+            "psych",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "atomoxetine_cyp2d6_clinical",
+          "generic": "Atomoxetine — clinical PGx card",
+          "class_id": "atomoxetine_cyp2d6",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2d6",
+            "adhd",
+            "psychiatry",
+            "psych",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP2D6 poor metabolism increases atomoxetine exposure and can affect titration/tolerability. Use current labeling/CPIC guidance and clinical response.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "atomoxetine_cyp2d6_implementation",
+          "generic": "Atomoxetine — implementation guardrail",
+          "class_id": "atomoxetine_cyp2d6",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2d6",
+            "adhd",
+            "psychiatry",
+            "psych",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "aripiprazole_cyp2d6_clinical",
+          "generic": "Aripiprazole — clinical PGx card",
+          "class_id": "aripiprazole_cyp2d6",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2d6",
+            "antipsychotic",
+            "psychiatry",
+            "psych",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP2D6 poor metabolism increases aripiprazole exposure. Use current product labeling/guideline recommendations, including interaction context.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "aripiprazole_cyp2d6_implementation",
+          "generic": "Aripiprazole — implementation guardrail",
+          "class_id": "aripiprazole_cyp2d6",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2d6",
+            "antipsychotic",
+            "psychiatry",
+            "psych",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "brexpiprazole_cyp2d6_clinical",
+          "generic": "Brexpiprazole — clinical PGx card",
+          "class_id": "brexpiprazole_cyp2d6",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2d6",
+            "antipsychotic",
+            "psychiatry",
+            "psych",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP2D6 poor metabolism can increase brexpiprazole exposure. Verify current product labeling and interacting CYP3A/CYP2D6 medicines before adjustment.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "brexpiprazole_cyp2d6_implementation",
+          "generic": "Brexpiprazole — implementation guardrail",
+          "class_id": "brexpiprazole_cyp2d6",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2d6",
+            "antipsychotic",
+            "psychiatry",
+            "psych",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "clobazam_cyp2c19_clinical",
+          "generic": "Clobazam — clinical PGx card",
+          "class_id": "clobazam_cyp2c19",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2c19",
+            "antiepileptic",
+            "neurology",
+            "neuro",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP2C19 poor metabolism increases active-metabolite exposure and adverse-effect risk. Use current label/guideline recommendations and sedation/seizure monitoring.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "clobazam_cyp2c19_implementation",
+          "generic": "Clobazam — implementation guardrail",
+          "class_id": "clobazam_cyp2c19",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2c19",
+            "antiepileptic",
+            "neurology",
+            "neuro",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "voriconazole_cyp2c19_clinical",
+          "generic": "Voriconazole — clinical PGx card",
+          "class_id": "voriconazole_cyp2c19",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2c19",
+            "antifungal",
+            "infectious",
+            "tdm",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP2C19 phenotype can markedly affect voriconazole exposure. Use current CPIC guidance with TDM, infection severity, liver function and interacting medicines.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "voriconazole_cyp2c19_implementation",
+          "generic": "Voriconazole — implementation guardrail",
+          "class_id": "voriconazole_cyp2c19",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2c19",
+            "antifungal",
+            "infectious",
+            "tdm",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "tacrolimus_cyp3a5_clinical",
+          "generic": "Tacrolimus — clinical PGx card",
+          "class_id": "tacrolimus_cyp3a5",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp3a5",
+            "transplant",
+            "tdm",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP3A5 expression influences tacrolimus dose requirement, but trough/AUC monitoring and transplant-specific factors remain essential. Use current CPIC guidance and local transplant protocol.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "tacrolimus_cyp3a5_implementation",
+          "generic": "Tacrolimus — implementation guardrail",
+          "class_id": "tacrolimus_cyp3a5",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp3a5",
+            "transplant",
+            "tdm",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "efavirenz_cyp2b6_clinical",
+          "generic": "Efavirenz — clinical PGx card",
+          "class_id": "efavirenz_cyp2b6",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2b6",
+            "antiviral",
+            "hiv",
+            "infectious",
+            "clinical",
+            "review"
+          ],
+          "role": "Reduced CYP2B6 function can increase efavirenz exposure and CNS toxicity risk. Use current CPIC guidance with regimen context and clinical monitoring.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "efavirenz_cyp2b6_implementation",
+          "generic": "Efavirenz — implementation guardrail",
+          "class_id": "efavirenz_cyp2b6",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2b6",
+            "antiviral",
+            "hiv",
+            "infectious",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "omeprazole_cyp2c19_clinical",
+          "generic": "Omeprazole — clinical PGx card",
+          "class_id": "omeprazole_cyp2c19",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2c19",
+            "ppi",
+            "gi",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP2C19 phenotype can alter omeprazole exposure and acid suppression. Use current CPIC PPI guidance when an actionable phenotype is available.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "omeprazole_cyp2c19_implementation",
+          "generic": "Omeprazole — implementation guardrail",
+          "class_id": "omeprazole_cyp2c19",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2c19",
+            "ppi",
+            "gi",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "pantoprazole_cyp2c19_clinical",
+          "generic": "Pantoprazole — clinical PGx card",
+          "class_id": "pantoprazole_cyp2c19",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2c19",
+            "ppi",
+            "gi",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP2C19 phenotype can alter pantoprazole exposure. Use current CPIC/FDA guidance with indication and treatment duration.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "pantoprazole_cyp2c19_implementation",
+          "generic": "Pantoprazole — implementation guardrail",
+          "class_id": "pantoprazole_cyp2c19",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2c19",
+            "ppi",
+            "gi",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "lansoprazole_cyp2c19_clinical",
+          "generic": "Lansoprazole — clinical PGx card",
+          "class_id": "lansoprazole_cyp2c19",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "cyp2c19",
+            "ppi",
+            "gi",
+            "clinical",
+            "review"
+          ],
+          "role": "CYP2C19 variation can alter lansoprazole exposure. Use current CPIC/FDA guidance rather than applying a universal genotype dose.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "lansoprazole_cyp2c19_implementation",
+          "generic": "Lansoprazole — implementation guardrail",
+          "class_id": "lansoprazole_cyp2c19",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "cyp2c19",
+            "ppi",
+            "gi",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "fluorouracil_dpyd_clinical",
+          "generic": "Fluorouracil — clinical PGx card",
+          "class_id": "fluorouracil_dpyd",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "dpyd",
+            "fluoropyrimidine",
+            "oncology",
+            "clinical",
+            "review"
+          ],
+          "role": "Reduced DPD function substantially increases risk of severe fluoropyrimidine toxicity. Use current CPIC/label guidance; do not auto-calculate a dose from this EMR card.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "fluorouracil_dpyd_implementation",
+          "generic": "Fluorouracil — implementation guardrail",
+          "class_id": "fluorouracil_dpyd",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "dpyd",
+            "fluoropyrimidine",
+            "oncology",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "capecitabine_dpyd_clinical",
+          "generic": "Capecitabine — clinical PGx card",
+          "class_id": "capecitabine_dpyd",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "dpyd",
+            "fluoropyrimidine",
+            "oncology",
+            "clinical",
+            "review"
+          ],
+          "role": "Reduced DPD function can markedly increase capecitabine toxicity risk. Use current CPIC/label guidance with oncology review; this module does not generate a starting dose.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "capecitabine_dpyd_implementation",
+          "generic": "Capecitabine — implementation guardrail",
+          "class_id": "capecitabine_dpyd",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "dpyd",
+            "fluoropyrimidine",
+            "oncology",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "azathioprine_tpmt_nudt15_clinical",
+          "generic": "Azathioprine — clinical PGx card",
+          "class_id": "azathioprine_tpmt_nudt15",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "tpmt",
+            "nudt15",
+            "thiopurine",
+            "hematology",
+            "clinical",
+            "review"
+          ],
+          "role": "Reduced TPMT and/or NUDT15 function increases thiopurine myelosuppression risk. Use current CPIC/label recommendations with CBC/LFT monitoring and indication-specific specialist review.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "azathioprine_tpmt_nudt15_implementation",
+          "generic": "Azathioprine — implementation guardrail",
+          "class_id": "azathioprine_tpmt_nudt15",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "tpmt",
+            "nudt15",
+            "thiopurine",
+            "hematology",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "mercaptopurine_tpmt_nudt15_clinical",
+          "generic": "Mercaptopurine — clinical PGx card",
+          "class_id": "mercaptopurine_tpmt_nudt15",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "tpmt",
+            "nudt15",
+            "thiopurine",
+            "oncology",
+            "clinical",
+            "review"
+          ],
+          "role": "Reduced TPMT and/or NUDT15 function can greatly increase mercaptopurine toxicity. Use current CPIC/label protocol; oncology/hematology disease protocol remains controlling.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "mercaptopurine_tpmt_nudt15_implementation",
+          "generic": "Mercaptopurine — implementation guardrail",
+          "class_id": "mercaptopurine_tpmt_nudt15",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "tpmt",
+            "nudt15",
+            "thiopurine",
+            "oncology",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "thioguanine_tpmt_nudt15_clinical",
+          "generic": "Thioguanine — clinical PGx card",
+          "class_id": "thioguanine_tpmt_nudt15",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "tpmt",
+            "nudt15",
+            "thiopurine",
+            "oncology",
+            "clinical",
+            "review"
+          ],
+          "role": "TPMT/NUDT15 function can alter thioguanine tolerance and myelosuppression risk. Use current guideline/label and disease-specific protocol.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "thioguanine_tpmt_nudt15_implementation",
+          "generic": "Thioguanine — implementation guardrail",
+          "class_id": "thioguanine_tpmt_nudt15",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "tpmt",
+            "nudt15",
+            "thiopurine",
+            "oncology",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "irinotecan_ugt1a1_clinical",
+          "generic": "Irinotecan — clinical PGx card",
+          "class_id": "irinotecan_ugt1a1",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "ugt1a1",
+            "irinotecan",
+            "oncology",
+            "clinical",
+            "review"
+          ],
+          "role": "Reduced UGT1A1 function can increase active-metabolite exposure and neutropenia/diarrhea risk. Verify current FDA label and oncology protocol for regimen-specific management.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "irinotecan_ugt1a1_implementation",
+          "generic": "Irinotecan — implementation guardrail",
+          "class_id": "irinotecan_ugt1a1",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "ugt1a1",
+            "irinotecan",
+            "oncology",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "rasburicase_g6pd_clinical",
+          "generic": "Rasburicase — clinical PGx card",
+          "class_id": "rasburicase_g6pd",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "g6pd",
+            "oncology",
+            "hematology",
+            "clinical",
+            "review"
+          ],
+          "role": "G6PD deficiency is a major safety issue for rasburicase because of hemolysis/methemoglobinemia risk. Follow current label/guideline and appropriate testing strategy.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "rasburicase_g6pd_implementation",
+          "generic": "Rasburicase — implementation guardrail",
+          "class_id": "rasburicase_g6pd",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "g6pd",
+            "oncology",
+            "hematology",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "aminoglycoside_mtrnr1_clinical",
+          "generic": "Aminoglycosides — clinical PGx card",
+          "class_id": "aminoglycoside_mtrnr1",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "mtrnr1",
+            "aminoglycoside",
+            "infectious",
+            "ototoxicity",
+            "clinical",
+            "review"
+          ],
+          "role": "Certain MT-RNR1 variants confer high aminoglycoside ototoxicity susceptibility. Use current CPIC guidance; infection urgency, alternatives and drug-level/renal monitoring still matter.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "aminoglycoside_mtrnr1_implementation",
+          "generic": "Aminoglycosides — implementation guardrail",
+          "class_id": "aminoglycoside_mtrnr1",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "mtrnr1",
+            "aminoglycoside",
+            "infectious",
+            "ototoxicity",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        },
+        {
+          "id": "malignant_hyperthermia_ryr1_cacna1s_clinical",
+          "generic": "Volatile anesthetics / succinylcholine — clinical PGx card",
+          "class_id": "malignant_hyperthermia_ryr1_cacna1s",
+          "form": "PGx safety/response card",
+          "route": "N/A",
+          "dose_example": "No automatic genotype-based dose or drug substitution. Verify the exact genotype/diplotype, phenotype translation, test validity, indication, current CPIC/FDA label or specialty guideline, interacting medicines, organ function and patient-specific risk before changing therapy.",
+          "tags": [
+            "ryr1",
+            "cacna1s",
+            "anesthesia",
+            "malignant hyperthermia",
+            "clinical",
+            "review"
+          ],
+          "role": "Pathogenic/likely pathogenic RYR1 or CACNA1S findings can indicate malignant-hyperthermia susceptibility. Use current specialist/CPIC guidance and trigger-free anesthesia planning; do not infer status from unclassified variants.",
+          "monitoring_pearl": "Document the original laboratory result verbatim, translated phenotype/source/version, current medicine/indication and the clinician-approved action. Re-check if guideline or product labeling changes.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "CPIC_PAIRS",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS"
+          ]
+        },
+        {
+          "id": "malignant_hyperthermia_ryr1_cacna1s_implementation",
+          "generic": "Volatile anesthetics / succinylcholine — implementation guardrail",
+          "class_id": "malignant_hyperthermia_ryr1_cacna1s",
+          "form": "PGx implementation guardrail",
+          "route": "N/A",
+          "dose_example": "Implementation guardrail only. Do not infer a missing allele, diplotype, phenotype, ancestry-specific risk, dose, contraindication or alternative drug from incomplete data. Escalate uncertain/complex results to genetics/pharmacology/specialty expertise as appropriate.",
+          "tags": [
+            "ryr1",
+            "cacna1s",
+            "anesthesia",
+            "malignant hyperthermia",
+            "implementation",
+            "guardrail"
+          ],
+          "role": "Checks assay scope, evidence source/version, phenoconversion, drug–drug interactions and non-genetic clinical modifiers before the PGx result is used.",
+          "monitoring_pearl": "For high-risk decisions, preserve source traceability and note whether the recommendation came from CPIC, FDA labeling, another specialty guideline or local policy.",
+          "source_refs": [
+            "CPIC_GUIDELINES",
+            "FDA_PGX_ASSOC",
+            "FDA_PGX_LABELS",
+            "CLINPGX"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "CPIC_GUIDELINES",
+          "label": "CPIC / ClinPGx — Clinical Pharmacogenetics Implementation Consortium Guidelines",
+          "url": "https://www.clinpgx.org/cpic/guidelines"
+        },
+        {
+          "id": "CPIC_PAIRS",
+          "label": "CPIC / ClinPGx — Gene–Drug Pairs and CPIC levels",
+          "url": "https://www.clinpgx.org/cpic/pairs"
+        },
+        {
+          "id": "FDA_PGX_ASSOC",
+          "label": "US FDA — Table of Pharmacogenetic Associations",
+          "url": "https://www.fda.gov/medical-devices/precision-medicine/table-pharmacogenetic-associations"
+        },
+        {
+          "id": "FDA_PGX_LABELS",
+          "label": "US FDA — Table of Pharmacogenomic Biomarkers in Drug Labeling",
+          "url": "https://www.fda.gov/drugs/science-and-research-drugs/table-pharmacogenomic-biomarkers-drug-labeling"
+        },
+        {
+          "id": "CLINPGX",
+          "label": "ClinPGx — integrated PharmGKB, CPIC and PharmCAT clinical pharmacogenomics resource",
+          "url": "https://www.clinpgx.org/"
         }
       ]
     }
