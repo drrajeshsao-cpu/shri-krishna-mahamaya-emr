@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya.common_chronic_pharmacology.v1",
-  "version": "1.0",
-  "app_version": "V5.20",
-  "build": "2026.08.14-R23",
-  "name": "High-Use Chronic Pharmacology Intelligence Labs",
+  "version": "1.1",
+  "app_version": "V5.30",
+  "build": "2026.08.14-R24",
+  "name": "High-Use Pharmacology Intelligence Labs — Chronic + GI Acid-Peptic + Pain/Muscle",
   "counts": {
-    "labs": 3,
-    "classes": 48,
-    "drug_profiles": 169
+    "labs": 5,
+    "classes": 94,
+    "drug_profiles": 296
   },
-  "global_boundary": "Research/learning classification atlas only. Typical adult dose snapshots are educational references, not patient-specific prescriptions. Verify diagnosis, formulation, current approved label/guideline, age/weight, renal/hepatic function, pregnancy/lactation, contraindications, interactions and monitoring before prescribing.",
+  "global_boundary": "Research/learning classification atlas only. Typical adult dose snapshots are educational references, not patient-specific prescriptions. Verify diagnosis, formulation, current approved label/guideline, age/weight, renal/hepatic function, pregnancy/lactation, contraindications, interactions, monitoring and procedure-specific safety before prescribing or administering.",
   "labs": [
     {
       "id": "hypertension",
@@ -4689,6 +4689,3636 @@
         {
           "id": "DAILYMED",
           "label": "DailyMed / current product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "acid_peptic",
+      "title": "Acid-Peptic / Anti-ulcer Intelligence Lab",
+      "icon": "🧪",
+      "badge": "GI-AP v1.0",
+      "eyebrow": "GASTROENTEROLOGY PHARMACOLOGY / ACID-PEPTIC RESEARCH WORKSPACE",
+      "subtitle": "Antacids → alginates → H2RA → PPI → P-CAB → mucosal protection → NSAID-ulcer prevention → H. pylori eradication → selected motility/reflux adjuncts",
+      "scientific_boundary": "This is a pharmacology/research atlas, not an automatic GERD/ulcer prescription. Dyspepsia, GERD, peptic ulcer, H. pylori infection, NSAID injury, bleeding and alarm symptoms are different clinical problems. Exact regimen requires confirmed indication, H. pylori strategy, interacting medicines, renal/hepatic function, pregnancy status, bleeding risk and current guideline/label.",
+      "classification_notes": {
+        "ppi": "PPIs are the core potent acid-suppression class for many GERD/ulcer indications. ACG GERD guidance emphasizes appropriate indication and an empiric PPI trial for classic symptoms, with reassessment rather than indefinite unreviewed use.",
+        "hpylori": "ACG 2024 recommends optimized 14-day bismuth quadruple therapy as a preferred empiric regimen in many treatment-naïve adults when antibiotic susceptibility is unknown; clarithromycin-containing therapy should not be used empirically without appropriate susceptibility context.",
+        "nsaid_ulcer": "For NSAID-associated peptic ulcer, guidelines emphasize stopping/reducing the NSAID when possible and using acid-suppression/gastroprotection according to risk and indication.",
+        "prokinetic": "Prokinetics and baclofen are adjunct/specialist categories, not substitutes for correct diagnosis or core acid-suppression/eradication therapy."
+      },
+      "lens_groups": [
+        {
+          "group": "Acid control & symptom relief",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All acid-peptic groups"
+            },
+            {
+              "id": "antacid",
+              "label": "Antacids / neutralizers"
+            },
+            {
+              "id": "alginate",
+              "label": "Alginate / reflux raft"
+            },
+            {
+              "id": "h2ra",
+              "label": "H2 blockers"
+            },
+            {
+              "id": "ppi",
+              "label": "PPI"
+            },
+            {
+              "id": "pcab",
+              "label": "P-CAB"
+            },
+            {
+              "id": "rapid_symptom",
+              "label": "Rapid symptom relief"
+            }
+          ]
+        },
+        {
+          "group": "Disease / clinical context",
+          "items": [
+            {
+              "id": "gerd",
+              "label": "GERD / reflux"
+            },
+            {
+              "id": "erosive_esophagitis",
+              "label": "Erosive esophagitis"
+            },
+            {
+              "id": "ulcer",
+              "label": "Peptic ulcer"
+            },
+            {
+              "id": "nsaid_ulcer",
+              "label": "NSAID ulcer / prevention"
+            },
+            {
+              "id": "hpylori",
+              "label": "H. pylori eradication"
+            },
+            {
+              "id": "hypersecretory",
+              "label": "Hypersecretory / Z-E"
+            },
+            {
+              "id": "gastroparesis",
+              "label": "Gastroparesis / prokinetic"
+            }
+          ]
+        },
+        {
+          "group": "Mechanism / support",
+          "items": [
+            {
+              "id": "mucosal_protection",
+              "label": "Mucosal protectants"
+            },
+            {
+              "id": "gastroprotection",
+              "label": "Prostaglandin gastroprotection"
+            },
+            {
+              "id": "prokinetic",
+              "label": "Prokinetics"
+            },
+            {
+              "id": "reflux_adjunct",
+              "label": "Selected reflux adjuncts"
+            },
+            {
+              "id": "gas",
+              "label": "Gas / antifoaming adjuncts"
+            },
+            {
+              "id": "eradication",
+              "label": "Eradication regimens"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "antacid_neutralizers",
+          "name": "Antacids / gastric acid neutralizers",
+          "mechanism": "Directly neutralize luminal gastric acid; some salts also bind bile acids/pepsin",
+          "target": "Gastric lumen",
+          "tags": [
+            "overview",
+            "antacid",
+            "rapid_symptom",
+            "dyspepsia",
+            "heartburn"
+          ],
+          "role_note": "Rapid symptom-relief category; short acting and formulation-specific. Does not heal all acid-peptic disease or eradicate H. pylori.",
+          "drug_ids": [
+            "gi_aloh",
+            "gi_mgoh",
+            "gi_caco3",
+            "gi_nahco3",
+            "gi_magaldrate",
+            "gi_hydrotalcite"
+          ]
+        },
+        {
+          "id": "alginate_raft",
+          "name": "Alginate / reflux-suppressant raft formulations",
+          "mechanism": "Forms a low-density raft/barrier over gastric contents and may reduce post-prandial reflux",
+          "target": "Gastric contents / gastro-oesophageal junction",
+          "tags": [
+            "overview",
+            "alginate",
+            "reflux",
+            "rapid_symptom",
+            "pregnancy_context"
+          ],
+          "role_note": "Mechanical reflux-suppression adjunct; composition and antacid content vary by product.",
+          "drug_ids": [
+            "gi_alginate_combo"
+          ]
+        },
+        {
+          "id": "h2ra",
+          "name": "Histamine-2 receptor antagonists (H2RA)",
+          "mechanism": "Reversibly block histamine H2 receptors on parietal cells and reduce basal/nocturnal acid secretion",
+          "target": "Parietal-cell H2 receptor",
+          "tags": [
+            "overview",
+            "h2ra",
+            "acid_suppression",
+            "nocturnal",
+            "ulcer",
+            "gerd"
+          ],
+          "role_note": "Acid-suppressive class with faster onset than PPIs but less potent sustained suppression; tachyphylaxis can occur with continuous use.",
+          "drug_ids": [
+            "gi_famotidine",
+            "gi_cimetidine",
+            "gi_nizatidine",
+            "gi_ranitidine_history"
+          ]
+        },
+        {
+          "id": "ppi",
+          "name": "Proton-pump inhibitors (PPI)",
+          "mechanism": "Irreversibly inhibit active gastric H+/K+-ATPase pumps after activation in acidic canaliculi",
+          "target": "Parietal-cell H+/K+-ATPase",
+          "tags": [
+            "overview",
+            "ppi",
+            "acid_suppression",
+            "gerd",
+            "erosive_esophagitis",
+            "ulcer",
+            "nsaid_ulcer",
+            "hypersecretory"
+          ],
+          "role_note": "Core potent acid-suppression class. Timing, duration, CYP interactions and long-term indication review are important research points.",
+          "drug_ids": [
+            "gi_omeprazole",
+            "gi_esomeprazole",
+            "gi_pantoprazole",
+            "gi_lansoprazole",
+            "gi_rabeprazole",
+            "gi_dexlansoprazole",
+            "gi_ilaprazole"
+          ]
+        },
+        {
+          "id": "pcab",
+          "name": "Potassium-competitive acid blockers (P-CAB)",
+          "mechanism": "Competitively and reversibly inhibit K+ binding at gastric H+/K+-ATPase",
+          "target": "Parietal-cell H+/K+-ATPase",
+          "tags": [
+            "overview",
+            "pcab",
+            "acid_suppression",
+            "gerd",
+            "erosive_esophagitis",
+            "hpylori"
+          ],
+          "role_note": "Rapid, potent acid suppression; approved indications and availability vary by jurisdiction.",
+          "drug_ids": [
+            "gi_vonoprazan"
+          ]
+        },
+        {
+          "id": "sucralfate",
+          "name": "Sucralfate / mucosal barrier therapy",
+          "mechanism": "Polymerizes in acid and adheres to ulcerated mucosa, creating a protective barrier",
+          "target": "Ulcer base / mucosal surface",
+          "tags": [
+            "overview",
+            "mucosal_protection",
+            "ulcer",
+            "pregnancy_context"
+          ],
+          "role_note": "Mucosal-protective rather than systemic acid-suppression therapy; drug-binding interactions and administration separation matter.",
+          "drug_ids": [
+            "gi_sucralfate"
+          ]
+        },
+        {
+          "id": "bismuth",
+          "name": "Bismuth compounds",
+          "mechanism": "Mucosal coating plus local antimicrobial/anti-secretory effects depending salt",
+          "target": "Gastric mucosa / H. pylori microenvironment",
+          "tags": [
+            "overview",
+            "mucosal_protection",
+            "bismuth",
+            "hpylori",
+            "diarrhea_adjunct"
+          ],
+          "role_note": "Bismuth salts have distinct formulations and salicylate content; an important component of H. pylori bismuth quadruple therapy.",
+          "drug_ids": [
+            "gi_bismuth_subsalicylate",
+            "gi_bismuth_subcitrate"
+          ]
+        },
+        {
+          "id": "prostaglandin",
+          "name": "Prostaglandin E1 analogue gastroprotection",
+          "mechanism": "Replaces prostaglandin-mediated mucus/bicarbonate support and reduces acid secretion",
+          "target": "EP receptors / gastric mucosa",
+          "tags": [
+            "overview",
+            "gastroprotection",
+            "nsaid_ulcer",
+            "ulcer_prevention"
+          ],
+          "role_note": "Misoprostol is an NSAID-ulcer prevention option but has dose-limiting GI effects and major pregnancy/uterotonic implications.",
+          "drug_ids": [
+            "gi_misoprostol"
+          ]
+        },
+        {
+          "id": "hpylori_bqt",
+          "name": "H. pylori optimized bismuth quadruple regimen",
+          "mechanism": "Combines potent acid suppression with bismuth + tetracycline + nitroimidazole antimicrobial therapy",
+          "target": "H. pylori eradication regimen",
+          "tags": [
+            "overview",
+            "hpylori",
+            "eradication",
+            "bismuth_quadruple",
+            "antibiotic_regimen"
+          ],
+          "role_note": "Regimen-level learning record; resistance history, prior antibiotics, allergy, local availability and test-of-cure matter.",
+          "drug_ids": [
+            "gi_bqt14"
+          ]
+        },
+        {
+          "id": "hpylori_rifabutin",
+          "name": "H. pylori rifabutin-based triple regimen",
+          "mechanism": "Acid suppression + high-dose amoxicillin + rifabutin-based eradication strategy",
+          "target": "H. pylori eradication regimen",
+          "tags": [
+            "overview",
+            "hpylori",
+            "eradication",
+            "salvage",
+            "rifabutin"
+          ],
+          "role_note": "Specialized eradication strategy; exact co-formulation/regimen should follow current guideline/label.",
+          "drug_ids": [
+            "gi_rifabutin_triple"
+          ]
+        },
+        {
+          "id": "hpylori_vonoprazan",
+          "name": "Vonoprazan-based H. pylori dual/triple regimens",
+          "mechanism": "P-CAB acid suppression combined with amoxicillin ± clarithromycin",
+          "target": "H. pylori eradication regimen",
+          "tags": [
+            "overview",
+            "hpylori",
+            "eradication",
+            "pcab",
+            "dual_triple"
+          ],
+          "role_note": "Current labeled regimens exist in some jurisdictions; clarithromycin use should respect susceptibility/resistance guidance.",
+          "drug_ids": [
+            "gi_vono_amox",
+            "gi_vono_triple"
+          ]
+        },
+        {
+          "id": "prokinetic_adjunct",
+          "name": "Prokinetic / upper-GI motility adjuncts",
+          "mechanism": "Enhance gastric emptying or upper-GI motility through dopamine/5-HT/cholinergic pathways",
+          "target": "Enteric nervous system / D2 / 5-HT4 pathways",
+          "tags": [
+            "overview",
+            "prokinetic",
+            "gastroparesis",
+            "dyspepsia",
+            "reflux_adjunct"
+          ],
+          "role_note": "Not primary acid-suppression drugs. Benefit and safety are indication-specific; QT and extrapyramidal risks are important for some agents.",
+          "drug_ids": [
+            "gi_metoclopramide",
+            "gi_domperidone",
+            "gi_itopride",
+            "gi_mosapride",
+            "gi_levosulpiride"
+          ]
+        },
+        {
+          "id": "reflux_gabab",
+          "name": "GABA-B reflux-event modulator (selected refractory context)",
+          "mechanism": "Reduces transient lower oesophageal sphincter relaxations via GABA-B agonism",
+          "target": "GABA-B receptor / LES reflex pathways",
+          "tags": [
+            "overview",
+            "reflux_adjunct",
+            "refractory_gerd",
+            "central"
+          ],
+          "role_note": "Selected specialist adjunct; sedation/dizziness and objective GERD confirmation are important.",
+          "drug_ids": [
+            "gi_baclofen"
+          ]
+        },
+        {
+          "id": "antifoaming",
+          "name": "Antifoaming / gas-symptom adjunct",
+          "mechanism": "Reduces surface tension of gas bubbles without reducing acid secretion",
+          "target": "GI lumen",
+          "tags": [
+            "overview",
+            "gas",
+            "dyspepsia",
+            "symptom_adjunct"
+          ],
+          "role_note": "Symptom adjunct only; not an ulcer-healing or acid-suppression therapy.",
+          "drug_ids": [
+            "gi_simethicone"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "gi_aloh",
+          "generic": "Aluminium hydroxide",
+          "class_id": "antacid_neutralizers",
+          "form": "Suspension/tablet",
+          "route": "Oral",
+          "dose_example": "Product-specific antacid dosing after meals/at bedtime; verify elemental content and label.",
+          "tags": [
+            "antacid",
+            "rapid_symptom",
+            "constipation"
+          ],
+          "role": "Non-systemic antacid; slower neutralization and phosphate binding.",
+          "monitoring_pearl": "Constipation, phosphate depletion with prolonged/high exposure; renal impairment increases aluminium accumulation risk.",
+          "source_refs": [
+            "NICE_CG184",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_mgoh",
+          "generic": "Magnesium hydroxide",
+          "class_id": "antacid_neutralizers",
+          "form": "Suspension/tablet",
+          "route": "Oral",
+          "dose_example": "Product-specific antacid dosing; commonly combined with aluminium salts.",
+          "tags": [
+            "antacid",
+            "rapid_symptom",
+            "diarrhea"
+          ],
+          "role": "Rapid antacid; osmotic laxative effect at higher doses.",
+          "monitoring_pearl": "Diarrhea; avoid unmonitored magnesium load in significant renal impairment.",
+          "source_refs": [
+            "NICE_CG184",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_caco3",
+          "generic": "Calcium carbonate",
+          "class_id": "antacid_neutralizers",
+          "form": "Chewable tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Common OTC antacid products provide ~500–1000 mg per dose; follow product label and daily calcium limits.",
+          "tags": [
+            "antacid",
+            "rapid_symptom",
+            "calcium"
+          ],
+          "role": "Potent acid neutralizer with calcium load.",
+          "monitoring_pearl": "Constipation, hypercalcemia/alkalosis with excess; separates from several oral medicines.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_nahco3",
+          "generic": "Sodium bicarbonate",
+          "class_id": "antacid_neutralizers",
+          "form": "Tablet/powder",
+          "route": "Oral",
+          "dose_example": "Product-specific short-term antacid dosing; avoid treating it as a chronic acid-suppression strategy.",
+          "tags": [
+            "antacid",
+            "rapid_symptom",
+            "systemic"
+          ],
+          "role": "Absorbable systemic antacid with sodium load.",
+          "monitoring_pearl": "Metabolic alkalosis, sodium/volume load, drug-pH interactions.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_magaldrate",
+          "generic": "Magaldrate",
+          "class_id": "antacid_neutralizers",
+          "form": "Suspension/tablet",
+          "route": "Oral",
+          "dose_example": "Common products are dosed after meals and at bedtime; strength varies markedly by market.",
+          "tags": [
+            "antacid",
+            "rapid_symptom"
+          ],
+          "role": "Aluminium-magnesium complex antacid.",
+          "monitoring_pearl": "Renal function and aluminium/magnesium exposure; product-specific interactions.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_hydrotalcite",
+          "generic": "Hydrotalcite",
+          "class_id": "antacid_neutralizers",
+          "form": "Chewable tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Market-specific antacid dosing; verify local product label.",
+          "tags": [
+            "antacid",
+            "rapid_symptom"
+          ],
+          "role": "Layered magnesium-aluminium antacid used in some markets.",
+          "monitoring_pearl": "Renal impairment/mineral accumulation and drug-binding separation.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_alginate_combo",
+          "generic": "Sodium alginate + bicarbonate/antacid combination",
+          "class_id": "alginate_raft",
+          "form": "Oral suspension/chewable",
+          "route": "Oral",
+          "dose_example": "Dose is formulation-specific, commonly after meals and at bedtime; verify sodium content.",
+          "tags": [
+            "alginate",
+            "reflux",
+            "rapid_symptom",
+            "postprandial"
+          ],
+          "role": "Raft-forming reflux symptom therapy.",
+          "monitoring_pearl": "Sodium load and formulation-specific antacid interactions.",
+          "source_refs": [
+            "ACG_GERD",
+            "NICE_CG184",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_famotidine",
+          "generic": "Famotidine",
+          "class_id": "h2ra",
+          "form": "Tablet/suspension/injection",
+          "route": "Oral/IV",
+          "dose_example": "Common adult acid-suppression regimens use 20 mg once/twice daily or 40 mg at bedtime depending indication; renal adjustment may be required.",
+          "tags": [
+            "h2ra",
+            "nocturnal",
+            "gerd",
+            "ulcer"
+          ],
+          "role": "Widely used H2RA with relatively low CYP interaction burden.",
+          "monitoring_pearl": "Renal dose adjustment; CNS effects can occur in older/renal patients.",
+          "source_refs": [
+            "ACG_GERD",
+            "NICE_CG184",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_cimetidine",
+          "generic": "Cimetidine",
+          "class_id": "h2ra",
+          "form": "Tablet/liquid/injection",
+          "route": "Oral/IV",
+          "dose_example": "Common adult ulcer/GERD regimens include 400 mg twice daily or 800 mg at bedtime; verify indication.",
+          "tags": [
+            "h2ra",
+            "nocturnal",
+            "ulcer",
+            "interaction_high"
+          ],
+          "role": "H2RA notable for CYP inhibition and antiandrogenic/endocrine effects.",
+          "monitoring_pearl": "Major drug-interaction review; renal adjustment; gynecomastia/endocrine effects with exposure.",
+          "source_refs": [
+            "NICE_CG184",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_nizatidine",
+          "generic": "Nizatidine",
+          "class_id": "h2ra",
+          "form": "Capsule/oral solution",
+          "route": "Oral",
+          "dose_example": "Common adult ulcer regimen 150 mg twice daily or 300 mg at bedtime; renal adjustment may be required.",
+          "tags": [
+            "h2ra",
+            "nocturnal",
+            "ulcer"
+          ],
+          "role": "H2RA option; availability varies.",
+          "monitoring_pearl": "Renal function and product availability.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_ranitidine_history",
+          "generic": "Ranitidine — historical/regulatory-status record",
+          "class_id": "h2ra",
+          "form": "Tablet/injection (historical)",
+          "route": "Oral/IV",
+          "dose_example": "Do not infer current availability from legacy dosing; verify national regulatory status before any use.",
+          "tags": [
+            "h2ra",
+            "historical",
+            "regulatory_status"
+          ],
+          "role": "Former common H2RA; withdrawn in the US because of NDMA impurity concerns.",
+          "monitoring_pearl": "Regulatory status varies; do not treat as routinely available without local verification.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_omeprazole",
+          "generic": "Omeprazole",
+          "class_id": "ppi",
+          "form": "Delayed-release tablet/capsule; some IV forms",
+          "route": "Oral",
+          "dose_example": "Common adult GERD/duodenal-ulcer learning dose: 20 mg once daily before a meal; indication-specific regimens vary.",
+          "tags": [
+            "ppi",
+            "acid_suppression",
+            "gerd",
+            "ulcer"
+          ],
+          "role": "PPI class member; clinical differences often relate to formulation, metabolism, interactions and licensed indications.",
+          "monitoring_pearl": "Confirm indication/duration; review renal/hepatic context, magnesium/B12/iron issues when relevant, infection/fracture risks with long-term exposure, and interacting drugs.",
+          "source_refs": [
+            "ACG_GERD",
+            "NICE_CG184",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_esomeprazole",
+          "generic": "Esomeprazole",
+          "class_id": "ppi",
+          "form": "Delayed-release tablet/capsule; some IV forms",
+          "route": "Oral",
+          "dose_example": "Common adult GERD learning dose: 20–40 mg once daily; indication and formulation determine duration.",
+          "tags": [
+            "ppi",
+            "acid_suppression",
+            "gerd",
+            "ulcer"
+          ],
+          "role": "PPI class member; clinical differences often relate to formulation, metabolism, interactions and licensed indications.",
+          "monitoring_pearl": "Confirm indication/duration; review renal/hepatic context, magnesium/B12/iron issues when relevant, infection/fracture risks with long-term exposure, and interacting drugs.",
+          "source_refs": [
+            "ACG_GERD",
+            "NICE_CG184",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_pantoprazole",
+          "generic": "Pantoprazole",
+          "class_id": "ppi",
+          "form": "Delayed-release tablet/capsule; some IV forms",
+          "route": "Oral/IV",
+          "dose_example": "Common adult erosive-esophagitis learning dose: 40 mg once daily; oral/IV formulations differ.",
+          "tags": [
+            "ppi",
+            "acid_suppression",
+            "gerd",
+            "ulcer"
+          ],
+          "role": "PPI class member; clinical differences often relate to formulation, metabolism, interactions and licensed indications.",
+          "monitoring_pearl": "Confirm indication/duration; review renal/hepatic context, magnesium/B12/iron issues when relevant, infection/fracture risks with long-term exposure, and interacting drugs.",
+          "source_refs": [
+            "ACG_GERD",
+            "NICE_CG184",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_lansoprazole",
+          "generic": "Lansoprazole",
+          "class_id": "ppi",
+          "form": "Delayed-release tablet/capsule; some IV forms",
+          "route": "Oral",
+          "dose_example": "Common adult GERD/ulcer learning dose: 15–30 mg once daily before food; indication-specific regimens vary.",
+          "tags": [
+            "ppi",
+            "acid_suppression",
+            "gerd",
+            "ulcer"
+          ],
+          "role": "PPI class member; clinical differences often relate to formulation, metabolism, interactions and licensed indications.",
+          "monitoring_pearl": "Confirm indication/duration; review renal/hepatic context, magnesium/B12/iron issues when relevant, infection/fracture risks with long-term exposure, and interacting drugs.",
+          "source_refs": [
+            "ACG_GERD",
+            "NICE_CG184",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_rabeprazole",
+          "generic": "Rabeprazole",
+          "class_id": "ppi",
+          "form": "Delayed-release tablet/capsule; some IV forms",
+          "route": "Oral",
+          "dose_example": "Common adult GERD learning dose: 20 mg once daily; H. pylori regimens differ.",
+          "tags": [
+            "ppi",
+            "acid_suppression",
+            "gerd",
+            "ulcer"
+          ],
+          "role": "PPI class member; clinical differences often relate to formulation, metabolism, interactions and licensed indications.",
+          "monitoring_pearl": "Confirm indication/duration; review renal/hepatic context, magnesium/B12/iron issues when relevant, infection/fracture risks with long-term exposure, and interacting drugs.",
+          "source_refs": [
+            "ACG_GERD",
+            "NICE_CG184",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_dexlansoprazole",
+          "generic": "Dexlansoprazole",
+          "class_id": "ppi",
+          "form": "Delayed-release tablet/capsule; some IV forms",
+          "route": "Oral",
+          "dose_example": "Common adult non-erosive GERD learning dose: 30 mg once daily; erosive disease often uses 60 mg daily initially per label.",
+          "tags": [
+            "ppi",
+            "acid_suppression",
+            "gerd",
+            "ulcer"
+          ],
+          "role": "PPI class member; clinical differences often relate to formulation, metabolism, interactions and licensed indications.",
+          "monitoring_pearl": "Confirm indication/duration; review renal/hepatic context, magnesium/B12/iron issues when relevant, infection/fracture risks with long-term exposure, and interacting drugs.",
+          "source_refs": [
+            "ACG_GERD",
+            "NICE_CG184",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_ilaprazole",
+          "generic": "Ilaprazole",
+          "class_id": "ppi",
+          "form": "Delayed-release tablet/capsule; some IV forms",
+          "route": "Oral",
+          "dose_example": "Common adult use in some Asian markets: often 10 mg once daily; verify local licensed indication/strength.",
+          "tags": [
+            "ppi",
+            "acid_suppression",
+            "gerd",
+            "ulcer"
+          ],
+          "role": "PPI class member; clinical differences often relate to formulation, metabolism, interactions and licensed indications.",
+          "monitoring_pearl": "Confirm indication/duration; review renal/hepatic context, magnesium/B12/iron issues when relevant, infection/fracture risks with long-term exposure, and interacting drugs.",
+          "source_refs": [
+            "ACG_GERD",
+            "NICE_CG184",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_vonoprazan",
+          "generic": "Vonoprazan",
+          "class_id": "pcab",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Labeled adult regimens use 10 mg or 20 mg once/twice daily depending indication; verify exact GERD/H. pylori label.",
+          "tags": [
+            "pcab",
+            "acid_suppression",
+            "gerd",
+            "erosive_esophagitis",
+            "hpylori"
+          ],
+          "role": "Potassium-competitive acid blocker with rapid acid suppression.",
+          "monitoring_pearl": "Indication/market-specific labeling and CYP interaction review.",
+          "source_refs": [
+            "ACG_GERD",
+            "ACG_HPYLORI_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_sucralfate",
+          "generic": "Sucralfate",
+          "class_id": "sucralfate",
+          "form": "Tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Active duodenal-ulcer learning regimen: 1 g four times daily on an empty stomach; maintenance regimens differ.",
+          "tags": [
+            "mucosal_protection",
+            "ulcer"
+          ],
+          "role": "Local ulcer-base protectant with minimal systemic absorption.",
+          "monitoring_pearl": "Separate from interacting oral medicines; aluminium accumulation concern in renal failure.",
+          "source_refs": [
+            "NICE_CG184",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_bismuth_subsalicylate",
+          "generic": "Bismuth subsalicylate",
+          "class_id": "bismuth",
+          "form": "Tablet/suspension",
+          "route": "Oral",
+          "dose_example": "OTC symptom dosing and H. pylori regimen dosing differ; verify salicylate content and regimen.",
+          "tags": [
+            "bismuth",
+            "hpylori",
+            "diarrhea_adjunct"
+          ],
+          "role": "Bismuth + salicylate formulation; useful in GI symptom relief and some eradication regimens.",
+          "monitoring_pearl": "Salicylate allergy/anticoagulation, renal disease, pregnancy/children and black stool/tongue counseling.",
+          "source_refs": [
+            "ACG_HPYLORI_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_bismuth_subcitrate",
+          "generic": "Bismuth subcitrate",
+          "class_id": "bismuth",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "H. pylori regimen dose is product/regimen-specific; optimized BQT commonly uses divided four-times-daily bismuth dosing.",
+          "tags": [
+            "bismuth",
+            "hpylori",
+            "bismuth_quadruple"
+          ],
+          "role": "Non-salicylate bismuth option in eradication regimens.",
+          "monitoring_pearl": "Regimen-specific duration and renal exposure; verify product salt/strength.",
+          "source_refs": [
+            "ACG_HPYLORI_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_misoprostol",
+          "generic": "Misoprostol",
+          "class_id": "prostaglandin",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "NSAID-ulcer prevention labeling commonly uses 200 micrograms four times daily with food; lower doses may be used if not tolerated.",
+          "tags": [
+            "gastroprotection",
+            "nsaid_ulcer",
+            "pregnancy_alert"
+          ],
+          "role": "PGE1 analogue that prevents NSAID-associated gastric ulcer in selected high-risk patients.",
+          "monitoring_pearl": "Strong pregnancy/uterotonic warning; diarrhea/cramping; indication-specific counseling.",
+          "source_refs": [
+            "NICE_CG184",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_bqt14",
+          "generic": "Optimized bismuth quadruple therapy — 14-day regimen",
+          "class_id": "hpylori_bqt",
+          "form": "Multi-drug regimen",
+          "route": "Oral",
+          "dose_example": "ACG 2024 learning regimen: PPI twice daily + bismuth QID + tetracycline 500 mg QID + metronidazole 500 mg TID/QID for 14 days; verify exact products/allergy/resistance context.",
+          "tags": [
+            "hpylori",
+            "eradication",
+            "bismuth_quadruple"
+          ],
+          "role": "Preferred empiric regimen in many treatment-naïve adults when susceptibility is unknown, per ACG 2024.",
+          "monitoring_pearl": "Adherence, prior antibiotic exposure, pregnancy, interactions, metronidazole/tetracycline cautions, and post-treatment test-of-cure.",
+          "source_refs": [
+            "ACG_HPYLORI_2024"
+          ]
+        },
+        {
+          "id": "gi_rifabutin_triple",
+          "generic": "Rifabutin-based triple therapy",
+          "class_id": "hpylori_rifabutin",
+          "form": "Co-formulated or multi-drug regimen",
+          "route": "Oral",
+          "dose_example": "Use current approved co-formulation or guideline regimen for 14 days; do not reconstruct from memory when prescribing.",
+          "tags": [
+            "hpylori",
+            "eradication",
+            "salvage",
+            "rifabutin"
+          ],
+          "role": "Alternative/salvage eradication strategy in selected adults.",
+          "monitoring_pearl": "CBC/drug-interaction review, prior therapy, allergy and post-treatment test-of-cure.",
+          "source_refs": [
+            "ACG_HPYLORI_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_vono_amox",
+          "generic": "Vonoprazan + amoxicillin dual therapy",
+          "class_id": "hpylori_vonoprazan",
+          "form": "Co-pack/multi-drug regimen",
+          "route": "Oral",
+          "dose_example": "US label learning regimen: vonoprazan 20 mg twice daily + amoxicillin 1 g three times daily for 14 days; verify local label.",
+          "tags": [
+            "hpylori",
+            "eradication",
+            "pcab",
+            "dual_triple"
+          ],
+          "role": "P-CAB dual eradication option where licensed.",
+          "monitoring_pearl": "Penicillin allergy, renal function, interaction review, adherence and test-of-cure.",
+          "source_refs": [
+            "ACG_HPYLORI_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_vono_triple",
+          "generic": "Vonoprazan + amoxicillin + clarithromycin triple therapy",
+          "class_id": "hpylori_vonoprazan",
+          "form": "Co-pack/multi-drug regimen",
+          "route": "Oral",
+          "dose_example": "Use approved 14-day co-pack regimen only when clarithromycin susceptibility/appropriate context is established.",
+          "tags": [
+            "hpylori",
+            "eradication",
+            "pcab",
+            "dual_triple",
+            "clarithromycin_sensitive"
+          ],
+          "role": "P-CAB triple regimen; empiric clarithromycin use is constrained by resistance guidance.",
+          "monitoring_pearl": "Macrolide interactions/QT, susceptibility, allergy, adherence and test-of-cure.",
+          "source_refs": [
+            "ACG_HPYLORI_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_metoclopramide",
+          "generic": "Metoclopramide",
+          "class_id": "prokinetic_adjunct",
+          "form": "Tablet/oral solution/injection",
+          "route": "Oral/IV/IM",
+          "dose_example": "Diabetic gastroparesis labeling commonly uses 10 mg before meals and at bedtime for limited duration; dose reduction may be needed.",
+          "tags": [
+            "prokinetic",
+            "gastroparesis",
+            "reflux_adjunct",
+            "dopamine"
+          ],
+          "role": "D2 antagonist/5-HT4 activity; motility and antiemetic effects.",
+          "monitoring_pearl": "Tardive dyskinesia boxed warning, extrapyramidal effects, duration and renal dose review.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_domperidone",
+          "generic": "Domperidone",
+          "class_id": "prokinetic_adjunct",
+          "form": "Tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Where licensed, common adult dosing is 10 mg up to three times daily before meals; verify local restrictions.",
+          "tags": [
+            "prokinetic",
+            "gastroparesis",
+            "dyspepsia",
+            "qt"
+          ],
+          "role": "Peripheral D2 antagonist with prokinetic/antiemetic activity.",
+          "monitoring_pearl": "QT prolongation/arrhythmia risk, interacting CYP3A4/QT drugs; regulatory status varies.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_itopride",
+          "generic": "Itopride",
+          "class_id": "prokinetic_adjunct",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common market dosing: 50 mg three times daily before meals; verify local product label.",
+          "tags": [
+            "prokinetic",
+            "dyspepsia"
+          ],
+          "role": "D2 antagonism + acetylcholinesterase inhibition; used in functional dyspepsia in some markets.",
+          "monitoring_pearl": "Prolactin/GI effects and local evidence/label verification.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_mosapride",
+          "generic": "Mosapride",
+          "class_id": "prokinetic_adjunct",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common market dosing: 5 mg three times daily; verify local label.",
+          "tags": [
+            "prokinetic",
+            "dyspepsia",
+            "reflux_adjunct"
+          ],
+          "role": "5-HT4 agonist prokinetic used in several Asian markets.",
+          "monitoring_pearl": "QT/drug-interaction and local licensing review.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_levosulpiride",
+          "generic": "Levosulpiride",
+          "class_id": "prokinetic_adjunct",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common adult dyspepsia dosing in some markets: 25 mg three times daily before meals; verify local label.",
+          "tags": [
+            "prokinetic",
+            "dyspepsia",
+            "dopamine"
+          ],
+          "role": "D2 antagonist prokinetic used in some countries.",
+          "monitoring_pearl": "Hyperprolactinemia, extrapyramidal effects, QT risk and regulatory status.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_baclofen",
+          "generic": "Baclofen — selected reflux adjunct",
+          "class_id": "reflux_gabab",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Off-label reflux studies often use low divided doses such as 5–10 mg three times daily; specialist verification required.",
+          "tags": [
+            "reflux_adjunct",
+            "refractory_gerd",
+            "central"
+          ],
+          "role": "GABA-B agonist can reduce transient LES relaxations; not routine first-line GERD therapy.",
+          "monitoring_pearl": "Sedation/dizziness, renal function and withdrawal; use only with objective/selected refractory context.",
+          "source_refs": [
+            "ACG_GERD",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_simethicone",
+          "generic": "Simethicone",
+          "class_id": "antifoaming",
+          "form": "Chewable capsule/tablet/liquid",
+          "route": "Oral",
+          "dose_example": "Common adult OTC products use ~80–125 mg after meals/bedtime; strength-specific maximum varies.",
+          "tags": [
+            "gas",
+            "dyspepsia",
+            "symptom_adjunct"
+          ],
+          "role": "Antifoaming agent for gas/bloating symptom relief.",
+          "monitoring_pearl": "Minimal systemic absorption; ensure symptom pattern does not mask alarm features.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "ACG_GERD",
+          "label": "American College of Gastroenterology — GERD guidance/resources",
+          "url": "https://gi.org/topics/acid-reflux/"
+        },
+        {
+          "id": "ACG_HPYLORI_2024",
+          "label": "ACG H. pylori Guideline 2024",
+          "url": "https://gi.org/journals-publications/ebgi/schoenfeld_sep2024/"
+        },
+        {
+          "id": "NICE_CG184",
+          "label": "NICE CG184 — GORD and dyspepsia in adults",
+          "url": "https://www.nice.org.uk/guidance/cg184"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "DailyMed — current FDA-submitted product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "pain_muscle",
+      "title": "Pain, Analgesic & Muscle-Relaxant Intelligence Lab",
+      "icon": "⚡",
+      "badge": "PAIN v1.0",
+      "eyebrow": "PAIN MEDICINE / ANALGESIA / MUSCLE PHARMACOLOGY RESEARCH WORKSPACE",
+      "subtitle": "Nociceptive vs inflammatory vs neuropathic vs visceral pain → non-opioids → NSAIDs → opioids → adjuvants → local anesthetics → steroids → skeletal/smooth-muscle relaxants → anesthesia-only neuromuscular blockers",
+      "scientific_boundary": "Pain phenotype and diagnosis come before drug class. Steroids are anti-inflammatory pain-modifiers, muscle relaxants/antispasmodics do not directly equal analgesia, and neuromuscular blockers provide paralysis with NO analgesia/sedation. Opioids require individualized risk assessment; local anesthetic dose must be calculated as total mg for the exact procedure/product with LAST preparedness.",
+      "classification_notes": {
+        "nonopioid": "Paracetamol and NSAIDs are distinct non-opioid strategies. NSAIDs are especially useful for inflammatory pain but carry GI, renal and cardiovascular risk that rises with susceptibility, dose and duration.",
+        "opioid": "CDC 2022 emphasizes individualized patient-centered decisions, preference for nonopioid therapy when appropriate, careful initiation/dose/duration decisions and harm-risk mitigation rather than rigid universal thresholds.",
+        "neuropathic": "Neuropathic pain is mechanistically different from simple nociceptive pain; gabapentinoids, SNRIs, TCAs and sodium-channel agents are syndrome-specific adjuvants rather than universal analgesics.",
+        "local_anesthetic": "Local anesthetics block voltage-gated sodium channels. Safe use is procedure- and concentration-specific; ASRA LAST readiness is a core safety concept.",
+        "muscle_relaxant": "Acute skeletal muscle spasm, neurologic spasticity and visceral smooth-muscle spasm are different pharmacologic problems and should not share one undifferentiated “muscle relaxant” list.",
+        "nmb": "Neuromuscular blockers are anesthesia/ICU paralytics only. They must never be represented as analgesics or sedatives."
+      },
+      "lens_groups": [
+        {
+          "group": "Pain mechanism / clinical phenotype",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All pain & muscle groups"
+            },
+            {
+              "id": "nociceptive",
+              "label": "Nociceptive pain"
+            },
+            {
+              "id": "inflammatory",
+              "label": "Inflammatory pain"
+            },
+            {
+              "id": "neuropathic",
+              "label": "Neuropathic pain"
+            },
+            {
+              "id": "migraine",
+              "label": "Migraine-specific"
+            },
+            {
+              "id": "visceral",
+              "label": "Visceral / spasm pain"
+            },
+            {
+              "id": "acute_spasm",
+              "label": "Acute skeletal muscle spasm"
+            },
+            {
+              "id": "spasticity",
+              "label": "Neurologic spasticity"
+            }
+          ]
+        },
+        {
+          "group": "Pharmacologic families",
+          "items": [
+            {
+              "id": "non_opioid",
+              "label": "Non-opioid analgesics"
+            },
+            {
+              "id": "nsaid",
+              "label": "NSAIDs"
+            },
+            {
+              "id": "cox2",
+              "label": "COX-2 inhibitors"
+            },
+            {
+              "id": "opioid",
+              "label": "Opioids"
+            },
+            {
+              "id": "central",
+              "label": "Centrally acting / adjuvants"
+            },
+            {
+              "id": "local_anesthetic",
+              "label": "Local anesthetics"
+            },
+            {
+              "id": "steroid",
+              "label": "Steroidal anti-inflammatory"
+            },
+            {
+              "id": "skeletal_relaxant",
+              "label": "Skeletal muscle relaxants"
+            },
+            {
+              "id": "smooth_muscle",
+              "label": "Smooth-muscle antispasmodics"
+            }
+          ]
+        },
+        {
+          "group": "Procedure / safety concepts",
+          "items": [
+            {
+              "id": "topical",
+              "label": "Topical / local analgesia"
+            },
+            {
+              "id": "regional",
+              "label": "Regional anesthesia"
+            },
+            {
+              "id": "perioperative",
+              "label": "Perioperative adjuncts"
+            },
+            {
+              "id": "opioid_safety",
+              "label": "Opioid rescue / safety"
+            },
+            {
+              "id": "anesthesia_only",
+              "label": "Anesthesia-only paralytics"
+            },
+            {
+              "id": "not_analgesic",
+              "label": "Not analgesics — classification alert"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "paracetamol",
+          "name": "Paracetamol / acetaminophen",
+          "mechanism": "Central analgesic/antipyretic actions with weak peripheral anti-inflammatory activity; precise mechanism is multifactorial",
+          "target": "Central prostaglandin/descending pain pathways (multifactorial)",
+          "tags": [
+            "overview",
+            "non_opioid",
+            "nociceptive",
+            "fever",
+            "msk"
+          ],
+          "role_note": "Foundational non-opioid analgesic/antipyretic; liver toxicity is dose-related.",
+          "drug_ids": [
+            "pain_paracetamol"
+          ]
+        },
+        {
+          "id": "salicylates",
+          "name": "Salicylate analgesics",
+          "mechanism": "Irreversible or reversible cyclo-oxygenase inhibition depending agent/dose",
+          "target": "COX enzymes / platelet COX-1 for aspirin",
+          "tags": [
+            "overview",
+            "non_opioid",
+            "nsaid",
+            "inflammatory",
+            "antiplatelet"
+          ],
+          "role_note": "Aspirin has analgesic/anti-inflammatory and antiplatelet roles; dose and indication change pharmacology and safety.",
+          "drug_ids": [
+            "pain_aspirin"
+          ]
+        },
+        {
+          "id": "propionic_nsaid",
+          "name": "Propionic-acid NSAIDs",
+          "mechanism": "Reversible COX-1/COX-2 inhibition reduces prostaglandin synthesis",
+          "target": "Cyclo-oxygenase enzymes",
+          "tags": [
+            "overview",
+            "nsaid",
+            "nonselective_nsaid",
+            "inflammatory",
+            "nociceptive",
+            "msk"
+          ],
+          "role_note": "Common NSAID family; GI/renal/CV risk varies by patient, dose and duration.",
+          "drug_ids": [
+            "pain_ibuprofen",
+            "pain_naproxen",
+            "pain_ketoprofen",
+            "pain_flurbiprofen"
+          ]
+        },
+        {
+          "id": "acetic_nsaid",
+          "name": "Acetic-acid / related NSAIDs",
+          "mechanism": "COX inhibition with differing COX-1/COX-2 selectivity",
+          "target": "Cyclo-oxygenase enzymes",
+          "tags": [
+            "overview",
+            "nsaid",
+            "nonselective_nsaid",
+            "inflammatory",
+            "msk",
+            "acute_pain"
+          ],
+          "role_note": "Includes diclofenac, indomethacin, ketorolac and related agents; potency does not remove class toxicity.",
+          "drug_ids": [
+            "pain_diclofenac",
+            "pain_aceclofenac",
+            "pain_indomethacin",
+            "pain_ketorolac",
+            "pain_etodolac",
+            "pain_nabumetone"
+          ]
+        },
+        {
+          "id": "oxicam_nsaid",
+          "name": "Oxicam / enolic-acid NSAIDs",
+          "mechanism": "COX inhibition with long half-life for several members",
+          "target": "Cyclo-oxygenase enzymes",
+          "tags": [
+            "overview",
+            "nsaid",
+            "inflammatory",
+            "long_acting"
+          ],
+          "role_note": "Long-acting NSAID family; prolonged exposure matters for GI/renal/CV toxicity.",
+          "drug_ids": [
+            "pain_meloxicam",
+            "pain_piroxicam",
+            "pain_lornoxicam"
+          ]
+        },
+        {
+          "id": "cox2",
+          "name": "Selective / preferential COX-2 inhibitors",
+          "mechanism": "Preferential inhibition of COX-2-mediated inflammatory prostaglandins",
+          "target": "COX-2",
+          "tags": [
+            "overview",
+            "nsaid",
+            "cox2",
+            "inflammatory",
+            "msk"
+          ],
+          "role_note": "Less platelet COX-1 effect than nonselective NSAIDs but not free of CV/renal/GI risk.",
+          "drug_ids": [
+            "pain_celecoxib",
+            "pain_etoricoxib",
+            "pain_parecoxib"
+          ]
+        },
+        {
+          "id": "topical_nsaid",
+          "name": "Topical NSAIDs",
+          "mechanism": "Local tissue COX inhibition with lower systemic exposure than oral therapy",
+          "target": "Local COX enzymes",
+          "tags": [
+            "overview",
+            "nsaid",
+            "topical",
+            "local",
+            "msk",
+            "osteoarthritis"
+          ],
+          "role_note": "Useful local musculoskeletal pain category; systemic exposure is lower, not zero.",
+          "drug_ids": [
+            "pain_diclofenac_topical",
+            "pain_ibuprofen_topical"
+          ]
+        },
+        {
+          "id": "weak_atypical_opioid",
+          "name": "Weak / atypical opioid analgesics",
+          "mechanism": "Opioid receptor agonism ± monoamine reuptake inhibition",
+          "target": "μ-opioid receptor ± serotonin/norepinephrine transporters",
+          "tags": [
+            "overview",
+            "opioid",
+            "central",
+            "nociceptive",
+            "acute_pain"
+          ],
+          "role_note": "Opioid/monoaminergic agents with dependence, respiratory/CNS and serotonin/seizure risks.",
+          "drug_ids": [
+            "pain_tramadol",
+            "pain_tapentadol",
+            "pain_codeine"
+          ]
+        },
+        {
+          "id": "strong_mu_opioid",
+          "name": "Full μ-opioid agonists",
+          "mechanism": "Activate μ-opioid receptors in brain, spinal cord and peripheral tissues",
+          "target": "μ-opioid receptor",
+          "tags": [
+            "overview",
+            "opioid",
+            "central",
+            "severe_pain",
+            "perioperative"
+          ],
+          "role_note": "Potent analgesics with dose-dependent respiratory depression, sedation, constipation, tolerance and dependence.",
+          "drug_ids": [
+            "pain_morphine",
+            "pain_oxycodone",
+            "pain_hydromorphone",
+            "pain_fentanyl",
+            "pain_methadone"
+          ]
+        },
+        {
+          "id": "partial_opioid",
+          "name": "Partial / mixed opioid receptor analgesics",
+          "mechanism": "Partial μ agonism or mixed κ/μ receptor pharmacology",
+          "target": "Opioid receptors",
+          "tags": [
+            "overview",
+            "opioid",
+            "central",
+            "severe_pain"
+          ],
+          "role_note": "Distinct receptor pharmacology changes ceiling effects, withdrawal interactions and respiratory risk.",
+          "drug_ids": [
+            "pain_buprenorphine",
+            "pain_pentazocine"
+          ]
+        },
+        {
+          "id": "opioid_rescue",
+          "name": "Opioid antagonists / overdose rescue (not analgesics)",
+          "mechanism": "Competitively antagonize opioid receptors",
+          "target": "μ > κ/δ opioid receptors",
+          "tags": [
+            "overview",
+            "opioid_safety",
+            "not_analgesic",
+            "rescue"
+          ],
+          "role_note": "Safety/rescue category only; reverses opioid effects rather than treating pain.",
+          "drug_ids": [
+            "pain_naloxone"
+          ]
+        },
+        {
+          "id": "gabapentinoid",
+          "name": "Gabapentinoid neuropathic-pain modulators",
+          "mechanism": "Bind α2δ subunit of voltage-gated calcium channels and reduce excitatory neurotransmitter release",
+          "target": "α2δ calcium-channel subunit",
+          "tags": [
+            "overview",
+            "neuropathic",
+            "central",
+            "adjuvant"
+          ],
+          "role_note": "Neuropathic-pain/antiepileptic class; sedation, edema and renal dosing are high-yield.",
+          "drug_ids": [
+            "pain_gabapentin",
+            "pain_pregabalin"
+          ]
+        },
+        {
+          "id": "na_channel_neuralgia",
+          "name": "Sodium-channel anticonvulsants for neuralgia",
+          "mechanism": "Use-dependent blockade/stabilization of neuronal sodium channels",
+          "target": "Voltage-gated sodium channels",
+          "tags": [
+            "overview",
+            "neuropathic",
+            "neuralgia",
+            "central"
+          ],
+          "role_note": "Important for trigeminal neuralgia and selected neuropathic syndromes; not general nociceptive analgesics.",
+          "drug_ids": [
+            "pain_carbamazepine",
+            "pain_oxcarbazepine"
+          ]
+        },
+        {
+          "id": "snri_pain",
+          "name": "SNRI analgesic adjuvants",
+          "mechanism": "Enhance descending serotonergic/noradrenergic pain inhibition",
+          "target": "Serotonin and norepinephrine transporters",
+          "tags": [
+            "overview",
+            "neuropathic",
+            "central",
+            "adjuvant",
+            "chronic_pain"
+          ],
+          "role_note": "Useful in neuropathic pain/fibromyalgia and selected chronic pain with comorbidity.",
+          "drug_ids": [
+            "pain_duloxetine",
+            "pain_venlafaxine_er"
+          ]
+        },
+        {
+          "id": "tca_pain",
+          "name": "Tricyclic antidepressant analgesic adjuvants",
+          "mechanism": "Enhance descending monoamine inhibition plus sodium-channel/anticholinergic effects",
+          "target": "NET/SERT and multiple receptors",
+          "tags": [
+            "overview",
+            "neuropathic",
+            "central",
+            "adjuvant",
+            "chronic_pain"
+          ],
+          "role_note": "Low-dose chronic neuropathic-pain category; anticholinergic/cardiac toxicity shapes patient selection.",
+          "drug_ids": [
+            "pain_amitriptyline",
+            "pain_nortriptyline"
+          ]
+        },
+        {
+          "id": "nmda_analgesic",
+          "name": "NMDA-antagonist analgesic/anesthetic adjuncts",
+          "mechanism": "Reduces central sensitization through NMDA receptor antagonism",
+          "target": "NMDA receptor",
+          "tags": [
+            "overview",
+            "central",
+            "perioperative",
+            "severe_pain",
+            "specialist"
+          ],
+          "role_note": "Ketamine is a monitored-setting analgesic/anesthetic adjunct; dissociation/hemodynamic/psychotomimetic effects require expertise.",
+          "drug_ids": [
+            "pain_ketamine"
+          ]
+        },
+        {
+          "id": "alpha2_analgesic",
+          "name": "Central α2-adrenergic analgesic/sedative adjuncts",
+          "mechanism": "Reduces sympathetic outflow and modulates nociceptive transmission",
+          "target": "Central/spinal α2 receptors",
+          "tags": [
+            "overview",
+            "central",
+            "perioperative",
+            "adjuvant",
+            "specialist"
+          ],
+          "role_note": "Analgesic-sparing sedative adjunct category in monitored settings.",
+          "drug_ids": [
+            "pain_dexmedetomidine",
+            "pain_clonidine_adjuvant"
+          ]
+        },
+        {
+          "id": "amide_local",
+          "name": "Amide local anesthetics",
+          "mechanism": "Block voltage-gated sodium channels from the intracellular side, preventing action-potential propagation",
+          "target": "Voltage-gated Na+ channels",
+          "tags": [
+            "overview",
+            "local_anesthetic",
+            "local",
+            "regional",
+            "amide",
+            "perioperative"
+          ],
+          "role_note": "Local/regional anesthesia class; total mg dose, vascularity, epinephrine, patient factors and LAST risk govern safe use.",
+          "drug_ids": [
+            "pain_lidocaine",
+            "pain_bupivacaine",
+            "pain_ropivacaine",
+            "pain_mepivacaine",
+            "pain_prilocaine",
+            "pain_articaine"
+          ]
+        },
+        {
+          "id": "ester_local",
+          "name": "Ester local anesthetics",
+          "mechanism": "Block voltage-gated sodium channels; ester metabolism differs from amides",
+          "target": "Voltage-gated Na+ channels",
+          "tags": [
+            "overview",
+            "local_anesthetic",
+            "local",
+            "regional",
+            "ester"
+          ],
+          "role_note": "Local anesthetic ester class; allergy/PABA and procedure-specific formulation issues are important.",
+          "drug_ids": [
+            "pain_chloroprocaine",
+            "pain_procaine",
+            "pain_tetracaine",
+            "pain_benzocaine"
+          ]
+        },
+        {
+          "id": "topical_analgesic",
+          "name": "Topical non-NSAID analgesics",
+          "mechanism": "Peripheral nerve desensitization or sodium-channel blockade at local site",
+          "target": "TRPV1 or local Na+ channels",
+          "tags": [
+            "overview",
+            "topical",
+            "local",
+            "neuropathic"
+          ],
+          "role_note": "Includes capsaicin and topical lidocaine; useful for localized pain with product-specific application limits.",
+          "drug_ids": [
+            "pain_lidocaine_patch",
+            "pain_capsaicin_low",
+            "pain_capsaicin_8"
+          ]
+        },
+        {
+          "id": "triptan",
+          "name": "Triptans — migraine-specific acute antimigraine agents",
+          "mechanism": "5-HT1B/1D agonism reduces trigeminovascular activation and cranial vasodilation",
+          "target": "5-HT1B/1D receptors",
+          "tags": [
+            "overview",
+            "migraine",
+            "central",
+            "headache_specific"
+          ],
+          "role_note": "Migraine-specific abortive class, not general analgesics; cardiovascular contraindications matter.",
+          "drug_ids": [
+            "pain_sumatriptan",
+            "pain_rizatriptan",
+            "pain_zolmitriptan",
+            "pain_eletriptan"
+          ]
+        },
+        {
+          "id": "gepant",
+          "name": "CGRP receptor antagonists (gepants)",
+          "mechanism": "Block CGRP receptor signaling in trigeminovascular pathways",
+          "target": "CGRP receptor",
+          "tags": [
+            "overview",
+            "migraine",
+            "headache_specific",
+            "cgrp"
+          ],
+          "role_note": "Migraine-specific acute/preventive agents with less vasoconstriction than triptans; interactions vary.",
+          "drug_ids": [
+            "pain_ubrogepant",
+            "pain_rimegepant",
+            "pain_zavegepant"
+          ]
+        },
+        {
+          "id": "systemic_steroid",
+          "name": "Systemic corticosteroids — anti-inflammatory pain-modifying agents (not primary analgesics)",
+          "mechanism": "Genomic glucocorticoid-receptor effects suppress inflammatory cytokines and immune activation",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "overview",
+            "steroid",
+            "anti_inflammatory",
+            "pain_modifying",
+            "not_primary_analgesic"
+          ],
+          "role_note": "Can reduce pain when inflammation is steroid-responsive; should not be classified as routine analgesics.",
+          "drug_ids": [
+            "pain_prednisolone",
+            "pain_prednisone",
+            "pain_dexamethasone",
+            "pain_methylprednisolone"
+          ]
+        },
+        {
+          "id": "local_steroid",
+          "name": "Local/intra-articular corticosteroid preparations",
+          "mechanism": "Local glucocorticoid anti-inflammatory effects",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "overview",
+            "steroid",
+            "local",
+            "anti_inflammatory",
+            "pain_modifying",
+            "injection"
+          ],
+          "role_note": "Procedure/diagnosis-specific anti-inflammatory injections; infection, tissue and glycemic risks matter.",
+          "drug_ids": [
+            "pain_triamcinolone_acetonide",
+            "pain_methylpred_acetate",
+            "pain_betamethasone_inj"
+          ]
+        },
+        {
+          "id": "acute_skeletal_relaxant",
+          "name": "Centrally acting skeletal muscle relaxants for acute spasm",
+          "mechanism": "Reduce polysynaptic CNS motor activity through heterogeneous central mechanisms",
+          "target": "Brainstem/spinal interneuronal pathways",
+          "tags": [
+            "overview",
+            "skeletal_relaxant",
+            "acute_spasm",
+            "central",
+            "msk"
+          ],
+          "role_note": "Short-term symptomatic category; sedation and limited duration are major practical issues.",
+          "drug_ids": [
+            "pain_cyclobenzaprine",
+            "pain_methocarbamol",
+            "pain_chlorzoxazone",
+            "pain_metaxalone",
+            "pain_carisoprodol",
+            "pain_orphenadrine"
+          ]
+        },
+        {
+          "id": "antispasticity",
+          "name": "Antispasticity medicines",
+          "mechanism": "Reduce pathological UMN-mediated muscle tone through GABA/α2/peripheral calcium mechanisms",
+          "target": "Spinal GABA-B / α2 / skeletal-muscle RyR1",
+          "tags": [
+            "overview",
+            "skeletal_relaxant",
+            "spasticity",
+            "central",
+            "neuro"
+          ],
+          "role_note": "For neurologic spasticity rather than simple muscle strain; titration/withdrawal and weakness monitoring are central.",
+          "drug_ids": [
+            "pain_baclofen_spasticity",
+            "pain_tizanidine",
+            "pain_dantrolene",
+            "pain_diazepam_spasm"
+          ]
+        },
+        {
+          "id": "botulinum",
+          "name": "Botulinum toxin chemodenervation",
+          "mechanism": "Cleaves SNARE proteins and prevents acetylcholine release at neuromuscular junction",
+          "target": "Presynaptic cholinergic terminal",
+          "tags": [
+            "overview",
+            "skeletal_relaxant",
+            "spasticity",
+            "local",
+            "procedure"
+          ],
+          "role_note": "Focal chemodenervation for selected spasticity/dystonia; units are product-specific and not interchangeable.",
+          "drug_ids": [
+            "pain_botoxA"
+          ]
+        },
+        {
+          "id": "smooth_antimuscarinic",
+          "name": "Antimuscarinic smooth-muscle antispasmodics",
+          "mechanism": "Reduce muscarinic cholinergic contraction of GI smooth muscle",
+          "target": "Muscarinic receptors",
+          "tags": [
+            "overview",
+            "smooth_muscle",
+            "visceral",
+            "antispasmodic",
+            "gi_spasm"
+          ],
+          "role_note": "Visceral-spasm symptom class; anticholinergic burden limits use in glaucoma, urinary retention and older adults.",
+          "drug_ids": [
+            "pain_dicyclomine",
+            "pain_hyoscine_butyl",
+            "pain_hyoscyamine"
+          ]
+        },
+        {
+          "id": "smooth_direct",
+          "name": "Direct / non-antimuscarinic smooth-muscle antispasmodics",
+          "mechanism": "Relax GI smooth muscle through phosphodiesterase/ion-channel/direct myotropic mechanisms",
+          "target": "Smooth-muscle intracellular signaling",
+          "tags": [
+            "overview",
+            "smooth_muscle",
+            "visceral",
+            "antispasmodic"
+          ],
+          "role_note": "Used in abdominal/visceral spasm in some markets; evidence and approval vary.",
+          "drug_ids": [
+            "pain_drotaverine",
+            "pain_mebeverine",
+            "pain_papaverine"
+          ]
+        },
+        {
+          "id": "gout_colchicine",
+          "name": "Colchicine — anti-inflammatory crystal-arthritis agent (not analgesic)",
+          "mechanism": "Disrupts microtubules and neutrophil inflammasome-mediated inflammatory response",
+          "target": "Tubulin / neutrophil inflammatory pathways",
+          "tags": [
+            "overview",
+            "inflammatory",
+            "gout",
+            "pain_modifying",
+            "not_primary_analgesic"
+          ],
+          "role_note": "Treats gout inflammation rather than directly blocking pain perception; narrow therapeutic index/interactions matter.",
+          "drug_ids": [
+            "pain_colchicine"
+          ]
+        },
+        {
+          "id": "nmb_depolarizing",
+          "name": "Depolarizing neuromuscular blocker — paralysis only",
+          "mechanism": "Persistent nicotinic ACh receptor depolarization causes neuromuscular paralysis",
+          "target": "Nm nicotinic acetylcholine receptor",
+          "tags": [
+            "overview",
+            "neuromuscular_blocker",
+            "anesthesia_only",
+            "not_analgesic",
+            "paralysis"
+          ],
+          "role_note": "Anesthesia/airway paralysis category. Provides NO analgesia, amnesia or sedation.",
+          "drug_ids": [
+            "pain_succinylcholine"
+          ]
+        },
+        {
+          "id": "nmb_nondepolarizing",
+          "name": "Nondepolarizing neuromuscular blockers — paralysis only",
+          "mechanism": "Competitive antagonism at nicotinic ACh receptors prevents neuromuscular transmission",
+          "target": "Nm nicotinic acetylcholine receptor",
+          "tags": [
+            "overview",
+            "neuromuscular_blocker",
+            "anesthesia_only",
+            "not_analgesic",
+            "paralysis"
+          ],
+          "role_note": "Anesthesia/ICU paralysis category. Provides NO analgesia or sedation and requires airway/ventilation plus neuromuscular monitoring.",
+          "drug_ids": [
+            "pain_rocuronium",
+            "pain_vecuronium",
+            "pain_cisatracurium",
+            "pain_atracurium",
+            "pain_pancuronium"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "pain_paracetamol",
+          "generic": "Paracetamol (acetaminophen)",
+          "class_id": "paracetamol",
+          "form": "Tablet/capsule/liquid/IV",
+          "route": "Oral/IV",
+          "dose_example": "Common adult learning dose 500–1000 mg every 6–8 h as needed; do not exceed product/liver-specific maximum (often ≤4 g/day, lower in risk groups).",
+          "tags": [
+            "non_opioid",
+            "nociceptive",
+            "fever",
+            "msk"
+          ],
+          "role": "First-line/adjunct non-opioid analgesic in many contexts.",
+          "monitoring_pearl": "Total daily dose from all combination products; liver disease, alcohol exposure and low body weight.",
+          "source_refs": [
+            "NICE_ANALGESICS",
+            "DAILYMED",
+            "ICMR_NECK_PAIN"
+          ]
+        },
+        {
+          "id": "pain_aspirin",
+          "generic": "Aspirin (acetylsalicylic acid)",
+          "class_id": "salicylates",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Analgesic/antipyretic adult doses are typically 325–650 mg every 4–6 h; antiplatelet dosing is much lower and a different indication.",
+          "tags": [
+            "non_opioid",
+            "nsaid",
+            "inflammatory",
+            "antiplatelet"
+          ],
+          "role": "Dose-dependent analgesic/anti-inflammatory/antiplatelet pharmacology.",
+          "monitoring_pearl": "GI bleeding, renal function, asthma sensitivity, anticoagulants and age/pregnancy context.",
+          "source_refs": [
+            "NICE_ANALGESICS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_ibuprofen",
+          "generic": "Ibuprofen",
+          "class_id": "propionic_nsaid",
+          "form": "Tablet/capsule/suspension",
+          "route": "Oral",
+          "dose_example": "Common adult analgesic dose 200–400 mg every 4–6 h OTC; higher prescription regimens require indication/risk review.",
+          "tags": [
+            "nsaid",
+            "inflammatory",
+            "msk"
+          ],
+          "role": "Nonselective NSAID; comparative choice depends on GI/CV/renal risk and indication.",
+          "monitoring_pearl": "GI bleeding/ulcer, renal function, BP/CV risk, anticoagulants and pregnancy; lowest effective dose/shortest duration.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED",
+            "ICMR_NECK_PAIN"
+          ]
+        },
+        {
+          "id": "pain_naproxen",
+          "generic": "Naproxen",
+          "class_id": "propionic_nsaid",
+          "form": "Tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Common adult inflammatory-pain dose 250–500 mg twice daily; use lowest effective dose/shortest duration.",
+          "tags": [
+            "nsaid",
+            "inflammatory",
+            "msk"
+          ],
+          "role": "Nonselective NSAID; comparative choice depends on GI/CV/renal risk and indication.",
+          "monitoring_pearl": "GI bleeding/ulcer, renal function, BP/CV risk, anticoagulants and pregnancy; lowest effective dose/shortest duration.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED",
+            "ICMR_NECK_PAIN"
+          ]
+        },
+        {
+          "id": "pain_ketoprofen",
+          "generic": "Ketoprofen",
+          "class_id": "propionic_nsaid",
+          "form": "Capsule/ER capsule",
+          "route": "Oral",
+          "dose_example": "Common adult immediate-release dose 25–50 mg every 6–8 h; formulation-specific maximum applies.",
+          "tags": [
+            "nsaid",
+            "inflammatory",
+            "msk"
+          ],
+          "role": "Nonselective NSAID; comparative choice depends on GI/CV/renal risk and indication.",
+          "monitoring_pearl": "GI bleeding/ulcer, renal function, BP/CV risk, anticoagulants and pregnancy; lowest effective dose/shortest duration.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED",
+            "ICMR_NECK_PAIN"
+          ]
+        },
+        {
+          "id": "pain_flurbiprofen",
+          "generic": "Flurbiprofen",
+          "class_id": "propionic_nsaid",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult musculoskeletal dose 50–100 mg two or three times daily; verify indication/max.",
+          "tags": [
+            "nsaid",
+            "inflammatory",
+            "msk"
+          ],
+          "role": "Nonselective NSAID; comparative choice depends on GI/CV/renal risk and indication.",
+          "monitoring_pearl": "GI bleeding/ulcer, renal function, BP/CV risk, anticoagulants and pregnancy; lowest effective dose/shortest duration.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED",
+            "ICMR_NECK_PAIN"
+          ]
+        },
+        {
+          "id": "pain_diclofenac",
+          "generic": "Diclofenac",
+          "class_id": "acetic_nsaid",
+          "form": "Tablet/capsule/injection/suppository",
+          "route": "Oral/IM/IV",
+          "dose_example": "Common adult oral pain regimens use 50 mg two or three times daily or modified-release formulations; route/maximum varies.",
+          "tags": [
+            "nsaid",
+            "inflammatory",
+            "acute_pain"
+          ],
+          "role": "NSAID family member; some agents are used for acute severe inflammatory pain.",
+          "monitoring_pearl": "NSAID GI/CV/renal risks; ketorolac has strict duration/bleeding/renal restrictions.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_aceclofenac",
+          "generic": "Aceclofenac",
+          "class_id": "acetic_nsaid",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult market dose 100 mg twice daily; verify local label.",
+          "tags": [
+            "nsaid",
+            "inflammatory",
+            "acute_pain"
+          ],
+          "role": "NSAID family member; some agents are used for acute severe inflammatory pain.",
+          "monitoring_pearl": "NSAID GI/CV/renal risks; ketorolac has strict duration/bleeding/renal restrictions.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_indomethacin",
+          "generic": "Indomethacin",
+          "class_id": "acetic_nsaid",
+          "form": "Capsule/suppository",
+          "route": "Oral",
+          "dose_example": "Common adult inflammatory dose 25 mg two or three times daily; gout regimens may differ.",
+          "tags": [
+            "nsaid",
+            "inflammatory",
+            "acute_pain"
+          ],
+          "role": "NSAID family member; some agents are used for acute severe inflammatory pain.",
+          "monitoring_pearl": "NSAID GI/CV/renal risks; ketorolac has strict duration/bleeding/renal restrictions.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_ketorolac",
+          "generic": "Ketorolac",
+          "class_id": "acetic_nsaid",
+          "form": "Tablet/injection/nasal",
+          "route": "Oral/IM/IV",
+          "dose_example": "Adult ketorolac is for short-term acute pain only; total systemic treatment duration must not exceed 5 days per US labeling.",
+          "tags": [
+            "nsaid",
+            "inflammatory",
+            "acute_pain"
+          ],
+          "role": "NSAID family member; some agents are used for acute severe inflammatory pain.",
+          "monitoring_pearl": "NSAID GI/CV/renal risks; ketorolac has strict duration/bleeding/renal restrictions.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_etodolac",
+          "generic": "Etodolac",
+          "class_id": "acetic_nsaid",
+          "form": "Tablet/ER tablet",
+          "route": "Oral",
+          "dose_example": "Common adult acute-pain dose 200–400 mg every 6–8 h; chronic arthritis regimens differ.",
+          "tags": [
+            "nsaid",
+            "inflammatory",
+            "acute_pain"
+          ],
+          "role": "NSAID family member; some agents are used for acute severe inflammatory pain.",
+          "monitoring_pearl": "NSAID GI/CV/renal risks; ketorolac has strict duration/bleeding/renal restrictions.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_nabumetone",
+          "generic": "Nabumetone",
+          "class_id": "acetic_nsaid",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult arthritis dose 1000 mg once daily; titrate within label.",
+          "tags": [
+            "nsaid",
+            "inflammatory",
+            "acute_pain"
+          ],
+          "role": "NSAID family member; some agents are used for acute severe inflammatory pain.",
+          "monitoring_pearl": "NSAID GI/CV/renal risks; ketorolac has strict duration/bleeding/renal restrictions.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_meloxicam",
+          "generic": "Meloxicam",
+          "class_id": "oxicam_nsaid",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "7.5 mg once daily; may increase to 15 mg/day depending indication.",
+          "tags": [
+            "nsaid",
+            "inflammatory",
+            "long_acting"
+          ],
+          "role": "Oxicam NSAID.",
+          "monitoring_pearl": "GI/CV/renal risk, long half-life/exposure and interacting anticoagulants.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_piroxicam",
+          "generic": "Piroxicam",
+          "class_id": "oxicam_nsaid",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "20 mg once daily or divided; long half-life increases prolonged exposure.",
+          "tags": [
+            "nsaid",
+            "inflammatory",
+            "long_acting"
+          ],
+          "role": "Oxicam NSAID.",
+          "monitoring_pearl": "GI/CV/renal risk, long half-life/exposure and interacting anticoagulants.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_lornoxicam",
+          "generic": "Lornoxicam",
+          "class_id": "oxicam_nsaid",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common market dosing 4–8 mg two or three times daily; verify local maximum.",
+          "tags": [
+            "nsaid",
+            "inflammatory",
+            "long_acting"
+          ],
+          "role": "Oxicam NSAID.",
+          "monitoring_pearl": "GI/CV/renal risk, long half-life/exposure and interacting anticoagulants.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_celecoxib",
+          "generic": "Celecoxib",
+          "class_id": "cox2",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Common adult OA dose 100 mg twice daily or 200 mg once daily.",
+          "tags": [
+            "nsaid",
+            "cox2",
+            "inflammatory"
+          ],
+          "role": "COX-2-selective/preferential anti-inflammatory analgesic.",
+          "monitoring_pearl": "CV/BP/renal risk remains; GI benefit is relative, not zero; sulfonamide/label nuances for celecoxib.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_etoricoxib",
+          "generic": "Etoricoxib",
+          "class_id": "cox2",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Common market doses 30–120 mg once daily depending indication; use lowest effective dose and verify local label.",
+          "tags": [
+            "nsaid",
+            "cox2",
+            "inflammatory"
+          ],
+          "role": "COX-2-selective/preferential anti-inflammatory analgesic.",
+          "monitoring_pearl": "CV/BP/renal risk remains; GI benefit is relative, not zero; sulfonamide/label nuances for celecoxib.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_parecoxib",
+          "generic": "Parecoxib",
+          "class_id": "cox2",
+          "form": "Capsule/tablet/injection",
+          "route": "Oral/IV/IM",
+          "dose_example": "Perioperative IV/IM dosing is protocol/label-specific; verify maximum duration and local approval.",
+          "tags": [
+            "nsaid",
+            "cox2",
+            "inflammatory"
+          ],
+          "role": "COX-2-selective/preferential anti-inflammatory analgesic.",
+          "monitoring_pearl": "CV/BP/renal risk remains; GI benefit is relative, not zero; sulfonamide/label nuances for celecoxib.",
+          "source_refs": [
+            "FDA_NSAID",
+            "NICE_NSAID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_diclofenac_topical",
+          "generic": "Diclofenac topical",
+          "class_id": "topical_nsaid",
+          "form": "Gel/solution/patch",
+          "route": "Topical",
+          "dose_example": "Topical OA regimens are product/site-specific; follow gram/application frequency and maximum surface-area label.",
+          "tags": [
+            "nsaid",
+            "topical",
+            "local",
+            "msk"
+          ],
+          "role": "Localized NSAID analgesia.",
+          "monitoring_pearl": "Skin integrity, total NSAID exposure, renal/GI/CV risk in high-risk patients.",
+          "source_refs": [
+            "NICE_OA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_ibuprofen_topical",
+          "generic": "Ibuprofen topical",
+          "class_id": "topical_nsaid",
+          "form": "Gel",
+          "route": "Topical",
+          "dose_example": "Market-specific topical dosing; avoid treating topical exposure as zero systemic exposure.",
+          "tags": [
+            "nsaid",
+            "topical",
+            "local",
+            "msk"
+          ],
+          "role": "Localized NSAID analgesia.",
+          "monitoring_pearl": "Skin integrity, total NSAID exposure, renal/GI/CV risk in high-risk patients.",
+          "source_refs": [
+            "NICE_OA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_tramadol",
+          "generic": "Tramadol",
+          "class_id": "weak_atypical_opioid",
+          "form": "Tablet/capsule/ER/injection",
+          "route": "Oral/IV/IM",
+          "dose_example": "Immediate-release adult labeling commonly starts 50–100 mg every 4–6 h as needed; maximum and renal/hepatic limits apply.",
+          "tags": [
+            "opioid",
+            "central",
+            "acute_pain",
+            "serotonergic"
+          ],
+          "role": "Weak μ agonism plus serotonin/norepinephrine reuptake inhibition.",
+          "monitoring_pearl": "Respiratory depression, dependence, serotonin syndrome, seizures, renal/hepatic adjustment and interacting CNS depressants.",
+          "source_refs": [
+            "CDC_OPIOID_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_tapentadol",
+          "generic": "Tapentadol",
+          "class_id": "weak_atypical_opioid",
+          "form": "IR/ER tablet",
+          "route": "Oral",
+          "dose_example": "Immediate-release adult acute-pain labeling commonly uses 50–100 mg every 4–6 h; ER dosing is different and opioid-tolerance/context dependent.",
+          "tags": [
+            "opioid",
+            "central",
+            "acute_pain",
+            "noradrenergic"
+          ],
+          "role": "μ agonist + norepinephrine reuptake inhibition.",
+          "monitoring_pearl": "Opioid respiratory/dependence risk; MAOI/CNS depressant interactions; do not interchange IR/ER regimens.",
+          "source_refs": [
+            "CDC_OPIOID_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_codeine",
+          "generic": "Codeine",
+          "class_id": "weak_atypical_opioid",
+          "form": "Tablet/oral solution/combinations",
+          "route": "Oral",
+          "dose_example": "Adult analgesic labeling commonly uses 15–60 mg every 4 h as needed; pharmacogenetic CYP2D6 variability is important.",
+          "tags": [
+            "opioid",
+            "central",
+            "acute_pain"
+          ],
+          "role": "Prodrug-like opioid with variable morphine formation.",
+          "monitoring_pearl": "Respiratory depression, CYP2D6 ultra/poor metabolizer issues, pediatric/pregnancy restrictions and combination-product acetaminophen totals.",
+          "source_refs": [
+            "CDC_OPIOID_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_morphine",
+          "generic": "Morphine",
+          "class_id": "strong_mu_opioid",
+          "form": "IR/ER tablet/capsule/oral solution/injection",
+          "route": "Oral/IV/SC",
+          "dose_example": "Opioid-naïve starting doses are formulation/route and patient-specific; use current label and titrate from the lowest appropriate dose.",
+          "tags": [
+            "opioid",
+            "central",
+            "severe_pain"
+          ],
+          "role": "Full μ-opioid agonist for severe pain in selected contexts.",
+          "monitoring_pearl": "Respiratory depression, sedation, constipation, dependence, drug interactions; methadone QT/accumulation; fentanyl formulation-specific fatal-risk precautions.",
+          "source_refs": [
+            "CDC_OPIOID_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_oxycodone",
+          "generic": "Oxycodone",
+          "class_id": "strong_mu_opioid",
+          "form": "IR/ER tablet/capsule/solution",
+          "route": "Oral",
+          "dose_example": "Dose is opioid-exposure/formulation-specific; ER products are not interchangeable with IR rescue dosing.",
+          "tags": [
+            "opioid",
+            "central",
+            "severe_pain"
+          ],
+          "role": "Full μ-opioid agonist for severe pain in selected contexts.",
+          "monitoring_pearl": "Respiratory depression, sedation, constipation, dependence, drug interactions; methadone QT/accumulation; fentanyl formulation-specific fatal-risk precautions.",
+          "source_refs": [
+            "CDC_OPIOID_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_hydromorphone",
+          "generic": "Hydromorphone",
+          "class_id": "strong_mu_opioid",
+          "form": "Tablet/solution/injection",
+          "route": "Oral/IV/SC",
+          "dose_example": "Potent opioid; starting dose must be route- and opioid-exposure-specific. Verify equianalgesic conversion carefully.",
+          "tags": [
+            "opioid",
+            "central",
+            "severe_pain"
+          ],
+          "role": "Full μ-opioid agonist for severe pain in selected contexts.",
+          "monitoring_pearl": "Respiratory depression, sedation, constipation, dependence, drug interactions; methadone QT/accumulation; fentanyl formulation-specific fatal-risk precautions.",
+          "source_refs": [
+            "CDC_OPIOID_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_fentanyl",
+          "generic": "Fentanyl",
+          "class_id": "strong_mu_opioid",
+          "form": "Injection/transdermal/buccal/nasal",
+          "route": "Multiple",
+          "dose_example": "Transdermal fentanyl is for opioid-tolerant chronic pain and is NOT an opioid-naïve starting drug; procedural IV dosing is monitored-setting only.",
+          "tags": [
+            "opioid",
+            "central",
+            "severe_pain"
+          ],
+          "role": "Full μ-opioid agonist for severe pain in selected contexts.",
+          "monitoring_pearl": "Respiratory depression, sedation, constipation, dependence, drug interactions; methadone QT/accumulation; fentanyl formulation-specific fatal-risk precautions.",
+          "source_refs": [
+            "CDC_OPIOID_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_methadone",
+          "generic": "Methadone",
+          "class_id": "strong_mu_opioid",
+          "form": "Tablet/solution/injection",
+          "route": "Oral/IV",
+          "dose_example": "Highly variable half-life and conversion; no simple equianalgesic start. Specialist/label-based individualized dosing only.",
+          "tags": [
+            "opioid",
+            "central",
+            "severe_pain"
+          ],
+          "role": "Full μ-opioid agonist for severe pain in selected contexts.",
+          "monitoring_pearl": "Respiratory depression, sedation, constipation, dependence, drug interactions; methadone QT/accumulation; fentanyl formulation-specific fatal-risk precautions.",
+          "source_refs": [
+            "CDC_OPIOID_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_buprenorphine",
+          "generic": "Buprenorphine",
+          "class_id": "partial_opioid",
+          "form": "Sublingual/buccal/transdermal/injection",
+          "route": "Multiple",
+          "dose_example": "Pain formulations and opioid-use-disorder formulations have different strengths/regimens; verify exact indication/product.",
+          "tags": [
+            "opioid",
+            "central",
+            "partial_agonist"
+          ],
+          "role": "High-affinity partial μ agonist with distinct analgesia/OUD pharmacology.",
+          "monitoring_pearl": "Precipitated withdrawal interactions, respiratory depression with sedatives, formulation-specific conversion.",
+          "source_refs": [
+            "CDC_OPIOID_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_pentazocine",
+          "generic": "Pentazocine",
+          "class_id": "partial_opioid",
+          "form": "Tablet/injection",
+          "route": "Oral/IM/IV",
+          "dose_example": "Product-specific dosing; mixed agonist-antagonist can precipitate withdrawal in opioid-dependent patients.",
+          "tags": [
+            "opioid",
+            "central",
+            "mixed_agonist"
+          ],
+          "role": "κ agonist/μ antagonist-partial agonist analgesic.",
+          "monitoring_pearl": "Dysphoria, BP/HR effects, respiratory depression, withdrawal interactions.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_naloxone",
+          "generic": "Naloxone — opioid overdose rescue",
+          "class_id": "opioid_rescue",
+          "form": "Nasal spray/injection",
+          "route": "Intranasal/IM/IV/SC",
+          "dose_example": "Use approved rescue product/protocol; repeat dosing may be required because opioid duration can exceed naloxone.",
+          "tags": [
+            "opioid_safety",
+            "rescue",
+            "not_analgesic"
+          ],
+          "role": "Rapid opioid antagonist for suspected opioid overdose.",
+          "monitoring_pearl": "Emergency response/ventilation; precipitated withdrawal; observe for re-sedation.",
+          "source_refs": [
+            "CDC_OPIOID_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_gabapentin",
+          "generic": "Gabapentin",
+          "class_id": "gabapentinoid",
+          "form": "Capsule/tablet/solution",
+          "route": "Oral",
+          "dose_example": "Neuropathic-pain titration often begins 100–300 mg at night or TID and increases gradually; renal dosing is essential.",
+          "tags": [
+            "neuropathic",
+            "central",
+            "adjuvant"
+          ],
+          "role": "α2δ ligand for neuropathic pain in selected syndromes.",
+          "monitoring_pearl": "Sedation/dizziness, edema, renal adjustment and additive respiratory depression with opioids.",
+          "source_refs": [
+            "NICE_ANALGESICS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_pregabalin",
+          "generic": "Pregabalin",
+          "class_id": "gabapentinoid",
+          "form": "Capsule/tablet/solution",
+          "route": "Oral",
+          "dose_example": "Common adult neuropathic-pain start 50–75 mg two or three times daily depending indication/renal function; titrate by response.",
+          "tags": [
+            "neuropathic",
+            "central",
+            "adjuvant"
+          ],
+          "role": "α2δ ligand with linear PK and several neuropathic-pain indications.",
+          "monitoring_pearl": "Sedation, edema/weight gain, renal dosing and CNS-depressant combination risk.",
+          "source_refs": [
+            "NICE_ANALGESICS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_carbamazepine",
+          "generic": "Carbamazepine",
+          "class_id": "na_channel_neuralgia",
+          "form": "Tablet/ER tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Trigeminal-neuralgia learning start often 100 mg twice daily; titrate to response with lab monitoring.",
+          "tags": [
+            "neuropathic",
+            "neuralgia",
+            "central"
+          ],
+          "role": "High-yield first-line pharmacology for classical trigeminal neuralgia.",
+          "monitoring_pearl": "CBC/LFT/sodium, severe cutaneous reactions/HLA context, interactions and pregnancy.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_oxcarbazepine",
+          "generic": "Oxcarbazepine",
+          "class_id": "na_channel_neuralgia",
+          "form": "Tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Neuralgia use is off-label in some regions; titrate from low divided doses and verify local guidance.",
+          "tags": [
+            "neuropathic",
+            "neuralgia",
+            "central"
+          ],
+          "role": "Sodium-channel anticonvulsant alternative in selected neuralgia.",
+          "monitoring_pearl": "Hyponatremia, CNS effects, interactions and pregnancy.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_duloxetine",
+          "generic": "Duloxetine",
+          "class_id": "snri_pain",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Common neuropathic/musculoskeletal pain dose 30 mg once daily initially, often 60 mg once daily maintenance.",
+          "tags": [
+            "neuropathic",
+            "central",
+            "adjuvant",
+            "chronic_pain"
+          ],
+          "role": "SNRI descending pain-modulation strategy.",
+          "monitoring_pearl": "BP, serotonin interactions, withdrawal; duloxetine liver/renal restrictions.",
+          "source_refs": [
+            "NICE_ANALGESICS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_venlafaxine_er",
+          "generic": "Venlafaxine XR",
+          "class_id": "snri_pain",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Neuropathic pain use is off-label in many regions; common antidepressant titration starts 37.5–75 mg/day.",
+          "tags": [
+            "neuropathic",
+            "central",
+            "adjuvant",
+            "chronic_pain"
+          ],
+          "role": "SNRI descending pain-modulation strategy.",
+          "monitoring_pearl": "BP, serotonin interactions, withdrawal; duloxetine liver/renal restrictions.",
+          "source_refs": [
+            "NICE_ANALGESICS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_amitriptyline",
+          "generic": "Amitriptyline",
+          "class_id": "tca_pain",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Neuropathic pain often starts 10–25 mg at night, titrated slowly; analgesic doses are usually below antidepressant ranges.",
+          "tags": [
+            "neuropathic",
+            "central",
+            "adjuvant",
+            "chronic_pain"
+          ],
+          "role": "TCA analgesic adjuvant for selected neuropathic pain.",
+          "monitoring_pearl": "Anticholinergic effects, orthostasis, QT/conduction, overdose toxicity and elderly burden.",
+          "source_refs": [
+            "NICE_ANALGESICS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_nortriptyline",
+          "generic": "Nortriptyline",
+          "class_id": "tca_pain",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Off-label neuropathic-pain use often starts 10–25 mg at night and titrates cautiously.",
+          "tags": [
+            "neuropathic",
+            "central",
+            "adjuvant",
+            "chronic_pain"
+          ],
+          "role": "TCA analgesic adjuvant for selected neuropathic pain.",
+          "monitoring_pearl": "Anticholinergic effects, orthostasis, QT/conduction, overdose toxicity and elderly burden.",
+          "source_refs": [
+            "NICE_ANALGESICS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_ketamine",
+          "generic": "Ketamine",
+          "class_id": "nmda_analgesic",
+          "form": "Injection; selected oral/nasal specialist formulations",
+          "route": "IV/IM/other specialist",
+          "dose_example": "Analgesic infusions/boluses are monitored-protocol specific; do not use a generic ambulatory dose.",
+          "tags": [
+            "central",
+            "perioperative",
+            "severe_pain",
+            "specialist"
+          ],
+          "role": "NMDA antagonist analgesic/anesthetic adjunct for acute/chronic specialist pain.",
+          "monitoring_pearl": "Airway, BP/HR, dissociation, emergence phenomena, abuse risk; protocol/monitoring required.",
+          "source_refs": [
+            "ASRA_KETAMINE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_dexmedetomidine",
+          "generic": "Dexmedetomidine",
+          "class_id": "alpha2_analgesic",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "ICU/procedural infusion is weight- and monitoring-specific; not an outpatient analgesic dose.",
+          "tags": [
+            "central",
+            "perioperative",
+            "specialist"
+          ],
+          "role": "α2 agonist sedative with opioid-sparing analgesic properties.",
+          "monitoring_pearl": "Bradycardia/hypotension; continuous monitoring.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_clonidine_adjuvant",
+          "generic": "Clonidine — analgesic adjunct",
+          "class_id": "alpha2_analgesic",
+          "form": "Tablet/patch/injection (neuraxial products)",
+          "route": "Multiple",
+          "dose_example": "Pain-adjuvant/neuraxial dosing is route-specific and specialist-only; do not extrapolate from antihypertensive dosing.",
+          "tags": [
+            "central",
+            "adjuvant",
+            "specialist"
+          ],
+          "role": "α2 agonist with spinal/peripheral analgesic adjunct roles.",
+          "monitoring_pearl": "Hypotension/bradycardia/sedation and route-specific toxicity.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_lidocaine",
+          "generic": "Lidocaine",
+          "class_id": "amide_local",
+          "form": "Injection/topical/dental formulation",
+          "route": "Local infiltration/regional/neuraxial/topical",
+          "dose_example": "NO universal dose: choose concentration and calculate total mg from procedure, weight, site vascularity, epinephrine use, comorbidity and current product maximum.",
+          "tags": [
+            "local_anesthetic",
+            "local",
+            "regional",
+            "amide"
+          ],
+          "role": "Amide; rapid/intermediate duration, many infiltration/nerve-block/topical/IV antiarrhythmic formulations.",
+          "monitoring_pearl": "Prevent intravascular injection; incremental dosing/aspiration and LAST readiness. Total mg and maximum dose are product/procedure specific.",
+          "source_refs": [
+            "ASRA_LAST",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_bupivacaine",
+          "generic": "Bupivacaine",
+          "class_id": "amide_local",
+          "form": "Injection/topical/dental formulation",
+          "route": "Local infiltration/regional/neuraxial/topical",
+          "dose_example": "NO universal dose: choose concentration and calculate total mg from procedure, weight, site vascularity, epinephrine use, comorbidity and current product maximum.",
+          "tags": [
+            "local_anesthetic",
+            "local",
+            "regional",
+            "amide"
+          ],
+          "role": "Long-acting amide; cardiotoxicity risk is especially important.",
+          "monitoring_pearl": "Prevent intravascular injection; incremental dosing/aspiration and LAST readiness. Total mg and maximum dose are product/procedure specific.",
+          "source_refs": [
+            "ASRA_LAST",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_ropivacaine",
+          "generic": "Ropivacaine",
+          "class_id": "amide_local",
+          "form": "Injection/topical/dental formulation",
+          "route": "Local infiltration/regional/neuraxial/topical",
+          "dose_example": "NO universal dose: choose concentration and calculate total mg from procedure, weight, site vascularity, epinephrine use, comorbidity and current product maximum.",
+          "tags": [
+            "local_anesthetic",
+            "local",
+            "regional",
+            "amide"
+          ],
+          "role": "Long-acting amide with differential sensory/motor block profile.",
+          "monitoring_pearl": "Prevent intravascular injection; incremental dosing/aspiration and LAST readiness. Total mg and maximum dose are product/procedure specific.",
+          "source_refs": [
+            "ASRA_LAST",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_mepivacaine",
+          "generic": "Mepivacaine",
+          "class_id": "amide_local",
+          "form": "Injection/topical/dental formulation",
+          "route": "Local infiltration/regional/neuraxial/topical",
+          "dose_example": "NO universal dose: choose concentration and calculate total mg from procedure, weight, site vascularity, epinephrine use, comorbidity and current product maximum.",
+          "tags": [
+            "local_anesthetic",
+            "local",
+            "regional",
+            "amide"
+          ],
+          "role": "Intermediate-duration amide local anesthetic.",
+          "monitoring_pearl": "Prevent intravascular injection; incremental dosing/aspiration and LAST readiness. Total mg and maximum dose are product/procedure specific.",
+          "source_refs": [
+            "ASRA_LAST",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_prilocaine",
+          "generic": "Prilocaine",
+          "class_id": "amide_local",
+          "form": "Injection/topical/dental formulation",
+          "route": "Local infiltration/regional/neuraxial/topical",
+          "dose_example": "NO universal dose: choose concentration and calculate total mg from procedure, weight, site vascularity, epinephrine use, comorbidity and current product maximum.",
+          "tags": [
+            "local_anesthetic",
+            "local",
+            "regional",
+            "amide"
+          ],
+          "role": "Amide; methemoglobinemia risk is a key teaching point.",
+          "monitoring_pearl": "Prevent intravascular injection; incremental dosing/aspiration and LAST readiness. Total mg and maximum dose are product/procedure specific.",
+          "source_refs": [
+            "ASRA_LAST",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_articaine",
+          "generic": "Articaine",
+          "class_id": "amide_local",
+          "form": "Injection/topical/dental formulation",
+          "route": "Local infiltration/regional/neuraxial/topical",
+          "dose_example": "NO universal dose: choose concentration and calculate total mg from procedure, weight, site vascularity, epinephrine use, comorbidity and current product maximum.",
+          "tags": [
+            "local_anesthetic",
+            "local",
+            "regional",
+            "amide"
+          ],
+          "role": "Dental amide local anesthetic with ester side chain; dentistry-specific formulations.",
+          "monitoring_pearl": "Prevent intravascular injection; incremental dosing/aspiration and LAST readiness. Total mg and maximum dose are product/procedure specific.",
+          "source_refs": [
+            "ASRA_LAST",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_chloroprocaine",
+          "generic": "Chloroprocaine",
+          "class_id": "ester_local",
+          "form": "Injection/topical product",
+          "route": "Local/regional/topical",
+          "dose_example": "Product/procedure-specific; calculate total exposure and do not extrapolate between topical, ophthalmic and neuraxial products.",
+          "tags": [
+            "local_anesthetic",
+            "local",
+            "ester"
+          ],
+          "role": "Short-acting ester local anesthetic used in selected neuraxial/infiltration settings.",
+          "monitoring_pearl": "Allergy/PABA context, methemoglobinemia for benzocaine, and LAST/procedure monitoring where applicable.",
+          "source_refs": [
+            "ASRA_LAST",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_procaine",
+          "generic": "Procaine",
+          "class_id": "ester_local",
+          "form": "Injection/topical product",
+          "route": "Local/regional/topical",
+          "dose_example": "Product/procedure-specific; calculate total exposure and do not extrapolate between topical, ophthalmic and neuraxial products.",
+          "tags": [
+            "local_anesthetic",
+            "local",
+            "ester"
+          ],
+          "role": "Older ester local anesthetic; current use/availability varies.",
+          "monitoring_pearl": "Allergy/PABA context, methemoglobinemia for benzocaine, and LAST/procedure monitoring where applicable.",
+          "source_refs": [
+            "ASRA_LAST",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_tetracaine",
+          "generic": "Tetracaine",
+          "class_id": "ester_local",
+          "form": "Injection/topical product",
+          "route": "Local/regional/topical",
+          "dose_example": "Product/procedure-specific; calculate total exposure and do not extrapolate between topical, ophthalmic and neuraxial products.",
+          "tags": [
+            "local_anesthetic",
+            "local",
+            "ester"
+          ],
+          "role": "Potent long-acting ester used in spinal/topical/ophthalmic formulations.",
+          "monitoring_pearl": "Allergy/PABA context, methemoglobinemia for benzocaine, and LAST/procedure monitoring where applicable.",
+          "source_refs": [
+            "ASRA_LAST",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_benzocaine",
+          "generic": "Benzocaine",
+          "class_id": "ester_local",
+          "form": "Injection/topical product",
+          "route": "Local/regional/topical",
+          "dose_example": "Product/procedure-specific; calculate total exposure and do not extrapolate between topical, ophthalmic and neuraxial products.",
+          "tags": [
+            "local_anesthetic",
+            "local",
+            "ester"
+          ],
+          "role": "Topical ester local anesthetic; methemoglobinemia risk is important.",
+          "monitoring_pearl": "Allergy/PABA context, methemoglobinemia for benzocaine, and LAST/procedure monitoring where applicable.",
+          "source_refs": [
+            "ASRA_LAST",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_lidocaine_patch",
+          "generic": "Lidocaine 5% patch / topical system",
+          "class_id": "topical_analgesic",
+          "form": "Patch/topical system",
+          "route": "Topical",
+          "dose_example": "Common post-herpetic neuralgia labeling: up to 3 patches to intact skin for up to 12 h within a 24-h period; product variants differ.",
+          "tags": [
+            "topical",
+            "local",
+            "neuropathic"
+          ],
+          "role": "Localized sodium-channel blockade for focal neuropathic pain.",
+          "monitoring_pearl": "Broken skin/heat can increase absorption; total lidocaine exposure and hepatic/cardiac context.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_capsaicin_low",
+          "generic": "Capsaicin low-concentration topical",
+          "class_id": "topical_analgesic",
+          "form": "Cream/gel",
+          "route": "Topical",
+          "dose_example": "Apply product-specific concentration several times daily; effect requires repeated use and initial burning is common.",
+          "tags": [
+            "topical",
+            "local",
+            "neuropathic"
+          ],
+          "role": "TRPV1 activation/desensitization for localized neuropathic/musculoskeletal pain.",
+          "monitoring_pearl": "Avoid eyes/mucosa/broken skin; hand-washing/application counseling.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_capsaicin_8",
+          "generic": "Capsaicin 8% topical system",
+          "class_id": "topical_analgesic",
+          "form": "High-concentration patch/system",
+          "route": "Topical in clinic",
+          "dose_example": "Clinic-administered application duration/site is indication-specific; pretreatment and monitoring follow label.",
+          "tags": [
+            "topical",
+            "local",
+            "neuropathic",
+            "specialist"
+          ],
+          "role": "High-concentration TRPV1 defunctionalization for selected peripheral neuropathic pain.",
+          "monitoring_pearl": "Application pain/BP rise; trained application and disposal.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_sumatriptan",
+          "generic": "Sumatriptan",
+          "class_id": "triptan",
+          "form": "Tablet/nasal/injection",
+          "route": "Oral/nasal/SC",
+          "dose_example": "Common oral acute migraine dose 25–100 mg; repeat interval/max depends formulation.",
+          "tags": [
+            "migraine",
+            "headache_specific"
+          ],
+          "role": "5-HT1B/1D migraine-specific abortive therapy.",
+          "monitoring_pearl": "Avoid inappropriate use with significant vascular disease; serotonergic/CYP interactions vary by drug.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_rizatriptan",
+          "generic": "Rizatriptan",
+          "class_id": "triptan",
+          "form": "Tablet/ODT",
+          "route": "Oral",
+          "dose_example": "Common adult acute migraine dose 5–10 mg; repeat after ≥2 h if allowed by label.",
+          "tags": [
+            "migraine",
+            "headache_specific"
+          ],
+          "role": "5-HT1B/1D migraine-specific abortive therapy.",
+          "monitoring_pearl": "Avoid inappropriate use with significant vascular disease; serotonergic/CYP interactions vary by drug.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_zolmitriptan",
+          "generic": "Zolmitriptan",
+          "class_id": "triptan",
+          "form": "Tablet/ODT/nasal",
+          "route": "Oral",
+          "dose_example": "Common adult acute migraine dose 1.25–2.5 mg initially; formulation-specific repeat/max.",
+          "tags": [
+            "migraine",
+            "headache_specific"
+          ],
+          "role": "5-HT1B/1D migraine-specific abortive therapy.",
+          "monitoring_pearl": "Avoid inappropriate use with significant vascular disease; serotonergic/CYP interactions vary by drug.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_eletriptan",
+          "generic": "Eletriptan",
+          "class_id": "triptan",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult acute migraine dose 20–40 mg; repeat after ≥2 h if needed per label.",
+          "tags": [
+            "migraine",
+            "headache_specific"
+          ],
+          "role": "5-HT1B/1D migraine-specific abortive therapy.",
+          "monitoring_pearl": "Avoid inappropriate use with significant vascular disease; serotonergic/CYP interactions vary by drug.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_ubrogepant",
+          "generic": "Ubrogepant",
+          "class_id": "gepant",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult acute migraine dose 50 or 100 mg; may repeat once after ≥2 h within label maximum.",
+          "tags": [
+            "migraine",
+            "headache_specific",
+            "cgrp"
+          ],
+          "role": "CGRP receptor antagonist for migraine.",
+          "monitoring_pearl": "CYP/P-gp interactions, hepatic/renal restrictions and indication-specific frequency limits.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_rimegepant",
+          "generic": "Rimegepant",
+          "class_id": "gepant",
+          "form": "ODT",
+          "route": "Oral",
+          "dose_example": "Acute migraine: 75 mg once; also has preventive dosing under label.",
+          "tags": [
+            "migraine",
+            "headache_specific",
+            "cgrp"
+          ],
+          "role": "CGRP receptor antagonist for migraine.",
+          "monitoring_pearl": "CYP/P-gp interactions, hepatic/renal restrictions and indication-specific frequency limits.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_zavegepant",
+          "generic": "Zavegepant",
+          "class_id": "gepant",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Acute migraine: one 10 mg nasal spray dose; no second dose within 24 h per label.",
+          "tags": [
+            "migraine",
+            "headache_specific",
+            "cgrp"
+          ],
+          "role": "CGRP receptor antagonist for migraine.",
+          "monitoring_pearl": "CYP/P-gp interactions, hepatic/renal restrictions and indication-specific frequency limits.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_prednisolone",
+          "generic": "Prednisolone",
+          "class_id": "systemic_steroid",
+          "form": "Tablet/solution",
+          "route": "Oral",
+          "dose_example": "Anti-inflammatory dosing is disease-specific; no universal analgesic dose.",
+          "tags": [
+            "steroid",
+            "anti_inflammatory",
+            "pain_modifying",
+            "not_primary_analgesic"
+          ],
+          "role": "Inflammation-modifying therapy; pain improves only when the underlying inflammatory mechanism is steroid-responsive.",
+          "monitoring_pearl": "Glucose, BP, infection, GI/bone/psychiatric effects; taper requirements depend on dose/duration.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_prednisone",
+          "generic": "Prednisone",
+          "class_id": "systemic_steroid",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Anti-inflammatory dosing is disease-specific; use lowest effective course for a validated indication.",
+          "tags": [
+            "steroid",
+            "anti_inflammatory",
+            "pain_modifying",
+            "not_primary_analgesic"
+          ],
+          "role": "Inflammation-modifying therapy; pain improves only when the underlying inflammatory mechanism is steroid-responsive.",
+          "monitoring_pearl": "Glucose, BP, infection, GI/bone/psychiatric effects; taper requirements depend on dose/duration.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_dexamethasone",
+          "generic": "Dexamethasone",
+          "class_id": "systemic_steroid",
+          "form": "Tablet/injection",
+          "route": "Oral/IV/IM",
+          "dose_example": "Potent long-acting glucocorticoid; dose varies widely by inflammatory, neurologic, oncologic and perioperative indication.",
+          "tags": [
+            "steroid",
+            "anti_inflammatory",
+            "pain_modifying",
+            "not_primary_analgesic"
+          ],
+          "role": "Inflammation-modifying therapy; pain improves only when the underlying inflammatory mechanism is steroid-responsive.",
+          "monitoring_pearl": "Glucose, BP, infection, GI/bone/psychiatric effects; taper requirements depend on dose/duration.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_methylprednisolone",
+          "generic": "Methylprednisolone",
+          "class_id": "systemic_steroid",
+          "form": "Tablet/injection",
+          "route": "Oral/IV/IM",
+          "dose_example": "Dose is indication-specific from low oral courses to monitored IV pulse therapy.",
+          "tags": [
+            "steroid",
+            "anti_inflammatory",
+            "pain_modifying",
+            "not_primary_analgesic"
+          ],
+          "role": "Inflammation-modifying therapy; pain improves only when the underlying inflammatory mechanism is steroid-responsive.",
+          "monitoring_pearl": "Glucose, BP, infection, GI/bone/psychiatric effects; taper requirements depend on dose/duration.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_triamcinolone_acetonide",
+          "generic": "Triamcinolone acetonide",
+          "class_id": "local_steroid",
+          "form": "Suspension",
+          "route": "Intra-articular/intralesional",
+          "dose_example": "Joint/soft-tissue dose is site/product-specific; use aseptic procedural protocol.",
+          "tags": [
+            "steroid",
+            "local",
+            "anti_inflammatory",
+            "pain_modifying",
+            "injection"
+          ],
+          "role": "Local steroid anti-inflammatory procedure.",
+          "monitoring_pearl": "Infection exclusion, glycemic rise, tissue/cartilage/tendon risks, product-route compatibility.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_methylpred_acetate",
+          "generic": "Methylprednisolone acetate",
+          "class_id": "local_steroid",
+          "form": "Suspension",
+          "route": "Intra-articular/soft tissue",
+          "dose_example": "Dose depends on joint size/site and product; avoid intrathecal use of inappropriate formulations.",
+          "tags": [
+            "steroid",
+            "local",
+            "anti_inflammatory",
+            "pain_modifying",
+            "injection"
+          ],
+          "role": "Local steroid anti-inflammatory procedure.",
+          "monitoring_pearl": "Infection exclusion, glycemic rise, tissue/cartilage/tendon risks, product-route compatibility.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_betamethasone_inj",
+          "generic": "Betamethasone injectable suspension/solution",
+          "class_id": "local_steroid",
+          "form": "Injection",
+          "route": "Intra-articular/soft tissue",
+          "dose_example": "Dose is product/site-specific and requires procedural diagnosis.",
+          "tags": [
+            "steroid",
+            "local",
+            "anti_inflammatory",
+            "pain_modifying",
+            "injection"
+          ],
+          "role": "Local steroid anti-inflammatory procedure.",
+          "monitoring_pearl": "Infection exclusion, glycemic rise, tissue/cartilage/tendon risks, product-route compatibility.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_cyclobenzaprine",
+          "generic": "Cyclobenzaprine",
+          "class_id": "acute_skeletal_relaxant",
+          "form": "Tablet/ER capsule",
+          "route": "Oral",
+          "dose_example": "5 mg three times daily is a common adult start; short-term use (generally up to 2–3 weeks) is typical for acute spasm.",
+          "tags": [
+            "skeletal_relaxant",
+            "acute_spasm",
+            "central",
+            "msk"
+          ],
+          "role": "Centrally acting symptomatic muscle-spasm therapy; evidence generally supports short-term rather than indefinite use.",
+          "monitoring_pearl": "Sedation/falls/driving, alcohol/CNS depressants; carisoprodol dependence; chlorzoxazone liver injury; anticholinergic effects.",
+          "source_refs": [
+            "ICMR_NECK_PAIN",
+            "NICE_LOW_BACK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_methocarbamol",
+          "generic": "Methocarbamol",
+          "class_id": "acute_skeletal_relaxant",
+          "form": "Tablet/injection",
+          "route": "Oral/IM/IV",
+          "dose_example": "Initial adult dosing is relatively high and then reduced; follow current label rather than a fixed chronic regimen.",
+          "tags": [
+            "skeletal_relaxant",
+            "acute_spasm",
+            "central",
+            "msk"
+          ],
+          "role": "Centrally acting symptomatic muscle-spasm therapy; evidence generally supports short-term rather than indefinite use.",
+          "monitoring_pearl": "Sedation/falls/driving, alcohol/CNS depressants; carisoprodol dependence; chlorzoxazone liver injury; anticholinergic effects.",
+          "source_refs": [
+            "ICMR_NECK_PAIN",
+            "NICE_LOW_BACK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_chlorzoxazone",
+          "generic": "Chlorzoxazone",
+          "class_id": "acute_skeletal_relaxant",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult dose 250–500 mg three or four times daily; verify liver safety and local label.",
+          "tags": [
+            "skeletal_relaxant",
+            "acute_spasm",
+            "central",
+            "msk"
+          ],
+          "role": "Centrally acting symptomatic muscle-spasm therapy; evidence generally supports short-term rather than indefinite use.",
+          "monitoring_pearl": "Sedation/falls/driving, alcohol/CNS depressants; carisoprodol dependence; chlorzoxazone liver injury; anticholinergic effects.",
+          "source_refs": [
+            "ICMR_NECK_PAIN",
+            "NICE_LOW_BACK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_metaxalone",
+          "generic": "Metaxalone",
+          "class_id": "acute_skeletal_relaxant",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult dose 800 mg three or four times daily.",
+          "tags": [
+            "skeletal_relaxant",
+            "acute_spasm",
+            "central",
+            "msk"
+          ],
+          "role": "Centrally acting symptomatic muscle-spasm therapy; evidence generally supports short-term rather than indefinite use.",
+          "monitoring_pearl": "Sedation/falls/driving, alcohol/CNS depressants; carisoprodol dependence; chlorzoxazone liver injury; anticholinergic effects.",
+          "source_refs": [
+            "ICMR_NECK_PAIN",
+            "NICE_LOW_BACK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_carisoprodol",
+          "generic": "Carisoprodol",
+          "class_id": "acute_skeletal_relaxant",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "250–350 mg three times daily and at bedtime for short periods (up to 2–3 weeks) per label.",
+          "tags": [
+            "skeletal_relaxant",
+            "acute_spasm",
+            "central",
+            "msk"
+          ],
+          "role": "Centrally acting symptomatic muscle-spasm therapy; evidence generally supports short-term rather than indefinite use.",
+          "monitoring_pearl": "Sedation/falls/driving, alcohol/CNS depressants; carisoprodol dependence; chlorzoxazone liver injury; anticholinergic effects.",
+          "source_refs": [
+            "ICMR_NECK_PAIN",
+            "NICE_LOW_BACK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_orphenadrine",
+          "generic": "Orphenadrine citrate",
+          "class_id": "acute_skeletal_relaxant",
+          "form": "ER tablet/injection",
+          "route": "Oral/IM/IV",
+          "dose_example": "Common ER adult dose 100 mg twice daily; anticholinergic burden is important.",
+          "tags": [
+            "skeletal_relaxant",
+            "acute_spasm",
+            "central",
+            "msk"
+          ],
+          "role": "Centrally acting symptomatic muscle-spasm therapy; evidence generally supports short-term rather than indefinite use.",
+          "monitoring_pearl": "Sedation/falls/driving, alcohol/CNS depressants; carisoprodol dependence; chlorzoxazone liver injury; anticholinergic effects.",
+          "source_refs": [
+            "ICMR_NECK_PAIN",
+            "NICE_LOW_BACK",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_baclofen_spasticity",
+          "generic": "Baclofen",
+          "class_id": "antispasticity",
+          "form": "Tablet/oral solution/intrathecal",
+          "route": "Oral/intrathecal",
+          "dose_example": "Common oral adult start 5 mg three times daily; titrate gradually. Intrathecal dosing is specialist pump/protocol-specific.",
+          "tags": [
+            "skeletal_relaxant",
+            "spasticity",
+            "central"
+          ],
+          "role": "GABA-B agonist for neurologic spasticity.",
+          "monitoring_pearl": "Sedation/weakness, renal dosing; dangerous withdrawal especially intrathecal.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_tizanidine",
+          "generic": "Tizanidine",
+          "class_id": "antispasticity",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common adult start 2 mg; may repeat every 6–8 h as needed with careful titration; max 36 mg/day per US label.",
+          "tags": [
+            "skeletal_relaxant",
+            "spasticity",
+            "central"
+          ],
+          "role": "Central α2 agonist antispasticity drug.",
+          "monitoring_pearl": "Hypotension/sedation, liver enzymes, CYP1A2 interactions; taper high doses.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_dantrolene",
+          "generic": "Dantrolene",
+          "class_id": "antispasticity",
+          "form": "Capsule/injection",
+          "route": "Oral/IV",
+          "dose_example": "Chronic spasticity starts low and titrates; malignant hyperthermia IV dosing is a different emergency protocol.",
+          "tags": [
+            "skeletal_relaxant",
+            "spasticity",
+            "peripheral"
+          ],
+          "role": "Acts directly on skeletal muscle RyR1 to reduce calcium release.",
+          "monitoring_pearl": "Hepatotoxicity monitoring, weakness; emergency MH use is distinct.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_diazepam_spasm",
+          "generic": "Diazepam — spasticity/muscle spasm",
+          "class_id": "antispasticity",
+          "form": "Tablet/solution/injection",
+          "route": "Oral/IV/IM",
+          "dose_example": "Spasm dosing is individualized and short-term; avoid treating benzodiazepines as routine chronic pain medicines.",
+          "tags": [
+            "skeletal_relaxant",
+            "spasticity",
+            "central",
+            "benzodiazepine"
+          ],
+          "role": "GABA-A potentiation reduces muscle spasm but causes sedation/dependence.",
+          "monitoring_pearl": "Respiratory/CNS depression, falls, dependence/withdrawal and opioid combination risk.",
+          "source_refs": [
+            "CDC_OPIOID_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_botoxA",
+          "generic": "Botulinum toxin type A preparations",
+          "class_id": "botulinum",
+          "form": "Injection",
+          "route": "Intramuscular/local",
+          "dose_example": "Units and dose are product-, muscle- and indication-specific; botulinum-toxin units are NOT interchangeable across brands.",
+          "tags": [
+            "skeletal_relaxant",
+            "spasticity",
+            "local",
+            "procedure"
+          ],
+          "role": "Focal chemodenervation for spasticity/dystonia and selected pain syndromes.",
+          "monitoring_pearl": "Dysphagia/weakness/systemic spread warning; anatomy/EMG/ultrasound guidance as appropriate.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_dicyclomine",
+          "generic": "Dicyclomine",
+          "class_id": "smooth_antimuscarinic",
+          "form": "Tablet/capsule/syrup/injection",
+          "route": "Oral/IM/IV",
+          "dose_example": "Common adult IBS labeling: 20 mg four times daily initially; may increase if tolerated for short reassessment period.",
+          "tags": [
+            "smooth_muscle",
+            "visceral",
+            "antispasmodic"
+          ],
+          "role": "Antimuscarinic visceral-spasm therapy.",
+          "monitoring_pearl": "Anticholinergic effects: glaucoma, urinary retention, tachycardia, confusion/elderly burden.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_hyoscine_butyl",
+          "generic": "Hyoscine butylbromide (scopolamine butylbromide)",
+          "class_id": "smooth_antimuscarinic",
+          "form": "Tablet/injection",
+          "route": "Oral/IM/IV",
+          "dose_example": "Common market oral dose 10–20 mg three or four times daily; verify local label.",
+          "tags": [
+            "smooth_muscle",
+            "visceral",
+            "antispasmodic"
+          ],
+          "role": "Antimuscarinic visceral-spasm therapy.",
+          "monitoring_pearl": "Anticholinergic effects: glaucoma, urinary retention, tachycardia, confusion/elderly burden.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_hyoscyamine",
+          "generic": "Hyoscyamine",
+          "class_id": "smooth_antimuscarinic",
+          "form": "Tablet/SL/liquid/ER",
+          "route": "Oral",
+          "dose_example": "Common adult IR dose 0.125–0.25 mg every 4 h as needed within label maximum.",
+          "tags": [
+            "smooth_muscle",
+            "visceral",
+            "antispasmodic"
+          ],
+          "role": "Antimuscarinic visceral-spasm therapy.",
+          "monitoring_pearl": "Anticholinergic effects: glaucoma, urinary retention, tachycardia, confusion/elderly burden.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_drotaverine",
+          "generic": "Drotaverine",
+          "class_id": "smooth_direct",
+          "form": "Tablet/injection",
+          "route": "Oral/IV/IM",
+          "dose_example": "Common market dose 40–80 mg two or three times daily; verify local indication/maximum.",
+          "tags": [
+            "smooth_muscle",
+            "visceral",
+            "antispasmodic"
+          ],
+          "role": "Direct/myotropic smooth-muscle relaxation.",
+          "monitoring_pearl": "Hypotension/QT or liver effects vary; evidence and licensing differ by country.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_mebeverine",
+          "generic": "Mebeverine",
+          "class_id": "smooth_direct",
+          "form": "Tablet/modified-release capsule",
+          "route": "Oral",
+          "dose_example": "Common adult IBS regimens: 135 mg three times daily or 200 mg modified-release twice daily, market-dependent.",
+          "tags": [
+            "smooth_muscle",
+            "visceral",
+            "antispasmodic"
+          ],
+          "role": "Direct/myotropic smooth-muscle relaxation.",
+          "monitoring_pearl": "Hypotension/QT or liver effects vary; evidence and licensing differ by country.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_papaverine",
+          "generic": "Papaverine",
+          "class_id": "smooth_direct",
+          "form": "Tablet/injection",
+          "route": "Oral/IV/IM",
+          "dose_example": "Systemic/vascular/visceral uses are route- and indication-specific; verify current local label.",
+          "tags": [
+            "smooth_muscle",
+            "visceral",
+            "antispasmodic"
+          ],
+          "role": "Direct/myotropic smooth-muscle relaxation.",
+          "monitoring_pearl": "Hypotension/QT or liver effects vary; evidence and licensing differ by country.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_colchicine",
+          "generic": "Colchicine",
+          "class_id": "gout_colchicine",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Acute gout US labeling: 1.2 mg at first sign then 0.6 mg one hour later; do not repeat high-dose historic regimens.",
+          "tags": [
+            "inflammatory",
+            "gout",
+            "pain_modifying"
+          ],
+          "role": "Anti-neutrophil therapy for gout flare, not a conventional analgesic.",
+          "monitoring_pearl": "Major CYP3A4/P-gp interactions, renal/hepatic impairment, myopathy and narrow therapeutic index.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_succinylcholine",
+          "generic": "Succinylcholine",
+          "class_id": "nmb_depolarizing",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Weight-based anesthesia dosing only with airway/ventilation capability; no outpatient pain dose.",
+          "tags": [
+            "neuromuscular_blocker",
+            "anesthesia_only",
+            "not_analgesic",
+            "paralysis"
+          ],
+          "role": "Rapid depolarizing paralysis for airway/procedural anesthesia contexts.",
+          "monitoring_pearl": "NO analgesia/sedation; hyperkalemia, malignant hyperthermia, bradycardia, prolonged apnea.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_rocuronium",
+          "generic": "Rocuronium",
+          "class_id": "nmb_nondepolarizing",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Weight-based anesthesia/ICU paralysis protocol only; titrate with neuromuscular monitoring.",
+          "tags": [
+            "neuromuscular_blocker",
+            "anesthesia_only",
+            "not_analgesic",
+            "paralysis"
+          ],
+          "role": "Competitive neuromuscular blockade; duration/organ elimination differs by agent.",
+          "monitoring_pearl": "NO analgesia/sedation; secure airway/ventilation, sedation/analgesia separately, TOF monitoring and reversal planning.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_vecuronium",
+          "generic": "Vecuronium",
+          "class_id": "nmb_nondepolarizing",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Weight-based anesthesia/ICU paralysis protocol only; titrate with neuromuscular monitoring.",
+          "tags": [
+            "neuromuscular_blocker",
+            "anesthesia_only",
+            "not_analgesic",
+            "paralysis"
+          ],
+          "role": "Competitive neuromuscular blockade; duration/organ elimination differs by agent.",
+          "monitoring_pearl": "NO analgesia/sedation; secure airway/ventilation, sedation/analgesia separately, TOF monitoring and reversal planning.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_cisatracurium",
+          "generic": "Cisatracurium",
+          "class_id": "nmb_nondepolarizing",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Weight-based anesthesia/ICU paralysis protocol only; titrate with neuromuscular monitoring.",
+          "tags": [
+            "neuromuscular_blocker",
+            "anesthesia_only",
+            "not_analgesic",
+            "paralysis"
+          ],
+          "role": "Competitive neuromuscular blockade; duration/organ elimination differs by agent.",
+          "monitoring_pearl": "NO analgesia/sedation; secure airway/ventilation, sedation/analgesia separately, TOF monitoring and reversal planning.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_atracurium",
+          "generic": "Atracurium",
+          "class_id": "nmb_nondepolarizing",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Weight-based anesthesia/ICU paralysis protocol only; titrate with neuromuscular monitoring.",
+          "tags": [
+            "neuromuscular_blocker",
+            "anesthesia_only",
+            "not_analgesic",
+            "paralysis"
+          ],
+          "role": "Competitive neuromuscular blockade; duration/organ elimination differs by agent.",
+          "monitoring_pearl": "NO analgesia/sedation; secure airway/ventilation, sedation/analgesia separately, TOF monitoring and reversal planning.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "pain_pancuronium",
+          "generic": "Pancuronium",
+          "class_id": "nmb_nondepolarizing",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Weight-based anesthesia/ICU paralysis protocol only; titrate with neuromuscular monitoring.",
+          "tags": [
+            "neuromuscular_blocker",
+            "anesthesia_only",
+            "not_analgesic",
+            "paralysis"
+          ],
+          "role": "Competitive neuromuscular blockade; duration/organ elimination differs by agent.",
+          "monitoring_pearl": "NO analgesia/sedation; secure airway/ventilation, sedation/analgesia separately, TOF monitoring and reversal planning.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "CDC_OPIOID_2022",
+          "label": "CDC Clinical Practice Guideline for Prescribing Opioids for Pain (2022)",
+          "url": "https://www.cdc.gov/mmwr/volumes/71/rr/rr7103a1.htm"
+        },
+        {
+          "id": "NICE_ANALGESICS",
+          "label": "NICE/BNF — Analgesics treatment summary",
+          "url": "https://bnf.nice.org.uk/treatment-summaries/analgesics/"
+        },
+        {
+          "id": "NICE_NSAID",
+          "label": "NICE/BNF — NSAID treatment summary",
+          "url": "https://bnf.nice.org.uk/treatment-summaries/non-steroidal-anti-inflammatory-drugs/"
+        },
+        {
+          "id": "NICE_OA",
+          "label": "NICE — Osteoarthritis management",
+          "url": "https://www.nice.org.uk/guidance/ng226"
+        },
+        {
+          "id": "NICE_LOW_BACK",
+          "label": "NICE NG59 — Low back pain and sciatica",
+          "url": "https://www.nice.org.uk/guidance/ng59"
+        },
+        {
+          "id": "ICMR_NECK_PAIN",
+          "label": "ICMR/DHR STW — Neck Pain",
+          "url": "https://www.icmr.gov.in/icmrobject/uploads/STWs/1726645314_8_neck_pain.pdf"
+        },
+        {
+          "id": "FDA_NSAID",
+          "label": "FDA / current NSAID labeling & boxed-warning framework",
+          "url": "https://www.fda.gov/drugs/postmarket-drug-safety-information-patients-and-providers/non-steroidal-anti-inflammatory-drugs-nsaids"
+        },
+        {
+          "id": "ASRA_LAST",
+          "label": "ASRA — Local Anesthetic Systemic Toxicity (LAST) Checklist",
+          "url": "https://asra.com/news-publications/asra-updates/blog-landing/guidelines/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity"
+        },
+        {
+          "id": "ASRA_KETAMINE",
+          "label": "ASRA — Ketamine infusion consensus guidelines",
+          "url": "https://asra.com/guidelines-articles/guidelines"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "DailyMed — current FDA-submitted product labeling",
           "url": "https://dailymed.nlm.nih.gov/dailymed/"
         }
       ]
