@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya.common_chronic_pharmacology.v1",
-  "version": "1.4E",
-  "app_version": "V5.40E",
-  "build": "2026.08.14-R25E",
-  "name": "High-Use Pharmacology Intelligence Labs — through Dermatology",
+  "version": "1.4F",
+  "app_version": "V5.40F",
+  "build": "2026.08.14-R25F",
+  "name": "High-Use Pharmacology Intelligence Labs — through GI • Bowel • Liver",
   "counts": {
-    "labs": 11,
-    "classes": 300,
-    "drug_profiles": 836
+    "labs": 12,
+    "classes": 340,
+    "drug_profiles": 916
   },
-  "global_boundary": "Research/learning pharmacology only. V5.40E adds Dermatology on top of the existing specialized pharmacology labs. Exact diagnosis, indication, formulation/strength, dose, site/BSA, renal/hepatic function, pregnancy, age/weight, interactions, infection status and current label/guideline must be verified. High-potency steroids, systemic retinoids, immunosuppressants, JAK inhibitors and biologics remain clinician-controlled.",
+  "global_boundary": "Research/learning pharmacology only. V5.40F adds GI • Bowel • Liver on top of the existing specialized pharmacology labs. Exact diagnosis, indication, formulation/strength, dose, duration, renal/hepatic function, pregnancy, age/weight, interactions, infection status and current label/guideline must be verified. IBD advanced therapies, cirrhosis/HRS/variceal therapy, PBC second-line agents and MASH therapies remain clinician-controlled.",
   "labs": [
     {
       "id": "hypertension",
@@ -25158,6 +25158,2467 @@
           "id": "FDA_DERM_SAFETY",
           "label": "U.S. FDA drug safety / labeling verification",
           "url": "https://www.fda.gov/drugs/drug-safety-and-availability"
+        }
+      ]
+    },
+    {
+      "id": "gi_bowel_liver",
+      "title": "GI • Bowel • Liver Intelligence Lab",
+      "icon": "🍽️",
+      "badge": "GI-BOWEL-LIVER v1.0",
+      "eyebrow": "Gastroenterology • Bowel Pharmacology • Hepatology Research Workspace",
+      "subtitle": "Nausea/constipation/diarrhea/IBS → IBD → pancreas → cirrhosis/portal HTN → cholestatic & metabolic liver pharmacology",
+      "scientific_boundary": "Research/learning pharmacology only. Acid-peptic/H. pylori therapy remains in the dedicated Acid-Peptic Lab. GI symptoms require diagnosis and red-flag assessment before symptomatic drugs. IBD biologics/small molecules, cirrhosis vasoactive therapy, HRS treatment, PBC second-line agents and MASH therapies are specialist/high-risk. Exact indication, severity, formulation, dose, duration, renal/hepatic function, pregnancy, infection screening, interactions and current guideline/label must be verified.",
+      "classification_notes": [
+        "Symptom control is separated from disease-modifying therapy.",
+        "IBD classes are organized by mechanism; positioning changes with severity, prior exposure and current guidelines.",
+        "Cirrhosis/portal-hypertension drugs are not routine OPD equivalents of their cardiovascular uses.",
+        "Obeticholic acid is intentionally excluded from active PBC options because its U.S. PBC accelerated-approval indication was withdrawn in 2025.",
+        "Hepatitis B/C antivirals are reserved for the future Antiviral/Anti-infective Lab to avoid duplication."
+      ],
+      "lens_groups": [
+        {
+          "group": "Common GI / bowel symptoms",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All GI • Bowel • Liver classes"
+            },
+            {
+              "id": "nausea_vomiting",
+              "label": "Nausea / vomiting"
+            },
+            {
+              "id": "gastroparesis",
+              "label": "Gastroparesis / prokinetic"
+            },
+            {
+              "id": "constipation",
+              "label": "Constipation"
+            },
+            {
+              "id": "opioid_constipation",
+              "label": "Opioid-induced constipation"
+            },
+            {
+              "id": "acute_diarrhea",
+              "label": "Acute diarrhea / ORS"
+            },
+            {
+              "id": "chronic_diarrhea",
+              "label": "Chronic diarrhea"
+            }
+          ]
+        },
+        {
+          "group": "Disorders of gut-brain interaction",
+          "items": [
+            {
+              "id": "ibs",
+              "label": "IBS overview"
+            },
+            {
+              "id": "ibs_c",
+              "label": "IBS-C"
+            },
+            {
+              "id": "ibs_d",
+              "label": "IBS-D"
+            },
+            {
+              "id": "antispasmodic",
+              "label": "Antispasmodic / visceral pain"
+            },
+            {
+              "id": "gut_selective",
+              "label": "Gut-selective therapy"
+            }
+          ]
+        },
+        {
+          "group": "Inflammatory bowel disease",
+          "items": [
+            {
+              "id": "ulcerative_colitis",
+              "label": "Ulcerative colitis"
+            },
+            {
+              "id": "crohn",
+              "label": "Crohn disease"
+            },
+            {
+              "id": "5asa",
+              "label": "5-ASA / mesalamine"
+            },
+            {
+              "id": "steroid_induction",
+              "label": "Steroid induction"
+            },
+            {
+              "id": "immunomodulator",
+              "label": "Immunomodulators"
+            },
+            {
+              "id": "biologic_ibd",
+              "label": "Biologics"
+            },
+            {
+              "id": "small_molecule_ibd",
+              "label": "JAK / S1P small molecules"
+            },
+            {
+              "id": "infection_screen",
+              "label": "TB/HBV/infection screen"
+            }
+          ]
+        },
+        {
+          "group": "Pancreas / nutrition",
+          "items": [
+            {
+              "id": "pancreatic_insufficiency",
+              "label": "Pancreatic enzyme replacement"
+            },
+            {
+              "id": "pancreas",
+              "label": "Pancreatic pharmacology"
+            }
+          ]
+        },
+        {
+          "group": "Cirrhosis / portal complications",
+          "items": [
+            {
+              "id": "hepatic_encephalopathy",
+              "label": "Hepatic encephalopathy"
+            },
+            {
+              "id": "ascites",
+              "label": "Ascites"
+            },
+            {
+              "id": "portal_hypertension",
+              "label": "Portal hypertension"
+            },
+            {
+              "id": "variceal_bleeding",
+              "label": "Acute variceal bleeding"
+            },
+            {
+              "id": "hrs",
+              "label": "Hepatorenal syndrome"
+            },
+            {
+              "id": "specialist_liver",
+              "label": "Specialist / decompensated liver"
+            }
+          ]
+        },
+        {
+          "group": "Cholestatic / metabolic liver disease",
+          "items": [
+            {
+              "id": "pbc",
+              "label": "Primary biliary cholangitis"
+            },
+            {
+              "id": "cholestatic_pruritus",
+              "label": "Cholestatic pruritus"
+            },
+            {
+              "id": "mash",
+              "label": "MASH / MASLD pharmacotherapy"
+            },
+            {
+              "id": "alcohol_hepatitis",
+              "label": "Alcohol-associated hepatitis"
+            }
+          ]
+        },
+        {
+          "group": "Safety / verification",
+          "items": [
+            {
+              "id": "high_risk",
+              "label": "High-risk / specialist"
+            },
+            {
+              "id": "pregnancy_caution",
+              "label": "Pregnancy-sensitive"
+            },
+            {
+              "id": "renal_hepatic",
+              "label": "Renal/hepatic verification"
+            },
+            {
+              "id": "cbc_lft",
+              "label": "CBC/LFT monitoring"
+            },
+            {
+              "id": "qt_risk",
+              "label": "QT / cardiac caution"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "gi_5ht3_antiemetic",
+          "name": "5-HT3 receptor antagonist antiemetics",
+          "mechanism": "Block serotonin 5-HT3 signaling in vagal afferents and the vomiting pathway",
+          "target": "5-HT3 receptors",
+          "tags": [
+            "nausea_vomiting",
+            "qt_risk"
+          ],
+          "role_note": "Antiemetic class; indication and QT/electrolyte context matter.",
+          "drug_ids": [
+            "gi_ondansetron",
+            "gi_granisetron",
+            "gi_palonosetron"
+          ]
+        },
+        {
+          "id": "gi_d2_prokinetic_antiemetic",
+          "name": "Dopamine-antagonist antiemetic / prokinetic agents",
+          "mechanism": "D2 antagonism; metoclopramide also enhances upper-GI motility through serotonergic actions",
+          "target": "D2 receptors / enteric 5-HT pathways",
+          "tags": [
+            "nausea_vomiting",
+            "gastroparesis",
+            "high_risk",
+            "qt_risk"
+          ],
+          "role_note": "Useful in selected nausea/gastroparesis contexts; neurologic and cardiac adverse effects limit use.",
+          "drug_ids": [
+            "gi_metoclopramide",
+            "gi_prochlorperazine"
+          ]
+        },
+        {
+          "id": "gi_nk1_antiemetic",
+          "name": "NK1 receptor antagonist antiemetics",
+          "mechanism": "Block substance-P signaling in central emetic pathways",
+          "target": "NK1 receptor",
+          "tags": [
+            "nausea_vomiting",
+            "high_risk"
+          ],
+          "role_note": "Primarily protocol-driven prevention of highly emetogenic nausea/vomiting.",
+          "drug_ids": [
+            "gi_aprepitant",
+            "gi_fosaprepitant"
+          ]
+        },
+        {
+          "id": "gi_h1_anticholinergic_antiemetic",
+          "name": "H1 / anticholinergic antiemetic agents",
+          "mechanism": "Suppress vestibular H1 and muscarinic signaling",
+          "target": "H1 / muscarinic receptors",
+          "tags": [
+            "nausea_vomiting",
+            "high_risk"
+          ],
+          "role_note": "Motion/vestibular-predominant nausea; sedation and anticholinergic burden matter.",
+          "drug_ids": [
+            "gi_promethazine",
+            "gi_dimenhydrinate"
+          ]
+        },
+        {
+          "id": "gi_ors",
+          "name": "Oral rehydration solution (ORS)",
+          "mechanism": "Glucose-sodium cotransport facilitates intestinal sodium and water absorption",
+          "target": "SGLT1-mediated intestinal cotransport",
+          "tags": [
+            "acute_diarrhea"
+          ],
+          "role_note": "Foundational rehydration therapy for diarrheal fluid loss; not an antidiarrheal.",
+          "drug_ids": [
+            "gi_who_ors"
+          ]
+        },
+        {
+          "id": "gi_bulk_fiber",
+          "name": "Bulk-forming fiber laxatives",
+          "mechanism": "Increase stool water/bulk and support colonic transit",
+          "target": "Luminal water retention / stool bulk",
+          "tags": [
+            "constipation",
+            "ibs",
+            "ibs_c"
+          ],
+          "role_note": "Useful for selected constipation/IBS patients when hydration and obstruction risk are considered.",
+          "drug_ids": [
+            "gi_psyllium",
+            "gi_methylcellulose"
+          ]
+        },
+        {
+          "id": "gi_osmotic_laxative",
+          "name": "Osmotic laxatives",
+          "mechanism": "Retain luminal water to soften stool and increase bowel movement frequency",
+          "target": "Colonic luminal osmotic gradient",
+          "tags": [
+            "constipation",
+            "ibs_c"
+          ],
+          "role_note": "Core constipation pharmacology; renal/electrolyte context affects agent choice.",
+          "drug_ids": [
+            "gi_peg3350",
+            "gi_lactulose_constipation",
+            "gi_magnesium_hydroxide"
+          ]
+        },
+        {
+          "id": "gi_stimulant_laxative",
+          "name": "Stimulant laxatives",
+          "mechanism": "Stimulate colonic motility and secretion",
+          "target": "Enteric nerves / colonic secretion",
+          "tags": [
+            "constipation"
+          ],
+          "role_note": "Effective rescue/short-course or scheduled therapy depending context.",
+          "drug_ids": [
+            "gi_bisacodyl",
+            "gi_senna",
+            "gi_sodium_picosulfate"
+          ]
+        },
+        {
+          "id": "gi_stool_softener",
+          "name": "Stool softeners",
+          "mechanism": "Surfactant effect facilitates mixing of water/fat into stool",
+          "target": "Stool surface tension",
+          "tags": [
+            "constipation"
+          ],
+          "role_note": "Commonly used but comparatively limited efficacy evidence for CIC.",
+          "drug_ids": [
+            "gi_docusate"
+          ]
+        },
+        {
+          "id": "gi_chloride_secretagogue",
+          "name": "Chloride-channel secretagogue",
+          "mechanism": "Activates intestinal chloride secretion to increase fluid and transit",
+          "target": "ClC-2 chloride channels",
+          "tags": [
+            "constipation",
+            "ibs_c"
+          ],
+          "role_note": "Prescription constipation/IBS-C option.",
+          "drug_ids": [
+            "gi_lubiprostone"
+          ]
+        },
+        {
+          "id": "gi_gcc_agonist",
+          "name": "Guanylate cyclase-C agonists",
+          "mechanism": "Increase intestinal cGMP, chloride/bicarbonate secretion and transit",
+          "target": "Guanylate cyclase-C",
+          "tags": [
+            "constipation",
+            "ibs_c"
+          ],
+          "role_note": "High-evidence prescription options for CIC/IBS-C.",
+          "drug_ids": [
+            "gi_linaclotide",
+            "gi_plecanatide"
+          ]
+        },
+        {
+          "id": "gi_5ht4_prokinetic",
+          "name": "Selective 5-HT4 prokinetic",
+          "mechanism": "Enhances enteric cholinergic signaling and colonic motility",
+          "target": "5-HT4 receptor",
+          "tags": [
+            "constipation",
+            "gut_selective"
+          ],
+          "role_note": "Prescription prokinetic option for CIC.",
+          "drug_ids": [
+            "gi_prucalopride"
+          ]
+        },
+        {
+          "id": "gi_nhe3_inhibitor",
+          "name": "Intestinal NHE3 inhibitor",
+          "mechanism": "Reduces intestinal sodium absorption, increasing luminal water and accelerating transit",
+          "target": "Sodium/hydrogen exchanger 3 (NHE3)",
+          "tags": [
+            "ibs_c",
+            "gut_selective"
+          ],
+          "role_note": "IBS-C targeted therapy.",
+          "drug_ids": [
+            "gi_tenapanor"
+          ]
+        },
+        {
+          "id": "gi_pamora",
+          "name": "Peripherally acting µ-opioid receptor antagonists (PAMORAs)",
+          "mechanism": "Block peripheral GI µ-opioid effects while minimizing central analgesia reversal",
+          "target": "Peripheral µ-opioid receptor",
+          "tags": [
+            "opioid_constipation",
+            "constipation",
+            "high_risk"
+          ],
+          "role_note": "Targeted opioid-induced constipation therapy after standard laxative assessment.",
+          "drug_ids": [
+            "gi_naloxegol",
+            "gi_naldemedine",
+            "gi_methylnaltrexone"
+          ]
+        },
+        {
+          "id": "gi_antidiarrheal_opioid",
+          "name": "Peripheral opioid antidiarrheals",
+          "mechanism": "Reduce intestinal propulsive motility and secretion",
+          "target": "Enteric µ-opioid receptors",
+          "tags": [
+            "acute_diarrhea",
+            "chronic_diarrhea",
+            "high_risk"
+          ],
+          "role_note": "Symptomatic diarrhea control only after red flags/infectious/inflammatory causes are considered.",
+          "drug_ids": [
+            "gi_loperamide",
+            "gi_diphenoxylate_atropine"
+          ]
+        },
+        {
+          "id": "gi_bile_acid_sequestrant",
+          "name": "Bile-acid sequestrants for bile-acid diarrhea",
+          "mechanism": "Bind intestinal bile acids",
+          "target": "Luminal bile acids",
+          "tags": [
+            "chronic_diarrhea",
+            "cholestatic_pruritus"
+          ],
+          "role_note": "Useful when bile-acid excess contributes to diarrhea; also used for cholestatic pruritus in liver disease.",
+          "drug_ids": [
+            "gi_cholestyramine_diarrhea",
+            "gi_colesevelam_diarrhea"
+          ]
+        },
+        {
+          "id": "gi_ibsd_rifaximin",
+          "name": "Gut-selective rifamycin for IBS-D",
+          "mechanism": "Minimally absorbed rifamycin alters gut microbial activity",
+          "target": "Bacterial RNA polymerase",
+          "tags": [
+            "ibs_d",
+            "ibs",
+            "gut_selective"
+          ],
+          "role_note": "Short-course IBS-D therapy in selected adults; retreatment may be label-supported.",
+          "drug_ids": [
+            "gi_rifaximin_ibsd"
+          ]
+        },
+        {
+          "id": "gi_ibsd_5ht3",
+          "name": "Selective 5-HT3 antagonist for severe IBS-D",
+          "mechanism": "Reduces visceral signaling and slows colonic transit",
+          "target": "5-HT3 receptor",
+          "tags": [
+            "ibs_d",
+            "high_risk"
+          ],
+          "role_note": "Restricted/high-risk IBS-D option for selected patients.",
+          "drug_ids": [
+            "gi_alosetron"
+          ]
+        },
+        {
+          "id": "gi_ibsd_mixed",
+          "name": "Mixed opioid-receptor modulator for IBS-D",
+          "mechanism": "µ- and κ-opioid receptor agonism with δ antagonism in the gut",
+          "target": "Enteric opioid receptors",
+          "tags": [
+            "ibs_d",
+            "high_risk"
+          ],
+          "role_note": "IBS-D therapy with important pancreatitis/gallbladder contraindications.",
+          "drug_ids": [
+            "gi_eluxadoline"
+          ]
+        },
+        {
+          "id": "gi_antispasmodic",
+          "name": "GI antispasmodics / smooth-muscle relaxants",
+          "mechanism": "Reduce intestinal smooth-muscle spasm through antimuscarinic or direct mechanisms",
+          "target": "Muscarinic receptors / GI smooth muscle",
+          "tags": [
+            "ibs",
+            "antispasmodic"
+          ],
+          "role_note": "Symptom-directed abdominal cramp/spasm therapy; evidence and availability vary.",
+          "drug_ids": [
+            "gi_dicyclomine",
+            "gi_hyoscine_butylbromide",
+            "gi_peppermint_oil"
+          ]
+        },
+        {
+          "id": "gi_5asa",
+          "name": "5-aminosalicylates (5-ASA)",
+          "mechanism": "Topical mucosal anti-inflammatory effects through multiple eicosanoid/NF-κB pathways",
+          "target": "Colonic mucosal inflammation",
+          "tags": [
+            "ulcerative_colitis",
+            "5asa"
+          ],
+          "role_note": "Core mild-to-moderate UC class; role in Crohn disease is much more limited.",
+          "drug_ids": [
+            "gi_mesalamine_oral",
+            "gi_mesalamine_rectal",
+            "gi_sulfasalazine_ibd"
+          ]
+        },
+        {
+          "id": "gi_ibd_steroid",
+          "name": "Corticosteroids for IBD induction",
+          "mechanism": "Broad glucocorticoid anti-inflammatory effects",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "steroid_induction",
+            "high_risk"
+          ],
+          "role_note": "Induction/rescue—not maintenance—therapy; minimize systemic steroid exposure.",
+          "drug_ids": [
+            "gi_budesonide_mmx",
+            "gi_budesonide_ec",
+            "gi_prednisone_ibd"
+          ]
+        },
+        {
+          "id": "gi_thiopurine",
+          "name": "Thiopurine immunomodulators",
+          "mechanism": "Inhibit purine synthesis and lymphocyte proliferation",
+          "target": "Purine metabolism",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "immunomodulator",
+            "infection_screen",
+            "cbc_lft",
+            "high_risk"
+          ],
+          "role_note": "Maintenance/steroid-sparing role in selected IBD patients; not rapid induction monotherapy.",
+          "drug_ids": [
+            "gi_azathioprine_ibd",
+            "gi_mercaptopurine_ibd"
+          ]
+        },
+        {
+          "id": "gi_mtx_ibd",
+          "name": "Methotrexate immunomodulation in Crohn disease",
+          "mechanism": "Folate-pathway and adenosine-mediated immunomodulation",
+          "target": "DHFR/ATIC and immune pathways",
+          "tags": [
+            "crohn",
+            "immunomodulator",
+            "infection_screen",
+            "cbc_lft",
+            "pregnancy_caution",
+            "high_risk"
+          ],
+          "role_note": "Selected Crohn disease maintenance/steroid-sparing option; pregnancy contraindication.",
+          "drug_ids": [
+            "gi_methotrexate_ibd"
+          ]
+        },
+        {
+          "id": "gi_anti_tnf_ibd",
+          "name": "Anti-TNF biologics for IBD",
+          "mechanism": "Neutralize tumor necrosis factor-α",
+          "target": "TNF-α",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "biologic_ibd",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role_note": "Advanced therapy for moderate-to-severe IBD; therapeutic drug monitoring may be used contextually.",
+          "drug_ids": [
+            "gi_infliximab_ibd",
+            "gi_adalimumab_ibd",
+            "gi_golimumab_uc"
+          ]
+        },
+        {
+          "id": "gi_anti_integrin_ibd",
+          "name": "Gut-selective anti-integrin biologic",
+          "mechanism": "Blocks α4β7 integrin-mediated lymphocyte trafficking to gut",
+          "target": "α4β7 integrin",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "biologic_ibd",
+            "gut_selective",
+            "infection_screen"
+          ],
+          "role_note": "Gut-selective advanced IBD therapy.",
+          "drug_ids": [
+            "gi_vedolizumab"
+          ]
+        },
+        {
+          "id": "gi_il23_ibd",
+          "name": "IL-12/23 and IL-23 pathway biologics",
+          "mechanism": "Block p40 or p19 cytokine subunits to reduce Th1/Th17 inflammation",
+          "target": "IL-12/23 p40 or IL-23 p19",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "biologic_ibd",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role_note": "Major contemporary IBD biologic pathway; induction and maintenance differ by agent/indication.",
+          "drug_ids": [
+            "gi_ustekinumab_ibd",
+            "gi_risankizumab_ibd",
+            "gi_mirikizumab_uc",
+            "gi_guselkumab_ibd"
+          ]
+        },
+        {
+          "id": "gi_jak_ibd",
+          "name": "JAK inhibitors for IBD",
+          "mechanism": "Inhibit Janus kinase signaling downstream of multiple cytokines",
+          "target": "JAK1/JAK3 pathways",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "small_molecule_ibd",
+            "infection_screen",
+            "cbc_lft",
+            "high_risk",
+            "pregnancy_caution"
+          ],
+          "role_note": "Rapid oral advanced therapy with boxed-warning considerations.",
+          "drug_ids": [
+            "gi_tofacitinib_uc",
+            "gi_upadacitinib_ibd"
+          ]
+        },
+        {
+          "id": "gi_s1p_ibd",
+          "name": "S1P receptor modulators for UC",
+          "mechanism": "Sequester lymphocytes in lymphoid tissue by modulating S1P receptors",
+          "target": "S1P receptors",
+          "tags": [
+            "ulcerative_colitis",
+            "small_molecule_ibd",
+            "high_risk"
+          ],
+          "role_note": "Oral UC advanced therapy with cardiac/ophthalmic and infection considerations.",
+          "drug_ids": [
+            "gi_ozanimod_uc",
+            "gi_etrasimod_uc"
+          ]
+        },
+        {
+          "id": "gi_pert",
+          "name": "Pancreatic enzyme replacement therapy (PERT)",
+          "mechanism": "Replaces pancreatic lipase/protease/amylase in the intestinal lumen",
+          "target": "Digestive enzyme replacement",
+          "tags": [
+            "pancreatic_insufficiency",
+            "pancreas"
+          ],
+          "role_note": "Foundation of exocrine pancreatic insufficiency treatment; dose is lipase-unit and meal based.",
+          "drug_ids": [
+            "gi_pancrelipase"
+          ]
+        },
+        {
+          "id": "liver_he",
+          "name": "Hepatic encephalopathy ammonia-reduction therapy",
+          "mechanism": "Reduce intestinal ammonia generation/absorption through catharsis and gut-microbial effects",
+          "target": "Colonic nitrogen/ammonia handling",
+          "tags": [
+            "hepatic_encephalopathy",
+            "specialist_liver"
+          ],
+          "role_note": "Core pharmacologic strategy for overt/recurrent hepatic encephalopathy.",
+          "drug_ids": [
+            "liver_lactulose_he",
+            "liver_rifaximin_he"
+          ]
+        },
+        {
+          "id": "liver_ascites_diuretic",
+          "name": "Cirrhotic ascites diuretic strategy",
+          "mechanism": "Aldosterone antagonism plus loop diuresis mobilizes sodium/water",
+          "target": "Mineralocorticoid receptor + NKCC2",
+          "tags": [
+            "ascites",
+            "specialist_liver",
+            "renal_hepatic"
+          ],
+          "role_note": "Standard cirrhotic ascites pharmacology after sodium strategy and severity assessment.",
+          "drug_ids": [
+            "liver_spironolactone_ascites",
+            "liver_furosemide_ascites"
+          ]
+        },
+        {
+          "id": "liver_portal_nsbb",
+          "name": "Nonselective beta-blockers for portal hypertension",
+          "mechanism": "β1 blockade reduces cardiac output; β2 blockade reduces splanchnic inflow; carvedilol adds α1 blockade",
+          "target": "β1/β2 ± α1 receptors",
+          "tags": [
+            "portal_hypertension",
+            "specialist_liver",
+            "high_risk"
+          ],
+          "role_note": "Primary/secondary portal-hypertension prophylaxis in selected cirrhosis patients; BP and decompensation status are critical.",
+          "drug_ids": [
+            "liver_carvedilol_portal",
+            "liver_propranolol_portal",
+            "liver_nadolol_portal"
+          ]
+        },
+        {
+          "id": "liver_variceal_vasoactive",
+          "name": "Vasoactive therapy for acute variceal hemorrhage",
+          "mechanism": "Reduces splanchnic blood flow and portal pressure",
+          "target": "Somatostatin receptors / vasopressin V1 pathways",
+          "tags": [
+            "variceal_bleeding",
+            "high_risk",
+            "specialist_liver"
+          ],
+          "role_note": "Emergency hospital therapy alongside resuscitation, endoscopy and antibiotic strategy—not OPD self-treatment.",
+          "drug_ids": [
+            "liver_octreotide_variceal",
+            "liver_terlipressin_variceal"
+          ]
+        },
+        {
+          "id": "liver_hrs",
+          "name": "Hepatorenal syndrome–AKI vasoconstrictor + albumin strategy",
+          "mechanism": "Vasoconstriction reverses splanchnic vasodilation while albumin supports effective arterial volume",
+          "target": "Vasopressin V1 receptors + plasma oncotic expansion",
+          "tags": [
+            "hrs",
+            "high_risk",
+            "specialist_liver",
+            "renal_hepatic"
+          ],
+          "role_note": "Hospital/specialist HRS-AKI therapy after diagnostic confirmation and volume/infection assessment.",
+          "drug_ids": [
+            "liver_terlipressin_hrs",
+            "liver_albumin_hrs"
+          ]
+        },
+        {
+          "id": "liver_pbc_udca",
+          "name": "Ursodeoxycholic acid for PBC",
+          "mechanism": "Hydrophilic bile acid improves bile flow and reduces toxic bile-acid effects",
+          "target": "Bile-acid pool / hepatobiliary transport",
+          "tags": [
+            "pbc",
+            "specialist_liver"
+          ],
+          "role_note": "First-line disease-modifying therapy for primary biliary cholangitis.",
+          "drug_ids": [
+            "liver_ursodiol_pbc"
+          ]
+        },
+        {
+          "id": "liver_pbc_ppar",
+          "name": "Newer PPAR agonists for PBC",
+          "mechanism": "Modulate PPAR signaling to reduce cholestatic injury and bile-acid synthesis pathways",
+          "target": "PPAR-α/δ or PPAR-δ",
+          "tags": [
+            "pbc",
+            "high_risk",
+            "specialist_liver"
+          ],
+          "role_note": "Second-line PBC options after inadequate UDCA response or intolerance; accelerated-approval/specialist context.",
+          "drug_ids": [
+            "liver_elafibranor_pbc",
+            "liver_seladelpar_pbc"
+          ]
+        },
+        {
+          "id": "liver_cholestatic_pruritus",
+          "name": "Cholestatic-pruritus pharmacotherapy",
+          "mechanism": "Uses bile-acid binding, hepatic enzyme induction, opioid antagonism or serotonergic modulation",
+          "target": "Multiple pruritus pathways",
+          "tags": [
+            "cholestatic_pruritus",
+            "pbc",
+            "high_risk",
+            "specialist_liver"
+          ],
+          "role_note": "Stepwise symptom therapy; space bile-acid binders from other medicines and monitor specialist agents.",
+          "drug_ids": [
+            "liver_cholestyramine_pruritus",
+            "liver_rifampin_pruritus",
+            "liver_naltrexone_pruritus",
+            "liver_sertraline_pruritus"
+          ]
+        },
+        {
+          "id": "liver_mash_specific",
+          "name": "Disease-directed pharmacotherapy for noncirrhotic MASH with F2–F3 fibrosis",
+          "mechanism": "Targets hepatic thyroid-hormone signaling or GLP-1 pathways plus metabolic weight-loss effects",
+          "target": "THR-β / GLP-1 receptor",
+          "tags": [
+            "mash",
+            "high_risk",
+            "specialist_liver"
+          ],
+          "role_note": "Current FDA-approved MASH options are stage- and label-specific; lifestyle/metabolic risk management remains foundational.",
+          "drug_ids": [
+            "liver_resmetirom",
+            "liver_semaglutide_mash"
+          ]
+        },
+        {
+          "id": "liver_alcohol_hepatitis_steroid",
+          "name": "Corticosteroid therapy for severe alcohol-associated hepatitis",
+          "mechanism": "Suppresses inflammatory cytokine signaling in selected severe alcohol-associated hepatitis",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "alcohol_hepatitis",
+            "high_risk",
+            "specialist_liver",
+            "infection_screen"
+          ],
+          "role_note": "Short-course specialist therapy only after severity scoring and contraindication/infection assessment.",
+          "drug_ids": [
+            "liver_prednisolone_ah"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "gi_ondansetron",
+          "generic": "Ondansetron",
+          "class_id": "gi_5ht3_antiemetic",
+          "form": "Tablet/ODT/solution/injection",
+          "route": "PO/IV",
+          "dose_example": "Common adult symptomatic doses are often 4–8 mg; interval and maximum depend on indication—verify label.",
+          "tags": [
+            "nausea_vomiting",
+            "qt_risk"
+          ],
+          "role": "Antiemetic class; indication and QT/electrolyte context matter.",
+          "monitoring_pearl": "QT prolongation risk rises with IV dose, electrolyte disturbance and interacting QT drugs.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_granisetron",
+          "generic": "Granisetron",
+          "class_id": "gi_5ht3_antiemetic",
+          "form": "Tablet/injection/transdermal",
+          "route": "PO/IV/transdermal",
+          "dose_example": "Indication/formulation-specific; verify current label.",
+          "tags": [
+            "nausea_vomiting",
+            "qt_risk"
+          ],
+          "role": "Antiemetic class; indication and QT/electrolyte context matter.",
+          "monitoring_pearl": "QT/serotonergic context; constipation/headache.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_palonosetron",
+          "generic": "Palonosetron",
+          "class_id": "gi_5ht3_antiemetic",
+          "form": "Injection/capsule combinations",
+          "route": "IV/PO",
+          "dose_example": "Long-acting, indication-specific dosing; verify label.",
+          "tags": [
+            "nausea_vomiting",
+            "qt_risk"
+          ],
+          "role": "Antiemetic class; indication and QT/electrolyte context matter.",
+          "monitoring_pearl": "Primarily chemotherapy/postoperative contexts; verify regimen.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_metoclopramide",
+          "generic": "Metoclopramide",
+          "class_id": "gi_d2_prokinetic_antiemetic",
+          "form": "Tablet/solution/injection",
+          "route": "PO/IV/IM",
+          "dose_example": "Typical adult gastroparesis learning range 5–10 mg before meals/bedtime; use lowest effective dose and verify duration/label.",
+          "tags": [
+            "nausea_vomiting",
+            "gastroparesis",
+            "high_risk",
+            "qt_risk"
+          ],
+          "role": "Useful in selected nausea/gastroparesis contexts; neurologic and cardiac adverse effects limit use.",
+          "monitoring_pearl": "Boxed warning for tardive dyskinesia; assess EPS, renal dosing and duration.",
+          "source_refs": [
+            "ACG_GASTROPARESIS_2022",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_prochlorperazine",
+          "generic": "Prochlorperazine",
+          "class_id": "gi_d2_prokinetic_antiemetic",
+          "form": "Tablet/suppository/injection",
+          "route": "PO/PR/IM/IV",
+          "dose_example": "Dose depends on formulation/indication; verify label.",
+          "tags": [
+            "nausea_vomiting",
+            "gastroparesis",
+            "high_risk",
+            "qt_risk"
+          ],
+          "role": "Useful in selected nausea/gastroparesis contexts; neurologic and cardiac adverse effects limit use.",
+          "monitoring_pearl": "EPS, sedation, hypotension, QT and anticholinergic burden.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_aprepitant",
+          "generic": "Aprepitant",
+          "class_id": "gi_nk1_antiemetic",
+          "form": "Capsule/oral suspension",
+          "route": "PO",
+          "dose_example": "Regimen-specific multiday dosing; verify oncology/postoperative protocol and interactions.",
+          "tags": [
+            "nausea_vomiting",
+            "high_risk"
+          ],
+          "role": "Primarily protocol-driven prevention of highly emetogenic nausea/vomiting.",
+          "monitoring_pearl": "CYP3A4 interactions including corticosteroid/warfarin context.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_fosaprepitant",
+          "generic": "Fosaprepitant",
+          "class_id": "gi_nk1_antiemetic",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Single-dose regimen depends on indication; verify protocol.",
+          "tags": [
+            "nausea_vomiting",
+            "high_risk"
+          ],
+          "role": "Primarily protocol-driven prevention of highly emetogenic nausea/vomiting.",
+          "monitoring_pearl": "Infusion reactions and CYP3A4 interactions.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_promethazine",
+          "generic": "Promethazine",
+          "class_id": "gi_h1_anticholinergic_antiemetic",
+          "form": "Tablet/syrup/suppository/injection",
+          "route": "PO/PR/IM/IV",
+          "dose_example": "Common adult oral doses 12.5–25 mg depending indication; verify label.",
+          "tags": [
+            "nausea_vomiting",
+            "high_risk"
+          ],
+          "role": "Motion/vestibular-predominant nausea; sedation and anticholinergic burden matter.",
+          "monitoring_pearl": "Marked sedation; injection tissue-injury risk; anticholinergic effects.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_dimenhydrinate",
+          "generic": "Dimenhydrinate",
+          "class_id": "gi_h1_anticholinergic_antiemetic",
+          "form": "Tablet/solution/injection",
+          "route": "PO/IM/IV",
+          "dose_example": "Typical adult 50 mg every 4–6 h as needed; verify maximum and patient factors.",
+          "tags": [
+            "nausea_vomiting",
+            "high_risk"
+          ],
+          "role": "Motion/vestibular-predominant nausea; sedation and anticholinergic burden matter.",
+          "monitoring_pearl": "Sedation, anticholinergic burden, falls.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_who_ors",
+          "generic": "Reduced-osmolarity ORS",
+          "class_id": "gi_ors",
+          "form": "Sachet for solution",
+          "route": "PO",
+          "dose_example": "Reconstitute exactly to labeled water volume; replace ongoing losses according to dehydration plan.",
+          "tags": [
+            "acute_diarrhea"
+          ],
+          "role": "Foundational rehydration therapy for diarrheal fluid loss; not an antidiarrheal.",
+          "monitoring_pearl": "Use correct dilution; severe dehydration/shock requires appropriate escalation.",
+          "source_refs": [
+            "WHO_ORS",
+            "ICMR_GI_STW"
+          ]
+        },
+        {
+          "id": "gi_psyllium",
+          "generic": "Psyllium",
+          "class_id": "gi_bulk_fiber",
+          "form": "Powder/capsule",
+          "route": "PO",
+          "dose_example": "Common learning range ~3–6 g one to three times daily with adequate fluid; product-specific.",
+          "tags": [
+            "constipation",
+            "ibs",
+            "ibs_c"
+          ],
+          "role": "Useful for selected constipation/IBS patients when hydration and obstruction risk are considered.",
+          "monitoring_pearl": "Avoid with obstruction/dysphagia risk; separate from some oral medicines.",
+          "source_refs": [
+            "ACG_IBS_2021",
+            "AGA_ACG_CIC_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_methylcellulose",
+          "generic": "Methylcellulose",
+          "class_id": "gi_bulk_fiber",
+          "form": "Powder/tablet",
+          "route": "PO",
+          "dose_example": "Product-specific bulk fiber dosing with adequate water.",
+          "tags": [
+            "constipation",
+            "ibs",
+            "ibs_c"
+          ],
+          "role": "Useful for selected constipation/IBS patients when hydration and obstruction risk are considered.",
+          "monitoring_pearl": "Bloating; obstruction risk if inadequate fluid.",
+          "source_refs": [
+            "AGA_ACG_CIC_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_peg3350",
+          "generic": "Polyethylene glycol 3350",
+          "class_id": "gi_osmotic_laxative",
+          "form": "Powder for solution",
+          "route": "PO",
+          "dose_example": "Common adult CIC dose 17 g once daily in fluid.",
+          "tags": [
+            "constipation",
+            "ibs_c"
+          ],
+          "role": "Core constipation pharmacology; renal/electrolyte context affects agent choice.",
+          "monitoring_pearl": "Bloating/diarrhea; verify product electrolytes and duration.",
+          "source_refs": [
+            "AGA_ACG_CIC_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_lactulose_constipation",
+          "generic": "Lactulose (constipation use)",
+          "class_id": "gi_osmotic_laxative",
+          "form": "Oral solution",
+          "route": "PO",
+          "dose_example": "Common adult constipation learning range 15–30 mL daily, titrated to response.",
+          "tags": [
+            "constipation",
+            "ibs_c"
+          ],
+          "role": "Core constipation pharmacology; renal/electrolyte context affects agent choice.",
+          "monitoring_pearl": "Gas, cramping, diarrhea/electrolytes with excess use.",
+          "source_refs": [
+            "AGA_ACG_CIC_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_magnesium_hydroxide",
+          "generic": "Magnesium hydroxide",
+          "class_id": "gi_osmotic_laxative",
+          "form": "Suspension/tablet",
+          "route": "PO",
+          "dose_example": "Product-specific adult dosing; verify label.",
+          "tags": [
+            "constipation",
+            "ibs_c"
+          ],
+          "role": "Core constipation pharmacology; renal/electrolyte context affects agent choice.",
+          "monitoring_pearl": "Avoid/limit in significant renal impairment because of hypermagnesemia risk.",
+          "source_refs": [
+            "AGA_ACG_CIC_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_bisacodyl",
+          "generic": "Bisacodyl",
+          "class_id": "gi_stimulant_laxative",
+          "form": "Enteric tablet/suppository",
+          "route": "PO/PR",
+          "dose_example": "Common adult 5–10 mg PO daily as needed or 10 mg rectally; verify label.",
+          "tags": [
+            "constipation"
+          ],
+          "role": "Effective rescue/short-course or scheduled therapy depending context.",
+          "monitoring_pearl": "Cramping/diarrhea; avoid crushing enteric-coated tablets.",
+          "source_refs": [
+            "AGA_ACG_CIC_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_senna",
+          "generic": "Senna / sennosides",
+          "class_id": "gi_stimulant_laxative",
+          "form": "Tablet/syrup",
+          "route": "PO",
+          "dose_example": "Common adult starting range 8.6–17.2 mg sennosides daily, titrated to response.",
+          "tags": [
+            "constipation"
+          ],
+          "role": "Effective rescue/short-course or scheduled therapy depending context.",
+          "monitoring_pearl": "Cramping/diarrhea; assess cause of persistent constipation.",
+          "source_refs": [
+            "AGA_ACG_CIC_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_sodium_picosulfate",
+          "generic": "Sodium picosulfate",
+          "class_id": "gi_stimulant_laxative",
+          "form": "Drops/tablet",
+          "route": "PO",
+          "dose_example": "Product/country-specific adult dosing; verify local label.",
+          "tags": [
+            "constipation"
+          ],
+          "role": "Effective rescue/short-course or scheduled therapy depending context.",
+          "monitoring_pearl": "Cramping and electrolyte loss with overuse.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_docusate",
+          "generic": "Docusate sodium",
+          "class_id": "gi_stool_softener",
+          "form": "Capsule/solution",
+          "route": "PO",
+          "dose_example": "Common adult 100 mg once or twice daily; product-specific.",
+          "tags": [
+            "constipation"
+          ],
+          "role": "Commonly used but comparatively limited efficacy evidence for CIC.",
+          "monitoring_pearl": "Consider more evidence-based alternatives if inadequate response.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_lubiprostone",
+          "generic": "Lubiprostone",
+          "class_id": "gi_chloride_secretagogue",
+          "form": "Capsule",
+          "route": "PO",
+          "dose_example": "CIC commonly 24 mcg twice daily; IBS-C indication has lower labeled dose—verify indication.",
+          "tags": [
+            "constipation",
+            "ibs_c"
+          ],
+          "role": "Prescription constipation/IBS-C option.",
+          "monitoring_pearl": "Nausea; contraindication with mechanical obstruction.",
+          "source_refs": [
+            "AGA_ACG_CIC_2023",
+            "ACG_IBS_2021",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_linaclotide",
+          "generic": "Linaclotide",
+          "class_id": "gi_gcc_agonist",
+          "form": "Capsule",
+          "route": "PO",
+          "dose_example": "Common adult labels: 145 mcg daily for CIC; 290 mcg daily for IBS-C—verify indication.",
+          "tags": [
+            "constipation",
+            "ibs_c"
+          ],
+          "role": "High-evidence prescription options for CIC/IBS-C.",
+          "monitoring_pearl": "Diarrhea; take according to label timing; pediatric boxed warning/age restrictions.",
+          "source_refs": [
+            "AGA_ACG_CIC_2023",
+            "ACG_IBS_2021",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_plecanatide",
+          "generic": "Plecanatide",
+          "class_id": "gi_gcc_agonist",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "3 mg once daily in approved adult indications.",
+          "tags": [
+            "constipation",
+            "ibs_c"
+          ],
+          "role": "High-evidence prescription options for CIC/IBS-C.",
+          "monitoring_pearl": "Diarrhea; pediatric age restriction per label.",
+          "source_refs": [
+            "AGA_ACG_CIC_2023",
+            "ACG_IBS_2021",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_prucalopride",
+          "generic": "Prucalopride",
+          "class_id": "gi_5ht4_prokinetic",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Typical adult CIC dose 2 mg once daily; renal adjustment may be required.",
+          "tags": [
+            "constipation",
+            "gut_selective"
+          ],
+          "role": "Prescription prokinetic option for CIC.",
+          "monitoring_pearl": "Headache/diarrhea; review renal function and psychiatric warning information.",
+          "source_refs": [
+            "AGA_ACG_CIC_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_tenapanor",
+          "generic": "Tenapanor",
+          "class_id": "gi_nhe3_inhibitor",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "50 mg twice daily immediately before breakfast and dinner in adult IBS-C label.",
+          "tags": [
+            "ibs_c",
+            "gut_selective"
+          ],
+          "role": "IBS-C targeted therapy.",
+          "monitoring_pearl": "Diarrhea; pediatric warning/age restrictions.",
+          "source_refs": [
+            "ACG_IBS_2021",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_naloxegol",
+          "generic": "Naloxegol",
+          "class_id": "gi_pamora",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Typical adult OIC dose 25 mg once daily; lower dose may be used with renal/interacting-drug considerations.",
+          "tags": [
+            "opioid_constipation",
+            "constipation",
+            "high_risk"
+          ],
+          "role": "Targeted opioid-induced constipation therapy after standard laxative assessment.",
+          "monitoring_pearl": "GI obstruction risk; CYP3A interactions; opioid withdrawal symptoms.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_naldemedine",
+          "generic": "Naldemedine",
+          "class_id": "gi_pamora",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "0.2 mg once daily in adult OIC label.",
+          "tags": [
+            "opioid_constipation",
+            "constipation",
+            "high_risk"
+          ],
+          "role": "Targeted opioid-induced constipation therapy after standard laxative assessment.",
+          "monitoring_pearl": "GI obstruction risk; opioid withdrawal; interacting inducers.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_methylnaltrexone",
+          "generic": "Methylnaltrexone",
+          "class_id": "gi_pamora",
+          "form": "Tablet/injection",
+          "route": "PO/SC",
+          "dose_example": "Formulation and renal/hepatic function determine dosing; verify current label.",
+          "tags": [
+            "opioid_constipation",
+            "constipation",
+            "high_risk"
+          ],
+          "role": "Targeted opioid-induced constipation therapy after standard laxative assessment.",
+          "monitoring_pearl": "GI obstruction/perforation risk and opioid withdrawal.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_loperamide",
+          "generic": "Loperamide",
+          "class_id": "gi_antidiarrheal_opioid",
+          "form": "Capsule/tablet/solution",
+          "route": "PO",
+          "dose_example": "Common adult acute-diarrhea start 4 mg then 2 mg after loose stool; do not exceed product/prescription maximum.",
+          "tags": [
+            "acute_diarrhea",
+            "chronic_diarrhea",
+            "high_risk"
+          ],
+          "role": "Symptomatic diarrhea control only after red flags/infectious/inflammatory causes are considered.",
+          "monitoring_pearl": "Avoid inappropriate use in dysentery/acute severe colitis; overdose can cause serious cardiac arrhythmias.",
+          "source_refs": [
+            "DAILYMED",
+            "ICMR_GI_STW"
+          ]
+        },
+        {
+          "id": "gi_diphenoxylate_atropine",
+          "generic": "Diphenoxylate + atropine",
+          "class_id": "gi_antidiarrheal_opioid",
+          "form": "Tablet/solution",
+          "route": "PO",
+          "dose_example": "Typical adult initial label often 2 tablets four times daily; reduce/stop as control achieved—verify label.",
+          "tags": [
+            "acute_diarrhea",
+            "chronic_diarrhea",
+            "high_risk"
+          ],
+          "role": "Symptomatic diarrhea control only after red flags/infectious/inflammatory causes are considered.",
+          "monitoring_pearl": "Sedation/anticholinergic effects; avoid in selected infectious/inflammatory diarrheas.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_cholestyramine_diarrhea",
+          "generic": "Cholestyramine (bile-acid diarrhea)",
+          "class_id": "gi_bile_acid_sequestrant",
+          "form": "Powder",
+          "route": "PO",
+          "dose_example": "Common starting learning dose 4 g once daily, titrated; separate from many oral medicines.",
+          "tags": [
+            "chronic_diarrhea",
+            "cholestatic_pruritus"
+          ],
+          "role": "Useful when bile-acid excess contributes to diarrhea; also used for cholestatic pruritus in liver disease.",
+          "monitoring_pearl": "Constipation, triglycerides; major spacing interactions with oral drugs.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_colesevelam_diarrhea",
+          "generic": "Colesevelam",
+          "class_id": "gi_bile_acid_sequestrant",
+          "form": "Tablet/powder",
+          "route": "PO",
+          "dose_example": "Off-label bile-acid diarrhea dosing varies; verify specialist plan and label.",
+          "tags": [
+            "chronic_diarrhea",
+            "cholestatic_pruritus"
+          ],
+          "role": "Useful when bile-acid excess contributes to diarrhea; also used for cholestatic pruritus in liver disease.",
+          "monitoring_pearl": "Constipation, triglycerides and drug-binding interactions.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_rifaximin_ibsd",
+          "generic": "Rifaximin (IBS-D)",
+          "class_id": "gi_ibsd_rifaximin",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "550 mg three times daily for 14 days in adult IBS-D label; verify retreatment criteria.",
+          "tags": [
+            "ibs_d",
+            "ibs",
+            "gut_selective"
+          ],
+          "role": "Short-course IBS-D therapy in selected adults; retreatment may be label-supported.",
+          "monitoring_pearl": "Different indication/dose from hepatic encephalopathy; consider C. difficile/infection context.",
+          "source_refs": [
+            "ACG_IBS_2021",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_alosetron",
+          "generic": "Alosetron",
+          "class_id": "gi_ibsd_5ht3",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Label starts at 0.5 mg twice daily in the restricted indicated population.",
+          "tags": [
+            "ibs_d",
+            "high_risk"
+          ],
+          "role": "Restricted/high-risk IBS-D option for selected patients.",
+          "monitoring_pearl": "Serious constipation complications and ischemic colitis; strict indication/contraindication verification.",
+          "source_refs": [
+            "ACG_IBS_2021",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_eluxadoline",
+          "generic": "Eluxadoline",
+          "class_id": "gi_ibsd_mixed",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "75 or 100 mg twice daily depending patient factors; verify label.",
+          "tags": [
+            "ibs_d",
+            "high_risk"
+          ],
+          "role": "IBS-D therapy with important pancreatitis/gallbladder contraindications.",
+          "monitoring_pearl": "Contraindicated without gallbladder and in several pancreatic/hepatic/alcohol-risk contexts.",
+          "source_refs": [
+            "ACG_IBS_2021",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_dicyclomine",
+          "generic": "Dicyclomine",
+          "class_id": "gi_antispasmodic",
+          "form": "Tablet/capsule/solution/injection",
+          "route": "PO/IM",
+          "dose_example": "Common adult oral learning dose 20 mg four times daily, with cautious titration per label.",
+          "tags": [
+            "ibs",
+            "antispasmodic"
+          ],
+          "role": "Symptom-directed abdominal cramp/spasm therapy; evidence and availability vary.",
+          "monitoring_pearl": "Anticholinergic adverse effects; avoid in selected glaucoma/urinary retention/obstruction contexts.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_hyoscine_butylbromide",
+          "generic": "Hyoscine butylbromide",
+          "class_id": "gi_antispasmodic",
+          "form": "Tablet/injection",
+          "route": "PO/IM/IV",
+          "dose_example": "Country/product-specific; verify local label.",
+          "tags": [
+            "ibs",
+            "antispasmodic"
+          ],
+          "role": "Symptom-directed abdominal cramp/spasm therapy; evidence and availability vary.",
+          "monitoring_pearl": "Anticholinergic effects; regulatory availability varies.",
+          "source_refs": [
+            "ICMR_GI_STW"
+          ]
+        },
+        {
+          "id": "gi_peppermint_oil",
+          "generic": "Enteric-coated peppermint oil",
+          "class_id": "gi_antispasmodic",
+          "form": "Enteric capsule",
+          "route": "PO",
+          "dose_example": "Product-specific; commonly taken before meals in IBS trials/products.",
+          "tags": [
+            "ibs",
+            "antispasmodic"
+          ],
+          "role": "Symptom-directed abdominal cramp/spasm therapy; evidence and availability vary.",
+          "monitoring_pearl": "May worsen reflux; product standardization matters.",
+          "source_refs": [
+            "ACG_IBS_2021"
+          ]
+        },
+        {
+          "id": "gi_mesalamine_oral",
+          "generic": "Mesalamine / mesalazine oral",
+          "class_id": "gi_5asa",
+          "form": "Delayed/extended-release tablets/capsules",
+          "route": "PO",
+          "dose_example": "Common adult UC total daily doses roughly 2.4–4.8 g/day depending product/severity; verify formulation-specific label.",
+          "tags": [
+            "ulcerative_colitis",
+            "5asa"
+          ],
+          "role": "Core mild-to-moderate UC class; role in Crohn disease is much more limited.",
+          "monitoring_pearl": "Renal function; formulation-specific administration.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_mesalamine_rectal",
+          "generic": "Mesalamine rectal",
+          "class_id": "gi_5asa",
+          "form": "Suppository/enema",
+          "route": "PR",
+          "dose_example": "Common proctitis suppository label 1 g daily; enema products vary.",
+          "tags": [
+            "ulcerative_colitis",
+            "5asa"
+          ],
+          "role": "Core mild-to-moderate UC class; role in Crohn disease is much more limited.",
+          "monitoring_pearl": "Useful for distal disease; verify extent and formulation.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_sulfasalazine_ibd",
+          "generic": "Sulfasalazine",
+          "class_id": "gi_5asa",
+          "form": "Tablet/DR tablet",
+          "route": "PO",
+          "dose_example": "Typical adult UC total 2–4 g/day divided, titrated by tolerance.",
+          "tags": [
+            "ulcerative_colitis",
+            "5asa"
+          ],
+          "role": "Core mild-to-moderate UC class; role in Crohn disease is much more limited.",
+          "monitoring_pearl": "CBC/LFT, folate, sulfa/salicylate adverse effects.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_budesonide_mmx",
+          "generic": "Budesonide MMX",
+          "class_id": "gi_ibd_steroid",
+          "form": "Extended-release tablet",
+          "route": "PO",
+          "dose_example": "9 mg once daily for a limited induction course in UC label.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "steroid_induction",
+            "high_risk"
+          ],
+          "role": "Induction/rescue—not maintenance—therapy; minimize systemic steroid exposure.",
+          "monitoring_pearl": "Steroid adverse effects still possible; not maintenance therapy.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_budesonide_ec",
+          "generic": "Budesonide ileal-release",
+          "class_id": "gi_ibd_steroid",
+          "form": "Delayed/extended-release capsule",
+          "route": "PO",
+          "dose_example": "9 mg once daily is a common adult Crohn induction dose; verify product.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "steroid_induction",
+            "high_risk"
+          ],
+          "role": "Induction/rescue—not maintenance—therapy; minimize systemic steroid exposure.",
+          "monitoring_pearl": "Location-specific formulation; steroid exposure and taper plan.",
+          "source_refs": [
+            "ACG_CROHN_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_prednisone_ibd",
+          "generic": "Prednisone / prednisolone (IBD induction)",
+          "class_id": "gi_ibd_steroid",
+          "form": "Tablet/solution",
+          "route": "PO",
+          "dose_example": "Moderate-to-severe induction often uses ~40 mg/day prednisone-equivalent then individualized taper; verify guideline.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "steroid_induction",
+            "high_risk"
+          ],
+          "role": "Induction/rescue—not maintenance—therapy; minimize systemic steroid exposure.",
+          "monitoring_pearl": "Infection, glucose, BP, bone and adrenal risks; avoid chronic maintenance.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "ACG_CROHN_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_azathioprine_ibd",
+          "generic": "Azathioprine",
+          "class_id": "gi_thiopurine",
+          "form": "Tablet/injection",
+          "route": "PO/IV",
+          "dose_example": "Typical adult IBD learning range ~1.5–2.5 mg/kg/day; specialist monitoring required.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "immunomodulator",
+            "infection_screen",
+            "cbc_lft",
+            "high_risk"
+          ],
+          "role": "Maintenance/steroid-sparing role in selected IBD patients; not rapid induction monotherapy.",
+          "monitoring_pearl": "TPMT/NUDT15 context, CBC/LFT, pancreatitis, infection and malignancy risk.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "ACG_CROHN_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_mercaptopurine_ibd",
+          "generic": "Mercaptopurine",
+          "class_id": "gi_thiopurine",
+          "form": "Tablet/suspension",
+          "route": "PO",
+          "dose_example": "Typical adult IBD learning range ~0.75–1.5 mg/kg/day; verify specialist protocol.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "immunomodulator",
+            "infection_screen",
+            "cbc_lft",
+            "high_risk"
+          ],
+          "role": "Maintenance/steroid-sparing role in selected IBD patients; not rapid induction monotherapy.",
+          "monitoring_pearl": "TPMT/NUDT15, CBC/LFT and metabolite strategy where used.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "ACG_CROHN_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_methotrexate_ibd",
+          "generic": "Methotrexate (IBD)",
+          "class_id": "gi_mtx_ibd",
+          "form": "Tablet/injection",
+          "route": "PO/SC/IM",
+          "dose_example": "Crohn protocols commonly use 15–25 mg once weekly; route/induction strategy varies.",
+          "tags": [
+            "crohn",
+            "immunomodulator",
+            "infection_screen",
+            "cbc_lft",
+            "pregnancy_caution",
+            "high_risk"
+          ],
+          "role": "Selected Crohn disease maintenance/steroid-sparing option; pregnancy contraindication.",
+          "monitoring_pearl": "Weekly—not daily; CBC/LFT/renal, folate, pregnancy and infection screening.",
+          "source_refs": [
+            "ACG_CROHN_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_infliximab_ibd",
+          "generic": "Infliximab / biosimilars",
+          "class_id": "gi_anti_tnf_ibd",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Classic adult IBD induction 5 mg/kg at weeks 0, 2, 6 then maintenance typically every 8 weeks; verify label.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "biologic_ibd",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "Advanced therapy for moderate-to-severe IBD; therapeutic drug monitoring may be used contextually.",
+          "monitoring_pearl": "TB/HBV screen, serious infection, infusion reaction, HF/demyelination cautions.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "ACG_CROHN_2025",
+            "AGA_CROHN_LIVING_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_adalimumab_ibd",
+          "generic": "Adalimumab / biosimilars",
+          "class_id": "gi_anti_tnf_ibd",
+          "form": "Prefilled SC injection",
+          "route": "SC",
+          "dose_example": "IBD induction/loading then maintenance is label-specific; verify current product.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "biologic_ibd",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "Advanced therapy for moderate-to-severe IBD; therapeutic drug monitoring may be used contextually.",
+          "monitoring_pearl": "TB/HBV/infection screening and biologic adverse effects.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "ACG_CROHN_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_golimumab_uc",
+          "generic": "Golimumab (UC)",
+          "class_id": "gi_anti_tnf_ibd",
+          "form": "SC injection",
+          "route": "SC",
+          "dose_example": "UC induction/maintenance is weight/label specific; verify label.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "biologic_ibd",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "Advanced therapy for moderate-to-severe IBD; therapeutic drug monitoring may be used contextually.",
+          "monitoring_pearl": "TB/HBV/infection screening.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_vedolizumab",
+          "generic": "Vedolizumab",
+          "class_id": "gi_anti_integrin_ibd",
+          "form": "IV infusion / SC formulation",
+          "route": "IV/SC",
+          "dose_example": "IV induction commonly 300 mg at weeks 0, 2, 6 followed by maintenance; SC options are label-specific.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "biologic_ibd",
+            "gut_selective",
+            "infection_screen"
+          ],
+          "role": "Gut-selective advanced IBD therapy.",
+          "monitoring_pearl": "Infection risk and response; verify formulation-specific maintenance.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "ACG_CROHN_2025",
+            "AGA_CROHN_LIVING_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_ustekinumab_ibd",
+          "generic": "Ustekinumab",
+          "class_id": "gi_il23_ibd",
+          "form": "IV induction / SC maintenance",
+          "route": "IV/SC",
+          "dose_example": "Weight-based IV induction followed by 90 mg SC maintenance at label-specific interval.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "biologic_ibd",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "Major contemporary IBD biologic pathway; induction and maintenance differ by agent/indication.",
+          "monitoring_pearl": "Infection/TB context and biologic safety.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "ACG_CROHN_2025",
+            "AGA_CROHN_LIVING_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_risankizumab_ibd",
+          "generic": "Risankizumab",
+          "class_id": "gi_il23_ibd",
+          "form": "IV/SC",
+          "route": "IV/SC",
+          "dose_example": "IBD induction/maintenance is indication-specific; verify current label.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "biologic_ibd",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "Major contemporary IBD biologic pathway; induction and maintenance differ by agent/indication.",
+          "monitoring_pearl": "TB/infection screening and hepatic monitoring where label requires.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "ACG_CROHN_2025",
+            "AGA_CROHN_LIVING_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_mirikizumab_uc",
+          "generic": "Mirikizumab",
+          "class_id": "gi_il23_ibd",
+          "form": "IV induction / SC maintenance",
+          "route": "IV/SC",
+          "dose_example": "UC induction/maintenance is label-specific; verify current label.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "biologic_ibd",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "Major contemporary IBD biologic pathway; induction and maintenance differ by agent/indication.",
+          "monitoring_pearl": "TB/infection and liver-test monitoring per label.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_guselkumab_ibd",
+          "generic": "Guselkumab",
+          "class_id": "gi_il23_ibd",
+          "form": "IV/SC",
+          "route": "IV/SC",
+          "dose_example": "Current Crohn/UC labeling and induction route/interval should be verified because indications evolved recently.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "biologic_ibd",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "Major contemporary IBD biologic pathway; induction and maintenance differ by agent/indication.",
+          "monitoring_pearl": "TB/infection screening; specialist positioning.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "ACG_CROHN_2025",
+            "AGA_CROHN_LIVING_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_tofacitinib_uc",
+          "generic": "Tofacitinib (UC)",
+          "class_id": "gi_jak_ibd",
+          "form": "Tablet/ER tablet",
+          "route": "PO",
+          "dose_example": "UC induction and maintenance doses differ; use lowest effective maintenance and verify current label.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "small_molecule_ibd",
+            "infection_screen",
+            "cbc_lft",
+            "high_risk",
+            "pregnancy_caution"
+          ],
+          "role": "Rapid oral advanced therapy with boxed-warning considerations.",
+          "monitoring_pearl": "Serious infection, zoster, CBC/lipids/LFT, thrombosis/MACE/malignancy warnings.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_upadacitinib_ibd",
+          "generic": "Upadacitinib (UC/Crohn)",
+          "class_id": "gi_jak_ibd",
+          "form": "Extended-release tablet",
+          "route": "PO",
+          "dose_example": "Induction vs maintenance differs by indication; verify current label.",
+          "tags": [
+            "ulcerative_colitis",
+            "crohn",
+            "small_molecule_ibd",
+            "infection_screen",
+            "cbc_lft",
+            "high_risk",
+            "pregnancy_caution"
+          ],
+          "role": "Rapid oral advanced therapy with boxed-warning considerations.",
+          "monitoring_pearl": "JAK boxed warnings; CBC/LFT/lipids, TB/HBV and zoster.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "ACG_CROHN_2025",
+            "AGA_CROHN_LIVING_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_ozanimod_uc",
+          "generic": "Ozanimod",
+          "class_id": "gi_s1p_ibd",
+          "form": "Capsule",
+          "route": "PO",
+          "dose_example": "Requires label-specific dose escalation before maintenance.",
+          "tags": [
+            "ulcerative_colitis",
+            "small_molecule_ibd",
+            "high_risk"
+          ],
+          "role": "Oral UC advanced therapy with cardiac/ophthalmic and infection considerations.",
+          "monitoring_pearl": "Heart rate/conduction, liver tests, macular edema, infections, interacting drugs.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_etrasimod_uc",
+          "generic": "Etrasimod",
+          "class_id": "gi_s1p_ibd",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "2 mg once daily in adult UC label; verify patient-specific contraindications.",
+          "tags": [
+            "ulcerative_colitis",
+            "small_molecule_ibd",
+            "high_risk"
+          ],
+          "role": "Oral UC advanced therapy with cardiac/ophthalmic and infection considerations.",
+          "monitoring_pearl": "Cardiac conduction, liver tests, infection, macular edema.",
+          "source_refs": [
+            "ACG_UC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "gi_pancrelipase",
+          "generic": "Pancrelipase / pancreatin (enteric-coated PERT)",
+          "class_id": "gi_pert",
+          "form": "Delayed-release capsules/microtablets",
+          "route": "PO with meals/snacks",
+          "dose_example": "Adult EPI starting therapy commonly ≥40,000 USP lipase units with meals and about half with snacks; titrate to response and product label.",
+          "tags": [
+            "pancreatic_insufficiency",
+            "pancreas"
+          ],
+          "role": "Foundation of exocrine pancreatic insufficiency treatment; dose is lipase-unit and meal based.",
+          "monitoring_pearl": "Take during meals; assess steatorrhea/weight/fat-soluble vitamins; avoid excessive lipase dosing.",
+          "source_refs": [
+            "AGA_EPI_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_lactulose_he",
+          "generic": "Lactulose (hepatic encephalopathy)",
+          "class_id": "liver_he",
+          "form": "Oral/rectal solution",
+          "route": "PO/PR",
+          "dose_example": "Acute and maintenance regimens differ; titrate maintenance to roughly 2–3 soft stools/day rather than a fixed universal dose.",
+          "tags": [
+            "hepatic_encephalopathy",
+            "specialist_liver"
+          ],
+          "role": "Core pharmacologic strategy for overt/recurrent hepatic encephalopathy.",
+          "monitoring_pearl": "Overtreatment causes dehydration/hypernatremia; search for precipitating cause.",
+          "source_refs": [
+            "AASLD_ASCITES",
+            "AASLD_PORTAL_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_rifaximin_he",
+          "generic": "Rifaximin (hepatic encephalopathy)",
+          "class_id": "liver_he",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "550 mg twice daily is the adult label for reduction in recurrence risk of overt HE.",
+          "tags": [
+            "hepatic_encephalopathy",
+            "specialist_liver"
+          ],
+          "role": "Core pharmacologic strategy for overt/recurrent hepatic encephalopathy.",
+          "monitoring_pearl": "Usually adjunct to lactulose in recurrent HE; different dose/indication from IBS-D.",
+          "source_refs": [
+            "AASLD_ASCITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_spironolactone_ascites",
+          "generic": "Spironolactone (cirrhotic ascites)",
+          "class_id": "liver_ascites_diuretic",
+          "form": "Tablet/suspension",
+          "route": "PO",
+          "dose_example": "Common initial learning regimen 100 mg/day, often paired with furosemide 40 mg/day; titrate by weight/electrolytes.",
+          "tags": [
+            "ascites",
+            "specialist_liver",
+            "renal_hepatic"
+          ],
+          "role": "Standard cirrhotic ascites pharmacology after sodium strategy and severity assessment.",
+          "monitoring_pearl": "K+, Na+, creatinine, weight, BP; gynecomastia/hyperkalemia.",
+          "source_refs": [
+            "AASLD_ASCITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_furosemide_ascites",
+          "generic": "Furosemide (cirrhotic ascites)",
+          "class_id": "liver_ascites_diuretic",
+          "form": "Tablet/solution/injection",
+          "route": "PO/IV",
+          "dose_example": "Common initial learning regimen 40 mg/day with spironolactone 100 mg/day; individualized titration.",
+          "tags": [
+            "ascites",
+            "specialist_liver",
+            "renal_hepatic"
+          ],
+          "role": "Standard cirrhotic ascites pharmacology after sodium strategy and severity assessment.",
+          "monitoring_pearl": "Na/K/creatinine, volume depletion, ototoxicity at high IV exposure.",
+          "source_refs": [
+            "AASLD_ASCITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_carvedilol_portal",
+          "generic": "Carvedilol (portal hypertension)",
+          "class_id": "liver_portal_nsbb",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Low-dose initiation/titration is used; exact portal-hypertension target should follow current AASLD/Baveno strategy and BP tolerance.",
+          "tags": [
+            "portal_hypertension",
+            "specialist_liver",
+            "high_risk"
+          ],
+          "role": "Primary/secondary portal-hypertension prophylaxis in selected cirrhosis patients; BP and decompensation status are critical.",
+          "monitoring_pearl": "BP, renal perfusion, ascites/decompensation context; not a simple heart-rate-only target.",
+          "source_refs": [
+            "AASLD_PORTAL_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_propranolol_portal",
+          "generic": "Propranolol (portal hypertension)",
+          "class_id": "liver_portal_nsbb",
+          "form": "Tablet/solution",
+          "route": "PO",
+          "dose_example": "Often initiated 20–40 mg twice daily then titrated to tolerance/heart-rate and BP goals; verify cirrhosis context.",
+          "tags": [
+            "portal_hypertension",
+            "specialist_liver",
+            "high_risk"
+          ],
+          "role": "Primary/secondary portal-hypertension prophylaxis in selected cirrhosis patients; BP and decompensation status are critical.",
+          "monitoring_pearl": "BP/HR, renal perfusion, decompensation; avoid unsafe over-titration.",
+          "source_refs": [
+            "AASLD_PORTAL_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_nadolol_portal",
+          "generic": "Nadolol (portal hypertension)",
+          "class_id": "liver_portal_nsbb",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Once-daily titration according to portal-hypertension protocol; renal function affects exposure.",
+          "tags": [
+            "portal_hypertension",
+            "specialist_liver",
+            "high_risk"
+          ],
+          "role": "Primary/secondary portal-hypertension prophylaxis in selected cirrhosis patients; BP and decompensation status are critical.",
+          "monitoring_pearl": "HR/BP and renal dosing.",
+          "source_refs": [
+            "AASLD_PORTAL_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_octreotide_variceal",
+          "generic": "Octreotide (acute variceal bleeding)",
+          "class_id": "liver_variceal_vasoactive",
+          "form": "Injection/infusion",
+          "route": "IV",
+          "dose_example": "Common learning regimen: 50 mcg IV bolus then 50 mcg/hour infusion; follow local acute-bleed protocol.",
+          "tags": [
+            "variceal_bleeding",
+            "high_risk",
+            "specialist_liver"
+          ],
+          "role": "Emergency hospital therapy alongside resuscitation, endoscopy and antibiotic strategy—not OPD self-treatment.",
+          "monitoring_pearl": "Emergency monitoring, glucose/bradycardia; combine with definitive endoscopic management.",
+          "source_refs": [
+            "AASLD_PORTAL_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_terlipressin_variceal",
+          "generic": "Terlipressin (variceal-bleeding context)",
+          "class_id": "liver_variceal_vasoactive",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Country/indication-specific; specialist emergency protocol required.",
+          "tags": [
+            "variceal_bleeding",
+            "high_risk",
+            "specialist_liver"
+          ],
+          "role": "Emergency hospital therapy alongside resuscitation, endoscopy and antibiotic strategy—not OPD self-treatment.",
+          "monitoring_pearl": "Ischemia, respiratory/cardiovascular effects; regulatory indication varies.",
+          "source_refs": [
+            "AASLD_PORTAL_2024"
+          ]
+        },
+        {
+          "id": "liver_terlipressin_hrs",
+          "generic": "Terlipressin (HRS-AKI)",
+          "class_id": "liver_hrs",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "U.S. label uses protocolized IV dosing with response reassessment; verify current label rather than a fixed bedside dose.",
+          "tags": [
+            "hrs",
+            "high_risk",
+            "specialist_liver",
+            "renal_hepatic"
+          ],
+          "role": "Hospital/specialist HRS-AKI therapy after diagnostic confirmation and volume/infection assessment.",
+          "monitoring_pearl": "Boxed warning for serious/fatal respiratory failure; oxygenation, ischemia and ACLF severity matter.",
+          "source_refs": [
+            "AASLD_ASCITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_albumin_hrs",
+          "generic": "Human albumin (HRS/ascites/SBP contexts)",
+          "class_id": "liver_hrs",
+          "form": "IV solution",
+          "route": "IV",
+          "dose_example": "Dose depends on indication (HRS, large-volume paracentesis, SBP); use guideline-based g/kg or g/L removed protocols.",
+          "tags": [
+            "hrs",
+            "high_risk",
+            "specialist_liver",
+            "renal_hepatic"
+          ],
+          "role": "Hospital/specialist HRS-AKI therapy after diagnostic confirmation and volume/infection assessment.",
+          "monitoring_pearl": "Volume overload/pulmonary edema; albumin is indication-specific, not routine nutrition replacement.",
+          "source_refs": [
+            "AASLD_ASCITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_ursodiol_pbc",
+          "generic": "Ursodeoxycholic acid / ursodiol",
+          "class_id": "liver_pbc_udca",
+          "form": "Tablet/capsule",
+          "route": "PO",
+          "dose_example": "13–15 mg/kg/day in divided or label-supported dosing is the standard PBC learning range.",
+          "tags": [
+            "pbc",
+            "specialist_liver"
+          ],
+          "role": "First-line disease-modifying therapy for primary biliary cholangitis.",
+          "monitoring_pearl": "Assess biochemical response after adequate treatment interval; adherence and weight-based dose matter.",
+          "source_refs": [
+            "AASLD_PBC",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_elafibranor_pbc",
+          "generic": "Elafibranor",
+          "class_id": "liver_pbc_ppar",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "80 mg once daily in current U.S. PBC label.",
+          "tags": [
+            "pbc",
+            "high_risk",
+            "specialist_liver"
+          ],
+          "role": "Second-line PBC options after inadequate UDCA response or intolerance; accelerated-approval/specialist context.",
+          "monitoring_pearl": "Not recommended in decompensated cirrhosis; verify fractures, myopathy and reproductive warnings in current label.",
+          "source_refs": [
+            "FDA_PBC_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_seladelpar_pbc",
+          "generic": "Seladelpar",
+          "class_id": "liver_pbc_ppar",
+          "form": "Capsule",
+          "route": "PO",
+          "dose_example": "10 mg once daily in current U.S. PBC label.",
+          "tags": [
+            "pbc",
+            "high_risk",
+            "specialist_liver"
+          ],
+          "role": "Second-line PBC options after inadequate UDCA response or intolerance; accelerated-approval/specialist context.",
+          "monitoring_pearl": "Not recommended in decompensated cirrhosis; monitor liver tests and current label warnings.",
+          "source_refs": [
+            "FDA_PBC_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_cholestyramine_pruritus",
+          "generic": "Cholestyramine (cholestatic pruritus)",
+          "class_id": "liver_cholestatic_pruritus",
+          "form": "Powder",
+          "route": "PO",
+          "dose_example": "Often started 4 g once daily and titrated; separate from other medicines by several hours.",
+          "tags": [
+            "cholestatic_pruritus",
+            "pbc",
+            "high_risk",
+            "specialist_liver"
+          ],
+          "role": "Stepwise symptom therapy; space bile-acid binders from other medicines and monitor specialist agents.",
+          "monitoring_pearl": "Constipation, triglycerides and drug-binding interactions.",
+          "source_refs": [
+            "AASLD_PBC",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_rifampin_pruritus",
+          "generic": "Rifampin / rifampicin (cholestatic pruritus, off-label)",
+          "class_id": "liver_cholestatic_pruritus",
+          "form": "Capsule/tablet",
+          "route": "PO",
+          "dose_example": "Specialist off-label dosing varies; verify local guideline and interaction profile.",
+          "tags": [
+            "cholestatic_pruritus",
+            "pbc",
+            "high_risk",
+            "specialist_liver"
+          ],
+          "role": "Stepwise symptom therapy; space bile-acid binders from other medicines and monitor specialist agents.",
+          "monitoring_pearl": "Hepatotoxicity, CBC and major CYP/P-gp drug interactions.",
+          "source_refs": [
+            "AASLD_PBC",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_naltrexone_pruritus",
+          "generic": "Naltrexone (cholestatic pruritus, off-label)",
+          "class_id": "liver_cholestatic_pruritus",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Specialist titration is used; verify opioid-free interval and hepatic status.",
+          "tags": [
+            "cholestatic_pruritus",
+            "pbc",
+            "high_risk",
+            "specialist_liver"
+          ],
+          "role": "Stepwise symptom therapy; space bile-acid binders from other medicines and monitor specialist agents.",
+          "monitoring_pearl": "Can precipitate opioid withdrawal; liver tests and contraindications.",
+          "source_refs": [
+            "AASLD_PBC",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_sertraline_pruritus",
+          "generic": "Sertraline (cholestatic pruritus, off-label)",
+          "class_id": "liver_cholestatic_pruritus",
+          "form": "Tablet/solution",
+          "route": "PO",
+          "dose_example": "Low-dose start/titration may be used off-label; verify patient-specific plan.",
+          "tags": [
+            "cholestatic_pruritus",
+            "pbc",
+            "high_risk",
+            "specialist_liver"
+          ],
+          "role": "Stepwise symptom therapy; space bile-acid binders from other medicines and monitor specialist agents.",
+          "monitoring_pearl": "Hyponatremia, serotonergic interactions and psychiatric context.",
+          "source_refs": [
+            "AASLD_PBC",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_resmetirom",
+          "generic": "Resmetirom",
+          "class_id": "liver_mash_specific",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Current label uses once-daily weight-based dosing (80 or 100 mg); verify interacting statin/thyroid/liver considerations.",
+          "tags": [
+            "mash",
+            "high_risk",
+            "specialist_liver"
+          ],
+          "role": "Current FDA-approved MASH options are stage- and label-specific; lifestyle/metabolic risk management remains foundational.",
+          "monitoring_pearl": "Liver toxicity/gallbladder events, thyroid axis and statin interactions; avoid decompensated cirrhosis.",
+          "source_refs": [
+            "AASLD_MASLD_2025",
+            "FDA_MASH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_semaglutide_mash",
+          "generic": "Semaglutide 2.4 mg (Wegovy) — MASH indication",
+          "class_id": "liver_mash_specific",
+          "form": "Prefilled injection",
+          "route": "SC weekly",
+          "dose_example": "Gradual titration to the labeled maintenance regimen is required; verify current 2026 MASH label.",
+          "tags": [
+            "mash",
+            "high_risk",
+            "specialist_liver"
+          ],
+          "role": "Current FDA-approved MASH options are stage- and label-specific; lifestyle/metabolic risk management remains foundational.",
+          "monitoring_pearl": "GI adverse effects, gallbladder/pancreas risks, contraindications and fibrosis-stage eligibility.",
+          "source_refs": [
+            "AASLD_MASLD_2025",
+            "FDA_MASH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "liver_prednisolone_ah",
+          "generic": "Prednisolone (severe alcohol-associated hepatitis)",
+          "class_id": "liver_alcohol_hepatitis_steroid",
+          "form": "Tablet/solution",
+          "route": "PO",
+          "dose_example": "A common guideline learning regimen is 40 mg daily for 28 days in carefully selected severe disease; reassess response (e.g., Lille score).",
+          "tags": [
+            "alcohol_hepatitis",
+            "high_risk",
+            "specialist_liver",
+            "infection_screen"
+          ],
+          "role": "Short-course specialist therapy only after severity scoring and contraindication/infection assessment.",
+          "monitoring_pearl": "Active infection, GI bleeding, renal failure and other contraindications; specialist evaluation required.",
+          "source_refs": [
+            "ACG_ALD_2024",
+            "ICMR_GI_STW",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "ACG_IBS_2021",
+          "label": "ACG Clinical Guideline: Management of Irritable Bowel Syndrome (2021)",
+          "url": "https://gi.org/topics/irritable-bowel-syndrome/"
+        },
+        {
+          "id": "AGA_ACG_CIC_2023",
+          "label": "AGA-ACG Clinical Practice Guideline: Pharmacological Management of Chronic Idiopathic Constipation (2023)",
+          "url": "https://gi.org/journals-publications/ebgi/schoenfeld2_june2023/"
+        },
+        {
+          "id": "ACG_GASTROPARESIS_2022",
+          "label": "ACG Clinical Guideline: Gastroparesis (2022)",
+          "url": "https://gi.org/guidelines/"
+        },
+        {
+          "id": "ACG_UC_2025",
+          "label": "ACG Clinical Guideline: Ulcerative Colitis in Adults (updated 2025)",
+          "url": "https://gi.org/guidelines/"
+        },
+        {
+          "id": "ACG_CROHN_2025",
+          "label": "ACG Clinical Guideline: Crohn’s Disease in Adults (updated 2025)",
+          "url": "https://gi.org/guidelines/"
+        },
+        {
+          "id": "AGA_CROHN_LIVING_2025",
+          "label": "AGA Living Clinical Practice Guideline: Pharmacologic Management of Moderate-to-Severe Crohn’s Disease (2025)",
+          "url": "https://agau.gastro.org/course/pharmacological-management-of-crohn%27s-disease/ce9a509f-6682-4154-b8dd-74dfb6ba58fc"
+        },
+        {
+          "id": "AGA_EPI_2023",
+          "label": "AGA Clinical Practice Update: Exocrine Pancreatic Insufficiency (2023)",
+          "url": "https://www.gastrojournal.org/article/S0016-5085%2823%2904780-7/fulltext"
+        },
+        {
+          "id": "AASLD_PORTAL_2024",
+          "label": "AASLD Practice Guidance: Portal Hypertension and Variceal Bleeding (2024 framework)",
+          "url": "https://www.aasld.org/practice-guidelines/portal-hypertension-bleeding-cirrhosis"
+        },
+        {
+          "id": "AASLD_ASCITES",
+          "label": "AASLD Guidance: Ascites, SBP and Hepatorenal Syndrome in Cirrhosis",
+          "url": "https://www.aasld.org/practice-guidelines/diagnosis-evaluation-and-management-ascites-spontaneous-bacterial-peritonitis"
+        },
+        {
+          "id": "AASLD_PBC",
+          "label": "AASLD Primary Biliary Cholangitis guidance hub",
+          "url": "https://www.aasld.org/practice-guidelines/primary-biliary-cholangitis"
+        },
+        {
+          "id": "AASLD_MASLD_2025",
+          "label": "AASLD MASLD/MASH Practice Guidance including 2024 resmetirom and 2025 semaglutide updates",
+          "url": "https://www.aasld.org/practice-guidelines/clinical-assessment-and-management-metabolic-dysfunction-associated-steatotic"
+        },
+        {
+          "id": "WHO_ORS",
+          "label": "WHO/UNICEF reduced-osmolarity Oral Rehydration Salts guidance",
+          "url": "https://www.who.int/publications/i/item/WHO-FCH-CAH-06.1"
+        },
+        {
+          "id": "ICMR_GI_STW",
+          "label": "ICMR Standard Treatment Workflows — Gastroenterology/Hepatology",
+          "url": "https://www.icmr.gov.in/standard-treatment-workflows-stws"
+        },
+        {
+          "id": "FDA_MASH",
+          "label": "U.S. FDA current MASH approvals/labels (resmetirom; semaglutide)",
+          "url": "https://www.fda.gov/drugs/news-events-human-drugs/fda-approves-treatment-serious-liver-disease-known-mash"
+        },
+        {
+          "id": "FDA_PBC_2024",
+          "label": "U.S. FDA current PBC labels/approvals (elafibranor, seladelpar); obeticholic acid indication withdrawn 2025",
+          "url": "https://www.fda.gov/drugs/accelerated-approval-program/withdrawn-non-malignant-hematological-neurological-and-other-disorder-indications-accelerated"
+        },
+        {
+          "id": "ACG_ALD_2024",
+          "label": "ACG Clinical Guideline: Alcohol-Associated Liver Disease (2024)",
+          "url": "https://gi.org/guidelines/"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "NIH DailyMed current product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
         }
       ]
     }
