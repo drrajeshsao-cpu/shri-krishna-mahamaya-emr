@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4P",
-  "app_version": "5.40P",
-  "build": "2026.08.14-R25P",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40P Vaccines • Immunization • Preventive Medicine Lab",
+  "version": "2.4Q",
+  "app_version": "5.40Q",
+  "build": "2026.08.14-R25Q",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40Q TB • Leprosy • Mycobacterial Lab",
   "counts": {
-    "labs": 22,
-    "classes": 661,
-    "drug_profiles": 1603
+    "labs": 23,
+    "classes": 692,
+    "drug_profiles": 1656
   },
-  "global_boundary": "Research/learning pharmacology only. V5.40P adds Vaccines • Immunization • Preventive Medicine while retaining all earlier specialized labs. Vaccination is schedule-, age-, product-, history-, exposure-, pregnancy-, immunocompromise-, geography- and programme-dependent. India UIP/U-WIN is the primary public-programme reference; WHO/current national/product guidance is required for catch-up, adult, high-risk, travel and post-exposure decisions. Do not auto-create schedules, restart interrupted series, or assume globally listed vaccines are routinely indicated/available in India. Live-vaccine eligibility, passive immunization, cold chain and AEFI readiness require explicit verification.",
+  "global_boundary": "Research/learning pharmacology only. V5.40Q adds Tuberculosis • Leprosy • Mycobacterial Intelligence while retaining all earlier specialized labs. Anti-TB treatment must follow current NTEP/WHO diagnostic, DST, weight/age, disease-site and regimen criteria. DR-TB/NTM therapy is specialist/programme controlled. Leprosy MDT and reaction management require classification, nerve/eye assessment and current WHO/national guidance. No automatic regimen or dosing is generated.",
   "labs": [
     {
       "id": "hypertension",
@@ -48047,6 +48047,1791 @@
           "id": "CDC_ADULT_CURRENT",
           "label": "CDC — Current Adult Immunization Schedule (comparative; U.S.-specific)",
           "url": "https://www.cdc.gov/vaccines/hcp/imz-schedules/adult-age.html"
+        }
+      ]
+    },
+    {
+      "id": "tb_leprosy_mycobacterial",
+      "title": "Tuberculosis • Leprosy • Mycobacterial Intelligence Lab",
+      "icon": "🧫",
+      "badge": "V5.40Q",
+      "eyebrow": "TB • NTEP • TPT • MDR/RR-TB • NTM • LEPROSY MDT • REACTIONS • CONTACT PEP • SAFETY",
+      "subtitle": "India-priority mycobacterial pharmacology workspace spanning drug-susceptible TB, TB preventive treatment, drug-resistant TB, common NTM pulmonary disease, leprosy MDT, lepra reactions and contact prophylaxis.",
+      "scientific_boundary": "Research/learning CDS only — not an automatic anti-TB/leprosy prescription or regimen generator. Active TB treatment requires diagnostic confirmation, disease-site assessment, weight/age, drug-susceptibility/resistance review, prior anti-TB exposure, comorbidities, pregnancy status, renal/hepatic function, interactions, adherence support and current NTEP/WHO programme guidance. DR-TB and NTM therapy are specialist/programme controlled. Leprosy classification, nerve/eye assessment and reaction surveillance are essential. Never use monotherapy for active TB or infer a DR-TB regimen from a single drug card.",
+      "classification_notes": {
+        "Programme-first": "For India, NTEP guidance and programme pathways are primary for TB treatment, preventive therapy, notification, adherence and DR-TB management.",
+        "Resistance first": "Molecular/phenotypic DST and prior drug exposure can fundamentally change DR-TB regimen eligibility; do not build regimens from generic susceptibility assumptions.",
+        "Interaction first": "Rifamycins are major interaction drivers; ART, anticoagulants, anticonvulsants, contraceptives and many other therapies require reconciliation.",
+        "Toxicity gates": "Hepatotoxicity, optic toxicity, QT prolongation, myelosuppression, peripheral/optic neuropathy, nephro/ototoxicity and neuropsychiatric effects require drug-specific monitoring.",
+        "Leprosy reactions": "Type 1 reactions/neuritis and ENL are inflammatory complications that can occur before, during or after MDT and need nerve/eye-focused assessment.",
+        "NTM boundary": "NTM isolation alone does not equal disease; treatment depends on species, clinical/radiologic criteria and susceptibility with specialist input."
+      },
+      "lens_groups": [
+        {
+          "group": "Tuberculosis",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Mycobacterial"
+            },
+            {
+              "id": "tb",
+              "label": "Tuberculosis"
+            },
+            {
+              "id": "drug_susceptible",
+              "label": "Drug-Susceptible TB"
+            },
+            {
+              "id": "tpt",
+              "label": "TB Preventive Treatment"
+            },
+            {
+              "id": "drug_resistant",
+              "label": "Drug-Resistant TB"
+            },
+            {
+              "id": "mdr_tb",
+              "label": "MDR/RR-TB"
+            }
+          ]
+        },
+        {
+          "group": "TB safety",
+          "items": [
+            {
+              "id": "rifamycin",
+              "label": "Rifamycins"
+            },
+            {
+              "id": "hepatotoxicity",
+              "label": "Hepatotoxicity"
+            },
+            {
+              "id": "optic_neuritis",
+              "label": "Optic Toxicity"
+            },
+            {
+              "id": "qt",
+              "label": "QT Risk"
+            },
+            {
+              "id": "neuropathy",
+              "label": "Neuropathy"
+            },
+            {
+              "id": "reserve",
+              "label": "Reserve/Salvage"
+            }
+          ]
+        },
+        {
+          "group": "NTM",
+          "items": [
+            {
+              "id": "ntm",
+              "label": "NTM"
+            },
+            {
+              "id": "mac",
+              "label": "MAC"
+            },
+            {
+              "id": "m_abscessus",
+              "label": "M. abscessus"
+            },
+            {
+              "id": "m_kansasii",
+              "label": "M. kansasii"
+            },
+            {
+              "id": "culture_guided",
+              "label": "Culture/DST Guided"
+            }
+          ]
+        },
+        {
+          "group": "Leprosy",
+          "items": [
+            {
+              "id": "leprosy",
+              "label": "Leprosy"
+            },
+            {
+              "id": "paucibacillary",
+              "label": "PB MDT"
+            },
+            {
+              "id": "multibacillary",
+              "label": "MB MDT"
+            },
+            {
+              "id": "reaction",
+              "label": "Lepra Reactions"
+            },
+            {
+              "id": "neuritis",
+              "label": "Neuritis"
+            },
+            {
+              "id": "pep",
+              "label": "Contact PEP"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "myco_tb_ds_core",
+          "name": "Drug-susceptible TB core therapy",
+          "mechanism": "Multidrug bactericidal/sterilizing therapy across distinct mycobacterial targets",
+          "target": "Mycobacterium tuberculosis",
+          "tags": [
+            "tb",
+            "drug_susceptible",
+            "combination",
+            "ntep"
+          ],
+          "role_note": "Core DS-TB medicines are used in combination according to disease site and programme protocol; monotherapy for active TB is unsafe.",
+          "drug_ids": [
+            "myco_hrze_regimen",
+            "myco_hr_regimen"
+          ]
+        },
+        {
+          "id": "myco_isoniazid",
+          "name": "Isoniazid",
+          "mechanism": "Inhibits mycolic-acid synthesis after KatG activation",
+          "target": "Mycobacterial cell wall",
+          "tags": [
+            "tb",
+            "first_line",
+            "hepatotoxicity",
+            "neuropathy"
+          ],
+          "role_note": "First-line TB medicine used only as part of an appropriate active-TB regimen or selected preventive regimens.",
+          "drug_ids": [
+            "myco_isoniazid_profile"
+          ]
+        },
+        {
+          "id": "myco_rifamycins",
+          "name": "Rifamycin family",
+          "mechanism": "Inhibits DNA-dependent RNA polymerase",
+          "target": "RNA synthesis",
+          "tags": [
+            "tb",
+            "rifamycin",
+            "drug_interactions",
+            "first_line"
+          ],
+          "role_note": "Potent sterilizing anti-mycobacterial agents with major enzyme-induction and interaction implications.",
+          "drug_ids": [
+            "myco_rifampicin",
+            "myco_rifapentine",
+            "myco_rifabutin"
+          ]
+        },
+        {
+          "id": "myco_pyrazinamide",
+          "name": "Pyrazinamide",
+          "mechanism": "Converted to pyrazinoic acid; active in acidic intracellular environments",
+          "target": "Mycobacterial energy/membrane processes",
+          "tags": [
+            "tb",
+            "first_line",
+            "hepatotoxicity",
+            "hyperuricemia"
+          ],
+          "role_note": "Sterilizing first-line TB medicine used within multidrug regimens.",
+          "drug_ids": [
+            "myco_pyrazinamide_profile"
+          ]
+        },
+        {
+          "id": "myco_ethambutol",
+          "name": "Ethambutol",
+          "mechanism": "Inhibits arabinosyl transferases and cell-wall arabinogalactan synthesis",
+          "target": "Cell wall",
+          "tags": [
+            "tb",
+            "first_line",
+            "optic_neuritis"
+          ],
+          "role_note": "First-line TB medicine with characteristic ocular-toxicity monitoring considerations.",
+          "drug_ids": [
+            "myco_ethambutol_profile"
+          ]
+        },
+        {
+          "id": "myco_tpt_short",
+          "name": "Short-course TB preventive treatment",
+          "mechanism": "Combination preventive therapy reduces progression from infection to active TB",
+          "target": "Latent/subclinical M. tuberculosis infection",
+          "tags": [
+            "tb",
+            "tpt",
+            "prevention",
+            "contacts"
+          ],
+          "role_note": "Shorter preventive regimens improve completion in eligible people after active TB is excluded.",
+          "drug_ids": [
+            "myco_tpt_3hp",
+            "myco_tpt_1hp",
+            "myco_tpt_3hr",
+            "myco_tpt_4r"
+          ]
+        },
+        {
+          "id": "myco_tpt_inh",
+          "name": "Isoniazid preventive therapy",
+          "mechanism": "Prolonged isoniazid exposure suppresses latent infection",
+          "target": "Latent M. tuberculosis",
+          "tags": [
+            "tb",
+            "tpt",
+            "isoniazid"
+          ],
+          "role_note": "Longer isoniazid-based TPT remains an option where appropriate.",
+          "drug_ids": [
+            "myco_tpt_6h9h"
+          ]
+        },
+        {
+          "id": "myco_tpt_dr_contact",
+          "name": "DR-TB exposure preventive therapy",
+          "mechanism": "Fluoroquinolone-based preventive strategy for selected MDR/RR-TB contacts",
+          "target": "MDR/RR M. tuberculosis exposure",
+          "tags": [
+            "tb",
+            "tpt",
+            "drug_resistant",
+            "contacts"
+          ],
+          "role_note": "Preventive therapy for eligible contacts of MDR/RR-TB requires source-case resistance information and programme oversight.",
+          "drug_ids": [
+            "myco_tpt_levo_dr"
+          ]
+        },
+        {
+          "id": "myco_bpal_m",
+          "name": "BPaLM / BPaL 6-month DR-TB regimens",
+          "mechanism": "All-oral multidrug regimen combining novel and repurposed agents",
+          "target": "MDR/RR-TB / selected pre-XDR TB",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "all_oral",
+            "specialist"
+          ],
+          "role_note": "Shorter all-oral DR-TB regimens require strict eligibility, DST and toxicity monitoring.",
+          "drug_ids": [
+            "myco_bpalm",
+            "myco_bpal"
+          ]
+        },
+        {
+          "id": "myco_dr_9m",
+          "name": "Nine-month all-oral DR-TB regimen family",
+          "mechanism": "Standardized all-oral multidrug regimen for eligible MDR/RR-TB",
+          "target": "MDR/RR-TB",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "all_oral"
+          ],
+          "role_note": "Alternative standardized shorter DR-TB strategy in eligible patients.",
+          "drug_ids": [
+            "myco_dr_9m_construct"
+          ]
+        },
+        {
+          "id": "myco_bedaquiline",
+          "name": "Bedaquiline",
+          "mechanism": "Inhibits mycobacterial ATP synthase",
+          "target": "Energy metabolism",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "qt"
+          ],
+          "role_note": "Key Group A/novel DR-TB medicine used in combination regimens.",
+          "drug_ids": [
+            "myco_bedaquiline_profile"
+          ]
+        },
+        {
+          "id": "myco_pretomanid",
+          "name": "Pretomanid",
+          "mechanism": "Nitroimidazole prodrug with respiratory-poisoning and cell-wall effects",
+          "target": "Mycobacterial respiration/cell wall",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "novel"
+          ],
+          "role_note": "Regimen-specific DR-TB medicine used as part of BPaL/BPaLM-type therapy.",
+          "drug_ids": [
+            "myco_pretomanid_profile"
+          ]
+        },
+        {
+          "id": "myco_linezolid",
+          "name": "Linezolid in DR-TB",
+          "mechanism": "Inhibits 50S ribosomal initiation complex",
+          "target": "Protein synthesis",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "myelosuppression",
+            "neuropathy"
+          ],
+          "role_note": "Highly active DR-TB agent whose toxicity often drives dose modification under protocol.",
+          "drug_ids": [
+            "myco_linezolid_tb"
+          ]
+        },
+        {
+          "id": "myco_fq",
+          "name": "Fluoroquinolones for mycobacterial disease",
+          "mechanism": "Inhibit DNA gyrase/topoisomerase",
+          "target": "DNA replication",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "ntm",
+            "qt"
+          ],
+          "role_note": "High-value companion agents in DR-TB and selected NTM regimens.",
+          "drug_ids": [
+            "myco_moxifloxacin",
+            "myco_levofloxacin"
+          ]
+        },
+        {
+          "id": "myco_clofazimine",
+          "name": "Clofazimine",
+          "mechanism": "Binds mycobacterial DNA and alters membrane/redox processes",
+          "target": "Mycobacterial membrane/DNA",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "leprosy",
+            "ntm",
+            "qt"
+          ],
+          "role_note": "Shared drug across leprosy MDT and selected DR-TB/NTM regimens.",
+          "drug_ids": [
+            "myco_clofazimine_profile"
+          ]
+        },
+        {
+          "id": "myco_cycloserine",
+          "name": "Cycloserine / Terizidone",
+          "mechanism": "Inhibits alanine racemase and D-Ala-D-Ala ligase",
+          "target": "Cell wall",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "neuropsychiatric"
+          ],
+          "role_note": "Companion DR-TB agents when regimen construction requires them.",
+          "drug_ids": [
+            "myco_cycloserine_profile",
+            "myco_terizidone"
+          ]
+        },
+        {
+          "id": "myco_delamanid",
+          "name": "Delamanid",
+          "mechanism": "Nitroimidazole inhibits mycolic-acid synthesis",
+          "target": "Cell wall",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "qt"
+          ],
+          "role_note": "Additional DR-TB medicine used in selected individualized/shorter regimens.",
+          "drug_ids": [
+            "myco_delamanid_profile"
+          ]
+        },
+        {
+          "id": "myco_secondline_injectable",
+          "name": "Reserve injectable anti-TB agents",
+          "mechanism": "Aminoglycoside protein-synthesis inhibition",
+          "target": "30S ribosome",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "reserve",
+            "ototoxicity",
+            "nephrotoxicity"
+          ],
+          "role_note": "Injectables are no longer routine first-choice components of modern all-oral DR-TB treatment but may appear in selected rescue contexts.",
+          "drug_ids": [
+            "myco_amikacin_tb"
+          ]
+        },
+        {
+          "id": "myco_ethionamide_pas",
+          "name": "Ethionamide / Prothionamide / PAS",
+          "mechanism": "Cell-wall or folate-related anti-mycobacterial activity",
+          "target": "Mycolic acid / folate metabolism",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "reserve"
+          ],
+          "role_note": "Older companion agents retained for selected individualized DR-TB regimens.",
+          "drug_ids": [
+            "myco_ethionamide",
+            "myco_pas"
+          ]
+        },
+        {
+          "id": "myco_carbapenem",
+          "name": "Carbapenem-based salvage therapy",
+          "mechanism": "Beta-lactam cell-wall inhibition enhanced with clavulanate",
+          "target": "Peptidoglycan synthesis",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "salvage",
+            "specialist"
+          ],
+          "role_note": "Specialist salvage option in highly resistant TB, not routine outpatient therapy.",
+          "drug_ids": [
+            "myco_meropenem_clav",
+            "myco_imipenem_clav"
+          ]
+        },
+        {
+          "id": "myco_pyridoxine",
+          "name": "Pyridoxine neuroprotection in TB",
+          "mechanism": "Vitamin B6 replacement reduces isoniazid/cycloserine-related neurotoxicity risk",
+          "target": "Pyridoxal-phosphate dependent pathways",
+          "tags": [
+            "tb",
+            "supportive",
+            "neuropathy_prevention"
+          ],
+          "role_note": "Supportive adjunct in selected higher-risk patients receiving neurotoxic anti-TB medicines.",
+          "drug_ids": [
+            "myco_pyridoxine_profile"
+          ]
+        },
+        {
+          "id": "myco_tb_cns_steroid",
+          "name": "Adjunctive corticosteroids in CNS TB",
+          "mechanism": "Suppresses damaging inflammatory response",
+          "target": "Host inflammatory response",
+          "tags": [
+            "tb",
+            "cns_tb",
+            "adjunct",
+            "specialist"
+          ],
+          "role_note": "Adjunctive corticosteroids are used in specific forms such as TB meningitis under protocol; they do not replace anti-TB therapy.",
+          "drug_ids": [
+            "myco_dexamethasone_tbm",
+            "myco_prednisolone_tbm"
+          ]
+        },
+        {
+          "id": "myco_ntm_mac",
+          "name": "MAC pulmonary-disease regimen family",
+          "mechanism": "Macrolide-centered multidrug therapy suppresses Mycobacterium avium complex",
+          "target": "MAC protein synthesis/cell wall",
+          "tags": [
+            "ntm",
+            "mac",
+            "specialist",
+            "culture_guided"
+          ],
+          "role_note": "NTM pulmonary disease requires species identification, clinical-radiologic correlation and susceptibility-guided multidrug therapy.",
+          "drug_ids": [
+            "myco_mac_azithro",
+            "myco_mac_ethambutol",
+            "myco_mac_rifamycin",
+            "myco_liposomal_amikacin_inh"
+          ]
+        },
+        {
+          "id": "myco_ntm_abscessus",
+          "name": "M. abscessus complex treatment family",
+          "mechanism": "Susceptibility- and erm-gene-informed multidrug therapy",
+          "target": "Rapid-growing NTM",
+          "tags": [
+            "ntm",
+            "m_abscessus",
+            "specialist",
+            "culture_guided"
+          ],
+          "role_note": "Highly specialized multidrug therapy; macrolide activity depends on resistance mechanisms.",
+          "drug_ids": [
+            "myco_abs_macrolide",
+            "myco_abs_amikacin",
+            "myco_abs_imipenem",
+            "myco_abs_tigecycline"
+          ]
+        },
+        {
+          "id": "myco_ntm_kansasii",
+          "name": "M. kansasii treatment family",
+          "mechanism": "Rifamycin-centered multidrug therapy",
+          "target": "M. kansasii",
+          "tags": [
+            "ntm",
+            "m_kansasii",
+            "specialist"
+          ],
+          "role_note": "Treatment is species- and susceptibility-specific and usually requires multidrug therapy.",
+          "drug_ids": [
+            "myco_kansasii_rifampicin",
+            "myco_kansasii_ethambutol",
+            "myco_kansasii_inh_macrolide"
+          ]
+        },
+        {
+          "id": "myco_lep_mdt_pb",
+          "name": "Paucibacillary leprosy MDT",
+          "mechanism": "Three-drug multidrug therapy prevents resistance and cures M. leprae infection",
+          "target": "Mycobacterium leprae",
+          "tags": [
+            "leprosy",
+            "paucibacillary",
+            "mdt",
+            "who"
+          ],
+          "role_note": "WHO recommends rifampicin + dapsone + clofazimine MDT for PB leprosy with programme-defined duration.",
+          "drug_ids": [
+            "myco_lep_pb_regimen"
+          ]
+        },
+        {
+          "id": "myco_lep_mdt_mb",
+          "name": "Multibacillary leprosy MDT",
+          "mechanism": "Three-drug multidrug therapy prevents resistance and cures M. leprae infection",
+          "target": "Mycobacterium leprae",
+          "tags": [
+            "leprosy",
+            "multibacillary",
+            "mdt",
+            "who"
+          ],
+          "role_note": "WHO recommends rifampicin + dapsone + clofazimine MDT for MB leprosy with longer programme-defined duration.",
+          "drug_ids": [
+            "myco_lep_mb_regimen"
+          ]
+        },
+        {
+          "id": "myco_lep_dapsone",
+          "name": "Dapsone",
+          "mechanism": "Inhibits dihydropteroate synthase in folate pathway",
+          "target": "Folate synthesis",
+          "tags": [
+            "leprosy",
+            "mdt",
+            "hemolysis",
+            "methemoglobinemia"
+          ],
+          "role_note": "Core leprosy MDT agent with important hematologic safety considerations.",
+          "drug_ids": [
+            "myco_dapsone_lep"
+          ]
+        },
+        {
+          "id": "myco_lep_type1",
+          "name": "Type 1 (reversal) leprosy reaction / neuritis therapy",
+          "mechanism": "Systemic corticosteroid suppresses immune-mediated nerve inflammation",
+          "target": "Host inflammatory response",
+          "tags": [
+            "leprosy",
+            "reaction",
+            "type1",
+            "neuritis",
+            "steroid"
+          ],
+          "role_note": "Prompt recognition and treatment aims to preserve nerve function and prevent disability.",
+          "drug_ids": [
+            "myco_pred_lep_type1"
+          ]
+        },
+        {
+          "id": "myco_lep_enl",
+          "name": "Erythema nodosum leprosum (Type 2 reaction)",
+          "mechanism": "Immunomodulatory therapy controls systemic inflammatory reaction",
+          "target": "Immune-complex/inflammatory pathways",
+          "tags": [
+            "leprosy",
+            "reaction",
+            "enl",
+            "type2",
+            "specialist"
+          ],
+          "role_note": "ENL therapy is severity-, organ- and reproductive-risk dependent and often requires specialist follow-up.",
+          "drug_ids": [
+            "myco_pred_enl",
+            "myco_clofazimine_enl",
+            "myco_thalidomide_enl"
+          ]
+        },
+        {
+          "id": "myco_lep_pep",
+          "name": "Leprosy contact post-exposure prophylaxis",
+          "mechanism": "Single-dose rifampicin can reduce incident leprosy among eligible screened contacts",
+          "target": "M. leprae exposure",
+          "tags": [
+            "leprosy",
+            "prevention",
+            "contacts",
+            "pep"
+          ],
+          "role_note": "WHO supports contact screening with SDR-PEP for eligible contacts after exclusion criteria are checked.",
+          "drug_ids": [
+            "myco_sdr_pep"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "myco_hrze_regimen",
+          "generic": "HRZE-based drug-susceptible TB regimen construct",
+          "class_id": "myco_tb_ds_core",
+          "form": "Programme regimen",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_susceptible",
+            "combination",
+            "ntep",
+            "regimen"
+          ],
+          "role": "Standard multidrug treatment construct for eligible drug-susceptible TB.",
+          "monitoring_pearl": "Confirm microbiological diagnosis, weight band, disease site, DST, adherence plan and current NTEP/WHO regimen.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_GUIDELINES"
+          ]
+        },
+        {
+          "id": "myco_hr_regimen",
+          "generic": "HR continuation-phase construct",
+          "class_id": "myco_tb_ds_core",
+          "form": "Programme regimen",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_susceptible",
+            "combination",
+            "ntep",
+            "regimen"
+          ],
+          "role": "Continuation-phase construct in standard DS-TB pathways.",
+          "monitoring_pearl": "Duration varies with site and special circumstances; never infer from a generic card.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_GUIDELINES"
+          ]
+        },
+        {
+          "id": "myco_isoniazid_profile",
+          "generic": "Isoniazid (INH)",
+          "class_id": "myco_isoniazid",
+          "form": "Tablet / dispersible formulations",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "first_line",
+            "hepatotoxicity",
+            "neuropathy"
+          ],
+          "role": "Core first-line anti-TB agent and component of several TPT options.",
+          "monitoring_pearl": "Monitor hepatotoxicity risk, neuropathy risk and major interactions; pyridoxine may be indicated in higher-risk patients.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "WHO_TPT_2024",
+            "NTEP_GUIDELINES"
+          ]
+        },
+        {
+          "id": "myco_rifampicin",
+          "generic": "Rifampicin / Rifampin",
+          "class_id": "myco_rifamycins",
+          "form": "Capsule/tablet / dispersible",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "rifamycin",
+            "drug_interactions",
+            "first_line"
+          ],
+          "role": "Core first-line TB medicine and key leprosy MDT component.",
+          "monitoring_pearl": "Major CYP/P-gp induction can alter ART, anticoagulants, contraceptives and many other medicines; verify interactions.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "WHO_LEPROSY_2018",
+            "NTEP_GUIDELINES"
+          ]
+        },
+        {
+          "id": "myco_rifapentine",
+          "generic": "Rifapentine",
+          "class_id": "myco_rifamycins",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "rifamycin",
+            "drug_interactions",
+            "first_line",
+            "tpt"
+          ],
+          "role": "Long-acting rifamycin used in selected TB preventive-treatment regimens.",
+          "monitoring_pearl": "Regimen eligibility and interaction profile must be verified; not interchangeable with rifampicin by assumption.",
+          "source_refs": [
+            "WHO_TPT_2024"
+          ]
+        },
+        {
+          "id": "myco_rifabutin",
+          "generic": "Rifabutin",
+          "class_id": "myco_rifamycins",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "rifamycin",
+            "drug_interactions",
+            "first_line",
+            "hiv",
+            "interaction_strategy"
+          ],
+          "role": "Alternative rifamycin in selected interaction-sensitive TB/NTM contexts.",
+          "monitoring_pearl": "Dose and partner-drug adjustments are interaction-driven; specialist verification required.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_pyrazinamide_profile",
+          "generic": "Pyrazinamide",
+          "class_id": "myco_pyrazinamide",
+          "form": "Tablet / dispersible",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "first_line",
+            "hepatotoxicity",
+            "hyperuricemia"
+          ],
+          "role": "Core first-line drug in standard TB intensive-phase constructs.",
+          "monitoring_pearl": "Hepatic toxicity and uric-acid related symptoms require clinical context and monitoring.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_GUIDELINES"
+          ]
+        },
+        {
+          "id": "myco_ethambutol_profile",
+          "generic": "Ethambutol",
+          "class_id": "myco_ethambutol",
+          "form": "Tablet / dispersible",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "first_line",
+            "optic_neuritis"
+          ],
+          "role": "Companion first-line anti-TB medicine.",
+          "monitoring_pearl": "Baseline and follow-up visual acuity/color-vision assessment may be needed; adjust for renal impairment.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_GUIDELINES"
+          ]
+        },
+        {
+          "id": "myco_tpt_3hp",
+          "generic": "3HP: isoniazid + rifapentine regimen construct",
+          "class_id": "myco_tpt_short",
+          "form": "Preventive regimen",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "tpt",
+            "prevention",
+            "contacts",
+            "tpt",
+            "rifapentine"
+          ],
+          "role": "Short-course TPT option in eligible populations.",
+          "monitoring_pearl": "Exclude active TB and verify age, pregnancy, interactions and local programme availability.",
+          "source_refs": [
+            "WHO_TPT_2024",
+            "NTEP_TPT"
+          ]
+        },
+        {
+          "id": "myco_tpt_1hp",
+          "generic": "1HP: isoniazid + rifapentine regimen construct",
+          "class_id": "myco_tpt_short",
+          "form": "Preventive regimen",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "tpt",
+            "prevention",
+            "contacts",
+            "tpt",
+            "rifapentine"
+          ],
+          "role": "Very short preventive regimen option in selected populations/settings.",
+          "monitoring_pearl": "Eligibility and interaction screening are essential; follow current national/WHO guidance.",
+          "source_refs": [
+            "WHO_TPT_2024"
+          ]
+        },
+        {
+          "id": "myco_tpt_3hr",
+          "generic": "3HR: isoniazid + rifampicin regimen construct",
+          "class_id": "myco_tpt_short",
+          "form": "Preventive regimen",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "tpt",
+            "prevention",
+            "contacts",
+            "tpt"
+          ],
+          "role": "Combined rifamycin/isoniazid preventive option.",
+          "monitoring_pearl": "Check drug interactions and active-TB exclusion before use.",
+          "source_refs": [
+            "WHO_TPT_2024",
+            "NTEP_TPT"
+          ]
+        },
+        {
+          "id": "myco_tpt_4r",
+          "generic": "4R: rifampicin regimen construct",
+          "class_id": "myco_tpt_short",
+          "form": "Preventive regimen",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "tpt",
+            "prevention",
+            "contacts",
+            "tpt"
+          ],
+          "role": "Rifampicin-based preventive option in eligible people.",
+          "monitoring_pearl": "Medication reconciliation is critical because rifampicin has extensive interactions.",
+          "source_refs": [
+            "WHO_TPT_2024"
+          ]
+        },
+        {
+          "id": "myco_tpt_6h9h",
+          "generic": "6H/9H isoniazid preventive-treatment construct",
+          "class_id": "myco_tpt_inh",
+          "form": "Preventive regimen",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "tpt",
+            "isoniazid",
+            "tpt"
+          ],
+          "role": "Longer-duration TPT option when clinically/programmatically appropriate.",
+          "monitoring_pearl": "Active disease exclusion, adherence and hepatotoxicity/neuropathy monitoring are key.",
+          "source_refs": [
+            "WHO_TPT_2024",
+            "NTEP_TPT"
+          ]
+        },
+        {
+          "id": "myco_tpt_levo_dr",
+          "generic": "Levofloxacin-based DR-TB preventive-treatment construct",
+          "class_id": "myco_tpt_dr_contact",
+          "form": "Preventive regimen",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "tpt",
+            "drug_resistant",
+            "contacts",
+            "fluoroquinolone"
+          ],
+          "role": "WHO-recommended option for eligible contacts exposed to MDR/RR-TB.",
+          "monitoring_pearl": "Use only after active TB exclusion and resistance/exposure review; programme-specific follow-up is required.",
+          "source_refs": [
+            "WHO_TPT_2024"
+          ]
+        },
+        {
+          "id": "myco_bpalm",
+          "generic": "BPaLM regimen construct: bedaquiline + pretomanid + linezolid + moxifloxacin",
+          "class_id": "myco_bpal_m",
+          "form": "Programme regimen",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "all_oral",
+            "specialist",
+            "mdr_tb",
+            "regimen"
+          ],
+          "role": "Preferred short DR-TB regimen for eligible patients in current WHO pathways.",
+          "monitoring_pearl": "Eligibility, fluoroquinolone resistance, prior exposure, ECG/CBC/neuropathy/hepatic monitoring and NTEP protocol must be verified.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_DR_2025"
+          ]
+        },
+        {
+          "id": "myco_bpal",
+          "generic": "BPaL regimen construct: bedaquiline + pretomanid + linezolid",
+          "class_id": "myco_bpal_m",
+          "form": "Programme regimen",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "all_oral",
+            "specialist",
+            "mdr_tb",
+            "regimen"
+          ],
+          "role": "Short DR-TB regimen construct used in selected circumstances under current guidance.",
+          "monitoring_pearl": "Not interchangeable with BPaLM without resistance/eligibility review.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_DR_2025"
+          ]
+        },
+        {
+          "id": "myco_dr_9m_construct",
+          "generic": "9-month all-oral MDR/RR-TB regimen construct",
+          "class_id": "myco_dr_9m",
+          "form": "Programme regimen",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "all_oral",
+            "regimen"
+          ],
+          "role": "Standardized shorter regimen family for selected MDR/RR-TB.",
+          "monitoring_pearl": "Eligibility depends on fluoroquinolone susceptibility and prior drug exposure; use current WHO/NTEP regimen details.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_DR_2025"
+          ]
+        },
+        {
+          "id": "myco_bedaquiline_profile",
+          "generic": "Bedaquiline",
+          "class_id": "myco_bedaquiline",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "qt"
+          ],
+          "role": "Core component of several modern all-oral DR-TB regimens.",
+          "monitoring_pearl": "QT prolongation, hepatotoxicity and interacting QT-active drugs require structured monitoring.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_DR_2025"
+          ]
+        },
+        {
+          "id": "myco_pretomanid_profile",
+          "generic": "Pretomanid",
+          "class_id": "myco_pretomanid",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "novel"
+          ],
+          "role": "Novel anti-TB agent used only in specified combination regimens.",
+          "monitoring_pearl": "Do not use as standalone therapy; monitor regimen-specific hepatic, neurologic and interaction risks.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_DR_2025"
+          ]
+        },
+        {
+          "id": "myco_linezolid_tb",
+          "generic": "Linezolid",
+          "class_id": "myco_linezolid",
+          "form": "Tablet / IV",
+          "route": "Oral/IV",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "myelosuppression",
+            "neuropathy"
+          ],
+          "role": "Core drug in BPaLM/BPaL and other DR-TB strategies.",
+          "monitoring_pearl": "CBC, peripheral/optic neuropathy and serotonergic interactions need active surveillance.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_DR_2025"
+          ]
+        },
+        {
+          "id": "myco_moxifloxacin",
+          "generic": "Moxifloxacin",
+          "class_id": "myco_fq",
+          "form": "Tablet / IV",
+          "route": "Oral/IV",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "ntm",
+            "qt",
+            "qt"
+          ],
+          "role": "Key fluoroquinolone in BPaLM and selected mycobacterial regimens.",
+          "monitoring_pearl": "QT, tendon/CNS effects and resistance pattern must be reviewed.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_DR_2025",
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_levofloxacin",
+          "generic": "Levofloxacin",
+          "class_id": "myco_fq",
+          "form": "Tablet / IV",
+          "route": "Oral/IV",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "ntm",
+            "qt",
+            "renal"
+          ],
+          "role": "Fluoroquinolone used in DR-TB, selected TPT and NTM settings.",
+          "monitoring_pearl": "Renal adjustment and resistance-guided use are important.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "WHO_TPT_2024",
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_clofazimine_profile",
+          "generic": "Clofazimine",
+          "class_id": "myco_clofazimine",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "leprosy",
+            "ntm",
+            "qt"
+          ],
+          "role": "Core leprosy MDT agent and companion drug in selected DR-TB/NTM regimens.",
+          "monitoring_pearl": "Skin discoloration, GI effects and additive QT risk should be anticipated.",
+          "source_refs": [
+            "WHO_LEPROSY_2018",
+            "WHO_TB_M4_2025",
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_cycloserine_profile",
+          "generic": "Cycloserine",
+          "class_id": "myco_cycloserine",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "neuropsychiatric"
+          ],
+          "role": "Group B/companion medicine in longer/individualized DR-TB regimens.",
+          "monitoring_pearl": "Neuropsychiatric toxicity and seizure risk require screening and follow-up.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_DR_2025"
+          ]
+        },
+        {
+          "id": "myco_terizidone",
+          "generic": "Terizidone",
+          "class_id": "myco_cycloserine",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "neuropsychiatric"
+          ],
+          "role": "Cycloserine-related companion DR-TB option in programmes/formularies that use it.",
+          "monitoring_pearl": "Apply similar CNS/neuropsychiatric precautions and specialist oversight.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_DR_2025"
+          ]
+        },
+        {
+          "id": "myco_delamanid_profile",
+          "generic": "Delamanid",
+          "class_id": "myco_delamanid",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "mdr_tb",
+            "qt"
+          ],
+          "role": "Selected DR-TB companion/novel agent under programme guidance.",
+          "monitoring_pearl": "QT and regimen interaction monitoring are important.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_DR_2025"
+          ]
+        },
+        {
+          "id": "myco_amikacin_tb",
+          "generic": "Amikacin",
+          "class_id": "myco_secondline_injectable",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "reserve",
+            "ototoxicity",
+            "nephrotoxicity"
+          ],
+          "role": "Reserve agent for selected resistant mycobacterial disease when susceptibility and regimen needs justify use.",
+          "monitoring_pearl": "Ototoxicity, nephrotoxicity and audiometry/renal monitoring are major safeguards.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_DR_2025",
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_ethionamide",
+          "generic": "Ethionamide / Prothionamide",
+          "class_id": "myco_ethionamide_pas",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "reserve"
+          ],
+          "role": "Reserve companion drug for selected DR-TB regimens.",
+          "monitoring_pearl": "GI intolerance, hepatotoxicity, thyroid and neuropathy considerations require monitoring.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_DR_2025"
+          ]
+        },
+        {
+          "id": "myco_pas",
+          "generic": "Para-aminosalicylic acid (PAS)",
+          "class_id": "myco_ethionamide_pas",
+          "form": "Granules / tablet",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "reserve"
+          ],
+          "role": "Reserve DR-TB companion when better tolerated/effective options are unavailable or unsuitable.",
+          "monitoring_pearl": "GI tolerance, thyroid function and interactions need specialist review.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_DR_2025"
+          ]
+        },
+        {
+          "id": "myco_meropenem_clav",
+          "generic": "Meropenem + clavulanate-containing strategy",
+          "class_id": "myco_carbapenem",
+          "form": "IV regimen component",
+          "route": "IV",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "salvage",
+            "specialist",
+            "salvage"
+          ],
+          "role": "Selected salvage component for highly resistant TB under expert management.",
+          "monitoring_pearl": "Requires IV delivery, partner-drug design and specialist susceptibility/regimen review.",
+          "source_refs": [
+            "WHO_TB_M4_2025"
+          ]
+        },
+        {
+          "id": "myco_imipenem_clav",
+          "generic": "Imipenem-cilastatin + clavulanate-containing strategy",
+          "class_id": "myco_carbapenem",
+          "form": "IV regimen component",
+          "route": "IV",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "drug_resistant",
+            "salvage",
+            "specialist",
+            "salvage"
+          ],
+          "role": "Alternative carbapenem-based salvage component in selected resistant TB.",
+          "monitoring_pearl": "Specialist-only individualized use.",
+          "source_refs": [
+            "WHO_TB_M4_2025"
+          ]
+        },
+        {
+          "id": "myco_pyridoxine_profile",
+          "generic": "Pyridoxine (Vitamin B6)",
+          "class_id": "myco_pyridoxine",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "supportive",
+            "neuropathy_prevention"
+          ],
+          "role": "Neuropathy-prevention/support adjunct when indicated with INH/cycloserine-type therapy.",
+          "monitoring_pearl": "Dose is context-specific; excessive chronic dosing can itself cause neuropathy.",
+          "source_refs": [
+            "WHO_TB_M4_2025",
+            "NTEP_GUIDELINES"
+          ]
+        },
+        {
+          "id": "myco_dexamethasone_tbm",
+          "generic": "Dexamethasone — TB meningitis adjunct",
+          "class_id": "myco_tb_cns_steroid",
+          "form": "Tablet / injection",
+          "route": "Oral/IV",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "cns_tb",
+            "adjunct",
+            "specialist"
+          ],
+          "role": "Adjunctive anti-inflammatory therapy in TB meningitis pathways.",
+          "monitoring_pearl": "Use only with definitive anti-TB treatment and site-specific specialist protocol.",
+          "source_refs": [
+            "WHO_TB_M4_2025"
+          ]
+        },
+        {
+          "id": "myco_prednisolone_tbm",
+          "generic": "Prednisolone — TB meningitis adjunct",
+          "class_id": "myco_tb_cns_steroid",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "tb",
+            "cns_tb",
+            "adjunct",
+            "specialist"
+          ],
+          "role": "Alternative corticosteroid adjunct in appropriate CNS-TB protocols.",
+          "monitoring_pearl": "Taper and duration are protocol-driven; monitor steroid toxicity.",
+          "source_refs": [
+            "WHO_TB_M4_2025"
+          ]
+        },
+        {
+          "id": "myco_mac_azithro",
+          "generic": "Azithromycin — MAC backbone",
+          "class_id": "myco_ntm_mac",
+          "form": "Tablet / suspension",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "ntm",
+            "mac",
+            "specialist",
+            "culture_guided",
+            "macrolide"
+          ],
+          "role": "Preferred macrolide backbone in macrolide-susceptible MAC regimens.",
+          "monitoring_pearl": "Avoid functional monotherapy; confirm macrolide susceptibility and interaction profile.",
+          "source_refs": [
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_mac_ethambutol",
+          "generic": "Ethambutol — MAC companion",
+          "class_id": "myco_ntm_mac",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "ntm",
+            "mac",
+            "specialist",
+            "culture_guided"
+          ],
+          "role": "Core companion drug in many MAC regimens.",
+          "monitoring_pearl": "Visual monitoring and renal dosing remain important.",
+          "source_refs": [
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_mac_rifamycin",
+          "generic": "Rifampicin/Rifabutin — MAC companion",
+          "class_id": "myco_ntm_mac",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "ntm",
+            "mac",
+            "specialist",
+            "culture_guided",
+            "rifamycin"
+          ],
+          "role": "Rifamycin companion in selected MAC regimens.",
+          "monitoring_pearl": "Interaction burden often determines rifamycin choice.",
+          "source_refs": [
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_liposomal_amikacin_inh",
+          "generic": "Liposomal amikacin inhalation suspension",
+          "class_id": "myco_ntm_mac",
+          "form": "Inhaled suspension",
+          "route": "Inhaled",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "ntm",
+            "mac",
+            "specialist",
+            "culture_guided",
+            "refractory_mac"
+          ],
+          "role": "Add-on option for selected treatment-refractory MAC pulmonary disease.",
+          "monitoring_pearl": "Specialist use with hearing/renal/respiratory adverse-effect monitoring.",
+          "source_refs": [
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_abs_macrolide",
+          "generic": "Azithromycin/Clarithromycin — M. abscessus context",
+          "class_id": "myco_ntm_abscessus",
+          "form": "Tablet / IV",
+          "route": "Oral/IV",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "ntm",
+            "m_abscessus",
+            "specialist",
+            "culture_guided",
+            "macrolide"
+          ],
+          "role": "Macrolide component when susceptibility/erm status supports activity, or for immunomodulatory role in selected regimens.",
+          "monitoring_pearl": "Do not assume macrolide susceptibility; molecular/phenotypic testing is essential.",
+          "source_refs": [
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_abs_amikacin",
+          "generic": "Amikacin — M. abscessus",
+          "class_id": "myco_ntm_abscessus",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "ntm",
+            "m_abscessus",
+            "specialist",
+            "culture_guided"
+          ],
+          "role": "Parenteral active agent in selected intensive-phase regimens.",
+          "monitoring_pearl": "Audiology and renal monitoring are critical.",
+          "source_refs": [
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_abs_imipenem",
+          "generic": "Imipenem — M. abscessus",
+          "class_id": "myco_ntm_abscessus",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "ntm",
+            "m_abscessus",
+            "specialist",
+            "culture_guided"
+          ],
+          "role": "IV companion for selected M. abscessus regimens.",
+          "monitoring_pearl": "Specialist susceptibility-guided use only.",
+          "source_refs": [
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_abs_tigecycline",
+          "generic": "Tigecycline — M. abscessus",
+          "class_id": "myco_ntm_abscessus",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "ntm",
+            "m_abscessus",
+            "specialist",
+            "culture_guided"
+          ],
+          "role": "Selected IV companion in difficult M. abscessus disease.",
+          "monitoring_pearl": "GI intolerance and hepatic monitoring can be limiting.",
+          "source_refs": [
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_kansasii_rifampicin",
+          "generic": "Rifampicin — M. kansasii backbone",
+          "class_id": "myco_ntm_kansasii",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "ntm",
+            "m_kansasii",
+            "specialist"
+          ],
+          "role": "Key backbone in rifampicin-susceptible M. kansasii disease.",
+          "monitoring_pearl": "Confirm susceptibility and interactions.",
+          "source_refs": [
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_kansasii_ethambutol",
+          "generic": "Ethambutol — M. kansasii companion",
+          "class_id": "myco_ntm_kansasii",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "ntm",
+            "m_kansasii",
+            "specialist"
+          ],
+          "role": "Companion medicine in standard M. kansasii regimens.",
+          "monitoring_pearl": "Ocular monitoring applies.",
+          "source_refs": [
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_kansasii_inh_macrolide",
+          "generic": "Isoniazid or macrolide companion — M. kansasii context",
+          "class_id": "myco_ntm_kansasii",
+          "form": "Oral medicine",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "ntm",
+            "m_kansasii",
+            "specialist"
+          ],
+          "role": "Third-drug choice depends on regimen and susceptibility context.",
+          "monitoring_pearl": "Do not select without species/susceptibility and current guideline review.",
+          "source_refs": [
+            "IDSA_NTM_2020"
+          ]
+        },
+        {
+          "id": "myco_lep_pb_regimen",
+          "generic": "PB leprosy MDT construct: rifampicin + dapsone + clofazimine",
+          "class_id": "myco_lep_mdt_pb",
+          "form": "Programme blister pack / regimen",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "leprosy",
+            "paucibacillary",
+            "mdt",
+            "who",
+            "regimen"
+          ],
+          "role": "WHO multidrug treatment construct for paucibacillary leprosy.",
+          "monitoring_pearl": "Classification, nerve/eye assessment, adherence and reaction surveillance are essential.",
+          "source_refs": [
+            "WHO_LEPROSY_2018",
+            "WHO_LEPROSY_2026"
+          ]
+        },
+        {
+          "id": "myco_lep_mb_regimen",
+          "generic": "MB leprosy MDT construct: rifampicin + dapsone + clofazimine",
+          "class_id": "myco_lep_mdt_mb",
+          "form": "Programme blister pack / regimen",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "leprosy",
+            "multibacillary",
+            "mdt",
+            "who",
+            "regimen"
+          ],
+          "role": "WHO multidrug treatment construct for multibacillary leprosy.",
+          "monitoring_pearl": "Monitor nerves, eyes, disability risk, reactions and adherence throughout treatment.",
+          "source_refs": [
+            "WHO_LEPROSY_2018",
+            "WHO_LEPROSY_2026"
+          ]
+        },
+        {
+          "id": "myco_dapsone_lep",
+          "generic": "Dapsone",
+          "class_id": "myco_lep_dapsone",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "leprosy",
+            "mdt",
+            "hemolysis",
+            "methemoglobinemia"
+          ],
+          "role": "Daily component of WHO leprosy MDT.",
+          "monitoring_pearl": "Hemolysis/methemoglobinemia risk, anemia and G6PD context should be considered.",
+          "source_refs": [
+            "WHO_LEPROSY_2018"
+          ]
+        },
+        {
+          "id": "myco_pred_lep_type1",
+          "generic": "Prednisolone / systemic corticosteroid — Type 1 reaction/neuritis",
+          "class_id": "myco_lep_type1",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "leprosy",
+            "reaction",
+            "type1",
+            "neuritis",
+            "steroid"
+          ],
+          "role": "Main anti-inflammatory treatment class for significant reversal reaction/neuritis under leprosy guidance.",
+          "monitoring_pearl": "Document nerve function, eye involvement and steroid toxicity; reaction treatment does not automatically mean stopping MDT.",
+          "source_refs": [
+            "WHO_LEPROSY_REACTIONS_2020"
+          ]
+        },
+        {
+          "id": "myco_pred_enl",
+          "generic": "Prednisolone / systemic corticosteroid — ENL context",
+          "class_id": "myco_lep_enl",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "leprosy",
+            "reaction",
+            "enl",
+            "type2",
+            "specialist"
+          ],
+          "role": "Anti-inflammatory therapy for moderate/severe ENL or organ/nerve involvement as clinically indicated.",
+          "monitoring_pearl": "Assess infection, diabetes, bone and other steroid risks; tailor to response.",
+          "source_refs": [
+            "WHO_LEPROSY_REACTIONS_2020"
+          ]
+        },
+        {
+          "id": "myco_clofazimine_enl",
+          "generic": "Clofazimine — anti-inflammatory ENL context",
+          "class_id": "myco_lep_enl",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "leprosy",
+            "reaction",
+            "enl",
+            "type2",
+            "specialist"
+          ],
+          "role": "May be used as an anti-inflammatory adjunct in recurrent/chronic ENL under specialist guidance.",
+          "monitoring_pearl": "Higher anti-inflammatory exposure differs from routine MDT use and needs protocol verification.",
+          "source_refs": [
+            "WHO_LEPROSY_REACTIONS_2020"
+          ]
+        },
+        {
+          "id": "myco_thalidomide_enl",
+          "generic": "Thalidomide — ENL specialist-restricted therapy",
+          "class_id": "myco_lep_enl",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "leprosy",
+            "reaction",
+            "enl",
+            "type2",
+            "specialist",
+            "teratogenic",
+            "restricted"
+          ],
+          "role": "Effective option for selected severe/recurrent ENL where legally/programmatically available.",
+          "monitoring_pearl": "Extreme teratogenicity mandates strict pregnancy-prevention controls; neuropathy and thrombosis risks require specialist management.",
+          "source_refs": [
+            "WHO_LEPROSY_REACTIONS_2020"
+          ]
+        },
+        {
+          "id": "myco_sdr_pep",
+          "generic": "Single-dose rifampicin (SDR) PEP construct",
+          "class_id": "myco_lep_pep",
+          "form": "Preventive regimen",
+          "route": "Oral",
+          "dose_example": "Regimen, dose, duration, weight-band, age, disease site, DST/resistance pattern, pregnancy, renal/hepatic function and programme eligibility are patient- and guideline-specific. Verify current NTEP/WHO or specialist guidance and product information; do not auto-prescribe or infer a regimen from this learning card.",
+          "tags": [
+            "leprosy",
+            "prevention",
+            "contacts",
+            "pep",
+            "rifampicin"
+          ],
+          "role": "Post-exposure prophylaxis option for eligible household/neighbourhood/social contacts after screening.",
+          "monitoring_pearl": "Exclude active leprosy/TB and contraindications; avoid casual unscreened community dosing.",
+          "source_refs": [
+            "WHO_LEPROSY_PEP_2020",
+            "WHO_LEPROSY_2026"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "WHO_TB_M4_2025",
+          "label": "WHO consolidated guidelines on tuberculosis — Module 4: Treatment and care (2025)",
+          "url": "https://www.who.int/publications/i/item/9789240107243"
+        },
+        {
+          "id": "WHO_TPT_2024",
+          "label": "WHO consolidated guidelines on tuberculosis — Module 1: TB preventive treatment (2024)",
+          "url": "https://www.who.int/publications/i/item/9789240096196"
+        },
+        {
+          "id": "NTEP_GUIDELINES",
+          "label": "Government of India Central TB Division — NTEP Guidelines hub",
+          "url": "https://tbcindia.mohfw.gov.in/guidelines/"
+        },
+        {
+          "id": "NTEP_DR_2025",
+          "label": "Government of India NTEP — National Guidelines for Management of Drug Resistant TB (2025)",
+          "url": "https://tbcindia.mohfw.gov.in/wp-content/uploads/2025/01/National-Guidelines-for-Management-of-DR-TB_Final.pdf"
+        },
+        {
+          "id": "NTEP_TPT",
+          "label": "Government of India NTEP — Programmatic Management of TB Preventive Treatment in India",
+          "url": "https://tbcindia.mohfw.gov.in/wp-content/uploads/2023/05/Guidelines-for-Programmatic-Management-of-Tuberculosis-Preventive-Treatment-in-India.pdf"
+        },
+        {
+          "id": "IDSA_NTM_2020",
+          "label": "ATS/ERS/ESCMID/IDSA — Nontuberculous Mycobacterial Pulmonary Disease Guideline (2020)",
+          "url": "https://www.idsociety.org/practice-guideline/nontuberculous-mycobacterial-ntm-diseases/"
+        },
+        {
+          "id": "WHO_LEPROSY_2018",
+          "label": "WHO — Guidelines for diagnosis, treatment and prevention of leprosy (2018)",
+          "url": "https://www.who.int/publications/i/item/9789290226383"
+        },
+        {
+          "id": "WHO_LEPROSY_REACTIONS_2020",
+          "label": "WHO — Leprosy/Hansen disease: management of reactions and prevention of disabilities (2020)",
+          "url": "https://www.who.int/publications/i/item/9789290227595"
+        },
+        {
+          "id": "WHO_LEPROSY_PEP_2020",
+          "label": "WHO — Leprosy contact tracing and post-exposure prophylaxis technical guidance (2020)",
+          "url": "https://www.who.int/publications/i/item/9789290228073"
+        },
+        {
+          "id": "WHO_LEPROSY_2026",
+          "label": "WHO — Leprosy fact sheet (updated January 2026)",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/leprosy"
         }
       ]
     }
