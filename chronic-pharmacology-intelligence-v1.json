@@ -1,13 +1,13 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4H",
-  "app_version": "5.40H",
-  "build": "2026.08.14-R25H",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40H Hematology • Anemia • Hematinics Lab",
+  "version": "2.4I",
+  "app_version": "5.40I",
+  "build": "2026.08.14-R25I",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40I Fluids • Electrolytes • Nutrition Lab",
   "counts": {
-    "labs": 14,
-    "classes": 403,
-    "drug_profiles": 1079
+    "labs": 15,
+    "classes": 427,
+    "drug_profiles": 1123
   },
   "global_boundary": "Research/learning pharmacology only. V5.40G adds a dedicated Antifungal • Antiviral • Antiparasitic Intelligence Lab while retaining all earlier specialized labs. Exact organism/species, disease site/severity, resistance/susceptibility, renal/hepatic function, pregnancy, age/weight, G6PD status, interactions and current guideline/regulatory label must be verified. HIV/HBV/HCV, invasive fungal disease, severe malaria and complex tissue parasitoses remain regimen- and specialist-controlled.",
   "labs": [
@@ -32440,6 +32440,1419 @@
           "id": "AABB_PBM",
           "label": "AABB Patient Blood Management toolkit",
           "url": "https://www.aabb.org/blood-biotherapies/blood/transfusion-medicine/patient-blood-management/patient-blood-management-toolkit"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "NIH DailyMed — current FDA-submitted product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "fluids_electrolytes_nutrition",
+      "title": "Fluids • Electrolytes • Nutrition Intelligence Lab",
+      "icon": "🧂",
+      "badge": "FEN v1.0",
+      "eyebrow": "FLUIDS • ELECTROLYTES • NUTRITION RESEARCH WORKSPACE",
+      "subtitle": "Clinical problem → fluid/electrolyte/nutrition class → physiologic target → formulation/route → learning dose/concentration → monitoring → source verification",
+      "scientific_boundary": "Research/learning CDS only. Fluid, electrolyte and nutrition therapy can cause rapid harm when indication, volume status, tonicity, renal function, acid-base status, ECG, glucose and ongoing losses are not assessed. No card is an automatic correction protocol. Severe sodium disorders, potassium emergencies, symptomatic hypocalcemia/hypomagnesemia, refeeding syndrome, parenteral nutrition and hypertonic saline require monitored settings and current institutional/guideline protocols. Never infer an IV rate or concentration from a generic class card alone.",
+      "classification_notes": [
+        "Oral/enteral replacement is preferred when feasible; IV fluid therapy should be used only when needs cannot be met orally/enterally and stopped as soon as possible.",
+        "Crystalloids are separated by tonicity/composition because chloride load, potassium/calcium content and acid-base effects differ.",
+        "Hyponatremia and hypernatremia are water-balance disorders; treatment depends on symptoms, chronicity, volume status and cause, not the sodium value alone.",
+        "Potassium, magnesium, calcium and phosphate replacement require route-, concentration-, renal-function- and monitoring-specific verification. Potassium must never be given as an IV push.",
+        "Refeeding-risk patients need thiamine plus careful calorie/electrolyte advancement and monitoring rather than immediate full feeding.",
+        "Enteral and parenteral nutrition cards are formulation frameworks, not ready-made prescriptions; protein/energy/fluid/electrolyte targets are patient-specific."
+      ],
+      "lens_groups": [
+        {
+          "group": "Fluid strategy",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Fluids/Electrolytes/Nutrition"
+            },
+            {
+              "id": "oral_rehydration",
+              "label": "ORS / dehydration"
+            },
+            {
+              "id": "resuscitation",
+              "label": "IV resuscitation"
+            },
+            {
+              "id": "maintenance",
+              "label": "IV maintenance"
+            },
+            {
+              "id": "balanced_crystalloid",
+              "label": "Balanced crystalloids"
+            },
+            {
+              "id": "saline",
+              "label": "0.9% saline"
+            },
+            {
+              "id": "albumin",
+              "label": "Albumin / colloid"
+            }
+          ]
+        },
+        {
+          "group": "Sodium & water balance",
+          "items": [
+            {
+              "id": "hyponatremia",
+              "label": "Hyponatremia"
+            },
+            {
+              "id": "hypertonic_saline",
+              "label": "3% hypertonic saline"
+            },
+            {
+              "id": "siadh",
+              "label": "SIADH therapies"
+            },
+            {
+              "id": "hypernatremia",
+              "label": "Hypernatremia / free water"
+            },
+            {
+              "id": "di",
+              "label": "Diabetes insipidus"
+            }
+          ]
+        },
+        {
+          "group": "Electrolytes",
+          "items": [
+            {
+              "id": "hypokalemia",
+              "label": "Potassium replacement"
+            },
+            {
+              "id": "hyperkalemia",
+              "label": "Hyperkalemia support"
+            },
+            {
+              "id": "hypomagnesemia",
+              "label": "Magnesium"
+            },
+            {
+              "id": "hypocalcemia",
+              "label": "Calcium"
+            },
+            {
+              "id": "hypophosphatemia",
+              "label": "Phosphate"
+            },
+            {
+              "id": "acid_base",
+              "label": "Acid–base / bicarbonate"
+            }
+          ]
+        },
+        {
+          "group": "Nutrition support",
+          "items": [
+            {
+              "id": "ons",
+              "label": "Oral nutrition supplements"
+            },
+            {
+              "id": "enteral",
+              "label": "Enteral nutrition"
+            },
+            {
+              "id": "parenteral",
+              "label": "Parenteral nutrition"
+            },
+            {
+              "id": "protein",
+              "label": "Protein support"
+            },
+            {
+              "id": "micronutrients",
+              "label": "Vitamins / trace elements"
+            },
+            {
+              "id": "refeeding",
+              "label": "Refeeding syndrome risk"
+            }
+          ]
+        },
+        {
+          "group": "Practical safety",
+          "items": [
+            {
+              "id": "renal_monitor",
+              "label": "Renal function"
+            },
+            {
+              "id": "cardiac_monitor",
+              "label": "ECG / cardiac monitoring"
+            },
+            {
+              "id": "glucose_monitor",
+              "label": "Glucose"
+            },
+            {
+              "id": "volume_status",
+              "label": "Volume status"
+            },
+            {
+              "id": "emergency",
+              "label": "Emergency / monitored setting"
+            },
+            {
+              "id": "specialist",
+              "label": "Specialist / protocol-controlled"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "fen_ors",
+          "name": "Reduced-osmolarity oral rehydration solution (ORS)",
+          "mechanism": "Coupled intestinal sodium-glucose transport promotes water and electrolyte absorption",
+          "target": "SGLT1-mediated sodium-glucose co-transport in small intestine",
+          "tags": [
+            "oral_rehydration",
+            "maintenance",
+            "volume_status"
+          ],
+          "role_note": "Foundation for oral rehydration in diarrheal fluid loss when oral therapy is feasible.",
+          "drug_ids": [
+            "fen_who_ors",
+            "fen_ors_ready"
+          ]
+        },
+        {
+          "id": "fen_normal_saline",
+          "name": "0.9% sodium chloride crystalloid",
+          "mechanism": "Expands extracellular/intravascular volume with isotonic sodium/chloride solution",
+          "target": "Extracellular fluid compartment",
+          "tags": [
+            "resuscitation",
+            "maintenance",
+            "saline",
+            "volume_status"
+          ],
+          "role_note": "Common crystalloid for resuscitation/replacement and selected sodium/chloride needs; high chloride load can matter.",
+          "drug_ids": [
+            "fen_sodium_chloride_09"
+          ]
+        },
+        {
+          "id": "fen_balanced_crystalloid",
+          "name": "Balanced isotonic crystalloids",
+          "mechanism": "Expand extracellular volume with electrolyte composition and metabolizable anions that reduce chloride burden versus saline",
+          "target": "Extracellular fluid + buffer anions",
+          "tags": [
+            "resuscitation",
+            "maintenance",
+            "balanced_crystalloid",
+            "volume_status"
+          ],
+          "role_note": "Common resuscitation/replacement option; exact electrolyte composition differs by product.",
+          "drug_ids": [
+            "fen_lactated_ringers",
+            "fen_plasmalyte"
+          ]
+        },
+        {
+          "id": "fen_dextrose_water",
+          "name": "Dextrose-containing free-water solutions",
+          "mechanism": "Provide carbohydrate calories; after glucose metabolism the water distributes as electrolyte-free water",
+          "target": "Total-body water distribution after glucose uptake",
+          "tags": [
+            "maintenance",
+            "hypernatremia",
+            "glucose_monitor"
+          ],
+          "role_note": "Used in selected maintenance/free-water contexts; not an initial volume-resuscitation fluid.",
+          "drug_ids": [
+            "fen_d5w",
+            "fen_d10w"
+          ]
+        },
+        {
+          "id": "fen_hypertonic_saline",
+          "name": "Hypertonic sodium chloride",
+          "mechanism": "Raises extracellular sodium/osmolality and shifts water out of cells",
+          "target": "Serum sodium / extracellular tonicity",
+          "tags": [
+            "hyponatremia",
+            "hypertonic_saline",
+            "emergency",
+            "specialist"
+          ],
+          "role_note": "Emergency therapy for selected severe symptomatic hyponatremia; requires monitored correction targets.",
+          "drug_ids": [
+            "fen_sodium_chloride_3"
+          ]
+        },
+        {
+          "id": "fen_siadh_solute",
+          "name": "SIADH solute / osmotic water-excretion therapy",
+          "mechanism": "Increases solute excretion to facilitate electrolyte-free water clearance",
+          "target": "Renal osmole excretion / water balance",
+          "tags": [
+            "hyponatremia",
+            "siadh",
+            "specialist"
+          ],
+          "role_note": "Second-line/context-dependent SIADH strategy after diagnosis and cause management.",
+          "drug_ids": [
+            "fen_urea"
+          ]
+        },
+        {
+          "id": "fen_vaptan",
+          "name": "V2-receptor antagonist (aquaretic)",
+          "mechanism": "Blocks vasopressin V2 signaling, increasing electrolyte-free water excretion",
+          "target": "Renal collecting-duct V2 receptor",
+          "tags": [
+            "hyponatremia",
+            "siadh",
+            "specialist"
+          ],
+          "role_note": "Selected euvolemic/hypervolemic hyponatremia under specialist guidance; not for emergency sodium correction.",
+          "drug_ids": [
+            "fen_tolvaptan"
+          ]
+        },
+        {
+          "id": "fen_desmopressin_water",
+          "name": "Desmopressin water-balance therapy",
+          "mechanism": "V2 agonism increases collecting-duct water reabsorption",
+          "target": "Renal V2 receptor / aquaporin-2",
+          "tags": [
+            "di",
+            "hypernatremia",
+            "hyponatremia",
+            "specialist"
+          ],
+          "role_note": "Central diabetes insipidus treatment; also used by specialists to control overcorrection in hyponatremia protocols.",
+          "drug_ids": [
+            "fen_desmopressin"
+          ]
+        },
+        {
+          "id": "fen_potassium_oral",
+          "name": "Oral potassium replacement",
+          "mechanism": "Replaces total-body potassium deficit",
+          "target": "Extracellular/intracellular potassium pool",
+          "tags": [
+            "hypokalemia",
+            "renal_monitor",
+            "cardiac_monitor"
+          ],
+          "role_note": "Preferred route for many mild/moderate deficits when oral treatment is feasible.",
+          "drug_ids": [
+            "fen_potassium_chloride_oral",
+            "fen_potassium_bicarbonate_citrate"
+          ]
+        },
+        {
+          "id": "fen_potassium_iv",
+          "name": "Intravenous potassium replacement",
+          "mechanism": "Directly replaces potassium when severe deficit, symptoms or inability to take oral therapy requires IV treatment",
+          "target": "Serum and intracellular potassium",
+          "tags": [
+            "hypokalemia",
+            "emergency",
+            "cardiac_monitor",
+            "renal_monitor"
+          ],
+          "role_note": "High-alert medication; concentration/rate depend on access, severity and monitoring. Never IV push.",
+          "drug_ids": [
+            "fen_potassium_chloride_iv"
+          ]
+        },
+        {
+          "id": "fen_magnesium",
+          "name": "Magnesium replacement",
+          "mechanism": "Restores magnesium required for membrane stability, ATP-dependent reactions and potassium/calcium homeostasis",
+          "target": "Serum/intracellular magnesium",
+          "tags": [
+            "hypomagnesemia",
+            "cardiac_monitor",
+            "renal_monitor"
+          ],
+          "role_note": "Oral or IV replacement depending on severity/symptoms and renal function.",
+          "drug_ids": [
+            "fen_magnesium_oxide",
+            "fen_magnesium_sulfate"
+          ]
+        },
+        {
+          "id": "fen_calcium",
+          "name": "Calcium replacement / membrane stabilization",
+          "mechanism": "Raises ionized calcium and restores excitation-contraction/coagulation physiology",
+          "target": "Ionized calcium; cardiac/neuromuscular membrane",
+          "tags": [
+            "hypocalcemia",
+            "hyperkalemia",
+            "emergency",
+            "cardiac_monitor"
+          ],
+          "role_note": "Oral replacement for chronic deficiency; IV calcium for symptomatic hypocalcemia or selected hyperkalemia membrane stabilization.",
+          "drug_ids": [
+            "fen_calcium_carbonate",
+            "fen_calcium_citrate",
+            "fen_calcium_gluconate_iv",
+            "fen_calcium_chloride_iv"
+          ]
+        },
+        {
+          "id": "fen_phosphate",
+          "name": "Phosphate replacement",
+          "mechanism": "Restores phosphate required for ATP, 2,3-DPG, membrane and skeletal physiology",
+          "target": "Serum/intracellular phosphate",
+          "tags": [
+            "hypophosphatemia",
+            "refeeding",
+            "renal_monitor"
+          ],
+          "role_note": "Oral or IV replacement based on severity, symptoms, refeeding risk and renal function.",
+          "drug_ids": [
+            "fen_oral_phosphate",
+            "fen_potassium_phosphate_iv",
+            "fen_sodium_phosphate_iv"
+          ]
+        },
+        {
+          "id": "fen_bicarbonate",
+          "name": "Bicarbonate / alkali therapy",
+          "mechanism": "Supplies bicarbonate to buffer hydrogen ions and raise serum bicarbonate/pH",
+          "target": "Extracellular bicarbonate buffer system",
+          "tags": [
+            "acid_base",
+            "renal_monitor",
+            "emergency"
+          ],
+          "role_note": "Selected severe metabolic acidosis, CKD metabolic acidosis and specific toxicologic/hyperkalemia contexts; treat the cause first.",
+          "drug_ids": [
+            "fen_sodium_bicarbonate_oral",
+            "fen_sodium_bicarbonate_iv"
+          ]
+        },
+        {
+          "id": "fen_albumin",
+          "name": "Human albumin solutions",
+          "mechanism": "Expands plasma oncotic pressure and intravascular volume; indication-specific albumin effects",
+          "target": "Plasma oncotic pressure / intravascular compartment",
+          "tags": [
+            "albumin",
+            "resuscitation",
+            "specialist"
+          ],
+          "role_note": "Specialized colloid for defined indications such as selected cirrhosis complications or plasma-volume contexts; not routine maintenance fluid.",
+          "drug_ids": [
+            "fen_albumin_5",
+            "fen_albumin_25"
+          ]
+        },
+        {
+          "id": "fen_thiamine",
+          "name": "Thiamine for malnutrition/refeeding risk",
+          "mechanism": "Replenishes thiamine required for carbohydrate metabolism and pyruvate dehydrogenase activity",
+          "target": "Thiamine-dependent enzymes",
+          "tags": [
+            "refeeding",
+            "micronutrients",
+            "specialist"
+          ],
+          "role_note": "Give before/with carbohydrate feeding in patients at meaningful deficiency/refeeding risk according to protocol.",
+          "drug_ids": [
+            "fen_thiamine_oral",
+            "fen_thiamine_iv"
+          ]
+        },
+        {
+          "id": "fen_multivit_trace",
+          "name": "Multivitamin and trace-element replacement",
+          "mechanism": "Supplies essential vitamin cofactors and trace elements during inadequate intake or artificial nutrition",
+          "target": "Multiple micronutrient pathways",
+          "tags": [
+            "micronutrients",
+            "parenteral",
+            "enteral"
+          ],
+          "role_note": "Use deficiency- and nutrition-route-specific preparations; avoid indiscriminate megadosing.",
+          "drug_ids": [
+            "fen_oral_multivitamin",
+            "fen_parenteral_multivitamin",
+            "fen_parenteral_trace_elements"
+          ]
+        },
+        {
+          "id": "fen_ons",
+          "name": "Oral nutrition supplements (ONS)",
+          "mechanism": "Increase energy/protein/micronutrient intake when diet alone is insufficient",
+          "target": "Oral nutrient delivery",
+          "tags": [
+            "ons",
+            "protein",
+            "micronutrients"
+          ],
+          "role_note": "First-line nutrition support when the gut works and oral intake can be augmented.",
+          "drug_ids": [
+            "fen_standard_ons",
+            "fen_high_protein_ons"
+          ]
+        },
+        {
+          "id": "fen_enteral_standard",
+          "name": "Standard polymeric enteral nutrition",
+          "mechanism": "Provides intact protein, carbohydrate, fat, water and micronutrients through the GI tract",
+          "target": "Enteral nutrient absorption",
+          "tags": [
+            "enteral",
+            "protein",
+            "micronutrients"
+          ],
+          "role_note": "Preferred over PN when the GI tract is functional but oral intake is inadequate.",
+          "drug_ids": [
+            "fen_polymeric_en",
+            "fen_fiber_en"
+          ]
+        },
+        {
+          "id": "fen_enteral_special",
+          "name": "Disease-specific / concentrated enteral nutrition",
+          "mechanism": "Adjusts energy density, protein, electrolyte or carbohydrate profile for selected clinical needs",
+          "target": "Condition-specific nutrient composition",
+          "tags": [
+            "enteral",
+            "protein",
+            "renal_monitor",
+            "glucose_monitor"
+          ],
+          "role_note": "Use only when disease-specific composition offers a practical advantage; formula choice does not replace clinical targets.",
+          "drug_ids": [
+            "fen_renal_en",
+            "fen_diabetes_en"
+          ]
+        },
+        {
+          "id": "fen_pn_amino",
+          "name": "Parenteral amino-acid solutions",
+          "mechanism": "Provide intravenous amino acids for protein synthesis when enteral nutrition is not feasible/adequate",
+          "target": "Systemic amino-acid pool",
+          "tags": [
+            "parenteral",
+            "protein",
+            "specialist"
+          ],
+          "role_note": "Core macronutrient component of PN; g/kg target depends on illness, organ function and catabolic state.",
+          "drug_ids": [
+            "fen_amino_acid_solution"
+          ]
+        },
+        {
+          "id": "fen_pn_dextrose",
+          "name": "Parenteral dextrose",
+          "mechanism": "Provides intravenous carbohydrate calories",
+          "target": "Systemic glucose oxidation",
+          "tags": [
+            "parenteral",
+            "glucose_monitor",
+            "specialist"
+          ],
+          "role_note": "Main carbohydrate macronutrient in PN; glucose infusion rate and total calories require individualized calculation.",
+          "drug_ids": [
+            "fen_pn_dextrose_solution"
+          ]
+        },
+        {
+          "id": "fen_pn_lipid",
+          "name": "Intravenous lipid emulsions",
+          "mechanism": "Provide essential fatty acids and dense non-glucose calories",
+          "target": "Systemic lipid transport/oxidation",
+          "tags": [
+            "parenteral",
+            "specialist"
+          ],
+          "role_note": "PN macronutrient and essential-fatty-acid source; formulation-specific fatty-acid profile differs.",
+          "drug_ids": [
+            "fen_soy_lipid_emulsion",
+            "fen_mixed_oil_lipid_emulsion"
+          ]
+        },
+        {
+          "id": "fen_zinc",
+          "name": "Zinc replacement / diarrheal adjunct",
+          "mechanism": "Replenishes zinc needed for epithelial, immune and enzymatic functions",
+          "target": "Zinc-dependent enzymes and epithelial repair",
+          "tags": [
+            "micronutrients",
+            "oral_rehydration"
+          ],
+          "role_note": "Useful in documented deficiency and as WHO-recommended pediatric acute-diarrhea adjunct; adult routine use depends on indication.",
+          "drug_ids": [
+            "fen_zinc_sulfate",
+            "fen_zinc_acetate"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "fen_who_ors",
+          "generic": "WHO reduced-osmolarity ORS",
+          "class_id": "fen_ors",
+          "form": "Powder sachet for solution",
+          "route": "Oral",
+          "dose_example": "Reconstitute exactly to the product/WHO instructions; standard WHO formulation is designed for 1 L with total osmolarity about 245 mOsm/L.",
+          "tags": [
+            "oral_rehydration",
+            "volume_status"
+          ],
+          "role": "Oral rehydration fluid/electrolyte replacement.",
+          "monitoring_pearl": "Assess dehydration severity, ongoing stool/vomit losses and ability to drink; do not concentrate or dilute incorrectly.",
+          "source_refs": [
+            "WHO_ORS"
+          ]
+        },
+        {
+          "id": "fen_ors_ready",
+          "generic": "Ready-to-use reduced-osmolarity ORS",
+          "class_id": "fen_ors",
+          "form": "Premixed oral solution",
+          "route": "Oral",
+          "dose_example": "Use label-defined volume; replacement volume is driven by clinical dehydration/ongoing losses rather than a fixed adult dose.",
+          "tags": [
+            "oral_rehydration"
+          ],
+          "role": "Convenience ORS formulation.",
+          "monitoring_pearl": "Avoid confusing sports/energy drinks with true ORS; verify sodium/glucose composition.",
+          "source_refs": [
+            "WHO_ORS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_sodium_chloride_09",
+          "generic": "Sodium chloride 0.9%",
+          "class_id": "fen_normal_saline",
+          "form": "IV infusion solution",
+          "route": "IV",
+          "dose_example": "Bolus/maintenance volume and rate are indication- and patient-specific; use an IV-fluid protocol rather than a universal rate.",
+          "tags": [
+            "resuscitation",
+            "maintenance",
+            "saline",
+            "renal_monitor"
+          ],
+          "role": "Isotonic chloride-rich crystalloid.",
+          "monitoring_pearl": "Monitor BP/perfusion, urine output, edema, sodium/chloride, acid-base status and renal function.",
+          "source_refs": [
+            "NICE_IV_FLUIDS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_lactated_ringers",
+          "generic": "Lactated Ringer’s / Hartmann’s solution",
+          "class_id": "fen_balanced_crystalloid",
+          "form": "IV infusion solution",
+          "route": "IV",
+          "dose_example": "Volume/rate based on resuscitation or replacement need; verify local product composition.",
+          "tags": [
+            "resuscitation",
+            "maintenance",
+            "balanced_crystalloid",
+            "renal_monitor"
+          ],
+          "role": "Balanced crystalloid containing lactate and small amounts of K/Ca.",
+          "monitoring_pearl": "Monitor volume status, electrolytes and acid-base status; check compatibility with concurrently infused drugs/blood products.",
+          "source_refs": [
+            "NICE_IV_FLUIDS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_plasmalyte",
+          "generic": "Balanced acetate/gluconate crystalloid (e.g., Plasma-Lyte type)",
+          "class_id": "fen_balanced_crystalloid",
+          "form": "IV infusion solution",
+          "route": "IV",
+          "dose_example": "Volume/rate based on clinical need; verify exact electrolyte composition and compatibility.",
+          "tags": [
+            "resuscitation",
+            "maintenance",
+            "balanced_crystalloid",
+            "renal_monitor"
+          ],
+          "role": "Balanced chloride-sparing crystalloid.",
+          "monitoring_pearl": "Monitor volume status, electrolytes and acid-base status; check compatibility with concurrently infused drugs/blood products.",
+          "source_refs": [
+            "NICE_IV_FLUIDS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_d5w",
+          "generic": "Dextrose 5% in water (D5W)",
+          "class_id": "fen_dextrose_water",
+          "form": "IV infusion solution",
+          "route": "IV",
+          "dose_example": "Rate based on free-water/maintenance calculation and glucose/sodium monitoring; not a universal fixed rate.",
+          "tags": [
+            "maintenance",
+            "hypernatremia",
+            "glucose_monitor"
+          ],
+          "role": "Electrolyte-free water effect after dextrose metabolism.",
+          "monitoring_pearl": "Monitor glucose, sodium and fluid balance; rapid electrolyte-free water delivery can worsen hyponatremia.",
+          "source_refs": [
+            "NICE_IV_FLUIDS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_d10w",
+          "generic": "Dextrose 10% in water (D10W)",
+          "class_id": "fen_dextrose_water",
+          "form": "IV infusion solution",
+          "route": "IV",
+          "dose_example": "Use indication-specific glucose protocol; concentration/rate depend on hypoglycemia/nutrition context.",
+          "tags": [
+            "maintenance",
+            "hypernatremia",
+            "glucose_monitor"
+          ],
+          "role": "Higher-concentration dextrose source.",
+          "monitoring_pearl": "Monitor glucose, sodium and fluid balance; rapid electrolyte-free water delivery can worsen hyponatremia.",
+          "source_refs": [
+            "NICE_IV_FLUIDS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_sodium_chloride_3",
+          "generic": "Sodium chloride 3%",
+          "class_id": "fen_hypertonic_saline",
+          "form": "Hypertonic IV solution",
+          "route": "IV",
+          "dose_example": "Guidelines use protocolized boluses/infusion for severe symptomatic hyponatremia; exact bolus volume and repeat schedule must follow the current monitored protocol.",
+          "tags": [
+            "hyponatremia",
+            "hypertonic_saline",
+            "emergency",
+            "cardiac_monitor"
+          ],
+          "role": "Hypertonic saline for severe symptomatic hyponatremia or selected neurocritical indications.",
+          "monitoring_pearl": "Frequent serum sodium checks are essential; overcorrection can cause osmotic demyelination. No automatic correction-rate calculator in this lab.",
+          "source_refs": [
+            "ESE_HYPONATREMIA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_urea",
+          "generic": "Oral urea",
+          "class_id": "fen_siadh_solute",
+          "form": "Oral powder/granules",
+          "route": "Oral",
+          "dose_example": "Dose is specialist/protocol-specific; commonly divided daily dosing is used, but exact grams depend on product and sodium response.",
+          "tags": [
+            "hyponatremia",
+            "siadh",
+            "specialist"
+          ],
+          "role": "Osmotic solute therapy for chronic SIADH in selected settings.",
+          "monitoring_pearl": "Monitor sodium correction and tolerability; exclude adrenal/thyroid/volume causes before labeling SIADH.",
+          "source_refs": [
+            "ESE_HYPONATREMIA"
+          ]
+        },
+        {
+          "id": "fen_tolvaptan",
+          "generic": "Tolvaptan",
+          "class_id": "fen_vaptan",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Label- and indication-specific initiation/titration in a monitored setting; verify current local restrictions.",
+          "tags": [
+            "hyponatremia",
+            "siadh",
+            "specialist",
+            "hepatic_monitor"
+          ],
+          "role": "Aquaretic V2 antagonist.",
+          "monitoring_pearl": "Risk of overly rapid sodium correction and hepatic toxicity; water access and sodium monitoring are essential.",
+          "source_refs": [
+            "ESE_HYPONATREMIA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_desmopressin",
+          "generic": "Desmopressin",
+          "class_id": "fen_desmopressin_water",
+          "form": "Tablet/nasal/injection formulations",
+          "route": "Oral/intranasal/IV/SC",
+          "dose_example": "Dose is indication- and formulation-specific; intranasal, oral and parenteral doses are not interchangeable.",
+          "tags": [
+            "di",
+            "hypernatremia",
+            "specialist"
+          ],
+          "role": "Replacement antidiuretic therapy in central DI.",
+          "monitoring_pearl": "Monitor sodium and fluid intake; excess desmopressin can cause dangerous water retention/hyponatremia.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_potassium_chloride_oral",
+          "generic": "Potassium chloride — oral",
+          "class_id": "fen_potassium_oral",
+          "form": "ER tablet/capsule/liquid",
+          "route": "Oral",
+          "dose_example": "Replacement is prescribed in mEq/mmol according to serum K, losses and renal function; use divided protocol-specific dosing.",
+          "tags": [
+            "hypokalemia",
+            "renal_monitor",
+            "cardiac_monitor"
+          ],
+          "role": "Common oral potassium replacement salt.",
+          "monitoring_pearl": "Recheck potassium and renal function; hyperkalemia risk rises with CKD and RAAS/MRA therapy.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_potassium_bicarbonate_citrate",
+          "generic": "Potassium bicarbonate/citrate salts",
+          "class_id": "fen_potassium_oral",
+          "form": "Tablet/powder/solution",
+          "route": "Oral",
+          "dose_example": "mEq-based dosing depends on potassium deficit plus acid-base/stone indication.",
+          "tags": [
+            "hypokalemia",
+            "renal_monitor",
+            "cardiac_monitor"
+          ],
+          "role": "Alkalinizing potassium salts for selected hypokalemia/acidosis/stone contexts.",
+          "monitoring_pearl": "Recheck potassium and renal function; hyperkalemia risk rises with CKD and RAAS/MRA therapy.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_potassium_chloride_iv",
+          "generic": "Potassium chloride — IV concentrate/premix",
+          "class_id": "fen_potassium_iv",
+          "form": "Premixed IV bag / concentrate for dilution",
+          "route": "IV",
+          "dose_example": "Use only protocol-defined diluted concentrations and infusion rates. NEVER administer potassium chloride as an IV push.",
+          "tags": [
+            "hypokalemia",
+            "emergency",
+            "cardiac_monitor",
+            "renal_monitor"
+          ],
+          "role": "IV potassium replacement.",
+          "monitoring_pearl": "Continuous ECG may be required for faster replacement; verify urine output, renal function, magnesium and repeat potassium.",
+          "source_refs": [
+            "DAILYMED",
+            "KDIGO_CKD_2024"
+          ]
+        },
+        {
+          "id": "fen_magnesium_oxide",
+          "generic": "Magnesium oxide",
+          "class_id": "fen_magnesium",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Elemental-magnesium content varies by salt/product; dose by elemental magnesium and tolerance.",
+          "tags": [
+            "hypomagnesemia",
+            "cardiac_monitor",
+            "renal_monitor"
+          ],
+          "role": "Common oral magnesium replacement.",
+          "monitoring_pearl": "Monitor magnesium, renal function, reflexes/respiratory status with high-dose IV therapy; correct Mg when hypokalemia is refractory.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_magnesium_sulfate",
+          "generic": "Magnesium sulfate",
+          "class_id": "fen_magnesium",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Dose/rate are indication-specific (replacement, torsades, obstetric use etc.); follow monitored protocol.",
+          "tags": [
+            "hypomagnesemia",
+            "cardiac_monitor",
+            "renal_monitor"
+          ],
+          "role": "IV magnesium for severe/symptomatic deficiency and selected emergencies.",
+          "monitoring_pearl": "Monitor magnesium, renal function, reflexes/respiratory status with high-dose IV therapy; correct Mg when hypokalemia is refractory.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_calcium_carbonate",
+          "generic": "Calcium carbonate",
+          "class_id": "fen_calcium",
+          "form": "Tablet/chewable",
+          "route": "Oral",
+          "dose_example": "Elemental-calcium content varies; chronic supplementation should follow dietary need and indication.",
+          "tags": [
+            "hypocalcemia",
+            "micronutrients",
+            "cardiac_monitor"
+          ],
+          "role": "Oral calcium supplement with acid-dependent absorption.",
+          "monitoring_pearl": "Check ionized/total calcium context, magnesium, renal function and ECG for IV therapy; extravasation can injure tissue.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_calcium_citrate",
+          "generic": "Calcium citrate",
+          "class_id": "fen_calcium",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Dose by elemental calcium; often useful when gastric acid is reduced.",
+          "tags": [
+            "hypocalcemia",
+            "micronutrients",
+            "cardiac_monitor"
+          ],
+          "role": "Oral calcium supplement.",
+          "monitoring_pearl": "Check ionized/total calcium context, magnesium, renal function and ECG for IV therapy; extravasation can injure tissue.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_calcium_gluconate_iv",
+          "generic": "Calcium gluconate",
+          "class_id": "fen_calcium",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Emergency dose is protocol-specific and indication-dependent; monitor ECG and IV site.",
+          "tags": [
+            "hypocalcemia",
+            "emergency",
+            "cardiac_monitor"
+          ],
+          "role": "IV calcium with lower elemental calcium per mL than calcium chloride.",
+          "monitoring_pearl": "Check ionized/total calcium context, magnesium, renal function and ECG for IV therapy; extravasation can injure tissue.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_calcium_chloride_iv",
+          "generic": "Calcium chloride",
+          "class_id": "fen_calcium",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Emergency/procedural use only; concentration and line choice are protocol-specific due to tissue injury risk.",
+          "tags": [
+            "hypocalcemia",
+            "emergency",
+            "cardiac_monitor"
+          ],
+          "role": "Concentrated IV calcium, often central-line/critical-care context.",
+          "monitoring_pearl": "Check ionized/total calcium context, magnesium, renal function and ECG for IV therapy; extravasation can injure tissue.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_oral_phosphate",
+          "generic": "Oral phosphate salts",
+          "class_id": "fen_phosphate",
+          "form": "Tablet/powder/solution",
+          "route": "Oral",
+          "dose_example": "Dose by mmol phosphate and product composition; sodium and potassium content differ.",
+          "tags": [
+            "hypophosphatemia",
+            "refeeding",
+            "renal_monitor"
+          ],
+          "role": "Oral phosphate replacement.",
+          "monitoring_pearl": "Monitor phosphate, calcium, potassium, sodium and renal function; rapid IV phosphate can cause hypocalcemia/arrhythmia.",
+          "source_refs": [
+            "ASPEN_REFEED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_potassium_phosphate_iv",
+          "generic": "Potassium phosphate",
+          "class_id": "fen_phosphate",
+          "form": "Injection concentrate",
+          "route": "IV",
+          "dose_example": "IV mmol dose/rate is protocolized according to phosphate, potassium and renal function.",
+          "tags": [
+            "hypophosphatemia",
+            "refeeding",
+            "renal_monitor"
+          ],
+          "role": "IV phosphate with potassium load.",
+          "monitoring_pearl": "Monitor phosphate, calcium, potassium, sodium and renal function; rapid IV phosphate can cause hypocalcemia/arrhythmia.",
+          "source_refs": [
+            "ASPEN_REFEED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_sodium_phosphate_iv",
+          "generic": "Sodium phosphate",
+          "class_id": "fen_phosphate",
+          "form": "Injection concentrate",
+          "route": "IV",
+          "dose_example": "IV mmol dose/rate is protocolized according to phosphate, sodium and renal function.",
+          "tags": [
+            "hypophosphatemia",
+            "refeeding",
+            "renal_monitor"
+          ],
+          "role": "IV phosphate without potassium load.",
+          "monitoring_pearl": "Monitor phosphate, calcium, potassium, sodium and renal function; rapid IV phosphate can cause hypocalcemia/arrhythmia.",
+          "source_refs": [
+            "ASPEN_REFEED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_sodium_bicarbonate_oral",
+          "generic": "Sodium bicarbonate",
+          "class_id": "fen_bicarbonate",
+          "form": "Tablet/powder",
+          "route": "Oral",
+          "dose_example": "Dose titrated to bicarbonate/acid-base target and sodium/volume tolerance.",
+          "tags": [
+            "acid_base",
+            "renal_monitor",
+            "maintenance"
+          ],
+          "role": "Oral alkali for selected chronic metabolic acidosis.",
+          "monitoring_pearl": "Monitor pH/bicarbonate, sodium, potassium, volume status and CO2 generation; avoid treating numbers without the underlying cause.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_sodium_bicarbonate_iv",
+          "generic": "Sodium bicarbonate",
+          "class_id": "fen_bicarbonate",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Dose is ABG/acid-base- and indication-specific; no universal empiric dose.",
+          "tags": [
+            "acid_base",
+            "renal_monitor",
+            "emergency"
+          ],
+          "role": "IV alkali for selected severe acidemia/toxicologic/emergency contexts.",
+          "monitoring_pearl": "Monitor pH/bicarbonate, sodium, potassium, volume status and CO2 generation; avoid treating numbers without the underlying cause.",
+          "source_refs": [
+            "KDIGO_CKD_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_albumin_5",
+          "generic": "Human albumin 5%",
+          "class_id": "fen_albumin",
+          "form": "IV solution",
+          "route": "IV",
+          "dose_example": "Dose/volume depends on indication and hemodynamic response.",
+          "tags": [
+            "albumin",
+            "specialist",
+            "volume_status"
+          ],
+          "role": "Iso-oncotic albumin solution.",
+          "monitoring_pearl": "Monitor volume status, pulmonary edema risk and indication-specific endpoints; verify cirrhosis/HRS/paracentesis protocols separately.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_albumin_25",
+          "generic": "Human albumin 20–25%",
+          "class_id": "fen_albumin",
+          "form": "IV solution",
+          "route": "IV",
+          "dose_example": "Concentrated albumin dose is indication-specific; cirrhosis protocols use context-specific grams/kg or grams after procedures.",
+          "tags": [
+            "albumin",
+            "specialist",
+            "volume_status"
+          ],
+          "role": "Hyperoncotic albumin solution.",
+          "monitoring_pearl": "Monitor volume status, pulmonary edema risk and indication-specific endpoints; verify cirrhosis/HRS/paracentesis protocols separately.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_thiamine_oral",
+          "generic": "Thiamine (vitamin B1)",
+          "class_id": "fen_thiamine",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Refeeding-risk prophylaxis doses vary by guideline and risk; verify institutional protocol.",
+          "tags": [
+            "refeeding",
+            "micronutrients",
+            "specialist"
+          ],
+          "role": "Oral thiamine for selected nutritional deficiency/refeeding prevention.",
+          "monitoring_pearl": "Do not delay urgent thiamine in high-risk neurologic presentations; simultaneously monitor K/Mg/phosphate during refeeding.",
+          "source_refs": [
+            "ASPEN_REFEED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_thiamine_iv",
+          "generic": "Thiamine (vitamin B1)",
+          "class_id": "fen_thiamine",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Parenteral dose is indication-specific (refeeding risk vs suspected Wernicke encephalopathy).",
+          "tags": [
+            "refeeding",
+            "micronutrients",
+            "specialist"
+          ],
+          "role": "Parenteral thiamine for high-risk or malabsorptive states.",
+          "monitoring_pearl": "Do not delay urgent thiamine in high-risk neurologic presentations; simultaneously monitor K/Mg/phosphate during refeeding.",
+          "source_refs": [
+            "ASPEN_REFEED",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_oral_multivitamin",
+          "generic": "Standard oral multivitamin/mineral preparation",
+          "class_id": "fen_multivit_trace",
+          "form": "Tablet/capsule/liquid",
+          "route": "Oral",
+          "dose_example": "Use product label/RDA-oriented dosing; not a substitute for treating documented specific deficiencies.",
+          "tags": [
+            "micronutrients",
+            "ons"
+          ],
+          "role": "General oral micronutrient supplement when indicated.",
+          "monitoring_pearl": "Monitor for deficiency/excess in long-term support; copper/manganese, selenium, zinc and chromium needs vary with disease and losses.",
+          "source_refs": [
+            "ASPEN_PN",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_parenteral_multivitamin",
+          "generic": "Parenteral multivitamin preparation",
+          "class_id": "fen_multivit_trace",
+          "form": "Injection additive",
+          "route": "IV in PN",
+          "dose_example": "Daily PN additive is product- and protocol-specific.",
+          "tags": [
+            "micronutrients",
+            "parenteral"
+          ],
+          "role": "Vitamin component of parenteral nutrition.",
+          "monitoring_pearl": "Monitor for deficiency/excess in long-term support; copper/manganese, selenium, zinc and chromium needs vary with disease and losses.",
+          "source_refs": [
+            "ASPEN_PN",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_parenteral_trace_elements",
+          "generic": "Parenteral trace-element mixture",
+          "class_id": "fen_multivit_trace",
+          "form": "Injection additive",
+          "route": "IV in PN",
+          "dose_example": "Daily trace-element amount is formulation-specific and may need adjustment in cholestasis/renal dysfunction.",
+          "tags": [
+            "micronutrients",
+            "parenteral"
+          ],
+          "role": "Trace-element component of PN.",
+          "monitoring_pearl": "Monitor for deficiency/excess in long-term support; copper/manganese, selenium, zinc and chromium needs vary with disease and losses.",
+          "source_refs": [
+            "ASPEN_PN",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_standard_ons",
+          "generic": "Standard complete oral nutrition supplement",
+          "class_id": "fen_ons",
+          "form": "Ready-to-drink/powder",
+          "route": "Oral",
+          "dose_example": "Volume and servings are individualized to estimated calorie/protein deficit.",
+          "tags": [
+            "ons",
+            "protein"
+          ],
+          "role": "Balanced oral energy/protein/micronutrient supplement.",
+          "monitoring_pearl": "Track intake, weight trajectory, GI tolerance, hydration and disease-specific protein restrictions/needs.",
+          "source_refs": [
+            "ASPEN_GUIDELINES"
+          ]
+        },
+        {
+          "id": "fen_high_protein_ons",
+          "generic": "High-protein oral nutrition supplement",
+          "class_id": "fen_ons",
+          "form": "Ready-to-drink/powder",
+          "route": "Oral",
+          "dose_example": "Serving frequency is individualized to protein target, renal/hepatic status and intake.",
+          "tags": [
+            "ons",
+            "protein"
+          ],
+          "role": "Protein-enriched oral supplement.",
+          "monitoring_pearl": "Track intake, weight trajectory, GI tolerance, hydration and disease-specific protein restrictions/needs.",
+          "source_refs": [
+            "ASPEN_GUIDELINES"
+          ]
+        },
+        {
+          "id": "fen_polymeric_en",
+          "generic": "Standard polymeric enteral formula",
+          "class_id": "fen_enteral_standard",
+          "form": "Liquid formula",
+          "route": "Enteral tube/oral",
+          "dose_example": "Start/advance rate according to aspiration risk, GI tolerance, calorie/protein target and refeeding risk.",
+          "tags": [
+            "enteral",
+            "protein"
+          ],
+          "role": "Complete standard enteral formula.",
+          "monitoring_pearl": "Monitor aspiration risk, bowel function, hydration, glucose, electrolytes and tube position/care.",
+          "source_refs": [
+            "ASPEN_EN",
+            "ASPEN_GUIDELINES"
+          ]
+        },
+        {
+          "id": "fen_fiber_en",
+          "generic": "Fiber-containing polymeric enteral formula",
+          "class_id": "fen_enteral_standard",
+          "form": "Liquid formula",
+          "route": "Enteral tube/oral",
+          "dose_example": "Rate/volume based on nutrition target and GI tolerance.",
+          "tags": [
+            "enteral",
+            "protein"
+          ],
+          "role": "Standard enteral formula with fiber.",
+          "monitoring_pearl": "Monitor aspiration risk, bowel function, hydration, glucose, electrolytes and tube position/care.",
+          "source_refs": [
+            "ASPEN_EN",
+            "ASPEN_GUIDELINES"
+          ]
+        },
+        {
+          "id": "fen_renal_en",
+          "generic": "Renal-oriented enteral formula",
+          "class_id": "fen_enteral_special",
+          "form": "Concentrated liquid formula",
+          "route": "Enteral",
+          "dose_example": "Volume/rate individualized; protein/electrolyte goals differ in nondialysis CKD vs dialysis/critical illness.",
+          "tags": [
+            "enteral",
+            "renal_monitor"
+          ],
+          "role": "Concentrated/electrolyte-modified enteral option.",
+          "monitoring_pearl": "Monitor glucose/electrolytes and overall nutrition target; evidence for disease-specific formulas varies by population.",
+          "source_refs": [
+            "ASPEN_EN",
+            "ASPEN_GUIDELINES"
+          ]
+        },
+        {
+          "id": "fen_diabetes_en",
+          "generic": "Diabetes-oriented enteral formula",
+          "class_id": "fen_enteral_special",
+          "form": "Liquid formula",
+          "route": "Enteral",
+          "dose_example": "Rate/volume individualized to calorie target and glycemic response.",
+          "tags": [
+            "enteral",
+            "glucose_monitor"
+          ],
+          "role": "Lower-glycemic carbohydrate/fat-profile enteral option.",
+          "monitoring_pearl": "Monitor glucose/electrolytes and overall nutrition target; evidence for disease-specific formulas varies by population.",
+          "source_refs": [
+            "ASPEN_EN",
+            "ASPEN_GUIDELINES"
+          ]
+        },
+        {
+          "id": "fen_amino_acid_solution",
+          "generic": "Crystalline amino-acid solution",
+          "class_id": "fen_pn_amino",
+          "form": "Sterile IV solution for PN",
+          "route": "IV",
+          "dose_example": "Protein/amino-acid target is weight- and condition-specific; prescribed as grams/day or g/kg/day within a complete PN order.",
+          "tags": [
+            "parenteral",
+            "protein",
+            "specialist"
+          ],
+          "role": "Parenteral protein source.",
+          "monitoring_pearl": "Monitor renal/hepatic function, nitrogen balance context, glucose/electrolytes and complete PN compatibility.",
+          "source_refs": [
+            "ASPEN_PN",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_pn_dextrose_solution",
+          "generic": "Dextrose injection for PN",
+          "class_id": "fen_pn_dextrose",
+          "form": "Concentrated sterile IV solution",
+          "route": "IV within PN",
+          "dose_example": "Concentration and grams/day are calculated in a complete PN prescription; avoid a generic fixed infusion rate.",
+          "tags": [
+            "parenteral",
+            "glucose_monitor",
+            "specialist"
+          ],
+          "role": "Parenteral carbohydrate source.",
+          "monitoring_pearl": "Monitor glucose, triglycerides/overall energy balance, electrolytes and refeeding risk.",
+          "source_refs": [
+            "ASPEN_PN",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_soy_lipid_emulsion",
+          "generic": "Soybean-oil–based IV lipid emulsion",
+          "class_id": "fen_pn_lipid",
+          "form": "IV emulsion",
+          "route": "IV within/separate from PN",
+          "dose_example": "g/kg/day and infusion rate are protocol/product-specific.",
+          "tags": [
+            "parenteral",
+            "specialist"
+          ],
+          "role": "Traditional IV lipid emulsion.",
+          "monitoring_pearl": "Monitor triglycerides, liver tests, essential-fatty-acid adequacy and compatibility; product-specific contraindications apply.",
+          "source_refs": [
+            "ASPEN_PN",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_mixed_oil_lipid_emulsion",
+          "generic": "Mixed-oil IV lipid emulsion (SMOF-type)",
+          "class_id": "fen_pn_lipid",
+          "form": "IV emulsion",
+          "route": "IV within/separate from PN",
+          "dose_example": "g/kg/day and infusion rate are protocol/product-specific.",
+          "tags": [
+            "parenteral",
+            "specialist"
+          ],
+          "role": "Mixed soybean/MCT/olive/fish-oil lipid formulation.",
+          "monitoring_pearl": "Monitor triglycerides, liver tests, essential-fatty-acid adequacy and compatibility; product-specific contraindications apply.",
+          "source_refs": [
+            "ASPEN_PN",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_zinc_sulfate",
+          "generic": "Zinc sulfate",
+          "class_id": "fen_zinc",
+          "form": "Tablet/syrup",
+          "route": "Oral",
+          "dose_example": "Pediatric acute-diarrhea dosing is age-specific and should follow WHO/local pediatric protocol; adult deficiency dosing is product-specific.",
+          "tags": [
+            "micronutrients",
+            "oral_rehydration"
+          ],
+          "role": "Common oral zinc salt.",
+          "monitoring_pearl": "Long-term high-dose zinc can cause copper deficiency; verify elemental zinc content and indication.",
+          "source_refs": [
+            "WHO_ORS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fen_zinc_acetate",
+          "generic": "Zinc acetate",
+          "class_id": "fen_zinc",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Elemental-zinc content and indication-specific dose must be verified.",
+          "tags": [
+            "micronutrients",
+            "oral_rehydration"
+          ],
+          "role": "Alternative oral zinc salt.",
+          "monitoring_pearl": "Long-term high-dose zinc can cause copper deficiency; verify elemental zinc content and indication.",
+          "source_refs": [
+            "WHO_ORS",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "NICE_IV_FLUIDS",
+          "label": "NICE CG174 — Intravenous fluid therapy in adults in hospital",
+          "url": "https://www.nice.org.uk/guidance/cg174"
+        },
+        {
+          "id": "WHO_ORS",
+          "label": "WHO/UNICEF — Reduced-osmolarity Oral Rehydration Salts",
+          "url": "https://www.who.int/publications/i/item/WHO-FCH-CAH-06.1"
+        },
+        {
+          "id": "KDIGO_CKD_2024",
+          "label": "KDIGO 2024 Clinical Practice Guideline for CKD",
+          "url": "https://kdigo.org/guidelines/ckd-evaluation-and-management/"
+        },
+        {
+          "id": "ESE_HYPONATREMIA",
+          "label": "European Society of Endocrinology — Clinical guideline for management of hyponatraemia",
+          "url": "https://www.ese-hormones.org/publications/directory/ese-clinical-guideline-for-the-management-of-hyponatraemia/"
+        },
+        {
+          "id": "ASPEN_GUIDELINES",
+          "label": "ASPEN Guidelines & Standards — Nutrition support",
+          "url": "https://nutritioncare.org/clinical-resources/guidelines-standards/"
+        },
+        {
+          "id": "ASPEN_REFEED",
+          "label": "ASPEN Consensus Recommendations for Refeeding Syndrome",
+          "url": "https://nutritioncare.org/clinical-resources/guidelines-standards/"
+        },
+        {
+          "id": "ASPEN_PN",
+          "label": "ASPEN Parenteral Nutrition resources and safety guidance",
+          "url": "https://nutritioncare.org/clinical-resources/parenteral-nutrition/"
+        },
+        {
+          "id": "ASPEN_EN",
+          "label": "ASPEN Enteral Nutrition essential resources",
+          "url": "https://nutritioncare.org/clinical-resources/enteral-nutrition/en-essential-resources/"
         },
         {
           "id": "DAILYMED",
