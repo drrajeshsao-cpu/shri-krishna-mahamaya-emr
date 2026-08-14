@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya.common_chronic_pharmacology.v1",
-  "version": "1.4C1",
-  "app_version": "V5.40C-1",
-  "build": "2026.08.14-R25C1",
-  "name": "High-Use Pharmacology Intelligence Labs — through Neurology/Neuro-Psych",
+  "version": "1.4C2",
+  "app_version": "V5.40C-2",
+  "build": "2026.08.14-R25C2",
+  "name": "High-Use Pharmacology Intelligence Labs — through Bone/Osteoporosis/Rheumatology",
   "counts": {
-    "labs": 8,
-    "classes": 210,
-    "drug_profiles": 613
+    "labs": 9,
+    "classes": 236,
+    "drug_profiles": 670
   },
-  "global_boundary": "Research/learning pharmacology only. Class tags and adult learning-dose snapshots are not patient-specific prescribing instructions. Verify diagnosis/syndrome, indication, formulation/route, current label/guideline, age/weight, renal/hepatic function, pregnancy/lactation, contraindications, interactions, tapering/withdrawal requirements and monitoring before prescribing. Neurologic/psychiatric drugs may worsen seizures, mania, suicidality, cognition, falls, QT, metabolic status or withdrawal risk if misapplied.",
+  "global_boundary": "Research/learning pharmacology only. Class tags and adult learning-dose snapshots are not patient-specific prescriptions. Verify diagnosis, fracture/inflammatory-disease phenotype, indication, formulation/route, current label/guideline, age/weight, renal/hepatic function, pregnancy/reproductive plan, infection/TB/hepatitis status, vaccination, contraindications, interactions and monitoring. Osteoporosis sequencing and DMARD/biologic decisions may have high-consequence stop/start effects.",
   "labs": [
     {
       "id": "hypertension",
@@ -18553,6 +18553,1995 @@
           "id": "DAILYMED",
           "label": "DailyMed — current US FDA-submitted product labeling",
           "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "bone_rheum",
+      "title": "Bone • Osteoporosis • Rheumatology Intelligence Lab",
+      "icon": "🦴",
+      "badge": "BONE-RHEUM v1.0",
+      "eyebrow": "BONE REMODELING • GOUT • DMARD • BIOLOGIC • IMMUNE TARGETS",
+      "subtitle": "Osteoporosis, calcium/vitamin-D, gout/urate, conventional DMARDs, biologic/targeted DMARDs and lupus immunomodulator pharmacology organized for comparative learning.",
+      "scientific_boundary": "Bone and rheumatology medicines are diagnosis-, fracture-risk-, renal-function-, infection-, vaccination-, pregnancy- and immunologic-phenotype dependent. DMARDs are disease-modifying, not merely analgesics. Biologic/targeted agents require infection/TB/hepatitis screening and monitoring. Denosumab should not be stopped without an antiresorptive transition plan; methotrexate for rheumatic disease is generally weekly, not daily.",
+      "classification_notes": {
+        "Bone_remodeling": "Antiresorptive and anabolic osteoporosis therapies act on different sides of bone remodeling; sequence matters in very-high-risk disease.",
+        "Urate_science": "Acute gout inflammation treatment and long-term urate-lowering therapy are separate decisions; treat-to-target urate strategies require titration.",
+        "DMARD_hierarchy": "Conventional synthetic, biologic and targeted synthetic DMARDs differ in immune targets, onset, infection risk, monitoring and pregnancy compatibility.",
+        "Immune_safety": "Before biologic/JAK or potent immunosuppression, review active/latent infection, TB, hepatitis, vaccination, malignancy risk and reproductive plan.",
+        "Osteoarthritis_boundary": "OA pharmacology is symptom-modifying, not cartilage-regenerating. Topical/oral NSAIDs, acetaminophen, duloxetine and intra-articular corticosteroid have different risk/benefit profiles; exercise, weight management and mechanical interventions remain central.",
+        "GIOP": "Glucocorticoid-induced osteoporosis risk depends on dose, duration, age, prior fracture and BMD/FRAX context. Bone-protective therapy should be risk-stratified and should not wait for symptomatic fracture in high-risk patients.",
+        "DMARD_monitoring": "Before biologic/JAK therapy, review TB/hepatitis/infection history and vaccination status. Methotrexate is generally once weekly in rheumatic disease; daily dosing can be fatal."
+      },
+      "lens_groups": [
+        {
+          "group": "Bone health",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All bone/rheumatology classes"
+            },
+            {
+              "id": "osteoporosis",
+              "label": "Osteoporosis"
+            },
+            {
+              "id": "antiresorptive",
+              "label": "Antiresorptives"
+            },
+            {
+              "id": "anabolic",
+              "label": "Bone-forming therapy"
+            },
+            {
+              "id": "calcium_vitd",
+              "label": "Calcium / Vitamin D"
+            },
+            {
+              "id": "giop",
+              "label": "Glucocorticoid-induced osteoporosis"
+            },
+            {
+              "id": "very_high_fracture_risk",
+              "label": "Very-high fracture risk"
+            },
+            {
+              "id": "sequencing",
+              "label": "Sequence / transition planning"
+            }
+          ]
+        },
+        {
+          "group": "Crystal arthritis",
+          "items": [
+            {
+              "id": "gout",
+              "label": "Gout"
+            },
+            {
+              "id": "acute_gout",
+              "label": "Acute flare"
+            },
+            {
+              "id": "urate_lowering",
+              "label": "Urate lowering"
+            }
+          ]
+        },
+        {
+          "group": "Inflammatory rheumatology",
+          "items": [
+            {
+              "id": "ra",
+              "label": "Rheumatoid arthritis"
+            },
+            {
+              "id": "sle",
+              "label": "SLE"
+            },
+            {
+              "id": "psa_spa",
+              "label": "PsA / SpA"
+            },
+            {
+              "id": "csdmard",
+              "label": "Conventional DMARDs"
+            },
+            {
+              "id": "biologic",
+              "label": "Biologics"
+            },
+            {
+              "id": "jak",
+              "label": "JAK inhibitors"
+            }
+          ]
+        },
+        {
+          "group": "Degenerative / monitoring",
+          "items": [
+            {
+              "id": "oa",
+              "label": "Osteoarthritis symptom pharmacology"
+            },
+            {
+              "id": "infection_screen",
+              "label": "TB / HBV / infection screen"
+            },
+            {
+              "id": "reproductive_safety",
+              "label": "Reproductive safety"
+            },
+            {
+              "id": "lab_monitoring",
+              "label": "CBC / LFT / renal monitoring"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "br_calcium",
+          "name": "Calcium supplementation",
+          "mechanism": "Provides elemental calcium substrate for bone mineralization",
+          "target": "Intestinal calcium supply",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "calcium_vitd"
+          ],
+          "role_note": "Supplement only when dietary intake is inadequate or indicated; total elemental calcium from diet + supplements matters.",
+          "drug_ids": [
+            "br_calcium_carbonate",
+            "br_calcium_citrate"
+          ]
+        },
+        {
+          "id": "br_vitd",
+          "name": "Vitamin D and active vitamin-D analogues",
+          "mechanism": "Increase intestinal calcium/phosphate absorption and regulate bone-mineral metabolism",
+          "target": "Vitamin D receptor",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "calcium_vitd"
+          ],
+          "role_note": "Correct deficiency and ensure adequacy; active analogues are not interchangeable with nutritional vitamin D and carry higher hypercalcemia risk.",
+          "drug_ids": [
+            "br_cholecalciferol",
+            "br_ergocalciferol",
+            "br_calcitriol"
+          ]
+        },
+        {
+          "id": "br_oral_bisphos",
+          "name": "Oral bisphosphonates",
+          "mechanism": "Bind bone hydroxyapatite and inhibit osteoclast-mediated resorption",
+          "target": "Farnesyl pyrophosphate synthase in osteoclasts",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "antiresorptive",
+            "giop"
+          ],
+          "role_note": "Common first-line antiresorptives for many high-fracture-risk patients if renal/GI/oral administration requirements are suitable.",
+          "drug_ids": [
+            "br_alendronate",
+            "br_risedronate",
+            "br_ibandronate_oral"
+          ]
+        },
+        {
+          "id": "br_iv_bisphos",
+          "name": "IV bisphosphonates",
+          "mechanism": "Suppress osteoclast function after binding mineralized bone",
+          "target": "Osteoclast FPPS",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "antiresorptive",
+            "giop"
+          ],
+          "role_note": "Useful when adherence/GI issues limit oral therapy; renal function and acute-phase reaction matter.",
+          "drug_ids": [
+            "br_zoledronic",
+            "br_ibandronate_iv"
+          ]
+        },
+        {
+          "id": "br_denosumab",
+          "name": "RANKL inhibitor",
+          "mechanism": "Monoclonal antibody blocks RANKL and osteoclast formation/activity",
+          "target": "RANK ligand",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "antiresorptive",
+            "giop",
+            "sequencing"
+          ],
+          "role_note": "Potent antiresorptive for high fracture risk; dosing continuity and transition planning are crucial.",
+          "drug_ids": [
+            "br_denosumab"
+          ]
+        },
+        {
+          "id": "br_pth",
+          "name": "PTH/PTHrP anabolic agents",
+          "mechanism": "Intermittent PTH-receptor stimulation promotes osteoblast activity and bone formation",
+          "target": "PTH1 receptor",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "anabolic",
+            "giop",
+            "very_high_fracture_risk",
+            "sequencing"
+          ],
+          "role_note": "Anabolic-first option for selected very-high-fracture-risk patients followed by antiresorptive consolidation.",
+          "drug_ids": [
+            "br_teriparatide",
+            "br_abaloparatide"
+          ]
+        },
+        {
+          "id": "br_sclerostin",
+          "name": "Sclerostin inhibitor",
+          "mechanism": "Blocks sclerostin, increasing bone formation and decreasing resorption",
+          "target": "Sclerostin",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "anabolic",
+            "antiresorptive",
+            "giop",
+            "very_high_fracture_risk",
+            "sequencing"
+          ],
+          "role_note": "Time-limited potent therapy for very-high-risk osteoporosis; cardiovascular history is an important selection factor.",
+          "drug_ids": [
+            "br_romosozumab"
+          ]
+        },
+        {
+          "id": "br_serm",
+          "name": "Selective estrogen receptor modulator",
+          "mechanism": "Estrogen agonist effect on bone with tissue-selective antagonist/agonist activity",
+          "target": "Estrogen receptors",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "antiresorptive"
+          ],
+          "role_note": "Vertebral-fracture-focused option in selected postmenopausal women, especially when breast-cancer risk profile is relevant.",
+          "drug_ids": [
+            "br_raloxifene"
+          ]
+        },
+        {
+          "id": "br_calcitonin",
+          "name": "Calcitonin",
+          "mechanism": "Inhibits osteoclast resorption through calcitonin receptor",
+          "target": "Calcitonin receptor",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "antiresorptive"
+          ],
+          "role_note": "Limited modern osteoporosis role; sometimes used short-term for analgesia after acute vertebral compression fracture in selected settings.",
+          "drug_ids": [
+            "br_calcitonin_salmon"
+          ]
+        },
+        {
+          "id": "br_gout_acute",
+          "name": "Acute gout anti-inflammatory therapy",
+          "mechanism": "Suppresses crystal-triggered neutrophil/inflammatory response through microtubule, COX or glucocorticoid pathways",
+          "target": "NLRP3-neutrophil inflammation / COX / GR",
+          "tags": [
+            "overview",
+            "gout",
+            "acute_gout"
+          ],
+          "role_note": "Treat the flare promptly; agent choice depends on renal/GI/CV risk, interactions and number of joints.",
+          "drug_ids": [
+            "br_colchicine",
+            "br_naproxen_gout",
+            "br_pred_gout"
+          ]
+        },
+        {
+          "id": "br_xoi",
+          "name": "Xanthine oxidase inhibitors",
+          "mechanism": "Reduce uric acid synthesis by inhibiting xanthine oxidase",
+          "target": "Xanthine oxidase",
+          "tags": [
+            "overview",
+            "gout",
+            "urate_lowering"
+          ],
+          "role_note": "Preferred long-term urate-lowering family for many patients; start low and titrate to serum urate target.",
+          "drug_ids": [
+            "br_allopurinol",
+            "br_febuxostat"
+          ]
+        },
+        {
+          "id": "br_uricosuric",
+          "name": "Uricosurics",
+          "mechanism": "Increase renal uric-acid excretion by inhibiting tubular urate reabsorption",
+          "target": "URAT1/OAT transporters",
+          "tags": [
+            "overview",
+            "gout",
+            "urate_lowering"
+          ],
+          "role_note": "Alternative/add-on in selected patients with adequate renal function and no high stone risk.",
+          "drug_ids": [
+            "br_probenecid"
+          ]
+        },
+        {
+          "id": "br_uricase",
+          "name": "Recombinant uricase",
+          "mechanism": "Enzymatically converts uric acid to allantoin",
+          "target": "Urate oxidase",
+          "tags": [
+            "overview",
+            "gout",
+            "urate_lowering",
+            "biologic"
+          ],
+          "role_note": "Specialist therapy for severe refractory gout, not routine first-line ULT.",
+          "drug_ids": [
+            "br_pegloticase"
+          ]
+        },
+        {
+          "id": "br_csdmard",
+          "name": "Conventional synthetic DMARDs (csDMARDs)",
+          "mechanism": "Modulate folate/purine/pyrimidine and immune signaling to suppress inflammatory disease",
+          "target": "Multiple intracellular immune pathways",
+          "tags": [
+            "overview",
+            "ra",
+            "sle",
+            "psa_spa",
+            "csdmard",
+            "lab_monitoring"
+          ],
+          "role_note": "Core disease-modifying therapy, especially methotrexate for RA; require laboratory and reproductive monitoring.",
+          "drug_ids": [
+            "br_methotrexate",
+            "br_hydroxychloroquine",
+            "br_sulfasalazine",
+            "br_leflunomide"
+          ]
+        },
+        {
+          "id": "br_tnf",
+          "name": "TNF inhibitors",
+          "mechanism": "Neutralize TNF-α signaling and downstream inflammatory cascades",
+          "target": "TNF-α",
+          "tags": [
+            "overview",
+            "ra",
+            "psa_spa",
+            "biologic",
+            "infection_screen"
+          ],
+          "role_note": "Major biologic class across RA/PsA/SpA; screen infection/TB/HBV and avoid certain HF/demyelinating contexts.",
+          "drug_ids": [
+            "br_etanercept",
+            "br_adalimumab",
+            "br_infliximab",
+            "br_certolizumab",
+            "br_golimumab"
+          ]
+        },
+        {
+          "id": "br_il6",
+          "name": "IL-6 pathway inhibitors",
+          "mechanism": "Block IL-6 receptor signaling and inflammatory acute-phase pathways",
+          "target": "IL-6 receptor",
+          "tags": [
+            "overview",
+            "ra",
+            "biologic",
+            "infection_screen"
+          ],
+          "role_note": "Effective biologics for RA and selected systemic inflammatory diseases; affect CRP response and lipid/liver/neutrophil monitoring.",
+          "drug_ids": [
+            "br_tocilizumab",
+            "br_sarilumab"
+          ]
+        },
+        {
+          "id": "br_bcell",
+          "name": "B-cell depletion therapy",
+          "mechanism": "Anti-CD20 antibody depletes circulating B cells",
+          "target": "CD20",
+          "tags": [
+            "overview",
+            "ra",
+            "sle",
+            "biologic",
+            "infection_screen"
+          ],
+          "role_note": "Used in selected RA/vasculitis and off-label/indication-specific autoimmune disease; infusion and infection risks require planning.",
+          "drug_ids": [
+            "br_rituximab"
+          ]
+        },
+        {
+          "id": "br_tcell",
+          "name": "T-cell costimulation modulator",
+          "mechanism": "CTLA-4 fusion protein blocks CD80/86–CD28 costimulation",
+          "target": "CD80/CD86",
+          "tags": [
+            "overview",
+            "ra",
+            "biologic",
+            "infection_screen"
+          ],
+          "role_note": "Biologic RA option with T-cell activation modulation.",
+          "drug_ids": [
+            "br_abatacept"
+          ]
+        },
+        {
+          "id": "br_jak",
+          "name": "JAK inhibitors (targeted synthetic DMARDs)",
+          "mechanism": "Inhibit Janus kinase signaling downstream of multiple cytokine receptors",
+          "target": "JAK1/JAK2/JAK3/TYK2 spectrum varies",
+          "tags": [
+            "overview",
+            "ra",
+            "psa_spa",
+            "jak",
+            "infection_screen",
+            "lab_monitoring"
+          ],
+          "role_note": "Rapid oral targeted DMARDs; regulatory boxed warnings require careful age/CV/VTE/malignancy/infection risk assessment.",
+          "drug_ids": [
+            "br_tofacitinib",
+            "br_baricitinib",
+            "br_upadacitinib"
+          ]
+        },
+        {
+          "id": "br_il17",
+          "name": "IL-17 pathway inhibitors",
+          "mechanism": "Neutralize IL-17A or block IL-17 receptor signaling",
+          "target": "IL-17A / IL-17 receptor",
+          "tags": [
+            "overview",
+            "psa_spa",
+            "biologic",
+            "infection_screen"
+          ],
+          "role_note": "Highly effective for psoriasis/PsA/axial SpA; inflammatory bowel disease context matters.",
+          "drug_ids": [
+            "br_secukinumab",
+            "br_ixekizumab"
+          ]
+        },
+        {
+          "id": "br_il23",
+          "name": "IL-12/23 or IL-23 pathway inhibitors",
+          "mechanism": "Block IL-12/23 p40 or IL-23 p19 cytokine signaling",
+          "target": "IL-12/23 p40 or IL-23 p19",
+          "tags": [
+            "overview",
+            "psa_spa",
+            "biologic",
+            "infection_screen"
+          ],
+          "role_note": "Useful in psoriasis/PsA; generally not core RA therapies.",
+          "drug_ids": [
+            "br_ustekinumab",
+            "br_guselkumab"
+          ]
+        },
+        {
+          "id": "br_sle_hcq",
+          "name": "Antimalarial foundation for SLE",
+          "mechanism": "TLR/endosomal immune modulation and other anti-inflammatory effects",
+          "target": "TLR7/9 / lysosomal signaling",
+          "tags": [
+            "overview",
+            "sle",
+            "csdmard"
+          ],
+          "role_note": "Hydroxychloroquine is a foundational long-term SLE therapy for most patients unless contraindicated.",
+          "drug_ids": [
+            "br_hcq_sle"
+          ]
+        },
+        {
+          "id": "br_sle_immune",
+          "name": "SLE immunosuppressants",
+          "mechanism": "Suppress lymphocyte proliferation/DNA synthesis to control organ-threatening autoimmune inflammation",
+          "target": "Purine synthesis / IMPDH / alkylation pathways",
+          "tags": [
+            "overview",
+            "sle",
+            "csdmard",
+            "lab_monitoring"
+          ],
+          "role_note": "Used according to organ involvement (e.g., nephritis, CNS, hematologic) and severity; reproductive and infection risks are central.",
+          "drug_ids": [
+            "br_mycophenolate",
+            "br_azathioprine",
+            "br_cyclophosphamide"
+          ]
+        },
+        {
+          "id": "br_sle_biologic",
+          "name": "SLE-specific biologics",
+          "mechanism": "Target B-cell survival factor or type-I interferon receptor",
+          "target": "BAFF/BLyS or IFNAR1",
+          "tags": [
+            "overview",
+            "sle",
+            "biologic",
+            "infection_screen"
+          ],
+          "role_note": "Add-on disease-modifying biologics for active SLE after standard therapy based on phenotype/organ involvement.",
+          "drug_ids": [
+            "br_belimumab",
+            "br_anifrolumab"
+          ]
+        },
+        {
+          "id": "br_glucocorticoid",
+          "name": "Systemic glucocorticoids in rheumatology",
+          "mechanism": "Genomic/non-genomic glucocorticoid receptor anti-inflammatory and immunosuppressive effects",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "overview",
+            "ra",
+            "sle",
+            "acute_gout",
+            "lab_monitoring"
+          ],
+          "role_note": "Powerful bridge/rescue drugs; use the lowest dose for shortest duration because cumulative toxicity drives infection, diabetes, osteoporosis and CV harm.",
+          "drug_ids": [
+            "br_pred_rheum",
+            "br_methylpulse"
+          ]
+        },
+        {
+          "id": "br_oa_symptom",
+          "name": "Osteoarthritis symptom pharmacology (cross-lab reference)",
+          "mechanism": "Reduces nociceptive/inflammatory signaling through COX inhibition, central analgesia/SNRI pathways, or local intra-articular anti-inflammatory action",
+          "target": "COX-1/2 • central pain pathways • glucocorticoid receptor",
+          "tags": [
+            "overview",
+            "oa"
+          ],
+          "role_note": "Symptom-focused OA pharmacology. Drug choice depends on joint, age, GI/CV/renal risk, comorbidity and concurrent therapy; non-pharmacologic management remains foundational.",
+          "drug_ids": [
+            "br_oa_diclofenac_topical",
+            "br_oa_naproxen",
+            "br_oa_celecoxib",
+            "br_oa_paracetamol",
+            "br_oa_duloxetine",
+            "br_oa_triamcinolone_ia"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "br_calcium_carbonate",
+          "generic": "Calcium carbonate",
+          "class_id": "br_calcium",
+          "form": "Tablet/chewable",
+          "route": "Oral",
+          "dose_example": "Common supplement: 500–600 mg elemental calcium per dose with food; split larger daily amounts.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "calcium_vitd"
+          ],
+          "role": "High elemental-calcium salt requiring gastric acid for optimal absorption.",
+          "monitoring_pearl": "Constipation, stones, drug-binding interactions; distinguish salt mg from elemental calcium.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_calcium_citrate",
+          "generic": "Calcium citrate",
+          "class_id": "br_calcium",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common supplement delivers 200–315 mg elemental per tablet; can be taken without food.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "calcium_vitd"
+          ],
+          "role": "Better absorbed with low gastric acid.",
+          "monitoring_pearl": "Elemental dose calculation, stones, interactions with thyroid hormone/iron/tetracyclines.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_cholecalciferol",
+          "generic": "Cholecalciferol (Vitamin D3)",
+          "class_id": "br_vitd",
+          "form": "Tablet/capsule/sachet/drops",
+          "route": "Oral",
+          "dose_example": "Maintenance often 800–2000 IU/day; deficiency repletion regimens depend on baseline 25-OH-D and guideline.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "calcium_vitd"
+          ],
+          "role": "Nutritional vitamin D replacement.",
+          "monitoring_pearl": "25-OH-D when indicated, calcium, adherence; avoid chronic megadosing without indication.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_ergocalciferol",
+          "generic": "Ergocalciferol (Vitamin D2)",
+          "class_id": "br_vitd",
+          "form": "Capsule/solution",
+          "route": "Oral",
+          "dose_example": "Deficiency regimens often use high weekly doses for a limited course; verify local protocol.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "calcium_vitd"
+          ],
+          "role": "Nutritional vitamin D2 alternative.",
+          "monitoring_pearl": "25-OH-D and calcium; product strength.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_calcitriol",
+          "generic": "Calcitriol",
+          "class_id": "br_vitd",
+          "form": "Capsule/solution/injection",
+          "route": "Oral/IV",
+          "dose_example": "Common oral starting doses 0.25 mcg/day in selected hypocalcemia/CKD indications; not routine osteoporosis replacement.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "calcium_vitd"
+          ],
+          "role": "Active 1,25-dihydroxy vitamin D.",
+          "monitoring_pearl": "Calcium/phosphate/PTH; hypercalcemia/hyperphosphatemia risk.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_alendronate",
+          "generic": "Alendronate",
+          "class_id": "br_oral_bisphos",
+          "form": "Tablet/solution",
+          "route": "Oral",
+          "dose_example": "Osteoporosis: 70 mg once weekly or 10 mg daily; take fasting with plain water and remain upright ≥30 min.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "antiresorptive",
+            "giop"
+          ],
+          "role": "First-line oral bisphosphonate.",
+          "monitoring_pearl": "Esophageal disease, renal function, calcium/vit-D, dental risk; administration technique.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED",
+            "ACR_GIOP"
+          ]
+        },
+        {
+          "id": "br_risedronate",
+          "generic": "Risedronate",
+          "class_id": "br_oral_bisphos",
+          "form": "Tablet/DR tablet",
+          "route": "Oral",
+          "dose_example": "Common osteoporosis: 35 mg weekly or 150 mg monthly; delayed-release product has different food instructions.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "antiresorptive",
+            "giop"
+          ],
+          "role": "Oral bisphosphonate with several schedules.",
+          "monitoring_pearl": "Upper GI, renal function, calcium/vit-D; product-specific administration.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED",
+            "ACR_GIOP"
+          ]
+        },
+        {
+          "id": "br_ibandronate_oral",
+          "generic": "Ibandronate",
+          "class_id": "br_oral_bisphos",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "150 mg once monthly fasting with upright ≥60 min.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "antiresorptive",
+            "giop"
+          ],
+          "role": "Oral bisphosphonate with vertebral-fracture evidence; hip-fracture evidence less robust than some alternatives.",
+          "monitoring_pearl": "GI/renal/calcium; monthly administration technique.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED",
+            "ACR_GIOP"
+          ]
+        },
+        {
+          "id": "br_zoledronic",
+          "generic": "Zoledronic acid",
+          "class_id": "br_iv_bisphos",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "Osteoporosis: 5 mg IV once yearly; ensure hydration/renal/calcium status.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "antiresorptive",
+            "giop"
+          ],
+          "role": "Potent annual IV bisphosphonate.",
+          "monitoring_pearl": "CrCl/creatinine, calcium/vit-D, acute-phase reaction, ONJ/atypical femur risk.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED",
+            "ACR_GIOP"
+          ]
+        },
+        {
+          "id": "br_ibandronate_iv",
+          "generic": "Ibandronate",
+          "class_id": "br_iv_bisphos",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Osteoporosis: 3 mg IV every 3 months.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "antiresorptive",
+            "giop"
+          ],
+          "role": "Intermittent IV bisphosphonate.",
+          "monitoring_pearl": "Renal/calcium; vertebral-focused efficacy profile.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED",
+            "ACR_GIOP"
+          ]
+        },
+        {
+          "id": "br_denosumab",
+          "generic": "Denosumab",
+          "class_id": "br_denosumab",
+          "form": "Prefilled syringe",
+          "route": "SC",
+          "dose_example": "Osteoporosis: 60 mg SC every 6 months.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "antiresorptive",
+            "giop",
+            "sequencing"
+          ],
+          "role": "RANKL inhibitor with strong vertebral/hip fracture efficacy.",
+          "monitoring_pearl": "Calcium/vit-D, hypocalcemia especially CKD, dental/ONJ, infection; no drug holiday—plan follow-on antiresorptive if stopping.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED",
+            "ACR_GIOP"
+          ]
+        },
+        {
+          "id": "br_teriparatide",
+          "generic": "Teriparatide",
+          "class_id": "br_pth",
+          "form": "Prefilled pen",
+          "route": "SC",
+          "dose_example": "20 mcg SC once daily; duration per label/guideline and lifetime exposure context.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "anabolic",
+            "giop",
+            "very_high_fracture_risk",
+            "sequencing"
+          ],
+          "role": "PTH(1-34) anabolic therapy.",
+          "monitoring_pearl": "Calcium, orthostasis, stones; follow with antiresorptive.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED",
+            "ACR_GIOP"
+          ]
+        },
+        {
+          "id": "br_abaloparatide",
+          "generic": "Abaloparatide",
+          "class_id": "br_pth",
+          "form": "Prefilled pen",
+          "route": "SC",
+          "dose_example": "80 mcg SC once daily.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "anabolic",
+            "giop",
+            "very_high_fracture_risk",
+            "sequencing"
+          ],
+          "role": "PTHrP analogue anabolic therapy.",
+          "monitoring_pearl": "Hypercalciuria, orthostasis; follow with antiresorptive.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED",
+            "ACR_GIOP"
+          ]
+        },
+        {
+          "id": "br_romosozumab",
+          "generic": "Romosozumab",
+          "class_id": "br_sclerostin",
+          "form": "Prefilled syringes",
+          "route": "SC",
+          "dose_example": "210 mg SC monthly (two injections) for 12 months, then transition to antiresorptive.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "anabolic",
+            "antiresorptive",
+            "giop",
+            "very_high_fracture_risk",
+            "sequencing"
+          ],
+          "role": "Dual-effect sclerostin inhibitor for very-high fracture risk.",
+          "monitoring_pearl": "Avoid initiation with recent MI/stroke per label/guideline; calcium/vit-D, ONJ/atypical fracture rare.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED",
+            "ACR_GIOP"
+          ]
+        },
+        {
+          "id": "br_raloxifene",
+          "generic": "Raloxifene",
+          "class_id": "br_serm",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "60 mg once daily.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "antiresorptive"
+          ],
+          "role": "SERM for postmenopausal osteoporosis and breast-risk reduction indications.",
+          "monitoring_pearl": "VTE risk, hot flashes; avoid prolonged immobilization/high VTE risk.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_calcitonin_salmon",
+          "generic": "Calcitonin salmon",
+          "class_id": "br_calcitonin",
+          "form": "Nasal spray/injection",
+          "route": "Intranasal/SC/IM",
+          "dose_example": "Nasal osteoporosis dose historically 200 IU once daily; current indication/availability varies.",
+          "tags": [
+            "overview",
+            "osteoporosis",
+            "antiresorptive"
+          ],
+          "role": "Weak antiresorptive with limited contemporary role.",
+          "monitoring_pearl": "Nasal irritation, hypersensitivity; reassess long-term risk/benefit and current regulatory status.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_colchicine",
+          "generic": "Colchicine",
+          "class_id": "br_gout_acute",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Low-dose flare regimen commonly 1.2 mg then 0.6 mg 1 h later (U.S. label); prophylaxis commonly 0.6 mg once/twice daily with renal/interactions review.",
+          "tags": [
+            "overview",
+            "gout",
+            "acute_gout"
+          ],
+          "role": "Microtubule inhibitor for acute gout and ULT-flare prophylaxis.",
+          "monitoring_pearl": "Renal/hepatic function, CYP3A/P-gp interactions, myopathy/cytopenia toxicity.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_naproxen_gout",
+          "generic": "Naproxen",
+          "class_id": "br_gout_acute",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Acute gout common: 500 mg twice daily initially then reduce as symptoms improve; exact regimen risk-dependent.",
+          "tags": [
+            "overview",
+            "gout",
+            "acute_gout"
+          ],
+          "role": "NSAID option for gout flare.",
+          "monitoring_pearl": "GI/renal/CV bleeding risk.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_pred_gout",
+          "generic": "Prednisone / Prednisolone",
+          "class_id": "br_gout_acute",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Acute gout often 30–40 mg daily for ~5 days or short taper; tailor to comorbidity.",
+          "tags": [
+            "overview",
+            "gout",
+            "acute_gout"
+          ],
+          "role": "Systemic glucocorticoid flare option.",
+          "monitoring_pearl": "Glucose, BP, infection, mood; consider intra-articular route for limited joints.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_allopurinol",
+          "generic": "Allopurinol",
+          "class_id": "br_xoi",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common start 100 mg daily (lower in advanced CKD), titrate every few weeks to urate target; doses >300 mg may be required.",
+          "tags": [
+            "overview",
+            "gout",
+            "urate_lowering"
+          ],
+          "role": "Preferred first-line ULT in many patients including CKD with careful titration.",
+          "monitoring_pearl": "Urate, renal/liver, rash/AHS; HLA-B*58:01 testing in high-risk ancestry per guideline; azathioprine interaction.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_febuxostat",
+          "generic": "Febuxostat",
+          "class_id": "br_xoi",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common start 40 mg once daily; increase based on urate response.",
+          "tags": [
+            "overview",
+            "gout",
+            "urate_lowering"
+          ],
+          "role": "XOI alternative when allopurinol unsuitable or inadequate.",
+          "monitoring_pearl": "Liver tests, CV history/guideline context, azathioprine/mercaptopurine contraindication.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_probenecid",
+          "generic": "Probenecid",
+          "class_id": "br_uricosuric",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common start 250 mg twice daily for 1 week then 500 mg twice daily; titrate to urate target.",
+          "tags": [
+            "overview",
+            "gout",
+            "urate_lowering"
+          ],
+          "role": "Classic uricosuric.",
+          "monitoring_pearl": "Kidney stones, renal function, hydration; many tubular-secretion drug interactions.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_pegloticase",
+          "generic": "Pegloticase",
+          "class_id": "br_uricase",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "8 mg IV every 2 weeks; current practice often uses immunomodulator co-therapy to improve response.",
+          "tags": [
+            "overview",
+            "gout",
+            "urate_lowering",
+            "biologic"
+          ],
+          "role": "Recombinant PEGylated uricase for uncontrolled refractory gout.",
+          "monitoring_pearl": "G6PD testing, pre-infusion urate, infusion/anaphylaxis, loss-of-response antibodies.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_methotrexate",
+          "generic": "Methotrexate",
+          "class_id": "br_csdmard",
+          "form": "Tablet/prefilled injection",
+          "route": "Oral/SC",
+          "dose_example": "RA common start 7.5–15 mg ONCE WEEKLY, escalate toward 20–25 mg/week as tolerated; folic acid co-therapy.",
+          "tags": [
+            "overview",
+            "ra",
+            "sle",
+            "psa_spa",
+            "csdmard",
+            "lab_monitoring",
+            "reproductive_safety"
+          ],
+          "role": "Anchor csDMARD for RA and other inflammatory arthritis.",
+          "monitoring_pearl": "CRITICAL: weekly not daily. CBC/LFT/renal, pregnancy avoidance, infection, lung toxicity, alcohol/interactions.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_hydroxychloroquine",
+          "generic": "Hydroxychloroquine",
+          "class_id": "br_csdmard",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common rheumatology dose 200–400 mg/day; keep ≤5 mg/kg/day actual body weight for retinal-risk guidance.",
+          "tags": [
+            "overview",
+            "ra",
+            "sle",
+            "psa_spa",
+            "csdmard",
+            "lab_monitoring"
+          ],
+          "role": "Mild RA and foundational SLE antimalarial.",
+          "monitoring_pearl": "Baseline/periodic retinal screening, QT/interactions, rare cardiomyopathy; dose by weight/renal context.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_sulfasalazine",
+          "generic": "Sulfasalazine",
+          "class_id": "br_csdmard",
+          "form": "Tablet/DR tablet",
+          "route": "Oral",
+          "dose_example": "Common RA start 500 mg once/twice daily, titrate to 1 g twice daily.",
+          "tags": [
+            "overview",
+            "ra",
+            "sle",
+            "psa_spa",
+            "csdmard",
+            "lab_monitoring"
+          ],
+          "role": "csDMARD for RA/peripheral SpA.",
+          "monitoring_pearl": "CBC/LFT, GI/rash, sulfa allergy, reversible oligospermia.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_leflunomide",
+          "generic": "Leflunomide",
+          "class_id": "br_csdmard",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult 20 mg once daily; loading often omitted due adverse effects.",
+          "tags": [
+            "overview",
+            "ra",
+            "sle",
+            "psa_spa",
+            "csdmard",
+            "lab_monitoring",
+            "reproductive_safety"
+          ],
+          "role": "Pyrimidine-synthesis inhibitor csDMARD.",
+          "monitoring_pearl": "LFT/CBC/BP, teratogenicity; long half-life and cholestyramine washout.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_etanercept",
+          "generic": "Etanercept",
+          "class_id": "br_tnf",
+          "form": "Prefilled syringe/autoinjector",
+          "route": "SC",
+          "dose_example": "Common RA: 50 mg SC once weekly.",
+          "tags": [
+            "overview",
+            "ra",
+            "psa_spa",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "Soluble TNF-receptor fusion protein.",
+          "monitoring_pearl": "TB/HBV/infection screen, vaccines, HF/demyelination, injection reactions.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_adalimumab",
+          "generic": "Adalimumab",
+          "class_id": "br_tnf",
+          "form": "Prefilled syringe/pen",
+          "route": "SC",
+          "dose_example": "Common RA/PsA/AS: 40 mg SC every other week; indication regimens vary.",
+          "tags": [
+            "overview",
+            "ra",
+            "psa_spa",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "Monoclonal TNF inhibitor with many indications.",
+          "monitoring_pearl": "TB/HBV, serious infection, malignancy/demyelination/HF context.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_infliximab",
+          "generic": "Infliximab",
+          "class_id": "br_tnf",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "RA typically 3 mg/kg at weeks 0,2,6 then every 8 weeks with methotrexate; other indications differ.",
+          "tags": [
+            "overview",
+            "ra",
+            "psa_spa",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "Chimeric TNF mAb.",
+          "monitoring_pearl": "Infusion reactions, TB/HBV/infection, HF; immunogenicity.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_certolizumab",
+          "generic": "Certolizumab pegol",
+          "class_id": "br_tnf",
+          "form": "Prefilled syringe",
+          "route": "SC",
+          "dose_example": "Loading 400 mg at weeks 0,2,4 then 200 mg every 2 weeks or 400 mg every 4 weeks.",
+          "tags": [
+            "overview",
+            "ra",
+            "psa_spa",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "PEGylated Fab TNF inhibitor with minimal placental Fc transfer.",
+          "monitoring_pearl": "TB/HBV/infection; pregnancy context may influence choice.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_golimumab",
+          "generic": "Golimumab",
+          "class_id": "br_tnf",
+          "form": "Autoinjector/infusion",
+          "route": "SC/IV",
+          "dose_example": "SC common 50 mg monthly; IV regimen differs.",
+          "tags": [
+            "overview",
+            "ra",
+            "psa_spa",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "Monthly TNF inhibitor.",
+          "monitoring_pearl": "TB/HBV/infection; weight/indication-specific dosing.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_tocilizumab",
+          "generic": "Tocilizumab",
+          "class_id": "br_il6",
+          "form": "SC syringe/pen or infusion",
+          "route": "SC/IV",
+          "dose_example": "RA SC commonly 162 mg weekly/every other week depending weight/response; IV is weight-based every 4 weeks.",
+          "tags": [
+            "overview",
+            "ra",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "IL-6R inhibitor.",
+          "monitoring_pearl": "CBC/LFT/lipids, TB/infection, GI perforation/diverticulitis; CRP may be blunted.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_sarilumab",
+          "generic": "Sarilumab",
+          "class_id": "br_il6",
+          "form": "Prefilled syringe/pen",
+          "route": "SC",
+          "dose_example": "RA: 200 mg SC every 2 weeks; reduce to 150 mg for lab abnormalities.",
+          "tags": [
+            "overview",
+            "ra",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "IL-6R inhibitor.",
+          "monitoring_pearl": "CBC/LFT/lipids, TB/infection, GI perforation risk.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_rituximab",
+          "generic": "Rituximab",
+          "class_id": "br_bcell",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "RA: 1000 mg IV on days 1 and 15 with courses repeated based on response; indication regimens vary.",
+          "tags": [
+            "overview",
+            "ra",
+            "sle",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "Anti-CD20 B-cell depleting antibody.",
+          "monitoring_pearl": "HBV reactivation screening, infusion reactions, hypogammaglobulinemia/infection, vaccination timing, rare PML.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_abatacept",
+          "generic": "Abatacept",
+          "class_id": "br_tcell",
+          "form": "Prefilled syringe/autoinjector/infusion",
+          "route": "SC/IV",
+          "dose_example": "SC RA commonly 125 mg once weekly; IV is weight-tiered at weeks 0,2,4 then every 4 weeks.",
+          "tags": [
+            "overview",
+            "ra",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "CTLA4-Ig costimulation blocker.",
+          "monitoring_pearl": "TB/hepatitis/infection screen, vaccines; COPD respiratory adverse events caution.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_tofacitinib",
+          "generic": "Tofacitinib",
+          "class_id": "br_jak",
+          "form": "IR/ER tablet",
+          "route": "Oral",
+          "dose_example": "RA common: 5 mg twice daily or XR 11 mg once daily; renal/hepatic/interactions alter dose.",
+          "tags": [
+            "overview",
+            "ra",
+            "psa_spa",
+            "jak",
+            "infection_screen",
+            "lab_monitoring"
+          ],
+          "role": "JAK1/3-predominant inhibitor.",
+          "monitoring_pearl": "Serious infection/TB, zoster, CBC/lipids/LFT, MACE/VTE/malignancy warnings; avoid combination biologics.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED",
+            "FDA_JAK_SAFETY"
+          ]
+        },
+        {
+          "id": "br_baricitinib",
+          "generic": "Baricitinib",
+          "class_id": "br_jak",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "RA common 2 mg once daily; renal adjustment.",
+          "tags": [
+            "overview",
+            "ra",
+            "psa_spa",
+            "jak",
+            "infection_screen",
+            "lab_monitoring"
+          ],
+          "role": "JAK1/2 inhibitor.",
+          "monitoring_pearl": "Infection/TB, CBC/lipids/LFT, VTE/MACE/malignancy warnings; renal dosing.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED",
+            "FDA_JAK_SAFETY"
+          ]
+        },
+        {
+          "id": "br_upadacitinib",
+          "generic": "Upadacitinib",
+          "class_id": "br_jak",
+          "form": "ER tablet",
+          "route": "Oral",
+          "dose_example": "RA/PsA/AS commonly 15 mg once daily; indication-specific higher doses exist in IBD.",
+          "tags": [
+            "overview",
+            "ra",
+            "psa_spa",
+            "jak",
+            "infection_screen",
+            "lab_monitoring"
+          ],
+          "role": "JAK1-preferential inhibitor.",
+          "monitoring_pearl": "Infection/TB/zoster, CBC/lipids/LFT, MACE/VTE/malignancy; CYP3A interactions.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED",
+            "FDA_JAK_SAFETY"
+          ]
+        },
+        {
+          "id": "br_secukinumab",
+          "generic": "Secukinumab",
+          "class_id": "br_il17",
+          "form": "Prefilled pen/syringe",
+          "route": "SC",
+          "dose_example": "Loading and maintenance depend on psoriasis/PsA/AS; commonly weekly loading then every 4 weeks.",
+          "tags": [
+            "overview",
+            "psa_spa",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "Anti-IL-17A mAb.",
+          "monitoring_pearl": "Infection/TB screen, candidiasis, IBD exacerbation.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_ixekizumab",
+          "generic": "Ixekizumab",
+          "class_id": "br_il17",
+          "form": "Autoinjector/syringe",
+          "route": "SC",
+          "dose_example": "Indication-specific loading then every 4 weeks maintenance; psoriasis loading differs from arthritis.",
+          "tags": [
+            "overview",
+            "psa_spa",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "Anti-IL-17A mAb.",
+          "monitoring_pearl": "Infection/TB, candidiasis, IBD context.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_ustekinumab",
+          "generic": "Ustekinumab",
+          "class_id": "br_il23",
+          "form": "Prefilled syringe/vial",
+          "route": "SC/IV induction in IBD",
+          "dose_example": "Psoriasis/PsA dosing is weight/indication based at weeks 0,4 then every 12 weeks.",
+          "tags": [
+            "overview",
+            "psa_spa",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "IL-12/23 p40 inhibitor.",
+          "monitoring_pearl": "Infection/TB, malignancy/neurologic rare risks.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_guselkumab",
+          "generic": "Guselkumab",
+          "class_id": "br_il23",
+          "form": "Autoinjector/syringe",
+          "route": "SC",
+          "dose_example": "PsA/psoriasis commonly 100 mg at weeks 0,4 then every 8 weeks.",
+          "tags": [
+            "overview",
+            "psa_spa",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "IL-23 p19 inhibitor.",
+          "monitoring_pearl": "Infection/TB screening; liver monitoring in some indications.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_hcq_sle",
+          "generic": "Hydroxychloroquine (SLE)",
+          "class_id": "br_sle_hcq",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common 200–400 mg/day; target ≤5 mg/kg/day actual body weight to reduce retinal toxicity.",
+          "tags": [
+            "overview",
+            "sle",
+            "csdmard"
+          ],
+          "role": "Foundational SLE antimalarial.",
+          "monitoring_pearl": "Retinal screening, QT/interactions, adherence; renal dosing may affect toxicity.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_mycophenolate",
+          "generic": "Mycophenolate mofetil",
+          "class_id": "br_sle_immune",
+          "form": "Tablet/capsule/suspension",
+          "route": "Oral",
+          "dose_example": "Lupus nephritis induction commonly 1–1.5 g twice daily; maintenance lower; specialist protocol.",
+          "tags": [
+            "overview",
+            "sle",
+            "csdmard",
+            "lab_monitoring",
+            "reproductive_safety"
+          ],
+          "role": "IMPDH inhibitor central to lupus nephritis regimens.",
+          "monitoring_pearl": "Pregnancy contraindication, CBC/LFT, infection, GI; contraception program.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_azathioprine",
+          "generic": "Azathioprine",
+          "class_id": "br_sle_immune",
+          "form": "Tablet/injection",
+          "route": "Oral/IV",
+          "dose_example": "Common rheumatology 1–2 mg/kg/day; TPMT/NUDT15 and interactions guide dosing.",
+          "tags": [
+            "overview",
+            "sle",
+            "csdmard",
+            "lab_monitoring"
+          ],
+          "role": "Purine antimetabolite for maintenance/pregnancy-compatible contexts.",
+          "monitoring_pearl": "CBC/LFT, TPMT/NUDT15, infection; allopurinol/febuxostat interaction requires major change/avoidance.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_cyclophosphamide",
+          "generic": "Cyclophosphamide",
+          "class_id": "br_sle_immune",
+          "form": "Tablet/injection",
+          "route": "Oral/IV",
+          "dose_example": "IV pulse regimens (Euro-Lupus vs NIH) are protocol-specific and not interchangeable.",
+          "tags": [
+            "overview",
+            "sle",
+            "csdmard",
+            "lab_monitoring",
+            "reproductive_safety"
+          ],
+          "role": "Alkylating agent for severe organ-threatening autoimmune disease.",
+          "monitoring_pearl": "CBC, infection, fertility, bladder toxicity, malignancy; mesna/hydration depending regimen.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_belimumab",
+          "generic": "Belimumab",
+          "class_id": "br_sle_biologic",
+          "form": "Autoinjector/syringe/infusion",
+          "route": "SC/IV",
+          "dose_example": "SC common 200 mg once weekly; IV is weight-based days 0,14,28 then every 28 days.",
+          "tags": [
+            "overview",
+            "sle",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "Anti-BLyS/BAFF biologic for SLE including nephritis.",
+          "monitoring_pearl": "Infection, depression/suicidality, hypersensitivity, vaccination timing.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_anifrolumab",
+          "generic": "Anifrolumab",
+          "class_id": "br_sle_biologic",
+          "form": "Infusion",
+          "route": "IV",
+          "dose_example": "300 mg IV every 4 weeks.",
+          "tags": [
+            "overview",
+            "sle",
+            "biologic",
+            "infection_screen"
+          ],
+          "role": "Type-I interferon receptor antagonist for moderate-severe nonrenal SLE phenotype per label.",
+          "monitoring_pearl": "Respiratory infection, zoster, infusion reactions; vaccines.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_pred_rheum",
+          "generic": "Prednisone / Prednisolone",
+          "class_id": "br_glucocorticoid",
+          "form": "Tablet/liquid",
+          "route": "Oral",
+          "dose_example": "Dose ranges from low-dose bridge (e.g., 5–10 mg/day) to higher induction doses depending disease/organ involvement.",
+          "tags": [
+            "overview",
+            "ra",
+            "sle",
+            "acute_gout",
+            "lab_monitoring"
+          ],
+          "role": "Systemic steroid for inflammatory control.",
+          "monitoring_pearl": "Infection, glucose/BP, bone protection, adrenal suppression, cataract, mood; taper after prolonged use.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_methylpulse",
+          "generic": "Methylprednisolone pulse",
+          "class_id": "br_glucocorticoid",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Severe organ-threatening autoimmune disease may use 250–1000 mg IV daily for 1–3 days; specialist protocol.",
+          "tags": [
+            "overview",
+            "ra",
+            "sle",
+            "acute_gout",
+            "lab_monitoring"
+          ],
+          "role": "High-dose pulse glucocorticoid.",
+          "monitoring_pearl": "Infection, arrhythmia/BP/glucose/psychiatric effects; confirm indication and prophylaxis.",
+          "source_refs": [
+            "ACR_GUIDELINES",
+            "ACR_RA",
+            "ACR_GOUT",
+            "ENDO_OSTEO",
+            "ICMR_FRAGILITY",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_oa_diclofenac_topical",
+          "generic": "Diclofenac topical",
+          "class_id": "br_oa_symptom",
+          "form": "Gel/solution/patch",
+          "route": "Topical",
+          "dose_example": "Knee/hand OA products vary; e.g. diclofenac gel applied to affected joint several times daily per product label.",
+          "tags": [
+            "overview",
+            "oa"
+          ],
+          "role": "Topical NSAID with lower systemic exposure than oral NSAIDs.",
+          "monitoring_pearl": "Still review NSAID allergy, skin integrity, renal/CV/GI risk and duplicate NSAID exposure.",
+          "source_refs": [
+            "ACR_OA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_oa_naproxen",
+          "generic": "Naproxen",
+          "class_id": "br_oa_symptom",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common OA anti-inflammatory dosing: 250–500 mg twice daily with the lowest effective dose for the shortest necessary duration.",
+          "tags": [
+            "overview",
+            "oa"
+          ],
+          "role": "Oral nonselective NSAID option.",
+          "monitoring_pearl": "GI bleeding, renal injury, BP/CV risk, anticoagulants; gastroprotection when indicated.",
+          "source_refs": [
+            "ACR_OA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_oa_celecoxib",
+          "generic": "Celecoxib",
+          "class_id": "br_oa_symptom",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "OA commonly 100 mg twice daily or 200 mg once daily.",
+          "tags": [
+            "overview",
+            "oa"
+          ],
+          "role": "COX-2 selective NSAID option.",
+          "monitoring_pearl": "CV/renal/BP risk still applies; sulfonamide and GI risk review.",
+          "source_refs": [
+            "ACR_OA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_oa_paracetamol",
+          "generic": "Paracetamol / Acetaminophen",
+          "class_id": "br_oa_symptom",
+          "form": "Tablet/capsule/liquid",
+          "route": "Oral",
+          "dose_example": "Common adult 500–1000 mg per dose; keep within product-specific daily maximum and lower limits in liver/alcohol risk.",
+          "tags": [
+            "overview",
+            "oa"
+          ],
+          "role": "Non-opioid analgesic with limited OA efficacy in some patients.",
+          "monitoring_pearl": "Total daily acetaminophen from combination products; liver disease/alcohol.",
+          "source_refs": [
+            "ACR_OA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_oa_duloxetine",
+          "generic": "Duloxetine",
+          "class_id": "br_oa_symptom",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Common chronic musculoskeletal pain target 60 mg once daily after a lower starting dose in selected patients.",
+          "tags": [
+            "overview",
+            "oa"
+          ],
+          "role": "Central SNRI pain-modulating option for selected knee OA/chronic pain.",
+          "monitoring_pearl": "BP, nausea, liver disease, serotonergic interactions and withdrawal.",
+          "source_refs": [
+            "ACR_OA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "br_oa_triamcinolone_ia",
+          "generic": "Triamcinolone (intra-articular)",
+          "class_id": "br_oa_symptom",
+          "form": "Injection",
+          "route": "Intra-articular",
+          "dose_example": "Dose depends on joint size and preparation; sterile procedure and product-specific dosing required.",
+          "tags": [
+            "overview",
+            "oa"
+          ],
+          "role": "Short-term intra-articular anti-inflammatory option for selected symptomatic OA.",
+          "monitoring_pearl": "Infection exclusion, glucose rise, cartilage/procedure considerations; not routine frequent serial injection without reassessment.",
+          "source_refs": [
+            "ACR_OA",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "ACR_GUIDELINES",
+          "label": "American College of Rheumatology Clinical Practice Guidelines",
+          "url": "https://rheumatology.org/clinical-practice-guidelines"
+        },
+        {
+          "id": "ACR_RA",
+          "label": "ACR Rheumatoid Arthritis Guideline resources",
+          "url": "https://rheumatology.org/rheumatoid-arthritis-guideline"
+        },
+        {
+          "id": "ACR_GOUT",
+          "label": "ACR 2020 Gout Guideline",
+          "url": "https://rheumatology.org/gout-guideline"
+        },
+        {
+          "id": "ENDO_OSTEO",
+          "label": "Endocrine Society — Pharmacological Management of Osteoporosis",
+          "url": "https://www.endocrine.org/clinical-practice-guidelines/osteoporosis-in-postmenopausal-women"
+        },
+        {
+          "id": "ICMR_FRAGILITY",
+          "label": "ICMR Standard Treatment Workflows — Fragility Fracture / Orthopedic pathways",
+          "url": "https://www.icmr.gov.in/standard-treatment-workflows-stws"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "DailyMed current prescribing labels",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        },
+        {
+          "id": "ACR_OA",
+          "label": "ACR/Arthritis Foundation Osteoarthritis Guideline",
+          "url": "https://rheumatology.org/osteoarthritis-guideline"
+        },
+        {
+          "id": "ACR_GIOP",
+          "label": "ACR Glucocorticoid-Induced Osteoporosis Guideline",
+          "url": "https://rheumatology.org/glucocorticoid-induced-osteoporosis-guideline"
+        },
+        {
+          "id": "FDA_JAK_SAFETY",
+          "label": "FDA JAK inhibitor boxed-warning safety communication",
+          "url": "https://www.fda.gov/safety/medical-product-safety-information/janus-kinase-jak-inhibitors-drug-safety-communication-fda-requires-warnings-about-increased-risk"
         }
       ]
     }
