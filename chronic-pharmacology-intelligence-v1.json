@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya.common_chronic_pharmacology.v1",
-  "version": "1.4F",
-  "app_version": "V5.40F",
-  "build": "2026.08.14-R25F",
-  "name": "High-Use Pharmacology Intelligence Labs — through GI • Bowel • Liver",
+  "version": "1.4G",
+  "app_version": "V5.40G",
+  "build": "2026.08.14-R25G",
+  "name": "High-Use Pharmacology Intelligence Labs — through Antifungal/Antiviral/Antiparasitic",
   "counts": {
-    "labs": 12,
-    "classes": 340,
-    "drug_profiles": 916
+    "labs": 13,
+    "classes": 374,
+    "drug_profiles": 1013
   },
-  "global_boundary": "Research/learning pharmacology only. V5.40F adds GI • Bowel • Liver on top of the existing specialized pharmacology labs. Exact diagnosis, indication, formulation/strength, dose, duration, renal/hepatic function, pregnancy, age/weight, interactions, infection status and current label/guideline must be verified. IBD advanced therapies, cirrhosis/HRS/variceal therapy, PBC second-line agents and MASH therapies remain clinician-controlled.",
+  "global_boundary": "Research/learning pharmacology only. V5.40G adds a dedicated Antifungal • Antiviral • Antiparasitic Intelligence Lab while retaining all earlier specialized labs. Exact organism/species, disease site/severity, resistance/susceptibility, renal/hepatic function, pregnancy, age/weight, G6PD status, interactions and current guideline/regulatory label must be verified. HIV/HBV/HCV, invasive fungal disease, severe malaria and complex tissue parasitoses remain regimen- and specialist-controlled.",
   "labs": [
     {
       "id": "hypertension",
@@ -27614,6 +27614,2828 @@
           "id": "ACG_ALD_2024",
           "label": "ACG Clinical Guideline: Alcohol-Associated Liver Disease (2024)",
           "url": "https://gi.org/guidelines/"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "NIH DailyMed current product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "antiinfective_fvp",
+      "title": "Antifungal • Antiviral • Antiparasitic Intelligence Lab",
+      "icon": "🦠",
+      "badge": "FVP v1.0",
+      "eyebrow": "NON-BACTERIAL ANTI-INFECTIVE PHARMACOLOGY WORKSPACE",
+      "subtitle": "Pathogen domain → pharmacologic class → mechanism/target → generic/formulation → practical role → monitoring pearl → source verification",
+      "scientific_boundary": "Research/learning pharmacology only. Antifungal, antiviral and antiparasitic therapy depends on organism/species, infection site, severity, immune status, pregnancy, age/weight, renal/hepatic function, resistance/susceptibility, drug interactions, local epidemiology and current public-health/specialty guidance. HIV/HBV/HCV, invasive mycoses, malaria, visceral leishmaniasis, severe strongyloidiasis and other complex infections require guideline- and specialist-controlled regimens. Do not infer a treatment regimen from a class card alone.",
+      "classification_notes": [
+        "Fungal therapy is separated into superficial/mucosal vs invasive/systemic disease and by target class (azole, echinocandin, polyene, allylamine, other).",
+        "Antiviral therapy is separated by virus family and mechanism; HIV and HCV are regimen-based, not single-drug prescribing problems.",
+        "Antiparasitic therapy is separated into helminths, intestinal protozoa, malaria and tissue/vector-borne protozoa.",
+        "Pregnancy, G6PD status, QT risk, CYP interactions and renal/hepatic function can materially alter drug choice.",
+        "Species identification, resistance/susceptibility and public-health guidance supersede broad learning labels."
+      ],
+      "lens_groups": [
+        {
+          "group": "Antifungal",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All antifungal/antiviral/antiparasitic classes"
+            },
+            {
+              "id": "antifungal",
+              "label": "All antifungals"
+            },
+            {
+              "id": "superficial_fungal",
+              "label": "Superficial / mucosal fungal"
+            },
+            {
+              "id": "systemic_fungal",
+              "label": "Systemic / invasive fungal"
+            },
+            {
+              "id": "candida",
+              "label": "Candida / candidiasis"
+            },
+            {
+              "id": "aspergillus",
+              "label": "Aspergillus / mold-active"
+            },
+            {
+              "id": "dermatophyte",
+              "label": "Dermatophyte / onychomycosis"
+            }
+          ]
+        },
+        {
+          "group": "Antiviral — common viruses",
+          "items": [
+            {
+              "id": "antiviral",
+              "label": "All antivirals"
+            },
+            {
+              "id": "hsv_vzv",
+              "label": "HSV / VZV"
+            },
+            {
+              "id": "influenza",
+              "label": "Influenza"
+            },
+            {
+              "id": "covid",
+              "label": "COVID-19 antiviral"
+            },
+            {
+              "id": "cmv",
+              "label": "CMV"
+            }
+          ]
+        },
+        {
+          "group": "Chronic viral therapy",
+          "items": [
+            {
+              "id": "hiv",
+              "label": "HIV ART classes"
+            },
+            {
+              "id": "hbv",
+              "label": "Hepatitis B"
+            },
+            {
+              "id": "hcv",
+              "label": "Hepatitis C DAA"
+            },
+            {
+              "id": "regimen_based",
+              "label": "Regimen-based / specialist"
+            }
+          ]
+        },
+        {
+          "group": "Antiparasitic",
+          "items": [
+            {
+              "id": "antiparasitic",
+              "label": "All antiparasitics"
+            },
+            {
+              "id": "helminth",
+              "label": "Helminths / deworming"
+            },
+            {
+              "id": "strongyloides",
+              "label": "Strongyloides"
+            },
+            {
+              "id": "schisto",
+              "label": "Schistosomiasis"
+            },
+            {
+              "id": "protozoa_gi",
+              "label": "Giardia / Amoebiasis / intestinal protozoa"
+            },
+            {
+              "id": "malaria",
+              "label": "Malaria"
+            },
+            {
+              "id": "leishmania",
+              "label": "Leishmaniasis / tissue protozoa"
+            }
+          ]
+        },
+        {
+          "group": "Safety / stewardship",
+          "items": [
+            {
+              "id": "renal_adjust",
+              "label": "Renal-dose / renal toxicity"
+            },
+            {
+              "id": "hepatic_monitor",
+              "label": "Hepatic monitoring"
+            },
+            {
+              "id": "qt_interaction",
+              "label": "QT / CYP interaction"
+            },
+            {
+              "id": "pregnancy_caution",
+              "label": "Pregnancy-sensitive"
+            },
+            {
+              "id": "g6pd",
+              "label": "G6PD-dependent therapy"
+            },
+            {
+              "id": "high_risk",
+              "label": "High-risk / specialist"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "fvp_topical_azoles",
+          "name": "Topical azole antifungals",
+          "mechanism": "Inhibit fungal lanosterol 14-alpha-demethylase and ergosterol synthesis",
+          "target": "CYP51 / ergosterol synthesis",
+          "tags": [
+            "antifungal",
+            "superficial_fungal",
+            "dermatophyte",
+            "candida"
+          ],
+          "role_note": "High-use topical class for dermatophyte and selected Candida infections; site/diagnosis matter.",
+          "drug_ids": [
+            "fvp_clotrimazole",
+            "fvp_miconazole",
+            "fvp_ketoconazole_top",
+            "fvp_econazole",
+            "fvp_luliconazole",
+            "fvp_sertaconazole"
+          ]
+        },
+        {
+          "id": "fvp_allylamines",
+          "name": "Allylamine antifungals",
+          "mechanism": "Inhibit squalene epoxidase, reducing ergosterol and accumulating squalene",
+          "target": "Squalene epoxidase",
+          "tags": [
+            "antifungal",
+            "superficial_fungal",
+            "dermatophyte",
+            "hepatic_monitor"
+          ],
+          "role_note": "Particularly important for dermatophytes; oral terbinafine is a systemic onychomycosis option.",
+          "drug_ids": [
+            "fvp_terbinafine_top",
+            "fvp_terbinafine_oral",
+            "fvp_naftifine"
+          ]
+        },
+        {
+          "id": "fvp_polyenes",
+          "name": "Polyene antifungals",
+          "mechanism": "Bind fungal ergosterol and disrupt membrane integrity",
+          "target": "Ergosterol",
+          "tags": [
+            "antifungal",
+            "candida",
+            "systemic_fungal",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role_note": "Nystatin is local/mucosal; amphotericin B is a major systemic antifungal with substantial toxicity/infusion considerations.",
+          "drug_ids": [
+            "fvp_nystatin",
+            "fvp_ampho_b_liposomal",
+            "fvp_ampho_b_deoxycholate"
+          ]
+        },
+        {
+          "id": "fvp_triazoles_common",
+          "name": "Systemic triazoles — fluconazole / itraconazole",
+          "mechanism": "Inhibit CYP51-dependent ergosterol synthesis",
+          "target": "Lanosterol 14-alpha-demethylase (CYP51)",
+          "tags": [
+            "antifungal",
+            "candida",
+            "systemic_fungal",
+            "qt_interaction",
+            "hepatic_monitor"
+          ],
+          "role_note": "High-use systemic azoles with very different spectra, PK and interaction profiles.",
+          "drug_ids": [
+            "fvp_fluconazole",
+            "fvp_itraconazole"
+          ]
+        },
+        {
+          "id": "fvp_mold_triazoles",
+          "name": "Mold-active triazoles",
+          "mechanism": "Inhibit fungal CYP51 with expanded mold activity",
+          "target": "Lanosterol 14-alpha-demethylase (CYP51)",
+          "tags": [
+            "antifungal",
+            "systemic_fungal",
+            "aspergillus",
+            "qt_interaction",
+            "hepatic_monitor",
+            "high_risk"
+          ],
+          "role_note": "Specialist class for invasive mold disease; drug levels/interactions may matter.",
+          "drug_ids": [
+            "fvp_voriconazole",
+            "fvp_posaconazole",
+            "fvp_isavuconazonium"
+          ]
+        },
+        {
+          "id": "fvp_echinocandins",
+          "name": "Echinocandins",
+          "mechanism": "Inhibit beta-(1,3)-D-glucan synthesis in fungal cell wall",
+          "target": "β-(1,3)-D-glucan synthase",
+          "tags": [
+            "antifungal",
+            "candida",
+            "systemic_fungal",
+            "high_risk"
+          ],
+          "role_note": "Core invasive-Candida class; limited oral availability means IV use.",
+          "drug_ids": [
+            "fvp_caspofungin",
+            "fvp_micafungin",
+            "fvp_anidulafungin",
+            "fvp_rezafungin"
+          ]
+        },
+        {
+          "id": "fvp_other_fungal",
+          "name": "Other systemic/local antifungals",
+          "mechanism": "Distinct mechanisms outside major azole/polyene/echinocandin groups",
+          "target": "DNA/RNA synthesis or fungal membrane/cell wall targets",
+          "tags": [
+            "antifungal",
+            "superficial_fungal",
+            "systemic_fungal",
+            "high_risk"
+          ],
+          "role_note": "Useful niche or adjunct agents; mechanism and toxicity differ substantially.",
+          "drug_ids": [
+            "fvp_flucytosine",
+            "fvp_griseofulvin",
+            "fvp_ciclopirox",
+            "fvp_ibrexafungerp",
+            "fvp_oteseconazole"
+          ]
+        },
+        {
+          "id": "fvp_hsv_vzv",
+          "name": "HSV/VZV nucleoside analogues",
+          "mechanism": "Viral thymidine-kinase activation followed by inhibition of viral DNA polymerase",
+          "target": "Herpesvirus DNA polymerase",
+          "tags": [
+            "antiviral",
+            "hsv_vzv",
+            "renal_adjust"
+          ],
+          "role_note": "Core herpes simplex and zoster antivirals; timing and renal function matter.",
+          "drug_ids": [
+            "fvp_acyclovir",
+            "fvp_valacyclovir",
+            "fvp_famciclovir",
+            "fvp_penciclovir",
+            "fvp_docosanol"
+          ]
+        },
+        {
+          "id": "fvp_cmv_polymerase",
+          "name": "CMV DNA-polymerase inhibitors",
+          "mechanism": "Inhibit CMV DNA synthesis through nucleoside/nucleotide analog or pyrophosphate mechanisms",
+          "target": "CMV DNA polymerase",
+          "tags": [
+            "antiviral",
+            "cmv",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role_note": "Specialist CMV treatment/toxicity class.",
+          "drug_ids": [
+            "fvp_ganciclovir",
+            "fvp_valganciclovir",
+            "fvp_foscarnet",
+            "fvp_cidofovir"
+          ]
+        },
+        {
+          "id": "fvp_cmv_terminase",
+          "name": "CMV terminase inhibitor",
+          "mechanism": "Inhibits CMV DNA terminase complex, preventing viral DNA processing/packaging",
+          "target": "CMV terminase complex",
+          "tags": [
+            "antiviral",
+            "cmv",
+            "high_risk"
+          ],
+          "role_note": "Primarily CMV prophylaxis in defined transplant contexts; not interchangeable with treatment regimens.",
+          "drug_ids": [
+            "fvp_letermovir"
+          ]
+        },
+        {
+          "id": "fvp_flu_neuraminidase",
+          "name": "Influenza neuraminidase inhibitors",
+          "mechanism": "Block release of progeny influenza virions",
+          "target": "Influenza neuraminidase",
+          "tags": [
+            "antiviral",
+            "influenza",
+            "renal_adjust"
+          ],
+          "role_note": "Treatment/prophylaxis class; benefit greatest when started early, but severe/high-risk illness may warrant later treatment.",
+          "drug_ids": [
+            "fvp_oseltamivir",
+            "fvp_zanamivir",
+            "fvp_peramivir"
+          ]
+        },
+        {
+          "id": "fvp_flu_cap",
+          "name": "Influenza cap-dependent endonuclease inhibitor",
+          "mechanism": "Blocks cap-snatching needed for influenza viral mRNA synthesis",
+          "target": "Polymerase acidic (PA) endonuclease",
+          "tags": [
+            "antiviral",
+            "influenza",
+            "pregnancy_caution"
+          ],
+          "role_note": "Single-dose oral option for selected uncomplicated influenza; resistance/pregnancy contexts matter.",
+          "drug_ids": [
+            "fvp_baloxavir"
+          ]
+        },
+        {
+          "id": "fvp_covid_antivirals",
+          "name": "Direct-acting COVID-19 antivirals",
+          "mechanism": "Inhibit SARS-CoV-2 protease or RNA-dependent RNA polymerase",
+          "target": "Mpro protease / viral RdRp",
+          "tags": [
+            "antiviral",
+            "covid",
+            "renal_adjust",
+            "qt_interaction",
+            "high_risk"
+          ],
+          "role_note": "Early outpatient or inpatient antiviral therapy is indication/risk-window specific; interaction screening is critical.",
+          "drug_ids": [
+            "fvp_nirmatrelvir_ritonavir",
+            "fvp_remdesivir",
+            "fvp_molnupiravir"
+          ]
+        },
+        {
+          "id": "fvp_hbv_nucs",
+          "name": "HBV nucleos(t)ide analogues",
+          "mechanism": "Suppress hepatitis B reverse-transcriptase/DNA-polymerase activity",
+          "target": "HBV polymerase / reverse transcriptase",
+          "tags": [
+            "antiviral",
+            "hbv",
+            "regimen_based",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role_note": "Preferred long-term oral suppressive therapy in eligible chronic HBV; treatment eligibility and stopping are guideline controlled.",
+          "drug_ids": [
+            "fvp_tenofovir_df",
+            "fvp_tenofovir_af",
+            "fvp_entecavir"
+          ]
+        },
+        {
+          "id": "fvp_hcv_daa",
+          "name": "HCV direct-acting antiviral combinations",
+          "mechanism": "Block HCV protease, NS5A replication complex and/or NS5B polymerase",
+          "target": "NS3/4A protease • NS5A • NS5B",
+          "tags": [
+            "antiviral",
+            "hcv",
+            "regimen_based",
+            "hepatic_monitor",
+            "high_risk"
+          ],
+          "role_note": "HCV is treated with complete combination regimens selected by cirrhosis, prior treatment, interactions and other factors.",
+          "drug_ids": [
+            "fvp_glecaprevir_pibrentasvir",
+            "fvp_sofosbuvir_velpatasvir",
+            "fvp_ledipasvir_sofosbuvir"
+          ]
+        },
+        {
+          "id": "fvp_hiv_nrti",
+          "name": "HIV NRTI/NtRTI backbone agents",
+          "mechanism": "Terminate or disrupt HIV reverse-transcription after intracellular phosphorylation",
+          "target": "HIV reverse transcriptase",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role_note": "Backbone agents used only within complete ART regimens; resistance and HBV coinfection matter.",
+          "drug_ids": [
+            "fvp_tenofovir_df_hiv",
+            "fvp_tenofovir_af_hiv",
+            "fvp_emtricitabine",
+            "fvp_lamivudine",
+            "fvp_abacavir",
+            "fvp_zidovudine"
+          ]
+        },
+        {
+          "id": "fvp_hiv_insti",
+          "name": "HIV integrase strand-transfer inhibitors (INSTIs)",
+          "mechanism": "Block strand transfer of viral DNA into host genome",
+          "target": "HIV integrase",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "qt_interaction",
+            "high_risk"
+          ],
+          "role_note": "Preferred-anchor class in many modern ART regimens; cation interactions and resistance history matter.",
+          "drug_ids": [
+            "fvp_dolutegravir",
+            "fvp_bictegravir",
+            "fvp_raltegravir",
+            "fvp_cabotegravir"
+          ]
+        },
+        {
+          "id": "fvp_hiv_nnrt_pi",
+          "name": "HIV NNRTI / protease-inhibitor anchors",
+          "mechanism": "Noncompetitive reverse-transcriptase inhibition or protease inhibition",
+          "target": "HIV reverse transcriptase / HIV protease",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "qt_interaction",
+            "high_risk"
+          ],
+          "role_note": "Alternative/selected ART anchors with major interaction and resistance considerations.",
+          "drug_ids": [
+            "fvp_doravirine",
+            "fvp_rilpivirine",
+            "fvp_efavirenz",
+            "fvp_darunavir",
+            "fvp_atazanavir"
+          ]
+        },
+        {
+          "id": "fvp_hiv_entry_capsid",
+          "name": "HIV entry/fusion/attachment/capsid agents",
+          "mechanism": "Block CCR5, fusion, attachment/post-attachment or capsid functions",
+          "target": "CCR5 • gp41 • gp120/post-attachment • capsid",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role_note": "Specialist/resistance-context HIV agents; not routine standalone therapy.",
+          "drug_ids": [
+            "fvp_maraviroc",
+            "fvp_enfuvirtide",
+            "fvp_fostemsavir",
+            "fvp_ibalizumab",
+            "fvp_lenacapavir"
+          ]
+        },
+        {
+          "id": "fvp_benzimidazole_helminths",
+          "name": "Benzimidazole anthelmintics",
+          "mechanism": "Bind parasite beta-tubulin and inhibit microtubule function/glucose uptake",
+          "target": "β-tubulin / microtubules",
+          "tags": [
+            "antiparasitic",
+            "helminth",
+            "pregnancy_caution"
+          ],
+          "role_note": "High-use deworming class; organism and pregnancy/age context determine regimen.",
+          "drug_ids": [
+            "fvp_albendazole",
+            "fvp_mebendazole"
+          ]
+        },
+        {
+          "id": "fvp_pyrantel",
+          "name": "Depolarizing neuromuscular anthelmintic",
+          "mechanism": "Causes persistent parasite neuromuscular depolarization/paralysis",
+          "target": "Nicotinic acetylcholine receptors",
+          "tags": [
+            "antiparasitic",
+            "helminth"
+          ],
+          "role_note": "Common pinworm/selected intestinal-nematode agent.",
+          "drug_ids": [
+            "fvp_pyrantel_pamoate"
+          ]
+        },
+        {
+          "id": "fvp_ivermectin",
+          "name": "Macrocyclic lactone antiparasitic",
+          "mechanism": "Binds glutamate-gated chloride channels causing parasite paralysis/death",
+          "target": "Glutamate-gated chloride channels",
+          "tags": [
+            "antiparasitic",
+            "helminth",
+            "strongyloides",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role_note": "Key drug for strongyloidiasis; also used in selected ectoparasitic/filarial contexts.",
+          "drug_ids": [
+            "fvp_ivermectin"
+          ]
+        },
+        {
+          "id": "fvp_praziquantel",
+          "name": "Praziquantel — trematode/cestode therapy",
+          "mechanism": "Increases parasite membrane calcium permeability causing contraction and tegument damage",
+          "target": "Parasite calcium permeability",
+          "tags": [
+            "antiparasitic",
+            "helminth",
+            "schisto"
+          ],
+          "role_note": "Core schistosomiasis and several cestode/trematode treatments; weight/species-specific dosing.",
+          "drug_ids": [
+            "fvp_praziquantel"
+          ]
+        },
+        {
+          "id": "fvp_fasciola",
+          "name": "Fasciolicide",
+          "mechanism": "Disrupts parasite microtubule-dependent processes",
+          "target": "Fluke microtubule/metabolic pathways",
+          "tags": [
+            "antiparasitic",
+            "helminth",
+            "high_risk"
+          ],
+          "role_note": "Fasciola hepatica/gigantica-specific therapy.",
+          "drug_ids": [
+            "fvp_triclabendazole"
+          ]
+        },
+        {
+          "id": "fvp_filarial",
+          "name": "Filarial therapies",
+          "mechanism": "Reduce microfilariae/adult-worm burden via parasite-specific mechanisms",
+          "target": "Filarial neuromuscular/metabolic targets",
+          "tags": [
+            "antiparasitic",
+            "helminth",
+            "high_risk"
+          ],
+          "role_note": "Public-health/specialist regimens vary by species and geographic Loa loa risk.",
+          "drug_ids": [
+            "fvp_diethylcarbamazine",
+            "fvp_doxy_filaria"
+          ]
+        },
+        {
+          "id": "fvp_nitroimidazole_protozoa",
+          "name": "Nitroimidazole antiprotozoals",
+          "mechanism": "Reduced metabolites damage DNA in susceptible anaerobic protozoa",
+          "target": "Protozoal DNA",
+          "tags": [
+            "antiparasitic",
+            "protozoa_gi",
+            "hepatic_monitor"
+          ],
+          "role_note": "High-use giardiasis/amebiasis/trichomoniasis class; luminal follow-on therapy is needed for invasive E. histolytica.",
+          "drug_ids": [
+            "fvp_metronidazole_proto",
+            "fvp_tinidazole"
+          ]
+        },
+        {
+          "id": "fvp_luminal_amoeba",
+          "name": "Luminal amebicides",
+          "mechanism": "Act within intestinal lumen against Entamoeba cysts/trophozoites",
+          "target": "Luminal parasite targets",
+          "tags": [
+            "antiparasitic",
+            "protozoa_gi"
+          ],
+          "role_note": "Used after tissue-active treatment for invasive amebiasis or for selected luminal infection.",
+          "drug_ids": [
+            "fvp_paromomycin",
+            "fvp_iodoquinol"
+          ]
+        },
+        {
+          "id": "fvp_nitazoxanide",
+          "name": "Nitazoxanide / pyruvate-ferredoxin pathway inhibitor",
+          "mechanism": "Interferes with pyruvate:ferredoxin oxidoreductase-dependent metabolism in susceptible protozoa",
+          "target": "PFOR-dependent energy metabolism",
+          "tags": [
+            "antiparasitic",
+            "protozoa_gi"
+          ],
+          "role_note": "Option for selected Giardia/Cryptosporidium contexts; host immune status matters.",
+          "drug_ids": [
+            "fvp_nitazoxanide"
+          ]
+        },
+        {
+          "id": "fvp_malaria_act",
+          "name": "Artemisinin-based combination therapies (ACTs)",
+          "mechanism": "Rapid artemisinin parasite killing plus longer-acting partner drug",
+          "target": "Plasmodial heme/redox pathways + partner targets",
+          "tags": [
+            "antiparasitic",
+            "malaria",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role_note": "WHO core strategy for uncomplicated falciparum malaria; national resistance/species guidance determines regimen.",
+          "drug_ids": [
+            "fvp_artemether_lumefantrine",
+            "fvp_dihydroartemisinin_piperaquine",
+            "fvp_artesunate_amodiaquine"
+          ]
+        },
+        {
+          "id": "fvp_malaria_severe",
+          "name": "Severe-malaria parenteral therapy",
+          "mechanism": "Rapid artemisinin activity against blood-stage Plasmodium",
+          "target": "Plasmodial blood-stage pathways",
+          "tags": [
+            "antiparasitic",
+            "malaria",
+            "high_risk"
+          ],
+          "role_note": "Emergency specialist treatment; transition to complete oral ACT after stabilization per guideline.",
+          "drug_ids": [
+            "fvp_iv_artesunate"
+          ]
+        },
+        {
+          "id": "fvp_malaria_radical",
+          "name": "8-aminoquinolines for radical cure/transmission blocking",
+          "mechanism": "Target dormant liver hypnozoites and/or gametocytes",
+          "target": "Plasmodial hepatic/gametocyte oxidative pathways",
+          "tags": [
+            "antiparasitic",
+            "malaria",
+            "g6pd",
+            "pregnancy_caution",
+            "high_risk"
+          ],
+          "role_note": "Primaquine/tafenoquine require quantitative G6PD-aware use; pregnancy restrictions are critical.",
+          "drug_ids": [
+            "fvp_primaquine",
+            "fvp_tafenoquine"
+          ]
+        },
+        {
+          "id": "fvp_malaria_other",
+          "name": "Other antimalarial agents",
+          "mechanism": "Diverse inhibition of parasite folate, mitochondrial or heme-related pathways",
+          "target": "Plasmodial metabolic targets",
+          "tags": [
+            "antiparasitic",
+            "malaria",
+            "qt_interaction",
+            "high_risk"
+          ],
+          "role_note": "Use depends on species, resistance geography, prophylaxis vs treatment and pregnancy.",
+          "drug_ids": [
+            "fvp_atovaquone_proguanil",
+            "fvp_chloroquine",
+            "fvp_quinine"
+          ]
+        },
+        {
+          "id": "fvp_leishmania",
+          "name": "Antileishmanial therapies",
+          "mechanism": "Disrupt parasite membrane/metabolism or intracellular survival through diverse mechanisms",
+          "target": "Leishmania membrane/metabolic targets",
+          "tags": [
+            "antiparasitic",
+            "leishmania",
+            "high_risk"
+          ],
+          "role_note": "Species/geographic syndrome and visceral vs cutaneous disease determine regimen; specialist care common.",
+          "drug_ids": [
+            "fvp_liposomal_ampho_leish",
+            "fvp_miltefosine",
+            "fvp_sodium_stibogluconate"
+          ]
+        },
+        {
+          "id": "fvp_toxoplasma",
+          "name": "Toxoplasmosis combination therapy",
+          "mechanism": "Sequential folate-pathway inhibition against Toxoplasma gondii",
+          "target": "Dihydrofolate reductase / folate synthesis",
+          "tags": [
+            "antiparasitic",
+            "high_risk",
+            "regimen_based"
+          ],
+          "role_note": "CNS/ocular/congenital and HIV-associated disease require specialist combination regimens.",
+          "drug_ids": [
+            "fvp_pyrimethamine",
+            "fvp_sulfadiazine",
+            "fvp_leucovorin_toxo"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "fvp_clotrimazole",
+          "generic": "Clotrimazole",
+          "class_id": "fvp_topical_azoles",
+          "form": "Cream/solution/troche",
+          "route": "Topical/oromucosal",
+          "dose_example": "Topical formulations commonly used 1–2 times daily; mucosal schedules differ by product.",
+          "tags": [
+            "antifungal",
+            "superficial_fungal",
+            "dermatophyte"
+          ],
+          "role": "Topical azole option.",
+          "monitoring_pearl": "Confirm fungal diagnosis; avoid prolonged steroid-antifungal misuse.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_miconazole",
+          "generic": "Miconazole",
+          "class_id": "fvp_topical_azoles",
+          "form": "Cream/powder/buccal",
+          "route": "Topical/buccal",
+          "dose_example": "Topical products commonly 1–2 times daily; verify site-specific label.",
+          "tags": [
+            "antifungal",
+            "superficial_fungal",
+            "dermatophyte"
+          ],
+          "role": "Topical azole option.",
+          "monitoring_pearl": "Confirm fungal diagnosis; avoid prolonged steroid-antifungal misuse.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_ketoconazole_top",
+          "generic": "Ketoconazole topical",
+          "class_id": "fvp_topical_azoles",
+          "form": "Cream/shampoo",
+          "route": "Topical",
+          "dose_example": "Common topical use once/twice daily; shampoo schedules vary.",
+          "tags": [
+            "antifungal",
+            "superficial_fungal",
+            "dermatophyte"
+          ],
+          "role": "Topical azole option.",
+          "monitoring_pearl": "Confirm fungal diagnosis; avoid prolonged steroid-antifungal misuse.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_econazole",
+          "generic": "Econazole",
+          "class_id": "fvp_topical_azoles",
+          "form": "Cream",
+          "route": "Topical",
+          "dose_example": "Often once daily; verify indication and duration.",
+          "tags": [
+            "antifungal",
+            "superficial_fungal",
+            "dermatophyte"
+          ],
+          "role": "Topical azole option.",
+          "monitoring_pearl": "Confirm fungal diagnosis; avoid prolonged steroid-antifungal misuse.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_luliconazole",
+          "generic": "Luliconazole",
+          "class_id": "fvp_topical_azoles",
+          "form": "Cream",
+          "route": "Topical",
+          "dose_example": "Common labeled use once daily for selected tinea infections.",
+          "tags": [
+            "antifungal",
+            "superficial_fungal",
+            "dermatophyte"
+          ],
+          "role": "Topical azole option.",
+          "monitoring_pearl": "Confirm fungal diagnosis; avoid prolonged steroid-antifungal misuse.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_sertaconazole",
+          "generic": "Sertaconazole",
+          "class_id": "fvp_topical_azoles",
+          "form": "Cream",
+          "route": "Topical",
+          "dose_example": "Common labeled use twice daily for tinea pedis; verify local label.",
+          "tags": [
+            "antifungal",
+            "superficial_fungal",
+            "dermatophyte"
+          ],
+          "role": "Topical azole option.",
+          "monitoring_pearl": "Confirm fungal diagnosis; avoid prolonged steroid-antifungal misuse.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_terbinafine_top",
+          "generic": "Terbinafine topical",
+          "class_id": "fvp_allylamines",
+          "form": "Cream/gel/spray",
+          "route": "Topical",
+          "dose_example": "Common labeled schedules are once/twice daily depending site/formulation.",
+          "tags": [
+            "antifungal",
+            "superficial_fungal",
+            "dermatophyte"
+          ],
+          "role": "Dermatophyte-focused option.",
+          "monitoring_pearl": "Oral terbinafine: assess liver history/interactions; topical products are not substitutes for systemic therapy when nail/hair involvement requires it.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_terbinafine_oral",
+          "generic": "Terbinafine oral",
+          "class_id": "fvp_allylamines",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult label dose is 250 mg once daily; duration is infection/site specific.",
+          "tags": [
+            "antifungal",
+            "dermatophyte",
+            "hepatic_monitor"
+          ],
+          "role": "Dermatophyte-focused option.",
+          "monitoring_pearl": "Oral terbinafine: assess liver history/interactions; topical products are not substitutes for systemic therapy when nail/hair involvement requires it.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_naftifine",
+          "generic": "Naftifine",
+          "class_id": "fvp_allylamines",
+          "form": "Cream/gel",
+          "route": "Topical",
+          "dose_example": "Common labeled use once daily for selected tinea infections.",
+          "tags": [
+            "antifungal",
+            "superficial_fungal",
+            "dermatophyte"
+          ],
+          "role": "Dermatophyte-focused option.",
+          "monitoring_pearl": "Oral terbinafine: assess liver history/interactions; topical products are not substitutes for systemic therapy when nail/hair involvement requires it.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_nystatin",
+          "generic": "Nystatin",
+          "class_id": "fvp_polyenes",
+          "form": "Oral suspension/pastille/topical cream/powder",
+          "route": "Topical/oromucosal",
+          "dose_example": "Product/site-specific multiple daily dosing; verify label.",
+          "tags": [
+            "antifungal",
+            "candida",
+            "superficial_fungal"
+          ],
+          "role": "Polyene antifungal.",
+          "monitoring_pearl": "Amphotericin formulations: renal/electrolyte/infusion monitoring; never interchange formulations without exact product verification.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "IDSA_CANDIDA",
+            "IDSA_ASPER",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_ampho_b_liposomal",
+          "generic": "Liposomal amphotericin B",
+          "class_id": "fvp_polyenes",
+          "form": "IV formulation",
+          "route": "IV",
+          "dose_example": "Weight-based specialist dosing (mg/kg/day) varies by infection; verify guideline/label.",
+          "tags": [
+            "antifungal",
+            "systemic_fungal",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role": "Polyene antifungal.",
+          "monitoring_pearl": "Amphotericin formulations: renal/electrolyte/infusion monitoring; never interchange formulations without exact product verification.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "IDSA_CANDIDA",
+            "IDSA_ASPER",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_ampho_b_deoxycholate",
+          "generic": "Amphotericin B deoxycholate",
+          "class_id": "fvp_polyenes",
+          "form": "IV formulation",
+          "route": "IV",
+          "dose_example": "Weight-based specialist dosing; formulation is not mg-for-mg interchangeable with liposomal products.",
+          "tags": [
+            "antifungal",
+            "systemic_fungal",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role": "Polyene antifungal.",
+          "monitoring_pearl": "Amphotericin formulations: renal/electrolyte/infusion monitoring; never interchange formulations without exact product verification.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "IDSA_CANDIDA",
+            "IDSA_ASPER",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_fluconazole",
+          "generic": "Fluconazole",
+          "class_id": "fvp_triazoles_common",
+          "form": "Tablet/suspension/injection",
+          "route": "PO/IV",
+          "dose_example": "Dose varies greatly by candidiasis site/severity; common adult regimens range from single-dose mucosal treatment to daily systemic therapy—verify indication.",
+          "tags": [
+            "antifungal",
+            "candida",
+            "systemic_fungal",
+            "renal_adjust",
+            "qt_interaction"
+          ],
+          "role": "Systemic triazole.",
+          "monitoring_pearl": "Major CYP/interaction and hepatic considerations; renal adjustment applies to fluconazole; itraconazole has heart-failure cautions.",
+          "source_refs": [
+            "CDC_CANDIDA",
+            "IDSA_CANDIDA",
+            "CDC_FUNGAL_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_itraconazole",
+          "generic": "Itraconazole",
+          "class_id": "fvp_triazoles_common",
+          "form": "Capsule/oral solution",
+          "route": "Oral",
+          "dose_example": "Common systemic regimens are indication/formulation specific; capsule and solution absorption differ.",
+          "tags": [
+            "antifungal",
+            "systemic_fungal",
+            "dermatophyte",
+            "qt_interaction",
+            "hepatic_monitor"
+          ],
+          "role": "Systemic triazole.",
+          "monitoring_pearl": "Major CYP/interaction and hepatic considerations; renal adjustment applies to fluconazole; itraconazole has heart-failure cautions.",
+          "source_refs": [
+            "CDC_CANDIDA",
+            "IDSA_CANDIDA",
+            "CDC_FUNGAL_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_voriconazole",
+          "generic": "Voriconazole",
+          "class_id": "fvp_mold_triazoles",
+          "form": "Tablet/suspension/injection",
+          "route": "PO/IV",
+          "dose_example": "Loading + maintenance regimens are weight/route specific; verify invasive-aspergillosis guideline and label.",
+          "tags": [
+            "antifungal",
+            "systemic_fungal",
+            "aspergillus",
+            "qt_interaction",
+            "hepatic_monitor",
+            "high_risk"
+          ],
+          "role": "Mold-active triazole.",
+          "monitoring_pearl": "CYP interactions, hepatic monitoring, formulation/route and organism susceptibility require verification.",
+          "source_refs": [
+            "IDSA_ASPER",
+            "CDC_FUNGAL_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_posaconazole",
+          "generic": "Posaconazole",
+          "class_id": "fvp_mold_triazoles",
+          "form": "Delayed-release tablet/suspension/injection",
+          "route": "PO/IV",
+          "dose_example": "Formulations are not interchangeable; prophylaxis/treatment schedules differ.",
+          "tags": [
+            "antifungal",
+            "systemic_fungal",
+            "aspergillus",
+            "qt_interaction",
+            "hepatic_monitor",
+            "high_risk"
+          ],
+          "role": "Mold-active triazole.",
+          "monitoring_pearl": "CYP interactions, hepatic monitoring, formulation/route and organism susceptibility require verification.",
+          "source_refs": [
+            "IDSA_ASPER",
+            "CDC_FUNGAL_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_isavuconazonium",
+          "generic": "Isavuconazonium sulfate (isavuconazole prodrug)",
+          "class_id": "fvp_mold_triazoles",
+          "form": "Capsule/injection",
+          "route": "PO/IV",
+          "dose_example": "Loading then once-daily maintenance per label; verify invasive mold indication.",
+          "tags": [
+            "antifungal",
+            "systemic_fungal",
+            "aspergillus",
+            "hepatic_monitor",
+            "high_risk"
+          ],
+          "role": "Mold-active triazole.",
+          "monitoring_pearl": "CYP interactions, hepatic monitoring, formulation/route and organism susceptibility require verification.",
+          "source_refs": [
+            "IDSA_ASPER",
+            "CDC_FUNGAL_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_caspofungin",
+          "generic": "Caspofungin",
+          "class_id": "fvp_echinocandins",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Loading then daily IV dosing per label; hepatic adjustment can matter.",
+          "tags": [
+            "antifungal",
+            "candida",
+            "systemic_fungal",
+            "high_risk"
+          ],
+          "role": "Echinocandin option.",
+          "monitoring_pearl": "Species/susceptibility, source control, step-down timing and treatment duration matter.",
+          "source_refs": [
+            "IDSA_CANDIDA",
+            "CDC_CANDIDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_micafungin",
+          "generic": "Micafungin",
+          "class_id": "fvp_echinocandins",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Once-daily weight/indication-specific IV dosing; verify candidemia/esophageal/prophylaxis context.",
+          "tags": [
+            "antifungal",
+            "candida",
+            "systemic_fungal",
+            "high_risk"
+          ],
+          "role": "Echinocandin option.",
+          "monitoring_pearl": "Species/susceptibility, source control, step-down timing and treatment duration matter.",
+          "source_refs": [
+            "IDSA_CANDIDA",
+            "CDC_CANDIDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_anidulafungin",
+          "generic": "Anidulafungin",
+          "class_id": "fvp_echinocandins",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Loading then once-daily IV dosing per indication.",
+          "tags": [
+            "antifungal",
+            "candida",
+            "systemic_fungal",
+            "high_risk"
+          ],
+          "role": "Echinocandin option.",
+          "monitoring_pearl": "Species/susceptibility, source control, step-down timing and treatment duration matter.",
+          "source_refs": [
+            "IDSA_CANDIDA",
+            "CDC_CANDIDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_rezafungin",
+          "generic": "Rezafungin",
+          "class_id": "fvp_echinocandins",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Long-acting once-weekly labeled regimen for eligible candidemia/invasive candidiasis; verify label.",
+          "tags": [
+            "antifungal",
+            "candida",
+            "systemic_fungal",
+            "high_risk"
+          ],
+          "role": "Echinocandin option.",
+          "monitoring_pearl": "Species/susceptibility, source control, step-down timing and treatment duration matter.",
+          "source_refs": [
+            "IDSA_CANDIDA",
+            "CDC_CANDIDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_flucytosine",
+          "generic": "Flucytosine",
+          "class_id": "fvp_other_fungal",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Weight-based divided dosing with renal adjustment/TDM context; specialist use.",
+          "tags": [
+            "antifungal",
+            "systemic_fungal",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role": "Other antifungal option.",
+          "monitoring_pearl": "Use product-specific indication and safety verification; several agents are restricted/specialist.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "CDC_CANDIDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_griseofulvin",
+          "generic": "Griseofulvin",
+          "class_id": "fvp_other_fungal",
+          "form": "Tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Weight/formulation-specific dosing; commonly used for selected dermatophyte hair/skin infections.",
+          "tags": [
+            "antifungal",
+            "dermatophyte",
+            "hepatic_monitor"
+          ],
+          "role": "Other antifungal option.",
+          "monitoring_pearl": "Use product-specific indication and safety verification; several agents are restricted/specialist.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "CDC_CANDIDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_ciclopirox",
+          "generic": "Ciclopirox",
+          "class_id": "fvp_other_fungal",
+          "form": "Cream/gel/shampoo/nail lacquer",
+          "route": "Topical",
+          "dose_example": "Application schedule depends on site/formulation.",
+          "tags": [
+            "antifungal",
+            "superficial_fungal",
+            "dermatophyte"
+          ],
+          "role": "Other antifungal option.",
+          "monitoring_pearl": "Use product-specific indication and safety verification; several agents are restricted/specialist.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "CDC_CANDIDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_ibrexafungerp",
+          "generic": "Ibrexafungerp",
+          "class_id": "fvp_other_fungal",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Indication-specific oral dosing; verify VVC/recurrent-VVC label and pregnancy precautions.",
+          "tags": [
+            "antifungal",
+            "candida",
+            "pregnancy_caution"
+          ],
+          "role": "Other antifungal option.",
+          "monitoring_pearl": "Use product-specific indication and safety verification; several agents are restricted/specialist.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "CDC_CANDIDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_oteseconazole",
+          "generic": "Oteseconazole",
+          "class_id": "fvp_other_fungal",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Regimen is product-specific and restricted to eligible recurrent VVC population; verify label.",
+          "tags": [
+            "antifungal",
+            "candida",
+            "pregnancy_caution",
+            "high_risk"
+          ],
+          "role": "Other antifungal option.",
+          "monitoring_pearl": "Use product-specific indication and safety verification; several agents are restricted/specialist.",
+          "source_refs": [
+            "CDC_FUNGAL_2026",
+            "CDC_CANDIDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_acyclovir",
+          "generic": "Acyclovir",
+          "class_id": "fvp_hsv_vzv",
+          "form": "Tablet/capsule/suspension/injection/topical",
+          "route": "PO/IV/topical",
+          "dose_example": "Regimens vary by HSV vs zoster vs severe disease; renal adjustment is important.",
+          "tags": [
+            "antiviral",
+            "hsv_vzv",
+            "renal_adjust"
+          ],
+          "role": "HSV/VZV antiviral option.",
+          "monitoring_pearl": "Early therapy improves benefit in zoster; renal function and neurotoxicity risk matter for systemic acyclovir-family drugs.",
+          "source_refs": [
+            "CDC_HSV",
+            "CDC_ZOSTER",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_valacyclovir",
+          "generic": "Valacyclovir",
+          "class_id": "fvp_hsv_vzv",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common HSV/zoster regimens are indication-specific; renal adjustment required.",
+          "tags": [
+            "antiviral",
+            "hsv_vzv",
+            "renal_adjust"
+          ],
+          "role": "HSV/VZV antiviral option.",
+          "monitoring_pearl": "Early therapy improves benefit in zoster; renal function and neurotoxicity risk matter for systemic acyclovir-family drugs.",
+          "source_refs": [
+            "CDC_HSV",
+            "CDC_ZOSTER",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_famciclovir",
+          "generic": "Famciclovir",
+          "class_id": "fvp_hsv_vzv",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Indication-specific oral regimens; renal adjustment required.",
+          "tags": [
+            "antiviral",
+            "hsv_vzv",
+            "renal_adjust"
+          ],
+          "role": "HSV/VZV antiviral option.",
+          "monitoring_pearl": "Early therapy improves benefit in zoster; renal function and neurotoxicity risk matter for systemic acyclovir-family drugs.",
+          "source_refs": [
+            "CDC_HSV",
+            "CDC_ZOSTER",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_penciclovir",
+          "generic": "Penciclovir topical",
+          "class_id": "fvp_hsv_vzv",
+          "form": "Cream",
+          "route": "Topical",
+          "dose_example": "Cold-sore labeled schedule is frequent daytime application; verify label.",
+          "tags": [
+            "antiviral",
+            "hsv_vzv"
+          ],
+          "role": "HSV/VZV antiviral option.",
+          "monitoring_pearl": "Early therapy improves benefit in zoster; renal function and neurotoxicity risk matter for systemic acyclovir-family drugs.",
+          "source_refs": [
+            "CDC_HSV",
+            "CDC_ZOSTER",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_docosanol",
+          "generic": "Docosanol",
+          "class_id": "fvp_hsv_vzv",
+          "form": "10% cream",
+          "route": "Topical",
+          "dose_example": "Apply per OTC label for herpes labialis.",
+          "tags": [
+            "antiviral",
+            "hsv_vzv"
+          ],
+          "role": "HSV/VZV antiviral option.",
+          "monitoring_pearl": "Early therapy improves benefit in zoster; renal function and neurotoxicity risk matter for systemic acyclovir-family drugs.",
+          "source_refs": [
+            "CDC_HSV",
+            "CDC_ZOSTER",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_ganciclovir",
+          "generic": "Ganciclovir",
+          "class_id": "fvp_cmv_polymerase",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Weight-based induction/maintenance; renal adjustment and CBC monitoring mandatory.",
+          "tags": [
+            "antiviral",
+            "cmv",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role": "CMV specialist antiviral.",
+          "monitoring_pearl": "CBC/renal/electrolyte toxicity and transplant/HIV context require expert monitoring.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_valganciclovir",
+          "generic": "Valganciclovir",
+          "class_id": "fvp_cmv_polymerase",
+          "form": "Tablet/oral solution",
+          "route": "Oral",
+          "dose_example": "Renal-function-based induction/maintenance schedules; specialist use.",
+          "tags": [
+            "antiviral",
+            "cmv",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role": "CMV specialist antiviral.",
+          "monitoring_pearl": "CBC/renal/electrolyte toxicity and transplant/HIV context require expert monitoring.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_foscarnet",
+          "generic": "Foscarnet",
+          "class_id": "fvp_cmv_polymerase",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Weight- and renal-function-based specialist dosing.",
+          "tags": [
+            "antiviral",
+            "cmv",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role": "CMV specialist antiviral.",
+          "monitoring_pearl": "CBC/renal/electrolyte toxicity and transplant/HIV context require expert monitoring.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_cidofovir",
+          "generic": "Cidofovir",
+          "class_id": "fvp_cmv_polymerase",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Intermittent IV specialist regimen with nephroprotection requirements; verify label.",
+          "tags": [
+            "antiviral",
+            "cmv",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role": "CMV specialist antiviral.",
+          "monitoring_pearl": "CBC/renal/electrolyte toxicity and transplant/HIV context require expert monitoring.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_letermovir",
+          "generic": "Letermovir",
+          "class_id": "fvp_cmv_terminase",
+          "form": "Tablet/injection",
+          "route": "PO/IV",
+          "dose_example": "Once-daily prophylaxis schedules are transplant/context specific; verify label.",
+          "tags": [
+            "antiviral",
+            "cmv",
+            "high_risk"
+          ],
+          "role": "CMV prophylaxis agent.",
+          "monitoring_pearl": "Interaction profile and transplant context must be checked.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_oseltamivir",
+          "generic": "Oseltamivir",
+          "class_id": "fvp_flu_neuraminidase",
+          "form": "Capsule/suspension",
+          "route": "Oral",
+          "dose_example": "Common adult treatment: 75 mg twice daily for 5 days; renal adjustment applies.",
+          "tags": [
+            "antiviral",
+            "influenza",
+            "renal_adjust"
+          ],
+          "role": "Influenza antiviral.",
+          "monitoring_pearl": "Check age, pregnancy, inhalation suitability, renal function and current-season CDC recommendations.",
+          "source_refs": [
+            "CDC_FLU_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_zanamivir",
+          "generic": "Zanamivir",
+          "class_id": "fvp_flu_neuraminidase",
+          "form": "Inhaled powder",
+          "route": "Inhaled",
+          "dose_example": "Common treatment: 10 mg (2 inhalations) twice daily for 5 days; airway disease cautions.",
+          "tags": [
+            "antiviral",
+            "influenza"
+          ],
+          "role": "Influenza antiviral.",
+          "monitoring_pearl": "Check age, pregnancy, inhalation suitability, renal function and current-season CDC recommendations.",
+          "source_refs": [
+            "CDC_FLU_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_peramivir",
+          "generic": "Peramivir",
+          "class_id": "fvp_flu_neuraminidase",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Single-dose IV treatment is used in selected uncomplicated cases; renal adjustment applies.",
+          "tags": [
+            "antiviral",
+            "influenza",
+            "renal_adjust"
+          ],
+          "role": "Influenza antiviral.",
+          "monitoring_pearl": "Check age, pregnancy, inhalation suitability, renal function and current-season CDC recommendations.",
+          "source_refs": [
+            "CDC_FLU_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_baloxavir",
+          "generic": "Baloxavir marboxil",
+          "class_id": "fvp_flu_cap",
+          "form": "Tablet/oral suspension",
+          "route": "Oral",
+          "dose_example": "Single weight-based oral dose for eligible uncomplicated influenza; verify age/pregnancy/current CDC guidance.",
+          "tags": [
+            "antiviral",
+            "influenza",
+            "pregnancy_caution"
+          ],
+          "role": "Influenza antiviral with single-dose treatment.",
+          "monitoring_pearl": "Avoid coadministration with polyvalent cations; current-season resistance/recommendations matter.",
+          "source_refs": [
+            "CDC_FLU_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_nirmatrelvir_ritonavir",
+          "generic": "Nirmatrelvir + ritonavir",
+          "class_id": "fvp_covid_antivirals",
+          "form": "Co-packaged tablets",
+          "route": "Oral",
+          "dose_example": "Twice daily for 5 days in eligible high-risk patients; renal dosing and interaction screening are mandatory.",
+          "tags": [
+            "antiviral",
+            "covid",
+            "renal_adjust",
+            "qt_interaction",
+            "high_risk"
+          ],
+          "role": "COVID-19 direct-acting antiviral.",
+          "monitoring_pearl": "Treatment window, eligibility, interactions, renal/hepatic function and pregnancy require current-label verification.",
+          "source_refs": [
+            "FDA_COVID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_remdesivir",
+          "generic": "Remdesivir",
+          "class_id": "fvp_covid_antivirals",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Outpatient early-treatment and inpatient schedules differ; verify current label/guideline.",
+          "tags": [
+            "antiviral",
+            "covid",
+            "hepatic_monitor",
+            "high_risk"
+          ],
+          "role": "COVID-19 direct-acting antiviral.",
+          "monitoring_pearl": "Treatment window, eligibility, interactions, renal/hepatic function and pregnancy require current-label verification.",
+          "source_refs": [
+            "FDA_COVID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_molnupiravir",
+          "generic": "Molnupiravir",
+          "class_id": "fvp_covid_antivirals",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Common adult EUA regimen: 800 mg every 12 h for 5 days when appropriate alternatives are unsuitable; pregnancy precautions apply.",
+          "tags": [
+            "antiviral",
+            "covid",
+            "pregnancy_caution",
+            "high_risk"
+          ],
+          "role": "COVID-19 direct-acting antiviral.",
+          "monitoring_pearl": "Treatment window, eligibility, interactions, renal/hepatic function and pregnancy require current-label verification.",
+          "source_refs": [
+            "FDA_COVID",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_tenofovir_df",
+          "generic": "Tenofovir disoproxil fumarate",
+          "class_id": "fvp_hbv_nucs",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult HBV label dose 300 mg once daily; renal adjustment/monitoring applies.",
+          "tags": [
+            "antiviral",
+            "hbv",
+            "regimen_based",
+            "renal_adjust"
+          ],
+          "role": "Chronic HBV suppressive antiviral.",
+          "monitoring_pearl": "HBV DNA, ALT, fibrosis/cirrhosis status, renal/bone factors, prior resistance and pregnancy context matter.",
+          "source_refs": [
+            "WHO_HBV_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_tenofovir_af",
+          "generic": "Tenofovir alafenamide",
+          "class_id": "fvp_hbv_nucs",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult HBV label dose 25 mg once daily with food; verify renal/hepatic suitability.",
+          "tags": [
+            "antiviral",
+            "hbv",
+            "regimen_based",
+            "renal_adjust"
+          ],
+          "role": "Chronic HBV suppressive antiviral.",
+          "monitoring_pearl": "HBV DNA, ALT, fibrosis/cirrhosis status, renal/bone factors, prior resistance and pregnancy context matter.",
+          "source_refs": [
+            "WHO_HBV_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_entecavir",
+          "generic": "Entecavir",
+          "class_id": "fvp_hbv_nucs",
+          "form": "Tablet/oral solution",
+          "route": "Oral",
+          "dose_example": "Common adult nucleoside-naive dose 0.5 mg once daily; resistance/decompensation context can change dose.",
+          "tags": [
+            "antiviral",
+            "hbv",
+            "regimen_based",
+            "renal_adjust"
+          ],
+          "role": "Chronic HBV suppressive antiviral.",
+          "monitoring_pearl": "HBV DNA, ALT, fibrosis/cirrhosis status, renal/bone factors, prior resistance and pregnancy context matter.",
+          "source_refs": [
+            "WHO_HBV_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_glecaprevir_pibrentasvir",
+          "generic": "Glecaprevir + pibrentasvir",
+          "class_id": "fvp_hcv_daa",
+          "form": "Fixed-dose tablets/pellets",
+          "route": "Oral",
+          "dose_example": "Complete regimen is taken daily with food for guideline-defined duration; avoid use in decompensated cirrhosis.",
+          "tags": [
+            "antiviral",
+            "hcv",
+            "regimen_based",
+            "hepatic_monitor",
+            "high_risk"
+          ],
+          "role": "HCV complete DAA regimen.",
+          "monitoring_pearl": "Do not prescribe from a class card: verify HCV RNA, cirrhosis/decompensation, HBV status, renal function and interactions.",
+          "source_refs": [
+            "HCV_GUIDANCE_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_sofosbuvir_velpatasvir",
+          "generic": "Sofosbuvir + velpatasvir",
+          "class_id": "fvp_hcv_daa",
+          "form": "Fixed-dose tablet/pellets",
+          "route": "Oral",
+          "dose_example": "Once-daily complete regimen for guideline-defined duration; interaction and cirrhosis context matter.",
+          "tags": [
+            "antiviral",
+            "hcv",
+            "regimen_based",
+            "hepatic_monitor",
+            "high_risk"
+          ],
+          "role": "HCV complete DAA regimen.",
+          "monitoring_pearl": "Do not prescribe from a class card: verify HCV RNA, cirrhosis/decompensation, HBV status, renal function and interactions.",
+          "source_refs": [
+            "HCV_GUIDANCE_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_ledipasvir_sofosbuvir",
+          "generic": "Ledipasvir + sofosbuvir",
+          "class_id": "fvp_hcv_daa",
+          "form": "Fixed-dose tablet/pellets",
+          "route": "Oral",
+          "dose_example": "Once-daily complete regimen with genotype/history-specific duration.",
+          "tags": [
+            "antiviral",
+            "hcv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "HCV complete DAA regimen.",
+          "monitoring_pearl": "Do not prescribe from a class card: verify HCV RNA, cirrhosis/decompensation, HBV status, renal function and interactions.",
+          "source_refs": [
+            "HCV_GUIDANCE_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_tenofovir_df_hiv",
+          "generic": "Tenofovir DF (TDF)",
+          "class_id": "fvp_hiv_nrti",
+          "form": "Tablet / fixed-dose combinations",
+          "route": "Oral",
+          "dose_example": "Regimen-specific once-daily use; renal/bone monitoring and HBV activity matter.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "HIV NRTI/NtRTI regimen component.",
+          "monitoring_pearl": "Never use as standalone HIV therapy; verify complete regimen, resistance, HBV coinfection, renal/hepatic status and interactions.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_tenofovir_af_hiv",
+          "generic": "Tenofovir AF (TAF)",
+          "class_id": "fvp_hiv_nrti",
+          "form": "Tablet / fixed-dose combinations",
+          "route": "Oral",
+          "dose_example": "Regimen-specific once-daily use; boosting and renal eligibility vary.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "HIV NRTI/NtRTI regimen component.",
+          "monitoring_pearl": "Never use as standalone HIV therapy; verify complete regimen, resistance, HBV coinfection, renal/hepatic status and interactions.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_emtricitabine",
+          "generic": "Emtricitabine (FTC)",
+          "class_id": "fvp_hiv_nrti",
+          "form": "Capsule/solution/FDC",
+          "route": "Oral",
+          "dose_example": "Common adult use 200 mg once daily within ART; renal context matters.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "HIV NRTI/NtRTI regimen component.",
+          "monitoring_pearl": "Never use as standalone HIV therapy; verify complete regimen, resistance, HBV coinfection, renal/hepatic status and interactions.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_lamivudine",
+          "generic": "Lamivudine (3TC)",
+          "class_id": "fvp_hiv_nrti",
+          "form": "Tablet/solution/FDC",
+          "route": "Oral",
+          "dose_example": "Common adult use 300 mg once daily or divided depending regimen; renal adjustment applies.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "HIV NRTI/NtRTI regimen component.",
+          "monitoring_pearl": "Never use as standalone HIV therapy; verify complete regimen, resistance, HBV coinfection, renal/hepatic status and interactions.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_abacavir",
+          "generic": "Abacavir (ABC)",
+          "class_id": "fvp_hiv_nrti",
+          "form": "Tablet/solution/FDC",
+          "route": "Oral",
+          "dose_example": "Common adult total 600 mg/day within ART; HLA-B*57:01 verification required before use.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "HIV NRTI/NtRTI regimen component.",
+          "monitoring_pearl": "Never use as standalone HIV therapy; verify complete regimen, resistance, HBV coinfection, renal/hepatic status and interactions.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_zidovudine",
+          "generic": "Zidovudine (AZT/ZDV)",
+          "class_id": "fvp_hiv_nrti",
+          "form": "Tablet/capsule/solution",
+          "route": "Oral",
+          "dose_example": "Regimen-specific divided dosing; anemia/neutropenia monitoring.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "HIV NRTI/NtRTI regimen component.",
+          "monitoring_pearl": "Never use as standalone HIV therapy; verify complete regimen, resistance, HBV coinfection, renal/hepatic status and interactions.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_dolutegravir",
+          "generic": "Dolutegravir (DTG)",
+          "class_id": "fvp_hiv_insti",
+          "form": "Tablet/dispersible/FDC",
+          "route": "Oral",
+          "dose_example": "Common adult dosing once daily in many regimens; resistance/interaction context can require different schedules.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "HIV INSTI regimen component.",
+          "monitoring_pearl": "Polyvalent-cation timing, resistance, pregnancy and complete-regimen selection must be verified.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_bictegravir",
+          "generic": "Bictegravir (BIC)",
+          "class_id": "fvp_hiv_insti",
+          "form": "Fixed-dose combination only",
+          "route": "Oral",
+          "dose_example": "Used as part of complete fixed-dose ART; not marketed as standalone regimen component.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "HIV INSTI regimen component.",
+          "monitoring_pearl": "Polyvalent-cation timing, resistance, pregnancy and complete-regimen selection must be verified.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_raltegravir",
+          "generic": "Raltegravir (RAL)",
+          "class_id": "fvp_hiv_insti",
+          "form": "Tablet/chewable/granules",
+          "route": "Oral",
+          "dose_example": "Formulation-specific once/twice-daily dosing; not interchangeable mg-for-mg.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "HIV INSTI regimen component.",
+          "monitoring_pearl": "Polyvalent-cation timing, resistance, pregnancy and complete-regimen selection must be verified.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_cabotegravir",
+          "generic": "Cabotegravir",
+          "class_id": "fvp_hiv_insti",
+          "form": "Tablet/long-acting injection combinations",
+          "route": "PO/IM",
+          "dose_example": "Oral lead-in/long-acting schedules are indication and product specific.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "HIV INSTI regimen component.",
+          "monitoring_pearl": "Polyvalent-cation timing, resistance, pregnancy and complete-regimen selection must be verified.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_doravirine",
+          "generic": "Doravirine",
+          "class_id": "fvp_hiv_nnrt_pi",
+          "form": "Tablet/FDC",
+          "route": "Oral",
+          "dose_example": "Common adult use once daily within complete ART.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "qt_interaction",
+            "high_risk"
+          ],
+          "role": "HIV NNRTI/PI regimen component.",
+          "monitoring_pearl": "Check full interaction table, resistance history, food/acid requirements, metabolic effects and complete ART regimen.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_rilpivirine",
+          "generic": "Rilpivirine",
+          "class_id": "fvp_hiv_nnrt_pi",
+          "form": "Tablet/long-acting combination injection",
+          "route": "PO/IM",
+          "dose_example": "Oral and injectable schedules are regimen-specific; food/acid interactions matter for oral formulation.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "qt_interaction",
+            "high_risk"
+          ],
+          "role": "HIV NNRTI/PI regimen component.",
+          "monitoring_pearl": "Check full interaction table, resistance history, food/acid requirements, metabolic effects and complete ART regimen.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_efavirenz",
+          "generic": "Efavirenz",
+          "class_id": "fvp_hiv_nnrt_pi",
+          "form": "Tablet/capsule/FDC",
+          "route": "Oral",
+          "dose_example": "Common adult use once daily within ART; neuropsychiatric/CYP effects matter.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "qt_interaction",
+            "high_risk"
+          ],
+          "role": "HIV NNRTI/PI regimen component.",
+          "monitoring_pearl": "Check full interaction table, resistance history, food/acid requirements, metabolic effects and complete ART regimen.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_darunavir",
+          "generic": "Darunavir",
+          "class_id": "fvp_hiv_nnrt_pi",
+          "form": "Tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Requires pharmacokinetic boosting in most regimens; dose depends on resistance/treatment history.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "qt_interaction",
+            "high_risk"
+          ],
+          "role": "HIV NNRTI/PI regimen component.",
+          "monitoring_pearl": "Check full interaction table, resistance history, food/acid requirements, metabolic effects and complete ART regimen.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_atazanavir",
+          "generic": "Atazanavir",
+          "class_id": "fvp_hiv_nnrt_pi",
+          "form": "Capsule/powder",
+          "route": "Oral",
+          "dose_example": "Regimen- and booster-specific dosing; acid-suppression interactions matter.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "qt_interaction",
+            "high_risk"
+          ],
+          "role": "HIV NNRTI/PI regimen component.",
+          "monitoring_pearl": "Check full interaction table, resistance history, food/acid requirements, metabolic effects and complete ART regimen.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_maraviroc",
+          "generic": "Maraviroc",
+          "class_id": "fvp_hiv_entry_capsid",
+          "form": "Tablet/solution",
+          "route": "Oral",
+          "dose_example": "Dose depends strongly on interacting CYP3A drugs and CCR5 tropism.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "Advanced HIV regimen component.",
+          "monitoring_pearl": "Resistance testing, tropism where relevant, interactions and complete optimized background regimen are mandatory.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_enfuvirtide",
+          "generic": "Enfuvirtide",
+          "class_id": "fvp_hiv_entry_capsid",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Common adult label dose 90 mg SC twice daily as part of combination ART.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "Advanced HIV regimen component.",
+          "monitoring_pearl": "Resistance testing, tropism where relevant, interactions and complete optimized background regimen are mandatory.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_fostemsavir",
+          "generic": "Fostemsavir",
+          "class_id": "fvp_hiv_entry_capsid",
+          "form": "Extended-release tablet",
+          "route": "Oral",
+          "dose_example": "Common adult label dose 600 mg twice daily for heavily treatment-experienced patients.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "Advanced HIV regimen component.",
+          "monitoring_pearl": "Resistance testing, tropism where relevant, interactions and complete optimized background regimen are mandatory.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_ibalizumab",
+          "generic": "Ibalizumab-uiyk",
+          "class_id": "fvp_hiv_entry_capsid",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Loading then every-2-week infusion schedule; specialist multidrug-resistant HIV use.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "Advanced HIV regimen component.",
+          "monitoring_pearl": "Resistance testing, tropism where relevant, interactions and complete optimized background regimen are mandatory.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_lenacapavir",
+          "generic": "Lenacapavir",
+          "class_id": "fvp_hiv_entry_capsid",
+          "form": "Tablet/injection",
+          "route": "PO/SC",
+          "dose_example": "Complex loading then long-acting schedule; use only within complete optimized ART regimen.",
+          "tags": [
+            "antiviral",
+            "hiv",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "Advanced HIV regimen component.",
+          "monitoring_pearl": "Resistance testing, tropism where relevant, interactions and complete optimized background regimen are mandatory.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "NIH_HIV_DRUGS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_albendazole",
+          "generic": "Albendazole",
+          "class_id": "fvp_benzimidazole_helminths",
+          "form": "Tablet/chewable/suspension",
+          "route": "Oral",
+          "dose_example": "WHO preventive-chemotherapy example: 400 mg single dose for eligible STH programs; clinical infections may require different regimens.",
+          "tags": [
+            "antiparasitic",
+            "helminth",
+            "pregnancy_caution"
+          ],
+          "role": "Broad intestinal-helminth agent.",
+          "monitoring_pearl": "Mass-deworming dose is not a universal treatment regimen; verify parasite, age, pregnancy and tissue involvement.",
+          "source_refs": [
+            "WHO_STH",
+            "CDC_PARASITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_mebendazole",
+          "generic": "Mebendazole",
+          "class_id": "fvp_benzimidazole_helminths",
+          "form": "Tablet/chewable",
+          "route": "Oral",
+          "dose_example": "WHO preventive-chemotherapy example: 500 mg single dose for eligible STH programs; organism-specific regimens differ.",
+          "tags": [
+            "antiparasitic",
+            "helminth",
+            "pregnancy_caution"
+          ],
+          "role": "Broad intestinal-helminth agent.",
+          "monitoring_pearl": "Mass-deworming dose is not a universal treatment regimen; verify parasite, age, pregnancy and tissue involvement.",
+          "source_refs": [
+            "WHO_STH",
+            "CDC_PARASITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_pyrantel_pamoate",
+          "generic": "Pyrantel pamoate",
+          "class_id": "fvp_pyrantel",
+          "form": "Suspension/tablet",
+          "route": "Oral",
+          "dose_example": "Weight-based single-dose regimens are common for enterobiasis; repeat timing depends on infection/public-health advice.",
+          "tags": [
+            "antiparasitic",
+            "helminth"
+          ],
+          "role": "Intestinal nematode option.",
+          "monitoring_pearl": "Dose by pyrantel base/weight and verify household/reinfection management.",
+          "source_refs": [
+            "CDC_PARASITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_ivermectin",
+          "generic": "Ivermectin",
+          "class_id": "fvp_ivermectin",
+          "form": "Tablet/topical formulations",
+          "route": "Oral/topical",
+          "dose_example": "Strongyloidiasis treatment is weight-based (commonly 200 micrograms/kg/day for short course); verify CDC guidance and immune status.",
+          "tags": [
+            "antiparasitic",
+            "helminth",
+            "strongyloides",
+            "high_risk"
+          ],
+          "role": "Strongyloides/selected parasite agent.",
+          "monitoring_pearl": "Before immunosuppression, consider Strongyloides risk; hyperinfection requires specialist/prolonged treatment. Loa loa risk matters in some filarial settings.",
+          "source_refs": [
+            "CDC_PARASITES",
+            "CDC_YELLOWBOOK_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_praziquantel",
+          "generic": "Praziquantel",
+          "class_id": "fvp_praziquantel",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Weight-based divided regimens vary by Schistosoma species and other parasites; verify current guideline.",
+          "tags": [
+            "antiparasitic",
+            "helminth",
+            "schisto"
+          ],
+          "role": "Trematode/cestode antiparasitic.",
+          "monitoring_pearl": "Dose depends on species; CNS cysticercosis is a specialist context with inflammation/seizure considerations.",
+          "source_refs": [
+            "CDC_PARASITES",
+            "WHO_MALARIA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_triclabendazole",
+          "generic": "Triclabendazole",
+          "class_id": "fvp_fasciola",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Weight-based one- or two-dose regimen per label; verify Fasciola diagnosis.",
+          "tags": [
+            "antiparasitic",
+            "helminth",
+            "high_risk"
+          ],
+          "role": "Fascioliasis-specific therapy.",
+          "monitoring_pearl": "Not a general dewormer; verify species and liver/biliary context.",
+          "source_refs": [
+            "CDC_PARASITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_diethylcarbamazine",
+          "generic": "Diethylcarbamazine (DEC)",
+          "class_id": "fvp_filarial",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Weight-based multi-day regimen; species/geography-specific and not used indiscriminately.",
+          "tags": [
+            "antiparasitic",
+            "helminth",
+            "high_risk"
+          ],
+          "role": "Filarial-disease regimen component.",
+          "monitoring_pearl": "Species, pregnancy and Loa loa/ocular risk can radically change management.",
+          "source_refs": [
+            "CDC_PARASITES",
+            "CDC_YELLOWBOOK_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_doxy_filaria",
+          "generic": "Doxycycline — anti-Wolbachia filarial strategy",
+          "class_id": "fvp_filarial",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Specialist multi-week regimens target Wolbachia in selected filarial disease; not for rapid microfilarial clearance.",
+          "tags": [
+            "antiparasitic",
+            "helminth",
+            "pregnancy_caution",
+            "high_risk"
+          ],
+          "role": "Filarial-disease regimen component.",
+          "monitoring_pearl": "Species, pregnancy and Loa loa/ocular risk can radically change management.",
+          "source_refs": [
+            "CDC_PARASITES",
+            "CDC_YELLOWBOOK_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_metronidazole_proto",
+          "generic": "Metronidazole",
+          "class_id": "fvp_nitroimidazole_protozoa",
+          "form": "Tablet/suspension/injection",
+          "route": "PO/IV",
+          "dose_example": "Regimen varies by Giardia vs invasive amebiasis vs trichomoniasis; verify diagnosis and duration.",
+          "tags": [
+            "antiparasitic",
+            "protozoa_gi",
+            "hepatic_monitor"
+          ],
+          "role": "Intestinal/urogenital protozoal agent.",
+          "monitoring_pearl": "For E. histolytica invasive disease, tissue-active nitroimidazole must be followed by a luminal agent.",
+          "source_refs": [
+            "CDC_PARASITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_tinidazole",
+          "generic": "Tinidazole",
+          "class_id": "fvp_nitroimidazole_protozoa",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Single-dose or short-course regimens are used for selected protozoal infections; indication-specific.",
+          "tags": [
+            "antiparasitic",
+            "protozoa_gi",
+            "hepatic_monitor"
+          ],
+          "role": "Intestinal/urogenital protozoal agent.",
+          "monitoring_pearl": "For E. histolytica invasive disease, tissue-active nitroimidazole must be followed by a luminal agent.",
+          "source_refs": [
+            "CDC_PARASITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_paromomycin",
+          "generic": "Paromomycin",
+          "class_id": "fvp_luminal_amoeba",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Weight-based divided luminal regimen; verify amebiasis indication.",
+          "tags": [
+            "antiparasitic",
+            "protozoa_gi"
+          ],
+          "role": "Luminal amebiasis agent.",
+          "monitoring_pearl": "Do not substitute luminal therapy for treatment of invasive extraintestinal disease.",
+          "source_refs": [
+            "CDC_PARASITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_iodoquinol",
+          "generic": "Iodoquinol",
+          "class_id": "fvp_luminal_amoeba",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Specialist/region-dependent luminal regimen; verify availability and guideline.",
+          "tags": [
+            "antiparasitic",
+            "protozoa_gi",
+            "high_risk"
+          ],
+          "role": "Luminal amebiasis agent.",
+          "monitoring_pearl": "Do not substitute luminal therapy for treatment of invasive extraintestinal disease.",
+          "source_refs": [
+            "CDC_PARASITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_nitazoxanide",
+          "generic": "Nitazoxanide",
+          "class_id": "fvp_nitazoxanide",
+          "form": "Tablet/oral suspension",
+          "route": "Oral",
+          "dose_example": "Common adult label treatment for Giardia/Cryptosporidium is twice daily with food for 3 days; verify diagnosis/age.",
+          "tags": [
+            "antiparasitic",
+            "protozoa_gi"
+          ],
+          "role": "Selected intestinal protozoal therapy.",
+          "monitoring_pearl": "Cryptosporidiosis in immunocompromised patients requires immune-restoration/supportive context.",
+          "source_refs": [
+            "CDC_PARASITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_artemether_lumefantrine",
+          "generic": "Artemether + lumefantrine",
+          "class_id": "fvp_malaria_act",
+          "form": "Fixed-dose tablet/dispersible",
+          "route": "Oral",
+          "dose_example": "Six-dose 3-day weight-based regimen; take with food/fat where appropriate and follow national/WHO guidance.",
+          "tags": [
+            "antiparasitic",
+            "malaria",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "ACT regimen for uncomplicated malaria.",
+          "monitoring_pearl": "Confirm species, severity, geography/resistance and pregnancy; ACT components are complete regimens, not interchangeable single agents.",
+          "source_refs": [
+            "WHO_MALARIA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_dihydroartemisinin_piperaquine",
+          "generic": "Dihydroartemisinin + piperaquine",
+          "class_id": "fvp_malaria_act",
+          "form": "Fixed-dose tablet",
+          "route": "Oral",
+          "dose_example": "Once-daily 3-day weight-based regimen in settings where recommended; QT considerations matter.",
+          "tags": [
+            "antiparasitic",
+            "malaria",
+            "regimen_based",
+            "qt_interaction",
+            "high_risk"
+          ],
+          "role": "ACT regimen for uncomplicated malaria.",
+          "monitoring_pearl": "Confirm species, severity, geography/resistance and pregnancy; ACT components are complete regimens, not interchangeable single agents.",
+          "source_refs": [
+            "WHO_MALARIA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_artesunate_amodiaquine",
+          "generic": "Artesunate + amodiaquine",
+          "class_id": "fvp_malaria_act",
+          "form": "Fixed-dose/co-blister",
+          "route": "Oral",
+          "dose_example": "Three-day weight-based ACT regimen in settings where recommended.",
+          "tags": [
+            "antiparasitic",
+            "malaria",
+            "regimen_based",
+            "high_risk"
+          ],
+          "role": "ACT regimen for uncomplicated malaria.",
+          "monitoring_pearl": "Confirm species, severity, geography/resistance and pregnancy; ACT components are complete regimens, not interchangeable single agents.",
+          "source_refs": [
+            "WHO_MALARIA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_iv_artesunate",
+          "generic": "IV artesunate",
+          "class_id": "fvp_malaria_severe",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Weight-based emergency doses at defined time points, followed by complete oral ACT; verify WHO/national protocol.",
+          "tags": [
+            "antiparasitic",
+            "malaria",
+            "high_risk"
+          ],
+          "role": "First-line severe-malaria parenteral therapy in current WHO framework.",
+          "monitoring_pearl": "Monitor for delayed hemolysis and organ complications; do not delay treatment in severe malaria.",
+          "source_refs": [
+            "WHO_MALARIA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_primaquine",
+          "generic": "Primaquine",
+          "class_id": "fvp_malaria_radical",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Species/geography/G6PD-dependent regimen; radical cure often requires multi-day dosing.",
+          "tags": [
+            "antiparasitic",
+            "malaria",
+            "g6pd",
+            "pregnancy_caution",
+            "high_risk"
+          ],
+          "role": "P. vivax/ovale radical-cure or transmission-targeting agent.",
+          "monitoring_pearl": "Quantitative G6PD verification and pregnancy/breastfeeding rules are essential.",
+          "source_refs": [
+            "WHO_MALARIA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_tafenoquine",
+          "generic": "Tafenoquine",
+          "class_id": "fvp_malaria_radical",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Single-dose radical-cure strategy only for eligible patients with confirmed adequate G6PD activity and appropriate blood-stage treatment.",
+          "tags": [
+            "antiparasitic",
+            "malaria",
+            "g6pd",
+            "pregnancy_caution",
+            "high_risk"
+          ],
+          "role": "P. vivax/ovale radical-cure or transmission-targeting agent.",
+          "monitoring_pearl": "Quantitative G6PD verification and pregnancy/breastfeeding rules are essential.",
+          "source_refs": [
+            "WHO_MALARIA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_atovaquone_proguanil",
+          "generic": "Atovaquone + proguanil",
+          "class_id": "fvp_malaria_other",
+          "form": "Fixed-dose tablet",
+          "route": "Oral",
+          "dose_example": "Weight-based treatment/prophylaxis schedules; take with food/milky drink.",
+          "tags": [
+            "antiparasitic",
+            "malaria",
+            "regimen_based"
+          ],
+          "role": "Other malaria agent.",
+          "monitoring_pearl": "Never choose solely from class name; confirm species, susceptibility, severity, geography and current national/WHO guidance.",
+          "source_refs": [
+            "WHO_MALARIA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_chloroquine",
+          "generic": "Chloroquine",
+          "class_id": "fvp_malaria_other",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Only where parasite susceptibility is expected; regimen is weight/species specific.",
+          "tags": [
+            "antiparasitic",
+            "malaria",
+            "qt_interaction",
+            "high_risk"
+          ],
+          "role": "Other malaria agent.",
+          "monitoring_pearl": "Never choose solely from class name; confirm species, susceptibility, severity, geography and current national/WHO guidance.",
+          "source_refs": [
+            "WHO_MALARIA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_quinine",
+          "generic": "Quinine sulfate",
+          "class_id": "fvp_malaria_other",
+          "form": "Capsule/tablet",
+          "route": "Oral",
+          "dose_example": "Specialist combination regimens; toxicity/interactions limit routine empiric use.",
+          "tags": [
+            "antiparasitic",
+            "malaria",
+            "qt_interaction",
+            "high_risk"
+          ],
+          "role": "Other malaria agent.",
+          "monitoring_pearl": "Never choose solely from class name; confirm species, susceptibility, severity, geography and current national/WHO guidance.",
+          "source_refs": [
+            "WHO_MALARIA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_liposomal_ampho_leish",
+          "generic": "Liposomal amphotericin B — leishmaniasis",
+          "class_id": "fvp_leishmania",
+          "form": "Injection",
+          "route": "IV",
+          "dose_example": "Weight-based cumulative regimen varies by visceral/cutaneous disease and geography.",
+          "tags": [
+            "antiparasitic",
+            "leishmania",
+            "renal_adjust",
+            "high_risk"
+          ],
+          "role": "Antileishmanial specialist therapy.",
+          "monitoring_pearl": "Species/geography, pregnancy and cardiac/hepatic/pancreatic toxicity can determine choice.",
+          "source_refs": [
+            "CDC_PARASITES",
+            "CDC_YELLOWBOOK_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_miltefosine",
+          "generic": "Miltefosine",
+          "class_id": "fvp_leishmania",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Weight-based multi-week regimen for selected Leishmania species/syndromes; pregnancy contraindication requires strict verification.",
+          "tags": [
+            "antiparasitic",
+            "leishmania",
+            "pregnancy_caution",
+            "high_risk"
+          ],
+          "role": "Antileishmanial specialist therapy.",
+          "monitoring_pearl": "Species/geography, pregnancy and cardiac/hepatic/pancreatic toxicity can determine choice.",
+          "source_refs": [
+            "CDC_PARASITES",
+            "CDC_YELLOWBOOK_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_sodium_stibogluconate",
+          "generic": "Sodium stibogluconate",
+          "class_id": "fvp_leishmania",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Weight-based specialist regimen; toxicity monitoring mandatory.",
+          "tags": [
+            "antiparasitic",
+            "leishmania",
+            "high_risk"
+          ],
+          "role": "Antileishmanial specialist therapy.",
+          "monitoring_pearl": "Species/geography, pregnancy and cardiac/hepatic/pancreatic toxicity can determine choice.",
+          "source_refs": [
+            "CDC_PARASITES",
+            "CDC_YELLOWBOOK_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_pyrimethamine",
+          "generic": "Pyrimethamine",
+          "class_id": "fvp_toxoplasma",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Loading/maintenance dosing is weight/context specific and must be combined with leucovorin plus partner therapy.",
+          "tags": [
+            "antiparasitic",
+            "high_risk",
+            "regimen_based"
+          ],
+          "role": "Toxoplasmosis regimen component.",
+          "monitoring_pearl": "CBC monitoring and complete-regimen verification are mandatory.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "CDC_PARASITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_sulfadiazine",
+          "generic": "Sulfadiazine",
+          "class_id": "fvp_toxoplasma",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "High divided-dose partner within complete toxoplasmosis regimen; renal/crystalluria monitoring.",
+          "tags": [
+            "antiparasitic",
+            "renal_adjust",
+            "high_risk",
+            "regimen_based"
+          ],
+          "role": "Toxoplasmosis regimen component.",
+          "monitoring_pearl": "CBC monitoring and complete-regimen verification are mandatory.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "CDC_PARASITES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "fvp_leucovorin_toxo",
+          "generic": "Leucovorin (folinic acid)",
+          "class_id": "fvp_toxoplasma",
+          "form": "Tablet/injection",
+          "route": "PO/IV",
+          "dose_example": "Required rescue/support with pyrimethamine-containing regimens; dose depends on marrow status.",
+          "tags": [
+            "antiparasitic",
+            "high_risk",
+            "regimen_based"
+          ],
+          "role": "Toxoplasmosis regimen component.",
+          "monitoring_pearl": "CBC monitoring and complete-regimen verification are mandatory.",
+          "source_refs": [
+            "NIH_HIV_2026",
+            "CDC_PARASITES",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "CDC_FUNGAL_2026",
+          "label": "CDC Fungal Diseases — clinical disease and resistance resources",
+          "url": "https://www.cdc.gov/fungal/index.html"
+        },
+        {
+          "id": "CDC_CANDIDA",
+          "label": "CDC Candidiasis treatment",
+          "url": "https://www.cdc.gov/candidiasis/treatment/index.html"
+        },
+        {
+          "id": "IDSA_CANDIDA",
+          "label": "IDSA Clinical Practice Guideline for Candidiasis",
+          "url": "https://www.idsociety.org/practice-guideline/candidiasis/"
+        },
+        {
+          "id": "IDSA_ASPER",
+          "label": "IDSA Clinical Practice Guideline for Aspergillosis",
+          "url": "https://www.idsociety.org/practice-guideline/aspergillosis/"
+        },
+        {
+          "id": "CDC_FLU_2026",
+          "label": "CDC Influenza Antiviral Medications — Summary for Clinicians (2026)",
+          "url": "https://www.cdc.gov/flu/hcp/antivirals/summary-clinicians.html"
+        },
+        {
+          "id": "CDC_HSV",
+          "label": "CDC STI Treatment Guidelines — Genital Herpes",
+          "url": "https://www.cdc.gov/std/treatment-guidelines/herpes.htm"
+        },
+        {
+          "id": "CDC_ZOSTER",
+          "label": "CDC Clinical Overview of Shingles",
+          "url": "https://www.cdc.gov/shingles/hcp/clinical-overview/index.html"
+        },
+        {
+          "id": "NIH_HIV_2026",
+          "label": "NIH/HHS Adult & Adolescent Antiretroviral Guidelines",
+          "url": "https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-arv"
+        },
+        {
+          "id": "NIH_HIV_DRUGS",
+          "label": "NIH FDA-Approved HIV Medicines",
+          "url": "https://hivinfo.nih.gov/understanding-hiv/fact-sheets/fda-approved-hiv-medicines"
+        },
+        {
+          "id": "WHO_HBV_2024",
+          "label": "WHO Guidelines for prevention, diagnosis, care and treatment for chronic hepatitis B infection (2024)",
+          "url": "https://www.who.int/publications/i/item/9789240090903"
+        },
+        {
+          "id": "HCV_GUIDANCE_2026",
+          "label": "AASLD-IDSA HCV Guidance — current online guidance",
+          "url": "https://www.hcvguidelines.org/"
+        },
+        {
+          "id": "FDA_COVID",
+          "label": "FDA COVID-19 antiviral labeling / Paxlovid resources",
+          "url": "https://www.fda.gov/drugs/coronavirus-covid-19-drugs"
+        },
+        {
+          "id": "WHO_MALARIA_2025",
+          "label": "WHO Guidelines for malaria — updated 13 August 2025",
+          "url": "https://www.who.int/publications/i/item/guidelines-for-malaria"
+        },
+        {
+          "id": "CDC_PARASITES",
+          "label": "CDC Parasites — A-Z clinical resources",
+          "url": "https://www.cdc.gov/parasites/listing/index.html"
+        },
+        {
+          "id": "CDC_YELLOWBOOK_2026",
+          "label": "CDC Yellow Book 2026 — post-travel parasitic disease",
+          "url": "https://www.cdc.gov/yellow-book/hcp/post-travel-evaluation/post-travel-parasitic-disease.html"
+        },
+        {
+          "id": "WHO_STH",
+          "label": "WHO Soil-transmitted helminth infections",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/soil-transmitted-helminth-infections"
         },
         {
           "id": "DAILYMED",
