@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya.common_chronic_pharmacology.v1",
-  "version": "1.4D",
-  "app_version": "V5.40D",
-  "build": "2026.08.14-R25D",
-  "name": "High-Use Pharmacology Intelligence Labs — through Renal & Urology",
+  "version": "1.4E",
+  "app_version": "V5.40E",
+  "build": "2026.08.14-R25E",
+  "name": "High-Use Pharmacology Intelligence Labs — through Dermatology",
   "counts": {
-    "labs": 10,
-    "classes": 267,
-    "drug_profiles": 734
+    "labs": 11,
+    "classes": 300,
+    "drug_profiles": 836
   },
-  "global_boundary": "Research/learning pharmacology only. V5.40D adds Renal/Urology on top of the existing pharmacology labs. Exact indication, dose, renal/hepatic function, pregnancy, age/weight, interactions, obstruction/retention status, electrolyte/acid-base state and current label/guideline must be verified. Emergencies and specialist therapies remain clinician-controlled.",
+  "global_boundary": "Research/learning pharmacology only. V5.40E adds Dermatology on top of the existing specialized pharmacology labs. Exact diagnosis, indication, formulation/strength, dose, site/BSA, renal/hepatic function, pregnancy, age/weight, interactions, infection status and current label/guideline must be verified. High-potency steroids, systemic retinoids, immunosuppressants, JAK inhibitors and biologics remain clinician-controlled.",
   "labs": [
     {
       "id": "hypertension",
@@ -22490,6 +22490,2674 @@
           "id": "DAILYMED",
           "label": "DailyMed — current FDA-submitted product labeling",
           "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "dermatology",
+      "title": "Dermatology Intelligence Lab",
+      "icon": "🧴",
+      "badge": "DERM v1.0",
+      "eyebrow": "DERMATOLOGY RESEARCH & PHARMACOLOGY WORKSPACE",
+      "subtitle": "Skin/Hair/Nail condition → pharmacologic class → mechanism/target → generic/formulation → monitoring pearl → source verification",
+      "scientific_boundary": "Research/learning pharmacology only. Dermatologic treatment depends on morphology, distribution, severity, age, pregnancy, infection status, body-surface area, site-specific potency, prior therapy and diagnostic certainty. Topical corticosteroid potency/site/duration, systemic retinoids, immunosuppressants, JAK inhibitors and biologics require condition- and patient-specific safety verification. Antimicrobial use should avoid unnecessary combinations and follow current guideline/local resistance context.",
+      "classification_notes": {
+        "topical_steroids": "Potency, vehicle, body site, age, BSA and duration determine benefit/risk. Face/flexures and children generally require lower potency/shorter exposure.",
+        "acne_stewardship": "Topical or oral antibiotics should not be used as indefinite monotherapy; benzoyl peroxide/non-antibiotic partners help stewardship where appropriate.",
+        "fungal_diagnosis": "Dermatophytosis, candidiasis, versicolor and inflammatory mimics are not interchangeable. Avoid empirical steroid-antifungal combination misuse.",
+        "systemic_therapy": "Systemic retinoids, immunosuppressants, biologics and JAK inhibitors require diagnosis-specific screening, laboratory monitoring and reproductive/infection risk review.",
+        "hair_pigment": "Alopecia and vitiligo therapies depend on subtype, activity, site, extent and specialist assessment; not all products are approved for every age/site."
+      },
+      "lens_groups": [
+        {
+          "group": "Common OPD dermatoses",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Dermatology classes"
+            },
+            {
+              "id": "acne",
+              "label": "Acne"
+            },
+            {
+              "id": "eczema",
+              "label": "Eczema / dermatitis"
+            },
+            {
+              "id": "psoriasis",
+              "label": "Psoriasis"
+            },
+            {
+              "id": "urticaria",
+              "label": "Urticaria / itch"
+            },
+            {
+              "id": "rosacea",
+              "label": "Rosacea / facial inflammation"
+            }
+          ]
+        },
+        {
+          "group": "Infections / infestations",
+          "items": [
+            {
+              "id": "fungal",
+              "label": "Dermatophytosis / fungal"
+            },
+            {
+              "id": "scabies",
+              "label": "Scabies"
+            },
+            {
+              "id": "bacterial_skin",
+              "label": "Bacterial skin infection"
+            },
+            {
+              "id": "herpes",
+              "label": "Herpes / zoster"
+            },
+            {
+              "id": "warts",
+              "label": "Warts"
+            }
+          ]
+        },
+        {
+          "group": "Topical pharmacology",
+          "items": [
+            {
+              "id": "topical_steroid",
+              "label": "Topical steroid potency"
+            },
+            {
+              "id": "nonsteroid_topical",
+              "label": "Non-steroid anti-inflammatory"
+            },
+            {
+              "id": "keratolytic",
+              "label": "Keratolytics"
+            },
+            {
+              "id": "topical_antifungal",
+              "label": "Topical antifungals"
+            },
+            {
+              "id": "topical_antibacterial",
+              "label": "Topical antibacterials"
+            }
+          ]
+        },
+        {
+          "group": "Hair / pigment",
+          "items": [
+            {
+              "id": "vitiligo",
+              "label": "Vitiligo"
+            },
+            {
+              "id": "alopecia",
+              "label": "Alopecia / hair loss"
+            },
+            {
+              "id": "melasma",
+              "label": "Melasma / pigment"
+            }
+          ]
+        },
+        {
+          "group": "Systemic / advanced",
+          "items": [
+            {
+              "id": "retinoid",
+              "label": "Systemic retinoids"
+            },
+            {
+              "id": "systemic_immunomod",
+              "label": "Systemic immunomodulators"
+            },
+            {
+              "id": "biologic",
+              "label": "Biologics"
+            },
+            {
+              "id": "jak",
+              "label": "JAK inhibitors"
+            },
+            {
+              "id": "high_risk",
+              "label": "High-risk / specialist"
+            }
+          ]
+        },
+        {
+          "group": "Monitoring / stewardship",
+          "items": [
+            {
+              "id": "pregnancy_caution",
+              "label": "Pregnancy-sensitive therapy"
+            },
+            {
+              "id": "infection_screen",
+              "label": "TB/HBV/infection screen"
+            },
+            {
+              "id": "cbc_lft",
+              "label": "CBC/LFT monitoring"
+            },
+            {
+              "id": "antimicrobial_stewardship",
+              "label": "Antimicrobial stewardship"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "derm_acne_retinoid",
+          "name": "Topical retinoids",
+          "mechanism": "Normalize follicular keratinization; comedolytic and anti-inflammatory",
+          "target": "Retinoic-acid receptors",
+          "tags": [
+            "acne",
+            "nonsteroid_topical",
+            "pregnancy_caution"
+          ],
+          "role_note": "Core acne mechanism; often combined with benzoyl peroxide and/or other agents.",
+          "drug_ids": [
+            "derm_adapalene",
+            "derm_tretinoin",
+            "derm_tazarotene",
+            "derm_trifarotene"
+          ]
+        },
+        {
+          "id": "derm_bpo",
+          "name": "Benzoyl peroxide",
+          "mechanism": "Oxidative antibacterial activity plus mild keratolysis; does not drive classic antibiotic resistance",
+          "target": "Cutibacterium acnes / follicular environment",
+          "tags": [
+            "acne",
+            "antimicrobial_stewardship"
+          ],
+          "role_note": "Core acne partner, especially when topical/oral antibiotics are used.",
+          "drug_ids": [
+            "derm_benzoyl_peroxide"
+          ]
+        },
+        {
+          "id": "derm_acne_antibacterial",
+          "name": "Topical acne antibacterials",
+          "mechanism": "Reduce C. acnes and inflammation",
+          "target": "Bacterial protein synthesis / follicular bacterial burden",
+          "tags": [
+            "acne",
+            "topical_antibacterial",
+            "antimicrobial_stewardship"
+          ],
+          "role_note": "Avoid topical-antibiotic monotherapy; pair with benzoyl peroxide where guideline/label appropriate.",
+          "drug_ids": [
+            "derm_clindamycin_top",
+            "derm_erythromycin_top"
+          ]
+        },
+        {
+          "id": "derm_acne_nonantibiotic",
+          "name": "Azelaic acid / topical anti-inflammatory acne agents",
+          "mechanism": "Antimicrobial, anti-inflammatory and keratinization-modifying effects",
+          "target": "Follicular keratinization / inflammatory pathways",
+          "tags": [
+            "acne",
+            "melasma",
+            "nonsteroid_topical"
+          ],
+          "role_note": "Useful non-antibiotic option; azelaic acid also relevant to dyspigmentation/rosacea.",
+          "drug_ids": [
+            "derm_azelaic",
+            "derm_dapsone_top"
+          ]
+        },
+        {
+          "id": "derm_acne_oral_abx",
+          "name": "Oral tetracycline-class acne therapy",
+          "mechanism": "Anti-inflammatory + 30S ribosomal antibacterial activity",
+          "target": "30S ribosomal subunit / inflammatory pathways",
+          "tags": [
+            "acne",
+            "antimicrobial_stewardship",
+            "pregnancy_caution"
+          ],
+          "role_note": "Moderate-severe inflammatory acne; limit duration and combine with non-antibiotic topical therapy.",
+          "drug_ids": [
+            "derm_acne_doxycycline",
+            "derm_acne_minocycline",
+            "derm_acne_sarecycline"
+          ]
+        },
+        {
+          "id": "derm_acne_systemic",
+          "name": "Systemic acne disease-modifying therapy",
+          "mechanism": "Sebaceous suppression/retinoid signaling or androgen modulation",
+          "target": "Sebaceous gland / androgen receptor",
+          "tags": [
+            "acne",
+            "retinoid",
+            "high_risk",
+            "pregnancy_caution"
+          ],
+          "role_note": "Severe/scarring/refractory acne or selected hormonally mediated acne; specialist monitoring.",
+          "drug_ids": [
+            "derm_isotretinoin",
+            "derm_spironolactone_acne"
+          ]
+        },
+        {
+          "id": "derm_emollient",
+          "name": "Emollients / barrier repair",
+          "mechanism": "Reduce transepidermal water loss and restore skin barrier",
+          "target": "Stratum corneum barrier",
+          "tags": [
+            "eczema",
+            "nonsteroid_topical"
+          ],
+          "role_note": "Foundation therapy for eczema/xerosis; product choice based on tolerability and site.",
+          "drug_ids": [
+            "derm_petrolatum",
+            "derm_ceramide"
+          ]
+        },
+        {
+          "id": "derm_tcs_low",
+          "name": "Low-potency topical corticosteroids",
+          "mechanism": "Genomic anti-inflammatory and immunosuppressive glucocorticoid signaling",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "eczema",
+            "topical_steroid"
+          ],
+          "role_note": "Face/flexural/child-sensitive sites often require lower potency and short courses.",
+          "drug_ids": [
+            "derm_hydrocortisone",
+            "derm_desonide"
+          ]
+        },
+        {
+          "id": "derm_tcs_mid",
+          "name": "Medium-potency topical corticosteroids",
+          "mechanism": "Genomic anti-inflammatory and immunosuppressive glucocorticoid signaling",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "eczema",
+            "psoriasis",
+            "topical_steroid"
+          ],
+          "role_note": "Common trunk/limb inflammatory-dermatosis tier; site/duration matter.",
+          "drug_ids": [
+            "derm_triamcinolone",
+            "derm_mometasone",
+            "derm_betamethasone_val"
+          ]
+        },
+        {
+          "id": "derm_tcs_high",
+          "name": "High/super-high potency topical corticosteroids",
+          "mechanism": "Genomic anti-inflammatory and immunosuppressive glucocorticoid signaling",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "psoriasis",
+            "eczema",
+            "topical_steroid",
+            "high_risk"
+          ],
+          "role_note": "Thick plaques/palms/soles or severe disease; short specialist-directed courses.",
+          "drug_ids": [
+            "derm_clobetasol",
+            "derm_halobetasol"
+          ]
+        },
+        {
+          "id": "derm_tci",
+          "name": "Topical calcineurin inhibitors",
+          "mechanism": "Calcineurin inhibition → reduced T-cell cytokine transcription",
+          "target": "Calcineurin/NFAT",
+          "tags": [
+            "eczema",
+            "vitiligo",
+            "nonsteroid_topical"
+          ],
+          "role_note": "Steroid-sparing therapy, especially sensitive sites; off-label contexts require verification.",
+          "drug_ids": [
+            "derm_tacrolimus_top",
+            "derm_pimecrolimus"
+          ]
+        },
+        {
+          "id": "derm_novel_topical",
+          "name": "Topical PDE4 / JAK / AhR-pathway agents",
+          "mechanism": "Reduce inflammatory signaling via PDE4, JAK or aryl-hydrocarbon receptor pathways",
+          "target": "PDE4 / JAK1/2 / AhR",
+          "tags": [
+            "eczema",
+            "psoriasis",
+            "vitiligo",
+            "jak",
+            "nonsteroid_topical"
+          ],
+          "role_note": "Newer nonsteroidal options; exact age/site/BSA approvals differ by product.",
+          "drug_ids": [
+            "derm_crisaborole",
+            "derm_ruxolitinib_top",
+            "derm_tapinarof",
+            "derm_roflumilast_top"
+          ]
+        },
+        {
+          "id": "derm_h1",
+          "name": "Second-generation H1 antihistamines",
+          "mechanism": "Peripheral H1 receptor inverse agonism",
+          "target": "Histamine H1 receptor",
+          "tags": [
+            "urticaria"
+          ],
+          "role_note": "Core symptomatic urticaria therapy; escalation strategy is diagnosis-specific.",
+          "drug_ids": [
+            "derm_urt_cetirizine",
+            "derm_urt_levocetirizine",
+            "derm_urt_fexofenadine",
+            "derm_urt_loratadine",
+            "derm_urt_bilastine"
+          ]
+        },
+        {
+          "id": "derm_urticaria_advanced",
+          "name": "Advanced chronic urticaria therapy",
+          "mechanism": "IgE neutralization or downstream immunomodulation",
+          "target": "Free IgE / immune pathways",
+          "tags": [
+            "urticaria",
+            "biologic",
+            "high_risk"
+          ],
+          "role_note": "For chronic spontaneous urticaria inadequately controlled with antihistamine strategy; specialist use.",
+          "drug_ids": [
+            "derm_omalizumab"
+          ]
+        },
+        {
+          "id": "derm_top_azole",
+          "name": "Topical azole antifungals",
+          "mechanism": "Inhibit fungal ergosterol synthesis via 14α-demethylase",
+          "target": "Fungal CYP51",
+          "tags": [
+            "fungal",
+            "topical_antifungal"
+          ],
+          "role_note": "Tinea/candidal/versicolor contexts; site and organism matter.",
+          "drug_ids": [
+            "derm_clotrimazole",
+            "derm_miconazole",
+            "derm_ketoconazole_top",
+            "derm_luliconazole",
+            "derm_sertaconazole"
+          ]
+        },
+        {
+          "id": "derm_allylamine",
+          "name": "Allylamine antifungals",
+          "mechanism": "Inhibit squalene epoxidase → ergosterol depletion",
+          "target": "Squalene epoxidase",
+          "tags": [
+            "fungal",
+            "topical_antifungal"
+          ],
+          "role_note": "Highly active against dermatophytes; oral therapy may be needed for selected nail/extensive disease.",
+          "drug_ids": [
+            "derm_terbinafine_top",
+            "derm_terbinafine_oral",
+            "derm_naftifine"
+          ]
+        },
+        {
+          "id": "derm_systemic_azole",
+          "name": "Systemic azole antifungals",
+          "mechanism": "Inhibit fungal ergosterol synthesis via CYP51",
+          "target": "Fungal CYP51",
+          "tags": [
+            "fungal",
+            "high_risk"
+          ],
+          "role_note": "Selected extensive/refractory fungal disease; interaction/hepatic risk important.",
+          "drug_ids": [
+            "derm_itraconazole",
+            "derm_fluconazole",
+            "derm_griseofulvin"
+          ]
+        },
+        {
+          "id": "derm_scabicide",
+          "name": "Scabicides",
+          "mechanism": "Neurotoxic/paralytic action against Sarcoptes scabiei",
+          "target": "Mite sodium/chloride channels or glutamate-gated chloride channels",
+          "tags": [
+            "scabies"
+          ],
+          "role_note": "Treat patient and close contacts/environmental measures as appropriate; crusted scabies requires intensified specialist regimen.",
+          "drug_ids": [
+            "derm_permethrin",
+            "derm_ivermectin_scabies"
+          ]
+        },
+        {
+          "id": "derm_top_abx",
+          "name": "Topical antibacterials for localized bacterial skin disease",
+          "mechanism": "Inhibit bacterial protein synthesis",
+          "target": "Bacterial isoleucyl-tRNA synthetase / 50S ribosome",
+          "tags": [
+            "bacterial_skin",
+            "topical_antibacterial",
+            "antimicrobial_stewardship"
+          ],
+          "role_note": "Use for limited appropriate lesions; avoid unnecessary prolonged topical-antibiotic exposure.",
+          "drug_ids": [
+            "derm_mupirocin",
+            "derm_fusidic_acid"
+          ]
+        },
+        {
+          "id": "derm_herpes_antiviral",
+          "name": "Herpesvirus antivirals",
+          "mechanism": "Inhibit viral DNA polymerase after phosphorylation",
+          "target": "Viral DNA polymerase",
+          "tags": [
+            "herpes"
+          ],
+          "role_note": "HSV/zoster treatment depends on syndrome, timing, immune status and renal function.",
+          "drug_ids": [
+            "derm_acyclovir",
+            "derm_valacyclovir",
+            "derm_famciclovir"
+          ]
+        },
+        {
+          "id": "derm_wart",
+          "name": "Common wart pharmacotherapy",
+          "mechanism": "Keratolysis or local immune activation",
+          "target": "Keratin / TLR7",
+          "tags": [
+            "warts",
+            "keratolytic"
+          ],
+          "role_note": "Many warts resolve spontaneously; site and diagnosis determine therapy.",
+          "drug_ids": [
+            "derm_salicylic_acid_wart",
+            "derm_imiquimod"
+          ]
+        },
+        {
+          "id": "derm_psoriasis_topical",
+          "name": "Psoriasis topical nonsteroid agents",
+          "mechanism": "Normalize keratinocyte differentiation or reduce inflammatory signaling",
+          "target": "Vitamin-D receptor / PDE4 / AhR / keratin",
+          "tags": [
+            "psoriasis",
+            "nonsteroid_topical"
+          ],
+          "role_note": "Localized plaque/scalp/intertriginous psoriasis options; site-specific selection.",
+          "drug_ids": [
+            "derm_calcipotriol",
+            "derm_calcipotriol_betameth",
+            "derm_salicylic_acid_psor"
+          ]
+        },
+        {
+          "id": "derm_psoriasis_systemic",
+          "name": "Conventional systemic psoriasis therapy",
+          "mechanism": "Immune-cell suppression, retinoid signaling or PDE4 inhibition",
+          "target": "DHFR / calcineurin / retinoid receptors / PDE4",
+          "tags": [
+            "psoriasis",
+            "systemic_immunomod",
+            "retinoid",
+            "high_risk"
+          ],
+          "role_note": "Moderate-severe disease; laboratory, pregnancy and infection risk guide choice.",
+          "drug_ids": [
+            "derm_methotrexate_psor",
+            "derm_cyclosporine_psor",
+            "derm_acitretin",
+            "derm_apremilast"
+          ]
+        },
+        {
+          "id": "derm_psor_tnf",
+          "name": "TNF inhibitors for psoriasis",
+          "mechanism": "Neutralize TNF-α inflammatory signaling",
+          "target": "TNF-α",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role_note": "Moderate-severe psoriasis/PsA; TB/HBV and infection screening before therapy.",
+          "drug_ids": [
+            "derm_adalimumab_psor",
+            "derm_etanercept_psor",
+            "derm_infliximab_psor",
+            "derm_certolizumab_psor"
+          ]
+        },
+        {
+          "id": "derm_psor_il17",
+          "name": "IL-17 pathway inhibitors",
+          "mechanism": "Block IL-17A or IL-17 receptor signaling",
+          "target": "IL-17A / IL-17RA",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role_note": "Highly effective psoriasis biologic class; candidiasis/IBD context relevant.",
+          "drug_ids": [
+            "derm_secukinumab",
+            "derm_ixekizumab",
+            "derm_brodalumab",
+            "derm_bimekizumab"
+          ]
+        },
+        {
+          "id": "derm_psor_il23",
+          "name": "IL-23 / IL-12-23 inhibitors",
+          "mechanism": "Block p19 IL-23 or p40 IL-12/23 signaling",
+          "target": "IL-23 p19 / IL-12/23 p40",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role_note": "Long-interval biologic options for moderate-severe plaque psoriasis.",
+          "drug_ids": [
+            "derm_guselkumab",
+            "derm_risankizumab",
+            "derm_tildrakizumab",
+            "derm_ustekinumab"
+          ]
+        },
+        {
+          "id": "derm_ad_systemic",
+          "name": "Systemic atopic-dermatitis targeted therapy",
+          "mechanism": "Block type-2 cytokines or JAK signaling",
+          "target": "IL-4Rα / IL-13 / IL-31RA / JAK1",
+          "tags": [
+            "eczema",
+            "biologic",
+            "jak",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role_note": "Moderate-severe AD inadequately controlled by topical therapy; agent-specific age and safety criteria.",
+          "drug_ids": [
+            "derm_dupilumab",
+            "derm_tralokinumab",
+            "derm_lebrikizumab",
+            "derm_nemolizumab",
+            "derm_upadacitinib_ad",
+            "derm_abrocitinib"
+          ]
+        },
+        {
+          "id": "derm_rosacea",
+          "name": "Rosacea pharmacotherapy",
+          "mechanism": "Anti-inflammatory, antiparasitic or vasoconstrictor mechanisms",
+          "target": "Inflammatory pathways / Demodex / α-adrenergic receptors",
+          "tags": [
+            "rosacea"
+          ],
+          "role_note": "Phenotype-directed treatment: papulopustular vs erythema vs ocular disease.",
+          "drug_ids": [
+            "derm_metro_top",
+            "derm_ivermectin_top",
+            "derm_azelaic_rosacea",
+            "derm_brimonidine_top",
+            "derm_doxy_subantimicrobial"
+          ]
+        },
+        {
+          "id": "derm_vitiligo",
+          "name": "Vitiligo pharmacotherapy",
+          "mechanism": "Local immunomodulation to suppress depigmenting immune activity and support repigmentation",
+          "target": "T-cell/JAK/calcineurin pathways",
+          "tags": [
+            "vitiligo",
+            "nonsteroid_topical",
+            "jak"
+          ],
+          "role_note": "Treatment depends on activity, site, BSA and phototherapy availability.",
+          "drug_ids": [
+            "derm_tacrolimus_vit",
+            "derm_ruxolitinib_vit",
+            "derm_top_steroid_vit"
+          ]
+        },
+        {
+          "id": "derm_aga",
+          "name": "Androgenetic alopecia therapy",
+          "mechanism": "Prolong anagen or reduce DHT signaling",
+          "target": "Hair follicle KATP / 5α-reductase",
+          "tags": [
+            "alopecia",
+            "pregnancy_caution"
+          ],
+          "role_note": "Pattern hair loss therapy; diagnosis and sex-specific risk counseling important.",
+          "drug_ids": [
+            "derm_minoxidil_top",
+            "derm_minoxidil_lowdose",
+            "derm_finasteride_hair",
+            "derm_dutasteride_hair"
+          ]
+        },
+        {
+          "id": "derm_aa",
+          "name": "Alopecia areata immunomodulatory therapy",
+          "mechanism": "Suppress autoimmune attack on hair follicle",
+          "target": "Glucocorticoid receptor / JAK pathways",
+          "tags": [
+            "alopecia",
+            "jak",
+            "high_risk"
+          ],
+          "role_note": "Patchy disease vs extensive disease require different strategy; systemic JAK therapy is specialist-led.",
+          "drug_ids": [
+            "derm_triamcinolone_il",
+            "derm_baricitinib_aa",
+            "derm_ritlecitinib",
+            "derm_deuruxolitinib"
+          ]
+        },
+        {
+          "id": "derm_melasma",
+          "name": "Melasma / hyperpigmentation topical therapy",
+          "mechanism": "Reduce melanogenesis or accelerate pigment turnover",
+          "target": "Tyrosinase / epidermal turnover",
+          "tags": [
+            "melasma"
+          ],
+          "role_note": "Sun protection is foundational; avoid prolonged unsupervised hydroquinone/steroid-combination use.",
+          "drug_ids": [
+            "derm_hydroquinone",
+            "derm_triple_combo",
+            "derm_azelaic_melasma"
+          ]
+        },
+        {
+          "id": "derm_seborrheic",
+          "name": "Seborrheic dermatitis therapy",
+          "mechanism": "Reduce Malassezia burden and local inflammation",
+          "target": "Fungal ergosterol / inflammatory pathways",
+          "tags": [
+            "eczema",
+            "fungal"
+          ],
+          "role_note": "Scalp/face therapy combines antifungal and short anti-inflammatory courses when needed.",
+          "drug_ids": [
+            "derm_ketoconazole_shampoo",
+            "derm_ciclopirox",
+            "derm_hydrocortisone_seb"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "derm_adapalene",
+          "generic": "Adapalene",
+          "class_id": "derm_acne_retinoid",
+          "form": "Gel/cream",
+          "route": "Topical",
+          "dose_example": "Usually once nightly; start less often if irritation.",
+          "tags": [
+            "acne",
+            "pregnancy_caution"
+          ],
+          "role": "Topical retinoid option.",
+          "monitoring_pearl": "Irritation/photosensitivity; verify pregnancy precautions and site instructions.",
+          "source_refs": [
+            "AAD_ACNE_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_tretinoin",
+          "generic": "Tretinoin",
+          "class_id": "derm_acne_retinoid",
+          "form": "Cream/gel",
+          "route": "Topical",
+          "dose_example": "Usually once nightly; formulation strength varies.",
+          "tags": [
+            "acne",
+            "pregnancy_caution"
+          ],
+          "role": "Topical retinoid option.",
+          "monitoring_pearl": "Irritation/photosensitivity; verify pregnancy precautions and site instructions.",
+          "source_refs": [
+            "AAD_ACNE_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_tazarotene",
+          "generic": "Tazarotene",
+          "class_id": "derm_acne_retinoid",
+          "form": "Cream/gel/lotion",
+          "route": "Topical",
+          "dose_example": "Usually once daily; pregnancy contraindication requires verification.",
+          "tags": [
+            "acne",
+            "pregnancy_caution"
+          ],
+          "role": "Topical retinoid option.",
+          "monitoring_pearl": "Irritation/photosensitivity; verify pregnancy precautions and site instructions.",
+          "source_refs": [
+            "AAD_ACNE_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_trifarotene",
+          "generic": "Trifarotene",
+          "class_id": "derm_acne_retinoid",
+          "form": "Cream",
+          "route": "Topical",
+          "dose_example": "Usually once daily to affected acne areas.",
+          "tags": [
+            "acne",
+            "pregnancy_caution"
+          ],
+          "role": "Topical retinoid option.",
+          "monitoring_pearl": "Irritation/photosensitivity; verify pregnancy precautions and site instructions.",
+          "source_refs": [
+            "AAD_ACNE_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_benzoyl_peroxide",
+          "generic": "Benzoyl peroxide",
+          "class_id": "derm_bpo",
+          "form": "2.5–10% wash/gel",
+          "route": "Topical",
+          "dose_example": "Once daily or alternate-day start; titrate to tolerance.",
+          "tags": [
+            "acne",
+            "antimicrobial_stewardship"
+          ],
+          "role": "Acne antibacterial/comedolytic adjunct.",
+          "monitoring_pearl": "Irritation; bleaching of fabric/hair.",
+          "source_refs": [
+            "AAD_ACNE_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_clindamycin_top",
+          "generic": "Clindamycin topical",
+          "class_id": "derm_acne_antibacterial",
+          "form": "Gel/lotion/solution",
+          "route": "Topical",
+          "dose_example": "Usually 1–2 times daily depending formulation.",
+          "tags": [
+            "acne",
+            "topical_antibacterial",
+            "antimicrobial_stewardship"
+          ],
+          "role": "Topical acne antibacterial.",
+          "monitoring_pearl": "Use shortest effective course; avoid antibiotic monotherapy.",
+          "source_refs": [
+            "AAD_ACNE_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_erythromycin_top",
+          "generic": "Erythromycin topical",
+          "class_id": "derm_acne_antibacterial",
+          "form": "Gel/lotion/solution",
+          "route": "Topical",
+          "dose_example": "Usually 1–2 times daily; resistance limits routine monotherapy.",
+          "tags": [
+            "acne",
+            "topical_antibacterial",
+            "antimicrobial_stewardship"
+          ],
+          "role": "Topical acne antibacterial.",
+          "monitoring_pearl": "Use shortest effective course; avoid antibiotic monotherapy.",
+          "source_refs": [
+            "AAD_ACNE_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_azelaic",
+          "generic": "Azelaic acid",
+          "class_id": "derm_acne_nonantibiotic",
+          "form": "15–20% gel/foam/cream",
+          "route": "Topical",
+          "dose_example": "Usually once or twice daily.",
+          "tags": [
+            "acne",
+            "melasma",
+            "rosacea"
+          ],
+          "role": "Non-antibiotic acne option.",
+          "monitoring_pearl": "Irritation; verify special precautions/product labeling.",
+          "source_refs": [
+            "AAD_ACNE_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_dapsone_top",
+          "generic": "Dapsone topical",
+          "class_id": "derm_acne_nonantibiotic",
+          "form": "Gel",
+          "route": "Topical",
+          "dose_example": "Usually once or twice daily depending strength.",
+          "tags": [
+            "acne"
+          ],
+          "role": "Non-antibiotic acne option.",
+          "monitoring_pearl": "Irritation; verify special precautions/product labeling.",
+          "source_refs": [
+            "AAD_ACNE_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_acne_doxycycline",
+          "generic": "Doxycycline",
+          "class_id": "derm_acne_oral_abx",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common acne regimens include 50–100 mg once/twice daily; verify formulation and duration.",
+          "tags": [
+            "acne",
+            "antimicrobial_stewardship",
+            "pregnancy_caution"
+          ],
+          "role": "Systemic inflammatory-acne option.",
+          "monitoring_pearl": "Photosensitivity/GI; pregnancy/age restrictions and resistance stewardship.",
+          "source_refs": [
+            "AAD_ACNE_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_acne_minocycline",
+          "generic": "Minocycline",
+          "class_id": "derm_acne_oral_abx",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common adult acne dosing varies by formulation; verify current label.",
+          "tags": [
+            "acne",
+            "antimicrobial_stewardship",
+            "pregnancy_caution"
+          ],
+          "role": "Systemic inflammatory-acne option.",
+          "monitoring_pearl": "Photosensitivity/GI; pregnancy/age restrictions and resistance stewardship.",
+          "source_refs": [
+            "AAD_ACNE_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_acne_sarecycline",
+          "generic": "Sarecycline",
+          "class_id": "derm_acne_oral_abx",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Weight-based once-daily labeling; verify exact dose by weight.",
+          "tags": [
+            "acne",
+            "antimicrobial_stewardship",
+            "pregnancy_caution"
+          ],
+          "role": "Systemic inflammatory-acne option.",
+          "monitoring_pearl": "Photosensitivity/GI; pregnancy/age restrictions and resistance stewardship.",
+          "source_refs": [
+            "AAD_ACNE_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_isotretinoin",
+          "generic": "Isotretinoin",
+          "class_id": "derm_acne_systemic",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Weight-based daily therapy; cumulative strategy varies—verify current label/program.",
+          "tags": [
+            "retinoid",
+            "high_risk",
+            "pregnancy_caution"
+          ],
+          "role": "Potent systemic retinoid.",
+          "monitoring_pearl": "Strict pregnancy prevention; lipids/LFTs and psychiatric/other adverse-effect review.",
+          "source_refs": [
+            "AAD_ACNE_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_spironolactone_acne",
+          "generic": "Spironolactone",
+          "class_id": "derm_acne_systemic",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult female-acne regimens 25–100 mg/day or higher by specialist context.",
+          "tags": [
+            "acne",
+            "pregnancy_caution"
+          ],
+          "role": "Antiandrogen option in appropriate women.",
+          "monitoring_pearl": "Potassium/renal function when indicated; pregnancy avoidance.",
+          "source_refs": [
+            "AAD_ACNE_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_petrolatum",
+          "generic": "Petrolatum-based emollient",
+          "class_id": "derm_emollient",
+          "form": "Ointment/cream/lotion",
+          "route": "Topical",
+          "dose_example": "Apply liberally one or more times daily, especially after bathing.",
+          "tags": [
+            "eczema"
+          ],
+          "role": "Barrier-support therapy.",
+          "monitoring_pearl": "Avoid sensitizing fragrances/ingredients when relevant.",
+          "source_refs": [
+            "AAD_AD_2025"
+          ]
+        },
+        {
+          "id": "derm_ceramide",
+          "generic": "Ceramide-containing moisturizer",
+          "class_id": "derm_emollient",
+          "form": "Ointment/cream/lotion",
+          "route": "Topical",
+          "dose_example": "Apply liberally one or more times daily, especially after bathing.",
+          "tags": [
+            "eczema"
+          ],
+          "role": "Barrier-support therapy.",
+          "monitoring_pearl": "Avoid sensitizing fragrances/ingredients when relevant.",
+          "source_refs": [
+            "AAD_AD_2025"
+          ]
+        },
+        {
+          "id": "derm_hydrocortisone",
+          "generic": "Hydrocortisone 1–2.5%",
+          "class_id": "derm_tcs_low",
+          "form": "Cream/ointment",
+          "route": "Topical",
+          "dose_example": "Apply thin layer once/twice daily for limited course.",
+          "tags": [
+            "eczema",
+            "topical_steroid"
+          ],
+          "role": "Topical corticosteroid option.",
+          "monitoring_pearl": "Potency, body site, BSA and duration determine atrophy/HPA-axis risk; avoid indiscriminate use.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "AAD_PSORIASIS",
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_desonide",
+          "generic": "Desonide",
+          "class_id": "derm_tcs_low",
+          "form": "Cream/ointment/lotion",
+          "route": "Topical",
+          "dose_example": "Usually once/twice daily for limited course.",
+          "tags": [
+            "eczema",
+            "topical_steroid"
+          ],
+          "role": "Topical corticosteroid option.",
+          "monitoring_pearl": "Potency, body site, BSA and duration determine atrophy/HPA-axis risk; avoid indiscriminate use.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "AAD_PSORIASIS",
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_triamcinolone",
+          "generic": "Triamcinolone acetonide 0.1%",
+          "class_id": "derm_tcs_mid",
+          "form": "Cream/ointment",
+          "route": "Topical",
+          "dose_example": "Usually once/twice daily for limited course.",
+          "tags": [
+            "eczema",
+            "psoriasis",
+            "topical_steroid"
+          ],
+          "role": "Topical corticosteroid option.",
+          "monitoring_pearl": "Potency, body site, BSA and duration determine atrophy/HPA-axis risk; avoid indiscriminate use.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "AAD_PSORIASIS",
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_mometasone",
+          "generic": "Mometasone furoate 0.1%",
+          "class_id": "derm_tcs_mid",
+          "form": "Cream/ointment/lotion",
+          "route": "Topical",
+          "dose_example": "Usually once daily; potency/site vary by formulation.",
+          "tags": [
+            "eczema",
+            "psoriasis",
+            "topical_steroid"
+          ],
+          "role": "Topical corticosteroid option.",
+          "monitoring_pearl": "Potency, body site, BSA and duration determine atrophy/HPA-axis risk; avoid indiscriminate use.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "AAD_PSORIASIS",
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_betamethasone_val",
+          "generic": "Betamethasone valerate",
+          "class_id": "derm_tcs_mid",
+          "form": "Cream/ointment",
+          "route": "Topical",
+          "dose_example": "Usually once/twice daily; verify potency of exact formulation.",
+          "tags": [
+            "eczema",
+            "psoriasis",
+            "topical_steroid"
+          ],
+          "role": "Topical corticosteroid option.",
+          "monitoring_pearl": "Potency, body site, BSA and duration determine atrophy/HPA-axis risk; avoid indiscriminate use.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "AAD_PSORIASIS",
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_clobetasol",
+          "generic": "Clobetasol propionate 0.05%",
+          "class_id": "derm_tcs_high",
+          "form": "Cream/ointment/solution/foam",
+          "route": "Topical",
+          "dose_example": "Usually once/twice daily for short course; weekly quantity/duration limits require label verification.",
+          "tags": [
+            "psoriasis",
+            "topical_steroid",
+            "high_risk"
+          ],
+          "role": "Topical corticosteroid option.",
+          "monitoring_pearl": "Potency, body site, BSA and duration determine atrophy/HPA-axis risk; avoid indiscriminate use.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "AAD_PSORIASIS",
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_halobetasol",
+          "generic": "Halobetasol propionate 0.05%",
+          "class_id": "derm_tcs_high",
+          "form": "Cream/ointment/lotion",
+          "route": "Topical",
+          "dose_example": "Usually once/twice daily short course; verify label limits.",
+          "tags": [
+            "psoriasis",
+            "topical_steroid",
+            "high_risk"
+          ],
+          "role": "Topical corticosteroid option.",
+          "monitoring_pearl": "Potency, body site, BSA and duration determine atrophy/HPA-axis risk; avoid indiscriminate use.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "AAD_PSORIASIS",
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_tacrolimus_top",
+          "generic": "Tacrolimus ointment",
+          "class_id": "derm_tci",
+          "form": "0.03%/0.1% ointment",
+          "route": "Topical",
+          "dose_example": "Usually twice daily during active disease; maintenance strategies vary.",
+          "tags": [
+            "eczema",
+            "vitiligo",
+            "nonsteroid_topical"
+          ],
+          "role": "Steroid-sparing topical immunomodulator.",
+          "monitoring_pearl": "Transient burning; use within label/diagnostic context.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "AAD_VITILIGO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_pimecrolimus",
+          "generic": "Pimecrolimus",
+          "class_id": "derm_tci",
+          "form": "1% cream",
+          "route": "Topical",
+          "dose_example": "Usually twice daily during active disease.",
+          "tags": [
+            "eczema",
+            "vitiligo",
+            "nonsteroid_topical"
+          ],
+          "role": "Steroid-sparing topical immunomodulator.",
+          "monitoring_pearl": "Transient burning; use within label/diagnostic context.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "AAD_VITILIGO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_crisaborole",
+          "generic": "Crisaborole",
+          "class_id": "derm_novel_topical",
+          "form": "2% ointment",
+          "route": "Topical",
+          "dose_example": "Usually twice daily.",
+          "tags": [
+            "eczema"
+          ],
+          "role": "Nonsteroidal topical anti-inflammatory option.",
+          "monitoring_pearl": "Verify age/BSA/site limitations and current labeling.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_ruxolitinib_top",
+          "generic": "Ruxolitinib topical",
+          "class_id": "derm_novel_topical",
+          "form": "Cream",
+          "route": "Topical",
+          "dose_example": "Usually twice daily within labeled BSA/age limits.",
+          "tags": [
+            "eczema",
+            "vitiligo",
+            "jak"
+          ],
+          "role": "Nonsteroidal topical anti-inflammatory option.",
+          "monitoring_pearl": "Verify age/BSA/site limitations and current labeling.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_tapinarof",
+          "generic": "Tapinarof",
+          "class_id": "derm_novel_topical",
+          "form": "Cream",
+          "route": "Topical",
+          "dose_example": "Usually once daily; exact indication/age varies.",
+          "tags": [
+            "psoriasis",
+            "eczema"
+          ],
+          "role": "Nonsteroidal topical anti-inflammatory option.",
+          "monitoring_pearl": "Verify age/BSA/site limitations and current labeling.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_roflumilast_top",
+          "generic": "Roflumilast topical",
+          "class_id": "derm_novel_topical",
+          "form": "Cream/foam",
+          "route": "Topical",
+          "dose_example": "Usually once daily; formulation/indication varies.",
+          "tags": [
+            "psoriasis",
+            "eczema"
+          ],
+          "role": "Nonsteroidal topical anti-inflammatory option.",
+          "monitoring_pearl": "Verify age/BSA/site limitations and current labeling.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_urt_cetirizine",
+          "generic": "Cetirizine",
+          "class_id": "derm_h1",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult dose 10 mg once daily.",
+          "tags": [
+            "urticaria"
+          ],
+          "role": "Non-sedating/less-sedating H1 option.",
+          "monitoring_pearl": "Renal/hepatic adjustment and sedation potential vary.",
+          "source_refs": [
+            "AAD_URTICARIA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_urt_levocetirizine",
+          "generic": "Levocetirizine",
+          "class_id": "derm_h1",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult dose 5 mg once daily.",
+          "tags": [
+            "urticaria"
+          ],
+          "role": "Non-sedating/less-sedating H1 option.",
+          "monitoring_pearl": "Renal/hepatic adjustment and sedation potential vary.",
+          "source_refs": [
+            "AAD_URTICARIA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_urt_fexofenadine",
+          "generic": "Fexofenadine",
+          "class_id": "derm_h1",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult dose 180 mg once daily or 60 mg twice daily depending indication.",
+          "tags": [
+            "urticaria"
+          ],
+          "role": "Non-sedating/less-sedating H1 option.",
+          "monitoring_pearl": "Renal/hepatic adjustment and sedation potential vary.",
+          "source_refs": [
+            "AAD_URTICARIA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_urt_loratadine",
+          "generic": "Loratadine",
+          "class_id": "derm_h1",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult dose 10 mg once daily.",
+          "tags": [
+            "urticaria"
+          ],
+          "role": "Non-sedating/less-sedating H1 option.",
+          "monitoring_pearl": "Renal/hepatic adjustment and sedation potential vary.",
+          "source_refs": [
+            "AAD_URTICARIA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_urt_bilastine",
+          "generic": "Bilastine",
+          "class_id": "derm_h1",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult dose 20 mg once daily where approved.",
+          "tags": [
+            "urticaria"
+          ],
+          "role": "Non-sedating/less-sedating H1 option.",
+          "monitoring_pearl": "Renal/hepatic adjustment and sedation potential vary.",
+          "source_refs": [
+            "AAD_URTICARIA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_omalizumab",
+          "generic": "Omalizumab",
+          "class_id": "derm_urticaria_advanced",
+          "form": "Prefilled syringe/vial",
+          "route": "Subcutaneous",
+          "dose_example": "Common CSU regimen 150 or 300 mg every 4 weeks depending label/context.",
+          "tags": [
+            "urticaria",
+            "biologic",
+            "high_risk"
+          ],
+          "role": "Anti-IgE biologic.",
+          "monitoring_pearl": "Anaphylaxis precautions and indication-specific dosing verification.",
+          "source_refs": [
+            "AAD_URTICARIA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_clotrimazole",
+          "generic": "Clotrimazole",
+          "class_id": "derm_top_azole",
+          "form": "Cream/solution/shampoo",
+          "route": "Topical",
+          "dose_example": "Usually twice daily.",
+          "tags": [
+            "fungal",
+            "topical_antifungal"
+          ],
+          "role": "Topical azole antifungal.",
+          "monitoring_pearl": "Confirm diagnosis; avoid steroid-antifungal misuse.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_miconazole",
+          "generic": "Miconazole",
+          "class_id": "derm_top_azole",
+          "form": "Cream/solution/shampoo",
+          "route": "Topical",
+          "dose_example": "Usually twice daily.",
+          "tags": [
+            "fungal",
+            "topical_antifungal"
+          ],
+          "role": "Topical azole antifungal.",
+          "monitoring_pearl": "Confirm diagnosis; avoid steroid-antifungal misuse.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_ketoconazole_top",
+          "generic": "Ketoconazole topical",
+          "class_id": "derm_top_azole",
+          "form": "Cream/solution/shampoo",
+          "route": "Topical",
+          "dose_example": "Cream commonly once/twice daily; shampoo schedule varies.",
+          "tags": [
+            "fungal",
+            "topical_antifungal"
+          ],
+          "role": "Topical azole antifungal.",
+          "monitoring_pearl": "Confirm diagnosis; avoid steroid-antifungal misuse.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_luliconazole",
+          "generic": "Luliconazole",
+          "class_id": "derm_top_azole",
+          "form": "Cream/solution/shampoo",
+          "route": "Topical",
+          "dose_example": "Often once daily; labeled duration differs by site.",
+          "tags": [
+            "fungal",
+            "topical_antifungal"
+          ],
+          "role": "Topical azole antifungal.",
+          "monitoring_pearl": "Confirm diagnosis; avoid steroid-antifungal misuse.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_sertaconazole",
+          "generic": "Sertaconazole",
+          "class_id": "derm_top_azole",
+          "form": "Cream/solution/shampoo",
+          "route": "Topical",
+          "dose_example": "Commonly twice daily.",
+          "tags": [
+            "fungal",
+            "topical_antifungal"
+          ],
+          "role": "Topical azole antifungal.",
+          "monitoring_pearl": "Confirm diagnosis; avoid steroid-antifungal misuse.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_terbinafine_top",
+          "generic": "Terbinafine topical",
+          "class_id": "derm_allylamine",
+          "form": "Cream/gel/spray",
+          "route": "Topical",
+          "dose_example": "Usually once/twice daily for labeled duration.",
+          "tags": [
+            "fungal"
+          ],
+          "role": "Allylamine antifungal.",
+          "monitoring_pearl": "Oral terbinafine requires liver/drug-interaction review; confirm fungal diagnosis.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_terbinafine_oral",
+          "generic": "Terbinafine oral",
+          "class_id": "derm_allylamine",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult dermatophyte/onychomycosis regimens use 250 mg once daily; duration varies by site.",
+          "tags": [
+            "fungal"
+          ],
+          "role": "Allylamine antifungal.",
+          "monitoring_pearl": "Oral terbinafine requires liver/drug-interaction review; confirm fungal diagnosis.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_naftifine",
+          "generic": "Naftifine",
+          "class_id": "derm_allylamine",
+          "form": "Cream/gel",
+          "route": "Topical",
+          "dose_example": "Usually once daily.",
+          "tags": [
+            "fungal"
+          ],
+          "role": "Allylamine antifungal.",
+          "monitoring_pearl": "Oral terbinafine requires liver/drug-interaction review; confirm fungal diagnosis.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_itraconazole",
+          "generic": "Itraconazole",
+          "class_id": "derm_systemic_azole",
+          "form": "Capsule/tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Regimens vary by organism/site; common adult dermatophyte courses use 100–200 mg/day—verify indication.",
+          "tags": [
+            "fungal",
+            "high_risk"
+          ],
+          "role": "Systemic antifungal option.",
+          "monitoring_pearl": "Drug interactions, hepatic function, pregnancy and organism/site verification.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_fluconazole",
+          "generic": "Fluconazole",
+          "class_id": "derm_systemic_azole",
+          "form": "Capsule/tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Intermittent or daily regimens vary widely by indication; verify organism/site.",
+          "tags": [
+            "fungal",
+            "high_risk"
+          ],
+          "role": "Systemic antifungal option.",
+          "monitoring_pearl": "Drug interactions, hepatic function, pregnancy and organism/site verification.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_griseofulvin",
+          "generic": "Griseofulvin",
+          "class_id": "derm_systemic_azole",
+          "form": "Capsule/tablet/suspension",
+          "route": "Oral",
+          "dose_example": "Weight/formulation-specific dosing; particularly used in selected tinea capitis contexts.",
+          "tags": [
+            "fungal",
+            "high_risk"
+          ],
+          "role": "Systemic antifungal option.",
+          "monitoring_pearl": "Drug interactions, hepatic function, pregnancy and organism/site verification.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_permethrin",
+          "generic": "Permethrin 5%",
+          "class_id": "derm_scabicide",
+          "form": "Cream",
+          "route": "Topical",
+          "dose_example": "Apply neck-down (and scalp/face in selected populations) for labeled contact time; often repeat about 7 days later.",
+          "tags": [
+            "scabies"
+          ],
+          "role": "Scabies treatment option.",
+          "monitoring_pearl": "Treat contacts/environment; verify special-population restrictions.",
+          "source_refs": [
+            "CDC_SCABIES",
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_ivermectin_scabies",
+          "generic": "Ivermectin",
+          "class_id": "derm_scabicide",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common scabies regimen 200 micrograms/kg, repeat in 7–14 days; pregnancy/age-weight restrictions require verification.",
+          "tags": [
+            "scabies",
+            "high_risk"
+          ],
+          "role": "Scabies treatment option.",
+          "monitoring_pearl": "Treat contacts/environment; verify special-population restrictions.",
+          "source_refs": [
+            "CDC_SCABIES",
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_mupirocin",
+          "generic": "Mupirocin",
+          "class_id": "derm_top_abx",
+          "form": "Ointment/cream",
+          "route": "Topical",
+          "dose_example": "Usually 2–3 times daily for short labeled course.",
+          "tags": [
+            "bacterial_skin",
+            "topical_antibacterial",
+            "antimicrobial_stewardship"
+          ],
+          "role": "Localized antibacterial option.",
+          "monitoring_pearl": "Confirm bacterial indication; resistance stewardship.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_fusidic_acid",
+          "generic": "Fusidic acid",
+          "class_id": "derm_top_abx",
+          "form": "Ointment/cream",
+          "route": "Topical",
+          "dose_example": "Usually 2–3 times daily where approved; resistance context matters.",
+          "tags": [
+            "bacterial_skin",
+            "topical_antibacterial",
+            "antimicrobial_stewardship"
+          ],
+          "role": "Localized antibacterial option.",
+          "monitoring_pearl": "Confirm bacterial indication; resistance stewardship.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_acyclovir",
+          "generic": "Acyclovir",
+          "class_id": "derm_herpes_antiviral",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Regimen varies by HSV vs zoster and immune status; renal adjustment required.",
+          "tags": [
+            "herpes"
+          ],
+          "role": "HSV/zoster antiviral.",
+          "monitoring_pearl": "Renal dosing and early treatment timing matter.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_valacyclovir",
+          "generic": "Valacyclovir",
+          "class_id": "derm_herpes_antiviral",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Common adult zoster regimen 1 g three times daily for 7 days; verify diagnosis/renal function.",
+          "tags": [
+            "herpes"
+          ],
+          "role": "HSV/zoster antiviral.",
+          "monitoring_pearl": "Renal dosing and early treatment timing matter.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_famciclovir",
+          "generic": "Famciclovir",
+          "class_id": "derm_herpes_antiviral",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Regimens vary by HSV/zoster; verify current label and renal function.",
+          "tags": [
+            "herpes"
+          ],
+          "role": "HSV/zoster antiviral.",
+          "monitoring_pearl": "Renal dosing and early treatment timing matter.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_salicylic_acid_wart",
+          "generic": "Salicylic acid",
+          "class_id": "derm_wart",
+          "form": "Solution/gel/plaster",
+          "route": "Topical",
+          "dose_example": "Apply according to product strength/site, often daily after soaking/paring.",
+          "tags": [
+            "warts",
+            "keratolytic"
+          ],
+          "role": "Wart-directed topical option.",
+          "monitoring_pearl": "Avoid facial/genital misuse of keratolytics; verify indication/site.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_imiquimod",
+          "generic": "Imiquimod",
+          "class_id": "derm_wart",
+          "form": "Cream",
+          "route": "Topical",
+          "dose_example": "Schedule varies strongly by approved indication (e.g., genital warts) and strength.",
+          "tags": [
+            "warts",
+            "high_risk"
+          ],
+          "role": "Wart-directed topical option.",
+          "monitoring_pearl": "Avoid facial/genital misuse of keratolytics; verify indication/site.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_calcipotriol",
+          "generic": "Calcipotriol / calcipotriene",
+          "class_id": "derm_psoriasis_topical",
+          "form": "Cream/ointment/solution",
+          "route": "Topical",
+          "dose_example": "Usually once/twice daily; weekly amount limits vary.",
+          "tags": [
+            "psoriasis"
+          ],
+          "role": "Topical psoriasis option.",
+          "monitoring_pearl": "Check BSA, site and combination-steroid potency.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_calcipotriol_betameth",
+          "generic": "Calcipotriol + betamethasone dipropionate",
+          "class_id": "derm_psoriasis_topical",
+          "form": "Ointment/gel/foam",
+          "route": "Topical",
+          "dose_example": "Usually once daily depending formulation.",
+          "tags": [
+            "psoriasis",
+            "topical_steroid"
+          ],
+          "role": "Topical psoriasis option.",
+          "monitoring_pearl": "Check BSA, site and combination-steroid potency.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_salicylic_acid_psor",
+          "generic": "Salicylic acid keratolytic",
+          "class_id": "derm_psoriasis_topical",
+          "form": "Ointment/shampoo",
+          "route": "Topical",
+          "dose_example": "Use concentration/site-specific schedule; avoid excessive BSA.",
+          "tags": [
+            "psoriasis",
+            "keratolytic"
+          ],
+          "role": "Topical psoriasis option.",
+          "monitoring_pearl": "Check BSA, site and combination-steroid potency.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_methotrexate_psor",
+          "generic": "Methotrexate",
+          "class_id": "derm_psoriasis_systemic",
+          "form": "Tablet/injection",
+          "route": "Oral/SC",
+          "dose_example": "Once-weekly dosing only; exact weekly dose individualized.",
+          "tags": [
+            "psoriasis",
+            "systemic_immunomod",
+            "cbc_lft",
+            "pregnancy_caution"
+          ],
+          "role": "Systemic psoriasis option.",
+          "monitoring_pearl": "CBC/LFT/renal/BP or pregnancy monitoring depending agent; verify exact protocol.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_cyclosporine_psor",
+          "generic": "Cyclosporine",
+          "class_id": "derm_psoriasis_systemic",
+          "form": "Capsule/solution",
+          "route": "Oral",
+          "dose_example": "Weight-based daily dosing; typically short-term rescue/bridge use.",
+          "tags": [
+            "psoriasis",
+            "systemic_immunomod",
+            "high_risk"
+          ],
+          "role": "Systemic psoriasis option.",
+          "monitoring_pearl": "CBC/LFT/renal/BP or pregnancy monitoring depending agent; verify exact protocol.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_acitretin",
+          "generic": "Acitretin",
+          "class_id": "derm_psoriasis_systemic",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Common adult start 25–50 mg once daily; verify indication and pregnancy restrictions.",
+          "tags": [
+            "psoriasis",
+            "retinoid",
+            "pregnancy_caution",
+            "high_risk"
+          ],
+          "role": "Systemic psoriasis option.",
+          "monitoring_pearl": "CBC/LFT/renal/BP or pregnancy monitoring depending agent; verify exact protocol.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_apremilast",
+          "generic": "Apremilast",
+          "class_id": "derm_psoriasis_systemic",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Titrate to 30 mg twice daily in common adult labeling; renal adjustment may apply.",
+          "tags": [
+            "psoriasis",
+            "systemic_immunomod"
+          ],
+          "role": "Systemic psoriasis option.",
+          "monitoring_pearl": "CBC/LFT/renal/BP or pregnancy monitoring depending agent; verify exact protocol.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_adalimumab_psor",
+          "generic": "Adalimumab",
+          "class_id": "derm_psor_tnf",
+          "form": "Prefilled syringe/vial",
+          "route": "SC/IV",
+          "dose_example": "Induction/maintenance schedule is product-specific; verify current psoriasis label.",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "TNF biologic.",
+          "monitoring_pearl": "TB/HBV/infection screening; vaccination and demyelination/HF considerations vary.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_etanercept_psor",
+          "generic": "Etanercept",
+          "class_id": "derm_psor_tnf",
+          "form": "Prefilled syringe/vial",
+          "route": "SC/IV",
+          "dose_example": "Induction/maintenance schedule is product-specific; verify current psoriasis label.",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "TNF biologic.",
+          "monitoring_pearl": "TB/HBV/infection screening; vaccination and demyelination/HF considerations vary.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_infliximab_psor",
+          "generic": "Infliximab",
+          "class_id": "derm_psor_tnf",
+          "form": "Prefilled syringe/vial",
+          "route": "SC/IV",
+          "dose_example": "Induction/maintenance schedule is product-specific; verify current psoriasis label.",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "TNF biologic.",
+          "monitoring_pearl": "TB/HBV/infection screening; vaccination and demyelination/HF considerations vary.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_certolizumab_psor",
+          "generic": "Certolizumab pegol",
+          "class_id": "derm_psor_tnf",
+          "form": "Prefilled syringe/vial",
+          "route": "SC/IV",
+          "dose_example": "Induction/maintenance schedule is product-specific; verify current psoriasis label.",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "TNF biologic.",
+          "monitoring_pearl": "TB/HBV/infection screening; vaccination and demyelination/HF considerations vary.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_secukinumab",
+          "generic": "Secukinumab",
+          "class_id": "derm_psor_il17",
+          "form": "Prefilled syringe/pen",
+          "route": "Subcutaneous",
+          "dose_example": "Induction/maintenance schedule is product-specific; verify current label.",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "IL-17 pathway biologic.",
+          "monitoring_pearl": "Infection/TB screen; candidiasis/IBD or product-specific warnings.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_ixekizumab",
+          "generic": "Ixekizumab",
+          "class_id": "derm_psor_il17",
+          "form": "Prefilled syringe/pen",
+          "route": "Subcutaneous",
+          "dose_example": "Induction/maintenance schedule is product-specific; verify current label.",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "IL-17 pathway biologic.",
+          "monitoring_pearl": "Infection/TB screen; candidiasis/IBD or product-specific warnings.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_brodalumab",
+          "generic": "Brodalumab",
+          "class_id": "derm_psor_il17",
+          "form": "Prefilled syringe/pen",
+          "route": "Subcutaneous",
+          "dose_example": "Induction/maintenance schedule is product-specific; verify current label.",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "IL-17 pathway biologic.",
+          "monitoring_pearl": "Infection/TB screen; candidiasis/IBD or product-specific warnings.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_bimekizumab",
+          "generic": "Bimekizumab",
+          "class_id": "derm_psor_il17",
+          "form": "Prefilled syringe/pen",
+          "route": "Subcutaneous",
+          "dose_example": "Induction/maintenance schedule is product-specific; verify current label.",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "IL-17 pathway biologic.",
+          "monitoring_pearl": "Infection/TB screen; candidiasis/IBD or product-specific warnings.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_guselkumab",
+          "generic": "Guselkumab",
+          "class_id": "derm_psor_il23",
+          "form": "Prefilled syringe/pen",
+          "route": "Subcutaneous",
+          "dose_example": "Induction/maintenance schedule is product-specific; verify current label.",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "IL-23/IL-12-23 biologic.",
+          "monitoring_pearl": "TB/infection screen and vaccination review.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_risankizumab",
+          "generic": "Risankizumab",
+          "class_id": "derm_psor_il23",
+          "form": "Prefilled syringe/pen",
+          "route": "Subcutaneous",
+          "dose_example": "Induction/maintenance schedule is product-specific; verify current label.",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "IL-23/IL-12-23 biologic.",
+          "monitoring_pearl": "TB/infection screen and vaccination review.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_tildrakizumab",
+          "generic": "Tildrakizumab",
+          "class_id": "derm_psor_il23",
+          "form": "Prefilled syringe/pen",
+          "route": "Subcutaneous",
+          "dose_example": "Induction/maintenance schedule is product-specific; verify current label.",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "IL-23/IL-12-23 biologic.",
+          "monitoring_pearl": "TB/infection screen and vaccination review.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_ustekinumab",
+          "generic": "Ustekinumab",
+          "class_id": "derm_psor_il23",
+          "form": "Prefilled syringe/pen",
+          "route": "Subcutaneous",
+          "dose_example": "Induction/maintenance schedule is product-specific; verify current label.",
+          "tags": [
+            "psoriasis",
+            "biologic",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "IL-23/IL-12-23 biologic.",
+          "monitoring_pearl": "TB/infection screen and vaccination review.",
+          "source_refs": [
+            "AAD_PSORIASIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_dupilumab",
+          "generic": "Dupilumab",
+          "class_id": "derm_ad_systemic",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Product-specific induction/maintenance dosing; verify current age/indication label.",
+          "tags": [
+            "eczema",
+            "high_risk",
+            "biologic"
+          ],
+          "role": "IL-4Rα biologic.",
+          "monitoring_pearl": "Biologics/JAK inhibitors require infection, vaccination and agent-specific lab/risk screening.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_tralokinumab",
+          "generic": "Tralokinumab",
+          "class_id": "derm_ad_systemic",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Product-specific induction/maintenance dosing; verify current age/indication label.",
+          "tags": [
+            "eczema",
+            "high_risk",
+            "biologic"
+          ],
+          "role": "IL-13 biologic.",
+          "monitoring_pearl": "Biologics/JAK inhibitors require infection, vaccination and agent-specific lab/risk screening.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_lebrikizumab",
+          "generic": "Lebrikizumab",
+          "class_id": "derm_ad_systemic",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Product-specific induction/maintenance dosing; verify current age/indication label.",
+          "tags": [
+            "eczema",
+            "high_risk",
+            "biologic"
+          ],
+          "role": "IL-13 biologic.",
+          "monitoring_pearl": "Biologics/JAK inhibitors require infection, vaccination and agent-specific lab/risk screening.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_nemolizumab",
+          "generic": "Nemolizumab",
+          "class_id": "derm_ad_systemic",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Product-specific induction/maintenance dosing; verify current age/indication label.",
+          "tags": [
+            "eczema",
+            "high_risk",
+            "biologic"
+          ],
+          "role": "IL-31RA biologic.",
+          "monitoring_pearl": "Biologics/JAK inhibitors require infection, vaccination and agent-specific lab/risk screening.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_upadacitinib_ad",
+          "generic": "Upadacitinib",
+          "class_id": "derm_ad_systemic",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-specific induction/maintenance dosing; verify current age/indication label.",
+          "tags": [
+            "eczema",
+            "high_risk",
+            "jak",
+            "infection_screen"
+          ],
+          "role": "JAK inhibitor.",
+          "monitoring_pearl": "Biologics/JAK inhibitors require infection, vaccination and agent-specific lab/risk screening.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_abrocitinib",
+          "generic": "Abrocitinib",
+          "class_id": "derm_ad_systemic",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-specific induction/maintenance dosing; verify current age/indication label.",
+          "tags": [
+            "eczema",
+            "high_risk",
+            "jak",
+            "infection_screen"
+          ],
+          "role": "JAK1 inhibitor.",
+          "monitoring_pearl": "Biologics/JAK inhibitors require infection, vaccination and agent-specific lab/risk screening.",
+          "source_refs": [
+            "AAD_AD_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_metro_top",
+          "generic": "Metronidazole topical",
+          "class_id": "derm_rosacea",
+          "form": "Gel/cream",
+          "route": "Topical",
+          "dose_example": "Usually once/twice daily.",
+          "tags": [
+            "rosacea"
+          ],
+          "role": "Rosacea phenotype-directed option.",
+          "monitoring_pearl": "Avoid nonspecific steroid use; ocular symptoms may need ophthalmic evaluation.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_ivermectin_top",
+          "generic": "Ivermectin topical",
+          "class_id": "derm_rosacea",
+          "form": "1% cream",
+          "route": "Topical",
+          "dose_example": "Usually once daily.",
+          "tags": [
+            "rosacea"
+          ],
+          "role": "Rosacea phenotype-directed option.",
+          "monitoring_pearl": "Avoid nonspecific steroid use; ocular symptoms may need ophthalmic evaluation.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_azelaic_rosacea",
+          "generic": "Azelaic acid",
+          "class_id": "derm_rosacea",
+          "form": "15% gel/foam",
+          "route": "Topical",
+          "dose_example": "Usually twice daily.",
+          "tags": [
+            "rosacea"
+          ],
+          "role": "Rosacea phenotype-directed option.",
+          "monitoring_pearl": "Avoid nonspecific steroid use; ocular symptoms may need ophthalmic evaluation.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_brimonidine_top",
+          "generic": "Brimonidine topical",
+          "class_id": "derm_rosacea",
+          "form": "Gel",
+          "route": "Topical",
+          "dose_example": "Once daily thin layer for persistent facial erythema; rebound possible.",
+          "tags": [
+            "rosacea"
+          ],
+          "role": "Rosacea phenotype-directed option.",
+          "monitoring_pearl": "Avoid nonspecific steroid use; ocular symptoms may need ophthalmic evaluation.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_doxy_subantimicrobial",
+          "generic": "Doxycycline modified-release",
+          "class_id": "derm_rosacea",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "40 mg once daily in common rosacea labeling.",
+          "tags": [
+            "rosacea",
+            "antimicrobial_stewardship"
+          ],
+          "role": "Rosacea phenotype-directed option.",
+          "monitoring_pearl": "Avoid nonspecific steroid use; ocular symptoms may need ophthalmic evaluation.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_tacrolimus_vit",
+          "generic": "Tacrolimus topical",
+          "class_id": "derm_vitiligo",
+          "form": "Ointment",
+          "route": "Topical",
+          "dose_example": "Commonly once/twice daily off-label depending site/age; verify specialist plan.",
+          "tags": [
+            "vitiligo"
+          ],
+          "role": "Vitiligo repigmentation/stabilization option.",
+          "monitoring_pearl": "Site-specific atrophy/JAK warnings and phototherapy integration require verification.",
+          "source_refs": [
+            "AAD_VITILIGO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_ruxolitinib_vit",
+          "generic": "Ruxolitinib cream",
+          "class_id": "derm_vitiligo",
+          "form": "Cream",
+          "route": "Topical",
+          "dose_example": "Usually twice daily within labeled nonsegmental-vitiligo BSA/age limits.",
+          "tags": [
+            "vitiligo",
+            "jak"
+          ],
+          "role": "Vitiligo repigmentation/stabilization option.",
+          "monitoring_pearl": "Site-specific atrophy/JAK warnings and phototherapy integration require verification.",
+          "source_refs": [
+            "AAD_VITILIGO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_top_steroid_vit",
+          "generic": "Appropriate-potency topical corticosteroid",
+          "class_id": "derm_vitiligo",
+          "form": "Cream/ointment",
+          "route": "Topical",
+          "dose_example": "Intermittent/limited-course schedules vary by site.",
+          "tags": [
+            "vitiligo",
+            "topical_steroid"
+          ],
+          "role": "Vitiligo repigmentation/stabilization option.",
+          "monitoring_pearl": "Site-specific atrophy/JAK warnings and phototherapy integration require verification.",
+          "source_refs": [
+            "AAD_VITILIGO",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_minoxidil_top",
+          "generic": "Minoxidil topical",
+          "class_id": "derm_aga",
+          "form": "2–5% solution/foam",
+          "route": "Topical",
+          "dose_example": "Usually once/twice daily depending product/sex.",
+          "tags": [
+            "alopecia"
+          ],
+          "role": "Hair-growth/antiandrogen option.",
+          "monitoring_pearl": "Pregnancy handling restrictions for 5-ARIs; BP/edema for oral minoxidil.",
+          "source_refs": [
+            "AAD_HAIR",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_minoxidil_lowdose",
+          "generic": "Low-dose oral minoxidil",
+          "class_id": "derm_aga",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Off-label low-dose regimens vary; specialist BP/HR/edema monitoring required.",
+          "tags": [
+            "alopecia",
+            "high_risk"
+          ],
+          "role": "Hair-growth/antiandrogen option.",
+          "monitoring_pearl": "Pregnancy handling restrictions for 5-ARIs; BP/edema for oral minoxidil.",
+          "source_refs": [
+            "AAD_HAIR",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_finasteride_hair",
+          "generic": "Finasteride",
+          "class_id": "derm_aga",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "1 mg once daily in common male-pattern hair-loss labeling.",
+          "tags": [
+            "alopecia",
+            "pregnancy_caution"
+          ],
+          "role": "Hair-growth/antiandrogen option.",
+          "monitoring_pearl": "Pregnancy handling restrictions for 5-ARIs; BP/edema for oral minoxidil.",
+          "source_refs": [
+            "AAD_HAIR",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_dutasteride_hair",
+          "generic": "Dutasteride",
+          "class_id": "derm_aga",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Off-label hair-loss dosing varies; verify specialist plan.",
+          "tags": [
+            "alopecia",
+            "pregnancy_caution",
+            "high_risk"
+          ],
+          "role": "Hair-growth/antiandrogen option.",
+          "monitoring_pearl": "Pregnancy handling restrictions for 5-ARIs; BP/edema for oral minoxidil.",
+          "source_refs": [
+            "AAD_HAIR",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_triamcinolone_il",
+          "generic": "Intralesional triamcinolone",
+          "class_id": "derm_aa",
+          "form": "Injection",
+          "route": "Intralesional",
+          "dose_example": "Small-volume concentration/site-specific injections every ~4–6 weeks; specialist technique.",
+          "tags": [
+            "alopecia",
+            "high_risk"
+          ],
+          "role": "Alopecia areata option.",
+          "monitoring_pearl": "JAK inhibitors need infection/CBC/lipid/thrombotic-risk review; intralesional steroid requires technique/site expertise.",
+          "source_refs": [
+            "AAD_HAIR",
+            "DAILYMED",
+            "FDA_DERM_SAFETY"
+          ]
+        },
+        {
+          "id": "derm_baricitinib_aa",
+          "generic": "Baricitinib",
+          "class_id": "derm_aa",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult severe-AA dose 2 mg once daily; may increase per label/context.",
+          "tags": [
+            "alopecia",
+            "jak",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "Alopecia areata option.",
+          "monitoring_pearl": "JAK inhibitors need infection/CBC/lipid/thrombotic-risk review; intralesional steroid requires technique/site expertise.",
+          "source_refs": [
+            "AAD_HAIR",
+            "DAILYMED",
+            "FDA_DERM_SAFETY"
+          ]
+        },
+        {
+          "id": "derm_ritlecitinib",
+          "generic": "Ritlecitinib",
+          "class_id": "derm_aa",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Common labeled dose 50 mg once daily for eligible severe AA.",
+          "tags": [
+            "alopecia",
+            "jak",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "Alopecia areata option.",
+          "monitoring_pearl": "JAK inhibitors need infection/CBC/lipid/thrombotic-risk review; intralesional steroid requires technique/site expertise.",
+          "source_refs": [
+            "AAD_HAIR",
+            "DAILYMED",
+            "FDA_DERM_SAFETY"
+          ]
+        },
+        {
+          "id": "derm_deuruxolitinib",
+          "generic": "Deuruxolitinib",
+          "class_id": "derm_aa",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Product-specific twice-daily dosing; verify current label.",
+          "tags": [
+            "alopecia",
+            "jak",
+            "infection_screen",
+            "high_risk"
+          ],
+          "role": "Alopecia areata option.",
+          "monitoring_pearl": "JAK inhibitors need infection/CBC/lipid/thrombotic-risk review; intralesional steroid requires technique/site expertise.",
+          "source_refs": [
+            "AAD_HAIR",
+            "DAILYMED",
+            "FDA_DERM_SAFETY"
+          ]
+        },
+        {
+          "id": "derm_hydroquinone",
+          "generic": "Hydroquinone",
+          "class_id": "derm_melasma",
+          "form": "2–4% cream",
+          "route": "Topical",
+          "dose_example": "Usually once/twice daily for time-limited course under supervision.",
+          "tags": [
+            "melasma"
+          ],
+          "role": "Dyspigmentation option.",
+          "monitoring_pearl": "Strict photoprotection; monitor irritation/exogenous ochronosis risk with hydroquinone.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_triple_combo",
+          "generic": "Fluocinolone + hydroquinone + tretinoin",
+          "class_id": "derm_melasma",
+          "form": "Combination cream",
+          "route": "Topical",
+          "dose_example": "Usually once nightly for limited labeled course.",
+          "tags": [
+            "melasma",
+            "topical_steroid",
+            "pregnancy_caution"
+          ],
+          "role": "Dyspigmentation option.",
+          "monitoring_pearl": "Strict photoprotection; monitor irritation/exogenous ochronosis risk with hydroquinone.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_azelaic_melasma",
+          "generic": "Azelaic acid",
+          "class_id": "derm_melasma",
+          "form": "15–20% cream/gel",
+          "route": "Topical",
+          "dose_example": "Usually once/twice daily.",
+          "tags": [
+            "melasma"
+          ],
+          "role": "Dyspigmentation option.",
+          "monitoring_pearl": "Strict photoprotection; monitor irritation/exogenous ochronosis risk with hydroquinone.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_ketoconazole_shampoo",
+          "generic": "Ketoconazole shampoo",
+          "class_id": "derm_seborrheic",
+          "form": "2% shampoo",
+          "route": "Topical",
+          "dose_example": "Often 2 times weekly for several weeks then intermittent maintenance.",
+          "tags": [
+            "eczema",
+            "fungal"
+          ],
+          "role": "Seborrheic dermatitis option.",
+          "monitoring_pearl": "Avoid prolonged facial steroid exposure.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_ciclopirox",
+          "generic": "Ciclopirox",
+          "class_id": "derm_seborrheic",
+          "form": "Shampoo/cream/gel",
+          "route": "Topical",
+          "dose_example": "Schedule depends on formulation/site.",
+          "tags": [
+            "eczema",
+            "fungal"
+          ],
+          "role": "Seborrheic dermatitis option.",
+          "monitoring_pearl": "Avoid prolonged facial steroid exposure.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "derm_hydrocortisone_seb",
+          "generic": "Low-potency topical corticosteroid",
+          "class_id": "derm_seborrheic",
+          "form": "Cream/lotion",
+          "route": "Topical",
+          "dose_example": "Short limited course on inflamed facial/scalp areas.",
+          "tags": [
+            "eczema",
+            "topical_steroid"
+          ],
+          "role": "Seborrheic dermatitis option.",
+          "monitoring_pearl": "Avoid prolonged facial steroid exposure.",
+          "source_refs": [
+            "ICMR_DERM_STW",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "AAD_ACNE_2024",
+          "label": "AAD guideline of care for acne vulgaris (2024)",
+          "url": "https://www.aad.org/member/clinical-quality/guidelines/acne"
+        },
+        {
+          "id": "AAD_AD_2025",
+          "label": "AAD Atopic Dermatitis guideline + focused updates",
+          "url": "https://www.aad.org/member/clinical-quality/guidelines/atopic-dermatitis"
+        },
+        {
+          "id": "AAD_PSORIASIS",
+          "label": "AAD-NPF psoriasis guideline resources",
+          "url": "https://www.aad.org/member/clinical-quality/guidelines/psoriasis"
+        },
+        {
+          "id": "AAD_URTICARIA",
+          "label": "AAD urticaria guideline resource",
+          "url": "https://www.aad.org/member/clinical-quality/guidelines/urticaria"
+        },
+        {
+          "id": "ICMR_DERM_STW",
+          "label": "ICMR Standard Treatment Workflows — Dermatology",
+          "url": "https://www.icmr.gov.in/standard-treatment-workflows-stws"
+        },
+        {
+          "id": "CDC_SCABIES",
+          "label": "CDC Clinical Care of Scabies",
+          "url": "https://www.cdc.gov/scabies/hcp/clinical-care/index.html"
+        },
+        {
+          "id": "AAD_VITILIGO",
+          "label": "AAD vitiligo diagnosis and treatment resource",
+          "url": "https://www.aad.org/public/diseases/a-z/vitiligo-treatment"
+        },
+        {
+          "id": "AAD_HAIR",
+          "label": "AAD Hair Loss Resource Center",
+          "url": "https://www.aad.org/public/diseases/hair-loss"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "NIH DailyMed current product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        },
+        {
+          "id": "FDA_DERM_SAFETY",
+          "label": "U.S. FDA drug safety / labeling verification",
+          "url": "https://www.fda.gov/drugs/drug-safety-and-availability"
         }
       ]
     }
