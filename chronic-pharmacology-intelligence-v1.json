@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4X",
-  "app_version": "V5.40X",
-  "build": "2026.08.15-R25X",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40X Pharmacogenomics • Precision Medicine • Genotype–Drug Safety Lab",
+  "version": "2.4Y",
+  "app_version": "V5.40Y",
+  "build": "2026.08.15-R25Y",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40Y Clinical Toxicology • Poisoning • Overdose • Antidote & Decontamination Lab",
   "counts": {
-    "labs": 30,
-    "classes": 965,
-    "drug_profiles": 2185
+    "labs": 31,
+    "classes": 1009,
+    "drug_profiles": 2273
   },
-  "global_boundary": "Research/learning medication-safety CDS only. Pharmacogenomic results do not replace diagnosis, clinical pharmacology, current labeling/guidelines, TDM, organ-function assessment or clinician judgment. Verify original laboratory result, allele/assay coverage, diplotype/phenotype translation, possible phenoconversion and drug-specific evidence before changing therapy. No automatic genetic test ordering, genotype-based dose, substitution, hold/start/stop or safe/unsafe declaration is generated.",
+  "global_boundary": "Research/learning medication-safety and emergency toxicology CDS only. Toxicology pathways do not replace emergency stabilization, poison-centre/medical-toxicologist consultation, current product labeling or patient-specific clinical judgment. No automatic antidote dose, decontamination order, extracorporeal-treatment trigger, discharge decision or safe/unsafe declaration is generated.",
   "labs": [
     {
       "id": "hypertension",
@@ -66540,6 +66540,2950 @@
           "id": "CLINPGX",
           "label": "ClinPGx — integrated PharmGKB, CPIC and PharmCAT clinical pharmacogenomics resource",
           "url": "https://www.clinpgx.org/"
+        }
+      ]
+    },
+    {
+      "id": "clinical_toxicology_poisoning",
+      "title": "Clinical Toxicology • Poisoning • Overdose • Antidote & Decontamination Intelligence Lab",
+      "icon": "☠️",
+      "badge": "V5.40Y",
+      "eyebrow": "TOXIDROMES • OVERDOSE • POISONING • ANTIDOTES • DECONTAMINATION • ECG • ACID-BASE • ECTR/DIALYSIS • PESTICIDES • TOXIC ALCOHOLS • ENVENOMATION",
+      "subtitle": "Rapid clinician-reviewed toxicology workspace linking exposure reconstruction, toxidromes, ECG/acid-base clues, selective decontamination, antidotal pathways, extracorporeal-treatment escalation and India/SE-Asia-relevant poisoning patterns.",
+      "scientific_boundary": "Emergency clinical decision-support only. This lab does not identify an unknown poison with certainty, calculate an antidote dose, recommend routine charcoal/lavage, declare a patient safe for discharge, or replace a poison centre/medical toxicologist. Stabilize first. Verify the exact product/formulation, amount, time/route, co-exposures, age/weight, pregnancy, ECG, glucose, electrolytes/acid-base, hepatic/renal function and current agent-specific guideline before antidote, decontamination, dialysis/ECTR or disposition decisions. Severe poisoning requires immediate emergency/critical-care escalation.",
+      "classification_notes": {
+        "Stabilization precedes antidotes": "Airway, ventilation, circulation, glucose, temperature, seizures and dysrhythmias are treated while the exposure is clarified.",
+        "Toxidrome ≠ diagnosis": "Pattern recognition narrows possibilities but mixed exposures and non-toxicologic illness can mimic toxidromes.",
+        "Decontamination is selective": "Activated charcoal/WBI/skin-eye measures are chosen by agent, timing, airway/GI status and specialist guidance; gastric emptying is not automatic.",
+        "Concentration ≠ severity alone": "Acetaminophen, salicylate, lithium, digoxin and toxic alcohol interpretation requires timing, symptoms, organ function and trends.",
+        "ECTR is criteria-based": "Dialysis/other extracorporeal treatment is toxin- and severity-specific; use EXTRIP/current local protocol and early nephrology/toxicology consultation.",
+        "Antidote dose is point-of-care": "Product concentration, patient weight, toxic dose, infusion strategy and repeat criteria must be verified from current authoritative guidance.",
+        "Regional toxins matter": "Pesticides, phosphide and snakebite pathways preserve India/SE-Asia context but still require local product/species/antivenom protocols."
+      },
+      "lens_groups": [
+        {
+          "group": "Core toxicology",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Toxicology"
+            },
+            {
+              "id": "stabilization",
+              "label": "Stabilization"
+            },
+            {
+              "id": "history",
+              "label": "Exposure History"
+            },
+            {
+              "id": "toxidrome",
+              "label": "Toxidromes"
+            },
+            {
+              "id": "ecg",
+              "label": "ECG/QRS/QT"
+            }
+          ]
+        },
+        {
+          "group": "Decontamination",
+          "items": [
+            {
+              "id": "decontamination",
+              "label": "Decontamination"
+            },
+            {
+              "id": "charcoal",
+              "label": "Activated Charcoal"
+            },
+            {
+              "id": "wbi",
+              "label": "Whole-Bowel Irrigation"
+            },
+            {
+              "id": "chemical",
+              "label": "Skin/Eye Chemical"
+            }
+          ]
+        },
+        {
+          "group": "Common overdose",
+          "items": [
+            {
+              "id": "acetaminophen",
+              "label": "Paracetamol/APAP"
+            },
+            {
+              "id": "salicylate",
+              "label": "Salicylate"
+            },
+            {
+              "id": "opioid",
+              "label": "Opioids"
+            },
+            {
+              "id": "benzodiazepine",
+              "label": "Benzodiazepines"
+            },
+            {
+              "id": "tca",
+              "label": "TCA"
+            },
+            {
+              "id": "digoxin",
+              "label": "Digoxin"
+            }
+          ]
+        },
+        {
+          "group": "Cardiovascular / metabolic",
+          "items": [
+            {
+              "id": "beta_blocker",
+              "label": "β-Blocker"
+            },
+            {
+              "id": "ccb",
+              "label": "CCB"
+            },
+            {
+              "id": "hypoglycemia",
+              "label": "Hypoglycemia"
+            },
+            {
+              "id": "lithium",
+              "label": "Lithium"
+            },
+            {
+              "id": "valproate",
+              "label": "Valproate"
+            },
+            {
+              "id": "theophylline",
+              "label": "Theophylline"
+            }
+          ]
+        },
+        {
+          "group": "Pesticides / chemicals",
+          "items": [
+            {
+              "id": "pesticide",
+              "label": "Pesticides"
+            },
+            {
+              "id": "phosphide",
+              "label": "Phosphide"
+            },
+            {
+              "id": "cyanide",
+              "label": "Cyanide"
+            },
+            {
+              "id": "carbon_monoxide",
+              "label": "Carbon Monoxide"
+            },
+            {
+              "id": "methemoglobinemia",
+              "label": "Methemoglobinemia"
+            },
+            {
+              "id": "caustic",
+              "label": "Caustics"
+            }
+          ]
+        },
+        {
+          "group": "Toxic alcohols / ECTR",
+          "items": [
+            {
+              "id": "toxic_alcohol",
+              "label": "Toxic Alcohols"
+            },
+            {
+              "id": "dialysis",
+              "label": "ECTR/Dialysis"
+            },
+            {
+              "id": "acid_base",
+              "label": "Acid-Base"
+            }
+          ]
+        },
+        {
+          "group": "Metals / envenomation",
+          "items": [
+            {
+              "id": "iron",
+              "label": "Iron"
+            },
+            {
+              "id": "lead",
+              "label": "Lead"
+            },
+            {
+              "id": "arsenic",
+              "label": "Arsenic"
+            },
+            {
+              "id": "snakebite",
+              "label": "Snakebite"
+            },
+            {
+              "id": "scorpion",
+              "label": "Scorpion"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "tox_initial_stabilization",
+          "name": "Poisoned-patient primary stabilization",
+          "mechanism": "ABC resuscitation before toxin-specific therapy",
+          "target": "Airway • breathing • circulation • neurologic status",
+          "tags": [
+            "overview",
+            "stabilization",
+            "abc",
+            "red_flag"
+          ],
+          "role_note": "Stabilize physiology first; obtain early toxicology/poison-center input for severe or uncertain exposures.",
+          "drug_ids": [
+            "tox_initial_stabilization_acute",
+            "tox_initial_stabilization_monitor"
+          ]
+        },
+        {
+          "id": "tox_exposure_history",
+          "name": "Exposure-history & risk reconstruction",
+          "mechanism": "Reconstruct dose, timing and formulation to estimate risk",
+          "target": "Agent • formulation • amount • time • route",
+          "tags": [
+            "overview",
+            "history",
+            "exposure",
+            "risk"
+          ],
+          "role_note": "History should distinguish immediate-release vs modified-release products, single vs staggered exposure and co-ingestants.",
+          "drug_ids": [
+            "tox_exposure_history_acute",
+            "tox_exposure_history_monitor"
+          ]
+        },
+        {
+          "id": "tox_cholinergic_toxidrome",
+          "name": "Cholinergic toxidrome",
+          "mechanism": "Excess acetylcholine at muscarinic/nicotinic synapses",
+          "target": "Muscarinic • nicotinic • CNS",
+          "tags": [
+            "toxidrome",
+            "cholinergic",
+            "pesticide",
+            "secretions"
+          ],
+          "role_note": "Recognize secretions, bronchospasm/bronchorrhea, miosis, GI hyperactivity and weakness in compatible exposure.",
+          "drug_ids": [
+            "tox_cholinergic_toxidrome_acute",
+            "tox_cholinergic_toxidrome_monitor"
+          ]
+        },
+        {
+          "id": "tox_anticholinergic_toxidrome",
+          "name": "Anticholinergic toxidrome",
+          "mechanism": "Central/peripheral muscarinic blockade",
+          "target": "Muscarinic receptors",
+          "tags": [
+            "toxidrome",
+            "anticholinergic",
+            "delirium",
+            "hyperthermia"
+          ],
+          "role_note": "Pattern may include delirium, mydriasis, dry skin/mucosae, urinary retention, tachycardia and hyperthermia.",
+          "drug_ids": [
+            "tox_anticholinergic_toxidrome_acute",
+            "tox_anticholinergic_toxidrome_monitor"
+          ]
+        },
+        {
+          "id": "tox_opioid_toxidrome",
+          "name": "Opioid toxidrome",
+          "mechanism": "μ-opioid receptor excess causing respiratory depression",
+          "target": "μ-opioid receptor",
+          "tags": [
+            "toxidrome",
+            "opioid",
+            "respiratory_depression",
+            "naloxone"
+          ],
+          "role_note": "Respiratory depression is the critical target; miosis may be absent with co-exposures or severe hypoxia.",
+          "drug_ids": [
+            "tox_opioid_toxidrome_acute",
+            "tox_opioid_toxidrome_monitor"
+          ]
+        },
+        {
+          "id": "tox_sympathomimetic_toxidrome",
+          "name": "Sympathomimetic toxidrome",
+          "mechanism": "Catecholaminergic excess",
+          "target": "Adrenergic signaling",
+          "tags": [
+            "toxidrome",
+            "sympathomimetic",
+            "agitation",
+            "hyperthermia"
+          ],
+          "role_note": "Agitation, diaphoresis, mydriasis, hypertension/tachycardia and hyperthermia suggest sympathomimetic toxicity.",
+          "drug_ids": [
+            "tox_sympathomimetic_toxidrome_acute",
+            "tox_sympathomimetic_toxidrome_monitor"
+          ]
+        },
+        {
+          "id": "tox_sedative_hypnotic_toxidrome",
+          "name": "Sedative–hypnotic toxidrome",
+          "mechanism": "CNS depressant effect with impaired airway reflexes",
+          "target": "GABAergic/CNS depressant pathways",
+          "tags": [
+            "toxidrome",
+            "sedative",
+            "coma",
+            "airway"
+          ],
+          "role_note": "Depressed consciousness with relatively stable physiology may occur, but mixed ingestions can produce respiratory or cardiovascular collapse.",
+          "drug_ids": [
+            "tox_sedative_hypnotic_toxidrome_acute",
+            "tox_sedative_hypnotic_toxidrome_monitor"
+          ]
+        },
+        {
+          "id": "tox_qrs_sodium_channel",
+          "name": "Wide-QRS / sodium-channel blocker toxicity",
+          "mechanism": "Fast sodium-channel blockade slows ventricular conduction",
+          "target": "Cardiac fast sodium channels",
+          "tags": [
+            "ecg",
+            "qrs",
+            "sodium_channel",
+            "arrhythmia"
+          ],
+          "role_note": "QRS widening or terminal conduction abnormalities in compatible overdose should trigger urgent sodium-channel-toxicity review.",
+          "drug_ids": [
+            "tox_qrs_sodium_channel_acute",
+            "tox_qrs_sodium_channel_monitor"
+          ]
+        },
+        {
+          "id": "tox_qt_dysrhythmia",
+          "name": "QT/TdP toxicology pathway",
+          "mechanism": "Drug-induced repolarization delay can provoke torsades de pointes",
+          "target": "Cardiac potassium channels • electrolytes",
+          "tags": [
+            "ecg",
+            "qt",
+            "torsades",
+            "electrolytes"
+          ],
+          "role_note": "QT prolongation risk is amplified by hypokalemia, hypomagnesemia, bradycardia and multiple QT-active agents.",
+          "drug_ids": [
+            "tox_qt_dysrhythmia_acute",
+            "tox_qt_dysrhythmia_monitor"
+          ]
+        },
+        {
+          "id": "tox_external_decontamination",
+          "name": "Skin/eye chemical decontamination",
+          "mechanism": "Remove ongoing external exposure and prevent secondary contamination",
+          "target": "Skin • eyes • clothing",
+          "tags": [
+            "decontamination",
+            "chemical",
+            "skin",
+            "eye"
+          ],
+          "role_note": "Protect rescuers and remove contaminated clothing/material before toxin-specific treatment where relevant.",
+          "drug_ids": [
+            "tox_external_decontamination_acute",
+            "tox_external_decontamination_monitor"
+          ]
+        },
+        {
+          "id": "tox_activated_charcoal",
+          "name": "Single-dose activated charcoal selection",
+          "mechanism": "Adsorbs selected toxins in the gastrointestinal tract",
+          "target": "GI adsorption",
+          "tags": [
+            "decontamination",
+            "charcoal",
+            "ingestion",
+            "airway"
+          ],
+          "role_note": "Activated charcoal is selective, time-sensitive and contraindication-dependent—not routine for every ingestion.",
+          "drug_ids": [
+            "tox_activated_charcoal_acute",
+            "tox_activated_charcoal_monitor"
+          ]
+        },
+        {
+          "id": "tox_whole_bowel_irrigation",
+          "name": "Whole-bowel irrigation selection",
+          "mechanism": "Mechanical GI clearance for selected poorly adsorbed or sustained-release substances",
+          "target": "Gastrointestinal tract",
+          "tags": [
+            "decontamination",
+            "wbi",
+            "sustained_release",
+            "body_packer"
+          ],
+          "role_note": "WBI is a specialist-selected strategy rather than routine poisoning care.",
+          "drug_ids": [
+            "tox_whole_bowel_irrigation_acute",
+            "tox_whole_bowel_irrigation_monitor"
+          ]
+        },
+        {
+          "id": "tox_acetaminophen",
+          "name": "Acetaminophen / paracetamol overdose",
+          "mechanism": "Toxic metabolite accumulation when glutathione detoxification is exceeded",
+          "target": "Hepatic NAPQI pathway",
+          "tags": [
+            "acetaminophen",
+            "paracetamol",
+            "nac",
+            "liver"
+          ],
+          "role_note": "Risk assessment depends on timing pattern, serum concentration when applicable, liver tests and clinical context.",
+          "drug_ids": [
+            "tox_acetaminophen_acute",
+            "tox_acetaminophen_monitor"
+          ]
+        },
+        {
+          "id": "tox_salicylate",
+          "name": "Salicylate poisoning",
+          "mechanism": "Uncouples oxidative phosphorylation and drives mixed acid-base disturbances",
+          "target": "Cellular metabolism • acid-base",
+          "tags": [
+            "salicylate",
+            "alkalinization",
+            "dialysis",
+            "acid_base"
+          ],
+          "role_note": "Clinical severity depends on symptoms, acid-base state, concentration trend, age and kidney function—not concentration alone.",
+          "drug_ids": [
+            "tox_salicylate_acute",
+            "tox_salicylate_monitor"
+          ]
+        },
+        {
+          "id": "tox_opioid_overdose",
+          "name": "Opioid overdose management",
+          "mechanism": "Reversal of opioid receptor-mediated respiratory depression",
+          "target": "μ-opioid receptor",
+          "tags": [
+            "opioid",
+            "naloxone",
+            "ventilation",
+            "overdose"
+          ],
+          "role_note": "Treat ventilation failure first and use naloxone as a targeted reversal strategy.",
+          "drug_ids": [
+            "tox_opioid_overdose_acute",
+            "tox_opioid_overdose_monitor"
+          ]
+        },
+        {
+          "id": "tox_benzodiazepine",
+          "name": "Benzodiazepine overdose",
+          "mechanism": "GABA-A positive allosteric modulation causes CNS depression",
+          "target": "GABA-A receptor",
+          "tags": [
+            "benzodiazepine",
+            "sedative",
+            "flumazenil",
+            "airway"
+          ],
+          "role_note": "Pure benzodiazepine overdose is often supportive-care dominant; co-ingestion changes risk substantially.",
+          "drug_ids": [
+            "tox_benzodiazepine_acute",
+            "tox_benzodiazepine_monitor"
+          ]
+        },
+        {
+          "id": "tox_tricyclic",
+          "name": "Tricyclic antidepressant toxicity",
+          "mechanism": "Sodium-channel blockade plus anticholinergic/alpha-blocking effects",
+          "target": "Fast sodium channels • muscarinic • alpha receptors",
+          "tags": [
+            "tca",
+            "qrs",
+            "seizure",
+            "bicarbonate"
+          ],
+          "role_note": "Life-threatening features include QRS widening, hypotension, ventricular dysrhythmia and seizures.",
+          "drug_ids": [
+            "tox_tricyclic_acute",
+            "tox_tricyclic_monitor"
+          ]
+        },
+        {
+          "id": "tox_beta_blocker",
+          "name": "Beta-blocker poisoning",
+          "mechanism": "Excess beta-adrenergic blockade causing bradycardia, shock and metabolic effects",
+          "target": "β-adrenergic receptors",
+          "tags": [
+            "beta_blocker",
+            "bradycardia",
+            "shock",
+            "hiET"
+          ],
+          "role_note": "Severe poisoning may cause bradycardia, hypotension, cardiogenic shock, hypoglycemia or seizures depending on agent.",
+          "drug_ids": [
+            "tox_beta_blocker_acute",
+            "tox_beta_blocker_monitor"
+          ]
+        },
+        {
+          "id": "tox_calcium_channel_blocker",
+          "name": "Calcium-channel blocker poisoning",
+          "mechanism": "L-type calcium-channel blockade causing vasoplegia, bradycardia and myocardial dysfunction",
+          "target": "L-type calcium channels",
+          "tags": [
+            "ccb",
+            "shock",
+            "hiET",
+            "calcium"
+          ],
+          "role_note": "Severe CCB toxicity can produce refractory hypotension, bradycardia, hyperglycemia and shock.",
+          "drug_ids": [
+            "tox_calcium_channel_blocker_acute",
+            "tox_calcium_channel_blocker_monitor"
+          ]
+        },
+        {
+          "id": "tox_digoxin",
+          "name": "Digoxin / cardiac glycoside toxicity",
+          "mechanism": "Na/K-ATPase inhibition causes dysrhythmias and hyperkalemia in severe acute toxicity",
+          "target": "Na/K-ATPase",
+          "tags": [
+            "digoxin",
+            "dysrhythmia",
+            "hyperkalemia",
+            "fab"
+          ],
+          "role_note": "Risk interpretation integrates clinical state, ECG, potassium, renal function, timing and concentration.",
+          "drug_ids": [
+            "tox_digoxin_acute",
+            "tox_digoxin_monitor"
+          ]
+        },
+        {
+          "id": "tox_clonidine",
+          "name": "Clonidine / central alpha-2 agonist toxicity",
+          "mechanism": "Central sympatholysis causing CNS depression, bradycardia and hypotension",
+          "target": "Central α2 receptors",
+          "tags": [
+            "clonidine",
+            "bradycardia",
+            "coma",
+            "pediatric"
+          ],
+          "role_note": "May mimic opioid toxicity, especially in children, with miosis, bradycardia and depressed consciousness.",
+          "drug_ids": [
+            "tox_clonidine_acute",
+            "tox_clonidine_monitor"
+          ]
+        },
+        {
+          "id": "tox_organophosphate_carbamate",
+          "name": "Organophosphate / carbamate pesticide poisoning",
+          "mechanism": "Acetylcholinesterase inhibition causing cholinergic crisis",
+          "target": "Acetylcholinesterase",
+          "tags": [
+            "pesticide",
+            "organophosphate",
+            "carbamate",
+            "atropine"
+          ],
+          "role_note": "Respiratory failure from secretions, bronchospasm, weakness and CNS effects is a major early threat.",
+          "drug_ids": [
+            "tox_organophosphate_carbamate_acute",
+            "tox_organophosphate_carbamate_monitor"
+          ]
+        },
+        {
+          "id": "tox_aluminum_phosphide",
+          "name": "Aluminum phosphide / phosphine poisoning",
+          "mechanism": "Phosphine causes severe cellular and cardiovascular toxicity",
+          "target": "Mitochondrial/cellular toxicity",
+          "tags": [
+            "phosphide",
+            "pesticide",
+            "shock",
+            "india"
+          ],
+          "role_note": "Can cause rapidly progressive shock, dysrhythmia and metabolic acidosis; no universally proven specific antidote exists.",
+          "drug_ids": [
+            "tox_aluminum_phosphide_acute",
+            "tox_aluminum_phosphide_monitor"
+          ]
+        },
+        {
+          "id": "tox_anticoagulant_rodenticide",
+          "name": "Anticoagulant rodenticide / superwarfarin poisoning",
+          "mechanism": "Vitamin K antagonism causing delayed/prolonged coagulopathy",
+          "target": "Vitamin K cycle",
+          "tags": [
+            "rodenticide",
+            "superwarfarin",
+            "inr",
+            "vitamin_k"
+          ],
+          "role_note": "Bleeding/coagulopathy may be delayed and prolonged, especially with long-acting anticoagulant rodenticides.",
+          "drug_ids": [
+            "tox_anticoagulant_rodenticide_acute",
+            "tox_anticoagulant_rodenticide_monitor"
+          ]
+        },
+        {
+          "id": "tox_methanol",
+          "name": "Methanol poisoning",
+          "mechanism": "Formate metabolite causes optic and mitochondrial toxicity with high-anion-gap acidosis",
+          "target": "Alcohol dehydrogenase • formate",
+          "tags": [
+            "methanol",
+            "toxic_alcohol",
+            "fomepizole",
+            "dialysis"
+          ],
+          "role_note": "Visual symptoms, severe metabolic acidosis and osmolar/anion-gap patterns are major clues, but gaps evolve over time.",
+          "drug_ids": [
+            "tox_methanol_acute",
+            "tox_methanol_monitor"
+          ]
+        },
+        {
+          "id": "tox_ethylene_glycol",
+          "name": "Ethylene glycol poisoning",
+          "mechanism": "Toxic acid metabolites cause acidosis, hypocalcemia and renal injury",
+          "target": "Alcohol dehydrogenase • glycolate/oxalate",
+          "tags": [
+            "ethylene_glycol",
+            "toxic_alcohol",
+            "fomepizole",
+            "aki"
+          ],
+          "role_note": "High-anion-gap acidosis, hypocalcemia and AKI can evolve; osmolar gap may normalize late.",
+          "drug_ids": [
+            "tox_ethylene_glycol_acute",
+            "tox_ethylene_glycol_monitor"
+          ]
+        },
+        {
+          "id": "tox_cyanide",
+          "name": "Cyanide poisoning",
+          "mechanism": "Blocks cellular oxygen utilization via cytochrome oxidase",
+          "target": "Mitochondrial cytochrome oxidase",
+          "tags": [
+            "cyanide",
+            "smoke_inhalation",
+            "hydroxocobalamin",
+            "shock"
+          ],
+          "role_note": "Rapid cardiovascular collapse, severe lactic acidosis and smoke-inhalation context can support suspicion; treatment should not await slow confirmatory testing in critical cases.",
+          "drug_ids": [
+            "tox_cyanide_acute",
+            "tox_cyanide_monitor"
+          ]
+        },
+        {
+          "id": "tox_carbon_monoxide",
+          "name": "Carbon monoxide poisoning",
+          "mechanism": "Carboxyhemoglobin and cellular hypoxia impair oxygen delivery/utilization",
+          "target": "Hemoglobin • mitochondria",
+          "tags": [
+            "carbon_monoxide",
+            "cohb",
+            "oxygen",
+            "hyperbaric"
+          ],
+          "role_note": "Symptoms are nonspecific; standard pulse oximetry can be misleading and COHb level alone does not define severity.",
+          "drug_ids": [
+            "tox_carbon_monoxide_acute",
+            "tox_carbon_monoxide_monitor"
+          ]
+        },
+        {
+          "id": "tox_methemoglobinemia",
+          "name": "Methemoglobinemia",
+          "mechanism": "Oxidation of hemoglobin iron impairs oxygen carriage",
+          "target": "Hemoglobin iron oxidation",
+          "tags": [
+            "methemoglobinemia",
+            "cooximetry",
+            "methylene_blue",
+            "g6pd"
+          ],
+          "role_note": "Cyanosis with low pulse-oximeter readings out of proportion to PaO₂ can suggest methemoglobinemia.",
+          "drug_ids": [
+            "tox_methemoglobinemia_acute",
+            "tox_methemoglobinemia_monitor"
+          ]
+        },
+        {
+          "id": "tox_iron",
+          "name": "Iron poisoning",
+          "mechanism": "Direct GI/cellular toxicity with shock and hepatic injury",
+          "target": "Iron-mediated oxidative/cellular injury",
+          "tags": [
+            "iron",
+            "deferoxamine",
+            "xray",
+            "acidosis"
+          ],
+          "role_note": "Severe iron poisoning can have early GI injury followed by shock, acidosis and hepatic failure; timing matters.",
+          "drug_ids": [
+            "tox_iron_acute",
+            "tox_iron_monitor"
+          ]
+        },
+        {
+          "id": "tox_lead",
+          "name": "Lead poisoning",
+          "mechanism": "Disrupts multiple enzymatic and neurologic pathways",
+          "target": "Heme synthesis • nervous system",
+          "tags": [
+            "lead",
+            "chelation",
+            "chronic",
+            "neurologic"
+          ],
+          "role_note": "Acute and chronic lead toxicity require source identification, blood lead testing and severity-specific specialist management.",
+          "drug_ids": [
+            "tox_lead_acute",
+            "tox_lead_monitor"
+          ]
+        },
+        {
+          "id": "tox_arsenic",
+          "name": "Arsenic poisoning",
+          "mechanism": "Disrupts cellular respiration and multiple organ systems",
+          "target": "Mitochondrial enzymes • sulfhydryl groups",
+          "tags": [
+            "arsenic",
+            "metal",
+            "chelation",
+            "qt"
+          ],
+          "role_note": "Acute arsenic toxicity can cause severe GI symptoms, shock, QT abnormalities and neuropathy; chronic exposure has different manifestations.",
+          "drug_ids": [
+            "tox_arsenic_acute",
+            "tox_arsenic_monitor"
+          ]
+        },
+        {
+          "id": "tox_lithium",
+          "name": "Lithium toxicity",
+          "mechanism": "Narrow therapeutic index with renal elimination and neurotoxicity",
+          "target": "Lithium distribution • kidney clearance",
+          "tags": [
+            "lithium",
+            "tdm",
+            "dialysis",
+            "neuro"
+          ],
+          "role_note": "Acute, acute-on-chronic and chronic lithium toxicity differ; symptoms and kidney function matter alongside concentration.",
+          "drug_ids": [
+            "tox_lithium_acute",
+            "tox_lithium_monitor"
+          ]
+        },
+        {
+          "id": "tox_valproate",
+          "name": "Valproic acid toxicity",
+          "mechanism": "CNS depression, mitochondrial/metabolic effects and hyperammonemia",
+          "target": "Valproate metabolism • mitochondria",
+          "tags": [
+            "valproate",
+            "hyperammonemia",
+            "carnitine",
+            "dialysis"
+          ],
+          "role_note": "Severe toxicity may cause coma, hyperammonemia, acidosis and cerebral edema.",
+          "drug_ids": [
+            "tox_valproate_acute",
+            "tox_valproate_monitor"
+          ]
+        },
+        {
+          "id": "tox_isoniazid",
+          "name": "Isoniazid overdose",
+          "mechanism": "Pyridoxine depletion causes refractory seizures and lactic acidosis",
+          "target": "GABA synthesis via pyridoxal phosphate",
+          "tags": [
+            "isoniazid",
+            "pyridoxine",
+            "seizure",
+            "acidosis"
+          ],
+          "role_note": "Refractory seizures with high-anion-gap/lactic acidosis after INH exposure are a classic emergency pattern.",
+          "drug_ids": [
+            "tox_isoniazid_acute",
+            "tox_isoniazid_monitor"
+          ]
+        },
+        {
+          "id": "tox_theophylline",
+          "name": "Theophylline toxicity",
+          "mechanism": "Adenosine antagonism/catecholamine excess causes tachyarrhythmia, seizures and hypokalemia",
+          "target": "Adenosine receptors • phosphodiesterase",
+          "tags": [
+            "theophylline",
+            "seizure",
+            "tachyarrhythmia",
+            "dialysis"
+          ],
+          "role_note": "Chronic toxicity can be severe at lower concentrations than acute overdose; serial levels and symptoms are essential.",
+          "drug_ids": [
+            "tox_theophylline_acute",
+            "tox_theophylline_monitor"
+          ]
+        },
+        {
+          "id": "tox_local_anesthetic",
+          "name": "Local anesthetic systemic toxicity (LAST)",
+          "mechanism": "Voltage-gated sodium-channel toxicity affects CNS and cardiovascular systems",
+          "target": "Neuronal/cardiac sodium channels",
+          "tags": [
+            "last",
+            "local_anesthetic",
+            "lipid",
+            "seizure"
+          ],
+          "role_note": "Early neurologic symptoms may progress to seizures and cardiovascular collapse; toxicity can occur after regional/local anesthesia.",
+          "drug_ids": [
+            "tox_local_anesthetic_acute",
+            "tox_local_anesthetic_monitor"
+          ]
+        },
+        {
+          "id": "tox_sulfonylurea",
+          "name": "Sulfonylurea poisoning",
+          "mechanism": "Stimulates insulin release causing recurrent/prolonged hypoglycemia",
+          "target": "Pancreatic KATP channels",
+          "tags": [
+            "sulfonylurea",
+            "hypoglycemia",
+            "octreotide",
+            "pediatric"
+          ],
+          "role_note": "Even small pediatric exposures can cause hypoglycemia; recurrence after dextrose alone is a concern.",
+          "drug_ids": [
+            "tox_sulfonylurea_acute",
+            "tox_sulfonylurea_monitor"
+          ]
+        },
+        {
+          "id": "tox_insulin",
+          "name": "Insulin overdose",
+          "mechanism": "Excess insulin drives glucose and potassium intracellularly",
+          "target": "Insulin receptor",
+          "tags": [
+            "insulin",
+            "hypoglycemia",
+            "potassium",
+            "dextrose"
+          ],
+          "role_note": "Duration depends on insulin type, dose, injection site and depot effects; hypoglycemia can be prolonged.",
+          "drug_ids": [
+            "tox_insulin_acute",
+            "tox_insulin_monitor"
+          ]
+        },
+        {
+          "id": "tox_hydrocarbon",
+          "name": "Hydrocarbon ingestion / aspiration toxicity",
+          "mechanism": "Aspiration causes chemical pneumonitis; systemic toxicity varies by product",
+          "target": "Pulmonary surfactant/chemical injury",
+          "tags": [
+            "hydrocarbon",
+            "aspiration",
+            "pneumonitis",
+            "decontamination"
+          ],
+          "role_note": "Aspiration risk often dominates; inducing emesis or routine gastric emptying can worsen harm.",
+          "drug_ids": [
+            "tox_hydrocarbon_acute",
+            "tox_hydrocarbon_monitor"
+          ]
+        },
+        {
+          "id": "tox_caustic",
+          "name": "Caustic / corrosive ingestion",
+          "mechanism": "Direct tissue necrosis from strong acids/alkalis",
+          "target": "Oropharynx • esophagus • stomach",
+          "tags": [
+            "caustic",
+            "corrosive",
+            "endoscopy",
+            "airway"
+          ],
+          "role_note": "Airway injury, perforation and deep GI burns can occur even when oral findings are limited.",
+          "drug_ids": [
+            "tox_caustic_acute",
+            "tox_caustic_monitor"
+          ]
+        },
+        {
+          "id": "tox_amatoxin",
+          "name": "Amatoxin mushroom poisoning",
+          "mechanism": "RNA polymerase II inhibition causes delayed hepatic failure",
+          "target": "RNA polymerase II • liver",
+          "tags": [
+            "mushroom",
+            "amatoxin",
+            "hepatic_failure",
+            "delayed"
+          ],
+          "role_note": "A deceptive latent period may precede GI illness and hepatic failure; early discharge based on temporary improvement is unsafe in compatible exposure.",
+          "drug_ids": [
+            "tox_amatoxin_acute",
+            "tox_amatoxin_monitor"
+          ]
+        },
+        {
+          "id": "tox_snakebite",
+          "name": "Snakebite envenoming",
+          "mechanism": "Venom effects may be neurotoxic, hemotoxic, cytotoxic or myotoxic depending on species",
+          "target": "Venom toxins • coagulation • neuromuscular junction",
+          "tags": [
+            "snakebite",
+            "antivenom",
+            "coagulopathy",
+            "neurotoxicity"
+          ],
+          "role_note": "India/SE Asia-relevant emergency: assess for objective envenoming and use regionally appropriate antivenom when indicated.",
+          "drug_ids": [
+            "tox_snakebite_acute",
+            "tox_snakebite_monitor"
+          ]
+        },
+        {
+          "id": "tox_scorpion",
+          "name": "Scorpion envenomation",
+          "mechanism": "Autonomic neurotoxin effects can cause cardiovascular and pulmonary toxicity in severe cases",
+          "target": "Autonomic nervous system • ion channels",
+          "tags": [
+            "scorpion",
+            "envenomation",
+            "autonomic",
+            "pulmonary_edema"
+          ],
+          "role_note": "Severity and treatment vary by species/region; children may deteriorate quickly.",
+          "drug_ids": [
+            "tox_scorpion_acute",
+            "tox_scorpion_monitor"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "tox_initial_stabilization_acute",
+          "generic": "ABC + glucose + temperature safety card",
+          "class_id": "tox_initial_stabilization",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "overview",
+            "stabilization",
+            "abc",
+            "red_flag",
+            "acute",
+            "action"
+          ],
+          "role": "Prioritize airway/ventilation, oxygenation, circulation, bedside glucose, temperature and seizure control while identifying immediately reversible toxic causes.",
+          "monitoring_pearl": "Record mental status, respiratory effort, SpO₂, BP, pulse, temperature, glucose and serial response; escalate early if shock, coma, seizure or dysrhythmia develops.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025",
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_initial_stabilization_monitor",
+          "generic": "Early toxicology consultation card",
+          "class_id": "tox_initial_stabilization",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "overview",
+            "stabilization",
+            "abc",
+            "red_flag",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Life-threatening or unclear poisoning benefits from early medical-toxicology/poison-center consultation and protocol verification.",
+          "monitoring_pearl": "Document agent/product, time, amount, route, co-exposures and source of advice; do not delay resuscitation while searching for a perfect history.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025",
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_exposure_history_acute",
+          "generic": "Structured exposure history",
+          "class_id": "tox_exposure_history",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "overview",
+            "history",
+            "exposure",
+            "risk",
+            "acute",
+            "action"
+          ],
+          "role": "Capture exact product/strength, approximate amount, earliest/latest possible time, route, intent, co-ingestants and pre-hospital treatment.",
+          "monitoring_pearl": "Photograph/retain packaging where safe; reconcile prescription access and household chemicals without assuming the history is complete.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_exposure_history_monitor",
+          "generic": "Unknown-exposure safety net",
+          "class_id": "tox_exposure_history",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "overview",
+            "history",
+            "exposure",
+            "risk",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "When exposure is uncertain, use toxidrome, ECG, glucose, electrolytes/acid-base and targeted testing rather than indiscriminate toxicology screens.",
+          "monitoring_pearl": "Reassess serially because delayed-release products and evolving toxicity can change risk after an initially normal examination.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_cholinergic_toxidrome_acute",
+          "generic": "Cholinergic recognition card",
+          "class_id": "tox_cholinergic_toxidrome",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "toxidrome",
+            "cholinergic",
+            "pesticide",
+            "secretions",
+            "acute",
+            "action"
+          ],
+          "role": "Use a pattern-based assessment rather than any single sign; respiratory secretions and weakness are high-priority findings.",
+          "monitoring_pearl": "Track oxygenation, secretions, bronchospasm, fasciculation/weakness and mental status; protect staff from secondary contamination.",
+          "source_refs": [
+            "WHO_PESTICIDE",
+            "WHO_CHEMICAL_EMERGENCY",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_cholinergic_toxidrome_monitor",
+          "generic": "Atropine/oxime verification card",
+          "class_id": "tox_cholinergic_toxidrome",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "toxidrome",
+            "cholinergic",
+            "pesticide",
+            "secretions",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Specific antidotal therapy is exposure- and severity-dependent and should follow current pesticide/chemical guidance.",
+          "monitoring_pearl": "Titrate to clinical end points per protocol; verify agent class, formulation, oxygenation/ventilation and local toxicology advice.",
+          "source_refs": [
+            "WHO_PESTICIDE",
+            "WHO_CHEMICAL_EMERGENCY",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_anticholinergic_toxidrome_acute",
+          "generic": "Anticholinergic recognition card",
+          "class_id": "tox_anticholinergic_toxidrome",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "toxidrome",
+            "anticholinergic",
+            "delirium",
+            "hyperthermia",
+            "acute",
+            "action"
+          ],
+          "role": "Differentiate anticholinergic delirium from sympathomimetic, serotonin syndrome, sepsis and withdrawal using skin moisture, bowel/bladder findings and neuromuscular exam.",
+          "monitoring_pearl": "Monitor temperature, ECG/QRS/QT, agitation, urine output and complications of hyperthermia/rhabdomyolysis.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_anticholinergic_toxidrome_monitor",
+          "generic": "Supportive-control card",
+          "class_id": "tox_anticholinergic_toxidrome",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "toxidrome",
+            "anticholinergic",
+            "delirium",
+            "hyperthermia",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Supportive care, cooling and agitation/seizure control are often central; antidote use requires specialist selection because contraindications matter.",
+          "monitoring_pearl": "Before any antidote, verify ECG conduction, seizure risk, co-ingestants and product-specific toxicology guidance.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_opioid_toxidrome_acute",
+          "generic": "Opioid recognition + ventilation card",
+          "class_id": "tox_opioid_toxidrome",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "toxidrome",
+            "opioid",
+            "respiratory_depression",
+            "naloxone",
+            "acute",
+            "action"
+          ],
+          "role": "Support ventilation immediately when respiratory effort is inadequate and consider opioid reversal when exposure is plausible.",
+          "monitoring_pearl": "Monitor respiratory rate/effort, oxygenation, consciousness and recurrent toxicity after reversal, especially with long-acting/high-potency opioids.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "tox_opioid_toxidrome_monitor",
+          "generic": "Naloxone pathway card",
+          "class_id": "tox_opioid_toxidrome",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "toxidrome",
+            "opioid",
+            "respiratory_depression",
+            "naloxone",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Naloxone may reverse opioid-associated respiratory arrest and can prevent progression to cardiac arrest.",
+          "monitoring_pearl": "Use a titrated, protocol-based approach; continue airway support and observe for recurrence because naloxone duration may be shorter than the opioid.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "tox_sympathomimetic_toxidrome_acute",
+          "generic": "Sympathomimetic recognition card",
+          "class_id": "tox_sympathomimetic_toxidrome",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "toxidrome",
+            "sympathomimetic",
+            "agitation",
+            "hyperthermia",
+            "acute",
+            "action"
+          ],
+          "role": "Differentiate from anticholinergic toxicity by sweating/secretions and from serotonin syndrome by neuromuscular findings.",
+          "monitoring_pearl": "Monitor core temperature, ECG, BP, CK/renal function and complications such as seizure, ischemia or rhabdomyolysis.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_sympathomimetic_toxidrome_monitor",
+          "generic": "Sedation/cooling pathway card",
+          "class_id": "tox_sympathomimetic_toxidrome",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "toxidrome",
+            "sympathomimetic",
+            "agitation",
+            "hyperthermia",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Rapid control of severe agitation, seizures and hyperthermia is central; drug choice depends on cardiovascular and co-ingestant context.",
+          "monitoring_pearl": "Avoid relying on a single vital sign; severe hyperthermia or chest pain requires urgent escalation.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_sedative_hypnotic_toxidrome_acute",
+          "generic": "Sedative recognition card",
+          "class_id": "tox_sedative_hypnotic_toxidrome",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "toxidrome",
+            "sedative",
+            "coma",
+            "airway",
+            "acute",
+            "action"
+          ],
+          "role": "Prioritize airway/ventilation and glucose while considering co-ingestants, trauma and alternative neurologic causes.",
+          "monitoring_pearl": "Serial GCS/mental status, ventilation, blood pressure and ECG are more useful than assuming a pure sedative exposure.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_sedative_hypnotic_toxidrome_monitor",
+          "generic": "Reversal-agent guardrail",
+          "class_id": "tox_sedative_hypnotic_toxidrome",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "toxidrome",
+            "sedative",
+            "coma",
+            "airway",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Specific reversal agents can have important contraindications and are not routine for undifferentiated coma.",
+          "monitoring_pearl": "Verify chronic exposure, seizure risk, co-ingestants and toxicology guidance before considering receptor-specific reversal.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_qrs_sodium_channel_acute",
+          "generic": "ECG recognition card",
+          "class_id": "tox_qrs_sodium_channel",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "ecg",
+            "qrs",
+            "sodium_channel",
+            "arrhythmia",
+            "acute",
+            "action"
+          ],
+          "role": "Obtain early and serial 12-lead ECGs when tricyclics or other sodium-channel blockers are possible.",
+          "monitoring_pearl": "Track QRS, rhythm, BP, acid-base status and seizure activity; worsening conduction with hypotension is an emergency.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_qrs_sodium_channel_monitor",
+          "generic": "Sodium-bicarbonate pathway card",
+          "class_id": "tox_qrs_sodium_channel",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "ecg",
+            "qrs",
+            "sodium_channel",
+            "arrhythmia",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Alkalinization/sodium loading is a cornerstone for selected life-threatening sodium-channel blocker poisoning.",
+          "monitoring_pearl": "Use current toxicology/resuscitation protocol and serial ECG/acid-base monitoring; avoid automatic dosing from a single QRS value.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_qt_dysrhythmia_acute",
+          "generic": "QT-risk recognition card",
+          "class_id": "tox_qt_dysrhythmia",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "ecg",
+            "qt",
+            "torsades",
+            "electrolytes",
+            "acute",
+            "action"
+          ],
+          "role": "Review all agents and correct modifiable electrolyte/physiologic contributors rather than treating QTc as an isolated number.",
+          "monitoring_pearl": "Serial ECG, K/Mg/Ca, heart rate and rhythm monitoring are needed when significant QT toxicity is suspected.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "AHA_TOX_2023"
+          ]
+        },
+        {
+          "id": "tox_qt_dysrhythmia_monitor",
+          "generic": "TdP emergency card",
+          "class_id": "tox_qt_dysrhythmia",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "ecg",
+            "qt",
+            "torsades",
+            "electrolytes",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Polymorphic VT/TdP requires immediate resuscitation and cause-directed therapy according to current ACLS/toxicology guidance.",
+          "monitoring_pearl": "Do not delay defibrillation/cardioversion when indicated; verify toxicology-specific contributors after immediate stabilization.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "AHA_TOX_2023"
+          ]
+        },
+        {
+          "id": "tox_external_decontamination_acute",
+          "generic": "Responder-safety decontamination card",
+          "class_id": "tox_external_decontamination",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "decontamination",
+            "chemical",
+            "skin",
+            "eye",
+            "acute",
+            "action"
+          ],
+          "role": "Use appropriate PPE and prevent secondary contamination of staff/vehicles/clinical areas.",
+          "monitoring_pearl": "Record agent, route, decontamination performed and ongoing symptoms; escalate ocular/respiratory injury promptly.",
+          "source_refs": [
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_external_decontamination_monitor",
+          "generic": "Irrigation pathway card",
+          "class_id": "tox_external_decontamination",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "decontamination",
+            "chemical",
+            "skin",
+            "eye",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Copious irrigation is commonly used for many ocular/dermal chemical exposures, but agent-specific exceptions exist.",
+          "monitoring_pearl": "Verify the chemical and current hazardous-material guidance; avoid neutralization reactions unless specifically recommended.",
+          "source_refs": [
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_activated_charcoal_acute",
+          "generic": "Charcoal eligibility card",
+          "class_id": "tox_activated_charcoal",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "decontamination",
+            "charcoal",
+            "ingestion",
+            "airway",
+            "acute",
+            "action"
+          ],
+          "role": "Consider only after evaluating potentially toxic ingestion, timing, adsorbability, airway protection and GI contraindications.",
+          "monitoring_pearl": "Document rationale, timing and airway status; do not give solely because an ingestion occurred.",
+          "source_refs": [
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_activated_charcoal_monitor",
+          "generic": "Charcoal contraindication card",
+          "class_id": "tox_activated_charcoal",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "decontamination",
+            "charcoal",
+            "ingestion",
+            "airway",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Avoid when aspiration risk is unacceptable or when the substance is poorly adsorbed/caustic and in relevant GI pathology.",
+          "monitoring_pearl": "Reassess mental status and vomiting/aspiration risk; consult toxicology for modified-release or unusual exposures.",
+          "source_refs": [
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_whole_bowel_irrigation_acute",
+          "generic": "WBI indication-review card",
+          "class_id": "tox_whole_bowel_irrigation",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "decontamination",
+            "wbi",
+            "sustained_release",
+            "body_packer",
+            "acute",
+            "action"
+          ],
+          "role": "Potential uses include selected sustained-release/enteric-coated ingestions, metals or body-packet scenarios depending on current guidance.",
+          "monitoring_pearl": "Verify bowel function, airway protection, hemodynamic stability and imaging/context before proceeding.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "EXTRIP"
+          ]
+        },
+        {
+          "id": "tox_whole_bowel_irrigation_monitor",
+          "generic": "WBI contraindication card",
+          "class_id": "tox_whole_bowel_irrigation",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "decontamination",
+            "wbi",
+            "sustained_release",
+            "body_packer",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Ileus, obstruction, perforation, unstable physiology or unprotected airway may make WBI unsafe.",
+          "monitoring_pearl": "Stop/escalate for worsening distension, vomiting, respiratory compromise or instability.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "EXTRIP"
+          ]
+        },
+        {
+          "id": "tox_acetaminophen_acute",
+          "generic": "N-acetylcysteine pathway card",
+          "class_id": "tox_acetaminophen",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "acetaminophen",
+            "paracetamol",
+            "nac",
+            "liver",
+            "acute",
+            "action"
+          ],
+          "role": "Acetylcysteine is an antidote for acetaminophen overdose and should be used according to the current product/protocol and exposure pattern.",
+          "monitoring_pearl": "Record dose/timing pattern, serum acetaminophen, AST/ALT, INR and clinical status; staggered/late presentations need a different pathway from a single acute ingestion.",
+          "source_refs": [
+            "FDA_ACETADOTE_2024",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_acetaminophen_monitor",
+          "generic": "Serial hepatic-risk card",
+          "class_id": "tox_acetaminophen",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "acetaminophen",
+            "paracetamol",
+            "nac",
+            "liver",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Do not stop antidotal therapy solely because a preset clock time elapsed when ongoing toxicity criteria remain.",
+          "monitoring_pearl": "Reassess acetaminophen concentration, transaminases, INR, renal function, lactate/acid-base status and specialist criteria as applicable.",
+          "source_refs": [
+            "FDA_ACETADOTE_2024",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_salicylate_acute",
+          "generic": "Salicylate alkalinization card",
+          "class_id": "tox_salicylate",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "salicylate",
+            "alkalinization",
+            "dialysis",
+            "acid_base",
+            "acute",
+            "action"
+          ],
+          "role": "Serum/urine alkalinization and potassium management may be central in significant toxicity under toxicology guidance.",
+          "monitoring_pearl": "Serial salicylate levels, pH/PCO₂, electrolytes, glucose, renal function and mental/respiratory status are essential.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "EXTRIP"
+          ]
+        },
+        {
+          "id": "tox_salicylate_monitor",
+          "generic": "Salicylate ECTR escalation card",
+          "class_id": "tox_salicylate",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "salicylate",
+            "alkalinization",
+            "dialysis",
+            "acid_base",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "EXTRIP recommends extracorporeal treatment for severe salicylate poisoning under defined clinical/concentration criteria.",
+          "monitoring_pearl": "Do not delay dialysis consultation in severe neurologic, pulmonary, renal or acid-base deterioration.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "EXTRIP"
+          ]
+        },
+        {
+          "id": "tox_opioid_overdose_acute",
+          "generic": "Naloxone titration card",
+          "class_id": "tox_opioid_overdose",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "opioid",
+            "naloxone",
+            "ventilation",
+            "overdose",
+            "acute",
+            "action"
+          ],
+          "role": "Goal is adequate spontaneous ventilation and airway protection, not necessarily complete arousal.",
+          "monitoring_pearl": "Observe for recurrent respiratory depression, pulmonary complications and withdrawal; longer-acting opioids may require repeated/continuous strategies.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "tox_opioid_overdose_monitor",
+          "generic": "High-potency/long-acting opioid card",
+          "class_id": "tox_opioid_overdose",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "opioid",
+            "naloxone",
+            "ventilation",
+            "overdose",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Synthetic/high-potency or long-acting opioid exposures may need repeated reassessment and extended monitoring.",
+          "monitoring_pearl": "Do not assume response failure after a single small dose; simultaneously consider mixed ingestion and non-opioid causes of coma.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "tox_benzodiazepine_acute",
+          "generic": "Supportive benzodiazepine card",
+          "class_id": "tox_benzodiazepine",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "benzodiazepine",
+            "sedative",
+            "flumazenil",
+            "airway",
+            "acute",
+            "action"
+          ],
+          "role": "Airway/ventilation and observation are primary while excluding mixed overdose and trauma.",
+          "monitoring_pearl": "Serial consciousness, ventilation and hemodynamics; check for ethanol/opioid/co-ingestant effects.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_benzodiazepine_monitor",
+          "generic": "Flumazenil guardrail card",
+          "class_id": "tox_benzodiazepine",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "benzodiazepine",
+            "sedative",
+            "flumazenil",
+            "airway",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Flumazenil is not routine for undifferentiated overdose because seizures/withdrawal can occur in selected patients.",
+          "monitoring_pearl": "Verify chronic benzodiazepine use, seizure disorder, proconvulsant co-ingestants and toxicology advice before use.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_tricyclic_acute",
+          "generic": "TCA ECG card",
+          "class_id": "tox_tricyclic",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "tca",
+            "qrs",
+            "seizure",
+            "bicarbonate",
+            "acute",
+            "action"
+          ],
+          "role": "Early/serial ECG and hemodynamic assessment guide recognition of severe sodium-channel toxicity.",
+          "monitoring_pearl": "Track QRS, BP, mental status, seizures and acid-base state; avoid delays in treating conduction toxicity.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_tricyclic_monitor",
+          "generic": "TCA bicarbonate card",
+          "class_id": "tox_tricyclic",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "tca",
+            "qrs",
+            "seizure",
+            "bicarbonate",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Sodium bicarbonate is a key therapy for significant TCA sodium-channel toxicity according to toxicology/resuscitation guidance.",
+          "monitoring_pearl": "Use protocol-based bolus/infusion targets with serial ECG and pH/electrolyte monitoring rather than fixed unsupervised dosing.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_beta_blocker_acute",
+          "generic": "Beta-blocker stabilization card",
+          "class_id": "tox_beta_blocker",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "beta_blocker",
+            "bradycardia",
+            "shock",
+            "hiET",
+            "acute",
+            "action"
+          ],
+          "role": "Support airway/circulation, obtain ECG/glucose and identify membrane-stabilizing or lipophilic agents.",
+          "monitoring_pearl": "Monitor HR/BP, glucose, perfusion, ECG and response to escalating therapies.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_beta_blocker_monitor",
+          "generic": "High-dose insulin / antidotal strategy card",
+          "class_id": "tox_beta_blocker",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "beta_blocker",
+            "bradycardia",
+            "shock",
+            "hiET",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "AHA recommends early high-dose insulin therapy for life-threatening beta-blocker poisoning, alongside other agent-specific measures.",
+          "monitoring_pearl": "Use ICU/toxicology protocol with glucose and potassium monitoring; therapy is not a simple one-time antidote dose.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_calcium_channel_blocker_acute",
+          "generic": "CCB stabilization card",
+          "class_id": "tox_calcium_channel_blocker",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "ccb",
+            "shock",
+            "hiET",
+            "calcium",
+            "acute",
+            "action"
+          ],
+          "role": "Early ECG, glucose, perfusion assessment and shock phenotype help guide escalation.",
+          "monitoring_pearl": "Continuous hemodynamics plus serial glucose/electrolytes/acid-base monitoring are important in severe cases.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_calcium_channel_blocker_monitor",
+          "generic": "High-dose insulin / calcium strategy card",
+          "class_id": "tox_calcium_channel_blocker",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "ccb",
+            "shock",
+            "hiET",
+            "calcium",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "High-dose insulin is recommended early by AHA for life-threatening CCB poisoning; calcium and vasopressor strategies may also be used.",
+          "monitoring_pearl": "Use specialist/ICU protocol with close glucose/potassium monitoring and escalation to mechanical support when needed.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_digoxin_acute",
+          "generic": "Digoxin immune Fab card",
+          "class_id": "tox_digoxin",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "digoxin",
+            "dysrhythmia",
+            "hyperkalemia",
+            "fab",
+            "acute",
+            "action"
+          ],
+          "role": "Digoxin-specific antibody fragments are used for severe/life-threatening cardiac glycoside toxicity according to current criteria.",
+          "monitoring_pearl": "After Fab, routine serum digoxin assays may be misleading; monitor clinical response, rhythm, potassium and renal function.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "tox_digoxin_monitor",
+          "generic": "Digoxin toxicology monitoring card",
+          "class_id": "tox_digoxin",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "digoxin",
+            "dysrhythmia",
+            "hyperkalemia",
+            "fab",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Do not use a single digoxin concentration in isolation, especially if timing is inappropriate or after antibody treatment.",
+          "monitoring_pearl": "Assess brady/ventricular dysrhythmias, K, Mg, renal function, interacting drugs and exposure chronicity.",
+          "source_refs": [
+            "AHA_TOX_2023",
+            "AHA_SPECIAL_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "tox_clonidine_acute",
+          "generic": "Clonidine supportive card",
+          "class_id": "tox_clonidine",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "clonidine",
+            "bradycardia",
+            "coma",
+            "pediatric",
+            "acute",
+            "action"
+          ],
+          "role": "Airway/ventilation and hemodynamic support are central while distinguishing from opioids and other sedatives.",
+          "monitoring_pearl": "Observe for delayed/prolonged effects depending on formulation and dose; serial HR/BP/mental status.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_clonidine_monitor",
+          "generic": "Naloxone-consideration guardrail",
+          "class_id": "tox_clonidine",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "clonidine",
+            "bradycardia",
+            "coma",
+            "pediatric",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Naloxone has variable evidence in clonidine toxicity and should not replace supportive care or toxicology advice.",
+          "monitoring_pearl": "If considered, document rationale and response; continue monitoring regardless of transient arousal.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_organophosphate_carbamate_acute",
+          "generic": "Atropine endpoint card",
+          "class_id": "tox_organophosphate_carbamate",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "pesticide",
+            "organophosphate",
+            "carbamate",
+            "atropine",
+            "acute",
+            "action"
+          ],
+          "role": "Atropine is titrated to clinical endpoints such as improved airway secretions/bronchospasm and hemodynamics, not to pupil size alone.",
+          "monitoring_pearl": "Monitor secretions, oxygenation/ventilation, HR/BP, temperature and repeated atropine requirements.",
+          "source_refs": [
+            "WHO_PESTICIDE",
+            "WHO_CHEMICAL_EMERGENCY",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_organophosphate_carbamate_monitor",
+          "generic": "Oxime/decontamination card",
+          "class_id": "tox_organophosphate_carbamate",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "pesticide",
+            "organophosphate",
+            "carbamate",
+            "atropine",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Oxime therapy and external decontamination depend on agent, timing, severity and local protocol; staff protection matters.",
+          "monitoring_pearl": "Remove contaminated clothing, prevent secondary exposure and obtain specialist advice for prolonged/recurrent cholinergic toxicity.",
+          "source_refs": [
+            "WHO_PESTICIDE",
+            "WHO_CHEMICAL_EMERGENCY",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_aluminum_phosphide_acute",
+          "generic": "Phosphide shock card",
+          "class_id": "tox_aluminum_phosphide",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "phosphide",
+            "pesticide",
+            "shock",
+            "india",
+            "acute",
+            "action"
+          ],
+          "role": "Prioritize early resuscitation, ECG/hemodynamic monitoring and ICU/toxicology escalation.",
+          "monitoring_pearl": "Track BP/perfusion, ECG, acid-base/lactate, electrolytes and multiorgan dysfunction; anticipate rapid deterioration.",
+          "source_refs": [
+            "WHO_PESTICIDE",
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_aluminum_phosphide_monitor",
+          "generic": "No-antidote guardrail card",
+          "class_id": "tox_aluminum_phosphide",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "phosphide",
+            "pesticide",
+            "shock",
+            "india",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Avoid false reassurance from unproven antidote claims; management is supportive and protocol-driven with specialist input.",
+          "monitoring_pearl": "Document exact formulation and exposure route; protect staff from off-gassing/secondary contamination when relevant.",
+          "source_refs": [
+            "WHO_PESTICIDE",
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_anticoagulant_rodenticide_acute",
+          "generic": "Coagulation assessment card",
+          "class_id": "tox_anticoagulant_rodenticide",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "rodenticide",
+            "superwarfarin",
+            "inr",
+            "vitamin_k",
+            "acute",
+            "action"
+          ],
+          "role": "Obtain exposure history and appropriately timed coagulation testing rather than assuming an early normal INR excludes risk.",
+          "monitoring_pearl": "Serial INR/PT and bleeding assessment; treatment duration can be prolonged and should be laboratory-guided.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "tox_anticoagulant_rodenticide_monitor",
+          "generic": "Vitamin K pathway card",
+          "class_id": "tox_anticoagulant_rodenticide",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "rodenticide",
+            "superwarfarin",
+            "inr",
+            "vitamin_k",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Vitamin K therapy is guided by agent, bleeding severity and coagulation results; severe bleeding may require factor replacement.",
+          "monitoring_pearl": "Do not use fixed treatment duration without follow-up INR strategy and toxicology/hematology guidance.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "tox_methanol_acute",
+          "generic": "ADH-blockade pathway card",
+          "class_id": "tox_methanol",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "methanol",
+            "toxic_alcohol",
+            "fomepizole",
+            "dialysis",
+            "acute",
+            "action"
+          ],
+          "role": "Fomepizole/ethanol strategies inhibit toxic metabolite formation and require current toxicology protocol.",
+          "monitoring_pearl": "Serial pH, anion/osmolal gap, electrolytes, renal function and methanol concentration where available; do not delay therapy for a late confirmatory level in severe compatible cases.",
+          "source_refs": [
+            "EXTRIP",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_methanol_monitor",
+          "generic": "Methanol ECTR card",
+          "class_id": "tox_methanol",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "methanol",
+            "toxic_alcohol",
+            "fomepizole",
+            "dialysis",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "EXTRIP recommends extracorporeal treatment in severe methanol poisoning under defined clinical/laboratory criteria.",
+          "monitoring_pearl": "Urgently involve dialysis/toxicology for coma, seizures, visual deficit or severe/persistent acidosis.",
+          "source_refs": [
+            "EXTRIP",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_ethylene_glycol_acute",
+          "generic": "ADH-blockade ethylene-glycol card",
+          "class_id": "tox_ethylene_glycol",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "ethylene_glycol",
+            "toxic_alcohol",
+            "fomepizole",
+            "aki",
+            "acute",
+            "action"
+          ],
+          "role": "Use current fomepizole/ethanol protocol when a clinically significant exposure is suspected/confirmed.",
+          "monitoring_pearl": "Serial acid-base, electrolytes/Ca, renal function and ethylene glycol level where available; examine urine findings only as supportive evidence.",
+          "source_refs": [
+            "EXTRIP",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_ethylene_glycol_monitor",
+          "generic": "Ethylene-glycol ECTR card",
+          "class_id": "tox_ethylene_glycol",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "ethylene_glycol",
+            "toxic_alcohol",
+            "fomepizole",
+            "aki",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Severe poisoning may require extracorporeal treatment based on concentration, acid-base status and clinical/renal criteria.",
+          "monitoring_pearl": "Early nephrology/toxicology coordination is important when severe acidosis, renal failure or major exposure is present.",
+          "source_refs": [
+            "EXTRIP",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_cyanide_acute",
+          "generic": "Cyanide antidote card",
+          "class_id": "tox_cyanide",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "cyanide",
+            "smoke_inhalation",
+            "hydroxocobalamin",
+            "shock",
+            "acute",
+            "action"
+          ],
+          "role": "Hydroxocobalamin is a major antidotal option in severe suspected cyanide poisoning according to emergency guidance.",
+          "monitoring_pearl": "Monitor hemodynamics, lactate/acid-base, neurologic status and co-exposures such as carbon monoxide; note laboratory interference after hydroxocobalamin.",
+          "source_refs": [
+            "CDC_CYANIDE",
+            "AHA_TOX_2023",
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_cyanide_monitor",
+          "generic": "Cyanide decontamination/responder card",
+          "class_id": "tox_cyanide",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "cyanide",
+            "smoke_inhalation",
+            "hydroxocobalamin",
+            "shock",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Protect staff from contaminated clothing/material and manage inhalational/dermal exposure according to hazardous-material guidance.",
+          "monitoring_pearl": "Do not rely on bitter-almond odor; urgent supportive resuscitation and antidotal decision-making are clinical.",
+          "source_refs": [
+            "CDC_CYANIDE",
+            "AHA_TOX_2023",
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_carbon_monoxide_acute",
+          "generic": "High-flow oxygen card",
+          "class_id": "tox_carbon_monoxide",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "carbon_monoxide",
+            "cohb",
+            "oxygen",
+            "hyperbaric",
+            "acute",
+            "action"
+          ],
+          "role": "Remove from exposure and give high-concentration oxygen while evaluating neurologic/cardiac injury and pregnancy context.",
+          "monitoring_pearl": "Obtain COHb with appropriate co-oximetry, ECG/troponin as indicated and serial neurologic assessment.",
+          "source_refs": [
+            "CDC_CO",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_carbon_monoxide_monitor",
+          "generic": "Hyperbaric consultation card",
+          "class_id": "tox_carbon_monoxide",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "carbon_monoxide",
+            "cohb",
+            "oxygen",
+            "hyperbaric",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Hyperbaric oxygen consideration is based on clinical severity and specialist/local criteria rather than COHb alone.",
+          "monitoring_pearl": "Early consultation is appropriate for severe neurologic/cardiac manifestations, significant acidosis or other high-risk features.",
+          "source_refs": [
+            "CDC_CO",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_methemoglobinemia_acute",
+          "generic": "Co-oximetry recognition card",
+          "class_id": "tox_methemoglobinemia",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "methemoglobinemia",
+            "cooximetry",
+            "methylene_blue",
+            "g6pd",
+            "acute",
+            "action"
+          ],
+          "role": "Confirm with co-oximetry where possible and identify oxidant exposure; standard pulse oximetry/ABG saturation calculations can mislead.",
+          "monitoring_pearl": "Trend methemoglobin level, symptoms, hemolysis risk and oxygenation; severe symptomatic cases require urgent treatment.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_methemoglobinemia_monitor",
+          "generic": "Methylene-blue guardrail card",
+          "class_id": "tox_methemoglobinemia",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "methemoglobinemia",
+            "cooximetry",
+            "methylene_blue",
+            "g6pd",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Methylene blue is a specific therapy in selected significant cases but requires careful G6PD/serotonergic and dose-context review.",
+          "monitoring_pearl": "Use current toxicology guidance; consider alternatives/consultation when G6PD deficiency or treatment failure is a concern.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_iron_acute",
+          "generic": "Iron level/clinical staging card",
+          "class_id": "tox_iron",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "iron",
+            "deferoxamine",
+            "xray",
+            "acidosis",
+            "acute",
+            "action"
+          ],
+          "role": "Interpret serum iron at an appropriate time with symptoms, acid-base status, glucose, liver tests and radiography when relevant.",
+          "monitoring_pearl": "Serial vitals, acid-base/lactate, glucose, LFT/INR and clinical course; do not rely on a late falling iron level as proof of safety.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "tox_iron_monitor",
+          "generic": "Deferoxamine pathway card",
+          "class_id": "tox_iron",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "iron",
+            "deferoxamine",
+            "xray",
+            "acidosis",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Chelation is used for significant/severe iron toxicity based on clinical and laboratory criteria.",
+          "monitoring_pearl": "Use toxicology-guided dosing and monitor hemodynamics, urine/output and pulmonary complications in prolonged therapy.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "tox_lead_acute",
+          "generic": "Lead source/removal card",
+          "class_id": "tox_lead",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "lead",
+            "chelation",
+            "chronic",
+            "neurologic",
+            "acute",
+            "action"
+          ],
+          "role": "Stop ongoing exposure and evaluate household/occupational/environmental sources while confirming venous blood lead concentration.",
+          "monitoring_pearl": "Assess neurologic, hematologic, renal and GI findings; children/pregnancy require special pathways.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_lead_monitor",
+          "generic": "Lead chelation guardrail",
+          "class_id": "tox_lead",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "lead",
+            "chelation",
+            "chronic",
+            "neurologic",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Chelation is threshold- and symptom-dependent and should follow current toxicology/public-health guidance.",
+          "monitoring_pearl": "Do not chelate from capillary screening alone or without exposure-source control and specialist follow-up.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_arsenic_acute",
+          "generic": "Arsenic diagnostic card",
+          "class_id": "tox_arsenic",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "arsenic",
+            "metal",
+            "chelation",
+            "qt",
+            "acute",
+            "action"
+          ],
+          "role": "Use exposure history plus appropriate urine/blood testing interpreted with seafood/speciation context where applicable.",
+          "monitoring_pearl": "Monitor ECG/QT, electrolytes, renal/hepatic function and neurologic status in significant acute exposure.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_arsenic_monitor",
+          "generic": "Arsenic chelation card",
+          "class_id": "tox_arsenic",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "arsenic",
+            "metal",
+            "chelation",
+            "qt",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Chelation is considered for clinically significant poisoning using specialist-selected agents.",
+          "monitoring_pearl": "Do not delay toxicology consultation in severe symptomatic exposure; verify agent/form and timing before selecting chelator.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_lithium_acute",
+          "generic": "Lithium serial-level card",
+          "class_id": "tox_lithium",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "lithium",
+            "tdm",
+            "dialysis",
+            "neuro",
+            "acute",
+            "action"
+          ],
+          "role": "Obtain serial lithium concentrations with renal function, sodium, volume status and interacting medicines; avoid interpreting one level without timing/context.",
+          "monitoring_pearl": "Trend neurologic status, ECG, urine output and concentration trajectory after fluids/supportive care.",
+          "source_refs": [
+            "EXTRIP",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_lithium_monitor",
+          "generic": "Lithium ECTR card",
+          "class_id": "tox_lithium",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "lithium",
+            "tdm",
+            "dialysis",
+            "neuro",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "EXTRIP recommends extracorporeal treatment for severe lithium poisoning under specified concentration/clinical/renal criteria.",
+          "monitoring_pearl": "Early dialysis consultation for severe neurologic toxicity, dysrhythmia or impaired renal clearance; watch for post-dialysis rebound.",
+          "source_refs": [
+            "EXTRIP",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_valproate_acute",
+          "generic": "Valproate metabolic monitoring card",
+          "class_id": "tox_valproate",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "valproate",
+            "hyperammonemia",
+            "carnitine",
+            "dialysis",
+            "acute",
+            "action"
+          ],
+          "role": "Obtain valproate concentration, ammonia, glucose, electrolytes, acid-base, LFT and mental status with serial reassessment.",
+          "monitoring_pearl": "Levels can be delayed/prolonged with extended-release or massive ingestion; trend rather than single-test interpretation.",
+          "source_refs": [
+            "EXTRIP",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_valproate_monitor",
+          "generic": "Carnitine/ECTR review card",
+          "class_id": "tox_valproate",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "valproate",
+            "hyperammonemia",
+            "carnitine",
+            "dialysis",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "L-carnitine and extracorporeal treatment may be considered in severe toxicity according to toxicology/EXTRIP criteria.",
+          "monitoring_pearl": "Use specialist protocol and involve dialysis early for severe clinical/metabolic deterioration.",
+          "source_refs": [
+            "EXTRIP",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_isoniazid_acute",
+          "generic": "Pyridoxine antidote card",
+          "class_id": "tox_isoniazid",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "isoniazid",
+            "pyridoxine",
+            "seizure",
+            "acidosis",
+            "acute",
+            "action"
+          ],
+          "role": "Pyridoxine is the specific antidotal therapy for significant isoniazid poisoning and should follow current toxicology/resuscitation protocol.",
+          "monitoring_pearl": "Treat seizures aggressively, track acid-base/lactate and airway status; verify exposure amount when possible but do not delay emergency care.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "EXTRIP"
+          ]
+        },
+        {
+          "id": "tox_isoniazid_monitor",
+          "generic": "INH severe-toxicity escalation card",
+          "class_id": "tox_isoniazid",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "isoniazid",
+            "pyridoxine",
+            "seizure",
+            "acidosis",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Persistent seizures/acidosis require ICU/toxicology management and may prompt additional advanced therapies.",
+          "monitoring_pearl": "Serial neurologic, glucose, temperature, ECG and hepatic monitoring after stabilization.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "EXTRIP"
+          ]
+        },
+        {
+          "id": "tox_theophylline_acute",
+          "generic": "Theophylline monitoring card",
+          "class_id": "tox_theophylline",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "theophylline",
+            "seizure",
+            "tachyarrhythmia",
+            "dialysis",
+            "acute",
+            "action"
+          ],
+          "role": "Trend concentration, K/Mg/glucose, ECG and neurologic status; control seizures and severe adrenergic manifestations promptly.",
+          "monitoring_pearl": "Differentiate acute vs chronic exposure and extended-release formulation; levels may rise late.",
+          "source_refs": [
+            "EXTRIP",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_theophylline_monitor",
+          "generic": "Theophylline ECTR card",
+          "class_id": "tox_theophylline",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "theophylline",
+            "seizure",
+            "tachyarrhythmia",
+            "dialysis",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "EXTRIP supports extracorporeal treatment in severe theophylline poisoning under defined criteria.",
+          "monitoring_pearl": "Involve toxicology/nephrology early for severe dysrhythmia, seizures, shock or high-risk concentration patterns.",
+          "source_refs": [
+            "EXTRIP",
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_local_anesthetic_acute",
+          "generic": "LAST recognition card",
+          "class_id": "tox_local_anesthetic",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "last",
+            "local_anesthetic",
+            "lipid",
+            "seizure",
+            "acute",
+            "action"
+          ],
+          "role": "Stop local anesthetic exposure, secure airway/oxygenation, control seizures and prepare for modified resuscitation.",
+          "monitoring_pearl": "Continuous ECG/hemodynamics and careful documentation of agent/concentration/dose/time; avoid standard assumptions about all arrest drugs.",
+          "source_refs": [
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_local_anesthetic_monitor",
+          "generic": "Lipid-emulsion pathway card",
+          "class_id": "tox_local_anesthetic",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "last",
+            "local_anesthetic",
+            "lipid",
+            "seizure",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Lipid emulsion is a specific rescue therapy in severe LAST according to resuscitation/anesthesia guidance.",
+          "monitoring_pearl": "Follow current LAST checklist/toxicology protocol; prolonged resuscitation and extracorporeal support may be needed in refractory collapse.",
+          "source_refs": [
+            "AHA_SPECIAL_2025"
+          ]
+        },
+        {
+          "id": "tox_sulfonylurea_acute",
+          "generic": "Glucose monitoring card",
+          "class_id": "tox_sulfonylurea",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "sulfonylurea",
+            "hypoglycemia",
+            "octreotide",
+            "pediatric",
+            "acute",
+            "action"
+          ],
+          "role": "Obtain frequent glucose and observe long enough for the specific agent/formulation; treat symptomatic hypoglycemia immediately.",
+          "monitoring_pearl": "Recheck glucose after treatment and during observation because recurrent hypoglycemia may occur.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_sulfonylurea_monitor",
+          "generic": "Octreotide pathway card",
+          "class_id": "tox_sulfonylurea",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "sulfonylurea",
+            "hypoglycemia",
+            "octreotide",
+            "pediatric",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Octreotide can reduce recurrent insulin secretion in significant sulfonylurea toxicity under toxicology guidance.",
+          "monitoring_pearl": "Use age/weight-appropriate protocol; continue serial glucose monitoring after apparent stabilization.",
+          "source_refs": [
+            "AHA_SPECIAL_2025",
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_insulin_acute",
+          "generic": "Dextrose/glucose-support card",
+          "class_id": "tox_insulin",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "insulin",
+            "hypoglycemia",
+            "potassium",
+            "dextrose",
+            "acute",
+            "action"
+          ],
+          "role": "Treat hypoglycemia and provide ongoing carbohydrate/dextrose support matched to recurrent glucose requirements.",
+          "monitoring_pearl": "Frequent glucose plus K/Mg/phosphate monitoring; avoid overcorrecting potassium while insulin effect persists.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "tox_insulin_monitor",
+          "generic": "Insulin-depot monitoring card",
+          "class_id": "tox_insulin",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "insulin",
+            "hypoglycemia",
+            "potassium",
+            "dextrose",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Large subcutaneous overdoses may have delayed/prolonged absorption and require extended observation/infusion.",
+          "monitoring_pearl": "Document insulin type/concentration/device and injection time/site; taper support only with sustained euglycemia off infusion.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "tox_hydrocarbon_acute",
+          "generic": "Hydrocarbon airway card",
+          "class_id": "tox_hydrocarbon",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "hydrocarbon",
+            "aspiration",
+            "pneumonitis",
+            "decontamination",
+            "acute",
+            "action"
+          ],
+          "role": "Assess cough, choking, hypoxia and respiratory symptoms; supportive respiratory care is central.",
+          "monitoring_pearl": "Observe respiratory status and obtain imaging only when clinically indicated; symptoms may evolve after aspiration.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_hydrocarbon_monitor",
+          "generic": "Hydrocarbon decontamination guardrail",
+          "class_id": "tox_hydrocarbon",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "hydrocarbon",
+            "aspiration",
+            "pneumonitis",
+            "decontamination",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Avoid routine induced vomiting and use GI decontamination only under specific toxicology guidance.",
+          "monitoring_pearl": "Identify exact product/additives because halogenated/aromatic hydrocarbons may carry cardiac or systemic toxicity beyond aspiration.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_caustic_acute",
+          "generic": "Caustic airway/GI card",
+          "class_id": "tox_caustic",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "caustic",
+            "corrosive",
+            "endoscopy",
+            "airway",
+            "acute",
+            "action"
+          ],
+          "role": "Prioritize airway assessment and urgent GI/surgical consultation when significant ingestion or symptoms are present.",
+          "monitoring_pearl": "Monitor pain, drooling, dysphagia, vomiting, chest/abdominal signs and respiratory status; imaging/endoscopy timing is specialist-directed.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_caustic_monitor",
+          "generic": "No-neutralization/no-emesis card",
+          "class_id": "tox_caustic",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "caustic",
+            "corrosive",
+            "endoscopy",
+            "airway",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Do not induce vomiting or attempt chemical neutralization because re-exposure/exothermic injury can worsen damage.",
+          "monitoring_pearl": "Activated charcoal is generally not a routine solution for caustics; identify exact chemical concentration/formulation.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_amatoxin_acute",
+          "generic": "Delayed-hepatotoxicity recognition card",
+          "class_id": "tox_amatoxin",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "mushroom",
+            "amatoxin",
+            "hepatic_failure",
+            "delayed",
+            "acute",
+            "action"
+          ],
+          "role": "Obtain species/exposure history when possible and trend liver tests, INR, renal function, glucose and acid-base status.",
+          "monitoring_pearl": "Early toxicology/transplant-center discussion for evolving liver failure; serial labs are essential after symptom improvement.",
+          "source_refs": [
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_amatoxin_monitor",
+          "generic": "Amatoxin therapy guardrail",
+          "class_id": "tox_amatoxin",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "mushroom",
+            "amatoxin",
+            "hepatic_failure",
+            "delayed",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Specific therapies vary by region/evidence and should be specialist-directed; supportive care and transplant criteria remain central.",
+          "monitoring_pearl": "Avoid presenting unproven mushroom remedies as established antidotes; preserve mushroom/sample/photo if safe for identification.",
+          "source_refs": [
+            "WHO_POISON_MANUAL"
+          ]
+        },
+        {
+          "id": "tox_snakebite_acute",
+          "generic": "Snakebite first-aid/assessment card",
+          "class_id": "tox_snakebite",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "snakebite",
+            "antivenom",
+            "coagulopathy",
+            "neurotoxicity",
+            "acute",
+            "action"
+          ],
+          "role": "Immobilize and transport urgently; avoid incision, suction, ice, tight tourniquets and unverified traditional treatments.",
+          "monitoring_pearl": "Serial local swelling, neuro exam, coagulation/bleeding, renal function, urine output and respiratory status; mark swelling progression when useful.",
+          "source_refs": [
+            "WHO_SNAKEBITE"
+          ]
+        },
+        {
+          "id": "tox_snakebite_monitor",
+          "generic": "Antivenom pathway card",
+          "class_id": "tox_snakebite",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "snakebite",
+            "antivenom",
+            "coagulopathy",
+            "neurotoxicity",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "High-quality species/region-appropriate antivenom is the specific treatment for significant envenoming under WHO/local protocol.",
+          "monitoring_pearl": "Use clinical indications and local antivenom guidance; be prepared to manage antivenom reactions without withholding needed therapy.",
+          "source_refs": [
+            "WHO_SNAKEBITE"
+          ]
+        },
+        {
+          "id": "tox_scorpion_acute",
+          "generic": "Scorpion severity card",
+          "class_id": "tox_scorpion",
+          "form": "Clinical toxicology action card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "scorpion",
+            "envenomation",
+            "autonomic",
+            "pulmonary_edema",
+            "acute",
+            "action"
+          ],
+          "role": "Assess pain, autonomic signs, hemodynamics, respiratory status and neurologic findings rather than treating all stings as equivalent.",
+          "monitoring_pearl": "Continuous monitoring for severe systemic envenoming; ECG, glucose/electrolytes and pulmonary assessment as clinically indicated.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        },
+        {
+          "id": "tox_scorpion_monitor",
+          "generic": "Scorpion antivenom/specific-therapy guardrail",
+          "class_id": "tox_scorpion",
+          "form": "Clinical toxicology monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Toxicology decision-support card only — no automatic antidote dose, decontamination order, dialysis trigger, discharge decision or stop/start instruction. Verify the exact agent/product, formulation, amount, timing/route, age/weight, pregnancy, organ function, ECG/labs, co-exposures and current poison-center/toxicology/resuscitation protocol before treatment changes.",
+          "tags": [
+            "scorpion",
+            "envenomation",
+            "autonomic",
+            "pulmonary_edema",
+            "monitoring",
+            "escalation"
+          ],
+          "role": "Antivenom and adjunctive therapies are region/species dependent and should follow local toxicology protocol.",
+          "monitoring_pearl": "Avoid importing drug regimens from other regions without species/local guideline confirmation; escalate severe cases early.",
+          "source_refs": [
+            "WHO_POISON_MANUAL",
+            "WHO_CHEMICAL_EMERGENCY"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "AHA_TOX_2023",
+          "label": "American Heart Association — 2023 Focused Update: cardiac arrest or life-threatening toxicity due to poisoning",
+          "url": "https://professional.heart.org/en/guidelines-statements/2023-american-heart-association-focused-update-on-the-management-of-patientscir0000000000001161"
+        },
+        {
+          "id": "AHA_SPECIAL_2025",
+          "label": "American Heart Association — 2025 Adult & Pediatric Special Circumstances of Resuscitation (poisoning)",
+          "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-and-pediatric-special-circumstances-of-resuscitation"
+        },
+        {
+          "id": "WHO_POISON_MANUAL",
+          "label": "WHO/IPCS — Poisons Centre Training Manual / poisoning management principles",
+          "url": "https://iris.who.int/server/api/core/bitstreams/b1702df9-e2ff-45a4-9457-4d61b6ff3ebd/content"
+        },
+        {
+          "id": "WHO_CHEMICAL_EMERGENCY",
+          "label": "WHO — Initial clinical management of patients exposed to chemical agents",
+          "url": "https://iris.who.int/bitstreams/69e6fae6-9be4-4095-8683-b174d5af8fdb/download"
+        },
+        {
+          "id": "WHO_PESTICIDE",
+          "label": "WHO — Clinical Management of Acute Pesticide Intoxication",
+          "url": "https://iris.who.int/bitstreams/949906e1-efa4-4566-a223-22ce497e5b64/download"
+        },
+        {
+          "id": "FDA_ACETADOTE_2024",
+          "label": "FDA — ACETADOTE (acetylcysteine) injection prescribing information",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/021539s019lbl.pdf"
+        },
+        {
+          "id": "CDC_CO",
+          "label": "CDC — Clinical Guidance for Carbon Monoxide Poisoning",
+          "url": "https://www.cdc.gov/carbon-monoxide/hcp/clinical-guidance/index.html"
+        },
+        {
+          "id": "CDC_CYANIDE",
+          "label": "CDC/NIOSH — Hydrogen Cyanide emergency response / medical management",
+          "url": "https://www.cdc.gov/niosh/ershdb/emergencyresponsecard_29750038.html"
+        },
+        {
+          "id": "EXTRIP",
+          "label": "EXTRIP Workgroup — Extracorporeal treatment recommendations in poisoning",
+          "url": "https://www.extrip-workgroup.org/recommendations"
+        },
+        {
+          "id": "WHO_SNAKEBITE",
+          "label": "WHO South-East Asia — Guidelines for the management of snakebites, 2nd edition",
+          "url": "https://www.who.int/publications/i/item/9789290225300"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "NIH DailyMed — current US prescribing information repository",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
         }
       ]
     }
