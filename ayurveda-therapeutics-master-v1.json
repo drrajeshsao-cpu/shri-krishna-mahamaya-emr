@@ -1,10 +1,10 @@
 {
   "schema": "MAHAMAYA-AYURVEDA-THERAPEUTICS-INTELLIGENCE-V1",
-  "version": "1.1",
-  "app_version": "3.90",
-  "build": "2026.08.14-R14",
-  "name": "Mahamaya Ayurveda Therapeutics Learning & Prescription Intelligence — MATLI v1.1 Fast Formulary Discovery",
-  "mode": "clinician_learning_research_cds_plus_afi_discovery",
+  "version": "1.2",
+  "app_version": "4.00",
+  "build": "2026.08.14-R15",
+  "name": "Mahamaya Ayurveda Therapeutics Learning & Prescription Intelligence — MATLI v1.2 Research Navigator",
+  "mode": "clinician_learning_research_cds_plus_afi_discovery_plus_complaint_bridge",
   "safety_boundary": [
     "Complaint is not diagnosis; symptom-only mode must not generate an automatic prescription.",
     "Ayurvedic treatment is individualized by diagnosis, Dosha/Vikriti, Agni, Ama, Koshtha, Bala, stage, age, pregnancy and comorbidity.",
@@ -6783,6 +6783,566 @@
         "siroroga"
       ],
       "discovery_boundary": "AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Verify the source formulation, indication context, dose, contraindications, quality and patient factors before prescribing."
+    },
+    {
+      "id": "jwara_fever",
+      "name": "Jwara / Fever context",
+      "ayurveda_name": "Jwara",
+      "aliases": [
+        "fever",
+        "pyrexia",
+        "jwara"
+      ],
+      "system": "General / Infectious",
+      "diagnostic_note": "Fever is a syndrome, not a single diagnosis. Identify infectious/non-infectious cause and severity before therapy.",
+      "red_flags": [
+        "Sepsis/shock",
+        "Altered sensorium",
+        "Severe dehydration",
+        "Hypoxia",
+        "Meningism",
+        "High-risk immunocompromised state"
+      ],
+      "next_examination": [
+        "Vitals including SpO2",
+        "Hydration",
+        "Focused systemic examination"
+      ],
+      "suggested_investigations": [
+        "CBC/CRP/cultures/imaging or pathogen testing according to clinical context"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "jvara",
+        "jwara",
+        "visama jvara"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
+    },
+    {
+      "id": "atisara_diarrhea",
+      "name": "Atisara / Diarrhea context",
+      "ayurveda_name": "Atisara",
+      "aliases": [
+        "diarrhea",
+        "loose stool",
+        "atisara"
+      ],
+      "system": "Gastrointestinal",
+      "diagnostic_note": "Assess dehydration, duration, blood/mucus, travel/food exposure and secondary causes before symptomatic therapy.",
+      "red_flags": [
+        "Severe dehydration",
+        "Blood in stool with toxicity",
+        "Shock",
+        "Persistent high fever",
+        "Severe abdominal pain"
+      ],
+      "next_examination": [
+        "Hydration status",
+        "Abdominal examination"
+      ],
+      "suggested_investigations": [
+        "Stool testing/electrolytes/CBC as clinically indicated"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "atisara",
+        "pravahika"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
+    },
+    {
+      "id": "chhardi_vomiting",
+      "name": "Chhardi / Vomiting context",
+      "ayurveda_name": "Chhardi",
+      "aliases": [
+        "vomiting",
+        "nausea",
+        "emesis",
+        "chhardi"
+      ],
+      "system": "Gastrointestinal",
+      "diagnostic_note": "Vomiting requires cause assessment; exclude obstruction, metabolic, CNS and pregnancy-related emergencies where relevant.",
+      "red_flags": [
+        "GI bleeding",
+        "Severe dehydration",
+        "Peritonism",
+        "Neurologic red flags",
+        "Persistent vomiting"
+      ],
+      "next_examination": [
+        "Vitals/hydration",
+        "Abdominal and neurologic examination as indicated"
+      ],
+      "suggested_investigations": [
+        "Electrolytes/glucose/pregnancy test/imaging according to context"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "chardi",
+        "chhardi",
+        "vamana"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
+    },
+    {
+      "id": "aruchi_appetite",
+      "name": "Aruchi / Loss of Appetite context",
+      "ayurveda_name": "Aruchi",
+      "aliases": [
+        "loss of appetite",
+        "poor appetite",
+        "anorexia",
+        "aruchi"
+      ],
+      "system": "Gastrointestinal / Metabolic",
+      "diagnostic_note": "Persistent appetite loss is non-specific; evaluate weight trend, systemic disease, medicines and mood context.",
+      "red_flags": [
+        "Unintentional weight loss",
+        "Dysphagia",
+        "GI bleeding",
+        "Persistent fever"
+      ],
+      "next_examination": [
+        "Weight/BMI",
+        "Oral and abdominal examination"
+      ],
+      "suggested_investigations": [
+        "CBC/LFT/TSH or targeted work-up according to context"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "aruchi",
+        "agnimandya",
+        "mandagni"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
+    },
+    {
+      "id": "shotha_edema",
+      "name": "Shotha / Edema context",
+      "ayurveda_name": "Shotha",
+      "aliases": [
+        "edema",
+        "swelling",
+        "pedal edema",
+        "shotha"
+      ],
+      "system": "Cardio-Renal / General",
+      "diagnostic_note": "Edema requires differentiation of cardiac, renal, hepatic, venous, lymphatic and drug-related causes before therapy.",
+      "red_flags": [
+        "Pulmonary edema",
+        "Severe dyspnea",
+        "Unilateral painful swelling/DVT concern",
+        "Oliguria",
+        "Hemodynamic instability"
+      ],
+      "next_examination": [
+        "JVP/cardiovascular exam",
+        "Chest exam",
+        "Pitting/non-pitting edema assessment"
+      ],
+      "suggested_investigations": [
+        "RFT/LFT/urinalysis/ECG/echo/venous Doppler as indicated"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "sotha",
+        "shotha",
+        "sopha",
+        "edema"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
+    },
+    {
+      "id": "mutrakrichra_dysuria",
+      "name": "Mutrakrichra / Dysuria context",
+      "ayurveda_name": "Mutrakrichra",
+      "aliases": [
+        "dysuria",
+        "burning urination",
+        "mutrakrichra"
+      ],
+      "system": "Renal / Genitourinary",
+      "diagnostic_note": "Dysuria requires assessment for UTI, stone, STI, obstruction and complicated infection.",
+      "red_flags": [
+        "Sepsis",
+        "Flank pain with fever",
+        "Urinary retention",
+        "Pregnancy with systemic symptoms"
+      ],
+      "next_examination": [
+        "Vitals",
+        "Abdominal/CVA tenderness",
+        "Genitourinary exam when indicated"
+      ],
+      "suggested_investigations": [
+        "Urine routine/culture; imaging when stone/obstruction suspected"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "mutrakrcchra",
+        "mutrakrichra",
+        "mutrakricchra"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
+    },
+    {
+      "id": "katishoola_lbp",
+      "name": "Katishoola / Low Back Pain context",
+      "ayurveda_name": "Katishoola",
+      "aliases": [
+        "low back pain",
+        "back pain",
+        "katishoola",
+        "kati shoola"
+      ],
+      "system": "Musculoskeletal / Spine",
+      "diagnostic_note": "Classify mechanical vs radicular vs systemic back pain and screen neurologic/red-flag features before elective therapy.",
+      "red_flags": [
+        "Cauda equina symptoms",
+        "Progressive motor deficit",
+        "Trauma/fracture risk",
+        "Fever/systemic illness",
+        "Cancer red flags"
+      ],
+      "next_examination": [
+        "Neurologic lower-limb exam",
+        "SLR where relevant",
+        "Spine examination"
+      ],
+      "suggested_investigations": [
+        "Imaging/labs only according to red flags or persistent/progressive symptoms"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "katishula",
+        "katishoola",
+        "trika shula",
+        "kati graha"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
+    },
+    {
+      "id": "sandhishoola_jointpain",
+      "name": "Sandhishoola / Joint Pain context",
+      "ayurveda_name": "Sandhishoola",
+      "aliases": [
+        "joint pain",
+        "arthralgia",
+        "joint swelling",
+        "sandhishoola"
+      ],
+      "system": "Musculoskeletal / Rheumatology",
+      "diagnostic_note": "Differentiate inflammatory, degenerative, crystal, infectious and traumatic joint disease before therapy.",
+      "red_flags": [
+        "Hot swollen joint/septic arthritis concern",
+        "Acute trauma",
+        "Systemic toxicity"
+      ],
+      "next_examination": [
+        "Joint inspection/ROM",
+        "Inflammatory pattern assessment"
+      ],
+      "suggested_investigations": [
+        "CBC/ESR/CRP/uric acid/imaging or aspiration according to context"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "sandhi shula",
+        "sandhishula",
+        "sandhishoola",
+        "sandhi ruja"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
+    },
+    {
+      "id": "kandu_pruritus",
+      "name": "Kandu / Pruritus context",
+      "ayurveda_name": "Kandu",
+      "aliases": [
+        "itching",
+        "pruritus",
+        "kandu"
+      ],
+      "system": "Dermatology",
+      "diagnostic_note": "Pruritus may be dermatologic or systemic; inspect skin and consider hepatic, renal, hematologic or drug causes when generalized.",
+      "red_flags": [
+        "Anaphylaxis/airway symptoms",
+        "Extensive blistering",
+        "Mucosal involvement",
+        "Systemic illness"
+      ],
+      "next_examination": [
+        "Full skin examination"
+      ],
+      "suggested_investigations": [
+        "Targeted CBC/LFT/RFT/TSH or allergy work-up when indicated"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "kandu",
+        "kacchu",
+        "pama"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
+    },
+    {
+      "id": "raktapradara_aub",
+      "name": "Raktapradara / Abnormal Uterine Bleeding context",
+      "ayurveda_name": "Raktapradara",
+      "aliases": [
+        "abnormal uterine bleeding",
+        "heavy menstrual bleeding",
+        "menorrhagia",
+        "raktapradara"
+      ],
+      "system": "Women’s Health",
+      "diagnostic_note": "Abnormal bleeding requires pregnancy exclusion, hemodynamic assessment and evaluation of structural/non-structural causes.",
+      "red_flags": [
+        "Hemodynamic instability",
+        "Pregnancy-related bleeding",
+        "Severe anemia symptoms"
+      ],
+      "next_examination": [
+        "Vitals",
+        "Pallor",
+        "Abdominal/pelvic examination as appropriate"
+      ],
+      "suggested_investigations": [
+        "Pregnancy test/CBC/ultrasound and targeted tests according to context"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "raktapradara",
+        "asrgdara",
+        "asrigdara",
+        "pradara"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
+    },
+    {
+      "id": "bhrama_vertigo",
+      "name": "Bhrama / Vertigo-Dizziness context",
+      "ayurveda_name": "Bhrama",
+      "aliases": [
+        "vertigo",
+        "dizziness",
+        "bhrama"
+      ],
+      "system": "Neurology / ENT",
+      "diagnostic_note": "Differentiate peripheral vertigo, presyncope, disequilibrium and central neurologic causes.",
+      "red_flags": [
+        "Focal neurologic deficit",
+        "Severe new headache",
+        "Inability to walk",
+        "Syncope/chest pain"
+      ],
+      "next_examination": [
+        "Neurologic exam",
+        "Gait",
+        "Eye movements/HINTS only when appropriately trained and indicated"
+      ],
+      "suggested_investigations": [
+        "ECG/glucose/CBC/imaging according to phenotype and red flags"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "bhrama",
+        "murchha",
+        "murccha"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
+    },
+    {
+      "id": "daurbalya_fatigue",
+      "name": "Daurbalya / Fatigue context",
+      "ayurveda_name": "Daurbalya",
+      "aliases": [
+        "fatigue",
+        "weakness",
+        "tiredness",
+        "daurbalya"
+      ],
+      "system": "General / Metabolic",
+      "diagnostic_note": "Fatigue is non-specific; assess anemia, infection, endocrine, sleep, nutrition, medications and mood context.",
+      "red_flags": [
+        "Focal neurologic weakness",
+        "Severe dyspnea/chest pain",
+        "Syncope",
+        "Marked weight loss/systemic illness"
+      ],
+      "next_examination": [
+        "Vitals",
+        "General and system-focused examination"
+      ],
+      "suggested_investigations": [
+        "CBC/TSH/glucose/RFT/LFT/B12 etc. according to context"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "daurbalya",
+        "dourbalya",
+        "balakshaya",
+        "bala kshaya"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
+    },
+    {
+      "id": "pratishyaya_nasal",
+      "name": "Pratishyaya / Nasal Symptoms context",
+      "ayurveda_name": "Pratishyaya",
+      "aliases": [
+        "rhinorrhea",
+        "nasal obstruction",
+        "rhinitis",
+        "pratishyaya"
+      ],
+      "system": "ENT / Respiratory",
+      "diagnostic_note": "Differentiate viral, allergic, bacterial, structural and medication-related nasal symptoms.",
+      "red_flags": [
+        "Orbital swelling/visual symptoms",
+        "Severe facial swelling",
+        "Neurologic complications"
+      ],
+      "next_examination": [
+        "ENT/nasal examination"
+      ],
+      "suggested_investigations": [
+        "Usually clinical; allergy/imaging only when indicated"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "pratisyaya",
+        "pratishyaya",
+        "pinasa"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
+    },
+    {
+      "id": "kantharoga_sorethroat",
+      "name": "Kantharoga / Sore Throat context",
+      "ayurveda_name": "Kantharoga",
+      "aliases": [
+        "sore throat",
+        "throat pain",
+        "pharyngitis",
+        "kantharoga"
+      ],
+      "system": "ENT",
+      "diagnostic_note": "Assess airway, swallowing, fever, neck swelling and bacterial/viral features before therapy.",
+      "red_flags": [
+        "Stridor/airway compromise",
+        "Drooling/inability to swallow",
+        "Deep neck infection signs",
+        "Severe systemic toxicity"
+      ],
+      "next_examination": [
+        "Oropharyngeal/neck examination"
+      ],
+      "suggested_investigations": [
+        "Rapid strep/culture or other tests according to context"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "kantharoga",
+        "kanthashula",
+        "galashundika",
+        "gala roga"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
+    },
+    {
+      "id": "raktapitta_bleeding",
+      "name": "Raktapitta / Bleeding context",
+      "ayurveda_name": "Raktapitta",
+      "aliases": [
+        "hemoptysis",
+        "bleeding",
+        "raktapitta"
+      ],
+      "system": "General / Hematology",
+      "diagnostic_note": "Bleeding requires biomedical source localization and severity assessment before any traditional-medicine treatment consideration.",
+      "red_flags": [
+        "Ongoing significant bleeding",
+        "Hemodynamic instability",
+        "Hypoxia",
+        "Coagulopathy/anticoagulant concern"
+      ],
+      "next_examination": [
+        "Vitals",
+        "Source-focused examination"
+      ],
+      "suggested_investigations": [
+        "CBC/coagulation/imaging/endoscopy or other targeted evaluation according to source"
+      ],
+      "therapy_candidates": [],
+      "source_ids": [
+        "pcimh",
+        "ccras_clinical"
+      ],
+      "discovery_terms": [
+        "raktapitta",
+        "urdhvaga raktapitta",
+        "adhoga raktapitta"
+      ],
+      "discovery_boundary": "Discovery-only context. AFI therapeutic-index matches are formulation-discovery references, not patient-specific recommendations. Confirm diagnosis/Ayurveda assessment and verify the exact official source, composition, dose, contraindications, quality and interactions before clinical use."
     }
   ],
   "complaint_maps": [
@@ -6881,7 +7441,303 @@
         "vicharchika",
         "allergic_skin"
       ]
+    },
+    {
+      "keywords": [
+        "hemoptysis"
+      ],
+      "condition_ids": [
+        "raktapitta_bleeding",
+        "kasa_chronic"
+      ]
+    },
+    {
+      "keywords": [
+        "sputum"
+      ],
+      "condition_ids": [
+        "kasa_chronic"
+      ]
+    },
+    {
+      "keywords": [
+        "abdominal pain"
+      ],
+      "condition_ids": [
+        "amajirna",
+        "amlapitta"
+      ]
+    },
+    {
+      "keywords": [
+        "vomiting"
+      ],
+      "condition_ids": [
+        "chhardi_vomiting"
+      ]
+    },
+    {
+      "keywords": [
+        "diarrhea"
+      ],
+      "condition_ids": [
+        "atisara_diarrhea",
+        "grahani_ibs"
+      ]
+    },
+    {
+      "keywords": [
+        "bloating"
+      ],
+      "condition_ids": [
+        "amajirna",
+        "amlapitta",
+        "grahani_ibs"
+      ]
+    },
+    {
+      "keywords": [
+        "headache"
+      ],
+      "condition_ids": [
+        "migraine"
+      ]
+    },
+    {
+      "keywords": [
+        "vertigo"
+      ],
+      "condition_ids": [
+        "bhrama_vertigo"
+      ]
+    },
+    {
+      "keywords": [
+        "dizziness"
+      ],
+      "condition_ids": [
+        "bhrama_vertigo"
+      ]
+    },
+    {
+      "keywords": [
+        "fatigue"
+      ],
+      "condition_ids": [
+        "daurbalya_fatigue",
+        "pandu_ida"
+      ]
+    },
+    {
+      "keywords": [
+        "weakness"
+      ],
+      "condition_ids": [
+        "daurbalya_fatigue",
+        "pandu_ida"
+      ]
+    },
+    {
+      "keywords": [
+        "low back pain"
+      ],
+      "condition_ids": [
+        "katishoola_lbp"
+      ]
+    },
+    {
+      "keywords": [
+        "back pain"
+      ],
+      "condition_ids": [
+        "katishoola_lbp"
+      ]
+    },
+    {
+      "keywords": [
+        "neck pain"
+      ],
+      "condition_ids": [
+        "greevagraha"
+      ]
+    },
+    {
+      "keywords": [
+        "joint pain"
+      ],
+      "condition_ids": [
+        "sandhishoola_jointpain",
+        "amavata",
+        "sandhivata_oa"
+      ]
+    },
+    {
+      "keywords": [
+        "joint swelling"
+      ],
+      "condition_ids": [
+        "sandhishoola_jointpain",
+        "amavata",
+        "vatarakta"
+      ]
+    },
+    {
+      "keywords": [
+        "dysuria"
+      ],
+      "condition_ids": [
+        "mutrakrichra_dysuria"
+      ]
+    },
+    {
+      "keywords": [
+        "burning urination"
+      ],
+      "condition_ids": [
+        "mutrakrichra_dysuria"
+      ]
+    },
+    {
+      "keywords": [
+        "flank pain"
+      ],
+      "condition_ids": [
+        "mutrashmari"
+      ]
+    },
+    {
+      "keywords": [
+        "fever"
+      ],
+      "condition_ids": [
+        "jwara_fever"
+      ]
+    },
+    {
+      "keywords": [
+        "loss of appetite"
+      ],
+      "condition_ids": [
+        "aruchi_appetite"
+      ]
+    },
+    {
+      "keywords": [
+        "poor appetite"
+      ],
+      "condition_ids": [
+        "aruchi_appetite"
+      ]
+    },
+    {
+      "keywords": [
+        "sore throat"
+      ],
+      "condition_ids": [
+        "kantharoga_sorethroat"
+      ]
+    },
+    {
+      "keywords": [
+        "nasal obstruction"
+      ],
+      "condition_ids": [
+        "pratishyaya_nasal"
+      ]
+    },
+    {
+      "keywords": [
+        "rhinorrhea"
+      ],
+      "condition_ids": [
+        "pratishyaya_nasal"
+      ]
+    },
+    {
+      "keywords": [
+        "itching"
+      ],
+      "condition_ids": [
+        "kandu_pruritus",
+        "allergic_skin",
+        "vicharchika"
+      ]
+    },
+    {
+      "keywords": [
+        "pruritus"
+      ],
+      "condition_ids": [
+        "kandu_pruritus",
+        "allergic_skin",
+        "vicharchika"
+      ]
+    },
+    {
+      "keywords": [
+        "rash"
+      ],
+      "condition_ids": [
+        "allergic_skin",
+        "vicharchika"
+      ]
+    },
+    {
+      "keywords": [
+        "vaginal discharge"
+      ],
+      "condition_ids": [
+        "shwetapradara"
+      ]
+    },
+    {
+      "keywords": [
+        "abnormal uterine bleeding"
+      ],
+      "condition_ids": [
+        "raktapradara_aub"
+      ]
+    },
+    {
+      "keywords": [
+        "heavy menstrual bleeding"
+      ],
+      "condition_ids": [
+        "raktapradara_aub"
+      ]
+    },
+    {
+      "keywords": [
+        "painful periods"
+      ],
+      "condition_ids": [
+        "kashtartava"
+      ]
+    },
+    {
+      "keywords": [
+        "dysmenorrhea"
+      ],
+      "condition_ids": [
+        "kashtartava"
+      ]
+    },
+    {
+      "keywords": [
+        "edema"
+      ],
+      "condition_ids": [
+        "shotha_edema"
+      ]
+    },
+    {
+      "keywords": [
+        "swelling"
+      ],
+      "condition_ids": [
+        "shotha_edema"
+      ]
     }
   ],
-  "catalog_note": "MATLI v1.1 keeps the curated medicine monograph layer and adds a lightweight AFI formulary discovery index for fast search and official therapeutic-index discovery. Index-only records never auto-fill prescriptions; exact source verification remains mandatory."
+  "catalog_note": "MATLI v1.2 keeps curated monographs separate from AFI discovery, adds a broader complaint-to-Ayurveda research bridge, and keeps high-caution herbo-mineral discovery opt-in rather than automatic."
 }
