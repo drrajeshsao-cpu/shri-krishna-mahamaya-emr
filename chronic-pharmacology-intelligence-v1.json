@@ -1,13 +1,13 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4L",
-  "app_version": "5.40L",
-  "build": "2026.08.14-R25L",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40L Pediatrics • Child Health Pharmacology Lab",
+  "version": "2.4M",
+  "app_version": "5.40M",
+  "build": "2026.08.14-R25M",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40M ENT • Ophthalmology Lab",
   "counts": {
-    "labs": 18,
-    "classes": 526,
-    "drug_profiles": 1305
+    "labs": 19,
+    "classes": 561,
+    "drug_profiles": 1388
   },
   "global_boundary": "Research/learning pharmacology only. V5.40G adds a dedicated Antifungal • Antiviral • Antiparasitic Intelligence Lab while retaining all earlier specialized labs. Exact organism/species, disease site/severity, resistance/susceptibility, renal/hepatic function, pregnancy, age/weight, G6PD status, interactions and current guideline/regulatory label must be verified. HIV/HBV/HCV, invasive fungal disease, severe malaria and complex tissue parasitoses remain regimen- and specialist-controlled.",
   "labs": [
@@ -39640,6 +39640,2200 @@
           "id": "CDC_ANAPHYLAXIS",
           "label": "CDC — Preventing and managing adverse reactions: pediatric IM epinephrine dosing",
           "url": "https://www.cdc.gov/vaccines/hcp/imz-best-practices/preventing-managing-adverse-reactions.html"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "NIH DailyMed — current FDA-submitted product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "ent_ophthalmology",
+      "title": "ENT • Ophthalmology Intelligence Lab",
+      "icon": "👂👁️",
+      "badge": "ENT-EYE v1.0",
+      "eyebrow": "ENT • EYE • PRIMARY CARE • SPECIALIST-REFERRAL • PHARMACOLOGY WORKSPACE",
+      "subtitle": "Symptom/diagnosis → anatomic site → drug class → local/systemic route → mechanism → formulation → monitoring → referral/safety gate",
+      "scientific_boundary": "Research/learning CDS only. Ear and eye symptoms can represent time-sensitive disease. Sudden hearing loss, mastoid/neurologic signs, severe orbital symptoms, painful red eye, photophobia, reduced vision, corneal opacity/ulcer, chemical injury, acute angle closure, ocular trauma and contact-lens-associated keratitis require urgent specialist/emergency assessment. Topical ocular steroids, intraocular-pressure lowering emergencies, intravitreal therapy and systemic therapy for sudden sensorineural hearing loss are not routine self-directed prescribing. Exact product concentration, tympanic-membrane status, ocular diagnosis, contact-lens status, age, pregnancy, organ function, interactions and current label/guideline must be verified.",
+      "classification_notes": [
+        "ENT pharmacology is site-specific: external ear, middle ear, nose/sinus, pharynx/larynx and vestibular disorders should not be merged into one “ENT infection” pathway.",
+        "Acute otitis externa is primarily treated with topical therapy; non-ototoxic preparations are preferred when tympanic-membrane perforation or a tube is known/suspected.",
+        "Cerumen impaction treatment depends on symptoms, examination and modifying factors; cerumenolytics/irrigation/manual removal are options, not automatic prescriptions.",
+        "Acute sinusitis and sore throat are commonly viral; antimicrobial stewardship and diagnostic criteria should determine whether an antibiotic is indicated.",
+        "BPPV is fundamentally a repositioning-maneuver disorder. Vestibular suppressants may reduce short-term symptoms but should not replace canalith repositioning.",
+        "A sudden sensorineural hearing-loss presentation is an urgent time-sensitive ENT pathway, not a routine “ear-block” complaint.",
+        "Red eye must be triaged for pain, photophobia, visual loss, contact-lens use, corneal findings, trauma/chemical exposure and glaucoma before selecting drops.",
+        "Routine acute conjunctivitis is frequently viral or self-limited; topical antibiotics are not automatically indicated for every red eye.",
+        "Ocular corticosteroids can worsen infection and raise intraocular pressure; use requires a clear diagnosis and appropriate ophthalmic supervision.",
+        "Glaucoma treatment is IOP-target and disease-course based. Drug classes are learning options; patient-specific target pressure and ocular/systemic contraindications determine selection.",
+        "Intravitreal anti-VEGF therapy and acute angle-closure treatment are specialist/procedural pathways and are included for research understanding, not routine clinic drafting."
+      ],
+      "lens_groups": [
+        {
+          "group": "ENT — Ear / Vestibular",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All ENT + Eye"
+            },
+            {
+              "id": "cerumen",
+              "label": "Cerumen / Earwax"
+            },
+            {
+              "id": "otitis_externa",
+              "label": "Otitis Externa"
+            },
+            {
+              "id": "otitis_media",
+              "label": "Otitis Media"
+            },
+            {
+              "id": "vertigo",
+              "label": "Vertigo / BPPV"
+            },
+            {
+              "id": "meniere",
+              "label": "Ménière / Vestibular"
+            },
+            {
+              "id": "sudden_hearing_loss",
+              "label": "Sudden Hearing Loss"
+            }
+          ]
+        },
+        {
+          "group": "ENT — Nose / Throat",
+          "items": [
+            {
+              "id": "allergic_rhinitis",
+              "label": "Allergic Rhinitis"
+            },
+            {
+              "id": "sinusitis",
+              "label": "Rhinosinusitis"
+            },
+            {
+              "id": "decongestant",
+              "label": "Decongestants"
+            },
+            {
+              "id": "sore_throat",
+              "label": "Sore Throat / Pharyngitis"
+            },
+            {
+              "id": "epistaxis",
+              "label": "Epistaxis"
+            }
+          ]
+        },
+        {
+          "group": "Eye — Surface / Infection",
+          "items": [
+            {
+              "id": "dry_eye",
+              "label": "Dry Eye / Lubricants"
+            },
+            {
+              "id": "allergic_conj",
+              "label": "Allergic Conjunctivitis"
+            },
+            {
+              "id": "bacterial_conj",
+              "label": "Bacterial Conjunctivitis"
+            },
+            {
+              "id": "blepharitis",
+              "label": "Blepharitis"
+            },
+            {
+              "id": "ocular_inflammation",
+              "label": "Ocular Anti-inflammatory"
+            }
+          ]
+        },
+        {
+          "group": "Eye — Glaucoma / Specialist",
+          "items": [
+            {
+              "id": "glaucoma",
+              "label": "Glaucoma Classes"
+            },
+            {
+              "id": "angle_closure",
+              "label": "Acute Angle Closure"
+            },
+            {
+              "id": "diagnostic_eye",
+              "label": "Mydriatic / Cycloplegic"
+            },
+            {
+              "id": "retina",
+              "label": "Anti-VEGF / Retina"
+            },
+            {
+              "id": "ocular_antiviral",
+              "label": "Ocular Antiviral"
+            },
+            {
+              "id": "high_alert",
+              "label": "High-alert / Specialist"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "ent_cerumenolytics",
+          "name": "Cerumenolytics / earwax-softening agents",
+          "mechanism": "Hydrate, emulsify or chemically soften impacted cerumen",
+          "target": "External auditory canal cerumen",
+          "tags": [
+            "cerumen"
+          ],
+          "role_note": "Option for symptomatic/obstructive cerumen when no contraindication to drops/irrigation; exam and modifying factors matter.",
+          "drug_ids": [
+            "ent_carbamide_peroxide",
+            "ent_docusate_otic",
+            "ent_mineral_oil"
+          ]
+        },
+        {
+          "id": "ent_aoe_quinolone",
+          "name": "Topical fluoroquinolones for acute otitis externa",
+          "mechanism": "Inhibit bacterial DNA gyrase/topoisomerase; high local concentration in ear canal",
+          "target": "Bacterial DNA replication",
+          "tags": [
+            "otitis_externa"
+          ],
+          "role_note": "Common topical antibacterial class for diffuse AOE; useful when non-ototoxic topical therapy is desired.",
+          "drug_ids": [
+            "ent_ofloxacin_otic",
+            "ent_ciprofloxacin_otic"
+          ]
+        },
+        {
+          "id": "ent_aoe_nonquinolone",
+          "name": "Non-quinolone topical antibiotic / antibiotic-steroid ear drops",
+          "mechanism": "Local antibacterial activity ± glucocorticoid anti-inflammatory effect",
+          "target": "External auditory canal organisms/inflammation",
+          "tags": [
+            "otitis_externa",
+            "high_alert"
+          ],
+          "role_note": "Alternative AOE preparations when tympanic membrane is intact and product-specific risks are acceptable.",
+          "drug_ids": [
+            "ent_neomycin_poly_hc",
+            "ent_gentamicin_otic"
+          ]
+        },
+        {
+          "id": "ent_aoe_acidifying",
+          "name": "Acidifying / antiseptic otic agents",
+          "mechanism": "Lower ear-canal pH and create an environment less favorable to bacterial/fungal growth",
+          "target": "External auditory canal pH",
+          "tags": [
+            "otitis_externa"
+          ],
+          "role_note": "Selected mild AOE/prevention contexts; not for severe disease or uncertain TM status.",
+          "drug_ids": [
+            "ent_acetic_acid_otic"
+          ]
+        },
+        {
+          "id": "ent_aom_beta_lactam",
+          "name": "Acute otitis media — systemic β-lactam class",
+          "mechanism": "Inhibit bacterial cell-wall synthesis",
+          "target": "Penicillin-binding proteins",
+          "tags": [
+            "otitis_media"
+          ],
+          "role_note": "Antibiotic class only when AOM diagnostic/severity criteria support antimicrobial therapy; observation is appropriate in selected patients.",
+          "drug_ids": [
+            "ent_aom_amoxicillin",
+            "ent_aom_amoxclav",
+            "ent_aom_ceph"
+          ]
+        },
+        {
+          "id": "ent_intranasal_steroids",
+          "name": "Intranasal corticosteroids",
+          "mechanism": "Local glucocorticoid receptor activation reduces nasal mucosal inflammation",
+          "target": "Nasal glucocorticoid receptors",
+          "tags": [
+            "allergic_rhinitis",
+            "sinusitis"
+          ],
+          "role_note": "Core anti-inflammatory therapy for allergic rhinitis; also used in selected chronic/rhinosinusitis contexts.",
+          "drug_ids": [
+            "ent_fluticasone_nasal",
+            "ent_mometasone_nasal",
+            "ent_budesonide_nasal"
+          ]
+        },
+        {
+          "id": "ent_intranasal_antihistamine",
+          "name": "Intranasal H1 antihistamines",
+          "mechanism": "Local H1 receptor blockade reduces histamine-mediated nasal symptoms",
+          "target": "Nasal H1 receptors",
+          "tags": [
+            "allergic_rhinitis"
+          ],
+          "role_note": "Rapid-onset rhinitis therapy; can combine with intranasal steroid in selected moderate-severe disease.",
+          "drug_ids": [
+            "ent_azelastine_nasal",
+            "ent_olopatadine_nasal"
+          ]
+        },
+        {
+          "id": "ent_oral_h1",
+          "name": "Second-generation oral H1 antihistamines",
+          "mechanism": "Peripheral H1 receptor antagonism",
+          "target": "H1 histamine receptor",
+          "tags": [
+            "allergic_rhinitis"
+          ],
+          "role_note": "Useful particularly for sneezing/itch/rhinorrhea; generally less effective for congestion than intranasal steroids.",
+          "drug_ids": [
+            "ent_cetirizine",
+            "ent_fexofenadine",
+            "ent_loratadine"
+          ]
+        },
+        {
+          "id": "ent_saline",
+          "name": "Saline nasal therapy",
+          "mechanism": "Mechanical hydration, mucus thinning and allergen/debris clearance",
+          "target": "Nasal mucosal surface",
+          "tags": [
+            "allergic_rhinitis",
+            "sinusitis"
+          ],
+          "role_note": "Low-risk adjunct for rhinitis and rhinosinusitis; irrigation water safety matters.",
+          "drug_ids": [
+            "ent_saline_spray",
+            "ent_saline_irrigation"
+          ]
+        },
+        {
+          "id": "ent_topical_decongestants",
+          "name": "Topical nasal α-adrenergic decongestants",
+          "mechanism": "Vasoconstrict nasal capacitance vessels to reduce edema",
+          "target": "Nasal α-adrenergic receptors",
+          "tags": [
+            "decongestant",
+            "sinusitis",
+            "epistaxis"
+          ],
+          "role_note": "Short-term congestion relief; prolonged use risks rhinitis medicamentosa.",
+          "drug_ids": [
+            "ent_oxymetazoline",
+            "ent_xylometazoline"
+          ]
+        },
+        {
+          "id": "ent_oral_decongestants",
+          "name": "Systemic sympathomimetic decongestants",
+          "mechanism": "Adrenergic vasoconstriction reduces nasal mucosal edema",
+          "target": "α-adrenergic receptors",
+          "tags": [
+            "decongestant",
+            "high_alert"
+          ],
+          "role_note": "Selected short-term use; less favored when cardiovascular or urinary risks are present.",
+          "drug_ids": [
+            "ent_pseudoephedrine"
+          ]
+        },
+        {
+          "id": "ent_sinusitis_antibiotics",
+          "name": "Acute bacterial rhinosinusitis — systemic antibiotic options",
+          "mechanism": "Pathogen-directed systemic antibacterial therapy",
+          "target": "Respiratory bacterial targets",
+          "tags": [
+            "sinusitis"
+          ],
+          "role_note": "Only for presentations meeting bacterial rhinosinusitis criteria/severity; many acute sinusitis cases do not need antibiotics.",
+          "drug_ids": [
+            "ent_sinus_amoxclav",
+            "ent_sinus_doxy"
+          ]
+        },
+        {
+          "id": "ent_sore_throat_analgesia",
+          "name": "Acute sore-throat symptomatic analgesia",
+          "mechanism": "Analgesic/anti-inflammatory modulation reduces throat pain and fever",
+          "target": "Central prostaglandin pathway / COX",
+          "tags": [
+            "sore_throat"
+          ],
+          "role_note": "Symptom relief while applying clinical scoring/red-flag assessment and antimicrobial stewardship.",
+          "drug_ids": [
+            "ent_pharyngitis_paracetamol",
+            "ent_pharyngitis_ibuprofen"
+          ]
+        },
+        {
+          "id": "ent_strep_penicillin",
+          "name": "Streptococcal pharyngitis — narrow-spectrum penicillins",
+          "mechanism": "β-lactam inhibition of bacterial cell-wall synthesis",
+          "target": "Penicillin-binding proteins",
+          "tags": [
+            "sore_throat"
+          ],
+          "role_note": "Use only when clinical/testing strategy supports streptococcal infection; narrow-spectrum therapy is preferred when appropriate.",
+          "drug_ids": [
+            "ent_penicillin_v",
+            "ent_strep_amoxicillin"
+          ]
+        },
+        {
+          "id": "ent_vestibular_suppressants",
+          "name": "Vestibular suppressants / antiemetics",
+          "mechanism": "Central H1/antimuscarinic or dopamine-antagonist effects reduce vestibular nausea/vertigo symptoms",
+          "target": "Vestibular nuclei / H1 / muscarinic / dopamine pathways",
+          "tags": [
+            "vertigo",
+            "meniere"
+          ],
+          "role_note": "Short-term symptom control only; BPPV treatment should prioritize canalith repositioning rather than routine suppressants.",
+          "drug_ids": [
+            "ent_meclizine",
+            "ent_dimenhydrinate",
+            "ent_prochlorperazine"
+          ]
+        },
+        {
+          "id": "ent_meniere_agents",
+          "name": "Ménière disease symptom-modifying agents",
+          "mechanism": "Varied proposed effects on inner-ear fluid dynamics/microcirculation",
+          "target": "Inner-ear fluid/vascular physiology",
+          "tags": [
+            "meniere",
+            "high_alert"
+          ],
+          "role_note": "Specialist-context pharmacology; evidence and availability vary by region.",
+          "drug_ids": [
+            "ent_betahistine",
+            "ent_meniere_diuretic"
+          ]
+        },
+        {
+          "id": "ent_epistaxis_topical",
+          "name": "Topical vasoconstrictor / hemostatic adjuncts for epistaxis",
+          "mechanism": "Local vasoconstriction or antifibrinolysis supports hemostasis",
+          "target": "Nasal mucosal vessels / fibrinolysis",
+          "tags": [
+            "epistaxis",
+            "high_alert"
+          ],
+          "role_note": "Adjunct to compression and definitive local management; recurrent/severe bleeding needs cause assessment.",
+          "drug_ids": [
+            "ent_epistaxis_oxymetazoline",
+            "ent_topical_txa"
+          ]
+        },
+        {
+          "id": "ent_ssnhl_steroids",
+          "name": "Sudden sensorineural hearing loss — corticosteroid pathway",
+          "mechanism": "Glucocorticoid anti-inflammatory/immunomodulatory effects",
+          "target": "Cochlear/immune-inflammatory pathways",
+          "tags": [
+            "sudden_hearing_loss",
+            "high_alert"
+          ],
+          "role_note": "Urgent ENT pathway; systemic or intratympanic corticosteroids are time-sensitive specialist decisions.",
+          "drug_ids": [
+            "ent_ssnhl_prednisone",
+            "ent_ssnhl_dexamethasone_it"
+          ]
+        },
+        {
+          "id": "eye_lubricants",
+          "name": "Ocular lubricants / artificial tears",
+          "mechanism": "Replace or stabilize tear film and reduce ocular surface friction",
+          "target": "Tear film / ocular surface",
+          "tags": [
+            "dry_eye"
+          ],
+          "role_note": "Foundational symptomatic dry-eye therapy; preservative burden matters with frequent use.",
+          "drug_ids": [
+            "eye_cmc",
+            "eye_hypromellose",
+            "eye_hyaluronate"
+          ]
+        },
+        {
+          "id": "eye_dry_immunomod",
+          "name": "Dry-eye immunomodulatory agents",
+          "mechanism": "Reduce ocular-surface T-cell/inflammatory signaling or neuro-inflammatory pathways",
+          "target": "Ocular surface immune pathways",
+          "tags": [
+            "dry_eye",
+            "high_alert"
+          ],
+          "role_note": "Prescription therapy for selected chronic inflammatory dry eye after diagnosis and staged management.",
+          "drug_ids": [
+            "eye_cyclosporine",
+            "eye_lifitegrast",
+            "eye_varenicline_nasal"
+          ]
+        },
+        {
+          "id": "eye_allergy_dual",
+          "name": "Topical dual-action antihistamine / mast-cell stabilizers",
+          "mechanism": "H1 antagonism plus mast-cell stabilization reduces itch and allergic inflammation",
+          "target": "Ocular H1 receptors / mast cells",
+          "tags": [
+            "allergic_conj"
+          ],
+          "role_note": "Common first-line pharmacologic class for allergic conjunctivitis after allergen avoidance/cool compresses.",
+          "drug_ids": [
+            "eye_olopatadine",
+            "eye_ketotifen",
+            "eye_bepotastine"
+          ]
+        },
+        {
+          "id": "eye_mast_cell",
+          "name": "Ocular mast-cell stabilizers",
+          "mechanism": "Stabilize mast cells and reduce mediator release",
+          "target": "Conjunctival mast cells",
+          "tags": [
+            "allergic_conj"
+          ],
+          "role_note": "Preventive/maintenance option; slower onset than dual-action agents.",
+          "drug_ids": [
+            "eye_cromolyn",
+            "eye_lodoxamide"
+          ]
+        },
+        {
+          "id": "eye_conj_antibiotic",
+          "name": "Topical antibiotics for bacterial conjunctivitis",
+          "mechanism": "Local antibacterial inhibition of bacterial growth/replication",
+          "target": "Conjunctival bacterial pathogens",
+          "tags": [
+            "bacterial_conj"
+          ],
+          "role_note": "For suspected bacterial conjunctivitis when treatment is indicated; many red eyes are viral/allergic and do not benefit.",
+          "drug_ids": [
+            "eye_moxifloxacin",
+            "eye_ofloxacin",
+            "eye_tobramycin",
+            "eye_chloramphenicol",
+            "eye_polytrim"
+          ]
+        },
+        {
+          "id": "eye_blepharitis_antimicrob",
+          "name": "Blepharitis topical antimicrobials",
+          "mechanism": "Reduce lid-margin bacterial load and inflammation",
+          "target": "Eyelid margin microbiota/meibomian environment",
+          "tags": [
+            "blepharitis"
+          ],
+          "role_note": "Adjunct to lid hygiene/warm compresses in selected anterior/posterior blepharitis.",
+          "drug_ids": [
+            "eye_erythro_ointment",
+            "eye_azithro_topical"
+          ]
+        },
+        {
+          "id": "eye_steroids",
+          "name": "Topical ophthalmic corticosteroids",
+          "mechanism": "Glucocorticoid receptor activation suppresses ocular inflammation",
+          "target": "Ocular glucocorticoid receptors",
+          "tags": [
+            "ocular_inflammation",
+            "high_alert"
+          ],
+          "role_note": "Specialist-directed anti-inflammatory therapy only after excluding infection and clarifying diagnosis.",
+          "drug_ids": [
+            "eye_pred_acetate",
+            "eye_loteprednol"
+          ]
+        },
+        {
+          "id": "eye_glaucoma_pga",
+          "name": "Prostaglandin analogues / prostamides",
+          "mechanism": "Increase uveoscleral aqueous outflow",
+          "target": "FP receptor / uveoscleral outflow",
+          "tags": [
+            "glaucoma"
+          ],
+          "role_note": "Common first-line IOP-lowering class for open-angle glaucoma/ocular hypertension.",
+          "drug_ids": [
+            "eye_latanoprost",
+            "eye_travoprost",
+            "eye_bimatoprost"
+          ]
+        },
+        {
+          "id": "eye_glaucoma_beta",
+          "name": "Ophthalmic β-blockers",
+          "mechanism": "Reduce aqueous humor production via β-adrenergic blockade",
+          "target": "Ciliary body β receptors",
+          "tags": [
+            "glaucoma",
+            "high_alert"
+          ],
+          "role_note": "Effective IOP-lowering class but systemic cardiopulmonary contraindications matter.",
+          "drug_ids": [
+            "eye_timolol",
+            "eye_betaxolol"
+          ]
+        },
+        {
+          "id": "eye_glaucoma_alpha2",
+          "name": "Ophthalmic α2-adrenergic agonists",
+          "mechanism": "Reduce aqueous production and increase uveoscleral outflow",
+          "target": "α2 adrenergic receptors",
+          "tags": [
+            "glaucoma"
+          ],
+          "role_note": "Adjunct/alternative IOP-lowering class.",
+          "drug_ids": [
+            "eye_brimonidine",
+            "eye_apraclonidine"
+          ]
+        },
+        {
+          "id": "eye_glaucoma_cai",
+          "name": "Carbonic anhydrase inhibitors (ocular/systemic)",
+          "mechanism": "Reduce bicarbonate-dependent aqueous humor secretion",
+          "target": "Carbonic anhydrase in ciliary processes",
+          "tags": [
+            "glaucoma",
+            "angle_closure",
+            "high_alert"
+          ],
+          "role_note": "Topical chronic IOP lowering; systemic acetazolamide is also used in acute/high-IOP specialist contexts.",
+          "drug_ids": [
+            "eye_dorzolamide",
+            "eye_brinzolamide",
+            "eye_acetazolamide"
+          ]
+        },
+        {
+          "id": "eye_glaucoma_rho",
+          "name": "Rho-kinase inhibitor",
+          "mechanism": "Increases trabecular outflow and may reduce episcleral venous pressure",
+          "target": "Rho kinase / trabecular meshwork",
+          "tags": [
+            "glaucoma"
+          ],
+          "role_note": "Newer topical IOP-lowering class, often adjunctive.",
+          "drug_ids": [
+            "eye_netarsudil"
+          ]
+        },
+        {
+          "id": "eye_glaucoma_miotic",
+          "name": "Cholinergic miotics",
+          "mechanism": "Muscarinic activation contracts ciliary muscle and increases trabecular outflow",
+          "target": "Muscarinic receptors / trabecular meshwork",
+          "tags": [
+            "glaucoma",
+            "angle_closure",
+            "high_alert"
+          ],
+          "role_note": "Selected glaucoma/angle-closure use; less common for chronic POAG because of side effects.",
+          "drug_ids": [
+            "eye_pilocarpine"
+          ]
+        },
+        {
+          "id": "eye_angle_osmotic",
+          "name": "Hyperosmotic agents for acute severe IOP elevation",
+          "mechanism": "Increase plasma osmolality to draw water from vitreous and lower IOP",
+          "target": "Systemic osmotic gradient",
+          "tags": [
+            "angle_closure",
+            "high_alert"
+          ],
+          "role_note": "Emergency ophthalmology pathway when indicated; systemic volume/renal/cardiac status matters.",
+          "drug_ids": [
+            "eye_mannitol",
+            "eye_oral_glycerol"
+          ]
+        },
+        {
+          "id": "eye_diagnostic_mydriatics",
+          "name": "Mydriatics / cycloplegics",
+          "mechanism": "Block muscarinic receptors or stimulate α1 receptors to dilate pupil and/or paralyze accommodation",
+          "target": "Iris sphincter/ciliary muscle / α1 receptors",
+          "tags": [
+            "diagnostic_eye",
+            "high_alert"
+          ],
+          "role_note": "Diagnostic/procedural ophthalmic class; angle-closure risk and age-specific use matter.",
+          "drug_ids": [
+            "eye_tropicamide",
+            "eye_cyclopentolate",
+            "eye_phenylephrine"
+          ]
+        },
+        {
+          "id": "eye_retina_anti_vegf",
+          "name": "Intravitreal anti-VEGF agents",
+          "mechanism": "Neutralize VEGF signaling to reduce vascular permeability/neovascularization",
+          "target": "VEGF/VEGF receptor pathway",
+          "tags": [
+            "retina",
+            "high_alert"
+          ],
+          "role_note": "Retina-specialist intravitreal therapy for neovascular AMD, diabetic macular edema and other retinal vascular indications.",
+          "drug_ids": [
+            "eye_aflibercept",
+            "eye_ranibizumab",
+            "eye_bevacizumab",
+            "eye_faricimab"
+          ]
+        },
+        {
+          "id": "eye_ocular_antivirals",
+          "name": "Ocular antiviral therapy",
+          "mechanism": "Inhibit herpesvirus DNA replication",
+          "target": "Viral DNA polymerase / thymidine-kinase dependent activation",
+          "tags": [
+            "ocular_antiviral",
+            "high_alert"
+          ],
+          "role_note": "Herpetic ocular disease requires diagnosis because epithelial keratitis, stromal disease and uveitis use different antiviral/steroid strategies.",
+          "drug_ids": [
+            "eye_ganciclovir_gel",
+            "eye_acyclovir",
+            "eye_valacyclovir"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "ent_carbamide_peroxide",
+          "generic": "Carbamide peroxide",
+          "class_id": "ent_cerumenolytics",
+          "form": "Otic solution",
+          "route": "Otic",
+          "dose_example": "Typical OTC learning snapshot: product-specific drops for short courses; verify label and intact tympanic membrane.",
+          "tags": [
+            "cerumen"
+          ],
+          "role": "Softens cerumen before spontaneous clearance/irrigation.",
+          "monitoring_pearl": "Do not use blindly with ear pain, drainage, tubes, perforation or recent ear surgery.",
+          "source_refs": [
+            "AAOHNS_CERUMEN",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_docusate_otic",
+          "generic": "Docusate sodium — cerumenolytic use",
+          "class_id": "ent_cerumenolytics",
+          "form": "Liquid/solution",
+          "route": "Otic",
+          "dose_example": "Off-label cerumen-softening use; exact concentration/contact time varies by protocol.",
+          "tags": [
+            "cerumen"
+          ],
+          "role": "Cerumen softening in selected settings.",
+          "monitoring_pearl": "Verify protocol and tympanic-membrane status; not a routine chronic ear drop.",
+          "source_refs": [
+            "AAOHNS_CERUMEN"
+          ]
+        },
+        {
+          "id": "ent_mineral_oil",
+          "generic": "Mineral oil / liquid paraffin",
+          "class_id": "ent_cerumenolytics",
+          "form": "Drops",
+          "route": "Otic",
+          "dose_example": "A few drops may be used as a softening agent in selected patients; verify local guidance.",
+          "tags": [
+            "cerumen"
+          ],
+          "role": "Lubricates/softens dry cerumen.",
+          "monitoring_pearl": "Avoid if perforation/tube/infection is suspected unless clinician has confirmed suitability.",
+          "source_refs": [
+            "AAOHNS_CERUMEN"
+          ]
+        },
+        {
+          "id": "ent_ofloxacin_otic",
+          "generic": "Ofloxacin otic",
+          "class_id": "ent_aoe_quinolone",
+          "form": "Otic solution",
+          "route": "Otic",
+          "dose_example": "Product/age/indication-specific drops, commonly once or twice daily for about 7 days; verify label.",
+          "tags": [
+            "otitis_externa"
+          ],
+          "role": "Topical antibacterial for AOE and selected middle-ear indications with tube/perforation depending on label.",
+          "monitoring_pearl": "Confirm diagnosis and tympanic-membrane status; reassess severe pain, diabetes/immunocompromise or nonresponse.",
+          "source_refs": [
+            "AAOHNS_AOE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_ciprofloxacin_otic",
+          "generic": "Ciprofloxacin otic ± corticosteroid combination",
+          "class_id": "ent_aoe_quinolone",
+          "form": "Otic solution/suspension",
+          "route": "Otic",
+          "dose_example": "Product-specific drops, commonly twice daily for ~7 days; verify exact combination/label.",
+          "tags": [
+            "otitis_externa"
+          ],
+          "role": "Topical antibacterial ± anti-inflammatory treatment for AOE.",
+          "monitoring_pearl": "Do not substitute eye/ear formulations without checking product. Consider malignant OE red flags.",
+          "source_refs": [
+            "AAOHNS_AOE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_neomycin_poly_hc",
+          "generic": "Neomycin + polymyxin B + hydrocortisone otic",
+          "class_id": "ent_aoe_nonquinolone",
+          "form": "Otic drops",
+          "route": "Otic",
+          "dose_example": "Product-specific drops usually several times daily for a short course; verify label.",
+          "tags": [
+            "otitis_externa",
+            "high_alert"
+          ],
+          "role": "Topical antibacterial + anti-inflammatory therapy.",
+          "monitoring_pearl": "Avoid when TM perforation/tube is suspected unless product is explicitly safe; neomycin can cause contact sensitization and aminoglycosides raise ototoxicity concern.",
+          "source_refs": [
+            "AAOHNS_AOE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_gentamicin_otic",
+          "generic": "Gentamicin-containing otic preparation",
+          "class_id": "ent_aoe_nonquinolone",
+          "form": "Otic drops",
+          "route": "Otic",
+          "dose_example": "Product-specific; verify exact formulation and indication.",
+          "tags": [
+            "otitis_externa",
+            "high_alert"
+          ],
+          "role": "Topical aminoglycoside antibacterial.",
+          "monitoring_pearl": "Ototoxicity risk matters with non-intact TM; use only with clear indication and product guidance.",
+          "source_refs": [
+            "AAOHNS_AOE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_acetic_acid_otic",
+          "generic": "Acetic acid otic",
+          "class_id": "ent_aoe_acidifying",
+          "form": "Otic solution",
+          "route": "Otic",
+          "dose_example": "Product-specific drops several times daily; verify label and TM status.",
+          "tags": [
+            "otitis_externa"
+          ],
+          "role": "Acidifying topical therapy.",
+          "monitoring_pearl": "Can sting; avoid inappropriate use with perforation, severe canal inflammation or uncertain diagnosis.",
+          "source_refs": [
+            "AAOHNS_AOE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_aom_amoxicillin",
+          "generic": "Amoxicillin",
+          "class_id": "ent_aom_beta_lactam",
+          "form": "Tablet/capsule/suspension",
+          "route": "PO",
+          "dose_example": "Age/weight-specific regimen; adult learning regimens vary by guideline. Verify current AOM guidance and allergy history.",
+          "tags": [
+            "otitis_media"
+          ],
+          "role": "Common first-line systemic antibiotic when AOM requires treatment.",
+          "monitoring_pearl": "Stewardship, penicillin allergy, recent amoxicillin and local resistance matter.",
+          "source_refs": [
+            "NICE_AOM",
+            "ICMR_ENT_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_aom_amoxclav",
+          "generic": "Amoxicillin–clavulanate",
+          "class_id": "ent_aom_beta_lactam",
+          "form": "Tablet/suspension",
+          "route": "PO",
+          "dose_example": "Age/weight/product-specific regimen; verify guideline indication for β-lactamase coverage.",
+          "tags": [
+            "otitis_media"
+          ],
+          "role": "Broader β-lactam option in selected AOM contexts.",
+          "monitoring_pearl": "GI adverse effects and unnecessary broad-spectrum use should be minimized.",
+          "source_refs": [
+            "NICE_AOM",
+            "ICMR_ENT_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_aom_ceph",
+          "generic": "Oral cephalosporin option (e.g., cefuroxime/cefdinir where guideline-appropriate)",
+          "class_id": "ent_aom_beta_lactam",
+          "form": "Tablet/suspension",
+          "route": "PO",
+          "dose_example": "Agent-specific age/weight dosing; verify allergy phenotype and local guideline.",
+          "tags": [
+            "otitis_media"
+          ],
+          "role": "Alternative in selected allergy/treatment-failure situations.",
+          "monitoring_pearl": "Cross-reactivity and stewardship depend on allergy history and cephalosporin generation.",
+          "source_refs": [
+            "NICE_AOM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_fluticasone_nasal",
+          "generic": "Fluticasone nasal spray",
+          "class_id": "ent_intranasal_steroids",
+          "form": "Metered nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Usually 1–2 sprays/nostril daily depending product/age; verify label and step-down when controlled.",
+          "tags": [
+            "allergic_rhinitis",
+            "sinusitis"
+          ],
+          "role": "Controller for nasal obstruction, sneezing, itch and rhinorrhea.",
+          "monitoring_pearl": "Correct spray direction away from septum; monitor epistaxis/irritation.",
+          "source_refs": [
+            "AAOHNS_AR",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_mometasone_nasal",
+          "generic": "Mometasone nasal spray",
+          "class_id": "ent_intranasal_steroids",
+          "form": "Metered nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Usually once daily; exact sprays depend age/indication.",
+          "tags": [
+            "allergic_rhinitis",
+            "sinusitis"
+          ],
+          "role": "Intranasal anti-inflammatory controller.",
+          "monitoring_pearl": "Technique and adherence often matter more than switching molecules.",
+          "source_refs": [
+            "AAOHNS_AR",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_budesonide_nasal",
+          "generic": "Budesonide nasal spray",
+          "class_id": "ent_intranasal_steroids",
+          "form": "Metered nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Usually once daily; product/age specific.",
+          "tags": [
+            "allergic_rhinitis",
+            "sinusitis"
+          ],
+          "role": "Intranasal corticosteroid option.",
+          "monitoring_pearl": "Monitor local irritation/epistaxis and use lowest effective maintenance exposure.",
+          "source_refs": [
+            "AAOHNS_AR",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_azelastine_nasal",
+          "generic": "Azelastine nasal spray",
+          "class_id": "ent_intranasal_antihistamine",
+          "form": "Metered nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Usually 1–2 sprays/nostril once or twice daily depending product/age.",
+          "tags": [
+            "allergic_rhinitis"
+          ],
+          "role": "Rapid treatment of allergic rhinitis symptoms.",
+          "monitoring_pearl": "Bitter taste and somnolence can occur; teach technique.",
+          "source_refs": [
+            "AAOHNS_AR",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_olopatadine_nasal",
+          "generic": "Olopatadine nasal spray",
+          "class_id": "ent_intranasal_antihistamine",
+          "form": "Metered nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Product-specific once/twice daily use; verify label.",
+          "tags": [
+            "allergic_rhinitis"
+          ],
+          "role": "Topical nasal antihistamine.",
+          "monitoring_pearl": "Check sedation and local irritation.",
+          "source_refs": [
+            "AAOHNS_AR",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_cetirizine",
+          "generic": "Cetirizine",
+          "class_id": "ent_oral_h1",
+          "form": "Tablet/oral solution",
+          "route": "PO",
+          "dose_example": "Common adult learning dose 10 mg once daily; age/renal adjustment varies.",
+          "tags": [
+            "allergic_rhinitis"
+          ],
+          "role": "Oral antihistamine for allergic symptoms.",
+          "monitoring_pearl": "Can still cause sedation in some patients; adjust in renal impairment.",
+          "source_refs": [
+            "AAOHNS_AR",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_fexofenadine",
+          "generic": "Fexofenadine",
+          "class_id": "ent_oral_h1",
+          "form": "Tablet/oral suspension",
+          "route": "PO",
+          "dose_example": "Common adult regimens 120–180 mg/day depending indication/product; verify label.",
+          "tags": [
+            "allergic_rhinitis"
+          ],
+          "role": "Low-sedating oral antihistamine.",
+          "monitoring_pearl": "Fruit juices/antacids can alter absorption; verify interactions.",
+          "source_refs": [
+            "AAOHNS_AR",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_loratadine",
+          "generic": "Loratadine",
+          "class_id": "ent_oral_h1",
+          "form": "Tablet/syrup",
+          "route": "PO",
+          "dose_example": "Common adult learning dose 10 mg once daily.",
+          "tags": [
+            "allergic_rhinitis"
+          ],
+          "role": "Low-sedating oral H1 blocker.",
+          "monitoring_pearl": "Check hepatic/renal labeling and combination cold-product duplication.",
+          "source_refs": [
+            "AAOHNS_AR",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_saline_spray",
+          "generic": "Isotonic saline nasal spray",
+          "class_id": "ent_saline",
+          "form": "Spray",
+          "route": "Intranasal",
+          "dose_example": "Use as needed according to product and symptoms.",
+          "tags": [
+            "allergic_rhinitis",
+            "sinusitis"
+          ],
+          "role": "Hydrates mucosa and clears secretions.",
+          "monitoring_pearl": "For irrigation, use sterile/distilled or appropriately boiled/cooled water and clean device.",
+          "source_refs": [
+            "AAOHNS_AR",
+            "NICE_SINUSITIS"
+          ]
+        },
+        {
+          "id": "ent_saline_irrigation",
+          "generic": "Saline nasal irrigation",
+          "class_id": "ent_saline",
+          "form": "Irrigation solution/device",
+          "route": "Intranasal",
+          "dose_example": "Once or more daily in selected chronic/rhinosinusitis contexts; prepare safely.",
+          "tags": [
+            "allergic_rhinitis",
+            "sinusitis"
+          ],
+          "role": "Mechanical lavage of mucus/allergen burden.",
+          "monitoring_pearl": "Water/device hygiene is a safety requirement.",
+          "source_refs": [
+            "AAOHNS_AR",
+            "NICE_SINUSITIS"
+          ]
+        },
+        {
+          "id": "ent_oxymetazoline",
+          "generic": "Oxymetazoline nasal",
+          "class_id": "ent_topical_decongestants",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Usually 1–2 sprays/nostril every 10–12 h for no more than a few days unless clinician-directed.",
+          "tags": [
+            "decongestant",
+            "sinusitis",
+            "epistaxis"
+          ],
+          "role": "Short-term nasal decongestion; also topical vasoconstrictor adjunct in epistaxis protocols.",
+          "monitoring_pearl": "Avoid prolonged/repetitive use; review hypertension/CAD and rebound-congestion risk.",
+          "source_refs": [
+            "NICE_SINUSITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_xylometazoline",
+          "generic": "Xylometazoline nasal",
+          "class_id": "ent_topical_decongestants",
+          "form": "Nasal drops/spray",
+          "route": "Intranasal",
+          "dose_example": "Product-specific short-course use, commonly up to 2–3 times/day.",
+          "tags": [
+            "decongestant",
+            "sinusitis"
+          ],
+          "role": "Short-term topical decongestant.",
+          "monitoring_pearl": "Limit duration to reduce rebound congestion; check age/product restrictions.",
+          "source_refs": [
+            "NICE_SINUSITIS"
+          ]
+        },
+        {
+          "id": "ent_pseudoephedrine",
+          "generic": "Pseudoephedrine",
+          "class_id": "ent_oral_decongestants",
+          "form": "Tablet/capsule",
+          "route": "PO",
+          "dose_example": "Product-specific immediate/extended-release dosing; verify local availability/label.",
+          "tags": [
+            "decongestant",
+            "high_alert"
+          ],
+          "role": "Systemic decongestant.",
+          "monitoring_pearl": "Can raise BP/HR, worsen insomnia, urinary retention and glaucoma risk; avoid casual combination-product use.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_sinus_amoxclav",
+          "generic": "Amoxicillin–clavulanate",
+          "class_id": "ent_sinusitis_antibiotics",
+          "form": "Tablet/suspension",
+          "route": "PO",
+          "dose_example": "Guideline/product-specific course and dose; verify local resistance, allergy and severity.",
+          "tags": [
+            "sinusitis"
+          ],
+          "role": "Common empiric option when bacterial sinusitis warrants antibiotics.",
+          "monitoring_pearl": "Avoid reflex antibiotics for early viral symptoms; reassess complications/orbital signs.",
+          "source_refs": [
+            "NICE_SINUSITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_sinus_doxy",
+          "generic": "Doxycycline",
+          "class_id": "ent_sinusitis_antibiotics",
+          "form": "Tablet/capsule",
+          "route": "PO",
+          "dose_example": "Adult guideline alternative in selected penicillin-allergy contexts; exact course varies.",
+          "tags": [
+            "sinusitis"
+          ],
+          "role": "Alternative adult antibacterial option in selected patients.",
+          "monitoring_pearl": "Pregnancy/age restrictions, photosensitivity, esophagitis and interactions require review.",
+          "source_refs": [
+            "NICE_SINUSITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_pharyngitis_paracetamol",
+          "generic": "Paracetamol / Acetaminophen",
+          "class_id": "ent_sore_throat_analgesia",
+          "form": "Tablet/liquid",
+          "route": "PO",
+          "dose_example": "Adult learning dose commonly 500–1000 mg every 4–6 h as needed within maximum label limit.",
+          "tags": [
+            "sore_throat"
+          ],
+          "role": "Pain/fever relief.",
+          "monitoring_pearl": "Check liver disease, alcohol use and duplicate combination products.",
+          "source_refs": [
+            "NICE_SORE_THROAT",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_pharyngitis_ibuprofen",
+          "generic": "Ibuprofen",
+          "class_id": "ent_sore_throat_analgesia",
+          "form": "Tablet/liquid",
+          "route": "PO",
+          "dose_example": "Adult learning dose commonly 200–400 mg every 6–8 h as needed; use lowest effective dose/shortest duration.",
+          "tags": [
+            "sore_throat"
+          ],
+          "role": "Analgesic/anti-inflammatory symptom relief.",
+          "monitoring_pearl": "Review GI, renal, cardiovascular, pregnancy and NSAID-asthma risks.",
+          "source_refs": [
+            "NICE_SORE_THROAT",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_penicillin_v",
+          "generic": "Phenoxymethylpenicillin / Penicillin V",
+          "class_id": "ent_strep_penicillin",
+          "form": "Tablet/oral liquid",
+          "route": "PO",
+          "dose_example": "Guideline-specific course; verify local adult/child regimen and allergy.",
+          "tags": [
+            "sore_throat"
+          ],
+          "role": "Narrow-spectrum option for confirmed/likely streptococcal pharyngitis.",
+          "monitoring_pearl": "Check allergy and adherence; avoid antibiotics for most viral sore throats.",
+          "source_refs": [
+            "NICE_SORE_THROAT",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_strep_amoxicillin",
+          "generic": "Amoxicillin",
+          "class_id": "ent_strep_penicillin",
+          "form": "Tablet/suspension",
+          "route": "PO",
+          "dose_example": "Guideline/age-specific course; verify local regimen.",
+          "tags": [
+            "sore_throat"
+          ],
+          "role": "Alternative β-lactam used in streptococcal pharyngitis.",
+          "monitoring_pearl": "Avoid if infectious mononucleosis is likely because rash is common; check allergy.",
+          "source_refs": [
+            "NICE_SORE_THROAT",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_meclizine",
+          "generic": "Meclizine",
+          "class_id": "ent_vestibular_suppressants",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Product-specific adult dosing, often 25–50 mg/day in divided or single doses depending indication.",
+          "tags": [
+            "vertigo",
+            "meniere"
+          ],
+          "role": "Short-term vertigo/motion-sickness symptom suppression.",
+          "monitoring_pearl": "Sedation, anticholinergic burden and fall risk; avoid prolonged masking of vestibular compensation.",
+          "source_refs": [
+            "AAOHNS_BPPV",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_dimenhydrinate",
+          "generic": "Dimenhydrinate",
+          "class_id": "ent_vestibular_suppressants",
+          "form": "Tablet/injection",
+          "route": "PO/IM/IV",
+          "dose_example": "Product-specific, often every 4–6 h as needed in adults; verify maximum.",
+          "tags": [
+            "vertigo"
+          ],
+          "role": "Short-term vestibular nausea/vertigo symptom control.",
+          "monitoring_pearl": "Sedation and anticholinergic effects; caution elderly/driving.",
+          "source_refs": [
+            "AAOHNS_BPPV",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_prochlorperazine",
+          "generic": "Prochlorperazine",
+          "class_id": "ent_vestibular_suppressants",
+          "form": "Tablet/buccal/injection",
+          "route": "PO/Buccal/IM/IV",
+          "dose_example": "Indication/product-specific; verify label and use short term where appropriate.",
+          "tags": [
+            "vertigo",
+            "meniere",
+            "high_alert"
+          ],
+          "role": "Antiemetic/vestibular symptom suppression in selected severe nausea/vertigo.",
+          "monitoring_pearl": "EPS, QT, sedation and hypotension risks; not a BPPV cure.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_betahistine",
+          "generic": "Betahistine",
+          "class_id": "ent_meniere_agents",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Common international regimens use divided daily dosing; exact dose/availability varies by country—verify local label.",
+          "tags": [
+            "meniere"
+          ],
+          "role": "Used in some countries for Ménière/vertigo symptom control.",
+          "monitoring_pearl": "Evidence/approval varies; do not substitute for diagnostic workup.",
+          "source_refs": [
+            "AAOHNS_GUIDELINES"
+          ]
+        },
+        {
+          "id": "ent_meniere_diuretic",
+          "generic": "Thiazide-type diuretic strategy (e.g., hydrochlorothiazide-based)",
+          "class_id": "ent_meniere_agents",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Regimen is specialist/patient-specific; verify electrolytes, renal function and BP.",
+          "tags": [
+            "meniere",
+            "high_alert"
+          ],
+          "role": "Sometimes used to reduce recurrent Ménière symptoms in selected patients.",
+          "monitoring_pearl": "Monitor Na/K/renal function and orthostasis; benefit varies.",
+          "source_refs": [
+            "AAOHNS_GUIDELINES",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_epistaxis_oxymetazoline",
+          "generic": "Oxymetazoline — epistaxis adjunct",
+          "class_id": "ent_epistaxis_topical",
+          "form": "Nasal spray/pledget use",
+          "route": "Intranasal",
+          "dose_example": "Short-term topical use in clinician-directed epistaxis protocols.",
+          "tags": [
+            "epistaxis"
+          ],
+          "role": "Topical vasoconstrictor adjunct.",
+          "monitoring_pearl": "Avoid repeated excessive sympathomimetic exposure; monitor cardiovascular risk.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_topical_txa",
+          "generic": "Tranexamic acid — topical epistaxis use",
+          "class_id": "ent_epistaxis_topical",
+          "form": "Solution (often injectable formulation used topically in protocols)",
+          "route": "Topical intranasal",
+          "dose_example": "Off-label/protocol-specific topical dose; verify local emergency/ENT protocol.",
+          "tags": [
+            "epistaxis",
+            "high_alert"
+          ],
+          "role": "Antifibrinolytic adjunct in selected epistaxis.",
+          "monitoring_pearl": "Evidence/protocols vary; evaluate anticoagulants, posterior bleed and hemodynamic instability.",
+          "source_refs": [
+            "AAOHNS_GUIDELINES"
+          ]
+        },
+        {
+          "id": "ent_ssnhl_prednisone",
+          "generic": "Prednisone / Prednisolone — systemic SSNHL regimen",
+          "class_id": "ent_ssnhl_steroids",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Specialist regimen; dose and duration vary and should be started only after urgent diagnostic assessment.",
+          "tags": [
+            "sudden_hearing_loss",
+            "high_alert"
+          ],
+          "role": "Systemic corticosteroid option for selected SSNHL.",
+          "monitoring_pearl": "Check diabetes, infection, BP, GI, psychiatric and other steroid risks; do not delay urgent ENT referral.",
+          "source_refs": [
+            "AAOHNS_SHL",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ent_ssnhl_dexamethasone_it",
+          "generic": "Dexamethasone — intratympanic",
+          "class_id": "ent_ssnhl_steroids",
+          "form": "Injection solution used intratympanically",
+          "route": "Intratympanic",
+          "dose_example": "ENT procedural protocol only; concentration/volume/session schedule varies.",
+          "tags": [
+            "sudden_hearing_loss",
+            "high_alert"
+          ],
+          "role": "Intratympanic steroid option, including salvage pathways.",
+          "monitoring_pearl": "Specialist procedure; verify diagnosis and audiometry.",
+          "source_refs": [
+            "AAOHNS_SHL"
+          ]
+        },
+        {
+          "id": "eye_cmc",
+          "generic": "Carboxymethylcellulose artificial tears",
+          "class_id": "eye_lubricants",
+          "form": "Eye drops/gel",
+          "route": "Ophthalmic",
+          "dose_example": "Typically 1–2 drops as needed; product-specific frequency.",
+          "tags": [
+            "dry_eye"
+          ],
+          "role": "Lubrication for dry eye.",
+          "monitoring_pearl": "Prefer preservative-free preparations when frequent dosing or ocular-surface disease.",
+          "source_refs": [
+            "AAO_DRY_EYE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_hypromellose",
+          "generic": "Hypromellose / hydroxypropyl methylcellulose tears",
+          "class_id": "eye_lubricants",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "1–2 drops as needed per product.",
+          "tags": [
+            "dry_eye"
+          ],
+          "role": "Tear-film supplementation.",
+          "monitoring_pearl": "Persistent pain/photophobia/vision change needs evaluation rather than escalating lubricants alone.",
+          "source_refs": [
+            "AAO_DRY_EYE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_hyaluronate",
+          "generic": "Sodium hyaluronate lubricating drops",
+          "class_id": "eye_lubricants",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Product-specific as-needed or scheduled use.",
+          "tags": [
+            "dry_eye"
+          ],
+          "role": "Viscoelastic ocular-surface lubrication.",
+          "monitoring_pearl": "Preservative and contact-lens compatibility vary.",
+          "source_refs": [
+            "AAO_DRY_EYE"
+          ]
+        },
+        {
+          "id": "eye_cyclosporine",
+          "generic": "Cyclosporine ophthalmic",
+          "class_id": "eye_dry_immunomod",
+          "form": "Emulsion/solution",
+          "route": "Ophthalmic",
+          "dose_example": "Common products are dosed once or twice daily depending formulation; verify label.",
+          "tags": [
+            "dry_eye"
+          ],
+          "role": "Tear-production/inflammatory dry-eye therapy.",
+          "monitoring_pearl": "Burning/stinging; benefit may take weeks to months.",
+          "source_refs": [
+            "AAO_DRY_EYE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_lifitegrast",
+          "generic": "Lifitegrast ophthalmic",
+          "class_id": "eye_dry_immunomod",
+          "form": "Solution",
+          "route": "Ophthalmic",
+          "dose_example": "Typical labeled use: 1 drop in each eye twice daily; verify current label.",
+          "tags": [
+            "dry_eye"
+          ],
+          "role": "LFA-1 antagonist for dry-eye signs/symptoms.",
+          "monitoring_pearl": "Dysgeusia/instillation discomfort; avoid contamination of single-use containers.",
+          "source_refs": [
+            "AAO_DRY_EYE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_varenicline_nasal",
+          "generic": "Varenicline nasal spray — dry-eye neurostimulation",
+          "class_id": "eye_dry_immunomod",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Product-label-specific twice-daily nasal administration.",
+          "tags": [
+            "dry_eye"
+          ],
+          "role": "Stimulates trigeminal parasympathetic tear production.",
+          "monitoring_pearl": "Sneezing/cough common; verify availability/indication.",
+          "source_refs": [
+            "AAO_DRY_EYE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_olopatadine",
+          "generic": "Olopatadine ophthalmic",
+          "class_id": "eye_allergy_dual",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Once or twice daily depending concentration/product.",
+          "tags": [
+            "allergic_conj"
+          ],
+          "role": "Ocular allergy itch/redness control.",
+          "monitoring_pearl": "Contact-lens and preservative instructions vary by product.",
+          "source_refs": [
+            "AAO_CONJ_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_ketotifen",
+          "generic": "Ketotifen ophthalmic",
+          "class_id": "eye_allergy_dual",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Typical OTC products: 1 drop twice daily; verify label.",
+          "tags": [
+            "allergic_conj"
+          ],
+          "role": "Antihistamine/mast-cell stabilizer.",
+          "monitoring_pearl": "Persistent unilateral pain/vision loss is not simple allergy.",
+          "source_refs": [
+            "AAO_CONJ_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_bepotastine",
+          "generic": "Bepotastine ophthalmic",
+          "class_id": "eye_allergy_dual",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Product-specific, commonly twice daily.",
+          "tags": [
+            "allergic_conj"
+          ],
+          "role": "Topical H1 antihistamine for ocular itching.",
+          "monitoring_pearl": "Verify contact-lens timing and product availability.",
+          "source_refs": [
+            "AAO_CONJ_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_cromolyn",
+          "generic": "Sodium cromoglycate / cromolyn ophthalmic",
+          "class_id": "eye_mast_cell",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Usually multiple daily dosing; product/country specific.",
+          "tags": [
+            "allergic_conj"
+          ],
+          "role": "Preventive therapy in allergic conjunctivitis.",
+          "monitoring_pearl": "Needs regular use; not a rescue agent for painful red eye.",
+          "source_refs": [
+            "AAO_CONJ_2023"
+          ]
+        },
+        {
+          "id": "eye_lodoxamide",
+          "generic": "Lodoxamide ophthalmic",
+          "class_id": "eye_mast_cell",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Product-specific multiple-daily dosing.",
+          "tags": [
+            "allergic_conj"
+          ],
+          "role": "Mast-cell stabilizer for allergic ocular disease.",
+          "monitoring_pearl": "Specialist assessment for severe vernal/atopic keratoconjunctivitis.",
+          "source_refs": [
+            "AAO_CONJ_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_moxifloxacin",
+          "generic": "Moxifloxacin ophthalmic",
+          "class_id": "eye_conj_antibiotic",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Product-specific short course, commonly multiple daily doses.",
+          "tags": [
+            "bacterial_conj"
+          ],
+          "role": "Broad topical fluoroquinolone.",
+          "monitoring_pearl": "Contact-lens wearers with pain/photophobia/corneal signs need urgent keratitis evaluation.",
+          "source_refs": [
+            "AAO_CONJ_2023",
+            "AAO_KERATITIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_ofloxacin",
+          "generic": "Ofloxacin ophthalmic",
+          "class_id": "eye_conj_antibiotic",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Label-specific multi-dose short course.",
+          "tags": [
+            "bacterial_conj"
+          ],
+          "role": "Topical fluoroquinolone antibacterial.",
+          "monitoring_pearl": "Avoid indiscriminate use; check corneal involvement.",
+          "source_refs": [
+            "AAO_CONJ_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_tobramycin",
+          "generic": "Tobramycin ophthalmic",
+          "class_id": "eye_conj_antibiotic",
+          "form": "Drops/ointment",
+          "route": "Ophthalmic",
+          "dose_example": "Product-specific drops several times daily or ointment schedule.",
+          "tags": [
+            "bacterial_conj"
+          ],
+          "role": "Topical aminoglycoside antibacterial.",
+          "monitoring_pearl": "Surface toxicity/allergy possible; culture/specialist care for severe/nonresponsive infection.",
+          "source_refs": [
+            "AAO_CONJ_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_chloramphenicol",
+          "generic": "Chloramphenicol ophthalmic",
+          "class_id": "eye_conj_antibiotic",
+          "form": "Drops/ointment",
+          "route": "Ophthalmic",
+          "dose_example": "Country/product-specific regimen; common outside the US.",
+          "tags": [
+            "bacterial_conj"
+          ],
+          "role": "Broad topical antibacterial used in some countries.",
+          "monitoring_pearl": "Regulatory availability differs; avoid if contraindicated and follow local labeling.",
+          "source_refs": [
+            "AAO_CONJ_2023"
+          ]
+        },
+        {
+          "id": "eye_polytrim",
+          "generic": "Polymyxin B + trimethoprim ophthalmic",
+          "class_id": "eye_conj_antibiotic",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Product-specific short-course dosing.",
+          "tags": [
+            "bacterial_conj"
+          ],
+          "role": "Topical combination antibacterial.",
+          "monitoring_pearl": "Red flags override empiric treatment.",
+          "source_refs": [
+            "AAO_CONJ_2023",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_erythro_ointment",
+          "generic": "Erythromycin ophthalmic ointment",
+          "class_id": "eye_blepharitis_antimicrob",
+          "form": "Ophthalmic ointment",
+          "route": "Ophthalmic",
+          "dose_example": "Thin lid-margin application per clinician/product schedule.",
+          "tags": [
+            "blepharitis"
+          ],
+          "role": "Topical macrolide adjunct in selected blepharitis.",
+          "monitoring_pearl": "Lid hygiene is foundational; persistent keratitis needs ophthalmic review.",
+          "source_refs": [
+            "AAO_BLEPH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_azithro_topical",
+          "generic": "Azithromycin ophthalmic",
+          "class_id": "eye_blepharitis_antimicrob",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Product/indication-specific course.",
+          "tags": [
+            "blepharitis"
+          ],
+          "role": "Topical macrolide used in selected lid-margin disease.",
+          "monitoring_pearl": "Availability/indication varies; reassess meibomian disease.",
+          "source_refs": [
+            "AAO_BLEPH",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_pred_acetate",
+          "generic": "Prednisolone acetate ophthalmic",
+          "class_id": "eye_steroids",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Frequency ranges widely by diagnosis/severity; ophthalmologist-directed taper.",
+          "tags": [
+            "ocular_inflammation",
+            "high_alert"
+          ],
+          "role": "Potent topical ocular steroid.",
+          "monitoring_pearl": "Can worsen herpes/fungal/bacterial keratitis, delay healing and raise IOP/cataract risk; monitor IOP with significant use.",
+          "source_refs": [
+            "AAO_PPP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_loteprednol",
+          "generic": "Loteprednol ophthalmic",
+          "class_id": "eye_steroids",
+          "form": "Drops/gel/ointment",
+          "route": "Ophthalmic",
+          "dose_example": "Product/diagnosis-specific short course.",
+          "tags": [
+            "ocular_inflammation",
+            "dry_eye",
+            "high_alert"
+          ],
+          "role": "Ocular anti-inflammatory corticosteroid in selected indications.",
+          "monitoring_pearl": "Still requires infection screening and IOP awareness despite “soft steroid” pharmacology.",
+          "source_refs": [
+            "AAO_DRY_EYE",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_latanoprost",
+          "generic": "Latanoprost",
+          "class_id": "eye_glaucoma_pga",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Typical labeled use: 1 drop in affected eye(s) once nightly.",
+          "tags": [
+            "glaucoma"
+          ],
+          "role": "Long-acting IOP lowering.",
+          "monitoring_pearl": "Iris pigmentation, eyelash growth, prostaglandin-associated periorbitopathy; avoid more-than-once-daily dosing.",
+          "source_refs": [
+            "AAO_GLAUCOMA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_travoprost",
+          "generic": "Travoprost",
+          "class_id": "eye_glaucoma_pga",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Usually 1 drop once nightly.",
+          "tags": [
+            "glaucoma"
+          ],
+          "role": "Prostaglandin analogue for IOP reduction.",
+          "monitoring_pearl": "Similar class local effects; assess adherence and target IOP.",
+          "source_refs": [
+            "AAO_GLAUCOMA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_bimatoprost",
+          "generic": "Bimatoprost",
+          "class_id": "eye_glaucoma_pga",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Usually 1 drop once nightly.",
+          "tags": [
+            "glaucoma"
+          ],
+          "role": "Prostamide/PG analogue IOP lowering.",
+          "monitoring_pearl": "Hyperemia and periorbital changes possible.",
+          "source_refs": [
+            "AAO_GLAUCOMA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_timolol",
+          "generic": "Timolol ophthalmic",
+          "class_id": "eye_glaucoma_beta",
+          "form": "Eye drops/gel-forming solution",
+          "route": "Ophthalmic",
+          "dose_example": "Usually once or twice daily depending formulation.",
+          "tags": [
+            "glaucoma",
+            "high_alert"
+          ],
+          "role": "β-blocker IOP reduction.",
+          "monitoring_pearl": "Can cause bradycardia, heart block and bronchospasm; nasolacrimal occlusion can reduce systemic absorption.",
+          "source_refs": [
+            "AAO_GLAUCOMA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_betaxolol",
+          "generic": "Betaxolol ophthalmic",
+          "class_id": "eye_glaucoma_beta",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Usually twice daily; verify label.",
+          "tags": [
+            "glaucoma",
+            "high_alert"
+          ],
+          "role": "Relatively β1-selective ocular β-blocker.",
+          "monitoring_pearl": "Cardiac effects remain possible; COPD/asthma caution.",
+          "source_refs": [
+            "AAO_GLAUCOMA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_brimonidine",
+          "generic": "Brimonidine ophthalmic",
+          "class_id": "eye_glaucoma_alpha2",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Usually 1 drop 2–3 times daily depending product.",
+          "tags": [
+            "glaucoma"
+          ],
+          "role": "α2 agonist IOP lowering.",
+          "monitoring_pearl": "Allergic follicular conjunctivitis, fatigue/hypotension; important pediatric restrictions.",
+          "source_refs": [
+            "AAO_GLAUCOMA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_apraclonidine",
+          "generic": "Apraclonidine ophthalmic",
+          "class_id": "eye_glaucoma_alpha2",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Often short-term/peri-laser or acute use; product-specific.",
+          "tags": [
+            "glaucoma",
+            "high_alert"
+          ],
+          "role": "Short-term α2 agonist IOP reduction.",
+          "monitoring_pearl": "Tachyphylaxis/allergy limit chronic use; specialist context.",
+          "source_refs": [
+            "AAO_GLAUCOMA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_dorzolamide",
+          "generic": "Dorzolamide ophthalmic",
+          "class_id": "eye_glaucoma_cai",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Usually 2–3 times daily depending mono/combination use.",
+          "tags": [
+            "glaucoma"
+          ],
+          "role": "Topical CAI.",
+          "monitoring_pearl": "Burning/bitter taste; review corneal endothelial disease and sulfonamide history context.",
+          "source_refs": [
+            "AAO_GLAUCOMA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_brinzolamide",
+          "generic": "Brinzolamide ophthalmic",
+          "class_id": "eye_glaucoma_cai",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Usually 2–3 times daily.",
+          "tags": [
+            "glaucoma"
+          ],
+          "role": "Topical CAI.",
+          "monitoring_pearl": "Shake suspension; local blur/taste effects.",
+          "source_refs": [
+            "AAO_GLAUCOMA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_acetazolamide",
+          "generic": "Acetazolamide",
+          "class_id": "eye_glaucoma_cai",
+          "form": "Tablet/injection",
+          "route": "PO/IV",
+          "dose_example": "Acute IOP-lowering dose is emergency/specialist and renal/electrolyte dependent; verify protocol.",
+          "tags": [
+            "glaucoma",
+            "angle_closure",
+            "high_alert"
+          ],
+          "role": "Systemic CAI for rapid IOP reduction in selected acute/severe contexts.",
+          "monitoring_pearl": "Check renal function, electrolytes, acid-base status, sulfonamide reaction history and drug interactions.",
+          "source_refs": [
+            "AAO_ANGLE_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_netarsudil",
+          "generic": "Netarsudil ophthalmic",
+          "class_id": "eye_glaucoma_rho",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Typical labeled use: 1 drop once daily in evening.",
+          "tags": [
+            "glaucoma"
+          ],
+          "role": "ROCK inhibitor IOP lowering.",
+          "monitoring_pearl": "Conjunctival hyperemia and corneal verticillata can occur.",
+          "source_refs": [
+            "AAO_GLAUCOMA_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_pilocarpine",
+          "generic": "Pilocarpine ophthalmic",
+          "class_id": "eye_glaucoma_miotic",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Concentration/frequency is diagnosis-specific; acute angle-closure use follows specialist protocol after initial IOP lowering.",
+          "tags": [
+            "glaucoma",
+            "angle_closure",
+            "high_alert"
+          ],
+          "role": "Miotic to improve trabecular outflow/open angle in selected contexts.",
+          "monitoring_pearl": "Can cause brow ache, induced myopia and retinal risks; not the first step when IOP is extremely high.",
+          "source_refs": [
+            "AAO_ANGLE_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_mannitol",
+          "generic": "Mannitol IV",
+          "class_id": "eye_angle_osmotic",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Emergency weight-based protocol only; verify osmolar status, renal/cardiac function and ophthalmology plan.",
+          "tags": [
+            "angle_closure",
+            "high_alert"
+          ],
+          "role": "Rapid osmotic IOP reduction in selected acute angle closure.",
+          "monitoring_pearl": "Pulmonary edema, dehydration, electrolyte and renal risks; monitored setting.",
+          "source_refs": [
+            "AAO_ANGLE_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_oral_glycerol",
+          "generic": "Glycerol oral hyperosmotic agent",
+          "class_id": "eye_angle_osmotic",
+          "form": "Oral solution",
+          "route": "PO",
+          "dose_example": "Specialist/product-specific; less commonly used.",
+          "tags": [
+            "angle_closure",
+            "high_alert"
+          ],
+          "role": "Alternative hyperosmotic IOP reduction in selected settings.",
+          "monitoring_pearl": "Hyperglycemia/nausea and systemic osmotic effects; specialist use.",
+          "source_refs": [
+            "AAO_ANGLE_2025"
+          ]
+        },
+        {
+          "id": "eye_tropicamide",
+          "generic": "Tropicamide",
+          "class_id": "eye_diagnostic_mydriatics",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Diagnostic instillation protocol, often 1 drop with repeat as needed.",
+          "tags": [
+            "diagnostic_eye"
+          ],
+          "role": "Short-acting mydriatic/cycloplegic.",
+          "monitoring_pearl": "Can precipitate angle closure in susceptible eyes; blurred vision/photophobia after exam.",
+          "source_refs": [
+            "AAO_PPP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_cyclopentolate",
+          "generic": "Cyclopentolate",
+          "class_id": "eye_diagnostic_mydriatics",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Age/concentration-specific diagnostic cycloplegia.",
+          "tags": [
+            "diagnostic_eye",
+            "high_alert"
+          ],
+          "role": "Cycloplegic refraction, especially pediatric contexts.",
+          "monitoring_pearl": "Systemic anticholinergic CNS effects possible, especially children; verify concentration and punctal occlusion.",
+          "source_refs": [
+            "AAO_PPP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_phenylephrine",
+          "generic": "Phenylephrine ophthalmic",
+          "class_id": "eye_diagnostic_mydriatics",
+          "form": "Eye drops",
+          "route": "Ophthalmic",
+          "dose_example": "Diagnostic concentration and dosing vary; verify product.",
+          "tags": [
+            "diagnostic_eye",
+            "high_alert"
+          ],
+          "role": "Adrenergic mydriasis without cycloplegia.",
+          "monitoring_pearl": "Can increase BP/HR; use caution cardiovascular disease and infants.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_aflibercept",
+          "generic": "Aflibercept intravitreal",
+          "class_id": "eye_retina_anti_vegf",
+          "form": "Intravitreal injection",
+          "route": "Intravitreal",
+          "dose_example": "Indication-specific injection interval/loading/extension regimen; retina specialist only.",
+          "tags": [
+            "retina",
+            "high_alert"
+          ],
+          "role": "VEGF-trap therapy for retinal vascular disease.",
+          "monitoring_pearl": "Endophthalmitis, retinal detachment and IOP risks; sterile intravitreal procedure.",
+          "source_refs": [
+            "AAO_PPP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_ranibizumab",
+          "generic": "Ranibizumab intravitreal",
+          "class_id": "eye_retina_anti_vegf",
+          "form": "Intravitreal injection",
+          "route": "Intravitreal",
+          "dose_example": "Indication-specific monthly or extendable regimen; specialist only.",
+          "tags": [
+            "retina",
+            "high_alert"
+          ],
+          "role": "Anti-VEGF Fab for retinal disease.",
+          "monitoring_pearl": "Procedure-related ocular risks and systemic vascular history reviewed by retina specialist.",
+          "source_refs": [
+            "AAO_PPP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_bevacizumab",
+          "generic": "Bevacizumab — intravitreal off-label",
+          "class_id": "eye_retina_anti_vegf",
+          "form": "Compounded intravitreal injection",
+          "route": "Intravitreal",
+          "dose_example": "Off-label retina-specialist dose/regimen; compounding quality is critical.",
+          "tags": [
+            "retina",
+            "high_alert"
+          ],
+          "role": "Widely used off-label anti-VEGF option in retinal practice.",
+          "monitoring_pearl": "Sterile compounding/endophthalmitis risk; not an OPD self-draft medicine.",
+          "source_refs": [
+            "AAO_PPP"
+          ]
+        },
+        {
+          "id": "eye_faricimab",
+          "generic": "Faricimab intravitreal",
+          "class_id": "eye_retina_anti_vegf",
+          "form": "Intravitreal injection",
+          "route": "Intravitreal",
+          "dose_example": "Indication-specific loading and individualized extension; retina specialist only.",
+          "tags": [
+            "retina",
+            "high_alert"
+          ],
+          "role": "Dual VEGF-A/Ang-2 pathway inhibition.",
+          "monitoring_pearl": "Intravitreal procedural risks and label-specific contraindications.",
+          "source_refs": [
+            "AAO_PPP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_ganciclovir_gel",
+          "generic": "Ganciclovir ophthalmic gel",
+          "class_id": "eye_ocular_antivirals",
+          "form": "Ophthalmic gel",
+          "route": "Ophthalmic",
+          "dose_example": "Label-specific multiple-daily induction then reduced frequency for herpetic epithelial keratitis.",
+          "tags": [
+            "ocular_antiviral",
+            "high_alert"
+          ],
+          "role": "Topical antiviral for HSV epithelial keratitis in appropriate settings.",
+          "monitoring_pearl": "Do not add topical steroid to epithelial herpes without ophthalmic direction.",
+          "source_refs": [
+            "AAO_PPP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_acyclovir",
+          "generic": "Acyclovir — ocular herpes systemic therapy",
+          "class_id": "eye_ocular_antivirals",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Diagnosis/indication-specific oral regimen; verify ophthalmology guideline/renal function.",
+          "tags": [
+            "ocular_antiviral",
+            "high_alert"
+          ],
+          "role": "Systemic antiviral used in ocular HSV/VZV contexts.",
+          "monitoring_pearl": "Renal dose/hydration and disease phenotype matter.",
+          "source_refs": [
+            "AAO_PPP",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "eye_valacyclovir",
+          "generic": "Valacyclovir — ocular herpes/zoster systemic therapy",
+          "class_id": "eye_ocular_antivirals",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Diagnosis-specific oral regimen; verify renal function and current guideline.",
+          "tags": [
+            "ocular_antiviral",
+            "high_alert"
+          ],
+          "role": "Oral prodrug for HSV/VZV ocular contexts.",
+          "monitoring_pearl": "Urgent ophthalmology for zoster ophthalmicus with ocular involvement/vision symptoms.",
+          "source_refs": [
+            "AAO_PPP",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "AAO_PPP",
+          "label": "American Academy of Ophthalmology — Preferred Practice Pattern guideline library",
+          "url": "https://www.aao.org/ppp"
+        },
+        {
+          "id": "AAO_CONJ_2023",
+          "label": "AAO — Conjunctivitis Preferred Practice Pattern 2023",
+          "url": "https://www.aao.org/education/preferred-practice-pattern/conjunctivitis-ppp-2023"
+        },
+        {
+          "id": "AAO_DRY_EYE",
+          "label": "AAO — Dry Eye Syndrome Preferred Practice Pattern",
+          "url": "https://www.aao.org/education/preferred-practice-pattern/dry-eye-syndrome-ppp-2023"
+        },
+        {
+          "id": "AAO_BLEPH",
+          "label": "AAO — Blepharitis Preferred Practice Pattern",
+          "url": "https://www.aao.org/education/preferred-practice-pattern/new-preferredpracticepatternguideline-4"
+        },
+        {
+          "id": "AAO_KERATITIS",
+          "label": "AAO — Bacterial Keratitis Preferred Practice Pattern 2023",
+          "url": "https://www.aao.org/education/preferred-practice-pattern/bacterial-keratitis-ppp-2023"
+        },
+        {
+          "id": "AAO_GLAUCOMA_2025",
+          "label": "AAO — Primary Open-Angle Glaucoma Preferred Practice Pattern 2025",
+          "url": "https://www.aao.org/education/preferred-practice-pattern/primary-open-angle-glaucoma-ppp"
+        },
+        {
+          "id": "AAO_ANGLE_2025",
+          "label": "AAO — Primary Angle-Closure Disease Preferred Practice Pattern 2025",
+          "url": "https://www.aao.org/education/preferred-practice-pattern/primary-angle-closure-disease-ppp"
+        },
+        {
+          "id": "AAOHNS_GUIDELINES",
+          "label": "AAO-HNSF — Clinical Practice Guidelines",
+          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/"
+        },
+        {
+          "id": "AAOHNS_AOE",
+          "label": "AAO-HNSF — Acute Otitis Externa guideline",
+          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/aoe/"
+        },
+        {
+          "id": "AAOHNS_CERUMEN",
+          "label": "AAO-HNSF — Cerumen Impaction guideline",
+          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/cerumen-impaction/"
+        },
+        {
+          "id": "AAOHNS_BPPV",
+          "label": "AAO-HNSF — Benign Paroxysmal Positional Vertigo guideline",
+          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/bppv/"
+        },
+        {
+          "id": "AAOHNS_AR",
+          "label": "AAO-HNSF — Allergic Rhinitis guideline",
+          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/allergic-rhinitis/"
+        },
+        {
+          "id": "AAOHNS_SHL",
+          "label": "AAO-HNSF — Sudden Hearing Loss guideline",
+          "url": "https://www.entnet.org/quality-practice/quality-products/clinical-practice-guidelines/sudden-hearing-loss-update/"
+        },
+        {
+          "id": "ICMR_ENT_STW",
+          "label": "ICMR — Standard Treatment Workflows: ENT",
+          "url": "https://www.icmr.gov.in/icmrobject/uploads/STWs/1725952349_ent.pdf"
+        },
+        {
+          "id": "NICE_SINUSITIS",
+          "label": "NICE NG79 — Sinusitis (acute): antimicrobial prescribing",
+          "url": "https://www.nice.org.uk/guidance/ng79"
+        },
+        {
+          "id": "NICE_SORE_THROAT",
+          "label": "NICE NG84 — Sore throat (acute): antimicrobial prescribing",
+          "url": "https://www.nice.org.uk/guidance/ng84"
+        },
+        {
+          "id": "NICE_AOM",
+          "label": "NICE NG91 — Otitis media (acute): antimicrobial prescribing",
+          "url": "https://www.nice.org.uk/guidance/ng91"
         },
         {
           "id": "DAILYMED",
