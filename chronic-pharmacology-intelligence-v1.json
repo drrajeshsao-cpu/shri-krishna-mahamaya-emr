@@ -1,13 +1,13 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4K",
-  "app_version": "5.40K",
-  "build": "2026.08.14-R25K",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40K Emergency • Crash-Cart • Antidote Lab",
+  "version": "2.4L",
+  "app_version": "5.40L",
+  "build": "2026.08.14-R25L",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40L Pediatrics • Child Health Pharmacology Lab",
   "counts": {
-    "labs": 17,
-    "classes": 494,
-    "drug_profiles": 1250
+    "labs": 18,
+    "classes": 526,
+    "drug_profiles": 1305
   },
   "global_boundary": "Research/learning pharmacology only. V5.40G adds a dedicated Antifungal • Antiviral • Antiparasitic Intelligence Lab while retaining all earlier specialized labs. Exact organism/species, disease site/severity, resistance/susceptibility, renal/hepatic function, pregnancy, age/weight, G6PD status, interactions and current guideline/regulatory label must be verified. HIV/HBV/HCV, invasive fungal disease, severe malaria and complex tissue parasitoses remain regimen- and specialist-controlled.",
   "labs": [
@@ -37769,6 +37769,1877 @@
           "id": "WHO_SNAKEBITE",
           "label": "WHO — Snakebite envenoming / antivenom guidance",
           "url": "https://www.who.int/health-topics/snakebite"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "NIH DailyMed — current FDA-submitted product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "pediatrics_child",
+      "title": "Pediatrics • Child Health Pharmacology Intelligence Lab",
+      "icon": "👶",
+      "badge": "PED-PHARM v1.0",
+      "eyebrow": "PEDIATRIC PHARMACOLOGY • AGE/WEIGHT • FORMULATION • SAFETY WORKSPACE",
+      "subtitle": "Child/age band → clinical problem → drug class → pediatric formulation → age/weight dose discipline → monitoring → source verification",
+      "scientific_boundary": "Clinician/research learning CDS only. Pediatric prescribing is age-, weight-, indication-, formulation-, organ-function- and sometimes body-surface-area dependent. Neonates and critically ill children require separate institutional/neonatal/PALS protocols. The workspace never converts an adult dose into a child dose automatically and never treats a syrup concentration as a dose. Exact mg/kg, maximum dose, concentration, route, interval and duration must be verified before prescribing.",
+      "classification_notes": [
+        "Use current measured weight in kilograms for weight-based dosing. Verify whether the source uses actual, ideal, adjusted or dosing weight for obesity/high-risk medicines.",
+        "Always separate dose (mg or mcg) from volume (mL). Liquid concentrations differ by product and country; calculate mL only after verifying the exact concentration.",
+        "Age cut-offs are drug- and indication-specific. Do not infer safety simply because a medicine appears in this lab.",
+        "Fever treatment is for distress/comfort, not just the number on the thermometer; red flags and serious-infection assessment take priority.",
+        "Acute diarrhea therapy prioritizes ORS and zinc in appropriate under-five contexts; antimicrobials are not routine for uncomplicated watery diarrhea.",
+        "Pediatric asthma management is age-stratified and inhaler/spacer technique is part of treatment. Controller and reliever strategies differ by age and severity.",
+        "Antibiotics are cross-linked as pediatric formulation/dose-learning classes, not automatic first-line choices; diagnosis, likely pathogen, allergy, resistance and local guideline must be checked.",
+        "Neonatal medicines, chemotherapy, sedation/anesthesia and intensive-care infusions are intentionally not generalized here."
+      ],
+      "lens_groups": [
+        {
+          "group": "Common OPD",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Pediatrics"
+            },
+            {
+              "id": "fever_pain",
+              "label": "Fever / Pain"
+            },
+            {
+              "id": "asthma",
+              "label": "Asthma / Wheeze"
+            },
+            {
+              "id": "allergy",
+              "label": "Allergy / Rhinitis"
+            },
+            {
+              "id": "anaphylaxis",
+              "label": "Anaphylaxis"
+            },
+            {
+              "id": "diarrhea",
+              "label": "Diarrhea / ORS + Zinc"
+            },
+            {
+              "id": "vomiting",
+              "label": "Vomiting"
+            },
+            {
+              "id": "constipation",
+              "label": "Constipation"
+            }
+          ]
+        },
+        {
+          "group": "Infection / skin",
+          "items": [
+            {
+              "id": "oral_antibiotic",
+              "label": "Oral Antibiotic Classes"
+            },
+            {
+              "id": "severe_infection",
+              "label": "Severe Infection / Parenteral"
+            },
+            {
+              "id": "deworming",
+              "label": "Deworming"
+            },
+            {
+              "id": "scabies",
+              "label": "Scabies"
+            },
+            {
+              "id": "eczema",
+              "label": "Eczema / Topicals"
+            }
+          ]
+        },
+        {
+          "group": "Neuro / nutrition",
+          "items": [
+            {
+              "id": "seizure_rescue",
+              "label": "Seizure Rescue"
+            },
+            {
+              "id": "seizure_maintenance",
+              "label": "Antiseizure Maintenance"
+            },
+            {
+              "id": "iron",
+              "label": "Iron / Anemia"
+            },
+            {
+              "id": "vitamin_d",
+              "label": "Vitamin D"
+            },
+            {
+              "id": "micronutrient",
+              "label": "Micronutrients"
+            }
+          ]
+        },
+        {
+          "group": "Age / safety workflow",
+          "items": [
+            {
+              "id": "infant",
+              "label": "Infant"
+            },
+            {
+              "id": "under5",
+              "label": "Under 5 years"
+            },
+            {
+              "id": "school_age",
+              "label": "6–11 years"
+            },
+            {
+              "id": "adolescent",
+              "label": "Adolescent"
+            },
+            {
+              "id": "liquid_formulation",
+              "label": "Liquid / Dispersible"
+            },
+            {
+              "id": "high_alert",
+              "label": "High-alert / Verify Dose"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "ped_acetaminophen",
+          "name": "Pediatric non-opioid antipyretic/analgesic",
+          "mechanism": "Central prostaglandin modulation; analgesic and antipyretic effect",
+          "target": "Central COX/prostaglandin pathways",
+          "tags": [
+            "fever_pain",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role_note": "For pain/distress with fever; fever red flags/serious illness assessment takes priority.",
+          "drug_ids": [
+            "ped_paracetamol"
+          ]
+        },
+        {
+          "id": "ped_nsaid",
+          "name": "Pediatric NSAID analgesic/antipyretic",
+          "mechanism": "COX inhibition reduces prostaglandin-mediated pain, fever and inflammation",
+          "target": "COX-1/COX-2",
+          "tags": [
+            "fever_pain",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Alternative/adjunct analgesic-antipyretic in appropriately selected children.",
+          "drug_ids": [
+            "ped_ibuprofen"
+          ]
+        },
+        {
+          "id": "ped_saba",
+          "name": "Pediatric short-acting β2 agonist (SABA)",
+          "mechanism": "β2-receptor agonism causes rapid bronchodilation",
+          "target": "β2 adrenergic receptor",
+          "tags": [
+            "asthma",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Reliever bronchodilation; spacer/MDI technique is usually preferred when feasible.",
+          "drug_ids": [
+            "ped_salbutamol_mdi",
+            "ped_salbutamol_neb"
+          ]
+        },
+        {
+          "id": "ped_sama",
+          "name": "Pediatric short-acting antimuscarinic bronchodilator",
+          "mechanism": "Blocks muscarinic bronchoconstriction",
+          "target": "Airway muscarinic receptors",
+          "tags": [
+            "asthma",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Adjunct in moderate-severe acute wheeze/asthma; not a routine standalone controller.",
+          "drug_ids": [
+            "ped_ipratropium"
+          ]
+        },
+        {
+          "id": "ped_ics",
+          "name": "Pediatric inhaled corticosteroids (ICS)",
+          "mechanism": "Local glucocorticoid anti-inflammatory activity reduces airway inflammation/exacerbation risk",
+          "target": "Glucocorticoid receptor",
+          "tags": [
+            "asthma",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Foundational controller therapy in pediatric asthma; dose category is age/product/device specific.",
+          "drug_ids": [
+            "ped_budesonide_ics",
+            "ped_beclometasone_ics",
+            "ped_fluticasone_ics"
+          ]
+        },
+        {
+          "id": "ped_ics_laba",
+          "name": "Pediatric ICS/LABA combination",
+          "mechanism": "ICS anti-inflammatory effect plus long-acting β2 bronchodilation",
+          "target": "Glucocorticoid + β2 receptors",
+          "tags": [
+            "asthma",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Step-up controller; some formoterol-containing regimens may serve as MART/anti-inflammatory reliever depending on age/product/guideline.",
+          "drug_ids": [
+            "ped_budesonide_formoterol",
+            "ped_fluticasone_salmeterol"
+          ]
+        },
+        {
+          "id": "ped_ltra",
+          "name": "Leukotriene receptor antagonist",
+          "mechanism": "Blocks cysteinyl-leukotriene receptor signaling",
+          "target": "CysLT1 receptor",
+          "tags": [
+            "asthma",
+            "allergy",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Alternative/add-on asthma/allergic-rhinitis therapy in selected children; generally less effective than ICS for asthma control.",
+          "drug_ids": [
+            "ped_montelukast"
+          ]
+        },
+        {
+          "id": "ped_h1",
+          "name": "Second-generation H1 antihistamines",
+          "mechanism": "Peripheral H1-receptor blockade reduces histamine symptoms",
+          "target": "H1 histamine receptor",
+          "tags": [
+            "allergy",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Preferred nonsedating/less-sedating oral allergy therapy in many pediatric contexts.",
+          "drug_ids": [
+            "ped_cetirizine",
+            "ped_loratadine",
+            "ped_fexofenadine"
+          ]
+        },
+        {
+          "id": "ped_intranasal_steroid",
+          "name": "Pediatric intranasal corticosteroids",
+          "mechanism": "Local nasal glucocorticoid anti-inflammatory activity",
+          "target": "Nasal glucocorticoid receptor",
+          "tags": [
+            "allergy",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "High-value controller for persistent allergic rhinitis when age-approved.",
+          "drug_ids": [
+            "ped_fluticasone_nasal",
+            "ped_mometasone_nasal"
+          ]
+        },
+        {
+          "id": "ped_anaphylaxis",
+          "name": "Pediatric anaphylaxis first-line epinephrine",
+          "mechanism": "α1 vasoconstriction + β1 cardiac support + β2 bronchodilation",
+          "target": "Adrenergic receptors",
+          "tags": [
+            "anaphylaxis",
+            "high_alert",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "IM epinephrine is first-line; airway/oxygen/fluids/emergency escalation are parallel priorities.",
+          "drug_ids": [
+            "ped_epinephrine_im"
+          ]
+        },
+        {
+          "id": "ped_ors",
+          "name": "Pediatric oral rehydration therapy",
+          "mechanism": "Glucose-sodium cotransport promotes intestinal water/electrolyte absorption",
+          "target": "SGLT1-mediated sodium-glucose absorption",
+          "tags": [
+            "diarrhea",
+            "under5",
+            "infant",
+            "liquid_formulation"
+          ],
+          "role_note": "Foundation of acute watery-diarrhea dehydration management when oral rehydration is appropriate.",
+          "drug_ids": [
+            "ped_who_ors"
+          ]
+        },
+        {
+          "id": "ped_zinc_diarrhea",
+          "name": "Zinc for acute childhood diarrhea",
+          "mechanism": "Supports epithelial/immune function and reduces diarrhea duration/severity",
+          "target": "Zinc-dependent cellular processes",
+          "tags": [
+            "diarrhea",
+            "under5",
+            "infant",
+            "micronutrient"
+          ],
+          "role_note": "WHO adjunct to ORS in acute diarrhea in children under five.",
+          "drug_ids": [
+            "ped_zinc_sulfate"
+          ]
+        },
+        {
+          "id": "ped_ondansetron",
+          "name": "Selected pediatric antiemetic — 5-HT3 antagonist",
+          "mechanism": "Blocks serotonin 5-HT3 signaling in emetic pathways",
+          "target": "5-HT3 receptor",
+          "tags": [
+            "vomiting",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "May facilitate oral rehydration in selected children with vomiting; not routine for every vomiting illness.",
+          "drug_ids": [
+            "ped_ondansetron_drug"
+          ]
+        },
+        {
+          "id": "ped_peg",
+          "name": "Polyethylene glycol (macrogol) laxatives",
+          "mechanism": "Osmotic water retention softens stool",
+          "target": "Luminal osmotic action",
+          "tags": [
+            "constipation",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "First-line laxative family in pediatric constipation guidelines; disimpaction and maintenance regimens differ.",
+          "drug_ids": [
+            "ped_peg3350"
+          ]
+        },
+        {
+          "id": "ped_lactulose",
+          "name": "Osmotic disaccharide laxative",
+          "mechanism": "Colonic fermentation increases osmotic water retention",
+          "target": "Luminal osmotic effect",
+          "tags": [
+            "constipation",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Alternative/add-on osmotic laxative depending age and protocol.",
+          "drug_ids": [
+            "ped_lactulose_drug"
+          ]
+        },
+        {
+          "id": "ped_aminopenicillin",
+          "name": "Pediatric aminopenicillins",
+          "mechanism": "β-lactam inhibition of bacterial cell-wall synthesis",
+          "target": "Penicillin-binding proteins",
+          "tags": [
+            "oral_antibiotic",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role_note": "Common pediatric antibacterial class; exact indication, dose intensity and duration are syndrome-specific.",
+          "drug_ids": [
+            "ped_amoxicillin",
+            "ped_ampicillin"
+          ]
+        },
+        {
+          "id": "ped_bl_bli",
+          "name": "Aminopenicillin + β-lactamase inhibitor",
+          "mechanism": "Cell-wall inhibition plus β-lactamase inhibition",
+          "target": "PBPs + β-lactamases",
+          "tags": [
+            "oral_antibiotic",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role_note": "Broader β-lactam option for selected infections when β-lactamase coverage is needed.",
+          "drug_ids": [
+            "ped_amox_clav"
+          ]
+        },
+        {
+          "id": "ped_oral_ceph",
+          "name": "Pediatric oral cephalosporins",
+          "mechanism": "β-lactam inhibition of cell-wall synthesis",
+          "target": "Penicillin-binding proteins",
+          "tags": [
+            "oral_antibiotic",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role_note": "Selected alternatives/indication-specific therapy; spectrum differs greatly by generation/agent.",
+          "drug_ids": [
+            "ped_cephalexin",
+            "ped_cefuroxime",
+            "ped_cefixime"
+          ]
+        },
+        {
+          "id": "ped_macrolide",
+          "name": "Pediatric macrolides",
+          "mechanism": "Bind bacterial 50S ribosomal subunit and inhibit protein synthesis",
+          "target": "50S ribosome",
+          "tags": [
+            "oral_antibiotic",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role_note": "Used for selected atypical/pertussis/specific infections; not a generic substitute for β-lactams.",
+          "drug_ids": [
+            "ped_azithro",
+            "ped_clarithro"
+          ]
+        },
+        {
+          "id": "ped_tmp_smx",
+          "name": "Trimethoprim-sulfamethoxazole",
+          "mechanism": "Sequential folate-pathway inhibition",
+          "target": "Dihydrofolate reductase + dihydropteroate synthase",
+          "tags": [
+            "oral_antibiotic",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role_note": "Indication-specific antibacterial/anti-opportunistic therapy; age restrictions and contraindications matter.",
+          "drug_ids": [
+            "ped_cotrimoxazole"
+          ]
+        },
+        {
+          "id": "ped_parenteral_ceph",
+          "name": "Pediatric parenteral third-generation cephalosporins",
+          "mechanism": "β-lactam cell-wall synthesis inhibition",
+          "target": "Penicillin-binding proteins",
+          "tags": [
+            "severe_infection",
+            "high_alert"
+          ],
+          "role_note": "Hospital/protocol therapy for selected serious infections; meningitis/sepsis doses differ.",
+          "drug_ids": [
+            "ped_ceftriaxone",
+            "ped_cefotaxime"
+          ]
+        },
+        {
+          "id": "ped_aminoglycoside",
+          "name": "Pediatric aminoglycosides — high alert",
+          "mechanism": "30S ribosomal binding causes concentration-dependent bactericidal activity",
+          "target": "30S ribosome",
+          "tags": [
+            "severe_infection",
+            "high_alert"
+          ],
+          "role_note": "Serious Gram-negative/synergy contexts; dosing interval depends on age, renal function and protocol.",
+          "drug_ids": [
+            "ped_gentamicin",
+            "ped_amikacin"
+          ]
+        },
+        {
+          "id": "ped_benzimidazole",
+          "name": "Pediatric benzimidazole anthelmintics",
+          "mechanism": "Inhibit parasite microtubule function/glucose uptake",
+          "target": "Parasite β-tubulin",
+          "tags": [
+            "deworming",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Deworming/soil-transmitted helminth therapy in age- and epidemiology-appropriate contexts.",
+          "drug_ids": [
+            "ped_albendazole",
+            "ped_mebendazole"
+          ]
+        },
+        {
+          "id": "ped_scabies",
+          "name": "Pediatric scabicides",
+          "mechanism": "Neurotoxic/paralytic effects on mites depending agent",
+          "target": "Mite sodium channels / glutamate-gated chloride channels",
+          "tags": [
+            "scabies",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Treat child and close contacts/environment per scabies protocol; age limits matter.",
+          "drug_ids": [
+            "ped_permethrin",
+            "ped_ivermectin_scabies"
+          ]
+        },
+        {
+          "id": "ped_seizure_rescue",
+          "name": "Pediatric seizure rescue benzodiazepines",
+          "mechanism": "Enhance GABA-A inhibitory neurotransmission",
+          "target": "GABA-A receptor",
+          "tags": [
+            "seizure_rescue",
+            "high_alert",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Time-critical rescue for prolonged convulsive seizure/status per pediatric emergency plan.",
+          "drug_ids": [
+            "ped_midazolam_rescue",
+            "ped_diazepam_rescue"
+          ]
+        },
+        {
+          "id": "ped_asm",
+          "name": "Common pediatric maintenance antiseizure medicines",
+          "mechanism": "Reduce neuronal excitability via SV2A, sodium-channel or other antiseizure mechanisms",
+          "target": "SV2A / voltage-gated ion channels",
+          "tags": [
+            "seizure_maintenance",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Choice depends on seizure type/syndrome, age, comorbidity and reproductive safety.",
+          "drug_ids": [
+            "ped_levetiracetam",
+            "ped_oxcarbazepine",
+            "ped_lamotrigine"
+          ]
+        },
+        {
+          "id": "ped_iron",
+          "name": "Pediatric oral iron / iron-deficiency therapy",
+          "mechanism": "Replenishes elemental iron for hemoglobin synthesis and iron stores",
+          "target": "Iron-dependent erythropoiesis",
+          "tags": [
+            "iron",
+            "micronutrient",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role_note": "Prevention/public-health supplementation and treatment of iron-deficiency anemia are different dosing pathways.",
+          "drug_ids": [
+            "ped_ferrous_sulfate",
+            "ped_ferrous_fumarate"
+          ]
+        },
+        {
+          "id": "ped_vitd",
+          "name": "Pediatric vitamin D preparations",
+          "mechanism": "Supports calcium/phosphate absorption and bone mineralization via vitamin-D receptor",
+          "target": "Vitamin D receptor",
+          "tags": [
+            "vitamin_d",
+            "micronutrient",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Prevention and deficiency/rickets treatment require different age- and diagnosis-specific regimens.",
+          "drug_ids": [
+            "ped_cholecalciferol",
+            "ped_calcitriol_special"
+          ]
+        },
+        {
+          "id": "ped_emollient",
+          "name": "Pediatric emollients / barrier therapy",
+          "mechanism": "Restores stratum-corneum hydration and barrier function",
+          "target": "Skin barrier",
+          "tags": [
+            "eczema",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Foundation of eczema care; regular liberal use reduces dryness/itch and steroid need.",
+          "drug_ids": [
+            "ped_petrolatum",
+            "ped_emollient_cream"
+          ]
+        },
+        {
+          "id": "ped_topical_steroid",
+          "name": "Pediatric topical corticosteroids — potency/site disciplined",
+          "mechanism": "Local glucocorticoid anti-inflammatory action",
+          "target": "Cutaneous glucocorticoid receptor",
+          "tags": [
+            "eczema",
+            "under5",
+            "school_age",
+            "adolescent",
+            "high_alert"
+          ],
+          "role_note": "Use the lowest effective potency for site/severity and limited duration; face/flexures/infants require extra caution.",
+          "drug_ids": [
+            "ped_hydrocortisone_1",
+            "ped_mometasone_topical"
+          ]
+        },
+        {
+          "id": "ped_tci",
+          "name": "Topical calcineurin inhibitors",
+          "mechanism": "Inhibit calcineurin-dependent T-cell activation/cytokine transcription",
+          "target": "Calcineurin",
+          "tags": [
+            "eczema",
+            "school_age",
+            "adolescent"
+          ],
+          "role_note": "Steroid-sparing therapy for selected atopic-dermatitis sites/ages.",
+          "drug_ids": [
+            "ped_tacrolimus_top",
+            "ped_pimecrolimus_top"
+          ]
+        },
+        {
+          "id": "ped_cough_cold_safety",
+          "name": "Pediatric cough/cold medicine safety gate",
+          "mechanism": "Symptom-relief products have heterogeneous antihistamine/decongestant/antitussive mechanisms",
+          "target": "Multiple targets",
+          "tags": [
+            "under5",
+            "high_alert"
+          ],
+          "role_note": "Safety/avoidance gate rather than a treatment class: young children should not receive adult-style multi-ingredient cough/cold products by default.",
+          "drug_ids": [
+            "ped_cough_supportive"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "ped_paracetamol",
+          "generic": "Paracetamol / Acetaminophen",
+          "class_id": "ped_acetaminophen",
+          "form": "Drops/suspension/tablet/suppository",
+          "route": "PO/PR",
+          "dose_example": "Learning snapshot: commonly 10–15 mg/kg/dose every 4–6 h; verify age-specific maximum daily dose and exact product concentration.",
+          "tags": [
+            "fever_pain",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Antipyretic/analgesic for discomfort or pain.",
+          "monitoring_pearl": "Avoid concentration errors and duplicate combination products; reassess persistent fever/pain.",
+          "source_refs": [
+            "NICE_FEVER",
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_ibuprofen",
+          "generic": "Ibuprofen",
+          "class_id": "ped_nsaid",
+          "form": "Suspension/tablet",
+          "route": "PO",
+          "dose_example": "Learning snapshot: commonly 5–10 mg/kg/dose every 6–8 h in eligible children; verify age/weight limits and maximum daily dose.",
+          "tags": [
+            "fever_pain",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Pain/fever/inflammation.",
+          "monitoring_pearl": "Avoid or reassess in significant dehydration, renal impairment, GI bleeding risk or NSAID-sensitive asthma; verify minimum age on local product.",
+          "source_refs": [
+            "NICE_FEVER",
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_salbutamol_mdi",
+          "generic": "Salbutamol / Albuterol — MDI",
+          "class_id": "ped_saba",
+          "form": "Metered-dose inhaler",
+          "route": "Inhaled",
+          "dose_example": "Age/severity/device-specific rescue dosing; verify current GINA/local acute-asthma protocol rather than copying an adult regimen.",
+          "tags": [
+            "asthma",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Rapid bronchodilator reliever.",
+          "monitoring_pearl": "Check inhaler/spacer technique, HR/tremor and response; repeated need signals poor control or severe exacerbation.",
+          "source_refs": [
+            "GINA_2026",
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_salbutamol_neb",
+          "generic": "Salbutamol / Albuterol — nebulized",
+          "class_id": "ped_saba",
+          "form": "Nebulizer solution",
+          "route": "Inhaled",
+          "dose_example": "Age/severity/device-specific rescue dosing; verify current GINA/local acute-asthma protocol rather than copying an adult regimen.",
+          "tags": [
+            "asthma",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Rapid bronchodilator reliever.",
+          "monitoring_pearl": "Check inhaler/spacer technique, HR/tremor and response; repeated need signals poor control or severe exacerbation.",
+          "source_refs": [
+            "GINA_2026",
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_ipratropium",
+          "generic": "Ipratropium bromide",
+          "class_id": "ped_sama",
+          "form": "MDI/nebulizer solution",
+          "route": "Inhaled",
+          "dose_example": "Acute-severity/age-specific protocol; verify local pediatric regimen.",
+          "tags": [
+            "asthma",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Adjunct bronchodilator in significant exacerbation.",
+          "monitoring_pearl": "Use in appropriate acute context; monitor response and escalation needs.",
+          "source_refs": [
+            "GINA_2026",
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_budesonide_ics",
+          "generic": "Budesonide",
+          "class_id": "ped_ics",
+          "form": "DPI/nebulizer suspension",
+          "route": "Inhaled",
+          "dose_example": "Use age-specific low/medium/high ICS tables; verify product/device-equivalent dose.",
+          "tags": [
+            "asthma",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Controller anti-inflammatory therapy.",
+          "monitoring_pearl": "Rinse mouth when appropriate; monitor technique, adherence, growth trajectory and cumulative steroid exposure.",
+          "source_refs": [
+            "GINA_2026",
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_beclometasone_ics",
+          "generic": "Beclometasone dipropionate",
+          "class_id": "ped_ics",
+          "form": "MDI",
+          "route": "Inhaled",
+          "dose_example": "Use age-specific low/medium/high ICS tables; verify product/device-equivalent dose.",
+          "tags": [
+            "asthma",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Controller anti-inflammatory therapy.",
+          "monitoring_pearl": "Rinse mouth when appropriate; monitor technique, adherence, growth trajectory and cumulative steroid exposure.",
+          "source_refs": [
+            "GINA_2026",
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_fluticasone_ics",
+          "generic": "Fluticasone propionate",
+          "class_id": "ped_ics",
+          "form": "MDI/DPI",
+          "route": "Inhaled",
+          "dose_example": "Use age-specific low/medium/high ICS tables; verify product/device-equivalent dose.",
+          "tags": [
+            "asthma",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Controller anti-inflammatory therapy.",
+          "monitoring_pearl": "Rinse mouth when appropriate; monitor technique, adherence, growth trajectory and cumulative steroid exposure.",
+          "source_refs": [
+            "GINA_2026",
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_budesonide_formoterol",
+          "generic": "Budesonide / Formoterol",
+          "class_id": "ped_ics_laba",
+          "form": "Combination inhaler",
+          "route": "Inhaled",
+          "dose_example": "Age/product/step-specific; verify GINA pediatric strategy and approved device.",
+          "tags": [
+            "asthma",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Controller combination; formoterol-containing products have distinct reliever/MART roles in selected age groups.",
+          "monitoring_pearl": "Do not use LABA without ICS for asthma; confirm device technique and age approval.",
+          "source_refs": [
+            "GINA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_fluticasone_salmeterol",
+          "generic": "Fluticasone / Salmeterol",
+          "class_id": "ped_ics_laba",
+          "form": "Combination inhaler",
+          "route": "Inhaled",
+          "dose_example": "Age/product/step-specific; verify GINA pediatric strategy and approved device.",
+          "tags": [
+            "asthma",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Controller combination; formoterol-containing products have distinct reliever/MART roles in selected age groups.",
+          "monitoring_pearl": "Do not use LABA without ICS for asthma; confirm device technique and age approval.",
+          "source_refs": [
+            "GINA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_montelukast",
+          "generic": "Montelukast",
+          "class_id": "ped_ltra",
+          "form": "Granules/chewable/tablet",
+          "route": "PO",
+          "dose_example": "Age-banded once-daily dosing; verify current label strength for age.",
+          "tags": [
+            "asthma",
+            "allergy",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Selected asthma/allergic-rhinitis add-on/alternative.",
+          "monitoring_pearl": "Review neuropsychiatric warning and clinical necessity; do not substitute for emergency bronchodilator.",
+          "source_refs": [
+            "GINA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_cetirizine",
+          "generic": "Cetirizine",
+          "class_id": "ped_h1",
+          "form": "Drops/syrup/tablet depending drug",
+          "route": "PO",
+          "dose_example": "Age-specific label dosing; verify concentration and minimum age.",
+          "tags": [
+            "allergy",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Allergic rhinitis/urticaria symptom control.",
+          "monitoring_pearl": "Sedation can still occur with some agents; renal adjustment may be relevant.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_loratadine",
+          "generic": "Loratadine",
+          "class_id": "ped_h1",
+          "form": "Drops/syrup/tablet depending drug",
+          "route": "PO",
+          "dose_example": "Age-specific label dosing; verify concentration and minimum age.",
+          "tags": [
+            "allergy",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Allergic rhinitis/urticaria symptom control.",
+          "monitoring_pearl": "Sedation can still occur with some agents; renal adjustment may be relevant.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_fexofenadine",
+          "generic": "Fexofenadine",
+          "class_id": "ped_h1",
+          "form": "Drops/syrup/tablet depending drug",
+          "route": "PO",
+          "dose_example": "Age-specific label dosing; verify concentration and minimum age.",
+          "tags": [
+            "allergy",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Allergic rhinitis/urticaria symptom control.",
+          "monitoring_pearl": "Sedation can still occur with some agents; renal adjustment may be relevant.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_fluticasone_nasal",
+          "generic": "Fluticasone nasal",
+          "class_id": "ped_intranasal_steroid",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Age/product-specific sprays per nostril; verify label.",
+          "tags": [
+            "allergy",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Allergic-rhinitis controller.",
+          "monitoring_pearl": "Technique matters; monitor epistaxis/nasal irritation and total steroid burden.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_mometasone_nasal",
+          "generic": "Mometasone nasal",
+          "class_id": "ped_intranasal_steroid",
+          "form": "Nasal spray",
+          "route": "Intranasal",
+          "dose_example": "Age/product-specific sprays per nostril; verify label.",
+          "tags": [
+            "allergy",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Allergic-rhinitis controller.",
+          "monitoring_pearl": "Technique matters; monitor epistaxis/nasal irritation and total steroid burden.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_epinephrine_im",
+          "generic": "Epinephrine / Adrenaline — anaphylaxis",
+          "class_id": "ped_anaphylaxis",
+          "form": "Injection/autoinjector",
+          "route": "IM anterolateral thigh",
+          "dose_example": "CDC learning snapshot: 0.01 mg/kg IM using 1 mg/mL; maximum 0.5 mg for large children; repeat interval per emergency protocol.",
+          "tags": [
+            "anaphylaxis",
+            "high_alert",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "First-line life-saving treatment for anaphylaxis.",
+          "monitoring_pearl": "Verify concentration and weight; antihistamines/steroids do not replace epinephrine.",
+          "source_refs": [
+            "CDC_ANAPHYLAXIS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_who_ors",
+          "generic": "WHO reduced-osmolarity ORS",
+          "class_id": "ped_ors",
+          "form": "ORS sachet/solution",
+          "route": "PO",
+          "dose_example": "WHO/IMCI: Plan B commonly 75 mL/kg over 4 h for some dehydration; Plan A ongoing losses are age/size guided. Reassess frequently.",
+          "tags": [
+            "diarrhea",
+            "under5",
+            "infant",
+            "liquid_formulation"
+          ],
+          "role": "Rehydration and electrolyte replacement.",
+          "monitoring_pearl": "Use correct sachet-to-water dilution; severe dehydration/shock or danger signs require urgent escalation/IV protocol.",
+          "source_refs": [
+            "WHO_DIARRHEA",
+            "WHO_IMCI",
+            "ICMR_PED_STW"
+          ]
+        },
+        {
+          "id": "ped_zinc_sulfate",
+          "generic": "Zinc — acute diarrhea",
+          "class_id": "ped_zinc_diarrhea",
+          "form": "Dispersible tablet/syrup",
+          "route": "PO",
+          "dose_example": "WHO: 10 mg/day if <6 months; 20 mg/day if ≥6 months, for 10–14 days.",
+          "tags": [
+            "diarrhea",
+            "under5",
+            "infant",
+            "liquid_formulation",
+            "micronutrient"
+          ],
+          "role": "Adjunct to ORS for acute childhood diarrhea.",
+          "monitoring_pearl": "Confirm elemental zinc amount; vomiting can occur.",
+          "source_refs": [
+            "WHO_DIARRHEA",
+            "WHO_IMCI"
+          ]
+        },
+        {
+          "id": "ped_ondansetron_drug",
+          "generic": "Ondansetron",
+          "class_id": "ped_ondansetron",
+          "form": "ODT/oral solution/tablet/injection",
+          "route": "PO/IV",
+          "dose_example": "Weight/age/indication-specific; selected acute-gastroenteritis protocols often use a single oral dose. Verify local guideline/label.",
+          "tags": [
+            "vomiting",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Selected antiemetic to support successful oral rehydration.",
+          "monitoring_pearl": "Check QT-risk/electrolytes and exclude surgical/neurologic red flags.",
+          "source_refs": [
+            "DAILYMED",
+            "ICMR_PED_STW"
+          ]
+        },
+        {
+          "id": "ped_peg3350",
+          "generic": "PEG 3350 / Macrogol ± electrolytes",
+          "class_id": "ped_peg",
+          "form": "Powder/sachets",
+          "route": "PO",
+          "dose_example": "Dose is age/weight and phase-specific (disimpaction vs maintenance); follow pediatric constipation protocol.",
+          "tags": [
+            "constipation",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Disimpaction/maintenance constipation therapy.",
+          "monitoring_pearl": "Titrate to soft regular stools; investigate red flags and monitor hydration.",
+          "source_refs": [
+            "NICE_CONSTIPATION",
+            "WHO_EMLC_2025"
+          ]
+        },
+        {
+          "id": "ped_lactulose_drug",
+          "generic": "Lactulose",
+          "class_id": "ped_lactulose",
+          "form": "Oral solution",
+          "route": "PO",
+          "dose_example": "Age-specific mL regimen; verify label/guideline and titrate to response.",
+          "tags": [
+            "constipation",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Constipation treatment.",
+          "monitoring_pearl": "Bloating/diarrhea may limit use; avoid confusing mL with grams.",
+          "source_refs": [
+            "NICE_CONSTIPATION",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_amoxicillin",
+          "generic": "Amoxicillin",
+          "class_id": "ped_aminopenicillin",
+          "form": "Suspension/dispersible tablet/capsule",
+          "route": "PO",
+          "dose_example": "Weight-based, diagnosis-specific regimen; verify current pediatric infection guideline and product concentration.",
+          "tags": [
+            "oral_antibiotic",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Common oral β-lactam for susceptible infections.",
+          "monitoring_pearl": "Check allergy, renal function, indication and dose strategy; avoid automatic treatment of viral illness.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "ICMR_PED_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_ampicillin",
+          "generic": "Ampicillin",
+          "class_id": "ped_aminopenicillin",
+          "form": "Injection/capsule/suspension depending setting",
+          "route": "IV/PO",
+          "dose_example": "Age/weight/indication-specific; neonatal regimens are separate high-risk protocols.",
+          "tags": [
+            "severe_infection",
+            "high_alert"
+          ],
+          "role": "β-lactam used in selected serious infections.",
+          "monitoring_pearl": "Neonates/meningitis/sepsis require dedicated protocol and gestational/postnatal-age dosing.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_amox_clav",
+          "generic": "Amoxicillin / Clavulanate",
+          "class_id": "ped_bl_bli",
+          "form": "Suspension/dispersible tablet/tablet",
+          "route": "PO",
+          "dose_example": "Weight-based by amoxicillin component; formulation ratios vary. Verify exact product and syndrome-specific regimen.",
+          "tags": [
+            "oral_antibiotic",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Selected oral antibacterial therapy.",
+          "monitoring_pearl": "Clavulanate exposure affects GI intolerance; do not interchange formulations mg-for-mg without checking ratio.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "ICMR_PED_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_cephalexin",
+          "generic": "Cephalexin",
+          "class_id": "ped_oral_ceph",
+          "form": "Suspension/tablet/capsule depending agent",
+          "route": "PO",
+          "dose_example": "Weight- and indication-specific; verify current pediatric label/guideline.",
+          "tags": [
+            "oral_antibiotic",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Selected oral cephalosporin therapy.",
+          "monitoring_pearl": "Check allergy history, renal function, spectrum and stewardship need.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_cefuroxime",
+          "generic": "Cefuroxime axetil",
+          "class_id": "ped_oral_ceph",
+          "form": "Suspension/tablet/capsule depending agent",
+          "route": "PO",
+          "dose_example": "Weight- and indication-specific; verify current pediatric label/guideline.",
+          "tags": [
+            "oral_antibiotic",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Selected oral cephalosporin therapy.",
+          "monitoring_pearl": "Check allergy history, renal function, spectrum and stewardship need.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_cefixime",
+          "generic": "Cefixime",
+          "class_id": "ped_oral_ceph",
+          "form": "Suspension/tablet/capsule depending agent",
+          "route": "PO",
+          "dose_example": "Weight- and indication-specific; verify current pediatric label/guideline.",
+          "tags": [
+            "oral_antibiotic",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Selected oral cephalosporin therapy.",
+          "monitoring_pearl": "Check allergy history, renal function, spectrum and stewardship need.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_azithro",
+          "generic": "Azithromycin",
+          "class_id": "ped_macrolide",
+          "form": "Suspension/tablet",
+          "route": "PO",
+          "dose_example": "Weight/indication/course-specific; verify current pediatric guideline.",
+          "tags": [
+            "oral_antibiotic",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Selected macrolide antibacterial therapy.",
+          "monitoring_pearl": "QT/drug-interaction considerations and local resistance matter.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "ICMR_PED_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_clarithro",
+          "generic": "Clarithromycin",
+          "class_id": "ped_macrolide",
+          "form": "Suspension/tablet",
+          "route": "PO",
+          "dose_example": "Weight/indication/course-specific; verify current pediatric guideline.",
+          "tags": [
+            "oral_antibiotic",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Selected macrolide antibacterial therapy.",
+          "monitoring_pearl": "QT/drug-interaction considerations and local resistance matter.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "ICMR_PED_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_cotrimoxazole",
+          "generic": "Co-trimoxazole (Trimethoprim/Sulfamethoxazole)",
+          "class_id": "ped_tmp_smx",
+          "form": "Suspension/tablet",
+          "route": "PO",
+          "dose_example": "Dose by trimethoprim component and indication; verify age/renal function/label.",
+          "tags": [
+            "oral_antibiotic",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Selected infection/prophylaxis contexts.",
+          "monitoring_pearl": "Avoid in specific neonatal/young-infant contexts and severe sulfonamide reactions; monitor renal/K/CBC for prolonged therapy.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_ceftriaxone",
+          "generic": "Ceftriaxone",
+          "class_id": "ped_parenteral_ceph",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Weight/age/site-of-infection specific; verify severe-pediatric-infection protocol. Neonatal restrictions differ by agent.",
+          "tags": [
+            "severe_infection",
+            "high_alert"
+          ],
+          "role": "Parenteral therapy for selected serious bacterial infections.",
+          "monitoring_pearl": "Meningitis/sepsis/neonate dosing and contraindications require separate verification; obtain cultures when appropriate.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "ICMR_PED_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_cefotaxime",
+          "generic": "Cefotaxime",
+          "class_id": "ped_parenteral_ceph",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Weight/age/site-of-infection specific; verify severe-pediatric-infection protocol. Neonatal restrictions differ by agent.",
+          "tags": [
+            "severe_infection",
+            "high_alert"
+          ],
+          "role": "Parenteral therapy for selected serious bacterial infections.",
+          "monitoring_pearl": "Meningitis/sepsis/neonate dosing and contraindications require separate verification; obtain cultures when appropriate.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "ICMR_PED_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_gentamicin",
+          "generic": "Gentamicin",
+          "class_id": "ped_aminoglycoside",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Weight/age/renal-function-specific protocol; neonates require gestational/postnatal-age dosing.",
+          "tags": [
+            "severe_infection",
+            "high_alert"
+          ],
+          "role": "Selected severe infection therapy.",
+          "monitoring_pearl": "Monitor renal function and drug levels when indicated; nephro/ototoxicity risk.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_amikacin",
+          "generic": "Amikacin",
+          "class_id": "ped_aminoglycoside",
+          "form": "Injection",
+          "route": "IV/IM",
+          "dose_example": "Weight/age/renal-function-specific protocol; neonates require gestational/postnatal-age dosing.",
+          "tags": [
+            "severe_infection",
+            "high_alert"
+          ],
+          "role": "Selected severe infection therapy.",
+          "monitoring_pearl": "Monitor renal function and drug levels when indicated; nephro/ototoxicity risk.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_albendazole",
+          "generic": "Albendazole",
+          "class_id": "ped_benzimidazole",
+          "form": "Chewable/dispersible tablet/suspension",
+          "route": "PO",
+          "dose_example": "Age/parasite/program-specific regimen; verify local deworming guideline and minimum age.",
+          "tags": [
+            "deworming",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Anthelmintic therapy/programmatic deworming.",
+          "monitoring_pearl": "Pregnancy/adolescent reproductive considerations and parasite-specific courses differ.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "WHO_IMCI"
+          ]
+        },
+        {
+          "id": "ped_mebendazole",
+          "generic": "Mebendazole",
+          "class_id": "ped_benzimidazole",
+          "form": "Chewable/dispersible tablet/suspension",
+          "route": "PO",
+          "dose_example": "Age/parasite/program-specific regimen; verify local deworming guideline and minimum age.",
+          "tags": [
+            "deworming",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Anthelmintic therapy/programmatic deworming.",
+          "monitoring_pearl": "Pregnancy/adolescent reproductive considerations and parasite-specific courses differ.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "WHO_IMCI"
+          ]
+        },
+        {
+          "id": "ped_permethrin",
+          "generic": "Permethrin 5% cream",
+          "class_id": "ped_scabies",
+          "form": "Cream",
+          "route": "Topical",
+          "dose_example": "Apply per pediatric scabies protocol; age/site instructions must be followed and treatment often repeated.",
+          "tags": [
+            "scabies",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "First-line topical scabicide in many guidelines.",
+          "monitoring_pearl": "Correct whole-body application/contact treatment is essential; post-scabetic itch does not always mean failure.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_ivermectin_scabies",
+          "generic": "Ivermectin — scabies",
+          "class_id": "ped_scabies",
+          "form": "Tablet",
+          "route": "PO",
+          "dose_example": "Weight-based specialist/regimen use; minimum weight/age and pregnancy constraints must be verified.",
+          "tags": [
+            "scabies",
+            "school_age",
+            "adolescent",
+            "high_alert"
+          ],
+          "role": "Selected oral scabies therapy, e.g. difficult/crusted contexts.",
+          "monitoring_pearl": "Do not infer eligibility by age alone; verify weight and current guidance.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_midazolam_rescue",
+          "generic": "Midazolam",
+          "class_id": "ped_seizure_rescue",
+          "form": "Buccal/intranasal/injection",
+          "route": "Buccal/IN/IM/IV",
+          "dose_example": "Weight/age/route-specific seizure-rescue protocol; verify maximum/repeat dose and escalation timing.",
+          "tags": [
+            "seizure_rescue",
+            "high_alert",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Acute convulsive seizure rescue.",
+          "monitoring_pearl": "Respiratory depression risk; airway/oxygen/glucose assessment and escalation are simultaneous priorities.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_diazepam_rescue",
+          "generic": "Diazepam",
+          "class_id": "ped_seizure_rescue",
+          "form": "Rectal gel/injection",
+          "route": "PR/IV",
+          "dose_example": "Weight/age/route-specific seizure-rescue protocol; verify maximum/repeat dose and escalation timing.",
+          "tags": [
+            "seizure_rescue",
+            "high_alert",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Acute convulsive seizure rescue.",
+          "monitoring_pearl": "Respiratory depression risk; airway/oxygen/glucose assessment and escalation are simultaneous priorities.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_levetiracetam",
+          "generic": "Levetiracetam",
+          "class_id": "ped_asm",
+          "form": "Oral solution/tablet depending drug",
+          "route": "PO",
+          "dose_example": "Weight-based titration; verify seizure-type-specific pediatric guideline/label.",
+          "tags": [
+            "seizure_maintenance",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Maintenance antiseizure therapy in selected syndromes.",
+          "monitoring_pearl": "Titrate carefully; monitor mood/behavior, sodium or rash depending agent; do not stop abruptly.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_oxcarbazepine",
+          "generic": "Oxcarbazepine",
+          "class_id": "ped_asm",
+          "form": "Oral solution/tablet depending drug",
+          "route": "PO",
+          "dose_example": "Weight-based titration; verify seizure-type-specific pediatric guideline/label.",
+          "tags": [
+            "seizure_maintenance",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Maintenance antiseizure therapy in selected syndromes.",
+          "monitoring_pearl": "Titrate carefully; monitor mood/behavior, sodium or rash depending agent; do not stop abruptly.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_lamotrigine",
+          "generic": "Lamotrigine",
+          "class_id": "ped_asm",
+          "form": "Oral solution/tablet depending drug",
+          "route": "PO",
+          "dose_example": "Weight-based titration; verify seizure-type-specific pediatric guideline/label.",
+          "tags": [
+            "seizure_maintenance",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Maintenance antiseizure therapy in selected syndromes.",
+          "monitoring_pearl": "Titrate carefully; monitor mood/behavior, sodium or rash depending agent; do not stop abruptly.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_ferrous_sulfate",
+          "generic": "Ferrous sulfate",
+          "class_id": "ped_iron",
+          "form": "Drops/syrup/tablet",
+          "route": "PO",
+          "dose_example": "Dose must be expressed as elemental iron. Prevention schedules and IDA treatment mg/kg are different; verify age/diagnosis/current national protocol.",
+          "tags": [
+            "iron",
+            "micronutrient",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Iron supplementation or IDA treatment depending context.",
+          "monitoring_pearl": "Confirm elemental-iron content; monitor Hb/reticulocyte response and adherence; investigate cause of IDA.",
+          "source_refs": [
+            "WHO_IRON_CHILD",
+            "WHO_EMLC_2025",
+            "ICMR_PED_STW"
+          ]
+        },
+        {
+          "id": "ped_ferrous_fumarate",
+          "generic": "Ferrous fumarate",
+          "class_id": "ped_iron",
+          "form": "Drops/syrup/tablet",
+          "route": "PO",
+          "dose_example": "Dose must be expressed as elemental iron. Prevention schedules and IDA treatment mg/kg are different; verify age/diagnosis/current national protocol.",
+          "tags": [
+            "iron",
+            "micronutrient",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent",
+            "liquid_formulation"
+          ],
+          "role": "Iron supplementation or IDA treatment depending context.",
+          "monitoring_pearl": "Confirm elemental-iron content; monitor Hb/reticulocyte response and adherence; investigate cause of IDA.",
+          "source_refs": [
+            "WHO_IRON_CHILD",
+            "WHO_EMLC_2025",
+            "ICMR_PED_STW"
+          ]
+        },
+        {
+          "id": "ped_cholecalciferol",
+          "generic": "Cholecalciferol (Vitamin D3)",
+          "class_id": "ped_vitd",
+          "form": "Drops/sachets/tablets/capsules depending product",
+          "route": "PO",
+          "dose_example": "Age/indication-specific IU or mcg regimen; do not interchange prevention with high-dose deficiency treatment.",
+          "tags": [
+            "vitamin_d",
+            "micronutrient",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Vitamin-D prevention/deficiency or specialist active-vitamin-D therapy.",
+          "monitoring_pearl": "Verify units (IU vs mcg), calcium/phosphate/renal context and avoid cumulative megadose errors.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_calcitriol_special",
+          "generic": "Calcitriol — specialist indications",
+          "class_id": "ped_vitd",
+          "form": "Drops/sachets/tablets/capsules depending product",
+          "route": "PO",
+          "dose_example": "Age/indication-specific IU or mcg regimen; do not interchange prevention with high-dose deficiency treatment.",
+          "tags": [
+            "vitamin_d",
+            "micronutrient",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Vitamin-D prevention/deficiency or specialist active-vitamin-D therapy.",
+          "monitoring_pearl": "Verify units (IU vs mcg), calcium/phosphate/renal context and avoid cumulative megadose errors.",
+          "source_refs": [
+            "WHO_EMLC_2025",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_petrolatum",
+          "generic": "Petrolatum-based emollient",
+          "class_id": "ped_emollient",
+          "form": "Ointment/cream",
+          "route": "Topical",
+          "dose_example": "Apply liberally and repeatedly; product choice based on child/skin/site/tolerance.",
+          "tags": [
+            "eczema",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Skin-barrier maintenance.",
+          "monitoring_pearl": "Avoid irritants/fragrances when possible; infection signs require reassessment.",
+          "source_refs": [
+            "WHO_EMLC_2025"
+          ]
+        },
+        {
+          "id": "ped_emollient_cream",
+          "generic": "Fragrance-free emollient cream/ointment",
+          "class_id": "ped_emollient",
+          "form": "Ointment/cream",
+          "route": "Topical",
+          "dose_example": "Apply liberally and repeatedly; product choice based on child/skin/site/tolerance.",
+          "tags": [
+            "eczema",
+            "infant",
+            "under5",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Skin-barrier maintenance.",
+          "monitoring_pearl": "Avoid irritants/fragrances when possible; infection signs require reassessment.",
+          "source_refs": [
+            "WHO_EMLC_2025"
+          ]
+        },
+        {
+          "id": "ped_hydrocortisone_1",
+          "generic": "Hydrocortisone 1% — low potency",
+          "class_id": "ped_topical_steroid",
+          "form": "Cream/ointment",
+          "route": "Topical",
+          "dose_example": "Low potency: frequency/duration/site/age specific; verify pediatric dermatology guidance and fingertip-unit education.",
+          "tags": [
+            "eczema",
+            "under5",
+            "school_age",
+            "adolescent",
+            "high_alert"
+          ],
+          "role": "Eczema flare anti-inflammatory treatment.",
+          "monitoring_pearl": "Avoid indiscriminate prolonged/high-potency use; monitor skin atrophy and total exposure.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_mometasone_topical",
+          "generic": "Mometasone furoate — potent depending formulation",
+          "class_id": "ped_topical_steroid",
+          "form": "Cream/ointment",
+          "route": "Topical",
+          "dose_example": "Potent: frequency/duration/site/age specific; verify pediatric dermatology guidance and fingertip-unit education.",
+          "tags": [
+            "eczema",
+            "under5",
+            "school_age",
+            "adolescent",
+            "high_alert"
+          ],
+          "role": "Eczema flare anti-inflammatory treatment.",
+          "monitoring_pearl": "Avoid indiscriminate prolonged/high-potency use; monitor skin atrophy and total exposure.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_tacrolimus_top",
+          "generic": "Tacrolimus ointment",
+          "class_id": "ped_tci",
+          "form": "Ointment/cream",
+          "route": "Topical",
+          "dose_example": "Age/strength/site-specific label use; verify minimum age and indication.",
+          "tags": [
+            "eczema",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Steroid-sparing eczema therapy.",
+          "monitoring_pearl": "Transient burning may occur; use according to approved age/strength and sun-protection advice.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_pimecrolimus_top",
+          "generic": "Pimecrolimus cream",
+          "class_id": "ped_tci",
+          "form": "Ointment/cream",
+          "route": "Topical",
+          "dose_example": "Age/strength/site-specific label use; verify minimum age and indication.",
+          "tags": [
+            "eczema",
+            "school_age",
+            "adolescent"
+          ],
+          "role": "Steroid-sparing eczema therapy.",
+          "monitoring_pearl": "Transient burning may occur; use according to approved age/strength and sun-protection advice.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "ped_cough_supportive",
+          "generic": "Supportive cough/cold care — no automatic OTC combination",
+          "class_id": "ped_cough_cold_safety",
+          "form": "Non-drug/supportive",
+          "route": "N/A",
+          "dose_example": "No automatic medicine dose. Assess age, breathing difficulty, hydration, pneumonia/asthma red flags and product-specific restrictions.",
+          "tags": [
+            "under5",
+            "high_alert"
+          ],
+          "role": "Prevents inappropriate reflex prescribing of multi-ingredient OTC cough/cold medicines.",
+          "monitoring_pearl": "Do not use this card to suppress cough without diagnosis; honey is age-restricted and drug products vary.",
+          "source_refs": [
+            "WHO_IMCI",
+            "ICMR_PED_STW"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "WHO_EMLC_2025",
+          "label": "WHO — Model List of Essential Medicines for Children, 10th list (2025)",
+          "url": "https://www.who.int/publications/i/item/B09475"
+        },
+        {
+          "id": "WHO_EML_LISTS",
+          "label": "WHO — Model Lists of Essential Medicines (current 2025 EML/EMLc)",
+          "url": "https://www.who.int/groups/expert-committee-on-selection-and-use-of-essential-medicines/essential-medicines-lists"
+        },
+        {
+          "id": "WHO_IMCI",
+          "label": "WHO — Integrated Management of Childhood Illness (IMCI)",
+          "url": "https://www.who.int/teams/maternal-newborn-child-adolescent-health-and-ageing/child-health/integrated-management-of-childhood-illness"
+        },
+        {
+          "id": "ICMR_PED_STW",
+          "label": "ICMR — Standard Treatment Workflows, Pediatrics",
+          "url": "https://www.icmr.gov.in/standard-treatment-workflows-stws"
+        },
+        {
+          "id": "WHO_DIARRHEA",
+          "label": "WHO — Diarrhoeal disease / ORS and zinc",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/diarrhoeal-disease"
+        },
+        {
+          "id": "GINA_2026",
+          "label": "GINA — 2026 Strategy Report / pediatric asthma age-stratified guidance",
+          "url": "https://ginasthma.org/2026-gina-strategy-report/"
+        },
+        {
+          "id": "NICE_FEVER",
+          "label": "NICE NG143 — Fever in under 5s: assessment and initial management",
+          "url": "https://www.nice.org.uk/guidance/ng143"
+        },
+        {
+          "id": "NICE_CONSTIPATION",
+          "label": "NICE CG99 — Constipation in children and young people",
+          "url": "https://www.nice.org.uk/guidance/cg99"
+        },
+        {
+          "id": "WHO_IRON_CHILD",
+          "label": "WHO — Daily iron supplementation in infants and children",
+          "url": "https://www.who.int/publications/i/item/9789241549523"
+        },
+        {
+          "id": "CDC_ANAPHYLAXIS",
+          "label": "CDC — Preventing and managing adverse reactions: pediatric IM epinephrine dosing",
+          "url": "https://www.cdc.gov/vaccines/hcp/imz-best-practices/preventing-managing-adverse-reactions.html"
         },
         {
           "id": "DAILYMED",
