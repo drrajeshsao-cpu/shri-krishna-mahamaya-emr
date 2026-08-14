@@ -1,15 +1,15 @@
 {
   "schema": "mahamaya-chronic-pharmacology-v1",
-  "version": "2.4Y",
-  "app_version": "V5.40Y",
-  "build": "2026.08.15-R25Y",
-  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40Y Clinical Toxicology • Poisoning • Overdose • Antidote & Decontamination Lab",
+  "version": "2.4Z",
+  "app_version": "V5.40Z",
+  "build": "2026.08.15-R25Z",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40Z Anesthesia • Perioperative • Procedural Sedation • Analgesia Safety",
   "counts": {
-    "labs": 31,
-    "classes": 1009,
-    "drug_profiles": 2273
+    "labs": 32,
+    "classes": 1053,
+    "drug_profiles": 2361
   },
-  "global_boundary": "Research/learning medication-safety and emergency toxicology CDS only. Toxicology pathways do not replace emergency stabilization, poison-centre/medical-toxicologist consultation, current product labeling or patient-specific clinical judgment. No automatic antidote dose, decontamination order, extracorporeal-treatment trigger, discharge decision or safe/unsafe declaration is generated.",
+  "global_boundary": "Research/learning medication-safety and perioperative CDS only. Anesthesia/sedation workflows do not replace a qualified anesthesia professional or current facility protocols. No automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, airway technique, neuraxial-antithrombotic timing, medication stop/restart, crisis dosing or discharge clearance is generated.",
   "labs": [
     {
       "id": "hypertension",
@@ -69483,6 +69483,2722 @@
         {
           "id": "DAILYMED",
           "label": "NIH DailyMed — current US prescribing information repository",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "anesthesia_perioperative_sedation",
+      "title": "Anesthesia • Perioperative • Procedural Sedation • Analgesia Safety Intelligence Lab",
+      "icon": "💉",
+      "badge": "V5.40Z",
+      "eyebrow": "PRE-OP • AIRWAY • FASTING • MONITORING • SEDATION DEPTH • REGIONAL/NEURAXIAL • LAST • PAIN • PACU • MH • PERIOPERATIVE MEDICATION SAFETY",
+      "subtitle": "Clinician-reviewed anesthesia and perioperative safety workspace linking pre-anesthetic assessment, airway strategy, fasting/aspiration context, physiologic monitoring, procedural sedation rescue, regional/neuraxial safeguards, multimodal analgesia, recovery and high-risk perioperative medication review.",
+      "scientific_boundary": "Perioperative decision-support only. This lab does not determine anesthetic fitness, assign an anesthesia technique, calculate sedative/anesthetic/local-anesthetic doses, authorize neuraxial timing, declare fasting adequate, clear a patient for discharge, or replace a qualified anesthesia professional. Verify patient/procedure context, urgency, airway, fasting/aspiration risk, current medicines/antithrombotics, allergies, pregnancy, organ function, monitoring/rescue capability and current ASA/ASRA/MHAUS/local protocol before action. Emergency deterioration requires immediate resuscitation and specialist escalation.",
+      "classification_notes": {
+        "Sedation is a continuum": "Patients may become more deeply sedated than intended; the team must be able to rescue from the next deeper level.",
+        "Monitoring is physiology-based": "Oxygenation, ventilation, circulation and temperature monitoring are selected according to anesthetic depth, patient and procedure risk.",
+        "Fasting is not a single checkbox": "Type/time of intake, aspiration modifiers, urgency and current guidance must be reviewed; unexpected non-fasting status needs individualized risk-benefit assessment.",
+        "Airway tests are not absolute": "Airway history, examination, physiology, positioning, procedure and rescue resources are integrated; no single test guarantees easy or difficult airway.",
+        "Regional timing is drug-specific": "Antithrombotic/neuraxial timing depends on exact agent, dose, renal function, catheter/procedure details and current ASRA guidance.",
+        "LAST/MH are emergency pathways": "Potential LAST or malignant hyperthermia requires immediate crisis management using current checklists, not app-calculated treatment dosing.",
+        "Recovery is active monitoring": "PACU/sedation discharge requires return toward safe physiologic and cognitive baseline, not elapsed time alone."
+      },
+      "lens_groups": [
+        {
+          "group": "Pre-op & risk",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Anesthesia"
+            },
+            {
+              "id": "preop",
+              "label": "Pre-op Assessment"
+            },
+            {
+              "id": "fasting",
+              "label": "Fasting/Aspiration"
+            },
+            {
+              "id": "airway",
+              "label": "Airway"
+            },
+            {
+              "id": "difficult_airway",
+              "label": "Difficult Airway"
+            }
+          ]
+        },
+        {
+          "group": "Monitoring & induction",
+          "items": [
+            {
+              "id": "monitoring",
+              "label": "Monitoring"
+            },
+            {
+              "id": "oxygenation",
+              "label": "Oxygenation"
+            },
+            {
+              "id": "ventilation",
+              "label": "Ventilation/ETCO₂"
+            },
+            {
+              "id": "hemodynamics",
+              "label": "Hemodynamics"
+            },
+            {
+              "id": "temperature",
+              "label": "Temperature"
+            }
+          ]
+        },
+        {
+          "group": "Sedation & analgesia",
+          "items": [
+            {
+              "id": "sedation",
+              "label": "Sedation"
+            },
+            {
+              "id": "moderate",
+              "label": "Moderate Sedation"
+            },
+            {
+              "id": "deep",
+              "label": "Deep Sedation"
+            },
+            {
+              "id": "analgesia",
+              "label": "Analgesia"
+            },
+            {
+              "id": "opioid",
+              "label": "Opioid Safety"
+            }
+          ]
+        },
+        {
+          "group": "Regional anesthesia",
+          "items": [
+            {
+              "id": "regional",
+              "label": "Regional"
+            },
+            {
+              "id": "neuraxial",
+              "label": "Neuraxial"
+            },
+            {
+              "id": "anticoagulant",
+              "label": "Antithrombotics"
+            },
+            {
+              "id": "last",
+              "label": "LAST"
+            }
+          ]
+        },
+        {
+          "group": "High-risk crises",
+          "items": [
+            {
+              "id": "malignant_hyperthermia",
+              "label": "Malignant Hyperthermia"
+            },
+            {
+              "id": "anaphylaxis",
+              "label": "Anaphylaxis"
+            },
+            {
+              "id": "rescue",
+              "label": "Rescue"
+            }
+          ]
+        },
+        {
+          "group": "Recovery & special groups",
+          "items": [
+            {
+              "id": "pacu",
+              "label": "PACU"
+            },
+            {
+              "id": "recovery",
+              "label": "Recovery/Discharge"
+            },
+            {
+              "id": "osa",
+              "label": "OSA"
+            },
+            {
+              "id": "pediatric",
+              "label": "Pediatric"
+            },
+            {
+              "id": "obstetric",
+              "label": "Obstetric"
+            },
+            {
+              "id": "geriatric",
+              "label": "Geriatric/Frailty"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "an_preop_assessment",
+          "name": "Pre-anesthetic evaluation & perioperative risk review",
+          "mechanism": "Structured preprocedure review of comorbidity, functional status, prior anesthesia, medications, allergies and procedure risk",
+          "target": "Patient • procedure • anesthesia plan",
+          "tags": [
+            "preop",
+            "risk",
+            "history",
+            "assessment"
+          ],
+          "role_note": "Identify modifiable risks and information gaps before anesthesia/sedation; urgent/emergency procedures require context-specific prioritization.",
+          "drug_ids": [
+            "an_preop_assessment_review",
+            "an_preop_assessment_monitor"
+          ]
+        },
+        {
+          "id": "an_asa_physical_status",
+          "name": "ASA Physical Status classification",
+          "mechanism": "Standardized clinician classification of pre-anesthesia systemic disease burden",
+          "target": "ASA PS I–VI",
+          "tags": [
+            "preop",
+            "asa_ps",
+            "classification"
+          ],
+          "role_note": "Use ASA Physical Status as a communication/risk-stratification descriptor, not as a stand-alone predicted complication probability.",
+          "drug_ids": [
+            "an_asa_physical_status_review",
+            "an_asa_physical_status_monitor"
+          ]
+        },
+        {
+          "id": "an_fasting_aspiration",
+          "name": "Preoperative fasting & aspiration-risk review",
+          "mechanism": "Procedure- and patient-specific aspiration-risk assessment with current fasting guidance verification",
+          "target": "Gastric contents • aspiration risk",
+          "tags": [
+            "fasting",
+            "aspiration",
+            "preop"
+          ],
+          "role_note": "Verify solids, clear liquids, urgency, pregnancy, obstruction/gastroparesis and current institutional/ASA fasting policy before elective sedation/anesthesia.",
+          "drug_ids": [
+            "an_fasting_aspiration_review",
+            "an_fasting_aspiration_monitor"
+          ]
+        },
+        {
+          "id": "an_glp1_periop",
+          "name": "GLP-1 receptor agonist perioperative review",
+          "mechanism": "Risk-based perioperative assessment for delayed gastric emptying and metabolic implications",
+          "target": "GLP-1 therapy • gastric emptying",
+          "tags": [
+            "glp1",
+            "fasting",
+            "aspiration",
+            "diabetes"
+          ],
+          "role_note": "Use current multi-society guidance and patient-specific GI symptoms, escalation phase and aspiration risk; do not apply an obsolete universal hold rule.",
+          "drug_ids": [
+            "an_glp1_periop_review",
+            "an_glp1_periop_monitor"
+          ]
+        },
+        {
+          "id": "an_airway_assessment",
+          "name": "Airway assessment",
+          "mechanism": "Preprocedure evaluation of ventilation, laryngoscopy/intubation and rescue-airway difficulty",
+          "target": "Airway anatomy • prior history",
+          "tags": [
+            "airway",
+            "preop",
+            "difficult_airway"
+          ],
+          "role_note": "Review prior difficult-airway records, mouth opening, dentition, neck mobility, facial/airway features and procedure positioning.",
+          "drug_ids": [
+            "an_airway_assessment_review",
+            "an_airway_assessment_monitor"
+          ]
+        },
+        {
+          "id": "an_difficult_airway_strategy",
+          "name": "Difficult-airway strategy & rescue planning",
+          "mechanism": "Planned primary and rescue pathways for anticipated/unanticipated airway difficulty",
+          "target": "Oxygenation • ventilation • intubation",
+          "tags": [
+            "airway",
+            "difficult_airway",
+            "rescue",
+            "red_flag"
+          ],
+          "role_note": "Pre-plan awake vs asleep approach, device strategy, oxygenation, help/escalation and emergency invasive-airway readiness when difficulty is anticipated.",
+          "drug_ids": [
+            "an_difficult_airway_strategy_review",
+            "an_difficult_airway_strategy_monitor"
+          ]
+        },
+        {
+          "id": "an_preoxygenation",
+          "name": "Preoxygenation & apneic-oxygenation readiness",
+          "mechanism": "Optimization of oxygen reserve before airway interventions",
+          "target": "Oxygen reserve",
+          "tags": [
+            "airway",
+            "oxygenation",
+            "induction"
+          ],
+          "role_note": "Match preoxygenation technique to hypoxemia risk, physiology and airway plan; have backup oxygenation methods ready.",
+          "drug_ids": [
+            "an_preoxygenation_review",
+            "an_preoxygenation_monitor"
+          ]
+        },
+        {
+          "id": "an_induction_hemodynamics",
+          "name": "Induction-related hemodynamic risk",
+          "mechanism": "Anticipation of hypotension, hypertension, ischemia or dysrhythmia around induction",
+          "target": "Blood pressure • perfusion",
+          "tags": [
+            "induction",
+            "hemodynamics",
+            "hypotension"
+          ],
+          "role_note": "Review volume status, cardiac reserve, vasoactive medication availability and induction strategy in high-risk patients.",
+          "drug_ids": [
+            "an_induction_hemodynamics_review",
+            "an_induction_hemodynamics_monitor"
+          ]
+        },
+        {
+          "id": "an_nmb_monitoring_reversal",
+          "name": "Neuromuscular blockade monitoring & reversal",
+          "mechanism": "Objective assessment of neuromuscular function to reduce residual weakness",
+          "target": "Neuromuscular transmission",
+          "tags": [
+            "nmb",
+            "reversal",
+            "airway",
+            "recovery"
+          ],
+          "role_note": "Use appropriate neuromuscular monitoring and agent-specific reversal strategy; do not infer complete recovery from time alone.",
+          "drug_ids": [
+            "an_nmb_monitoring_reversal_review",
+            "an_nmb_monitoring_reversal_monitor"
+          ]
+        },
+        {
+          "id": "an_oxygenation_monitoring",
+          "name": "Oxygenation monitoring",
+          "mechanism": "Continuous clinical and pulse-oximetry surveillance during anesthesia/sedation as applicable",
+          "target": "SpO2 • oxygenation",
+          "tags": [
+            "monitoring",
+            "oxygenation",
+            "sedation"
+          ],
+          "role_note": "Ensure oxygenation monitoring appropriate to anesthetic/sedation depth, patient risk and procedure environment.",
+          "drug_ids": [
+            "an_oxygenation_monitoring_review",
+            "an_oxygenation_monitoring_monitor"
+          ]
+        },
+        {
+          "id": "an_ventilation_capnography",
+          "name": "Ventilation & capnography monitoring",
+          "mechanism": "Assessment of ventilation using clinical observation and exhaled CO2 when required/appropriate",
+          "target": "Ventilation • ETCO2",
+          "tags": [
+            "monitoring",
+            "ventilation",
+            "capnography",
+            "sedation"
+          ],
+          "role_note": "Use ventilation monitoring matched to sedation/anesthesia depth; pulse oximetry alone may lag behind hypoventilation, especially with supplemental oxygen.",
+          "drug_ids": [
+            "an_ventilation_capnography_review",
+            "an_ventilation_capnography_monitor"
+          ]
+        },
+        {
+          "id": "an_circulation_monitoring",
+          "name": "Circulation / ECG / blood-pressure monitoring",
+          "mechanism": "Periprocedural surveillance of cardiovascular status",
+          "target": "ECG • BP • pulse • perfusion",
+          "tags": [
+            "monitoring",
+            "circulation",
+            "ecg"
+          ],
+          "role_note": "Apply minimum monitoring standards and additional monitoring based on patient/procedure risk.",
+          "drug_ids": [
+            "an_circulation_monitoring_review",
+            "an_circulation_monitoring_monitor"
+          ]
+        },
+        {
+          "id": "an_temperature_management",
+          "name": "Perioperative temperature management",
+          "mechanism": "Detection and prevention/treatment of clinically significant hypo- or hyperthermia",
+          "target": "Core temperature",
+          "tags": [
+            "monitoring",
+            "temperature",
+            "hypothermia"
+          ],
+          "role_note": "Monitor temperature when clinically significant change is intended, anticipated or suspected; use active warming/cooling as indicated.",
+          "drug_ids": [
+            "an_temperature_management_review",
+            "an_temperature_management_monitor"
+          ]
+        },
+        {
+          "id": "an_sedation_continuum",
+          "name": "Sedation depth continuum",
+          "mechanism": "Recognition that sedation depth is continuous and may deepen unintentionally",
+          "target": "Minimal • moderate • deep • general anesthesia",
+          "tags": [
+            "sedation",
+            "depth",
+            "rescue"
+          ],
+          "role_note": "Define intended sedation depth and ensure personnel can rescue the patient from a deeper level than intended.",
+          "drug_ids": [
+            "an_sedation_continuum_review",
+            "an_sedation_continuum_monitor"
+          ]
+        },
+        {
+          "id": "an_moderate_sedation",
+          "name": "Moderate procedural sedation safety",
+          "mechanism": "Patient selection, monitoring and rescue readiness for moderate sedation/analgesia",
+          "target": "Conscious response • airway • ventilation",
+          "tags": [
+            "sedation",
+            "moderate",
+            "procedural"
+          ],
+          "role_note": "Verify fasting/aspiration context, airway, medications, monitoring, recovery capacity and emergency equipment before moderate sedation.",
+          "drug_ids": [
+            "an_moderate_sedation_review",
+            "an_moderate_sedation_monitor"
+          ]
+        },
+        {
+          "id": "an_deep_sedation_rescue",
+          "name": "Deep sedation rescue readiness",
+          "mechanism": "Recognition and rescue of airway/ventilatory or cardiovascular compromise during deep sedation",
+          "target": "Airway • ventilation • circulation",
+          "tags": [
+            "sedation",
+            "deep",
+            "rescue",
+            "red_flag"
+          ],
+          "role_note": "Deep sedation can impair airway and ventilation; personnel, equipment and skills must match that risk.",
+          "drug_ids": [
+            "an_deep_sedation_rescue_review",
+            "an_deep_sedation_rescue_monitor"
+          ]
+        },
+        {
+          "id": "an_propofol_sedation",
+          "name": "Propofol sedation safety review",
+          "mechanism": "Rapid-onset sedative-hypnotic with potential apnea and hypotension",
+          "target": "GABAergic sedation",
+          "tags": [
+            "propofol",
+            "sedation",
+            "hypotension",
+            "apnea"
+          ],
+          "role_note": "Use only in settings with appropriate credentialing, continuous monitoring and immediate airway/resuscitation capability; no app-generated dose.",
+          "drug_ids": [
+            "an_propofol_sedation_review",
+            "an_propofol_sedation_monitor"
+          ]
+        },
+        {
+          "id": "an_ketamine_sedation",
+          "name": "Ketamine procedural sedation review",
+          "mechanism": "Dissociative anesthesia/analgesia with distinctive airway, cardiovascular and emergence profile",
+          "target": "NMDA antagonism",
+          "tags": [
+            "ketamine",
+            "sedation",
+            "analgesia"
+          ],
+          "role_note": "Review airway risk, cardiovascular status, psychiatric context and procedure; do not assume preserved reflexes eliminate aspiration/airway risk.",
+          "drug_ids": [
+            "an_ketamine_sedation_review",
+            "an_ketamine_sedation_monitor"
+          ]
+        },
+        {
+          "id": "an_benzodiazepine_sedation",
+          "name": "Benzodiazepine sedation review",
+          "mechanism": "Sedative/anxiolytic effect with respiratory-depression synergy when combined with opioids",
+          "target": "GABA-A modulation",
+          "tags": [
+            "benzodiazepine",
+            "sedation",
+            "respiratory"
+          ],
+          "role_note": "Account for age, frailty, hepatic/renal function and co-administered opioids/other sedatives; avoid automatic reversal-dosing suggestions.",
+          "drug_ids": [
+            "an_benzodiazepine_sedation_review",
+            "an_benzodiazepine_sedation_monitor"
+          ]
+        },
+        {
+          "id": "an_opioid_periprocedural",
+          "name": "Periprocedural opioid safety",
+          "mechanism": "Analgesia with dose-dependent respiratory depression and sedation",
+          "target": "μ-opioid receptor",
+          "tags": [
+            "opioid",
+            "analgesia",
+            "respiratory",
+            "sedation"
+          ],
+          "role_note": "Use multimodal analgesia where appropriate and account for tolerance, OSA, frailty, renal/hepatic function and co-sedatives.",
+          "drug_ids": [
+            "an_opioid_periprocedural_review",
+            "an_opioid_periprocedural_monitor"
+          ]
+        },
+        {
+          "id": "an_dexmedetomidine",
+          "name": "Dexmedetomidine sedation review",
+          "mechanism": "Alpha-2 agonist sedation with bradycardia/hypotension considerations",
+          "target": "α2 adrenergic agonism",
+          "tags": [
+            "dexmedetomidine",
+            "sedation",
+            "bradycardia",
+            "hypotension"
+          ],
+          "role_note": "Select/titrate by trained clinician with hemodynamic monitoring and awareness of conduction disease, volume status and co-medications.",
+          "drug_ids": [
+            "an_dexmedetomidine_review",
+            "an_dexmedetomidine_monitor"
+          ]
+        },
+        {
+          "id": "an_regional_assessment",
+          "name": "Regional anesthesia candidacy & consent review",
+          "mechanism": "Assessment of indication, anatomy, infection, neurologic status, bleeding risk and alternatives",
+          "target": "Regional/neuraxial anesthesia",
+          "tags": [
+            "regional",
+            "neuraxial",
+            "consent"
+          ],
+          "role_note": "Document indication, risks/benefits/alternatives, baseline neurologic findings when relevant and rescue plan for block failure/complication.",
+          "drug_ids": [
+            "an_regional_assessment_review",
+            "an_regional_assessment_monitor"
+          ]
+        },
+        {
+          "id": "an_neuraxial_antithrombotic",
+          "name": "Neuraxial anesthesia with antithrombotic therapy",
+          "mechanism": "Timing-sensitive bleeding-risk management around neuraxial/deep plexus procedures",
+          "target": "Spinal/epidural hematoma risk",
+          "tags": [
+            "neuraxial",
+            "anticoagulant",
+            "antiplatelet",
+            "hematoma"
+          ],
+          "role_note": "Use the current ASRA guideline for the exact drug, dose, renal function, timing, catheter status and procedure; app does not supply universal hold intervals.",
+          "drug_ids": [
+            "an_neuraxial_antithrombotic_review",
+            "an_neuraxial_antithrombotic_monitor"
+          ]
+        },
+        {
+          "id": "an_peripheral_block_safety",
+          "name": "Peripheral nerve block safety",
+          "mechanism": "Site-specific regional anesthesia planning including anatomy, anticoagulation, nerve injury and local-anesthetic exposure",
+          "target": "Peripheral nerve / plexus",
+          "tags": [
+            "regional",
+            "peripheral_block",
+            "ultrasound"
+          ],
+          "role_note": "Use appropriate block expertise, monitoring, asepsis and dose-accounting; anticoagulation relevance varies by depth/compressibility and guideline.",
+          "drug_ids": [
+            "an_peripheral_block_safety_review",
+            "an_peripheral_block_safety_monitor"
+          ]
+        },
+        {
+          "id": "an_local_anesthetic_total_dose",
+          "name": "Local-anesthetic cumulative exposure guardrail",
+          "mechanism": "Calculation/reconciliation of all local anesthetic sources to reduce systemic toxicity risk",
+          "target": "Local anesthetic systemic exposure",
+          "tags": [
+            "local_anesthetic",
+            "dose_guardrail",
+            "last"
+          ],
+          "role_note": "Reconcile drug, concentration, volume, patient size, site vascularity and all concurrent local-anesthetic sources; no app-generated maximum dose.",
+          "drug_ids": [
+            "an_local_anesthetic_total_dose_review",
+            "an_local_anesthetic_total_dose_monitor"
+          ]
+        },
+        {
+          "id": "an_last_recognition",
+          "name": "Local anesthetic systemic toxicity (LAST) recognition",
+          "mechanism": "Early recognition of neurologic and cardiovascular toxicity after local anesthetic exposure",
+          "target": "CNS • cardiovascular toxicity",
+          "tags": [
+            "last",
+            "local_anesthetic",
+            "seizure",
+            "arrhythmia",
+            "red_flag"
+          ],
+          "role_note": "Consider LAST with circumoral symptoms, tinnitus, agitation, seizure, altered consciousness, dysrhythmia or cardiovascular collapse temporally related to local anesthetic.",
+          "drug_ids": [
+            "an_last_recognition_review",
+            "an_last_recognition_monitor"
+          ]
+        },
+        {
+          "id": "an_lipid_rescue",
+          "name": "Lipid-emulsion rescue guardrail for LAST",
+          "mechanism": "Emergency adjunct within a structured LAST resuscitation pathway",
+          "target": "Lipid emulsion therapy",
+          "tags": [
+            "last",
+            "lipid_emulsion",
+            "rescue"
+          ],
+          "role_note": "Use current ASRA checklist for lipid-emulsion preparation and dosing; app intentionally does not calculate bolus/infusion doses.",
+          "drug_ids": [
+            "an_lipid_rescue_review",
+            "an_lipid_rescue_monitor"
+          ]
+        },
+        {
+          "id": "an_neuraxial_complications",
+          "name": "Neuraxial block complications",
+          "mechanism": "Recognition of high/total spinal, hematoma, abscess, post-dural puncture and neurologic complications",
+          "target": "Neuraxial complications",
+          "tags": [
+            "neuraxial",
+            "high_spinal",
+            "hematoma",
+            "neurologic"
+          ],
+          "role_note": "Hypotension/bradycardia, respiratory compromise or rapidly ascending block requires immediate resuscitation and airway support.",
+          "drug_ids": [
+            "an_neuraxial_complications_review",
+            "an_neuraxial_complications_monitor"
+          ]
+        },
+        {
+          "id": "an_ponv",
+          "name": "Postoperative nausea/vomiting risk & prophylaxis review",
+          "mechanism": "Risk-based multimodal prevention and rescue strategy",
+          "target": "PONV",
+          "tags": [
+            "ponv",
+            "recovery",
+            "antiemetic"
+          ],
+          "role_note": "Assess patient/procedure/anesthetic risk and select multimodal prophylaxis according to current local guideline and contraindications.",
+          "drug_ids": [
+            "an_ponv_review",
+            "an_ponv_monitor"
+          ]
+        },
+        {
+          "id": "an_multimodal_acute_pain",
+          "name": "Perioperative multimodal acute-pain strategy",
+          "mechanism": "Combination of non-opioid, regional and opioid-sparing approaches tailored to patient risk",
+          "target": "Acute pain pathways",
+          "tags": [
+            "analgesia",
+            "multimodal",
+            "opioid_sparing"
+          ],
+          "role_note": "Plan analgesia before the procedure with renal/hepatic/GI/bleeding risks, chronic opioid use and regional options in mind.",
+          "drug_ids": [
+            "an_multimodal_acute_pain_review",
+            "an_multimodal_acute_pain_monitor"
+          ]
+        },
+        {
+          "id": "an_opioid_respiratory_depression",
+          "name": "Postoperative opioid-induced respiratory depression risk",
+          "mechanism": "Recognition of sedation/hypoventilation risk after opioids, especially with OSA/co-sedatives",
+          "target": "Respiratory drive",
+          "tags": [
+            "opioid",
+            "postop",
+            "respiratory",
+            "osa"
+          ],
+          "role_note": "Identify high-risk patients and match monitoring/analgesic strategy to risk; minimize unnecessary sedative combinations.",
+          "drug_ids": [
+            "an_opioid_respiratory_depression_review",
+            "an_opioid_respiratory_depression_monitor"
+          ]
+        },
+        {
+          "id": "an_osa_periop",
+          "name": "Obstructive sleep apnea perioperative review",
+          "mechanism": "Airway/respiratory-risk planning across sedation, analgesia and recovery",
+          "target": "OSA • airway collapsibility",
+          "tags": [
+            "osa",
+            "airway",
+            "opioid",
+            "recovery"
+          ],
+          "role_note": "Recognize diagnosed/suspected OSA and consider effects on airway strategy, sedative/opioid sensitivity and postoperative monitoring.",
+          "drug_ids": [
+            "an_osa_periop_review",
+            "an_osa_periop_monitor"
+          ]
+        },
+        {
+          "id": "an_diabetes_periop",
+          "name": "Diabetes & perioperative glycemic medication review",
+          "mechanism": "Procedure-specific plan for glucose control and diabetes medicines",
+          "target": "Glucose • insulin • diabetes drugs",
+          "tags": [
+            "diabetes",
+            "periop",
+            "glucose"
+          ],
+          "role_note": "Coordinate fasting, insulin/secretagogue/SGLT2/GLP-1 management and glucose targets with current institutional guidance; avoid one-size-fits-all holds.",
+          "drug_ids": [
+            "an_diabetes_periop_review",
+            "an_diabetes_periop_monitor"
+          ]
+        },
+        {
+          "id": "an_antithrombotic_periop",
+          "name": "Perioperative antiplatelet/anticoagulant review",
+          "mechanism": "Balance thrombosis and procedural bleeding risk with drug-specific interruption/restart planning",
+          "target": "Hemostasis • thrombosis",
+          "tags": [
+            "anticoagulant",
+            "antiplatelet",
+            "periop",
+            "bleeding"
+          ],
+          "role_note": "Verify indication, thrombotic risk, procedure bleeding risk, renal function and current specialty guideline; neuraxial procedures require ASRA-specific timing.",
+          "drug_ids": [
+            "an_antithrombotic_periop_review",
+            "an_antithrombotic_periop_monitor"
+          ]
+        },
+        {
+          "id": "an_antihypertensive_periop",
+          "name": "Perioperative antihypertensive review",
+          "mechanism": "Medication and physiology review to reduce severe perioperative hypo-/hypertension",
+          "target": "Blood pressure medications",
+          "tags": [
+            "antihypertensive",
+            "periop",
+            "blood_pressure"
+          ],
+          "role_note": "Do not auto-stop or auto-continue classes; verify current institutional/anesthesia protocol and patient indication, volume status and hemodynamic risk.",
+          "drug_ids": [
+            "an_antihypertensive_periop_review",
+            "an_antihypertensive_periop_monitor"
+          ]
+        },
+        {
+          "id": "an_steroid_adrenal",
+          "name": "Chronic steroid / adrenal-suppression perioperative review",
+          "mechanism": "Assessment of hypothalamic-pituitary-adrenal suppression and stress context",
+          "target": "Adrenal reserve",
+          "tags": [
+            "steroid",
+            "adrenal",
+            "periop"
+          ],
+          "role_note": "Review steroid type/dose/duration, adrenal disease and procedural stress; use current endocrine/anesthesia guidance for supplementation decisions.",
+          "drug_ids": [
+            "an_steroid_adrenal_review",
+            "an_steroid_adrenal_monitor"
+          ]
+        },
+        {
+          "id": "an_patient_blood_management",
+          "name": "Perioperative anemia / blood-management review",
+          "mechanism": "Optimization of anemia, bleeding risk and transfusion planning",
+          "target": "Hemoglobin • hemostasis",
+          "tags": [
+            "anemia",
+            "blood_management",
+            "transfusion"
+          ],
+          "role_note": "Identify anemia/bleeding risk before elective major procedures when feasible and plan conservation/transfusion strategy appropriate to context.",
+          "drug_ids": [
+            "an_patient_blood_management_review",
+            "an_patient_blood_management_monitor"
+          ]
+        },
+        {
+          "id": "an_periop_anaphylaxis",
+          "name": "Perioperative anaphylaxis recognition & allergy documentation",
+          "mechanism": "Rapid recognition of multisystem allergic reactions amid multiple simultaneous exposures",
+          "target": "Airway • circulation • skin",
+          "tags": [
+            "anaphylaxis",
+            "allergy",
+            "periop",
+            "red_flag"
+          ],
+          "role_note": "Consider anaphylaxis with sudden hypotension, bronchospasm, difficult ventilation, urticaria/angioedema or cardiovascular collapse; treat as emergency.",
+          "drug_ids": [
+            "an_periop_anaphylaxis_review",
+            "an_periop_anaphylaxis_monitor"
+          ]
+        },
+        {
+          "id": "an_malignant_hyperthermia",
+          "name": "Malignant hyperthermia preparedness & crisis recognition",
+          "mechanism": "Recognition of hypermetabolic crisis associated with triggering anesthetics in susceptible patients",
+          "target": "Skeletal-muscle hypermetabolism",
+          "tags": [
+            "malignant_hyperthermia",
+            "dantrolene",
+            "temperature",
+            "red_flag"
+          ],
+          "role_note": "Every location administering triggering general anesthetics needs an MH response plan and prompt access to current MHAUS crisis guidance/dantrolene.",
+          "drug_ids": [
+            "an_malignant_hyperthermia_review",
+            "an_malignant_hyperthermia_monitor"
+          ]
+        },
+        {
+          "id": "an_pacu_recovery",
+          "name": "Post-anesthesia care unit recovery monitoring",
+          "mechanism": "Structured observation of oxygenation, ventilation, circulation, consciousness, pain, nausea and complications",
+          "target": "PACU recovery",
+          "tags": [
+            "pacu",
+            "recovery",
+            "monitoring"
+          ],
+          "role_note": "Transfer with appropriate handoff and continue monitoring until recovery criteria and clinician judgment support step-down/discharge.",
+          "drug_ids": [
+            "an_pacu_recovery_review",
+            "an_pacu_recovery_monitor"
+          ]
+        },
+        {
+          "id": "an_sedation_discharge",
+          "name": "Post-sedation discharge readiness",
+          "mechanism": "Recovery assessment after procedural sedation before leaving monitored care",
+          "target": "Recovery • discharge",
+          "tags": [
+            "sedation",
+            "discharge",
+            "recovery"
+          ],
+          "role_note": "Do not discharge based on elapsed time alone; assess mental status, airway/respiratory stability, hemodynamics, mobility when relevant and responsible escort/instructions.",
+          "drug_ids": [
+            "an_sedation_discharge_review",
+            "an_sedation_discharge_monitor"
+          ]
+        },
+        {
+          "id": "an_obstetric_anesthesia",
+          "name": "Obstetric anesthesia/sedation considerations",
+          "mechanism": "Pregnancy-specific aspiration, airway, neuraxial, hemodynamic and fetal/maternal context",
+          "target": "Maternal • fetal physiology",
+          "tags": [
+            "obstetric",
+            "pregnancy",
+            "neuraxial"
+          ],
+          "role_note": "Use obstetric anesthesia protocols and multidisciplinary coordination; pregnancy changes aspiration, airway, hemodynamic and medication considerations.",
+          "drug_ids": [
+            "an_obstetric_anesthesia_review",
+            "an_obstetric_anesthesia_monitor"
+          ]
+        },
+        {
+          "id": "an_pediatric_anesthesia",
+          "name": "Pediatric anesthesia & procedural sedation safety",
+          "mechanism": "Age/size/development-specific airway, dosing, fasting, temperature and recovery considerations",
+          "target": "Pediatric physiology",
+          "tags": [
+            "pediatric",
+            "sedation",
+            "airway",
+            "fasting"
+          ],
+          "role_note": "Use weight- and age-appropriate equipment, dosing references and pediatric-trained rescue capability; children can deteriorate rapidly with airway obstruction/apnea.",
+          "drug_ids": [
+            "an_pediatric_anesthesia_review",
+            "an_pediatric_anesthesia_monitor"
+          ]
+        },
+        {
+          "id": "an_frailty_geriatric_periop",
+          "name": "Frailty / geriatric perioperative review",
+          "mechanism": "Assessment of physiologic reserve, cognition, polypharmacy and postoperative vulnerability",
+          "target": "Frailty • delirium • function",
+          "tags": [
+            "geriatric",
+            "frailty",
+            "delirium",
+            "polypharmacy"
+          ],
+          "role_note": "Account for frailty, cognition, falls, renal/hepatic reserve and medication burden rather than age alone when planning anesthesia/analgesia.",
+          "drug_ids": [
+            "an_frailty_geriatric_periop_review",
+            "an_frailty_geriatric_periop_monitor"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "an_preop_assessment_review",
+          "generic": "Pre-anesthetic evaluation & perioperative risk review — planning/review card",
+          "class_id": "an_preop_assessment",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "preop",
+            "risk",
+            "history",
+            "assessment",
+            "review"
+          ],
+          "role": "Identify modifiable risks and information gaps before anesthesia/sedation; urgent/emergency procedures require context-specific prioritization.",
+          "monitoring_pearl": "Document baseline vitals, relevant investigations, prior anesthesia problems, airway history, cardiopulmonary reserve and medication plan.",
+          "source_refs": [
+            "ASA_PS",
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_preop_assessment_monitor",
+          "generic": "Pre-anesthetic evaluation & perioperative risk review — monitoring/recovery card",
+          "class_id": "an_preop_assessment",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "preop",
+            "risk",
+            "history",
+            "assessment",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Document baseline vitals, relevant investigations, prior anesthesia problems, airway history, cardiopulmonary reserve and medication plan.",
+          "source_refs": [
+            "ASA_PS",
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_asa_physical_status_review",
+          "generic": "ASA Physical Status classification — planning/review card",
+          "class_id": "an_asa_physical_status",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "preop",
+            "asa_ps",
+            "classification",
+            "review"
+          ],
+          "role": "Use ASA Physical Status as a communication/risk-stratification descriptor, not as a stand-alone predicted complication probability.",
+          "monitoring_pearl": "Record the clinician-assigned class and rationale; do not auto-upgrade/downgrade from a single diagnosis.",
+          "source_refs": [
+            "ASA_PS"
+          ]
+        },
+        {
+          "id": "an_asa_physical_status_monitor",
+          "generic": "ASA Physical Status classification — monitoring/recovery card",
+          "class_id": "an_asa_physical_status",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "preop",
+            "asa_ps",
+            "classification",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Record the clinician-assigned class and rationale; do not auto-upgrade/downgrade from a single diagnosis.",
+          "source_refs": [
+            "ASA_PS"
+          ]
+        },
+        {
+          "id": "an_fasting_aspiration_review",
+          "generic": "Preoperative fasting & aspiration-risk review — planning/review card",
+          "class_id": "an_fasting_aspiration",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "fasting",
+            "aspiration",
+            "preop",
+            "review"
+          ],
+          "role": "Verify solids, clear liquids, urgency, pregnancy, obstruction/gastroparesis and current institutional/ASA fasting policy before elective sedation/anesthesia.",
+          "monitoring_pearl": "Unexpected non-fasting status should trigger individualized risk/benefit review rather than a universal cancellation rule.",
+          "source_refs": [
+            "ASA_FASTING"
+          ]
+        },
+        {
+          "id": "an_fasting_aspiration_monitor",
+          "generic": "Preoperative fasting & aspiration-risk review — monitoring/recovery card",
+          "class_id": "an_fasting_aspiration",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "fasting",
+            "aspiration",
+            "preop",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Unexpected non-fasting status should trigger individualized risk/benefit review rather than a universal cancellation rule.",
+          "source_refs": [
+            "ASA_FASTING"
+          ]
+        },
+        {
+          "id": "an_glp1_periop_review",
+          "generic": "GLP-1 receptor agonist perioperative review — planning/review card",
+          "class_id": "an_glp1_periop",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "glp1",
+            "fasting",
+            "aspiration",
+            "diabetes",
+            "review"
+          ],
+          "role": "Use current multi-society guidance and patient-specific GI symptoms, escalation phase and aspiration risk; do not apply an obsolete universal hold rule.",
+          "monitoring_pearl": "Coordinate with anesthesia, procedural and diabetes teams when risk is elevated; avoid prolonged unnecessary interruption that worsens glycemic control.",
+          "source_refs": [
+            "ASA_GLP1"
+          ]
+        },
+        {
+          "id": "an_glp1_periop_monitor",
+          "generic": "GLP-1 receptor agonist perioperative review — monitoring/recovery card",
+          "class_id": "an_glp1_periop",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "glp1",
+            "fasting",
+            "aspiration",
+            "diabetes",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Coordinate with anesthesia, procedural and diabetes teams when risk is elevated; avoid prolonged unnecessary interruption that worsens glycemic control.",
+          "source_refs": [
+            "ASA_GLP1"
+          ]
+        },
+        {
+          "id": "an_airway_assessment_review",
+          "generic": "Airway assessment — planning/review card",
+          "class_id": "an_airway_assessment",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "airway",
+            "preop",
+            "difficult_airway",
+            "review"
+          ],
+          "role": "Review prior difficult-airway records, mouth opening, dentition, neck mobility, facial/airway features and procedure positioning.",
+          "monitoring_pearl": "No single bedside airway test rules difficult airway in or out; combine history, examination, context and available rescue resources.",
+          "source_refs": [
+            "ASA_DIFFICULT_AIRWAY"
+          ]
+        },
+        {
+          "id": "an_airway_assessment_monitor",
+          "generic": "Airway assessment — monitoring/recovery card",
+          "class_id": "an_airway_assessment",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "airway",
+            "preop",
+            "difficult_airway",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "No single bedside airway test rules difficult airway in or out; combine history, examination, context and available rescue resources.",
+          "source_refs": [
+            "ASA_DIFFICULT_AIRWAY"
+          ]
+        },
+        {
+          "id": "an_difficult_airway_strategy_review",
+          "generic": "Difficult-airway strategy & rescue planning — planning/review card",
+          "class_id": "an_difficult_airway_strategy",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "airway",
+            "difficult_airway",
+            "rescue",
+            "red_flag",
+            "review"
+          ],
+          "role": "Pre-plan awake vs asleep approach, device strategy, oxygenation, help/escalation and emergency invasive-airway readiness when difficulty is anticipated.",
+          "monitoring_pearl": "Track attempts, oxygenation and trauma; repeated unsuccessful attempts should trigger strategy change/escalation rather than perseveration.",
+          "source_refs": [
+            "ASA_DIFFICULT_AIRWAY"
+          ]
+        },
+        {
+          "id": "an_difficult_airway_strategy_monitor",
+          "generic": "Difficult-airway strategy & rescue planning — monitoring/recovery card",
+          "class_id": "an_difficult_airway_strategy",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "airway",
+            "difficult_airway",
+            "rescue",
+            "red_flag",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Track attempts, oxygenation and trauma; repeated unsuccessful attempts should trigger strategy change/escalation rather than perseveration.",
+          "source_refs": [
+            "ASA_DIFFICULT_AIRWAY"
+          ]
+        },
+        {
+          "id": "an_preoxygenation_review",
+          "generic": "Preoxygenation & apneic-oxygenation readiness — planning/review card",
+          "class_id": "an_preoxygenation",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "airway",
+            "oxygenation",
+            "induction",
+            "review"
+          ],
+          "role": "Match preoxygenation technique to hypoxemia risk, physiology and airway plan; have backup oxygenation methods ready.",
+          "monitoring_pearl": "Monitor SpO2 and clinical ventilation; severe hypoxemia demands immediate rescue rather than completion of a planned sequence.",
+          "source_refs": [
+            "ASA_STANDARDS",
+            "ASA_DIFFICULT_AIRWAY"
+          ]
+        },
+        {
+          "id": "an_preoxygenation_monitor",
+          "generic": "Preoxygenation & apneic-oxygenation readiness — monitoring/recovery card",
+          "class_id": "an_preoxygenation",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "airway",
+            "oxygenation",
+            "induction",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Monitor SpO2 and clinical ventilation; severe hypoxemia demands immediate rescue rather than completion of a planned sequence.",
+          "source_refs": [
+            "ASA_STANDARDS",
+            "ASA_DIFFICULT_AIRWAY"
+          ]
+        },
+        {
+          "id": "an_induction_hemodynamics_review",
+          "generic": "Induction-related hemodynamic risk — planning/review card",
+          "class_id": "an_induction_hemodynamics",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "induction",
+            "hemodynamics",
+            "hypotension",
+            "review"
+          ],
+          "role": "Review volume status, cardiac reserve, vasoactive medication availability and induction strategy in high-risk patients.",
+          "monitoring_pearl": "Trend blood pressure, heart rate, ECG/perfusion and response to interventions; avoid relying on a single reading.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_induction_hemodynamics_monitor",
+          "generic": "Induction-related hemodynamic risk — monitoring/recovery card",
+          "class_id": "an_induction_hemodynamics",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "induction",
+            "hemodynamics",
+            "hypotension",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Trend blood pressure, heart rate, ECG/perfusion and response to interventions; avoid relying on a single reading.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_nmb_monitoring_reversal_review",
+          "generic": "Neuromuscular blockade monitoring & reversal — planning/review card",
+          "class_id": "an_nmb_monitoring_reversal",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "nmb",
+            "reversal",
+            "airway",
+            "recovery",
+            "review"
+          ],
+          "role": "Use appropriate neuromuscular monitoring and agent-specific reversal strategy; do not infer complete recovery from time alone.",
+          "monitoring_pearl": "Confirm adequate recovery before extubation/discharge from high-acuity monitoring according to current standards and device interpretation.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_nmb_monitoring_reversal_monitor",
+          "generic": "Neuromuscular blockade monitoring & reversal — monitoring/recovery card",
+          "class_id": "an_nmb_monitoring_reversal",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "nmb",
+            "reversal",
+            "airway",
+            "recovery",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Confirm adequate recovery before extubation/discharge from high-acuity monitoring according to current standards and device interpretation.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_oxygenation_monitoring_review",
+          "generic": "Oxygenation monitoring — planning/review card",
+          "class_id": "an_oxygenation_monitoring",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "monitoring",
+            "oxygenation",
+            "sedation",
+            "review"
+          ],
+          "role": "Ensure oxygenation monitoring appropriate to anesthetic/sedation depth, patient risk and procedure environment.",
+          "monitoring_pearl": "Investigate desaturation promptly: airway obstruction, hypoventilation, apnea, equipment issue, pulmonary pathology and perfusion can all contribute.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_oxygenation_monitoring_monitor",
+          "generic": "Oxygenation monitoring — monitoring/recovery card",
+          "class_id": "an_oxygenation_monitoring",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "monitoring",
+            "oxygenation",
+            "sedation",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Investigate desaturation promptly: airway obstruction, hypoventilation, apnea, equipment issue, pulmonary pathology and perfusion can all contribute.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_ventilation_capnography_review",
+          "generic": "Ventilation & capnography monitoring — planning/review card",
+          "class_id": "an_ventilation_capnography",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "monitoring",
+            "ventilation",
+            "capnography",
+            "sedation",
+            "review"
+          ],
+          "role": "Use ventilation monitoring matched to sedation/anesthesia depth; pulse oximetry alone may lag behind hypoventilation, especially with supplemental oxygen.",
+          "monitoring_pearl": "Evaluate airway patency, respiratory rate/effort, capnography trend and drug effect; rescue deeper-than-intended sedation promptly.",
+          "source_refs": [
+            "ASA_STANDARDS",
+            "ASA_SEDATION_CONTINUUM"
+          ]
+        },
+        {
+          "id": "an_ventilation_capnography_monitor",
+          "generic": "Ventilation & capnography monitoring — monitoring/recovery card",
+          "class_id": "an_ventilation_capnography",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "monitoring",
+            "ventilation",
+            "capnography",
+            "sedation",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Evaluate airway patency, respiratory rate/effort, capnography trend and drug effect; rescue deeper-than-intended sedation promptly.",
+          "source_refs": [
+            "ASA_STANDARDS",
+            "ASA_SEDATION_CONTINUUM"
+          ]
+        },
+        {
+          "id": "an_circulation_monitoring_review",
+          "generic": "Circulation / ECG / blood-pressure monitoring — planning/review card",
+          "class_id": "an_circulation_monitoring",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "monitoring",
+            "circulation",
+            "ecg",
+            "review"
+          ],
+          "role": "Apply minimum monitoring standards and additional monitoring based on patient/procedure risk.",
+          "monitoring_pearl": "Interpret trends with clinical perfusion; artifact and cuff/device errors should be considered when values are discordant.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_circulation_monitoring_monitor",
+          "generic": "Circulation / ECG / blood-pressure monitoring — monitoring/recovery card",
+          "class_id": "an_circulation_monitoring",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "monitoring",
+            "circulation",
+            "ecg",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Interpret trends with clinical perfusion; artifact and cuff/device errors should be considered when values are discordant.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_temperature_management_review",
+          "generic": "Perioperative temperature management — planning/review card",
+          "class_id": "an_temperature_management",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "monitoring",
+            "temperature",
+            "hypothermia",
+            "review"
+          ],
+          "role": "Monitor temperature when clinically significant change is intended, anticipated or suspected; use active warming/cooling as indicated.",
+          "monitoring_pearl": "Unexplained hypercarbia, rigidity, tachycardia or hyperthermia should trigger malignant-hyperthermia differential review.",
+          "source_refs": [
+            "ASA_STANDARDS",
+            "MHAUS_MH"
+          ]
+        },
+        {
+          "id": "an_temperature_management_monitor",
+          "generic": "Perioperative temperature management — monitoring/recovery card",
+          "class_id": "an_temperature_management",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "monitoring",
+            "temperature",
+            "hypothermia",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Unexplained hypercarbia, rigidity, tachycardia or hyperthermia should trigger malignant-hyperthermia differential review.",
+          "source_refs": [
+            "ASA_STANDARDS",
+            "MHAUS_MH"
+          ]
+        },
+        {
+          "id": "an_sedation_continuum_review",
+          "generic": "Sedation depth continuum — planning/review card",
+          "class_id": "an_sedation_continuum",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "sedation",
+            "depth",
+            "rescue",
+            "review"
+          ],
+          "role": "Define intended sedation depth and ensure personnel can rescue the patient from a deeper level than intended.",
+          "monitoring_pearl": "Repeatedly reassess responsiveness, airway, ventilation and hemodynamics rather than assuming the planned depth remains stable.",
+          "source_refs": [
+            "ASA_SEDATION_CONTINUUM"
+          ]
+        },
+        {
+          "id": "an_sedation_continuum_monitor",
+          "generic": "Sedation depth continuum — monitoring/recovery card",
+          "class_id": "an_sedation_continuum",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "sedation",
+            "depth",
+            "rescue",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Repeatedly reassess responsiveness, airway, ventilation and hemodynamics rather than assuming the planned depth remains stable.",
+          "source_refs": [
+            "ASA_SEDATION_CONTINUUM"
+          ]
+        },
+        {
+          "id": "an_moderate_sedation_review",
+          "generic": "Moderate procedural sedation safety — planning/review card",
+          "class_id": "an_moderate_sedation",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "sedation",
+            "moderate",
+            "procedural",
+            "review"
+          ],
+          "role": "Verify fasting/aspiration context, airway, medications, monitoring, recovery capacity and emergency equipment before moderate sedation.",
+          "monitoring_pearl": "If verbal/tactile responsiveness is lost or airway intervention becomes necessary, treat as deeper-than-intended sedation and rescue accordingly.",
+          "source_refs": [
+            "ASA_SEDATION_CONTINUUM",
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_moderate_sedation_monitor",
+          "generic": "Moderate procedural sedation safety — monitoring/recovery card",
+          "class_id": "an_moderate_sedation",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "sedation",
+            "moderate",
+            "procedural",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "If verbal/tactile responsiveness is lost or airway intervention becomes necessary, treat as deeper-than-intended sedation and rescue accordingly.",
+          "source_refs": [
+            "ASA_SEDATION_CONTINUUM",
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_deep_sedation_rescue_review",
+          "generic": "Deep sedation rescue readiness — planning/review card",
+          "class_id": "an_deep_sedation_rescue",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "sedation",
+            "deep",
+            "rescue",
+            "red_flag",
+            "review"
+          ],
+          "role": "Deep sedation can impair airway and ventilation; personnel, equipment and skills must match that risk.",
+          "monitoring_pearl": "Escalate immediately for apnea, obstruction, hypoxemia, hypotension or unresponsiveness; document rescue interventions and recovery.",
+          "source_refs": [
+            "ASA_SEDATION_CONTINUUM",
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_deep_sedation_rescue_monitor",
+          "generic": "Deep sedation rescue readiness — monitoring/recovery card",
+          "class_id": "an_deep_sedation_rescue",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "sedation",
+            "deep",
+            "rescue",
+            "red_flag",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Escalate immediately for apnea, obstruction, hypoxemia, hypotension or unresponsiveness; document rescue interventions and recovery.",
+          "source_refs": [
+            "ASA_SEDATION_CONTINUUM",
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_propofol_sedation_review",
+          "generic": "Propofol sedation safety review — planning/review card",
+          "class_id": "an_propofol_sedation",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "propofol",
+            "sedation",
+            "hypotension",
+            "apnea",
+            "review"
+          ],
+          "role": "Use only in settings with appropriate credentialing, continuous monitoring and immediate airway/resuscitation capability; no app-generated dose.",
+          "monitoring_pearl": "Watch for apnea, airway obstruction, hypotension and injection-related issues; titration must be individualized by trained clinicians.",
+          "source_refs": [
+            "ASA_SEDATION_CONTINUUM",
+            "ASA_STANDARDS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_propofol_sedation_monitor",
+          "generic": "Propofol sedation safety review — monitoring/recovery card",
+          "class_id": "an_propofol_sedation",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "propofol",
+            "sedation",
+            "hypotension",
+            "apnea",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Watch for apnea, airway obstruction, hypotension and injection-related issues; titration must be individualized by trained clinicians.",
+          "source_refs": [
+            "ASA_SEDATION_CONTINUUM",
+            "ASA_STANDARDS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_ketamine_sedation_review",
+          "generic": "Ketamine procedural sedation review — planning/review card",
+          "class_id": "an_ketamine_sedation",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "ketamine",
+            "sedation",
+            "analgesia",
+            "review"
+          ],
+          "role": "Review airway risk, cardiovascular status, psychiatric context and procedure; do not assume preserved reflexes eliminate aspiration/airway risk.",
+          "monitoring_pearl": "Monitor airway/ventilation, hemodynamics, hypersalivation/vomiting and emergence phenomena; rescue capability remains mandatory.",
+          "source_refs": [
+            "ASA_SEDATION_CONTINUUM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_ketamine_sedation_monitor",
+          "generic": "Ketamine procedural sedation review — monitoring/recovery card",
+          "class_id": "an_ketamine_sedation",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "ketamine",
+            "sedation",
+            "analgesia",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Monitor airway/ventilation, hemodynamics, hypersalivation/vomiting and emergence phenomena; rescue capability remains mandatory.",
+          "source_refs": [
+            "ASA_SEDATION_CONTINUUM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_benzodiazepine_sedation_review",
+          "generic": "Benzodiazepine sedation review — planning/review card",
+          "class_id": "an_benzodiazepine_sedation",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "benzodiazepine",
+            "sedation",
+            "respiratory",
+            "review"
+          ],
+          "role": "Account for age, frailty, hepatic/renal function and co-administered opioids/other sedatives; avoid automatic reversal-dosing suggestions.",
+          "monitoring_pearl": "Monitor respiratory status and delayed resedation risk after reversal or prolonged exposure; ensure observation is adequate.",
+          "source_refs": [
+            "ASA_SEDATION_CONTINUUM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_benzodiazepine_sedation_monitor",
+          "generic": "Benzodiazepine sedation review — monitoring/recovery card",
+          "class_id": "an_benzodiazepine_sedation",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "benzodiazepine",
+            "sedation",
+            "respiratory",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Monitor respiratory status and delayed resedation risk after reversal or prolonged exposure; ensure observation is adequate.",
+          "source_refs": [
+            "ASA_SEDATION_CONTINUUM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_opioid_periprocedural_review",
+          "generic": "Periprocedural opioid safety — planning/review card",
+          "class_id": "an_opioid_periprocedural",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "opioid",
+            "analgesia",
+            "respiratory",
+            "sedation",
+            "review"
+          ],
+          "role": "Use multimodal analgesia where appropriate and account for tolerance, OSA, frailty, renal/hepatic function and co-sedatives.",
+          "monitoring_pearl": "Monitor sedation level, respiratory rate/effort, oxygenation and ventilation; deterioration requires prompt airway/supportive intervention.",
+          "source_refs": [
+            "ASA_STANDARDS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_opioid_periprocedural_monitor",
+          "generic": "Periprocedural opioid safety — monitoring/recovery card",
+          "class_id": "an_opioid_periprocedural",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "opioid",
+            "analgesia",
+            "respiratory",
+            "sedation",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Monitor sedation level, respiratory rate/effort, oxygenation and ventilation; deterioration requires prompt airway/supportive intervention.",
+          "source_refs": [
+            "ASA_STANDARDS",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_dexmedetomidine_review",
+          "generic": "Dexmedetomidine sedation review — planning/review card",
+          "class_id": "an_dexmedetomidine",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "dexmedetomidine",
+            "sedation",
+            "bradycardia",
+            "hypotension",
+            "review"
+          ],
+          "role": "Select/titrate by trained clinician with hemodynamic monitoring and awareness of conduction disease, volume status and co-medications.",
+          "monitoring_pearl": "Track heart rate, blood pressure, sedation depth and recovery; do not equate less respiratory depression with no airway risk.",
+          "source_refs": [
+            "ASA_SEDATION_CONTINUUM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_dexmedetomidine_monitor",
+          "generic": "Dexmedetomidine sedation review — monitoring/recovery card",
+          "class_id": "an_dexmedetomidine",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "dexmedetomidine",
+            "sedation",
+            "bradycardia",
+            "hypotension",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Track heart rate, blood pressure, sedation depth and recovery; do not equate less respiratory depression with no airway risk.",
+          "source_refs": [
+            "ASA_SEDATION_CONTINUUM",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_regional_assessment_review",
+          "generic": "Regional anesthesia candidacy & consent review — planning/review card",
+          "class_id": "an_regional_assessment",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "regional",
+            "neuraxial",
+            "consent",
+            "review"
+          ],
+          "role": "Document indication, risks/benefits/alternatives, baseline neurologic findings when relevant and rescue plan for block failure/complication.",
+          "monitoring_pearl": "Persistent or progressive neurologic deficit, severe pain, hematoma/infection concern or systemic toxicity requires urgent evaluation.",
+          "source_refs": [
+            "ASRA_GUIDELINES"
+          ]
+        },
+        {
+          "id": "an_regional_assessment_monitor",
+          "generic": "Regional anesthesia candidacy & consent review — monitoring/recovery card",
+          "class_id": "an_regional_assessment",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "regional",
+            "neuraxial",
+            "consent",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Persistent or progressive neurologic deficit, severe pain, hematoma/infection concern or systemic toxicity requires urgent evaluation.",
+          "source_refs": [
+            "ASRA_GUIDELINES"
+          ]
+        },
+        {
+          "id": "an_neuraxial_antithrombotic_review",
+          "generic": "Neuraxial anesthesia with antithrombotic therapy — planning/review card",
+          "class_id": "an_neuraxial_antithrombotic",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "neuraxial",
+            "anticoagulant",
+            "antiplatelet",
+            "hematoma",
+            "review"
+          ],
+          "role": "Use the current ASRA guideline for the exact drug, dose, renal function, timing, catheter status and procedure; app does not supply universal hold intervals.",
+          "monitoring_pearl": "After neuraxial techniques, monitor for new motor/sensory deficit, severe back pain or bladder/bowel dysfunction and escalate urgently if suspected hematoma.",
+          "source_refs": [
+            "ASRA_ANTITHROMBOTIC"
+          ]
+        },
+        {
+          "id": "an_neuraxial_antithrombotic_monitor",
+          "generic": "Neuraxial anesthesia with antithrombotic therapy — monitoring/recovery card",
+          "class_id": "an_neuraxial_antithrombotic",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "neuraxial",
+            "anticoagulant",
+            "antiplatelet",
+            "hematoma",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "After neuraxial techniques, monitor for new motor/sensory deficit, severe back pain or bladder/bowel dysfunction and escalate urgently if suspected hematoma.",
+          "source_refs": [
+            "ASRA_ANTITHROMBOTIC"
+          ]
+        },
+        {
+          "id": "an_peripheral_block_safety_review",
+          "generic": "Peripheral nerve block safety — planning/review card",
+          "class_id": "an_peripheral_block_safety",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "regional",
+            "peripheral_block",
+            "ultrasound",
+            "review"
+          ],
+          "role": "Use appropriate block expertise, monitoring, asepsis and dose-accounting; anticoagulation relevance varies by depth/compressibility and guideline.",
+          "monitoring_pearl": "Document block site/side, local anesthetic totals and neurologic status; unexpected weakness/pain or systemic symptoms require reassessment.",
+          "source_refs": [
+            "ASRA_GUIDELINES",
+            "ASRA_ANTITHROMBOTIC"
+          ]
+        },
+        {
+          "id": "an_peripheral_block_safety_monitor",
+          "generic": "Peripheral nerve block safety — monitoring/recovery card",
+          "class_id": "an_peripheral_block_safety",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "regional",
+            "peripheral_block",
+            "ultrasound",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Document block site/side, local anesthetic totals and neurologic status; unexpected weakness/pain or systemic symptoms require reassessment.",
+          "source_refs": [
+            "ASRA_GUIDELINES",
+            "ASRA_ANTITHROMBOTIC"
+          ]
+        },
+        {
+          "id": "an_local_anesthetic_total_dose_review",
+          "generic": "Local-anesthetic cumulative exposure guardrail — planning/review card",
+          "class_id": "an_local_anesthetic_total_dose",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "local_anesthetic",
+            "dose_guardrail",
+            "last",
+            "review"
+          ],
+          "role": "Reconcile drug, concentration, volume, patient size, site vascularity and all concurrent local-anesthetic sources; no app-generated maximum dose.",
+          "monitoring_pearl": "Record cumulative administration and time course; early neurologic/cardiovascular symptoms should trigger LAST pathway immediately.",
+          "source_refs": [
+            "ASRA_LAST",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_local_anesthetic_total_dose_monitor",
+          "generic": "Local-anesthetic cumulative exposure guardrail — monitoring/recovery card",
+          "class_id": "an_local_anesthetic_total_dose",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "local_anesthetic",
+            "dose_guardrail",
+            "last",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Record cumulative administration and time course; early neurologic/cardiovascular symptoms should trigger LAST pathway immediately.",
+          "source_refs": [
+            "ASRA_LAST",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_last_recognition_review",
+          "generic": "Local anesthetic systemic toxicity (LAST) recognition — planning/review card",
+          "class_id": "an_last_recognition",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "last",
+            "local_anesthetic",
+            "seizure",
+            "arrhythmia",
+            "red_flag",
+            "review"
+          ],
+          "role": "Consider LAST with circumoral symptoms, tinnitus, agitation, seizure, altered consciousness, dysrhythmia or cardiovascular collapse temporally related to local anesthetic.",
+          "monitoring_pearl": "Stop injection, call for help and use current ASRA LAST checklist; atypical/delayed presentations can occur.",
+          "source_refs": [
+            "ASRA_LAST"
+          ]
+        },
+        {
+          "id": "an_last_recognition_monitor",
+          "generic": "Local anesthetic systemic toxicity (LAST) recognition — monitoring/recovery card",
+          "class_id": "an_last_recognition",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "last",
+            "local_anesthetic",
+            "seizure",
+            "arrhythmia",
+            "red_flag",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Stop injection, call for help and use current ASRA LAST checklist; atypical/delayed presentations can occur.",
+          "source_refs": [
+            "ASRA_LAST"
+          ]
+        },
+        {
+          "id": "an_lipid_rescue_review",
+          "generic": "Lipid-emulsion rescue guardrail for LAST — planning/review card",
+          "class_id": "an_lipid_rescue",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "last",
+            "lipid_emulsion",
+            "rescue",
+            "review"
+          ],
+          "role": "Use current ASRA checklist for lipid-emulsion preparation and dosing; app intentionally does not calculate bolus/infusion doses.",
+          "monitoring_pearl": "Continue ECG/hemodynamic/neurologic monitoring and avoid exceeding guideline-specific limits; escalate to advanced support when refractory.",
+          "source_refs": [
+            "ASRA_LAST"
+          ]
+        },
+        {
+          "id": "an_lipid_rescue_monitor",
+          "generic": "Lipid-emulsion rescue guardrail for LAST — monitoring/recovery card",
+          "class_id": "an_lipid_rescue",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "last",
+            "lipid_emulsion",
+            "rescue",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Continue ECG/hemodynamic/neurologic monitoring and avoid exceeding guideline-specific limits; escalate to advanced support when refractory.",
+          "source_refs": [
+            "ASRA_LAST"
+          ]
+        },
+        {
+          "id": "an_neuraxial_complications_review",
+          "generic": "Neuraxial block complications — planning/review card",
+          "class_id": "an_neuraxial_complications",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "neuraxial",
+            "high_spinal",
+            "hematoma",
+            "neurologic",
+            "review"
+          ],
+          "role": "Hypotension/bradycardia, respiratory compromise or rapidly ascending block requires immediate resuscitation and airway support.",
+          "monitoring_pearl": "New/progressive neurologic deficit, fever/back pain, urinary retention or severe atypical headache warrants prompt targeted evaluation.",
+          "source_refs": [
+            "ASRA_GUIDELINES",
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_neuraxial_complications_monitor",
+          "generic": "Neuraxial block complications — monitoring/recovery card",
+          "class_id": "an_neuraxial_complications",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "neuraxial",
+            "high_spinal",
+            "hematoma",
+            "neurologic",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "New/progressive neurologic deficit, fever/back pain, urinary retention or severe atypical headache warrants prompt targeted evaluation.",
+          "source_refs": [
+            "ASRA_GUIDELINES",
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_ponv_review",
+          "generic": "Postoperative nausea/vomiting risk & prophylaxis review — planning/review card",
+          "class_id": "an_ponv",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "ponv",
+            "recovery",
+            "antiemetic",
+            "review"
+          ],
+          "role": "Assess patient/procedure/anesthetic risk and select multimodal prophylaxis according to current local guideline and contraindications.",
+          "monitoring_pearl": "If PONV occurs despite prophylaxis, reassess hydration, pain/opioids and use rescue strategy from a different class when appropriate.",
+          "source_refs": [
+            "ASA_POSTANESTHESIA"
+          ]
+        },
+        {
+          "id": "an_ponv_monitor",
+          "generic": "Postoperative nausea/vomiting risk & prophylaxis review — monitoring/recovery card",
+          "class_id": "an_ponv",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "ponv",
+            "recovery",
+            "antiemetic",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "If PONV occurs despite prophylaxis, reassess hydration, pain/opioids and use rescue strategy from a different class when appropriate.",
+          "source_refs": [
+            "ASA_POSTANESTHESIA"
+          ]
+        },
+        {
+          "id": "an_multimodal_acute_pain_review",
+          "generic": "Perioperative multimodal acute-pain strategy — planning/review card",
+          "class_id": "an_multimodal_acute_pain",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "analgesia",
+            "multimodal",
+            "opioid_sparing",
+            "review"
+          ],
+          "role": "Plan analgesia before the procedure with renal/hepatic/GI/bleeding risks, chronic opioid use and regional options in mind.",
+          "monitoring_pearl": "Reassess pain, function, sedation and adverse effects; uncontrolled pain or escalating opioid need should prompt diagnostic and plan review.",
+          "source_refs": [
+            "ASA_ACUTE_PAIN"
+          ]
+        },
+        {
+          "id": "an_multimodal_acute_pain_monitor",
+          "generic": "Perioperative multimodal acute-pain strategy — monitoring/recovery card",
+          "class_id": "an_multimodal_acute_pain",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "analgesia",
+            "multimodal",
+            "opioid_sparing",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Reassess pain, function, sedation and adverse effects; uncontrolled pain or escalating opioid need should prompt diagnostic and plan review.",
+          "source_refs": [
+            "ASA_ACUTE_PAIN"
+          ]
+        },
+        {
+          "id": "an_opioid_respiratory_depression_review",
+          "generic": "Postoperative opioid-induced respiratory depression risk — planning/review card",
+          "class_id": "an_opioid_respiratory_depression",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "opioid",
+            "postop",
+            "respiratory",
+            "osa",
+            "review"
+          ],
+          "role": "Identify high-risk patients and match monitoring/analgesic strategy to risk; minimize unnecessary sedative combinations.",
+          "monitoring_pearl": "Increasing sedation can precede respiratory arrest; evaluate ventilation and airway, not SpO2 alone when supplemental oxygen is used.",
+          "source_refs": [
+            "ASA_STANDARDS",
+            "ASA_OSA"
+          ]
+        },
+        {
+          "id": "an_opioid_respiratory_depression_monitor",
+          "generic": "Postoperative opioid-induced respiratory depression risk — monitoring/recovery card",
+          "class_id": "an_opioid_respiratory_depression",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "opioid",
+            "postop",
+            "respiratory",
+            "osa",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Increasing sedation can precede respiratory arrest; evaluate ventilation and airway, not SpO2 alone when supplemental oxygen is used.",
+          "source_refs": [
+            "ASA_STANDARDS",
+            "ASA_OSA"
+          ]
+        },
+        {
+          "id": "an_osa_periop_review",
+          "generic": "Obstructive sleep apnea perioperative review — planning/review card",
+          "class_id": "an_osa_periop",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "osa",
+            "airway",
+            "opioid",
+            "recovery",
+            "review"
+          ],
+          "role": "Recognize diagnosed/suspected OSA and consider effects on airway strategy, sedative/opioid sensitivity and postoperative monitoring.",
+          "monitoring_pearl": "Recurrent obstruction/desaturation, high opioid need or inability to maintain baseline oxygenation should delay routine discharge/escalate monitoring.",
+          "source_refs": [
+            "ASA_OSA",
+            "ASA_POSTANESTHESIA"
+          ]
+        },
+        {
+          "id": "an_osa_periop_monitor",
+          "generic": "Obstructive sleep apnea perioperative review — monitoring/recovery card",
+          "class_id": "an_osa_periop",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "osa",
+            "airway",
+            "opioid",
+            "recovery",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Recurrent obstruction/desaturation, high opioid need or inability to maintain baseline oxygenation should delay routine discharge/escalate monitoring.",
+          "source_refs": [
+            "ASA_OSA",
+            "ASA_POSTANESTHESIA"
+          ]
+        },
+        {
+          "id": "an_diabetes_periop_review",
+          "generic": "Diabetes & perioperative glycemic medication review — planning/review card",
+          "class_id": "an_diabetes_periop",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "diabetes",
+            "periop",
+            "glucose",
+            "review"
+          ],
+          "role": "Coordinate fasting, insulin/secretagogue/SGLT2/GLP-1 management and glucose targets with current institutional guidance; avoid one-size-fits-all holds.",
+          "monitoring_pearl": "Check glucose at risk-appropriate intervals and consider ketones/anion gap when SGLT2-associated euglycemic ketoacidosis is possible.",
+          "source_refs": [
+            "ASA_GLP1",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_diabetes_periop_monitor",
+          "generic": "Diabetes & perioperative glycemic medication review — monitoring/recovery card",
+          "class_id": "an_diabetes_periop",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "diabetes",
+            "periop",
+            "glucose",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Check glucose at risk-appropriate intervals and consider ketones/anion gap when SGLT2-associated euglycemic ketoacidosis is possible.",
+          "source_refs": [
+            "ASA_GLP1",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_antithrombotic_periop_review",
+          "generic": "Perioperative antiplatelet/anticoagulant review — planning/review card",
+          "class_id": "an_antithrombotic_periop",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "anticoagulant",
+            "antiplatelet",
+            "periop",
+            "bleeding",
+            "review"
+          ],
+          "role": "Verify indication, thrombotic risk, procedure bleeding risk, renal function and current specialty guideline; neuraxial procedures require ASRA-specific timing.",
+          "monitoring_pearl": "Document last dose and restart plan; unexpected bleeding or thrombosis requires immediate individualized reassessment.",
+          "source_refs": [
+            "ASRA_ANTITHROMBOTIC"
+          ]
+        },
+        {
+          "id": "an_antithrombotic_periop_monitor",
+          "generic": "Perioperative antiplatelet/anticoagulant review — monitoring/recovery card",
+          "class_id": "an_antithrombotic_periop",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "anticoagulant",
+            "antiplatelet",
+            "periop",
+            "bleeding",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Document last dose and restart plan; unexpected bleeding or thrombosis requires immediate individualized reassessment.",
+          "source_refs": [
+            "ASRA_ANTITHROMBOTIC"
+          ]
+        },
+        {
+          "id": "an_antihypertensive_periop_review",
+          "generic": "Perioperative antihypertensive review — planning/review card",
+          "class_id": "an_antihypertensive_periop",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "antihypertensive",
+            "periop",
+            "blood_pressure",
+            "review"
+          ],
+          "role": "Do not auto-stop or auto-continue classes; verify current institutional/anesthesia protocol and patient indication, volume status and hemodynamic risk.",
+          "monitoring_pearl": "Track perioperative BP/perfusion and reconcile medications at recovery/discharge to avoid accidental omission or duplication.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_antihypertensive_periop_monitor",
+          "generic": "Perioperative antihypertensive review — monitoring/recovery card",
+          "class_id": "an_antihypertensive_periop",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "antihypertensive",
+            "periop",
+            "blood_pressure",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Track perioperative BP/perfusion and reconcile medications at recovery/discharge to avoid accidental omission or duplication.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_steroid_adrenal_review",
+          "generic": "Chronic steroid / adrenal-suppression perioperative review — planning/review card",
+          "class_id": "an_steroid_adrenal",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "steroid",
+            "adrenal",
+            "periop",
+            "review"
+          ],
+          "role": "Review steroid type/dose/duration, adrenal disease and procedural stress; use current endocrine/anesthesia guidance for supplementation decisions.",
+          "monitoring_pearl": "Persistent unexplained hypotension, hyponatremia/hyperkalemia or hypoglycemia should prompt adrenal-crisis consideration in context.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_steroid_adrenal_monitor",
+          "generic": "Chronic steroid / adrenal-suppression perioperative review — monitoring/recovery card",
+          "class_id": "an_steroid_adrenal",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "steroid",
+            "adrenal",
+            "periop",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Persistent unexplained hypotension, hyponatremia/hyperkalemia or hypoglycemia should prompt adrenal-crisis consideration in context.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "an_patient_blood_management_review",
+          "generic": "Perioperative anemia / blood-management review — planning/review card",
+          "class_id": "an_patient_blood_management",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "anemia",
+            "blood_management",
+            "transfusion",
+            "review"
+          ],
+          "role": "Identify anemia/bleeding risk before elective major procedures when feasible and plan conservation/transfusion strategy appropriate to context.",
+          "monitoring_pearl": "Trend hemoglobin/hemodynamics and clinical bleeding; transfusion decisions should not rely on a single numeric threshold in isolation.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_patient_blood_management_monitor",
+          "generic": "Perioperative anemia / blood-management review — monitoring/recovery card",
+          "class_id": "an_patient_blood_management",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "anemia",
+            "blood_management",
+            "transfusion",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Trend hemoglobin/hemodynamics and clinical bleeding; transfusion decisions should not rely on a single numeric threshold in isolation.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_periop_anaphylaxis_review",
+          "generic": "Perioperative anaphylaxis recognition & allergy documentation — planning/review card",
+          "class_id": "an_periop_anaphylaxis",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "anaphylaxis",
+            "allergy",
+            "periop",
+            "red_flag",
+            "review"
+          ],
+          "role": "Consider anaphylaxis with sudden hypotension, bronchospasm, difficult ventilation, urticaria/angioedema or cardiovascular collapse; treat as emergency.",
+          "monitoring_pearl": "Record exact timing and all exposures; after stabilization, preserve a detailed allergy event record and arrange specialist evaluation when appropriate.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_periop_anaphylaxis_monitor",
+          "generic": "Perioperative anaphylaxis recognition & allergy documentation — monitoring/recovery card",
+          "class_id": "an_periop_anaphylaxis",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "anaphylaxis",
+            "allergy",
+            "periop",
+            "red_flag",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Record exact timing and all exposures; after stabilization, preserve a detailed allergy event record and arrange specialist evaluation when appropriate.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_malignant_hyperthermia_review",
+          "generic": "Malignant hyperthermia preparedness & crisis recognition — planning/review card",
+          "class_id": "an_malignant_hyperthermia",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "malignant_hyperthermia",
+            "dantrolene",
+            "temperature",
+            "red_flag",
+            "review"
+          ],
+          "role": "Every location administering triggering general anesthetics needs an MH response plan and prompt access to current MHAUS crisis guidance/dantrolene.",
+          "monitoring_pearl": "Unexpected rising ETCO2, rigidity, tachycardia, acidosis, hyperkalemia or hyperthermia should trigger immediate MH crisis pathway; temperature may be a late sign.",
+          "source_refs": [
+            "MHAUS_MH"
+          ]
+        },
+        {
+          "id": "an_malignant_hyperthermia_monitor",
+          "generic": "Malignant hyperthermia preparedness & crisis recognition — monitoring/recovery card",
+          "class_id": "an_malignant_hyperthermia",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "malignant_hyperthermia",
+            "dantrolene",
+            "temperature",
+            "red_flag",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Unexpected rising ETCO2, rigidity, tachycardia, acidosis, hyperkalemia or hyperthermia should trigger immediate MH crisis pathway; temperature may be a late sign.",
+          "source_refs": [
+            "MHAUS_MH"
+          ]
+        },
+        {
+          "id": "an_pacu_recovery_review",
+          "generic": "Post-anesthesia care unit recovery monitoring — planning/review card",
+          "class_id": "an_pacu_recovery",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "pacu",
+            "recovery",
+            "monitoring",
+            "review"
+          ],
+          "role": "Transfer with appropriate handoff and continue monitoring until recovery criteria and clinician judgment support step-down/discharge.",
+          "monitoring_pearl": "Pay particular attention to oxygenation, ventilation, circulation, consciousness and temperature/pain/nausea as clinically indicated.",
+          "source_refs": [
+            "ASA_POSTANESTHESIA"
+          ]
+        },
+        {
+          "id": "an_pacu_recovery_monitor",
+          "generic": "Post-anesthesia care unit recovery monitoring — monitoring/recovery card",
+          "class_id": "an_pacu_recovery",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "pacu",
+            "recovery",
+            "monitoring",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Pay particular attention to oxygenation, ventilation, circulation, consciousness and temperature/pain/nausea as clinically indicated.",
+          "source_refs": [
+            "ASA_POSTANESTHESIA"
+          ]
+        },
+        {
+          "id": "an_sedation_discharge_review",
+          "generic": "Post-sedation discharge readiness — planning/review card",
+          "class_id": "an_sedation_discharge",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "sedation",
+            "discharge",
+            "recovery",
+            "review"
+          ],
+          "role": "Do not discharge based on elapsed time alone; assess mental status, airway/respiratory stability, hemodynamics, mobility when relevant and responsible escort/instructions.",
+          "monitoring_pearl": "Delayed drug effects, resedation, persistent hypoxemia, vomiting, pain or unstable vitals require continued observation or escalation.",
+          "source_refs": [
+            "ASA_POSTANESTHESIA",
+            "ASA_SEDATION_CONTINUUM"
+          ]
+        },
+        {
+          "id": "an_sedation_discharge_monitor",
+          "generic": "Post-sedation discharge readiness — monitoring/recovery card",
+          "class_id": "an_sedation_discharge",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "sedation",
+            "discharge",
+            "recovery",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Delayed drug effects, resedation, persistent hypoxemia, vomiting, pain or unstable vitals require continued observation or escalation.",
+          "source_refs": [
+            "ASA_POSTANESTHESIA",
+            "ASA_SEDATION_CONTINUUM"
+          ]
+        },
+        {
+          "id": "an_obstetric_anesthesia_review",
+          "generic": "Obstetric anesthesia/sedation considerations — planning/review card",
+          "class_id": "an_obstetric_anesthesia",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "obstetric",
+            "pregnancy",
+            "neuraxial",
+            "review"
+          ],
+          "role": "Use obstetric anesthesia protocols and multidisciplinary coordination; pregnancy changes aspiration, airway, hemodynamic and medication considerations.",
+          "monitoring_pearl": "Monitor maternal status continuously as appropriate and coordinate fetal assessment by obstetric team when indicated; emergency priorities remain maternal resuscitation.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_obstetric_anesthesia_monitor",
+          "generic": "Obstetric anesthesia/sedation considerations — monitoring/recovery card",
+          "class_id": "an_obstetric_anesthesia",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "obstetric",
+            "pregnancy",
+            "neuraxial",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Monitor maternal status continuously as appropriate and coordinate fetal assessment by obstetric team when indicated; emergency priorities remain maternal resuscitation.",
+          "source_refs": [
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_pediatric_anesthesia_review",
+          "generic": "Pediatric anesthesia & procedural sedation safety — planning/review card",
+          "class_id": "an_pediatric_anesthesia",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "pediatric",
+            "sedation",
+            "airway",
+            "fasting",
+            "review"
+          ],
+          "role": "Use weight- and age-appropriate equipment, dosing references and pediatric-trained rescue capability; children can deteriorate rapidly with airway obstruction/apnea.",
+          "monitoring_pearl": "Monitor respiratory status, temperature and recovery closely; discharge requires return toward age-appropriate baseline and caregiver instructions.",
+          "source_refs": [
+            "ASA_FASTING",
+            "ASA_SEDATION_CONTINUUM",
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_pediatric_anesthesia_monitor",
+          "generic": "Pediatric anesthesia & procedural sedation safety — monitoring/recovery card",
+          "class_id": "an_pediatric_anesthesia",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "pediatric",
+            "sedation",
+            "airway",
+            "fasting",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Monitor respiratory status, temperature and recovery closely; discharge requires return toward age-appropriate baseline and caregiver instructions.",
+          "source_refs": [
+            "ASA_FASTING",
+            "ASA_SEDATION_CONTINUUM",
+            "ASA_STANDARDS"
+          ]
+        },
+        {
+          "id": "an_frailty_geriatric_periop_review",
+          "generic": "Frailty / geriatric perioperative review — planning/review card",
+          "class_id": "an_frailty_geriatric_periop",
+          "form": "Perioperative safety review card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "geriatric",
+            "frailty",
+            "delirium",
+            "polypharmacy",
+            "review"
+          ],
+          "role": "Account for frailty, cognition, falls, renal/hepatic reserve and medication burden rather than age alone when planning anesthesia/analgesia.",
+          "monitoring_pearl": "Monitor delirium, oversedation, hypotension, urinary retention, mobility and functional recovery; reconcile medicines carefully at transitions.",
+          "source_refs": [
+            "ASA_POSTANESTHESIA"
+          ]
+        },
+        {
+          "id": "an_frailty_geriatric_periop_monitor",
+          "generic": "Frailty / geriatric perioperative review — monitoring/recovery card",
+          "class_id": "an_frailty_geriatric_periop",
+          "form": "Perioperative monitoring / escalation card",
+          "route": "N/A",
+          "dose_example": "Perioperative decision-support card only — no automatic anesthetic/sedative/local-anesthetic dose, fasting clearance, neuraxial timing, medication hold/restart, airway technique, discharge clearance or emergency-drug calculation. Verify patient/procedure context and current ASA/ASRA/MHAUS/local protocol before action.",
+          "tags": [
+            "geriatric",
+            "frailty",
+            "delirium",
+            "polypharmacy",
+            "monitoring"
+          ],
+          "role": "Reassess the relevant physiology, medications, procedural factors and recovery trajectory; escalate abnormalities rather than treating a checklist as clearance.",
+          "monitoring_pearl": "Monitor delirium, oversedation, hypotension, urinary retention, mobility and functional recovery; reconcile medicines carefully at transitions.",
+          "source_refs": [
+            "ASA_POSTANESTHESIA"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "ASA_FASTING",
+          "label": "American Society of Anesthesiologists — Practice Guidelines for Preoperative Fasting",
+          "url": "https://www.asahq.org/~/media/sites/asahq/files/public/resources/standards-guidelines/practice-guidelines-for-preoperative-fasting.pdf"
+        },
+        {
+          "id": "ASA_SEDATION_CONTINUUM",
+          "label": "ASA — Continuum of Depth of Sedation: Definition of General Anesthesia and Levels of Sedation/Analgesia",
+          "url": "https://www.asahq.org/standards-and-practice-parameters/statement-on-continuum-of-depth-of-sedation-definition-of-general-anesthesia-and-levels-of-sedation-analgesia"
+        },
+        {
+          "id": "ASA_STANDARDS",
+          "label": "ASA — Standards for Basic Anesthetic Monitoring",
+          "url": "https://www.asahq.org/standards-and-practice-parameters/standards-for-basic-anesthetic-monitoring"
+        },
+        {
+          "id": "ASA_POSTANESTHESIA",
+          "label": "ASA — Standards for Postanesthesia Care",
+          "url": "https://www.asahq.org/standards-and-practice-parameters/standards-for-postanesthesia-care"
+        },
+        {
+          "id": "ASA_DIFFICULT_AIRWAY",
+          "label": "ASA — 2022 Practice Guidelines for Management of the Difficult Airway",
+          "url": "https://pubs.asahq.org/anesthesiology/article/136/1/31/117915/2022-American-Society-of-Anesthesiologists"
+        },
+        {
+          "id": "ASA_PS",
+          "label": "ASA — Statement on ASA Physical Status Classification System",
+          "url": "https://www.asahq.org/standards-and-practice-parameters/statement-on-asa-physical-status-classification-system"
+        },
+        {
+          "id": "ASA_GLP1",
+          "label": "ASA / Multi-society — GLP-1 Clinical Practice Guidance for Elective Surgery",
+          "url": "https://www.asahq.org/about-asa/newsroom/news-releases/2024/10/new-multi-society-glp-1-guidance"
+        },
+        {
+          "id": "ASA_OSA",
+          "label": "ASA — Practice Guidelines for Perioperative Management of Patients with Obstructive Sleep Apnea",
+          "url": "https://www.asahq.org/~/media/sites/asahq/files/public/resources/standards-guidelines/practice-guidelines-for-the-perioperative-management-of-patients-with-obstructive-sleep-apnea.pdf"
+        },
+        {
+          "id": "ASA_ACUTE_PAIN",
+          "label": "ASA — Practice Guidelines for Acute Pain Management in the Perioperative Setting",
+          "url": "https://pubs.asahq.org/anesthesiology/article/116/2/248/12956/Practice-Guidelines-for-Acute-Pain-Management-in"
+        },
+        {
+          "id": "ASRA_LAST",
+          "label": "ASRA Pain Medicine — Checklist for Treatment of Local Anesthetic Systemic Toxicity",
+          "url": "https://asra.com/news-publications/asra-updates/blog-landing/guidelines/2020/11/01/checklist-for-treatment-of-local-anesthetic-systemic-toxicity"
+        },
+        {
+          "id": "ASRA_ANTITHROMBOTIC",
+          "label": "ASRA Pain Medicine — Regional Anesthesia in Patients Receiving Antithrombotic or Thrombolytic Therapy, Fifth Edition",
+          "url": "https://asra.com/news-publications/asra-updates/blog-landing/guidelines/2025/01/31/regional-anesthesia-in-the-patient-receiving-antithrombotic-or-thrombolytic-therapy-american-society-of-regional-anesthesia-and-pain-medicine-evidence-based-guidelines-%28fifth-edition%29"
+        },
+        {
+          "id": "ASRA_GUIDELINES",
+          "label": "ASRA Pain Medicine — Guidelines and Advisories",
+          "url": "https://asra.com/guidelines-articles/guidelines"
+        },
+        {
+          "id": "MHAUS_MH",
+          "label": "Malignant Hyperthermia Association of the United States — Managing an MH Crisis",
+          "url": "https://www.mhaus.org/healthcare-professionals/managing-a-crisis/"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "NIH DailyMed — current prescribing information repository",
           "url": "https://dailymed.nlm.nih.gov/dailymed/"
         }
       ]
