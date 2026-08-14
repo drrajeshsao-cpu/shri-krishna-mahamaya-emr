@@ -1,13 +1,13 @@
 {
-  "schema": "mahamaya.common_chronic_pharmacology.v1",
-  "version": "1.4G",
-  "app_version": "V5.40G",
-  "build": "2026.08.14-R25G",
-  "name": "High-Use Pharmacology Intelligence Labs — through Antifungal/Antiviral/Antiparasitic",
+  "schema": "mahamaya-chronic-pharmacology-v1",
+  "version": "2.4H",
+  "app_version": "5.40H",
+  "build": "2026.08.14-R25H",
+  "name": "Mahamaya Specialized Pharmacology Intelligence — V5.40H Hematology • Anemia • Hematinics Lab",
   "counts": {
-    "labs": 13,
-    "classes": 374,
-    "drug_profiles": 1013
+    "labs": 14,
+    "classes": 403,
+    "drug_profiles": 1079
   },
   "global_boundary": "Research/learning pharmacology only. V5.40G adds a dedicated Antifungal • Antiviral • Antiparasitic Intelligence Lab while retaining all earlier specialized labs. Exact organism/species, disease site/severity, resistance/susceptibility, renal/hepatic function, pregnancy, age/weight, G6PD status, interactions and current guideline/regulatory label must be verified. HIV/HBV/HCV, invasive fungal disease, severe malaria and complex tissue parasitoses remain regimen- and specialist-controlled.",
   "labs": [
@@ -30440,6 +30440,2010 @@
         {
           "id": "DAILYMED",
           "label": "NIH DailyMed current product labeling",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/"
+        }
+      ]
+    },
+    {
+      "id": "hematology_anemia",
+      "title": "Hematology • Anemia • Hematinics Intelligence Lab",
+      "icon": "🩸",
+      "badge": "HEMA v1.0",
+      "eyebrow": "HEMATOLOGY • ANEMIA • HEMATINICS RESEARCH WORKSPACE",
+      "subtitle": "Phenotype/cause → hematinic or hematology class → mechanism/target → generic/formulation → learning dose → monitoring → source verification",
+      "scientific_boundary": "Research/learning pharmacology only. Anemia is a diagnosis pattern, not a single treatment indication. Confirm cause (iron deficiency, B12/folate deficiency, CKD/inflammation, blood loss, hemolysis, marrow disease, hemoglobinopathy or mixed causes) before therapy. Transfusion, ESA/HIF-PHI, IV iron, ITP, sickle cell, thalassemia and hemostatic products require patient-specific thresholds, specialist protocols, current labeling and laboratory monitoring. Do not infer transfusion need or a disease-modifying regimen from a class card alone.",
+      "classification_notes": [
+        "Iron therapy is separated into oral elemental-iron strategies and IV iron complexes; product names are not mg-for-mg interchangeable.",
+        "B12 deficiency must be considered before isolated folate replacement when macrocytosis/neurologic risk exists.",
+        "CKD anemia is separated into iron optimization, ESA and HIF-PHI pathways under KDIGO 2026; correctable causes should be addressed first.",
+        "Sickle-cell and thalassemia therapies are disease-modifying/specialist modules, not generic anemia treatment.",
+        "RBC/platelet/plasma/cryoprecipitate cards are transfusion-support concepts; decisions depend on symptoms, bleeding, comorbidity, procedure and institutional blood-bank policy.",
+        "Voxelotor is not listed as an active sickle-cell option because FDA announced its market withdrawal in September 2024 for safety concerns."
+      ],
+      "lens_groups": [
+        {
+          "group": "Anemia phenotype / practical OPD",
+          "items": [
+            {
+              "id": "overview",
+              "label": "All Hematology/Anemia classes"
+            },
+            {
+              "id": "ida",
+              "label": "Iron-deficiency anemia"
+            },
+            {
+              "id": "microcytic",
+              "label": "Microcytic anemia"
+            },
+            {
+              "id": "macrocytic",
+              "label": "Macrocytic / megaloblastic"
+            },
+            {
+              "id": "normocytic",
+              "label": "Normocytic / CKD-inflammation"
+            },
+            {
+              "id": "pregnancy_ifa",
+              "label": "Pregnancy / IFA / AMB"
+            }
+          ]
+        },
+        {
+          "group": "Hematinics & erythropoiesis",
+          "items": [
+            {
+              "id": "oral_iron",
+              "label": "Oral iron"
+            },
+            {
+              "id": "iv_iron",
+              "label": "IV iron"
+            },
+            {
+              "id": "b12",
+              "label": "Vitamin B12"
+            },
+            {
+              "id": "folate",
+              "label": "Folate"
+            },
+            {
+              "id": "ckd_anemia",
+              "label": "CKD anemia"
+            },
+            {
+              "id": "esa",
+              "label": "ESA"
+            },
+            {
+              "id": "hif_phi",
+              "label": "HIF-PHI"
+            }
+          ]
+        },
+        {
+          "group": "Hemoglobinopathy / hemolysis",
+          "items": [
+            {
+              "id": "sickle",
+              "label": "Sickle-cell disease"
+            },
+            {
+              "id": "thalassemia",
+              "label": "Thalassemia / iron overload"
+            },
+            {
+              "id": "hemolysis",
+              "label": "Hemolysis support"
+            },
+            {
+              "id": "pnh",
+              "label": "PNH / complement"
+            }
+          ]
+        },
+        {
+          "group": "Platelets / marrow support",
+          "items": [
+            {
+              "id": "itp",
+              "label": "ITP / thrombocytopenia"
+            },
+            {
+              "id": "tpo_ra",
+              "label": "TPO receptor agonists"
+            },
+            {
+              "id": "neutropenia",
+              "label": "Neutropenia / G-CSF"
+            }
+          ]
+        },
+        {
+          "group": "Hemostasis / transfusion",
+          "items": [
+            {
+              "id": "antifibrinolytic",
+              "label": "Antifibrinolytics"
+            },
+            {
+              "id": "hemostatic",
+              "label": "Hemostatic agents"
+            },
+            {
+              "id": "rbc_transfusion",
+              "label": "RBC transfusion support"
+            },
+            {
+              "id": "platelet_transfusion",
+              "label": "Platelet support"
+            },
+            {
+              "id": "plasma_cryo",
+              "label": "Plasma / Cryoprecipitate"
+            }
+          ]
+        },
+        {
+          "group": "High-risk verification",
+          "items": [
+            {
+              "id": "renal_monitor",
+              "label": "Renal function"
+            },
+            {
+              "id": "hepatic_monitor",
+              "label": "Hepatic function"
+            },
+            {
+              "id": "cbc_monitor",
+              "label": "CBC/retic monitoring"
+            },
+            {
+              "id": "iron_overload",
+              "label": "Iron overload"
+            },
+            {
+              "id": "thrombosis_risk",
+              "label": "Thrombosis risk"
+            },
+            {
+              "id": "specialist",
+              "label": "Specialist / protocol controlled"
+            }
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "id": "hema_oral_ferrous",
+          "name": "Oral ferrous iron salts",
+          "mechanism": "Provide absorbable ferrous iron for hemoglobin and iron-store repletion",
+          "target": "Elemental iron delivered to intestinal iron-transport pathways",
+          "tags": [
+            "ida",
+            "microcytic",
+            "oral_iron",
+            "pregnancy_ifa"
+          ],
+          "role_note": "First practical oral class for confirmed iron deficiency; compare products by elemental iron, not salt weight.",
+          "drug_ids": [
+            "hema_ferrous_sulfate",
+            "hema_ferrous_fumarate",
+            "hema_ferrous_gluconate"
+          ]
+        },
+        {
+          "id": "hema_oral_newiron",
+          "name": "Newer / ferric oral iron formulations",
+          "mechanism": "Deliver iron through formulation-specific absorption pathways designed to improve tolerability or absorption",
+          "target": "Formulation-specific intestinal iron delivery",
+          "tags": [
+            "ida",
+            "oral_iron"
+          ],
+          "role_note": "Useful when standard ferrous salts are poorly tolerated or unsuitable; availability/cost vary.",
+          "drug_ids": [
+            "hema_ferric_maltol",
+            "hema_ferric_citrate",
+            "hema_polysaccharide_iron"
+          ]
+        },
+        {
+          "id": "hema_iv_iron",
+          "name": "Intravenous iron complexes",
+          "mechanism": "Deliver iron directly to reticuloendothelial/transferrin pathways, bypassing intestinal absorption",
+          "target": "Iron-carbohydrate complexes → transferrin/ferritin pools",
+          "tags": [
+            "ida",
+            "iv_iron",
+            "ckd_anemia",
+            "specialist"
+          ],
+          "role_note": "Used when oral iron is ineffective, not tolerated, absorption is limited, rapid repletion is needed or CKD/protocol indicates IV iron.",
+          "drug_ids": [
+            "hema_iron_sucrose",
+            "hema_ferric_carboxymaltose",
+            "hema_ferric_derisomaltose",
+            "hema_ferumoxytol",
+            "hema_iron_dextran"
+          ]
+        },
+        {
+          "id": "hema_folate",
+          "name": "Folate replacement",
+          "mechanism": "Restores tetrahydrofolate-dependent DNA synthesis and erythropoiesis",
+          "target": "One-carbon transfer / thymidylate and purine synthesis",
+          "tags": [
+            "macrocytic",
+            "folate",
+            "pregnancy_ifa"
+          ],
+          "role_note": "Treat confirmed/suspected folate deficiency and support selected high-demand states; exclude/assess B12 deficiency when appropriate.",
+          "drug_ids": [
+            "hema_folic_acid",
+            "hema_folinic_acid"
+          ]
+        },
+        {
+          "id": "hema_b12",
+          "name": "Vitamin B12 replacement",
+          "mechanism": "Restores cobalamin-dependent methionine synthase and methylmalonyl-CoA mutase activity",
+          "target": "Cobalamin-dependent DNA/neurologic metabolism",
+          "tags": [
+            "macrocytic",
+            "b12"
+          ],
+          "role_note": "Oral or parenteral replacement depending cause, severity, neurologic involvement and absorption.",
+          "drug_ids": [
+            "hema_cyanocobalamin_oral",
+            "hema_cyanocobalamin_im",
+            "hema_hydroxocobalamin"
+          ]
+        },
+        {
+          "id": "hema_ifa_public",
+          "name": "Iron–folic acid preventive/public-health supplementation",
+          "mechanism": "Prevents iron/folate deficiency in defined life-course populations",
+          "target": "Elemental iron + folate replacement",
+          "tags": [
+            "pregnancy_ifa",
+            "oral_iron",
+            "folate"
+          ],
+          "role_note": "Public-health prophylaxis is distinct from treatment of established anemia.",
+          "drug_ids": [
+            "hema_who_preg_ifa",
+            "hema_amb_ifa"
+          ]
+        },
+        {
+          "id": "hema_esa",
+          "name": "Erythropoiesis-stimulating agents (ESAs)",
+          "mechanism": "Activate erythropoietin receptor signaling to stimulate erythroid progenitors",
+          "target": "EPO receptor → JAK2/STAT erythropoiesis",
+          "tags": [
+            "ckd_anemia",
+            "esa",
+            "normocytic",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role_note": "CKD and selected oncology/anemia contexts; initiation and Hb targets are protocol controlled.",
+          "drug_ids": [
+            "hema_epoetin_alfa",
+            "hema_darbepoetin_alfa",
+            "hema_methoxy_peg_epoetin"
+          ]
+        },
+        {
+          "id": "hema_hif_phi",
+          "name": "HIF-prolyl hydroxylase inhibitors (HIF-PHI)",
+          "mechanism": "Stabilize hypoxia-inducible factor, increasing endogenous EPO signaling and altering iron metabolism",
+          "target": "HIF-prolyl hydroxylase enzymes",
+          "tags": [
+            "ckd_anemia",
+            "hif_phi",
+            "normocytic",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role_note": "Oral CKD-anemia class with country/label restrictions; not interchangeable across jurisdictions.",
+          "drug_ids": [
+            "hema_daprodustat",
+            "hema_vadadustat",
+            "hema_roxadustat"
+          ]
+        },
+        {
+          "id": "hema_sickle_dm",
+          "name": "Sickle-cell disease-modifying pharmacotherapy",
+          "mechanism": "Reduces HbS polymerization-related complications or vaso-occlusive biology through distinct pathways",
+          "target": "HbF induction / redox support / P-selectin adhesion",
+          "tags": [
+            "sickle",
+            "hemolysis",
+            "specialist"
+          ],
+          "role_note": "Disease-modifying therapy for confirmed sickle-cell disease; hematology follow-up is required.",
+          "drug_ids": [
+            "hema_hydroxyurea_scd",
+            "hema_l_glutamine_scd",
+            "hema_crizanlizumab"
+          ]
+        },
+        {
+          "id": "hema_chelation",
+          "name": "Iron chelation therapy",
+          "mechanism": "Binds excess iron to increase excretion and reduce transfusional iron toxicity",
+          "target": "Labile/transfusional iron pools",
+          "tags": [
+            "thalassemia",
+            "iron_overload",
+            "specialist"
+          ],
+          "role_note": "For transfusion-dependent iron overload and selected chronic iron-loading conditions; guided by ferritin, transfusion burden and organ iron assessment.",
+          "drug_ids": [
+            "hema_deferasirox",
+            "hema_deferiprone",
+            "hema_deferoxamine"
+          ]
+        },
+        {
+          "id": "hema_erythroid_maturation",
+          "name": "Erythroid maturation agents",
+          "mechanism": "Enhance late-stage erythroid maturation by modifying TGF-beta superfamily signaling",
+          "target": "Activin receptor ligand trap / SMAD pathway",
+          "tags": [
+            "thalassemia",
+            "specialist"
+          ],
+          "role_note": "Specialist therapy for selected transfusion-dependent beta-thalassemia and other approved anemia indications.",
+          "drug_ids": [
+            "hema_luspatercept"
+          ]
+        },
+        {
+          "id": "hema_itp_steroids",
+          "name": "ITP first-line corticosteroid therapy",
+          "mechanism": "Reduces immune-mediated platelet destruction and autoantibody activity",
+          "target": "Broad glucocorticoid immunosuppression",
+          "tags": [
+            "itp",
+            "specialist"
+          ],
+          "role_note": "Short-course first-line option in selected adults with ITP; observation may be appropriate depending on platelet count/bleeding.",
+          "drug_ids": [
+            "hema_dexamethasone_itp",
+            "hema_prednisone_itp"
+          ]
+        },
+        {
+          "id": "hema_itp_rapid",
+          "name": "Rapid immune modulation for ITP",
+          "mechanism": "Temporarily reduces Fc-mediated platelet clearance / immune destruction",
+          "target": "Fc receptor and immunoglobulin-mediated pathways",
+          "tags": [
+            "itp",
+            "specialist"
+          ],
+          "role_note": "Used when rapid platelet rise is required or in specific bleeding/procedure contexts.",
+          "drug_ids": [
+            "hema_ivig_itp",
+            "hema_anti_d_itp"
+          ]
+        },
+        {
+          "id": "hema_tpo_ra",
+          "name": "Thrombopoietin receptor agonists (TPO-RAs)",
+          "mechanism": "Stimulate megakaryocyte proliferation and platelet production via c-Mpl",
+          "target": "Thrombopoietin receptor (c-Mpl)",
+          "tags": [
+            "itp",
+            "tpo_ra",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role_note": "Second-line/chronic ITP and selected thrombocytopenia indications; agents differ in food/interactions and indication.",
+          "drug_ids": [
+            "hema_romiplostim",
+            "hema_eltrombopag",
+            "hema_avatrombopag",
+            "hema_lusutrombopag"
+          ]
+        },
+        {
+          "id": "hema_syk",
+          "name": "Spleen tyrosine kinase (SYK) inhibitor",
+          "mechanism": "Reduces Fc-receptor-mediated platelet destruction by inhibiting SYK signaling",
+          "target": "SYK",
+          "tags": [
+            "itp",
+            "specialist"
+          ],
+          "role_note": "Second-line chronic ITP option after insufficient response to prior therapy.",
+          "drug_ids": [
+            "hema_fostamatinib"
+          ]
+        },
+        {
+          "id": "hema_bcell_itp",
+          "name": "B-cell-directed immune therapy",
+          "mechanism": "Depletes CD20-positive B cells, reducing autoantibody-producing precursors",
+          "target": "CD20",
+          "tags": [
+            "itp",
+            "specialist"
+          ],
+          "role_note": "Off-label/second-line immune strategy in ITP and other immune hematologic disorders.",
+          "drug_ids": [
+            "hema_rituximab_itp"
+          ]
+        },
+        {
+          "id": "hema_gcsf",
+          "name": "Granulocyte colony-stimulating factors (G-CSF)",
+          "mechanism": "Stimulate neutrophil progenitor proliferation/differentiation and release",
+          "target": "G-CSF receptor",
+          "tags": [
+            "neutropenia",
+            "cbc_monitor",
+            "specialist"
+          ],
+          "role_note": "Prevention/treatment of selected chemotherapy- or disease-associated neutropenia; oncology/hematology protocol controlled.",
+          "drug_ids": [
+            "hema_filgrastim",
+            "hema_pegfilgrastim",
+            "hema_tbo_filgrastim"
+          ]
+        },
+        {
+          "id": "hema_antifibrinolytic",
+          "name": "Antifibrinolytics",
+          "mechanism": "Block plasminogen activation or plasmin binding, reducing fibrin clot breakdown",
+          "target": "Plasminogen/plasmin–fibrin interaction",
+          "tags": [
+            "antifibrinolytic",
+            "hemostatic",
+            "thrombosis_risk"
+          ],
+          "role_note": "Useful for selected mucosal, surgical, trauma and bleeding contexts; thrombotic and urinary-tract considerations matter.",
+          "drug_ids": [
+            "hema_tranexamic_acid",
+            "hema_aminocaproic_acid"
+          ]
+        },
+        {
+          "id": "hema_vitk",
+          "name": "Vitamin K replacement / VKA reversal support",
+          "mechanism": "Restores hepatic gamma-carboxylation of vitamin-K-dependent clotting factors",
+          "target": "Vitamin K epoxide cycle / factors II, VII, IX, X",
+          "tags": [
+            "hemostatic",
+            "specialist"
+          ],
+          "role_note": "For vitamin-K deficiency and protocol-based warfarin reversal; urgent bleeding may also require factor replacement.",
+          "drug_ids": [
+            "hema_phytonadione"
+          ]
+        },
+        {
+          "id": "hema_ddavp",
+          "name": "Desmopressin hemostatic therapy",
+          "mechanism": "Releases endogenous von Willebrand factor and factor VIII from endothelial stores",
+          "target": "V2 receptor → vWF/FVIII release",
+          "tags": [
+            "hemostatic",
+            "specialist"
+          ],
+          "role_note": "Selected mild hemophilia A, type 1 von Willebrand disease and platelet-dysfunction contexts after response assessment.",
+          "drug_ids": [
+            "hema_desmopressin"
+          ]
+        },
+        {
+          "id": "hema_factor_support",
+          "name": "Coagulation factor concentrates / PCC",
+          "mechanism": "Replace deficient vitamin-K-dependent or specific clotting factors",
+          "target": "Clotting factor replacement",
+          "tags": [
+            "hemostatic",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role_note": "Emergency/specialist factor replacement for major bleeding, reversal or inherited factor deficiency.",
+          "drug_ids": [
+            "hema_four_factor_pcc",
+            "hema_factor_viii",
+            "hema_factor_ix"
+          ]
+        },
+        {
+          "id": "hema_fibrinogen",
+          "name": "Fibrinogen replacement",
+          "mechanism": "Restores fibrinogen substrate required for stable clot formation",
+          "target": "Fibrinogen → fibrin",
+          "tags": [
+            "hemostatic",
+            "plasma_cryo",
+            "specialist"
+          ],
+          "role_note": "For documented hypofibrinogenemia/afibrinogenemia or major bleeding protocols.",
+          "drug_ids": [
+            "hema_fibrinogen_concentrate",
+            "hema_cryoprecipitate"
+          ]
+        },
+        {
+          "id": "hema_rbc_transfusion",
+          "name": "Red blood cell transfusion support",
+          "mechanism": "Increases circulating red-cell mass and oxygen-carrying capacity",
+          "target": "Hemoglobin mass / oxygen delivery",
+          "tags": [
+            "rbc_transfusion",
+            "specialist"
+          ],
+          "role_note": "Not a hematinic substitute. Use patient-blood-management principles and individualized transfusion thresholds.",
+          "drug_ids": [
+            "hema_packed_rbc",
+            "hema_leukoreduced_rbc",
+            "hema_phenotype_matched_rbc"
+          ]
+        },
+        {
+          "id": "hema_platelet_transfusion",
+          "name": "Platelet transfusion support",
+          "mechanism": "Raises circulating platelet mass to improve primary hemostasis when indicated",
+          "target": "Platelet number/function",
+          "tags": [
+            "platelet_transfusion",
+            "itp",
+            "specialist"
+          ],
+          "role_note": "Indication depends on bleeding, procedure, cause of thrombocytopenia and expected platelet survival; routine ITP transfusion is generally not a durable strategy.",
+          "drug_ids": [
+            "hema_apheresis_platelets",
+            "hema_pooled_platelets"
+          ]
+        },
+        {
+          "id": "hema_plasma",
+          "name": "Plasma transfusion support",
+          "mechanism": "Replaces multiple coagulation factors",
+          "target": "Broad coagulation-factor replacement",
+          "tags": [
+            "plasma_cryo",
+            "hemostatic",
+            "specialist"
+          ],
+          "role_note": "For selected bleeding/coagulopathy contexts; not for simple volume expansion.",
+          "drug_ids": [
+            "hema_fresh_frozen_plasma"
+          ]
+        },
+        {
+          "id": "hema_pnh_complement",
+          "name": "Terminal/complement-pathway inhibitors for PNH",
+          "mechanism": "Reduce complement-mediated intravascular hemolysis by blocking C5 or proximal complement",
+          "target": "Complement C5 / C3 pathways",
+          "tags": [
+            "pnh",
+            "hemolysis",
+            "specialist"
+          ],
+          "role_note": "Highly specialized PNH disease-modifying therapy requiring meningococcal/infection-risk management and hematology oversight.",
+          "drug_ids": [
+            "hema_eculizumab",
+            "hema_ravulizumab",
+            "hema_pegcetacoplan_pnh"
+          ]
+        },
+        {
+          "id": "hema_aiha",
+          "name": "Autoimmune hemolytic anemia immune therapy",
+          "mechanism": "Suppresses autoantibody-mediated red-cell destruction",
+          "target": "Glucocorticoid immune suppression / B-cell depletion",
+          "tags": [
+            "hemolysis",
+            "specialist"
+          ],
+          "role_note": "Cause/subtype-directed therapy; warm and cold AIHA pathways differ.",
+          "drug_ids": [
+            "hema_prednisone_aiha",
+            "hema_rituximab_aiha"
+          ]
+        },
+        {
+          "id": "hema_ttp",
+          "name": "Immune TTP targeted therapy",
+          "mechanism": "Blocks von Willebrand factor–platelet interaction while immune therapy and plasma exchange address ADAMTS13 autoimmunity",
+          "target": "vWF A1 domain / platelet GPIb interaction",
+          "tags": [
+            "specialist",
+            "platelet_transfusion"
+          ],
+          "role_note": "Emergency specialist module; plasma exchange + immunosuppression remain core context.",
+          "drug_ids": [
+            "hema_caplacizumab"
+          ]
+        },
+        {
+          "id": "hema_hemolysis_support",
+          "name": "Supportive therapy in chronic hemolysis",
+          "mechanism": "Replaces nutrients consumed by accelerated erythropoiesis and addresses cause-specific needs",
+          "target": "Erythropoietic substrate support",
+          "tags": [
+            "hemolysis",
+            "folate"
+          ],
+          "role_note": "Supportive, not disease-curative; use only when deficiency/high turnover warrants it.",
+          "drug_ids": [
+            "hema_folic_acid_hemolysis"
+          ]
+        }
+      ],
+      "drugs": [
+        {
+          "id": "hema_ferrous_sulfate",
+          "generic": "Ferrous sulfate",
+          "class_id": "hema_oral_ferrous",
+          "form": "Tablet/capsule/liquid",
+          "route": "Oral",
+          "dose_example": "Learning example: a preparation providing about 60–65 mg elemental iron once daily; alternate-day use may improve tolerance in selected adults.",
+          "tags": [
+            "ida",
+            "microcytic",
+            "oral_iron",
+            "pregnancy_ifa",
+            "oral_iron"
+          ],
+          "role": "Oral iron-replacement option.",
+          "monitoring_pearl": "Check Hb response and ferritin/TSAT as appropriate; GI intolerance, adherence, ongoing blood loss and cause of deficiency matter.",
+          "source_refs": [
+            "WHO_ANAEMIA_2025",
+            "NICE_IDA",
+            "NHM_AMB_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_ferrous_fumarate",
+          "generic": "Ferrous fumarate",
+          "class_id": "hema_oral_ferrous",
+          "form": "Tablet/capsule",
+          "route": "Oral",
+          "dose_example": "Salt strengths vary; calculate the elemental-iron content rather than comparing tablet milligrams.",
+          "tags": [
+            "ida",
+            "microcytic",
+            "oral_iron",
+            "pregnancy_ifa",
+            "oral_iron"
+          ],
+          "role": "Oral iron-replacement option.",
+          "monitoring_pearl": "Check Hb response and ferritin/TSAT as appropriate; GI intolerance, adherence, ongoing blood loss and cause of deficiency matter.",
+          "source_refs": [
+            "WHO_ANAEMIA_2025",
+            "NICE_IDA",
+            "NHM_AMB_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_ferrous_gluconate",
+          "generic": "Ferrous gluconate",
+          "class_id": "hema_oral_ferrous",
+          "form": "Tablet/liquid",
+          "route": "Oral",
+          "dose_example": "Lower elemental-iron content per tablet than many sulfate/fumarate products; dose by elemental iron.",
+          "tags": [
+            "ida",
+            "microcytic",
+            "oral_iron",
+            "pregnancy_ifa",
+            "oral_iron"
+          ],
+          "role": "Oral iron-replacement option.",
+          "monitoring_pearl": "Check Hb response and ferritin/TSAT as appropriate; GI intolerance, adherence, ongoing blood loss and cause of deficiency matter.",
+          "source_refs": [
+            "WHO_ANAEMIA_2025",
+            "NICE_IDA",
+            "NHM_AMB_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_ferric_maltol",
+          "generic": "Ferric maltol",
+          "class_id": "hema_oral_newiron",
+          "form": "Capsule",
+          "route": "Oral",
+          "dose_example": "Common adult label example: 30 mg twice daily on an empty stomach; verify local label.",
+          "tags": [
+            "ida",
+            "oral_iron"
+          ],
+          "role": "Ferric complex oral iron option.",
+          "monitoring_pearl": "Confirm elemental iron, interactions, tolerance and response; not all formulations have equivalent evidence.",
+          "source_refs": [
+            "NICE_IDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_ferric_citrate",
+          "generic": "Ferric citrate",
+          "class_id": "hema_oral_newiron",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Dose is indication-specific (phosphate control vs iron delivery) and should not be inferred from generic iron replacement.",
+          "tags": [
+            "ida",
+            "oral_iron"
+          ],
+          "role": "CKD-linked ferric product with dual phosphate/iron context.",
+          "monitoring_pearl": "Confirm elemental iron, interactions, tolerance and response; not all formulations have equivalent evidence.",
+          "source_refs": [
+            "NICE_IDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_polysaccharide_iron",
+          "generic": "Polysaccharide-iron complex",
+          "class_id": "hema_oral_newiron",
+          "form": "Capsule/liquid",
+          "route": "Oral",
+          "dose_example": "Product elemental-iron content varies; verify label and evidence.",
+          "tags": [
+            "ida",
+            "oral_iron"
+          ],
+          "role": "Alternative oral iron formulation.",
+          "monitoring_pearl": "Confirm elemental iron, interactions, tolerance and response; not all formulations have equivalent evidence.",
+          "source_refs": [
+            "NICE_IDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_iron_sucrose",
+          "generic": "Iron sucrose",
+          "class_id": "hema_iv_iron",
+          "form": "IV solution",
+          "route": "IV",
+          "dose_example": "Cumulative course and per-infusion dose vary by CKD/IDA protocol; verify exact label.",
+          "tags": [
+            "ida",
+            "iv_iron",
+            "ckd_anemia",
+            "renal_monitor",
+            "specialist"
+          ],
+          "role": "Widely used IV iron complex.",
+          "monitoring_pearl": "Infusion reactions, iron indices, phosphate (especially with some formulations), cumulative dose and ongoing blood loss require monitoring.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "NICE_IDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_ferric_carboxymaltose",
+          "generic": "Ferric carboxymaltose",
+          "class_id": "hema_iv_iron",
+          "form": "IV solution",
+          "route": "IV",
+          "dose_example": "High-dose single/divided repletion is label- and body-weight dependent; verify product maximum.",
+          "tags": [
+            "ida",
+            "iv_iron",
+            "ckd_anemia",
+            "renal_monitor",
+            "specialist"
+          ],
+          "role": "High-dose IV iron option.",
+          "monitoring_pearl": "Infusion reactions, iron indices, phosphate (especially with some formulations), cumulative dose and ongoing blood loss require monitoring.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "NICE_IDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_ferric_derisomaltose",
+          "generic": "Ferric derisomaltose",
+          "class_id": "hema_iv_iron",
+          "form": "IV solution",
+          "route": "IV",
+          "dose_example": "Large single-infusion repletion may be possible under product label; weight/Hb and local labeling matter.",
+          "tags": [
+            "ida",
+            "iv_iron",
+            "ckd_anemia",
+            "renal_monitor",
+            "specialist"
+          ],
+          "role": "High-dose IV iron option.",
+          "monitoring_pearl": "Infusion reactions, iron indices, phosphate (especially with some formulations), cumulative dose and ongoing blood loss require monitoring.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "NICE_IDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_ferumoxytol",
+          "generic": "Ferumoxytol",
+          "class_id": "hema_iv_iron",
+          "form": "IV solution",
+          "route": "IV",
+          "dose_example": "Common U.S. label uses two 510-mg infusions separated by several days; verify label and indication.",
+          "tags": [
+            "ida",
+            "iv_iron",
+            "ckd_anemia",
+            "renal_monitor",
+            "specialist"
+          ],
+          "role": "IV iron with hypersensitivity/infusion precautions.",
+          "monitoring_pearl": "Infusion reactions, iron indices, phosphate (especially with some formulations), cumulative dose and ongoing blood loss require monitoring.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "NICE_IDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_iron_dextran",
+          "generic": "Low-molecular-weight iron dextran",
+          "class_id": "hema_iv_iron",
+          "form": "IV solution",
+          "route": "IV",
+          "dose_example": "Total-dose or divided replacement is protocol specific; hypersensitivity precautions are essential.",
+          "tags": [
+            "ida",
+            "iv_iron",
+            "ckd_anemia",
+            "renal_monitor",
+            "specialist"
+          ],
+          "role": "Older high-capacity IV iron option.",
+          "monitoring_pearl": "Infusion reactions, iron indices, phosphate (especially with some formulations), cumulative dose and ongoing blood loss require monitoring.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "NICE_IDA",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_folic_acid",
+          "generic": "Folic acid",
+          "class_id": "hema_folate",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Deficiency treatment commonly uses 1–5 mg daily depending guideline/context; preventive pregnancy doses are lower and population-risk specific.",
+          "tags": [
+            "macrocytic",
+            "folate",
+            "pregnancy_ifa"
+          ],
+          "role": "Core folate replacement.",
+          "monitoring_pearl": "Check B12 status if macrocytosis or neurologic symptoms are possible; folate can correct anemia while neurologic B12 injury progresses.",
+          "source_refs": [
+            "WHO_IRON_PREG",
+            "NICE_B12_2024",
+            "NHM_AMB_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_folinic_acid",
+          "generic": "Folinic acid (leucovorin)",
+          "class_id": "hema_folate",
+          "form": "Tablet/injection",
+          "route": "PO/IV",
+          "dose_example": "Used for specific rescue/antifolate contexts; not routine replacement for ordinary folate deficiency.",
+          "tags": [
+            "macrocytic",
+            "folate",
+            "pregnancy_ifa"
+          ],
+          "role": "Reduced folate for selected rescue/antifolate indications.",
+          "monitoring_pearl": "Check B12 status if macrocytosis or neurologic symptoms are possible; folate can correct anemia while neurologic B12 injury progresses.",
+          "source_refs": [
+            "WHO_IRON_PREG",
+            "NICE_B12_2024",
+            "NHM_AMB_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_cyanocobalamin_oral",
+          "generic": "Cyanocobalamin oral",
+          "class_id": "hema_b12",
+          "form": "Tablet/sublingual",
+          "route": "Oral",
+          "dose_example": "High-dose oral replacement is often around 1 mg/day in adult deficiency regimens; cause and guideline determine duration.",
+          "tags": [
+            "macrocytic",
+            "b12",
+            "cbc_monitor"
+          ],
+          "role": "Oral B12 replacement.",
+          "monitoring_pearl": "Confirm cause (dietary, autoimmune gastritis, malabsorption, medicines); neurologic symptoms can require prompt parenteral therapy.",
+          "source_refs": [
+            "NICE_B12_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_cyanocobalamin_im",
+          "generic": "Cyanocobalamin injection",
+          "class_id": "hema_b12",
+          "form": "Injection",
+          "route": "IM/SC",
+          "dose_example": "Loading then maintenance schedules vary by deficiency cause and neurologic involvement.",
+          "tags": [
+            "macrocytic",
+            "b12",
+            "cbc_monitor"
+          ],
+          "role": "Parenteral B12 replacement.",
+          "monitoring_pearl": "Confirm cause (dietary, autoimmune gastritis, malabsorption, medicines); neurologic symptoms can require prompt parenteral therapy.",
+          "source_refs": [
+            "NICE_B12_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_hydroxocobalamin",
+          "generic": "Hydroxocobalamin",
+          "class_id": "hema_b12",
+          "form": "Injection",
+          "route": "IM",
+          "dose_example": "Common non-U.S. B12 replacement uses 1-mg injections with loading/maintenance schedules; verify local protocol.",
+          "tags": [
+            "macrocytic",
+            "b12",
+            "cbc_monitor"
+          ],
+          "role": "Longer-retained parenteral B12 option.",
+          "monitoring_pearl": "Confirm cause (dietary, autoimmune gastritis, malabsorption, medicines); neurologic symptoms can require prompt parenteral therapy.",
+          "source_refs": [
+            "NICE_B12_2024",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_who_preg_ifa",
+          "generic": "WHO pregnancy IFA learning reference",
+          "class_id": "hema_ifa_public",
+          "form": "Iron + folic acid tablet",
+          "route": "Oral",
+          "dose_example": "WHO prevention example: 30–60 mg elemental iron + 400 micrograms folic acid daily during pregnancy.",
+          "tags": [
+            "pregnancy_ifa",
+            "oral_iron",
+            "folate"
+          ],
+          "role": "WHO antenatal prevention framework.",
+          "monitoring_pearl": "Preventive schedules do not replace diagnostic evaluation/treatment of moderate-severe or refractory anemia.",
+          "source_refs": [
+            "WHO_IRON_PREG",
+            "NHM_AMB_2026"
+          ]
+        },
+        {
+          "id": "hema_amb_ifa",
+          "generic": "Anaemia Mukt Bharat IFA learning reference",
+          "class_id": "hema_ifa_public",
+          "form": "Program-specific IFA tablets/syrup",
+          "route": "Oral",
+          "dose_example": "India AMB uses age/life-stage-specific prophylactic IFA schedules; use current NHM table rather than one universal dose.",
+          "tags": [
+            "pregnancy_ifa",
+            "oral_iron",
+            "folate"
+          ],
+          "role": "Indian public-health IFA framework.",
+          "monitoring_pearl": "Preventive schedules do not replace diagnostic evaluation/treatment of moderate-severe or refractory anemia.",
+          "source_refs": [
+            "WHO_IRON_PREG",
+            "NHM_AMB_2026"
+          ]
+        },
+        {
+          "id": "hema_epoetin_alfa",
+          "generic": "Epoetin alfa",
+          "class_id": "hema_esa",
+          "form": "Injection",
+          "route": "SC/IV",
+          "dose_example": "Weight/Hb/dialysis-status-based initiation and titration; no fixed universal dose.",
+          "tags": [
+            "ckd_anemia",
+            "esa",
+            "normocytic",
+            "cbc_monitor",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role": "Shorter-acting ESA.",
+          "monitoring_pearl": "Correct iron deficiency and other reversible causes first; monitor Hb trajectory, BP, iron status and thrombotic risk.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_darbepoetin_alfa",
+          "generic": "Darbepoetin alfa",
+          "class_id": "hema_esa",
+          "form": "Injection",
+          "route": "SC/IV",
+          "dose_example": "Longer-interval weight/Hb-based dosing; titrate to guideline/label goals.",
+          "tags": [
+            "ckd_anemia",
+            "esa",
+            "normocytic",
+            "cbc_monitor",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role": "Longer-acting ESA.",
+          "monitoring_pearl": "Correct iron deficiency and other reversible causes first; monitor Hb trajectory, BP, iron status and thrombotic risk.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_methoxy_peg_epoetin",
+          "generic": "Methoxy polyethylene glycol-epoetin beta",
+          "class_id": "hema_esa",
+          "form": "Injection",
+          "route": "SC/IV",
+          "dose_example": "Extended-interval dosing in CKD; conversion/initial dose depends on prior ESA and Hb.",
+          "tags": [
+            "ckd_anemia",
+            "esa",
+            "normocytic",
+            "cbc_monitor",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role": "Continuous erythropoietin receptor activator.",
+          "monitoring_pearl": "Correct iron deficiency and other reversible causes first; monitor Hb trajectory, BP, iron status and thrombotic risk.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_daprodustat",
+          "generic": "Daprodustat",
+          "class_id": "hema_hif_phi",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Dose depends on baseline Hb/prior ESA; U.S. indication is restricted to adults on dialysis.",
+          "tags": [
+            "ckd_anemia",
+            "hif_phi",
+            "cbc_monitor",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role": "Oral HIF-PHI.",
+          "monitoring_pearl": "Verify country approval, dialysis status, Hb response, thrombotic/cardiovascular risks, iron indices and interactions.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_vadadustat",
+          "generic": "Vadadustat",
+          "class_id": "hema_hif_phi",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Dose/titration is label-based for adults with CKD anemia on dialysis in the U.S.",
+          "tags": [
+            "ckd_anemia",
+            "hif_phi",
+            "cbc_monitor",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role": "Oral HIF-PHI.",
+          "monitoring_pearl": "Verify country approval, dialysis status, Hb response, thrombotic/cardiovascular risks, iron indices and interactions.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_roxadustat",
+          "generic": "Roxadustat",
+          "class_id": "hema_hif_phi",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Available in several countries for CKD anemia; dosing/approval status varies and it is not U.S.-FDA approved.",
+          "tags": [
+            "ckd_anemia",
+            "hif_phi",
+            "cbc_monitor",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role": "Country-dependent HIF-PHI.",
+          "monitoring_pearl": "Verify country approval, dialysis status, Hb response, thrombotic/cardiovascular risks, iron indices and interactions.",
+          "source_refs": [
+            "KDIGO_ANEMIA_2026",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_hydroxyurea_scd",
+          "generic": "Hydroxyurea",
+          "class_id": "hema_sickle_dm",
+          "form": "Capsule/tablet/oral solution",
+          "route": "Oral",
+          "dose_example": "Common adult initiation around 15 mg/kg/day with CBC-guided titration; exact protocol depends on organ function and specialist plan.",
+          "tags": [
+            "sickle",
+            "hemolysis",
+            "cbc_monitor",
+            "specialist"
+          ],
+          "role": "HbF-inducing first-line disease-modifying therapy.",
+          "monitoring_pearl": "Hydroxyurea needs CBC/reticulocyte monitoring and reproductive counseling; specialist eligibility and current label matter for all disease-modifying agents.",
+          "source_refs": [
+            "NHLBI_SCD",
+            "ICMR_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_l_glutamine_scd",
+          "generic": "L-glutamine oral powder",
+          "class_id": "hema_sickle_dm",
+          "form": "Oral powder",
+          "route": "Oral",
+          "dose_example": "Weight-band twice-daily dosing per label for eligible sickle-cell patients.",
+          "tags": [
+            "sickle",
+            "hemolysis",
+            "cbc_monitor",
+            "specialist"
+          ],
+          "role": "Redox-modulating SCD therapy.",
+          "monitoring_pearl": "Hydroxyurea needs CBC/reticulocyte monitoring and reproductive counseling; specialist eligibility and current label matter for all disease-modifying agents.",
+          "source_refs": [
+            "NHLBI_SCD",
+            "ICMR_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_crizanlizumab",
+          "generic": "Crizanlizumab",
+          "class_id": "hema_sickle_dm",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Weight-based infusion at loading weeks then every 4 weeks per label.",
+          "tags": [
+            "sickle",
+            "hemolysis",
+            "cbc_monitor",
+            "specialist"
+          ],
+          "role": "P-selectin inhibitor for vaso-occlusive-crisis reduction in eligible patients.",
+          "monitoring_pearl": "Hydroxyurea needs CBC/reticulocyte monitoring and reproductive counseling; specialist eligibility and current label matter for all disease-modifying agents.",
+          "source_refs": [
+            "NHLBI_SCD",
+            "ICMR_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_deferasirox",
+          "generic": "Deferasirox",
+          "class_id": "hema_chelation",
+          "form": "Tablet/granules",
+          "route": "Oral",
+          "dose_example": "Weight-based once-daily dosing; formulation strengths are not mg-for-mg interchangeable.",
+          "tags": [
+            "thalassemia",
+            "iron_overload",
+            "renal_monitor",
+            "hepatic_monitor",
+            "cbc_monitor",
+            "specialist"
+          ],
+          "role": "Oral iron chelator.",
+          "monitoring_pearl": "Monitor ferritin trend and organ iron where available; renal/hepatic, auditory/visual and CBC toxicities vary by chelator.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_deferiprone",
+          "generic": "Deferiprone",
+          "class_id": "hema_chelation",
+          "form": "Tablet/oral solution",
+          "route": "Oral",
+          "dose_example": "Weight-based divided dosing; frequent neutrophil monitoring is required because of agranulocytosis risk.",
+          "tags": [
+            "thalassemia",
+            "iron_overload",
+            "renal_monitor",
+            "hepatic_monitor",
+            "cbc_monitor",
+            "specialist"
+          ],
+          "role": "Oral iron chelator with hematologic monitoring.",
+          "monitoring_pearl": "Monitor ferritin trend and organ iron where available; renal/hepatic, auditory/visual and CBC toxicities vary by chelator.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_deferoxamine",
+          "generic": "Deferoxamine",
+          "class_id": "hema_chelation",
+          "form": "Injection",
+          "route": "SC/IV",
+          "dose_example": "Weight-based prolonged SC infusion or IV specialist use; regimen depends on iron burden.",
+          "tags": [
+            "thalassemia",
+            "iron_overload",
+            "renal_monitor",
+            "hepatic_monitor",
+            "cbc_monitor",
+            "specialist"
+          ],
+          "role": "Parenteral iron chelator.",
+          "monitoring_pearl": "Monitor ferritin trend and organ iron where available; renal/hepatic, auditory/visual and CBC toxicities vary by chelator.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_luspatercept",
+          "generic": "Luspatercept",
+          "class_id": "hema_erythroid_maturation",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Weight-based every-3-week dosing with response-guided titration per label.",
+          "tags": [
+            "thalassemia",
+            "cbc_monitor",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role": "Erythroid maturation agent.",
+          "monitoring_pearl": "Monitor Hb/transfusion burden, BP and thrombosis risk; indication differs by disease and jurisdiction.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_dexamethasone_itp",
+          "generic": "Dexamethasone — ITP pulse",
+          "class_id": "hema_itp_steroids",
+          "form": "Tablet/injection",
+          "route": "PO/IV",
+          "dose_example": "ASH learning example: 40 mg/day for 4 days is one adult initial regimen; repeat strategy is specialist-directed.",
+          "tags": [
+            "itp",
+            "cbc_monitor",
+            "specialist"
+          ],
+          "role": "Short high-dose ITP course.",
+          "monitoring_pearl": "Bleeding severity, platelet trend, diabetes, infection and steroid toxicity guide choice; avoid long unnecessary courses.",
+          "source_refs": [
+            "ASH_ITP_2019",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_prednisone_itp",
+          "generic": "Prednisone/Prednisolone — ITP",
+          "class_id": "hema_itp_steroids",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Weight-based short course is used; ASH discourages prolonged corticosteroid exposure.",
+          "tags": [
+            "itp",
+            "cbc_monitor",
+            "specialist"
+          ],
+          "role": "Initial ITP corticosteroid option.",
+          "monitoring_pearl": "Bleeding severity, platelet trend, diabetes, infection and steroid toxicity guide choice; avoid long unnecessary courses.",
+          "source_refs": [
+            "ASH_ITP_2019",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_ivig_itp",
+          "generic": "Intravenous immune globulin (IVIG)",
+          "class_id": "hema_itp_rapid",
+          "form": "IV immunoglobulin",
+          "route": "IV",
+          "dose_example": "Weight-based one- or two-day regimens are used; product and clinical urgency guide dose.",
+          "tags": [
+            "itp",
+            "hemolysis",
+            "specialist"
+          ],
+          "role": "Rapid but temporary platelet-raising therapy.",
+          "monitoring_pearl": "IVIG: renal/thrombotic/infusion risks. Anti-D: hemolysis risk and eligibility restrictions.",
+          "source_refs": [
+            "ASH_ITP_2019",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_anti_d_itp",
+          "generic": "Anti-D immune globulin",
+          "class_id": "hema_itp_rapid",
+          "form": "IV immunoglobulin",
+          "route": "IV",
+          "dose_example": "Only selected Rh-positive, non-splenectomized patients; weight-based specialist dosing.",
+          "tags": [
+            "itp",
+            "hemolysis",
+            "specialist"
+          ],
+          "role": "Restricted ITP immune therapy.",
+          "monitoring_pearl": "IVIG: renal/thrombotic/infusion risks. Anti-D: hemolysis risk and eligibility restrictions.",
+          "source_refs": [
+            "ASH_ITP_2019",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_romiplostim",
+          "generic": "Romiplostim",
+          "class_id": "hema_tpo_ra",
+          "form": "SC injection",
+          "route": "SC",
+          "dose_example": "Weight-based once-weekly dose titrated to platelet response.",
+          "tags": [
+            "itp",
+            "tpo_ra",
+            "cbc_monitor",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role": "Peptibody TPO-RA.",
+          "monitoring_pearl": "Aim for a safe rather than normal platelet count; monitor thrombosis, liver tests/interactions as agent-specific.",
+          "source_refs": [
+            "ASH_ITP_2019",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_eltrombopag",
+          "generic": "Eltrombopag",
+          "class_id": "hema_tpo_ra",
+          "form": "Tablet/oral suspension",
+          "route": "Oral",
+          "dose_example": "Once-daily dose adjusted to platelet response; polyvalent-cation separation is important.",
+          "tags": [
+            "itp",
+            "tpo_ra",
+            "cbc_monitor",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role": "Oral TPO-RA.",
+          "monitoring_pearl": "Aim for a safe rather than normal platelet count; monitor thrombosis, liver tests/interactions as agent-specific.",
+          "source_refs": [
+            "ASH_ITP_2019",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_avatrombopag",
+          "generic": "Avatrombopag",
+          "class_id": "hema_tpo_ra",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Daily chronic-ITP dosing or short CLD-procedure course depends on indication.",
+          "tags": [
+            "itp",
+            "tpo_ra",
+            "cbc_monitor",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role": "Oral TPO-RA.",
+          "monitoring_pearl": "Aim for a safe rather than normal platelet count; monitor thrombosis, liver tests/interactions as agent-specific.",
+          "source_refs": [
+            "ASH_ITP_2019",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_lusutrombopag",
+          "generic": "Lusutrombopag",
+          "class_id": "hema_tpo_ra",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Short pre-procedure regimen for thrombocytopenia in chronic liver disease; not routine chronic ITP therapy.",
+          "tags": [
+            "itp",
+            "tpo_ra",
+            "cbc_monitor",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role": "Procedure-focused TPO-RA.",
+          "monitoring_pearl": "Aim for a safe rather than normal platelet count; monitor thrombosis, liver tests/interactions as agent-specific.",
+          "source_refs": [
+            "ASH_ITP_2019",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_fostamatinib",
+          "generic": "Fostamatinib",
+          "class_id": "hema_syk",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Common adult label start: 100 mg twice daily with response-guided increase if needed.",
+          "tags": [
+            "itp",
+            "hepatic_monitor",
+            "specialist"
+          ],
+          "role": "SYK inhibitor for chronic ITP.",
+          "monitoring_pearl": "Monitor BP, liver tests, diarrhea and neutrophils; interactions matter.",
+          "source_refs": [
+            "ASH_ITP_2019",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_rituximab_itp",
+          "generic": "Rituximab — hematology immune use",
+          "class_id": "hema_bcell_itp",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Regimen varies by indication; specialist protocol required.",
+          "tags": [
+            "itp",
+            "specialist"
+          ],
+          "role": "B-cell-directed second-line ITP/immune hematology therapy.",
+          "monitoring_pearl": "Screen hepatitis B; infusion/infection risks and vaccination timing matter.",
+          "source_refs": [
+            "ASH_ITP_2019",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_filgrastim",
+          "generic": "Filgrastim",
+          "class_id": "hema_gcsf",
+          "form": "Injection",
+          "route": "SC/IV",
+          "dose_example": "Common oncology starting example around 5 micrograms/kg/day; indication-specific.",
+          "tags": [
+            "neutropenia",
+            "cbc_monitor",
+            "specialist"
+          ],
+          "role": "Short-acting G-CSF.",
+          "monitoring_pearl": "Monitor ANC trajectory, bone pain and rare splenic/pulmonary complications; use only for evidence-based indications.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_pegfilgrastim",
+          "generic": "Pegfilgrastim",
+          "class_id": "hema_gcsf",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Common adult oncology prophylaxis: 6 mg once per chemotherapy cycle when indicated; timing relative to chemotherapy matters.",
+          "tags": [
+            "neutropenia",
+            "cbc_monitor",
+            "specialist"
+          ],
+          "role": "Long-acting pegylated G-CSF.",
+          "monitoring_pearl": "Monitor ANC trajectory, bone pain and rare splenic/pulmonary complications; use only for evidence-based indications.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_tbo_filgrastim",
+          "generic": "Tbo-filgrastim",
+          "class_id": "hema_gcsf",
+          "form": "Injection",
+          "route": "SC",
+          "dose_example": "Weight-based daily dosing for chemotherapy-associated neutropenia per label.",
+          "tags": [
+            "neutropenia",
+            "cbc_monitor",
+            "specialist"
+          ],
+          "role": "G-CSF option.",
+          "monitoring_pearl": "Monitor ANC trajectory, bone pain and rare splenic/pulmonary complications; use only for evidence-based indications.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_tranexamic_acid",
+          "generic": "Tranexamic acid",
+          "class_id": "hema_antifibrinolytic",
+          "form": "Tablet/injection",
+          "route": "PO/IV",
+          "dose_example": "Dose is indication-specific (e.g., menstrual, trauma, surgical bleeding); renal adjustment often required.",
+          "tags": [
+            "antifibrinolytic",
+            "hemostatic",
+            "renal_monitor",
+            "thrombosis_risk"
+          ],
+          "role": "Potent lysine-analogue antifibrinolytic.",
+          "monitoring_pearl": "Confirm bleeding mechanism; avoid using as substitute for factor/platelet replacement when deficiency is the main problem.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_aminocaproic_acid",
+          "generic": "Aminocaproic acid",
+          "class_id": "hema_antifibrinolytic",
+          "form": "Tablet/oral solution/injection",
+          "route": "PO/IV",
+          "dose_example": "Loading/maintenance regimens are indication-specific and specialist guided.",
+          "tags": [
+            "antifibrinolytic",
+            "hemostatic",
+            "renal_monitor",
+            "thrombosis_risk"
+          ],
+          "role": "Antifibrinolytic option.",
+          "monitoring_pearl": "Confirm bleeding mechanism; avoid using as substitute for factor/platelet replacement when deficiency is the main problem.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_phytonadione",
+          "generic": "Phytonadione (vitamin K1)",
+          "class_id": "hema_vitk",
+          "form": "Tablet/injection",
+          "route": "PO/IV/SC",
+          "dose_example": "Dose and route depend on INR, bleeding severity and indication; rapid reversal is protocol controlled.",
+          "tags": [
+            "hemostatic",
+            "specialist"
+          ],
+          "role": "Vitamin K replacement/reversal agent.",
+          "monitoring_pearl": "IV administration has reaction risk; in major bleeding vitamin K alone is too slow and factor replacement may be needed.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_desmopressin",
+          "generic": "Desmopressin (DDAVP)",
+          "class_id": "hema_ddavp",
+          "form": "Injection/nasal formulations",
+          "route": "IV/SC/intranasal",
+          "dose_example": "Weight-based IV or product-specific intranasal dosing; tachyphylaxis and indication matter.",
+          "tags": [
+            "hemostatic",
+            "specialist"
+          ],
+          "role": "Hemostatic DDAVP.",
+          "monitoring_pearl": "Monitor sodium/fluid restriction because hyponatremia can be serious; test responsiveness where appropriate.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_four_factor_pcc",
+          "generic": "4-factor prothrombin complex concentrate (4F-PCC)",
+          "class_id": "hema_factor_support",
+          "form": "IV concentrate",
+          "route": "IV",
+          "dose_example": "Weight/INR-based emergency dosing per product/protocol.",
+          "tags": [
+            "hemostatic",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role": "Rapid vitamin-K-dependent factor replacement.",
+          "monitoring_pearl": "Product-specific potency, inhibitor status, thrombosis and blood-bank/hematology protocol are critical.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_factor_viii",
+          "generic": "Factor VIII concentrate",
+          "class_id": "hema_factor_support",
+          "form": "IV concentrate",
+          "route": "IV",
+          "dose_example": "Weight-based factor-replacement dosing based on target factor level.",
+          "tags": [
+            "hemostatic",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role": "Hemophilia A factor replacement.",
+          "monitoring_pearl": "Product-specific potency, inhibitor status, thrombosis and blood-bank/hematology protocol are critical.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_factor_ix",
+          "generic": "Factor IX concentrate",
+          "class_id": "hema_factor_support",
+          "form": "IV concentrate",
+          "route": "IV",
+          "dose_example": "Weight-based factor-replacement dosing based on target factor level.",
+          "tags": [
+            "hemostatic",
+            "thrombosis_risk",
+            "specialist"
+          ],
+          "role": "Hemophilia B factor replacement.",
+          "monitoring_pearl": "Product-specific potency, inhibitor status, thrombosis and blood-bank/hematology protocol are critical.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_fibrinogen_concentrate",
+          "generic": "Fibrinogen concentrate",
+          "class_id": "hema_fibrinogen",
+          "form": "IV concentrate",
+          "route": "IV",
+          "dose_example": "Target/weight/fibrinogen-based dosing per product and bleeding protocol.",
+          "tags": [
+            "hemostatic",
+            "plasma_cryo",
+            "specialist"
+          ],
+          "role": "Purified fibrinogen replacement.",
+          "monitoring_pearl": "Check fibrinogen and bleeding context; blood components require compatibility/traceability and institutional transfusion policy.",
+          "source_refs": [
+            "AABB_PBM"
+          ]
+        },
+        {
+          "id": "hema_cryoprecipitate",
+          "generic": "Cryoprecipitate — blood component",
+          "class_id": "hema_fibrinogen",
+          "form": "Blood component",
+          "route": "IV transfusion",
+          "dose_example": "Dose is blood-bank/protocol based, guided by fibrinogen level, bleeding and body size.",
+          "tags": [
+            "hemostatic",
+            "plasma_cryo",
+            "specialist"
+          ],
+          "role": "Fibrinogen-rich blood component.",
+          "monitoring_pearl": "Check fibrinogen and bleeding context; blood components require compatibility/traceability and institutional transfusion policy.",
+          "source_refs": [
+            "AABB_PBM"
+          ]
+        },
+        {
+          "id": "hema_packed_rbc",
+          "generic": "Packed red blood cells (RBC component)",
+          "class_id": "hema_rbc_transfusion",
+          "form": "Blood component",
+          "route": "IV transfusion",
+          "dose_example": "One adult unit commonly raises Hb by roughly 1 g/dL in an average non-bleeding adult, but response varies; transfusion threshold is individualized.",
+          "tags": [
+            "rbc_transfusion",
+            "specialist"
+          ],
+          "role": "Standard RBC component.",
+          "monitoring_pearl": "AABB emphasizes symptoms, signs, comorbidity and clinical context in addition to Hb; avoid automatic transfusion from a number alone.",
+          "source_refs": [
+            "AABB_RBC_2023",
+            "AABB_PBM"
+          ]
+        },
+        {
+          "id": "hema_leukoreduced_rbc",
+          "generic": "Leukoreduced RBC component",
+          "class_id": "hema_rbc_transfusion",
+          "form": "Blood component",
+          "route": "IV transfusion",
+          "dose_example": "Component selection and number of units depend on indication and blood-bank policy.",
+          "tags": [
+            "rbc_transfusion",
+            "specialist"
+          ],
+          "role": "RBC support with leukocyte reduction.",
+          "monitoring_pearl": "AABB emphasizes symptoms, signs, comorbidity and clinical context in addition to Hb; avoid automatic transfusion from a number alone.",
+          "source_refs": [
+            "AABB_RBC_2023",
+            "AABB_PBM"
+          ]
+        },
+        {
+          "id": "hema_phenotype_matched_rbc",
+          "generic": "Phenotype-/genotype-matched RBCs",
+          "class_id": "hema_rbc_transfusion",
+          "form": "Blood component",
+          "route": "IV transfusion",
+          "dose_example": "Specialist blood-bank selection for hemoglobinopathy/alloimmunization contexts.",
+          "tags": [
+            "rbc_transfusion",
+            "specialist"
+          ],
+          "role": "Extended matching strategy for selected patients.",
+          "monitoring_pearl": "AABB emphasizes symptoms, signs, comorbidity and clinical context in addition to Hb; avoid automatic transfusion from a number alone.",
+          "source_refs": [
+            "AABB_RBC_2023",
+            "AABB_PBM"
+          ]
+        },
+        {
+          "id": "hema_apheresis_platelets",
+          "generic": "Apheresis platelets",
+          "class_id": "hema_platelet_transfusion",
+          "form": "Blood component",
+          "route": "IV transfusion",
+          "dose_example": "Dose/threshold is institutional and indication-specific.",
+          "tags": [
+            "platelet_transfusion",
+            "specialist"
+          ],
+          "role": "Single-donor platelet component.",
+          "monitoring_pearl": "Assess bleeding/procedure and etiology; transfusion reactions, refractoriness and HLA issues may matter.",
+          "source_refs": [
+            "AABB_PBM"
+          ]
+        },
+        {
+          "id": "hema_pooled_platelets",
+          "generic": "Pooled platelets",
+          "class_id": "hema_platelet_transfusion",
+          "form": "Blood component",
+          "route": "IV transfusion",
+          "dose_example": "Dose/threshold is institutional and indication-specific.",
+          "tags": [
+            "platelet_transfusion",
+            "specialist"
+          ],
+          "role": "Pooled donor platelet component.",
+          "monitoring_pearl": "Assess bleeding/procedure and etiology; transfusion reactions, refractoriness and HLA issues may matter.",
+          "source_refs": [
+            "AABB_PBM"
+          ]
+        },
+        {
+          "id": "hema_fresh_frozen_plasma",
+          "generic": "Fresh frozen plasma / plasma component",
+          "class_id": "hema_plasma",
+          "form": "Blood component",
+          "route": "IV transfusion",
+          "dose_example": "Dose is typically weight-/protocol-based and guided by bleeding/coagulopathy; no universal single-unit rule.",
+          "tags": [
+            "plasma_cryo",
+            "hemostatic",
+            "specialist"
+          ],
+          "role": "Broad plasma factor replacement.",
+          "monitoring_pearl": "Use only when a factor-deficiency/coagulopathy indication exists; monitor volume and transfusion risks.",
+          "source_refs": [
+            "AABB_PBM"
+          ]
+        },
+        {
+          "id": "hema_eculizumab",
+          "generic": "Eculizumab",
+          "class_id": "hema_pnh_complement",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Loading then maintenance schedule per label.",
+          "tags": [
+            "pnh",
+            "hemolysis",
+            "specialist"
+          ],
+          "role": "C5 monoclonal antibody.",
+          "monitoring_pearl": "Meningococcal vaccination/prophylaxis and serious infection warnings are central; verify current REMS/label requirements.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_ravulizumab",
+          "generic": "Ravulizumab",
+          "class_id": "hema_pnh_complement",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Weight-based loading then extended-interval maintenance per label.",
+          "tags": [
+            "pnh",
+            "hemolysis",
+            "specialist"
+          ],
+          "role": "Long-acting C5 inhibitor.",
+          "monitoring_pearl": "Meningococcal vaccination/prophylaxis and serious infection warnings are central; verify current REMS/label requirements.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_pegcetacoplan_pnh",
+          "generic": "Pegcetacoplan — PNH",
+          "class_id": "hema_pnh_complement",
+          "form": "SC infusion",
+          "route": "SC",
+          "dose_example": "Regular SC dosing per label; specialist selection.",
+          "tags": [
+            "pnh",
+            "hemolysis",
+            "specialist"
+          ],
+          "role": "Proximal C3 inhibitor.",
+          "monitoring_pearl": "Meningococcal vaccination/prophylaxis and serious infection warnings are central; verify current REMS/label requirements.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_prednisone_aiha",
+          "generic": "Prednisone/Prednisolone — warm AIHA",
+          "class_id": "hema_aiha",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Weight-based initial therapy with taper based on response; specialist diagnosis required.",
+          "tags": [
+            "hemolysis",
+            "cbc_monitor",
+            "specialist"
+          ],
+          "role": "Common first-line warm-AIHA immune therapy.",
+          "monitoring_pearl": "Confirm hemolysis and immune subtype; monitor Hb/reticulocytes/bilirubin/LDH and infection risk.",
+          "source_refs": [
+            "ICMR_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_rituximab_aiha",
+          "generic": "Rituximab — AIHA",
+          "class_id": "hema_aiha",
+          "form": "IV infusion",
+          "route": "IV",
+          "dose_example": "Specialist regimen; often used for refractory/selected disease.",
+          "tags": [
+            "hemolysis",
+            "cbc_monitor",
+            "specialist"
+          ],
+          "role": "B-cell-directed AIHA therapy.",
+          "monitoring_pearl": "Confirm hemolysis and immune subtype; monitor Hb/reticulocytes/bilirubin/LDH and infection risk.",
+          "source_refs": [
+            "ICMR_STW",
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_caplacizumab",
+          "generic": "Caplacizumab-yhdp",
+          "class_id": "hema_ttp",
+          "form": "Injection",
+          "route": "IV/SC",
+          "dose_example": "Protocol-defined loading then daily SC therapy around plasma exchange; specialist use only.",
+          "tags": [
+            "specialist"
+          ],
+          "role": "Anti-vWF nanobody for acquired TTP.",
+          "monitoring_pearl": "Major bleeding risk; diagnosis/ADAMTS13 and plasma-exchange coordination are essential.",
+          "source_refs": [
+            "DAILYMED"
+          ]
+        },
+        {
+          "id": "hema_folic_acid_hemolysis",
+          "generic": "Folic acid — chronic hemolysis support",
+          "class_id": "hema_hemolysis_support",
+          "form": "Tablet",
+          "route": "Oral",
+          "dose_example": "Often 1 mg/day in chronic high-turnover states, but indication and baseline folate status matter.",
+          "tags": [
+            "hemolysis",
+            "folate"
+          ],
+          "role": "Support for accelerated erythropoiesis in selected hemolytic disorders.",
+          "monitoring_pearl": "Do not substitute folate for diagnosis/treatment of the underlying hemolytic disorder.",
+          "source_refs": [
+            "ICMR_STW",
+            "DAILYMED"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "WHO_ANAEMIA_2025",
+          "label": "WHO Anaemia fact sheet (2025)",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/anaemia"
+        },
+        {
+          "id": "WHO_IRON_PREG",
+          "label": "WHO Daily iron and folic acid supplementation during pregnancy",
+          "url": "https://www.who.int/tools/elena/interventions/daily-iron-pregnancy"
+        },
+        {
+          "id": "NHM_AMB_2026",
+          "label": "National Health Mission — Anaemia Mukt Bharat / 2026 operational resources",
+          "url": "https://nhm.gov.in/index1.php?lang=1&level=4&lid=804&sublinkid=1455"
+        },
+        {
+          "id": "ICMR_STW",
+          "label": "ICMR Standard Treatment Workflows — haemolytic anaemia / sickle-cell and related workflows",
+          "url": "https://www.icmr.gov.in/standard-treatment-workflows-stws"
+        },
+        {
+          "id": "NICE_IDA",
+          "label": "NICE CKS — Iron-deficiency anaemia",
+          "url": "https://cks.nice.org.uk/topics/anaemia-iron-deficiency/"
+        },
+        {
+          "id": "NICE_B12_2024",
+          "label": "NICE NG239 — Vitamin B12 deficiency in over 16s (2024)",
+          "url": "https://www.nice.org.uk/guidance/ng239"
+        },
+        {
+          "id": "KDIGO_ANEMIA_2026",
+          "label": "KDIGO 2026 Clinical Practice Guideline for Anemia in CKD",
+          "url": "https://kdigo.org/guidelines/anemia-in-ckd/"
+        },
+        {
+          "id": "ASH_IDA",
+          "label": "ASH Iron-Deficiency Anemia guideline initiative / current resources",
+          "url": "https://www.hematology.org/education/clinicians/guidelines-and-quality-care/clinical-practice-guidelines/iron-deficiency-anemia"
+        },
+        {
+          "id": "ASH_ITP_2019",
+          "label": "ASH Clinical Practice Guidelines on Immune Thrombocytopenia",
+          "url": "https://www.hematology.org/education/clinicians/guidelines-and-quality-care/clinical-practice-guidelines/immune-thrombocytopenia-guidelines"
+        },
+        {
+          "id": "NHLBI_SCD",
+          "label": "NHLBI Sickle Cell Disease treatment resources",
+          "url": "https://www.nhlbi.nih.gov/health/sickle-cell-disease/treatment"
+        },
+        {
+          "id": "FDA_VOXEL_WITHDRAWAL",
+          "label": "FDA alert — voxelotor/Oxbryta withdrawal (2024)",
+          "url": "https://www.fda.gov/drugs/drug-alerts-and-statements/fda-alerting-patients-and-health-care-professionals-about-voluntary-withdrawal-oxbryta-market-due"
+        },
+        {
+          "id": "AABB_RBC_2023",
+          "label": "AABB Red Blood Cell Transfusion: 2023 International Guidelines",
+          "url": "https://www.aabb.org/news-resources/resources/clinical-practice-resources"
+        },
+        {
+          "id": "AABB_PBM",
+          "label": "AABB Patient Blood Management toolkit",
+          "url": "https://www.aabb.org/blood-biotherapies/blood/transfusion-medicine/patient-blood-management/patient-blood-management-toolkit"
+        },
+        {
+          "id": "DAILYMED",
+          "label": "NIH DailyMed — current FDA-submitted product labeling",
           "url": "https://dailymed.nlm.nih.gov/dailymed/"
         }
       ]
