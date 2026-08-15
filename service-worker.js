@@ -1,7 +1,7 @@
-const CACHE_NAME = 'mahamaya-emr-v5.51-20260815-r28';
+const CACHE_NAME = 'mahamaya-emr-v5.52-20260815-r29';
 const ESSENTIAL_ASSETS = [
   './', './index.html', './manifest.webmanifest', './install-pwa.js',
-  './premium-responsive-v1.css', './premium-shell-v1.js',
+  './premium-responsive-v1.css', './premium-shell-v1.js', './ayurveda-bilingual-v1.css',
   './icon-192.png', './icon-512.png', './icon-192-maskable.png', './icon-512-maskable.png',
   './apple-touch-icon.png', './logo.jpg'
 ];
@@ -11,7 +11,7 @@ const CLINICAL_ASSETS = [
   './complaint-intelligence-master-v1.json', './complaint-intelligence-engine.js',
   './therapeutics-intelligence-master-v1.json', './antibiotic-intelligence-v1.json',
   './chronic-pharmacology-intelligence-v1.json', './therapeutics-intelligence-engine.js',
-  './ayurveda-therapeutics-master-v1.json', './ayurveda-formulary-index-v1.json',
+  './ayurveda-therapeutics-master-v1.json', './ayurveda-formulary-index-v1.json', './ayurveda-devanagari-map-v1.json',
   './ayurveda-safety-selection-v1.json', './ayurveda-therapeutics-engine.js',
   './mission-assurance-master-v1.json', './mission-assurance-engine.js', './mission-integrity-manifest-v1.json'
 ];

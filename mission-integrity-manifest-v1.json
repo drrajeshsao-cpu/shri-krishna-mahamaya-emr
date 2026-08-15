@@ -1,8 +1,8 @@
 {
   "schema": "MAHAMAYA-INTEGRITY-MANIFEST-V1",
-  "app_version": "V5.51",
-  "build": "2026.08.15-R28",
-  "generated_at": "2026-08-15T01:05:00+05:30",
+  "app_version": "V5.52",
+  "build": "2026.08.15-R29",
+  "generated_at": "2026-08-15T10:15:00+05:30",
   "algorithm": "SHA-256",
   "files": [
     {
@@ -447,8 +447,8 @@
     },
     {
       "path": "ayurveda-therapeutics-engine.js",
-      "sha256": "ef28a831c37a51ab376d3d5115e29b1c76811bbb6799355d0f401f4d1b22140a",
-      "bytes": 52849
+      "sha256": "ce1140637445e40ae945427090235eb55bc727f356ef00374d8636dfb4861110",
+      "bytes": 55833
     },
     {
       "path": "ayurveda-therapeutics-master-v1.json",
@@ -477,8 +477,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "b952a1da9b2b6c33ac40d773507ae162b56393d960af8e1163fa53c5e40c097d",
-      "bytes": 1043197
+      "sha256": "b23e204a2bb485914134b438f17946190d2d63a31b736482390b8a8f1f21a6ce",
+      "bytes": 1044081
     },
     {
       "path": "investigation-catalog-v1.json",
@@ -487,8 +487,8 @@
     },
     {
       "path": "manifest.webmanifest",
-      "sha256": "c9af35e2f8fdd874d5edde6550ab2b8a0b1091d1155d0b08fc0dbdca110761fc",
-      "bytes": 7149
+      "sha256": "6f12435cb854f6446562d02862e03a7db7b70e0b581666c1dacf85086acdc2dc",
+      "bytes": 7223
     },
     {
       "path": "mission-assurance-engine.js",
@@ -502,8 +502,8 @@
     },
     {
       "path": "service-worker.js",
-      "sha256": "41b850252c76ec6393c7e4990d845f847e0aebcfd454b8336181aa5efe690024",
-      "bytes": 3105
+      "sha256": "cc6e54172fa07ea07df7ca125707b175317ffb9b1d5bcf2764468f7fbf0e1f42",
+      "bytes": 3173
     },
     {
       "path": "slaie-omega-exact-row-v1.json",
@@ -612,7 +612,7 @@
     },
     {
       "path": "install-pwa.js",
-      "sha256": "7415840e5cd57c14933a8b46ff14ed8db7b133bbe956ac4ae5a5b2f040fc1e17",
+      "sha256": "dd6f365641edca0a48b3e2eafc97f672f78b489d2bafc235bf0182998e7d2a29",
       "bytes": 6008
     },
     {
@@ -654,8 +654,33 @@
       "path": "V5.51-VALIDATION.txt",
       "sha256": "baf974ab47fbf716747a181583819f5d66e4c5be8888c42073a5b4b770925f34",
       "bytes": 1580
+    },
+    {
+      "path": "ayurveda-devanagari-map-v1.json",
+      "sha256": "19c0762f1dde6e57d774b3e96489d4a4277863de133fe8cd5c8f2c2661093267",
+      "bytes": 376122
+    },
+    {
+      "path": "ayurveda-bilingual-v1.css",
+      "sha256": "f505833ef4f6bd3a45a7d5bd0d4c6413ef95d8e684b10a770544c2d9d84748b2",
+      "bytes": 1319
+    },
+    {
+      "path": "V5.52-AYURVEDA-DEVANAGARI-BILINGUAL-ARCHITECTURE.md",
+      "sha256": "6456e3f3eb460cad96872232969b9d2138d34cdd59f04d844c94e942522487c8",
+      "bytes": 3427
+    },
+    {
+      "path": "V5.52-UPDATE-NOTES-HINDI.md",
+      "sha256": "c280bb17e48d9a4b049f2f002b712fd09b4578c1de1dbe3823c044662f4d01a4",
+      "bytes": 1298
+    },
+    {
+      "path": "V5.52-VALIDATION.txt",
+      "sha256": "963d8fe6ffba938d8e9f72331f0a3e9ee4f983a2ac641b063932bfb5f4053911",
+      "bytes": 2566
     }
   ],
-  "note": "V5.51 installable PWA integrity manifest covering the preserved V5.50 clinical stack plus install controller, service worker, manifest metadata, any/maskable app icons and release documentation. Authentication/PIN/Firebase/role/cloud-save logic was intentionally not modified. Static integrity validation does not replace live HTTPS install/login/device regression.",
+  "note": "V5.52 integrity manifest covering the preserved V5.51 installable PWA and clinical stack plus Ayurveda Devanagari/English/bilingual medicine-name display/search assets and release documentation. Canonical Ayurveda clinical/source datasets remain unchanged; login/PIN/Firebase/role/cloud-save logic was intentionally not modified. Static integrity validation does not replace live HTTPS login/search/install/device regression.",
   "version": "1.0"
 }

@@ -1,0 +1,28 @@
+Mahamaya Clinic EMR V5.52 — Ayurveda Devanagari / Bilingual Medicine Names
+Build: 2026.08.15-R29
+Validation type: static/source/syntax + local asset checks; not a claim of live browser/device regression.
+
+PASS — Root JSON syntax: 31/31 PASS
+PASS — External JavaScript syntax: 7/7 PASS
+PASS — Static DOM IDs: 1417 total / 1417 unique / duplicates=0
+PASS — Inline JavaScript syntax: 10/10 PASS
+PASS — V5.52 UI markers: PASS
+PASS — Devanagari map ID coverage: medicines 188/188 • AFI 640/640 • contexts 39/39 • total 867
+PASS — Curated Devanagari examples: Kanakasava → कनकासव; Madhukasava → मधूकासव; Vasakasava → वासकासव; Sitopaladi Curna → सितोपलादि चूर्ण; Sutashekhara Rasa → सूतशेखर रस; Svasa Kasa Cintamani Rasa → श्वास कास चिन्तामणि रस; Talisadi Churna → तालीसादि चूर्ण; Kanakasava → कनकासव; Sutshekhar Rasa → सूतशेखर रस
+PASS — Devanagari search smoke: कास=113 • सितोपलादि=3 • श्वास=78 • गृध्रसी=2 • सूतशेखर=2 • भस्म=54 • लौह=54
+PASS — Clinical/source Ayurveda datasets preserved: ayurveda-therapeutics-master-v1.json=PASS • ayurveda-formulary-index-v1.json=PASS • ayurveda-safety-selection-v1.json=PASS
+PASS — Login/PIN/session functions preserved: unlockApp=PASS • lockApp=PASS • restoreSession=PASS • savePins=PASS
+PASS — Firebase module block preserved: byte-identical SHA-256 block
+PASS — PWA cache/version integration: manifest=5.52 • map/css cached=YES
+PASS — Ayurveda bilingual engine integration: PASS
+PASS — Local HTTP asset smoke: index/map/engine/CSS/manifest/service-worker = 200/200/200/200/200/200
+PASS — Integrity manifest: 135 tracked files; SHA-256 + byte-size verification PASS
+
+SAFETY / SOURCE BOUNDARY
+- Canonical Ayurveda medicine IDs and original Roman/source spellings are preserved.
+- Devanagari is a separate display/search alias layer; auto-transliterated rare AFI names are not asserted as authoritative Sanskrit orthography.
+- Default bilingual mode keeps source fidelity; curated overrides may show Devanagari primary, while non-curated transliterations retain Roman/source spelling primary.
+- Login/PIN/Firebase authentication, roles and cloud-save logic are intentionally unchanged.
+- Dose, anupana, kala, duration, interaction and safety logic remain unchanged.
+
+RESULT: STATIC VALIDATION PASS
