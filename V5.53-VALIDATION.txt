@@ -1,0 +1,70 @@
+Mahamaya Clinic EMR V5.53 — Clinical Examination Research Fast Flow
+Build: 2026.08.15-R30
+Protocol: MCE-RP1 v1.0
+Generated: 2026-08-15
+
+STATIC / STRUCTURE
+PASS — index.html parsed successfully
+PASS — Static DOM IDs: 1417 total / 1417 unique / duplicate IDs: 0
+PASS — New dynamic Clinical Exam Research Fast Flow IDs: 42 / unique 42 / collision with static IDs: 0
+PASS — V5.53 / R30 markers present
+PASS — MCE-RP1 marker present
+PASS — Clinical Exam research CSS linked
+PASS — Clinical Exam research JS linked
+PASS — Existing General Exam/Oedema/Gait/Pain/Systemic workflow preserved
+
+JAVASCRIPT
+PASS — complaint-intelligence-engine.js syntax
+PASS — therapeutics-intelligence-engine.js syntax
+PASS — ayurveda-therapeutics-engine.js syntax
+PASS — mission-assurance-engine.js syntax
+PASS — install-pwa.js syntax
+PASS — premium-shell-v1.js syntax
+PASS — clinical-exam-research-fast-v1.js syntax
+PASS — service-worker.js syntax
+PASS — Inline classic JavaScript: 9/9 syntax PASS
+
+JSON / PWA
+PASS — 31/31 root JSON files parse successfully
+PASS — manifest.webmanifest version 5.53
+PASS — service-worker cache mahamaya-emr-v5.53-20260815-r30
+PASS — clinical-exam-research-fast-v1.css in PWA essential cache
+PASS — clinical-exam-research-fast-v1.js in PWA essential cache
+PASS — local HTTP smoke: index / CSS / JS / manifest / service-worker = 200 / 200 / 200 / 200 / 200
+PASS — SHA-256 integrity manifest: 235/235 tracked files match
+
+LOGIN / AUTHENTICATION PRESERVATION
+PASS — unlockApp() SHA-256 unchanged from V5.52
+PASS — lockApp() SHA-256 unchanged from V5.52
+PASS — restoreSession() SHA-256 unchanged from V5.52
+PASS — savePins() SHA-256 unchanged from V5.52
+PASS — Firebase module/import/configuration/authentication block SHA-256 unchanged from V5.52
+
+CLINICAL / DATASET PRESERVATION
+PASS — clinical-terminology-master.json byte-identical to V5.52
+PASS — systemic-exam-master-v1.json byte-identical to V5.52
+PASS — complaint-intelligence-master-v1.json byte-identical to V5.52
+PASS — therapeutics-intelligence-master-v1.json byte-identical to V5.52
+PASS — antibiotic-intelligence-v1.json byte-identical to V5.52
+PASS — chronic-pharmacology-intelligence-v1.json byte-identical to V5.52
+PASS — ayurveda-therapeutics-master-v1.json byte-identical to V5.52
+PASS — ayurveda-formulary-index-v1.json byte-identical to V5.52
+PASS — ayurveda-devanagari-map-v1.json byte-identical to V5.52
+PASS — ayurveda-safety-selection-v1.json byte-identical to V5.52
+PASS — slaie-omega-exact-row-v1.json byte-identical to V5.52
+
+V5.53 WORKFLOW SAFETY BOUNDARIES
+PASS — Empty field is not converted automatically to normal/absent
+PASS — “Screened absent” requires explicit clinician confirmation
+PASS — “Remaining not assessed” documents missing/unperformed items explicitly
+PASS — Documentation completeness is labelled non-validated and separate from disease severity/diagnosis
+PASS — Vitals are displayed as a read-only contextual snapshot; original History & Vitals fields remain the editable source
+PASS — Raw finding status/grade/remarks are retained separately from explainable interpretation
+PASS — Identity is excluded from research JSON by default; clinician opt-in is required to include identifiers
+PASS — Research mode stores assessor/setting/phase/verification/limitations metadata without altering clinical decision-support rules
+
+LIMITATIONS
+- Static/schema/syntax checks do not prove real-device clinical behavior.
+- Local Chromium DOM regression was attempted in this execution environment but headless Chromium did not return a usable DOM; therefore no claim of browser-level runtime PASS is made.
+- After GitHub publish, live regression remains required on phone, tablet, laptop and desktop for login, record reopen, FAST/STANDARD/RESEARCH switching, save/reopen, Systemic navigation, PWA update and Firebase cross-device sync.
+- MCE-RP1 documentation percentages are not validated diagnostic, prognostic, severity or clinical-quality scores.

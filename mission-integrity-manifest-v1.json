@@ -1,10 +1,630 @@
 {
   "schema": "MAHAMAYA-INTEGRITY-MANIFEST-V1",
-  "app_version": "V5.52",
-  "build": "2026.08.15-R29",
-  "generated_at": "2026-08-15T10:15:00+05:30",
+  "app_version": "V5.53",
+  "build": "2026.08.15-R30",
+  "generated_at": "2026-08-15T10:47:44+05:30",
   "algorithm": "SHA-256",
   "files": [
+    {
+      "path": "activity_main.xml",
+      "sha256": "c3264428d77acb35eab2395f99850cde1f5d1737dc04b43d444900409edd91c6",
+      "bytes": 471
+    },
+    {
+      "path": "AndroidManifest.xml",
+      "sha256": "bac271abb7693e4d70f9576b7659aa5ae72f75d38048825e97b3dda22d25b52d",
+      "bytes": 907
+    },
+    {
+      "path": "antibiotic-intelligence-v1.json",
+      "sha256": "037413520019d20b93cdbf58d21de2b49a6b9fce7f074a9d8b918bc4c32309c9",
+      "bytes": 114558
+    },
+    {
+      "path": "apple-touch-icon.png",
+      "sha256": "b793949ec55c53db0f184156210dde9ecb95e151dfa65c97d8c7e99679027ae6",
+      "bytes": 43973
+    },
+    {
+      "path": "ayu-dependency-rules.json",
+      "sha256": "2add80fbb27012fc57237d441f28a01a3f53bd547321ece5261d000bcd90624d",
+      "bytes": 1089
+    },
+    {
+      "path": "ayu-dhatu-master.json",
+      "sha256": "2fe110b194ef2c8a0dde60dca934790bf4a6d2a0cda61a2d16ba891a3ae433ce",
+      "bytes": 3482
+    },
+    {
+      "path": "ayu-dosha-subtype-master.json",
+      "sha256": "251c1f96aba6a7c619c74e2956038630ce570a3d26eb2ac0f35d91a85e7dbf88",
+      "bytes": 22925
+    },
+    {
+      "path": "ayu-field-master.json",
+      "sha256": "466d742154fd12ebd917782f657c1d89bce413479becf924f28a29c376ccce4d",
+      "bytes": 1859
+    },
+    {
+      "path": "ayu-guna-master.json",
+      "sha256": "bce749f4c96c632d02fe3caaff06e0ba1358aef893f8c94433d7b3c0f1e72af8",
+      "bytes": 2813
+    },
+    {
+      "path": "ayu-legacy-map.json",
+      "sha256": "8539669c3fe5531aa0dc0d8bcb657ab1b66c6edcd1327ce94f02a347379421b4",
+      "bytes": 1077
+    },
+    {
+      "path": "ayu-nidana-master.json",
+      "sha256": "e409fd6353652086f69d92518627190e38a84bd3e65fad2b8dc94eef9566c627",
+      "bytes": 1507
+    },
+    {
+      "path": "ayu-option-master.json",
+      "sha256": "bb3b095986ec21f5ad2973023e1acc740218fee4850e0df2de58dc29822f8b6e",
+      "bytes": 3508
+    },
+    {
+      "path": "ayu-print-map.json",
+      "sha256": "eb97b4aa63dd70bbac153267186887a45803b06ee96432c5e17ee902e183b950",
+      "bytes": 968
+    },
+    {
+      "path": "ayu-red-flag-rules.json",
+      "sha256": "74b5abbeaf7d1556505b2337f08e1479e3a83beabeba1e41fdd09e1ccb653a98",
+      "bytes": 1092
+    },
+    {
+      "path": "ayu-reference-master.json",
+      "sha256": "e4f636e9b4736ae72f462f3b7d9a4cfa625c7979ad65daaa50f4ed6eb08835c9",
+      "bytes": 467
+    },
+    {
+      "path": "ayu-samprapti-master.json",
+      "sha256": "dd71ffbed68be29131e4522614539e5d63f3545038984b1d4b3e14fc3564bf00",
+      "bytes": 861
+    },
+    {
+      "path": "ayu-scoring-rules.json",
+      "sha256": "8fca200225685f31541f12f05cf2a1f6401035f012d03839cab548e860704c5f",
+      "bytes": 1362
+    },
+    {
+      "path": "ayu-srotas-master.json",
+      "sha256": "310aaa33cb3b09a33158c448b72be780cd39557d9ada196049dcc0502ee7a390",
+      "bytes": 6664
+    },
+    {
+      "path": "ayu-treatment-master.json",
+      "sha256": "4812b70694d522a1c20a933d5b50360e227150bf9e332981e85f2090a1b6b682",
+      "bytes": 1553
+    },
+    {
+      "path": "ayu-validation-rules.json",
+      "sha256": "738507cfe3fdd94f121cb1386e6cc8f33498820cce5b8be6664eae07091d435b",
+      "bytes": 1367
+    },
+    {
+      "path": "ayurveda-bilingual-v1.css",
+      "sha256": "f505833ef4f6bd3a45a7d5bd0d4c6413ef95d8e684b10a770544c2d9d84748b2",
+      "bytes": 1319
+    },
+    {
+      "path": "ayurveda-devanagari-map-v1.json",
+      "sha256": "19c0762f1dde6e57d774b3e96489d4a4277863de133fe8cd5c8f2c2661093267",
+      "bytes": 376122
+    },
+    {
+      "path": "ayurveda-formulary-index-v1.json",
+      "sha256": "a5a7e02f5c51789e50b03c7326993b74548cbd60d66a9a4301c93f7be1e17bbd",
+      "bytes": 417970
+    },
+    {
+      "path": "ayurveda-lifestyle-master-v1.json",
+      "sha256": "5a323ab2b3c62d980a2a55ad7c175d0fc15b7f5b85fc33a7fdbec1231f7a8deb",
+      "bytes": 44662
+    },
+    {
+      "path": "ayurveda-safety-selection-v1.json",
+      "sha256": "adc1dcddde12aa188f4ab4d9993148c6812141dc2f944aba6572a99d8289ab19",
+      "bytes": 10003
+    },
+    {
+      "path": "ayurveda-therapeutics-engine.js",
+      "sha256": "ce1140637445e40ae945427090235eb55bc727f356ef00374d8636dfb4861110",
+      "bytes": 55833
+    },
+    {
+      "path": "ayurveda-therapeutics-master-v1.json",
+      "sha256": "16e9ec8ccd7a78071f7be73fdbee03c203b9bf8a4b99172f541be3cc20383d4f",
+      "bytes": 574825
+    },
+    {
+      "path": "chronic-pharmacology-intelligence-v1.json",
+      "sha256": "4a6e699476da5be3d9eccb013ac612059714a5e8fc0cec6702fb938b52eb36e4",
+      "bytes": 3418880
+    },
+    {
+      "path": "clinical-exam-research-fast-v1.css",
+      "sha256": "6ca801d4f93404e374b1891dc5682bd82ddba9d32ca4c7e90e7990e86972b06b",
+      "bytes": 9766
+    },
+    {
+      "path": "clinical-exam-research-fast-v1.js",
+      "sha256": "23c27d3e086b98ae7dc9819ea8980edc724df4a02fe7151787cd50543e030170",
+      "bytes": 29122
+    },
+    {
+      "path": "clinical-terminology-master.json",
+      "sha256": "29b68d2f1d3ed1523d52e6cb102e2b4385f1fd53fba04847c843f78681918738",
+      "bytes": 272621
+    },
+    {
+      "path": "complaint-intelligence-engine.js",
+      "sha256": "f607e831f318caf6bdaaa9cdf51977dbe6a4a0e83bbc983bd859836675d6cea1",
+      "bytes": 24284
+    },
+    {
+      "path": "complaint-intelligence-master-v1.json",
+      "sha256": "e247952d1a9675f5d5f5257cf4c3efe1a7443b6564dc3359e314976aa3e8df58",
+      "bytes": 430755
+    },
+    {
+      "path": "ic_launcher.png",
+      "sha256": "a57b0823a6d0f330973f070c3dbe667af86f6b633a3099b309144b4ef805b0f5",
+      "bytes": 799
+    },
+    {
+      "path": "icon-192-maskable.png",
+      "sha256": "6abe7dd7da0b455307cb52278be0eae390e7ac68fa39e848cd98c460962e7f6c",
+      "bytes": 30138
+    },
+    {
+      "path": "icon-192-old.png",
+      "sha256": "34065b4749f5d10fba5c59cfb8f5908580f8efa7d5744bd41083f30350ef798a",
+      "bytes": 2227
+    },
+    {
+      "path": "icon-192.png",
+      "sha256": "dfb685223a327a93ba4b7e9c5d7a8d81feb7c2468c711252121f69e7693590bf",
+      "bytes": 48796
+    },
+    {
+      "path": "icon-512-maskable.png",
+      "sha256": "7e2a1ca87e3e45d1e361803378712299dab1353baf2c5c2e02452adafcac01a4",
+      "bytes": 152093
+    },
+    {
+      "path": "icon-512-old.png",
+      "sha256": "65c9211e61c14d5b2ef1777de0c57756a5d62b38c82dbd3a8df48fc1c22cd4fa",
+      "bytes": 94995
+    },
+    {
+      "path": "icon-512.png",
+      "sha256": "51131f85a8411bce25c1ce2d67002c3cba1ccec2b08cbde26aa5fc9e48b4a47c",
+      "bytes": 256632
+    },
+    {
+      "path": "IMG_20260730_153053.png",
+      "sha256": "4efebb17fca5799ee8ee2bc084552521f219b2f70b7bc42617aaae1a6f13de41",
+      "bytes": 855464
+    },
+    {
+      "path": "index-1.htmlindex-original-backup.html",
+      "sha256": "1f81dec915b08666d99d48898edd7f352d512bb1eee2611b5c50f0b1563085b3",
+      "bytes": 191510
+    },
+    {
+      "path": "index-pre-phase4c-backup.html",
+      "sha256": "cc714fd3d5e7f5e644dd8251734537259f0d78d801ecc359497463ae6249100a",
+      "bytes": 191582
+    },
+    {
+      "path": "index-test.html",
+      "sha256": "c2e0a15b12373b2e99f52f0ea4e7dfe5ba4c8b505b7d24984c95c3ffa0392f69",
+      "bytes": 610105
+    },
+    {
+      "path": "index.html",
+      "sha256": "7ccb4cb8a0ed7459cee079fe0807a87f1842da31ccf453ed1ab87c62c0c0a5e8",
+      "bytes": 1044327
+    },
+    {
+      "path": "install-pwa.js",
+      "sha256": "5d39947cf9248221d6bc4b290752452f7895fc2c665e19c2d1566e882a8da979",
+      "bytes": 6008
+    },
+    {
+      "path": "investigation-catalog-v1.json",
+      "sha256": "ad3d06dc0710dae72e23da8e65934327204e8883df24ab5054d50f30f03c21d4",
+      "bytes": 77195
+    },
+    {
+      "path": "logo.jpg",
+      "sha256": "65c9211e61c14d5b2ef1777de0c57756a5d62b38c82dbd3a8df48fc1c22cd4fa",
+      "bytes": 94995
+    },
+    {
+      "path": "Mahamaya_EMR_App_Conversion_Complete.zip",
+      "sha256": "524d98ff8619dd1225c309414c6079a412c8804cca2ed3c4c0accd012a2af901",
+      "bytes": 22779
+    },
+    {
+      "path": "MainActivity.java",
+      "sha256": "06d24173e4779f9428b5dc8d4acd94e9d644c74ab70e0cec1c8b9729a7aab253",
+      "bytes": 4262
+    },
+    {
+      "path": "manifest.webmanifest",
+      "sha256": "0d5c6cc0086bf80eb7e11316b9acb7f24cf0e10e3dbc5e4a70c948eecadb63ce",
+      "bytes": 7337
+    },
+    {
+      "path": "mission-assurance-engine.js",
+      "sha256": "17228d227be0737d272f3a4e9bfb118b620998d12775aad73b3df92171288809",
+      "bytes": 19215
+    },
+    {
+      "path": "mission-assurance-master-v1.json",
+      "sha256": "4de48ad049d86c11911727b117cd4e9d1d3e3c9caed0d15bcd6b2acd49c3a3a7",
+      "bytes": 5305
+    },
+    {
+      "path": "network_security_config.xml",
+      "sha256": "dea35ebed76536c24c13f74036f02dc874f944147cb3a49c2ad0550f71e3e0c7",
+      "bytes": 146
+    },
+    {
+      "path": "patient.html",
+      "sha256": "1bdaadeb2432120f0cb948004a9d9024d514e04e5fc8b9ec3195ebe388090d7d",
+      "bytes": 3835
+    },
+    {
+      "path": "PHASE4C-AYURVEDA-INTERPRETATION-README.txt",
+      "sha256": "797d19a134b5b757b4a34ed91788db6fe84c360dbbea13130865ac0efcfdba7a",
+      "bytes": 901
+    },
+    {
+      "path": "premium-responsive-v1.css",
+      "sha256": "930d87fc5117704e3798aff8e914cbf01b3fc879e678368fe2a791bf2e9edcbe",
+      "bytes": 14293
+    },
+    {
+      "path": "premium-shell-v1.js",
+      "sha256": "61a7ff192f65a3f37cc67e9f3fe664e912aff0c86be9bf3e88891d35c6c74068",
+      "bytes": 6676
+    },
+    {
+      "path": "README-HINDI.md",
+      "sha256": "263c324b22735b7da9063d75df6f46f8659ca8d4649846c7259386e65ee2116a",
+      "bytes": 609
+    },
+    {
+      "path": "README.txt",
+      "sha256": "70fe9ba9926cbb181017f55e032acc1f087f1a9a0345691ebcef26b86896d081",
+      "bytes": 718
+    },
+    {
+      "path": "records.html",
+      "sha256": "da593ffed75f164c6ab7e040cc3ce98c3012d3d1ae04eb10f9f72199aa9bc052",
+      "bytes": 2203
+    },
+    {
+      "path": "service-worker.js",
+      "sha256": "ffffa09caa9059f3377cc91012d485d9dab8c51ece0d72176d17992326b1d0c3",
+      "bytes": 3254
+    },
+    {
+      "path": "shri_krishna_mahamaya_emr_v1.zip",
+      "sha256": "cbca032520cb8a04331d1f556da4d3c1e21be9690710f661256947fd5014f0dc",
+      "bytes": 5553
+    },
+    {
+      "path": "slaie-omega-exact-row-v1.json",
+      "sha256": "0f13162c6314c7ecb5a99760b08649b78178ef6e72531efa2016b6c63d0318f7",
+      "bytes": 12723
+    },
+    {
+      "path": "strings.xml",
+      "sha256": "95e6b34f89f77df06a2f8b4e1e116475e3bc893b07a3037be5dc99ae4b27e836",
+      "bytes": 75
+    },
+    {
+      "path": "styles.xml",
+      "sha256": "ca10dabb449e2021ecf6a23f3fd064a043bb733ffd1f36191aae582dd432ca50",
+      "bytes": 420
+    },
+    {
+      "path": "systemic-exam-master-v1.json",
+      "sha256": "bdc0a3dcf751f2cb7ee44aebb320feefde5c61030dcc900fc6bfe59a5a130258",
+      "bytes": 49455
+    },
+    {
+      "path": "therapeutics-intelligence-engine.js",
+      "sha256": "19e872cc8fb468490a21c44d1d308195f2fd2033b0de39d118d43c6a1365922f",
+      "bytes": 61096
+    },
+    {
+      "path": "therapeutics-intelligence-master-v1.json",
+      "sha256": "c71a0e05745d1c5e0d1da4a207b90a1b82f6ca3129fe0d0609e33bd4cf925e31",
+      "bytes": 2407145
+    },
+    {
+      "path": "V2.50-UPDATE-NOTES-HINDI.md",
+      "sha256": "83732b277078e5a8f75942d3713676cbe47cc6f4d37e33239bdec87f60cd74cd",
+      "bytes": 1127
+    },
+    {
+      "path": "V2.60-UPDATE-NOTES-HINDI.md",
+      "sha256": "3f036c8f02809531fbe4831aa6b136dc76c694baca283003dfbb0c6c46303366",
+      "bytes": 1913
+    },
+    {
+      "path": "V2.70-UPDATE-NOTES-HINDI.md",
+      "sha256": "4c9d01dcbec68844e592f23dd6818089dff173a29daa5639b55431815224c7fd",
+      "bytes": 1609
+    },
+    {
+      "path": "V2.80-BENCHMARK-ARCHITECTURE.md",
+      "sha256": "f07cac9e1bca9bad7ecf2812ceb5667565c579817c01c80a5a3a695572b22359",
+      "bytes": 5153
+    },
+    {
+      "path": "V2.80-UPDATE-NOTES-HINDI.md",
+      "sha256": "70c2151e69248399e4799ade8f8e9959b5fa1663aa6b9d0155d43150c7376d4b",
+      "bytes": 3413
+    },
+    {
+      "path": "V2.80-VALIDATION.txt",
+      "sha256": "905ba9c470563e6a08fc60d9aa788727d55379a8dda898850fe2912aa4687df0",
+      "bytes": 1357
+    },
+    {
+      "path": "V2.90-CLINICAL-DESIGN-NOTES.md",
+      "sha256": "1cfd8a348fc2f4ac9ceaf146ca07b6c673b41ea0fb6598229a2f81b1381609ef",
+      "bytes": 4943
+    },
+    {
+      "path": "V2.90-VALIDATION.txt",
+      "sha256": "c73fc5f1b93654418cf6449a7892154f7697666d1a556d425f7bd9ff2355cb00",
+      "bytes": 1857
+    },
+    {
+      "path": "V3.00-CLINICAL-REFERENCE-ARCHITECTURE.md",
+      "sha256": "62307a7ed5a844311e9dec073dcc8cff938920651df24d42ce791805eec39748",
+      "bytes": 7390
+    },
+    {
+      "path": "V3.00-UPDATE-NOTES-HINDI.md",
+      "sha256": "3f0ef5e57d4ccd79ddd714510dc4edb152882507d73dd9608f84f548c6ab336a",
+      "bytes": 1634
+    },
+    {
+      "path": "V3.00-VALIDATION.txt",
+      "sha256": "3a8f93340d6fa823b9d231210d62041f873b597e4746217128dce9e227de4f35",
+      "bytes": 971
+    },
+    {
+      "path": "V3.10-INVESTIGATION-ARCHITECTURE.md",
+      "sha256": "cc08ad907a84a8f95525f7ecd9686f035439cfba4756cd2364630aad2299ad17",
+      "bytes": 4444
+    },
+    {
+      "path": "V3.10-UPDATE-NOTES-HINDI.md",
+      "sha256": "036df34886a6ad01b7ef9a1f4a11f9fab26da1a925342f5aabc3b2421cf3553e",
+      "bytes": 1373
+    },
+    {
+      "path": "V3.10-VALIDATION.txt",
+      "sha256": "ad74339802656b4522229e55a3ae2a69e02673b149cb54ebd40acb82d7953cad",
+      "bytes": 1322
+    },
+    {
+      "path": "V3.20-PRAKRITI-TRAYOPASTAMBHA-ARCHITECTURE.md",
+      "sha256": "e1f771ef193d627140900f9a666e19e43d45b780755e27fee653dc8e1a0a125e",
+      "bytes": 7738
+    },
+    {
+      "path": "V3.20-UPDATE-NOTES-HINDI.md",
+      "sha256": "60aa04a18491a264b2e082d4a38b3867a546511edcb7c2c817259870d6789907",
+      "bytes": 3295
+    },
+    {
+      "path": "V3.20-VALIDATION.txt",
+      "sha256": "83ec12e37587aa6575f6016693b3721ed4966cb81fa50bb30415cda8f24175b8",
+      "bytes": 1363
+    },
+    {
+      "path": "V3.30-PRAKRITI-RESEARCH-ARCHITECTURE.md",
+      "sha256": "a6518e30f6584f69dda6f095320f74585558e5869b095245e8051fd893a4420c",
+      "bytes": 6405
+    },
+    {
+      "path": "V3.30-UPDATE-NOTES-HINDI.md",
+      "sha256": "970d57b69979a21e69d93bedd658bf2caa915fa4e7b31cf700005b024667831e",
+      "bytes": 1099
+    },
+    {
+      "path": "V3.30-VALIDATION.txt",
+      "sha256": "ddb5b02b38a51cd2a618c84d0ba3aba5cf9f00500373e872c5b59f29f6586722",
+      "bytes": 1166
+    },
+    {
+      "path": "V3.40-COMPLAINT-INTELLIGENCE-ARCHITECTURE.md",
+      "sha256": "d8105b7610f0e8f9177e99138a577677e5e06bcdd476c9c64f3e63e7f115c06c",
+      "bytes": 8853
+    },
+    {
+      "path": "V3.40-UPDATE-NOTES-HINDI.md",
+      "sha256": "f813d55938613a89561b6bcd55b56f663c0f1b4fbb60b70b78169a051ac53430",
+      "bytes": 1213
+    },
+    {
+      "path": "V3.40-VALIDATION.txt",
+      "sha256": "60d65eaf8e3268aa3260017c99a8be1fc7b6612b8c6263498109e8bd1501c770",
+      "bytes": 2058
+    },
+    {
+      "path": "V3.50-VALIDATION.txt",
+      "sha256": "7440894ec62121fa47bc714072643f5b14cb9dcc44828262ce392a6514bcf6e1",
+      "bytes": 3335
+    },
+    {
+      "path": "V3.60-MISSION-ASSURANCE-ARCHITECTURE.md",
+      "sha256": "b2c6ccc57b26cf9e5cc2e61e26431bd4baea31e8fc7d288f2c69e2cdd492a342",
+      "bytes": 2562
+    },
+    {
+      "path": "V3.60-VALIDATION.txt",
+      "sha256": "ea62b40a60d0b56a5f091b5df80974308e55e3316d1f5e8a8111e221f89da055",
+      "bytes": 688
+    },
+    {
+      "path": "V3.70-THERAPEUTICS-ARCHITECTURE.md",
+      "sha256": "b5c8499086762539479994374d07f646022664b5583ffa6dfa3334537cfa1347",
+      "bytes": 6695
+    },
+    {
+      "path": "V3.70-UPDATE-NOTES-HINDI.md",
+      "sha256": "22b3b0e2d3c19d237fcdbb97bcd9608a212a2bb06d82dd48fd7afb2b8e6e368b",
+      "bytes": 1073
+    },
+    {
+      "path": "V3.70-VALIDATION.txt",
+      "sha256": "7914f1a1b6ff01654d9563624f45f3fe64bbeb401ce2e9fe59a22c365b042a6c",
+      "bytes": 2257
+    },
+    {
+      "path": "V3.80-AYURVEDA-THERAPEUTICS-ARCHITECTURE.md",
+      "sha256": "52b6603852ff04544547b72a0d86e01ea25a292f595e899eca89ed238b652bba",
+      "bytes": 4416
+    },
+    {
+      "path": "V3.80-UPDATE-NOTES-HINDI.md",
+      "sha256": "0139482c235dd2c0e4f82136377e59b504c5e3f0e213146b4799a1a88dcc5706",
+      "bytes": 1379
+    },
+    {
+      "path": "V3.80-VALIDATION.txt",
+      "sha256": "c30e2332e4ae2f4741ddd5b83d5becd86fc0ae19a1657cc451ea77541aba568a",
+      "bytes": 2251
+    },
+    {
+      "path": "V3.90-AYURVEDA-FORMULARY-ARCHITECTURE.md",
+      "sha256": "0b5f89f33f4efb92ab1fd70386fce4342da37ea7731278b98333491e826a6110",
+      "bytes": 3036
+    },
+    {
+      "path": "V3.90-UPDATE-NOTES-HINDI.md",
+      "sha256": "c6b7f0207676b5aef10c5a8c0ba7d35ed1f6bbe145def2cd71f59b817b7898e4",
+      "bytes": 873
+    },
+    {
+      "path": "V3.90-VALIDATION.txt",
+      "sha256": "ef27c405c5baf15baccd1256cb7cc3ea25ad67fde4c8c844fde42a458ba1572a",
+      "bytes": 1999
+    },
+    {
+      "path": "V4.00-AYURVEDA-RESEARCH-NAVIGATOR.md",
+      "sha256": "d02c5361adf7b356b0b43f2b953a3108370643b879e20c57c00361c81a877a8d",
+      "bytes": 1428
+    },
+    {
+      "path": "V4.00-UPDATE-NOTES-HINDI.md",
+      "sha256": "1238890607c66ccc1014b9737ac9f90d6df2ad2545fb3ed7fa7a7bcec45658cd",
+      "bytes": 2170
+    },
+    {
+      "path": "V4.00-VALIDATION.txt",
+      "sha256": "f77340fe231a2aac0a2efcf36a78248aedc8f277586ec071968f78b3c33c6f5e",
+      "bytes": 1096
+    },
+    {
+      "path": "V4.01-SEARCH-HOTFIX.md",
+      "sha256": "0dba496d03ec4a135b65ad7a173b5986e1af121148e81ddc0c3d517e6b48befe",
+      "bytes": 1161
+    },
+    {
+      "path": "V4.01-VALIDATION.txt",
+      "sha256": "62df501a83121cd75add036689f5e8029cac61fb2ddcf7a78d02424e71b21ec5",
+      "bytes": 909
+    },
+    {
+      "path": "V4.10-AYURVEDA-SAFETY-SELECTION-ARCHITECTURE.md",
+      "sha256": "003626b3859bebd8470497181622f0c8700f348a18a3d2f118e7d20692232483",
+      "bytes": 2608
+    },
+    {
+      "path": "V4.10-UPDATE-NOTES-HINDI.md",
+      "sha256": "a2632ff4c81d56bd15bea73e68aef4af309902a567660876c9f632570c1ddc0a",
+      "bytes": 761
+    },
+    {
+      "path": "V4.10-VALIDATION.txt",
+      "sha256": "cd5f64d7f1e5f00854454f9eeb87b4b9d6b1f0e764b3e88cc8af478ae1799ef2",
+      "bytes": 988
+    },
+    {
+      "path": "V4.20-AYURVEDA-PERSONALIZATION-SELECTION-ARCHITECTURE.md",
+      "sha256": "cd42706c888c5c0e5bf7a27d3cea858fede34886231469a0bcf594018272d59e",
+      "bytes": 2899
+    },
+    {
+      "path": "V4.20-UPDATE-NOTES-HINDI.md",
+      "sha256": "fb03b0539d9a771e366cc8a692898d89c2a6c284cf0048f82559c72f2da78e71",
+      "bytes": 1871
+    },
+    {
+      "path": "V4.20-VALIDATION.txt",
+      "sha256": "7af6a736a111e091823260210d8eaa3e52a490fb2c26d102ba112416f4734bb9",
+      "bytes": 1759
+    },
+    {
+      "path": "V4.30-AYURVEDA-SCIENTIST-WORKSPACE-ARCHITECTURE.md",
+      "sha256": "8ae09be6ef0068dc3ece40d0b4897547b7df04e32c20e68b8d64dabaa0db88d9",
+      "bytes": 1610
+    },
+    {
+      "path": "V4.30-UPDATE-NOTES-HINDI.md",
+      "sha256": "fb2264a5ce8ef2f09d2255e671356fa6bc47651ec1daecddbc7fadd0ac073f52",
+      "bytes": 1244
+    },
+    {
+      "path": "V4.30-VALIDATION.txt",
+      "sha256": "5cba343ecd77ded00ea5d3a399d0c44b3a7e3cbfda3d9b1c6aaac6b107b8920b",
+      "bytes": 788
+    },
+    {
+      "path": "V5.00-MODERN-THERAPEUTICS-ATLAS-ARCHITECTURE.md",
+      "sha256": "23c1f430a7af4d842e21e1780d98985cd5e962a9079c8cf6aeddbc79fb44bfb2",
+      "bytes": 3700
+    },
+    {
+      "path": "V5.00-UPDATE-NOTES-HINDI.md",
+      "sha256": "90ec06077e84e464bc1e2dbc67c475279e0e62606d14d2e8ca99332cb5c9bfb8",
+      "bytes": 1772
+    },
+    {
+      "path": "V5.00-VALIDATION.txt",
+      "sha256": "e6d9a52f9139940ed2810b01172b9d1fb5804005db3c8ccc384d2b4189825c20",
+      "bytes": 2417
+    },
+    {
+      "path": "V5.01-MODERN-ATLAS-INTERACTION-HOTFIX.md",
+      "sha256": "d0928535d7f7e3328beb8d47038f2d814d4422a7fd17122135aee778060958a8",
+      "bytes": 1411
+    },
+    {
+      "path": "V5.01-UPDATE-NOTES-HINDI.md",
+      "sha256": "e7baaa872c774e5b4b8aa06d674fe237b3a405b3fb0115bbe0357ca3209e83fc",
+      "bytes": 969
+    },
+    {
+      "path": "V5.01-VALIDATION.txt",
+      "sha256": "d78e693c5c114d000b758656227da9cf1a26fa47ff02958a52c2c60927f7bc36",
+      "bytes": 2105
+    },
     {
       "path": "V5.10-ANTIBIOTIC-INTELLIGENCE-ARCHITECTURE.md",
       "sha256": "9ddb8bda05f603fa2663d1504cd68ef7a2546482e3cee70592b602043593eb59",
@@ -411,6 +1031,21 @@
       "bytes": 1369
     },
     {
+      "path": "V5.40X-PHARMACOGENOMICS-PRECISION-MEDICINE-GENOTYPE-DRUG-SAFETY-LAB-ARCHITECTURE.md",
+      "sha256": "5274fcaa2cc78c387943ecbd811fffcf253246af178be260e01c1f2b0eb8107c",
+      "bytes": 2229
+    },
+    {
+      "path": "V5.40X-UPDATE-NOTES-HINDI.md",
+      "sha256": "360bf7ad1be743d7c3f3d04abe0e5d0e199d9402d79a83a61588ee94569c8dd5",
+      "bytes": 902
+    },
+    {
+      "path": "V5.40X-VALIDATION.txt",
+      "sha256": "0eefc70679ff3715524ec2fcbab8c7940a795e94be3ae79eb28a448ddf65afd1",
+      "bytes": 1637
+    },
+    {
       "path": "V5.40Y-CLINICAL-TOXICOLOGY-POISONING-OVERDOSE-ANTIDOTE-DECONTAMINATION-LAB-ARCHITECTURE.md",
       "sha256": "3196f238bdb1244baefbc266ea64a298ae6e78c82b62ca0b5c6cf7b834d8d57e",
       "bytes": 2536
@@ -424,106 +1059,6 @@
       "path": "V5.40Y-VALIDATION.txt",
       "sha256": "ecec62efb7f8a4aee8bddf7db13a070f6f4588e207348648b678b68676ead2db",
       "bytes": 1564
-    },
-    {
-      "path": "antibiotic-intelligence-v1.json",
-      "sha256": "037413520019d20b93cdbf58d21de2b49a6b9fce7f074a9d8b918bc4c32309c9",
-      "bytes": 114558
-    },
-    {
-      "path": "ayurveda-formulary-index-v1.json",
-      "sha256": "a5a7e02f5c51789e50b03c7326993b74548cbd60d66a9a4301c93f7be1e17bbd",
-      "bytes": 417970
-    },
-    {
-      "path": "ayurveda-lifestyle-master-v1.json",
-      "sha256": "5a323ab2b3c62d980a2a55ad7c175d0fc15b7f5b85fc33a7fdbec1231f7a8deb",
-      "bytes": 44662
-    },
-    {
-      "path": "ayurveda-safety-selection-v1.json",
-      "sha256": "adc1dcddde12aa188f4ab4d9993148c6812141dc2f944aba6572a99d8289ab19",
-      "bytes": 10003
-    },
-    {
-      "path": "ayurveda-therapeutics-engine.js",
-      "sha256": "ce1140637445e40ae945427090235eb55bc727f356ef00374d8636dfb4861110",
-      "bytes": 55833
-    },
-    {
-      "path": "ayurveda-therapeutics-master-v1.json",
-      "sha256": "16e9ec8ccd7a78071f7be73fdbee03c203b9bf8a4b99172f541be3cc20383d4f",
-      "bytes": 574825
-    },
-    {
-      "path": "chronic-pharmacology-intelligence-v1.json",
-      "sha256": "4a6e699476da5be3d9eccb013ac612059714a5e8fc0cec6702fb938b52eb36e4",
-      "bytes": 3418880
-    },
-    {
-      "path": "clinical-terminology-master.json",
-      "sha256": "29b68d2f1d3ed1523d52e6cb102e2b4385f1fd53fba04847c843f78681918738",
-      "bytes": 272621
-    },
-    {
-      "path": "complaint-intelligence-engine.js",
-      "sha256": "f607e831f318caf6bdaaa9cdf51977dbe6a4a0e83bbc983bd859836675d6cea1",
-      "bytes": 24284
-    },
-    {
-      "path": "complaint-intelligence-master-v1.json",
-      "sha256": "e247952d1a9675f5d5f5257cf4c3efe1a7443b6564dc3359e314976aa3e8df58",
-      "bytes": 430755
-    },
-    {
-      "path": "index.html",
-      "sha256": "b23e204a2bb485914134b438f17946190d2d63a31b736482390b8a8f1f21a6ce",
-      "bytes": 1044081
-    },
-    {
-      "path": "investigation-catalog-v1.json",
-      "sha256": "ad3d06dc0710dae72e23da8e65934327204e8883df24ab5054d50f30f03c21d4",
-      "bytes": 77195
-    },
-    {
-      "path": "manifest.webmanifest",
-      "sha256": "6f12435cb854f6446562d02862e03a7db7b70e0b581666c1dacf85086acdc2dc",
-      "bytes": 7223
-    },
-    {
-      "path": "mission-assurance-engine.js",
-      "sha256": "17228d227be0737d272f3a4e9bfb118b620998d12775aad73b3df92171288809",
-      "bytes": 19215
-    },
-    {
-      "path": "mission-assurance-master-v1.json",
-      "sha256": "4de48ad049d86c11911727b117cd4e9d1d3e3c9caed0d15bcd6b2acd49c3a3a7",
-      "bytes": 5305
-    },
-    {
-      "path": "service-worker.js",
-      "sha256": "cc6e54172fa07ea07df7ca125707b175317ffb9b1d5bcf2764468f7fbf0e1f42",
-      "bytes": 3173
-    },
-    {
-      "path": "slaie-omega-exact-row-v1.json",
-      "sha256": "0f13162c6314c7ecb5a99760b08649b78178ef6e72531efa2016b6c63d0318f7",
-      "bytes": 12723
-    },
-    {
-      "path": "systemic-exam-master-v1.json",
-      "sha256": "bdc0a3dcf751f2cb7ee44aebb320feefde5c61030dcc900fc6bfe59a5a130258",
-      "bytes": 49455
-    },
-    {
-      "path": "therapeutics-intelligence-engine.js",
-      "sha256": "19e872cc8fb468490a21c44d1d308195f2fd2033b0de39d118d43c6a1365922f",
-      "bytes": 61096
-    },
-    {
-      "path": "therapeutics-intelligence-master-v1.json",
-      "sha256": "c71a0e05745d1c5e0d1da4a207b90a1b82f6ca3129fe0d0609e33bd4cf925e31",
-      "bytes": 2407145
     },
     {
       "path": "V5.40Z-ANESTHESIA-PERIOPERATIVE-PROCEDURAL-SEDATION-ANALGESIA-SAFETY-LAB-ARCHITECTURE.md",
@@ -586,16 +1121,6 @@
       "bytes": 2051
     },
     {
-      "path": "premium-responsive-v1.css",
-      "sha256": "930d87fc5117704e3798aff8e914cbf01b3fc879e678368fe2a791bf2e9edcbe",
-      "bytes": 14293
-    },
-    {
-      "path": "premium-shell-v1.js",
-      "sha256": "61a7ff192f65a3f37cc67e9f3fe664e912aff0c86be9bf3e88891d35c6c74068",
-      "bytes": 6676
-    },
-    {
       "path": "V5.50-PREMIUM-ADAPTIVE-WORKSPACE-ARCHITECTURE.md",
       "sha256": "6d70d112f54075a6ddb970f80644d1ec52c2238b8100467f2299c0c8f4957822",
       "bytes": 4041
@@ -609,36 +1134,6 @@
       "path": "V5.50-VALIDATION.txt",
       "sha256": "64ada1e2b610aef83d2453a3d71512757f9487b2ed8754f1b771856da5117260",
       "bytes": 2860
-    },
-    {
-      "path": "install-pwa.js",
-      "sha256": "dd6f365641edca0a48b3e2eafc97f672f78b489d2bafc235bf0182998e7d2a29",
-      "bytes": 6008
-    },
-    {
-      "path": "icon-192.png",
-      "sha256": "dfb685223a327a93ba4b7e9c5d7a8d81feb7c2468c711252121f69e7693590bf",
-      "bytes": 48796
-    },
-    {
-      "path": "icon-512.png",
-      "sha256": "51131f85a8411bce25c1ce2d67002c3cba1ccec2b08cbde26aa5fc9e48b4a47c",
-      "bytes": 256632
-    },
-    {
-      "path": "apple-touch-icon.png",
-      "sha256": "b793949ec55c53db0f184156210dde9ecb95e151dfa65c97d8c7e99679027ae6",
-      "bytes": 43973
-    },
-    {
-      "path": "icon-192-maskable.png",
-      "sha256": "6abe7dd7da0b455307cb52278be0eae390e7ac68fa39e848cd98c460962e7f6c",
-      "bytes": 30138
-    },
-    {
-      "path": "icon-512-maskable.png",
-      "sha256": "7e2a1ca87e3e45d1e361803378712299dab1353baf2c5c2e02452adafcac01a4",
-      "bytes": 152093
     },
     {
       "path": "V5.51-INSTALLABLE-PWA-ARCHITECTURE.md",
@@ -656,16 +1151,6 @@
       "bytes": 1580
     },
     {
-      "path": "ayurveda-devanagari-map-v1.json",
-      "sha256": "19c0762f1dde6e57d774b3e96489d4a4277863de133fe8cd5c8f2c2661093267",
-      "bytes": 376122
-    },
-    {
-      "path": "ayurveda-bilingual-v1.css",
-      "sha256": "f505833ef4f6bd3a45a7d5bd0d4c6413ef95d8e684b10a770544c2d9d84748b2",
-      "bytes": 1319
-    },
-    {
       "path": "V5.52-AYURVEDA-DEVANAGARI-BILINGUAL-ARCHITECTURE.md",
       "sha256": "6456e3f3eb460cad96872232969b9d2138d34cdd59f04d844c94e942522487c8",
       "bytes": 3427
@@ -679,8 +1164,23 @@
       "path": "V5.52-VALIDATION.txt",
       "sha256": "963d8fe6ffba938d8e9f72331f0a3e9ee4f983a2ac641b063932bfb5f4053911",
       "bytes": 2566
+    },
+    {
+      "path": "V5.53-CLINICAL-EXAMINATION-RESEARCH-FAST-FLOW-ARCHITECTURE.md",
+      "sha256": "30c3ab5c8f7a69f3beeef36e1c6586a91828b84c95d0e0812c9afb4bf76a94c5",
+      "bytes": 6564
+    },
+    {
+      "path": "V5.53-UPDATE-NOTES-HINDI.md",
+      "sha256": "ccafec8954bbfe55cc9f57ed502da1e077488ec91928778096030b7e710eb1b4",
+      "bytes": 2048
+    },
+    {
+      "path": "V5.53-VALIDATION.txt",
+      "sha256": "af1b8b7463a7d159fa14f4eb3a71b5d7b1a9d46521f2c06ac70791bace9cce00",
+      "bytes": 4046
     }
   ],
-  "note": "V5.52 integrity manifest covering the preserved V5.51 installable PWA and clinical stack plus Ayurveda Devanagari/English/bilingual medicine-name display/search assets and release documentation. Canonical Ayurveda clinical/source datasets remain unchanged; login/PIN/Firebase/role/cloud-save logic was intentionally not modified. Static integrity validation does not replace live HTTPS login/search/install/device regression.",
+  "note": "V5.53 integrity manifest covering the preserved V5.52 installable PWA/clinical stack plus Clinical Examination Research Fast Flow (MCE-RP1 v1.0), rapid core screening, general-appearance observations, research/QA metadata and export assets. Login/PIN/Firebase/role/cloud-save logic and core clinical/Ayurveda datasets were intentionally preserved. Static integrity validation does not replace live HTTPS login/save/device/Firebase regression.",
   "version": "1.0"
 }
