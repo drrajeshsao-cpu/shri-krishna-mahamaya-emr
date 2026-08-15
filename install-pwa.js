@@ -1,4 +1,4 @@
-/* Mahamaya Clinic EMR V5.53 — installability controller only.
+/* Mahamaya Clinic EMR V5.54 — installability controller only.
    Authentication, PIN, Firebase, roles and clinical save logic are intentionally untouched. */
 (()=>{
   'use strict';
@@ -31,7 +31,7 @@
     el.innerHTML=`<div style="width:min(520px,100%);background:#fff;border-radius:18px;padding:20px;box-shadow:0 18px 60px rgba(0,0,0,.28);border:1px solid #cbdde3">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
         <img src="./icon-192.png" alt="" width="54" height="54" style="border-radius:12px;border:1px solid #d6e4e7">
-        <div><h2 id="pwaInstallHelpTitle" style="margin:0;color:#0b6f78;font-size:20px">Install Mahamaya EMR</h2><div style="font-size:12px;color:#4d6570">V5.53 • Standalone clinical app</div></div>
+        <div><h2 id="pwaInstallHelpTitle" style="margin:0;color:#0b6f78;font-size:20px">Install Mahamaya EMR</h2><div style="font-size:12px;color:#4d6570">V5.54 • Standalone clinical app</div></div>
       </div>
       <div id="pwaInstallHelpBody" style="line-height:1.55;color:#17333d;font-size:14px"></div>
       <div style="display:flex;justify-content:flex-end;margin-top:16px"><button type="button" id="pwaInstallHelpClose" class="primary" style="min-width:100px">OK</button></div>

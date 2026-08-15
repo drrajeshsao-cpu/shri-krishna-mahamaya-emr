@@ -1,8 +1,8 @@
 {
   "schema": "MAHAMAYA-INTEGRITY-MANIFEST-V1",
-  "app_version": "V5.53",
-  "build": "2026.08.15-R30",
-  "generated_at": "2026-08-15T10:47:44+05:30",
+  "app_version": "V5.54",
+  "build": "2026.08.15-R31",
+  "generated_at": "2026-08-15T11:05:40+05:30",
   "algorithm": "SHA-256",
   "files": [
     {
@@ -152,8 +152,8 @@
     },
     {
       "path": "clinical-exam-research-fast-v1.js",
-      "sha256": "23c27d3e086b98ae7dc9819ea8980edc724df4a02fe7151787cd50543e030170",
-      "bytes": 29122
+      "sha256": "cebab21ce7b10bf34dcb76c126f01afc033f535d6fb53052e9e677f94747d7f1",
+      "bytes": 29292
     },
     {
       "path": "clinical-terminology-master.json",
@@ -169,6 +169,16 @@
       "path": "complaint-intelligence-master-v1.json",
       "sha256": "e247952d1a9675f5d5f5257cf4c3efe1a7443b6564dc3359e314976aa3e8df58",
       "bytes": 430755
+    },
+    {
+      "path": "general-exam-intelligence-suite-v2.css",
+      "sha256": "102ef49acc4c3ace620807f7d8f61f9e2a343c9f8d6f88f5aeac92cc32b09e13",
+      "bytes": 5444
+    },
+    {
+      "path": "general-exam-intelligence-suite-v2.js",
+      "sha256": "2a8941b8e63008adc5742c8311411af7c36c1c733cef4af9eb96e7b2e48fa3d6",
+      "bytes": 48337
     },
     {
       "path": "ic_launcher.png",
@@ -227,12 +237,12 @@
     },
     {
       "path": "index.html",
-      "sha256": "7ccb4cb8a0ed7459cee079fe0807a87f1842da31ccf453ed1ab87c62c0c0a5e8",
-      "bytes": 1044327
+      "sha256": "cec2c4b9bc7652fbbf2a1948f5e2d505f81b0913493d92761c7cf68b372604c0",
+      "bytes": 1044706
     },
     {
       "path": "install-pwa.js",
-      "sha256": "5d39947cf9248221d6bc4b290752452f7895fc2c665e19c2d1566e882a8da979",
+      "sha256": "1af2a386dd8b066fcf7b0393a2c52318982afafee8ef66d6ed52c7724652fe07",
       "bytes": 6008
     },
     {
@@ -257,8 +267,8 @@
     },
     {
       "path": "manifest.webmanifest",
-      "sha256": "0d5c6cc0086bf80eb7e11316b9acb7f24cf0e10e3dbc5e4a70c948eecadb63ce",
-      "bytes": 7337
+      "sha256": "633ed1e1c37eee8e092e9868fed8ccd054ebe85c10d8d98c88efe4ac2aec1cef",
+      "bytes": 7432
     },
     {
       "path": "mission-assurance-engine.js",
@@ -312,8 +322,8 @@
     },
     {
       "path": "service-worker.js",
-      "sha256": "ffffa09caa9059f3377cc91012d485d9dab8c51ece0d72176d17992326b1d0c3",
-      "bytes": 3254
+      "sha256": "7742117b8800e93c424e338ffa81858a71cd01c948b823b15d0b76d870f6bd5d",
+      "bytes": 3343
     },
     {
       "path": "shri_krishna_mahamaya_emr_v1.zip",
@@ -1179,8 +1189,23 @@
       "path": "V5.53-VALIDATION.txt",
       "sha256": "af1b8b7463a7d159fa14f4eb3a71b5d7b1a9d46521f2c06ac70791bace9cce00",
       "bytes": 4046
+    },
+    {
+      "path": "V5.54-GENERAL-EXAMINATION-INTELLIGENCE-SUITE-ARCHITECTURE.md",
+      "sha256": "eb3074082cd93819a1c7c2b67ac11881806a45b9667970815fbd1b455c00add7",
+      "bytes": 6439
+    },
+    {
+      "path": "V5.54-UPDATE-NOTES-HINDI.md",
+      "sha256": "30c6e720a32070d77ef643511df94c7a6a890f1c03b714e6a374197f861a941b",
+      "bytes": 1806
+    },
+    {
+      "path": "V5.54-VALIDATION.txt",
+      "sha256": "e97f148402d6f5d01828903a974ea4e6e0797f82145b0e28df0af84fcf63c178",
+      "bytes": 3331
     }
   ],
-  "note": "V5.53 integrity manifest covering the preserved V5.52 installable PWA/clinical stack plus Clinical Examination Research Fast Flow (MCE-RP1 v1.0), rapid core screening, general-appearance observations, research/QA metadata and export assets. Login/PIN/Firebase/role/cloud-save logic and core clinical/Ayurveda datasets were intentionally preserved. Static integrity validation does not replace live HTTPS login/save/device/Firebase regression.",
+  "note": "V5.54 integrity manifest covering the preserved V5.53 installable PWA/clinical stack plus MGEIS-2.0 General Examination Intelligence Suite: acute red-flag/vitals screening, pallor-anaemia, icterus, lymph-node, hydration-perfusion and nutrition-frailty focused fast-flow modules. Existing authentication/Firebase functions and clinical JSON datasets were intentionally preserved. Static integrity validation does not replace live HTTPS login/save/device/Firebase regression.",
   "version": "1.0"
 }
