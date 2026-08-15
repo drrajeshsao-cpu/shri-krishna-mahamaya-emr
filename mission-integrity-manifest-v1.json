@@ -1,8 +1,8 @@
 {
   "schema": "MAHAMAYA-INTEGRITY-MANIFEST-V1",
-  "app_version": "V5.55",
-  "build": "2026.08.15-R32",
-  "generated_at": "2026-08-15T11:20:04+05:30",
+  "app_version": "V5.55.1",
+  "build": "2026.08.15-R32H1",
+  "generated_at": "2026-08-15T11:50:00+05:30",
   "algorithm": "SHA-256",
   "files": [
     {
@@ -146,6 +146,11 @@
       "bytes": 3418880
     },
     {
+      "path": "clinical-exam-command-center-v3.1.js",
+      "sha256": "550e71bdc5575e50e7b98f6eb257a922b29ceaba947c904c8607d16519f140fb",
+      "bytes": 6376
+    },
+    {
       "path": "clinical-exam-command-center-v3.css",
       "sha256": "c1784d9b8140bf7a99ec084713eb2826abc3ca519e61dae08207f722dfeb1005",
       "bytes": 10506
@@ -247,8 +252,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "9b4b16f306feccffab31b4ca4e9642830bb3b2ea27f28cbd2bc9b6cf43ba75c5",
-      "bytes": 1044894
+      "sha256": "56db09f42a9bcc3f3f84a4bae697e0e0eaf30d683e6880fe06efc1b566ec20bc",
+      "bytes": 1044956
     },
     {
       "path": "install-pwa.js",
@@ -277,8 +282,8 @@
     },
     {
       "path": "manifest.webmanifest",
-      "sha256": "4201d1177559272c1d06e6794ac934f5e9c6fe696d9625e8de5731ff0d89f650",
-      "bytes": 7384
+      "sha256": "7d84b421fed0c27952a62a70bac336d94e12d15eb4d4c2e5babfca39441e54dd",
+      "bytes": 7243
     },
     {
       "path": "mission-assurance-engine.js",
@@ -332,8 +337,8 @@
     },
     {
       "path": "service-worker.js",
-      "sha256": "51cc589065533144262101604a66b7b59b51edd8f2f897065aa4d993c36f6d4f",
-      "bytes": 3426
+      "sha256": "5a79993fa03bfb61855b7a4257535809b87e2622e1ba8dd1b4fe4fba7336d728",
+      "bytes": 3432
     },
     {
       "path": "shri_krishna_mahamaya_emr_v1.zip",
@@ -1229,8 +1234,18 @@
       "path": "V5.55-VALIDATION.txt",
       "sha256": "c08cabdc5ff718a8429e7aee7940f7afabc7f1fbd424504deb7c43048344a149",
       "bytes": 3183
+    },
+    {
+      "path": "V5.55.1-PERFORMANCE-HOTFIX-NOTES.md",
+      "sha256": "2e1f76951003b2841708b791be288e3633a18ee03638aea2f5d3e8fe5bbc026c",
+      "bytes": 1182
+    },
+    {
+      "path": "V5.55.1-VALIDATION.txt",
+      "sha256": "fe699794a7b7f83c7f4746719a9ed46d8f8dd17bc3f80fb47a29cc775846a936",
+      "bytes": 1803
     }
   ],
-  "note": "V5.55 integrity manifest covering the preserved V5.54 clinical/PWA stack plus the MCE-CC3 Clinical Examination Scientist Command Center presentation layer. Existing login/PIN/Firebase and clinical data engines are intentionally preserved.",
+  "note": "V5.55.1 performance hotfix: removes the self-triggering Clinical Examination Command Center MutationObserver loop, uses bounded/coalesced refresh logic, and changes the JS asset filename to bypass stale V5.55 PWA cache. Login/PIN/Firebase and clinical data engines are preserved.",
   "version": "1.0"
 }

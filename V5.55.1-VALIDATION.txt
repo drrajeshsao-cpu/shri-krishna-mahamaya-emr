@@ -1,0 +1,26 @@
+Mahamaya Clinic EMR V5.55.1 — Performance Hotfix Validation
+Build: 2026.08.15-R32H1
+
+PASS — Static DOM IDs unique — 1417/1417; duplicates=[]
+PASS — Hotfix script referenced
+PASS — Broken script not referenced
+PASS — MutationObserver removed
+PASS — No continuous polling
+PASS — Coalesced refresh present
+PASS — New asset filename exists
+PASS — Service worker cache bumped
+PASS — Service worker caches hotfix script
+PASS — Manifest version 5.55.1
+PASS — External JavaScript syntax — 11/11 PASS; fail=[]
+PASS — Inline classic JavaScript syntax — 9/9 PASS; fail=[]
+PASS — Auth function unchanged: unlockApp — e843377d54d17861cb9cd48cdfe96d9417ef4536cfb51de2a95502635d51f260
+PASS — Auth function unchanged: lockApp — 98bcc2cbe4f579a1d9d12734d4eb23d104aef8bd9d5b7f86b13c5bc96154efd9
+PASS — Auth function unchanged: restoreSession — 37396cbc8f44a39966cc19da21cd87601bac28c7e6b9d2bcc3dcc62ea3749870
+PASS — Auth function unchanged: savePins — 85e3ba126c285337c74a1147ea3264f85c7764c46fb64f49f1f72156b7db0b19
+PASS — Firebase module unchanged — b743a58dcef18579d7d5edd518165e4571e16017810e75ca371284caea750409
+PASS — Clinical JSON unchanged — changed=[]
+PASS — SHA-256 integrity manifest — 247/247 PASS; bad=[]
+
+Root cause corrected: V5.55 command-center MutationObserver could observe its own text-node mutation and repeatedly re-enter the refresh path. V5.55.1 removes the observer and uses bounded requestAnimationFrame-coalesced refreshes only.
+Runtime limitation: container Chromium is not reliable in this environment; therefore live Edge/Chrome/GitHub Pages regression must still be performed after deployment.
+PASS — Local HTTP smoke — index.html 200; clinical-exam-command-center-v3.1.js 200; service-worker.js 200; manifest.webmanifest 200
