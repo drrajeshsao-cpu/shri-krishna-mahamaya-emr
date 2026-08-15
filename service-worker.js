@@ -1,9 +1,10 @@
-const CACHE_NAME = 'mahamaya-emr-v5.54-20260815-r31';
+const CACHE_NAME = 'mahamaya-emr-v5.55-20260815-r32';
 const ESSENTIAL_ASSETS = [
   './', './index.html', './manifest.webmanifest', './install-pwa.js',
   './premium-responsive-v1.css', './premium-shell-v1.js', './ayurveda-bilingual-v1.css',
   './clinical-exam-research-fast-v1.css', './clinical-exam-research-fast-v1.js',
   './general-exam-intelligence-suite-v2.css', './general-exam-intelligence-suite-v2.js',
+  './clinical-exam-command-center-v3.css', './clinical-exam-command-center-v3.js',
   './icon-192.png', './icon-512.png', './icon-192-maskable.png', './icon-512-maskable.png',
   './apple-touch-icon.png', './logo.jpg'
 ];

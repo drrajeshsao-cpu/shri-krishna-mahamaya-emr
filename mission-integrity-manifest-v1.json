@@ -1,8 +1,8 @@
 {
   "schema": "MAHAMAYA-INTEGRITY-MANIFEST-V1",
-  "app_version": "V5.54",
-  "build": "2026.08.15-R31",
-  "generated_at": "2026-08-15T11:05:40+05:30",
+  "app_version": "V5.55",
+  "build": "2026.08.15-R32",
+  "generated_at": "2026-08-15T11:20:04+05:30",
   "algorithm": "SHA-256",
   "files": [
     {
@@ -146,6 +146,16 @@
       "bytes": 3418880
     },
     {
+      "path": "clinical-exam-command-center-v3.css",
+      "sha256": "c1784d9b8140bf7a99ec084713eb2826abc3ca519e61dae08207f722dfeb1005",
+      "bytes": 10506
+    },
+    {
+      "path": "clinical-exam-command-center-v3.js",
+      "sha256": "6d0b8fc711c37e5b465f7ff5f29cffcbd39535f53d50bc0111482a62f3948f72",
+      "bytes": 5823
+    },
+    {
       "path": "clinical-exam-research-fast-v1.css",
       "sha256": "6ca801d4f93404e374b1891dc5682bd82ddba9d32ca4c7e90e7990e86972b06b",
       "bytes": 9766
@@ -237,8 +247,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "cec2c4b9bc7652fbbf2a1948f5e2d505f81b0913493d92761c7cf68b372604c0",
-      "bytes": 1044706
+      "sha256": "9b4b16f306feccffab31b4ca4e9642830bb3b2ea27f28cbd2bc9b6cf43ba75c5",
+      "bytes": 1044894
     },
     {
       "path": "install-pwa.js",
@@ -267,8 +277,8 @@
     },
     {
       "path": "manifest.webmanifest",
-      "sha256": "633ed1e1c37eee8e092e9868fed8ccd054ebe85c10d8d98c88efe4ac2aec1cef",
-      "bytes": 7432
+      "sha256": "4201d1177559272c1d06e6794ac934f5e9c6fe696d9625e8de5731ff0d89f650",
+      "bytes": 7384
     },
     {
       "path": "mission-assurance-engine.js",
@@ -322,8 +332,8 @@
     },
     {
       "path": "service-worker.js",
-      "sha256": "7742117b8800e93c424e338ffa81858a71cd01c948b823b15d0b76d870f6bd5d",
-      "bytes": 3343
+      "sha256": "51cc589065533144262101604a66b7b59b51edd8f2f897065aa4d993c36f6d4f",
+      "bytes": 3426
     },
     {
       "path": "shri_krishna_mahamaya_emr_v1.zip",
@@ -1204,8 +1214,23 @@
       "path": "V5.54-VALIDATION.txt",
       "sha256": "e97f148402d6f5d01828903a974ea4e6e0797f82145b0e28df0af84fcf63c178",
       "bytes": 3331
+    },
+    {
+      "path": "V5.55-CLINICAL-EXAM-SCIENTIST-COMMAND-CENTER-ARCHITECTURE.md",
+      "sha256": "1d9868cf9a6497f3989c186eea55a63983fe33daf7ba6fcdfa04f181091a60ec",
+      "bytes": 3739
+    },
+    {
+      "path": "V5.55-UPDATE-NOTES-HINDI.md",
+      "sha256": "ae20c155ccc6ff31ec63fbd2002bae9d70329a7c22f6172de79606b5c8fe6f17",
+      "bytes": 1826
+    },
+    {
+      "path": "V5.55-VALIDATION.txt",
+      "sha256": "c08cabdc5ff718a8429e7aee7940f7afabc7f1fbd424504deb7c43048344a149",
+      "bytes": 3183
     }
   ],
-  "note": "V5.54 integrity manifest covering the preserved V5.53 installable PWA/clinical stack plus MGEIS-2.0 General Examination Intelligence Suite: acute red-flag/vitals screening, pallor-anaemia, icterus, lymph-node, hydration-perfusion and nutrition-frailty focused fast-flow modules. Existing authentication/Firebase functions and clinical JSON datasets were intentionally preserved. Static integrity validation does not replace live HTTPS login/save/device/Firebase regression.",
+  "note": "V5.55 integrity manifest covering the preserved V5.54 clinical/PWA stack plus the MCE-CC3 Clinical Examination Scientist Command Center presentation layer. Existing login/PIN/Firebase and clinical data engines are intentionally preserved.",
   "version": "1.0"
 }

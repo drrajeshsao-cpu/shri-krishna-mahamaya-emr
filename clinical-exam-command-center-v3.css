@@ -1,0 +1,114 @@
+/* Mahamaya Clinic EMR V5.55 — Clinical Examination Scientist Command Center v3.
+   Presentation/navigation polish only. Clinical data, login, Firebase and save schema remain unchanged. */
+
+#examSection.gei-cc3{--cc-ink:#103f47;--cc-teal:#0b6f70;--cc-teal-2:#0f7c78;--cc-soft:#f4faf9;--cc-line:#d3e4e5;--cc-muted:#6a7f84;--cc-red:#a94234;--cc-amber:#9a6a14;--cc-shadow:0 10px 30px rgba(7,67,73,.08)}
+#examSection.gei-cc3>.card.gei-workspace{padding:14px 14px 18px;background:linear-gradient(180deg,#f7fbfb 0,#f4f9fa 100%);border-color:#cfdee1}
+#examSection.gei-cc3 .gei-cc-header{margin:-2px -2px 10px;padding:13px 14px;border:1px solid #cbdfe0;border-radius:16px;background:linear-gradient(115deg,#ffffff 0%,#f5fbfa 66%,#eef8f6 100%);box-shadow:0 5px 18px rgba(14,87,90,.05)}
+#examSection.gei-cc3 .gei-cc-header h2{margin:0;color:#075d62;font-size:22px;letter-spacing:-.025em}
+#examSection.gei-cc3 .gei-cc-header .section-kicker{margin-top:4px;font-size:10px;color:#617a80;line-height:1.45}
+#examSection.gei-cc3 .gei-cc-badges{display:flex;gap:6px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+#examSection.gei-cc3 .gei-cc-badge{display:inline-flex;align-items:center;gap:5px;min-height:27px;padding:5px 8px;border-radius:999px;border:1px solid #c8dfdf;background:#f4fbfa;color:#1d6266;font-size:8.5px;font-weight:900;white-space:nowrap}
+#examSection.gei-cc3 .gei-cc-badge.primary{background:#0b6f70;border-color:#0b6f70;color:#fff}
+
+#examSection.gei-cc3 .clinical-note{margin:0 0 8px;padding:8px 10px;border-radius:11px;border-color:#ecd9a6;background:#fffdf6;font-size:9px;line-height:1.45}
+#examSection.gei-cc3 .gei-kicker-row{display:none!important}
+
+/* One consolidated command console replaces stacked navigation layers. */
+#examSection.gei-cc3 .gei-rff-command.gei-cc-console{position:sticky;top:122px;z-index:56;margin:7px 0 10px;padding:8px;border:1px solid #c4dbdc;border-radius:16px;background:rgba(252,255,255,.975);backdrop-filter:blur(14px);box-shadow:0 10px 26px rgba(6,61,67,.09)}
+#examSection.gei-cc3 .gei-cc-console .gei-rff-command-top{grid-template-columns:minmax(250px,.95fr) minmax(360px,1.35fr) auto;gap:7px}
+#examSection.gei-cc3 .gei-cc-console .gei-rff-mode{padding:3px;border-radius:10px;background:#edf6f6;border-color:#cfe2e3}
+#examSection.gei-cc3 .gei-cc-console .gei-rff-mode button{min-height:34px;font-size:9px;letter-spacing:.02em}
+#examSection.gei-cc3 .gei-cc-console .gei-rff-mode button.active{background:linear-gradient(135deg,#0b716f,#087a75);box-shadow:0 4px 10px rgba(11,113,111,.16)}
+#examSection.gei-cc3 .gei-cc-console .gei-rff-metrics{gap:5px}
+#examSection.gei-cc3 .gei-cc-console .gei-rff-metric{min-height:45px;padding:6px 8px;border-radius:9px;background:#f8fbfc}
+#examSection.gei-cc3 .gei-cc-console .gei-rff-metric b{font-size:14px}
+#examSection.gei-cc3 .gei-cc-console .gei-rff-metric span{font-size:7.5px}
+#examSection.gei-cc3 .gei-cc-console .gei-rff-actions{align-items:center}
+#examSection.gei-cc3 .gei-cc-console .gei-rff-actions button{min-height:36px;border-radius:9px;font-size:9px}
+#examSection.gei-cc3 #geiCcToolsToggle{min-width:72px}
+
+#examSection.gei-cc3 .gei-cc-console .gei-tabbar{position:static;z-index:auto;margin:7px 0 0;padding:7px 0 0;border-top:1px solid #dce9ea;background:transparent;backdrop-filter:none;display:grid;grid-template-columns:repeat(8,minmax(92px,1fr));gap:5px;overflow:visible}
+#examSection.gei-cc3 .gei-cc-console .gei-tabbtn{position:relative;display:flex;justify-content:center;align-items:center;min-height:38px;padding:7px 8px;border:1px solid #d6e5e7;border-radius:9px;background:#f7fbfb;color:#335e65;font-size:9px;font-weight:900;box-shadow:none;white-space:nowrap}
+#examSection.gei-cc3 .gei-cc-console .gei-tabbtn.active{background:#0b716f;border-color:#0b716f;color:#fff;box-shadow:0 4px 10px rgba(11,113,111,.15)}
+#examSection.gei-cc3 .gei-cc-console .gei-tabbtn[data-gei-suite-tab="redflags"]{border-color:#e4c8c2}
+#examSection.gei-cc3 .gei-cc-console .gei-tabbtn[data-gei-suite-tab="redflags"].active{background:#8f4337;border-color:#8f4337}
+#examSection.gei-cc3 .gei-cc-console .gei-tabbtn[data-gei-tab="intelligence"].active{background:#176779;border-color:#176779}
+#examSection.gei-cc3 .gei-cc-console .gei-tabbtn[data-gei-rff-tab="research"].active{background:#426a61;border-color:#426a61}
+#examSection.gei-cc3 .gei-cc-console .gei-rff-tools{display:none;margin-top:7px;padding:7px 2px 0;border-top:1px dashed #d9e7e8}
+#examSection.gei-cc3 .gei-cc-console.cc-tools-open .gei-rff-tools{display:flex}
+#examSection.gei-cc3 .gei-cc-console .gei-rff-tools button{min-height:32px;font-size:8.5px}
+#examSection.gei-cc3 .gei-cc-active{display:inline-flex;align-items:center;gap:5px;margin-left:auto;padding:4px 7px;border-radius:999px;border:1px solid #d4e5e6;background:#f7fbfb;color:#587078;font-size:8px;font-weight:900;white-space:nowrap}
+#examSection.gei-cc3 .gei-cc-active b{color:#0b6f70}
+
+/* Workspace surfaces */
+#examSection.gei-cc3 .gei-panel-shell,#examSection.gei-cc3 .gei-suite-shell,#examSection.gei-cc3 .gei-research-shell{border-radius:15px;border-color:#d3e3e5;box-shadow:0 4px 16px rgba(12,78,84,.035);background:#fff}
+#examSection.gei-cc3 .gei-section-title h3,#examSection.gei-cc3 .gei-suite-head h3{letter-spacing:-.01em}
+#examSection.gei-cc3 .gei-section-title p,#examSection.gei-cc3 .gei-suite-head p{max-width:900px}
+
+/* Scientist-friendly submodule selector: clear status without another noisy tab strip. */
+#examSection.gei-cc3 .gei-suite-subtabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;overflow:visible;margin:0 0 10px;padding:0}
+#examSection.gei-cc3 .gei-suite-subbtn{position:relative;display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px;min-height:44px;padding:7px 8px;border-radius:10px;text-align:left;font-size:8.5px;line-height:1.2;white-space:normal}
+#examSection.gei-cc3 .gei-suite-subbtn.active{background:#0b716f;border-color:#0b716f;color:#fff}
+#examSection.gei-cc3 .gei-cc-substate{display:inline-flex;align-items:center;justify-content:center;min-width:22px;max-width:62px;height:20px;padding:0 5px;border-radius:999px;background:#edf2f3;color:#697b80;font-size:7px;font-weight:900;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#examSection.gei-cc3 .gei-suite-subbtn.active .gei-cc-substate{background:rgba(255,255,255,.18);color:#fff}
+#examSection.gei-cc3 .gei-suite-subbtn.cc-positive:not(.active){border-color:#dfb0a7;background:#fff8f6;color:#8e382d}
+#examSection.gei-cc3 .gei-suite-subbtn.cc-negative:not(.active){border-color:#b9dcc6;background:#f7fcf8;color:#28704a}
+#examSection.gei-cc3 .gei-suite-subbtn.cc-partial:not(.active){border-color:#ead8a9;background:#fffdf5;color:#7b6120}
+
+#examSection.gei-cc3 .gei-suite-grid{gap:7px}
+#examSection.gei-cc3 .gei-suite-grid label{color:#48686e;font-size:8.5px;letter-spacing:.005em}
+#examSection.gei-cc3 .gei-suite-grid input,#examSection.gei-cc3 .gei-suite-grid select,#examSection.gei-cc3 .gei-suite-grid textarea{background:#fff;border-color:#ccdde0;min-height:38px}
+#examSection.gei-cc3 .gei-suite-toggles{gap:4px}
+#examSection.gei-cc3 .gei-suite-toggle{min-height:38px;padding:6px 7px;background:#fbfdfd}
+#examSection.gei-cc3 .gei-suite-actions{padding-top:2px}
+
+/* Research mode emphasizes provenance/data quality without changing data capture. */
+#examSection.gei-cc3.gei-rff-research .gei-cc-console{border-color:#a9ceca;box-shadow:0 10px 28px rgba(21,105,98,.11)}
+#examSection.gei-cc3.gei-rff-research .gei-research-shell{border-top:4px solid #48786f}
+#examSection.gei-cc3 .gei-research-banner{gap:6px}
+#examSection.gei-cc3 .gei-research-banner>div{border-radius:9px}
+
+/* Bottom workflow stays visible but visually quieter than the primary command console. */
+#examSection.gei-cc3 .gei-bottom-nav{border-radius:12px;box-shadow:0 6px 20px rgba(8,75,83,.08);padding:7px;margin-top:9px}
+#examSection.gei-cc3 .gei-bottom-nav button{min-height:40px;font-size:10px}
+
+/* Wide desktop: dense but readable. */
+@media(min-width:1440px){
+ #examSection.gei-cc3>.card.gei-workspace{padding-left:16px;padding-right:16px}
+ #examSection.gei-cc3 .gei-cc-console .gei-tabbtn{font-size:9.5px}
+ #examSection.gei-cc3 .gei-suite-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media(max-width:1250px){
+ #examSection.gei-cc3 .gei-cc-console .gei-rff-command-top{grid-template-columns:1fr 1.25fr}
+ #examSection.gei-cc3 .gei-cc-console .gei-rff-actions{grid-column:1/-1;justify-content:flex-end}
+ #examSection.gei-cc3 .gei-cc-console .gei-tabbar{grid-template-columns:repeat(4,minmax(120px,1fr))}
+ #examSection.gei-cc3 .gei-suite-subtabs{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:820px){
+ #examSection.gei-cc3>.card.gei-workspace{padding:10px}
+ #examSection.gei-cc3 .gei-cc-header{display:block}
+ #examSection.gei-cc3 .gei-cc-badges{justify-content:flex-start;margin-top:8px}
+ #examSection.gei-cc3 .gei-rff-command.gei-cc-console{position:static;padding:7px}
+ #examSection.gei-cc3 .gei-cc-console .gei-rff-command-top{grid-template-columns:1fr}
+ #examSection.gei-cc3 .gei-cc-console .gei-rff-actions{grid-column:auto;display:grid;grid-template-columns:1fr 1fr 1fr}
+ #examSection.gei-cc3 .gei-cc-console .gei-rff-actions button{width:100%}
+ #examSection.gei-cc3 .gei-cc-console .gei-tabbar{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:3px}
+ #examSection.gei-cc3 .gei-cc-console .gei-tabbtn{flex:0 0 auto;min-width:112px;scroll-snap-align:start}
+ #examSection.gei-cc3 .gei-suite-subtabs{display:flex;overflow-x:auto}
+ #examSection.gei-cc3 .gei-suite-subbtn{flex:0 0 155px}
+}
+@media(max-width:560px){
+ #examSection.gei-cc3 .gei-cc-header h2{font-size:18px}
+ #examSection.gei-cc3 .gei-cc-badge{font-size:7.5px}
+ #examSection.gei-cc3 .gei-cc-console .gei-rff-metrics{grid-template-columns:repeat(2,1fr)}
+ #examSection.gei-cc3 .gei-cc-console .gei-rff-actions{grid-template-columns:1fr 1fr}
+ #examSection.gei-cc3 #geiCcToolsToggle{grid-column:1/-1}
+ #examSection.gei-cc3 .gei-cc-console .gei-rff-tools{display:none!important}
+ #examSection.gei-cc3 .gei-cc-console.cc-tools-open .gei-rff-tools{display:grid!important;grid-template-columns:1fr 1fr}
+ #examSection.gei-cc3 .gei-cc-console .rff-spacer,#examSection.gei-cc3 .gei-cc-console .gei-rff-hint{grid-column:1/-1}
+ #examSection.gei-cc3 .gei-suite-subbtn{flex-basis:145px}
+}
+@media print{
+ #examSection.gei-cc3 .gei-cc-console,#examSection.gei-cc3 .gei-cc-badges{display:none!important}
+ #examSection.gei-cc3 .gei-kicker-row{display:none!important}
+}
